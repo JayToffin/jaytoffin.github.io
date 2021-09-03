@@ -8064,7 +8064,7 @@ h1, h2, h3, h4, h5,
     .ftco-navbar-light .navbar-nav {
       padding-bottom: 10px; } }
   .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-    font-size: 10px;
+    font-size: 11px;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     padding-left: 20px;
@@ -8097,7 +8097,7 @@ h1, h2, h3, h4, h5,
     -ms-border-radius: 0;
     border-radius: 0; }
     .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item {
-      font-size: 14px; }
+      font-size: 13px; }
       .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item:hover, .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item:focus {
         background: transparent;
         color: #000000; }
@@ -10058,7 +10058,7 @@ textarea.form-control {
     .lanjut {
       cursor: pointer;
       position: absolute;
-      top: 40%;
+      top: 50%;
       width: auto;
       padding: 16px;
       margin-top: -50px;
@@ -10072,7 +10072,7 @@ textarea.form-control {
     
     /* Position the "next button" to the right */
     .lanjut {
-      right: 0;
+      right: 15px;
       border-radius: 3px 0 0 3px;
     }
     
@@ -10403,6 +10403,13 @@ textarea.form-control {
   right: 15px;
 }
 
+#heart--liked2 {
+  /*display: none; REMOVED */
+  transition: .2s;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
 
 
 /*STYLE FAVORITE REMOVE */
@@ -10527,3 +10534,34 @@ textarea.form-control {
   border-radius: 10px;
 }
         
+
+
+/*alert message*/
+.alert {
+  padding: 20px;
+  background-color: #ff110061;
+  color: red;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+  font-size: 13px
+}
+
+.alert.success {background-color: #04d68985; color: green;}
+.alert.info {background-color: #0074d09e; color: blue;}
+.alert.warning {background-color: #ff9800ba; color: #ff5400;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
