@@ -31,8 +31,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
 	</head>
   <body class="goto-here">
+	  
 		
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" >
 	    <div class="container">
 	      <a class="navbar-brand" href="https://toffin.id/"><img src="images/toffin-logo.png" style="width:100%;"></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdownMenuLink" aria-controls="navbarDropdownMenuLink" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +47,7 @@
 			  <li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Category </a>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item dropdown-toggle" href="#"> Coffee Machine </a>
+					<li><a class="dropdown-item" href="#"> Coffee Machine </a>
 						<ul class="submenu dropdown-menu">
 						   <li><a class="dropdown-item" href="category/coffee-machine/home-espresso-machine.html"> Home Espresso Machine</a></li>
 						   <li><a class="dropdown-item" href="category/coffee-machine/commercial-espresso-machine.html"> Commercial Espresso Machine</a></li>
@@ -55,7 +56,7 @@
 						   <li><a class="dropdown-item" href="category/coffee-machine/accessories.html"> Accessories</a></li>
 						</ul>
 					 </li>
-				  <li><a class="dropdown-item dropdown-toggle" href="#"> Ingredients </a>
+				  <li><a class="dropdown-item" href="#"> Ingredients </a>
 					 <ul class="submenu dropdown-menu">
 						<li><a class="dropdown-item" href="category/ingredients/sauce.html"> Sauce</a></li>
 						<li><a class="dropdown-item" href="category/ingredients/syrup.html"> Syrup</a></li>
@@ -67,14 +68,14 @@
 						<li><a class="dropdown-item" href="category/ingredients/cream-charger.html"> Cream Charger</a></li>
 					 </ul>
 				  </li>
-				  <li><a class="dropdown-item dropdown-toggle" href="#"> Coffee Grinder </a>
+				  <li><a class="dropdown-item" href="#"> Coffee Grinder </a>
 					<ul class="submenu dropdown-menu">
 					   <li><a class="dropdown-item" href="category/coffee-grinder/manual-grinder.html"> Manual Grinders</a></li>
 					   <li><a class="dropdown-item" href="category/coffee-grinder/espresso-grinder.html"> Espresso Grinders</a></li>
 					</ul>
 				 </li>
 				 <li><a class="dropdown-item" href="category/water-treatment.html"> Water Treatmen </a></li>
-				 <li><a class="dropdown-item dropdown-toggle" href="#"> Manual Brew </a>
+				 <li><a class="dropdown-item" href="#"> Manual Brew </a>
 					<ul class="submenu dropdown-menu">
 					   <li><a class="dropdown-item" href="category/manual-brew/pour-over.html"> Pour Over</a></li>
 					   <li><a class="dropdown-item" href="category/manual-brew/immersion.html"> Immersion</a></li>
@@ -87,7 +88,7 @@
 					   <li><a class="dropdown-item" href="category/manual-brew/paper-filter.html"> Paper Filter</a></li>
 					</ul>
 				 </li>
-				 <li><a class="dropdown-item dropdown-toggle" href="#"> Gelato </a>
+				 <li><a class="dropdown-item" href="#"> Gelato </a>
 					<ul class="submenu dropdown-menu">
 					   <li><a class="dropdown-item" href="category/gelato/gelato-machine.html"> Gelato Machine</a></li>
 					   <li><a class="dropdown-item" href="category/gelato/soft-ice-ingredients.html"> Soft Ice Ingredients</a></li>
@@ -95,13 +96,13 @@
 					   <li><a class="dropdown-item" href="category/gelato/gelato-accessories.html"> Gelato Accessories</a></li>
 					</ul>
 				 </li>
-				 <li><a class="dropdown-item dropdown-toggle" href="#"> Roasted Bean </a>
+				 <li><a class="dropdown-item" href="#"> Roasted Bean </a>
 					<ul class="submenu dropdown-menu">
 					   <li><a class="dropdown-item" href="category/roasted-bean/single-origin.html"> Single Origin</a></li>
 					   <li><a class="dropdown-item" href="category/roasted-bean/espresso-blend.html"> Espresso Blend</a></li>
 					</ul>
 				 </li>
-				 <li><a class="dropdown-item dropdown-toggle" href="#"> Kitchen Equipment </a>
+				 <li><a class="dropdown-item" href="#"> Kitchen Equipment </a>
 					<ul class="submenu dropdown-menu">
 					   <li><a class="dropdown-item" href="category/kitchen-equipment/modular-cooking.html"> Modular Cooking</a></li>
 					   <li><a class="dropdown-item" href="category/kitchen-equipment/refrigeration.html"> Refrigeration</a></li>
@@ -133,7 +134,7 @@
 			  <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 			  
 			  <li class="nav-item dropdown">
-				<a href="#" class="nav-link"><span class="icon-user"></span></a>
+				<a href="#" class="nav-link" data-toggle="dropdown"><span class="icon-user"></span></a>
 				<ul class="dropdown-menu">
 					<li><a class="dropdown-item" href="login.html"> Login </a></li>
 					<li><a class="dropdown-item" href="register.html"> Register </a></li>
@@ -141,6 +142,7 @@
 					<li><a class="dropdown-item" href="#"> Logout </a></li>
 				</ul>
 				</li>
+
 			  
 			  <li class="nav-item">
 			  <div class="sidebar-box">
@@ -1084,14 +1086,20 @@ $(document).on('click', '.dropdown-menu', function (e) {
 if ($(window).width() < 992) {
   $('.dropdown-menu a').click(function(e){
     e.preventDefault();
+	window.location.href = $(this).attr('href'); 
       if($(this).next('.submenu').length){
         $(this).next('.submenu').toggle();
       }
       $('.dropdown').on('hide.bs.dropdown', function () {
      $(this).find('.submenu').hide();
+
+
+	 
   })
   });
 }
+
+
 </script>
 
 <script>
@@ -1228,9 +1236,8 @@ if ($(window).width() < 992) {
 
 });
 		</script>
-    
+
+ 
     
   </body>
-
-<!-- Mirrored from preview.colorlib.com/theme/winkel/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2020 04:18:29 GMT -->
 </html>
