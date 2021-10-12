@@ -146,14 +146,20 @@
 			  
 			  <li class="nav-item">
 			  <div class="sidebar-box">
-				<form action="#" class="search-form">
-				  <div class="form-group">
-					<span class="icon ion-ios-search"></span>
-					<input type="text" class="form-control" placeholder="Type a keyword">
-				  </div>
+				<form class="search" method="post" action="index.html" >
+					<input type="text" name="q" placeholder="Search" onkeyUp="document.getElementById('printchatbox-product').innerHTML = this.value;document.getElementById('printchatbox-category').innerHTML = this.value;document.getElementById('printchatbox-brand').innerHTML = this.value;"/>
+					<ul class="results" >
+						<li><a href="#"><span id='printchatbox-product' style="font-size: 12px; font-weight: bold;"></span><br/>
+							<span>By Product</span></a></li>
+						<li><a href="#"><span id='printchatbox-category' style="font-size: 12px; font-weight: bold;"></span><br/>
+							<span>By Category</span></a></li>
+						<li><a href="#"><span id='printchatbox-brand' style="font-size: 12px; font-weight: bold;"></span><br/>
+							<span>By Brand</span></a></li>
+					</ul>
 				</form>
 			  </div>
 			</li>
+			
 
 			</ul>
 	      </div>
