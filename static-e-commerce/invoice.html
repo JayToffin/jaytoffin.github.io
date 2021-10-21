@@ -45,7 +45,7 @@
         border-top: 1px solid  #5D6975;
         border-bottom: 1px solid  #5D6975;
         color: #000000;
-        font-size: 2em;
+        font-size: 1.5em;
         line-height: 1.4em;
         font-weight: normal;
         text-align: center;
@@ -54,58 +54,100 @@
       }
 
       .invoice-ribbon {
+        
+        position:absolute;
+        top:0px;
+        right:0px;
+      }
+      .invoice-ribbon-top {
 	width:85px;
 	height:88px;
 	overflow:hidden;
 	position:absolute;
-	top:0px;
+	top:-1px;
 	right:0px;
 }
 
-.ribbon-inner-paid {
-	text-align:center;
-	-webkit-transform:rotate(45deg);
-	-moz-transform:rotate(45deg);
-	-ms-transform:rotate(45deg);
-	-o-transform:rotate(45deg);
-	position:relative;
-	padding:7px 0;
-	left:-5px;
-	top:11px;
-	width:120px;
-	background-color:#66c591;
-	font-size:15px;
-	color:#fff;
-}
+      .ribbon-inner-paid-top {
+        text-align:center;
+        -webkit-transform:rotate(45deg);
+        -moz-transform:rotate(45deg);
+        -ms-transform:rotate(45deg);
+        -o-transform:rotate(45deg);
+        position:relative;
+        padding:7px 0;
+        left:-5px;
+        top:11px;
+        width:120px;
+        background-color:#66c591;
+        font-size:15px;
+        color:#fff;
+      }
 
-.ribbon-inner-unpaid {
-	text-align:center;
-	-webkit-transform:rotate(45deg);
-	-moz-transform:rotate(45deg);
-	-ms-transform:rotate(45deg);
-	-o-transform:rotate(45deg);
-	position:relative;
-	padding:7px 0;
-	left:-5px;
-	top:11px;
-	width:120px;
-	background-color:#eeab5e;
-	font-size:15px;
-	color:#fff;
-}
+      .ribbon-inner-unpaid-top {
+        text-align:center;
+        -webkit-transform:rotate(45deg);
+        -moz-transform:rotate(45deg);
+        -ms-transform:rotate(45deg);
+        -o-transform:rotate(45deg);
+        position:relative;
+        padding:7px 0;
+        left:-5px;
+        top:11px;
+        width:120px;
+        background-color:#ffb056;
+        font-size:15px;
+        color:#fff;
+      }
 
-.ribbon-inner:before,.ribbon-inner:after {
-	content:"";
-	position:absolute;
-}
+      .ribbon-inner-paid {
+        text-align:center;
+        -webkit-transform:rotate(-45deg);
+        -moz-transform:rotate(-45deg);
+        -ms-transform:rotate(-45deg);
+        -o-transform:rotate(-45deg);
+        position:relative;
+        padding:13px 0;
+        left:-260px;
+        top:500px;
+        width:250px;
+        color:#66c5917a;
+        font-size:75px;
+        font-weight: bold;
+        outline: double;
+        border-radius: 20px;
+      }
+ 
+      .ribbon-inner-unpaid {
+        text-align:center;
+        -webkit-transform:rotate(-45deg);
+        -moz-transform:rotate(-45deg);
+        -ms-transform:rotate(-45deg);
+        -o-transform:rotate(-45deg);
+        position:relative;
+        padding:13px 0;
+        left:-260px;
+        top:500px;
+        width:300px;
+        color:rgba(248, 170, 80, 0.534);
+        font-size:75px;
+        font-weight: bold;
+        outline: double;
+        border-radius: 20px;
+      }
 
-.ribbon-inner:before {
-	left:0;
-}
+      .ribbon-inner:before,.ribbon-inner:after {
+        content:"";
+        position:absolute;
+      }
 
-.ribbon-inner:after {
-	right:0;
-}
+      .ribbon-inner:before {
+        left:0;
+      }
+
+      .ribbon-inner:after {
+        right:0;
+      }
       
       #project {
         float: left;
@@ -210,6 +252,7 @@
         <img src="images/toffin-logo.png">
       </div>
       <div class="invoice-ribbon"><div class="ribbon-inner-paid">PAID</div></div>
+      <div class="invoice-ribbon-top"><div class="ribbon-inner-paid-top">PAID</div></div>
       <h1>INVOICE</h1>
       <div id="company" class="clearfix">
         <div>PT. Toffin Indonesia</div>
@@ -295,11 +338,9 @@
           <tr style="background-color: orange; height: 40px;">
             <th class="judul">No</th>
             <th class="judul">Item</th>
-            <th class="judul" width="100">WHS</th>
             <th class="judul">QTY</th>
             <th class="judul">U.M</th>
             <th class="judul">Price</th>
-            <th class="judul">Disc.(%)</th>
             <th class="judul">Total</th>
 
           </tr>
@@ -309,47 +350,42 @@
 <tr>
     <td class="judul">01</td>
     <td class="desc">Nuova Simonelli Appia Life 2 group</td>
-    <td class="judul">PRM-1/STOCK</td>
     <td class="judul">1</td>
     <td class="judul">(Unit)s</td>
     <td class="judul">60.000.000</td>
-    <td class="judul">0.00</td>
     <td class="judul">60.000.000</td>
   </tr>
 
   <tr>
-    <td class="judul">01</td>
+    <td class="judul">02</td>
     <td class="desc">Nuova Simonelli Appia Life 2 group</td>
-    <td class="judul">PRM-1/STOCK</td>
     <td class="judul">1</td>
     <td class="judul">(Unit)s</td>
     <td class="judul">60.000.000</td>
-    <td class="judul">0.00</td>
     <td class="judul">60.000.000</td>
   </tr>
   <tr>
-    <td class="judul">01</td>
+    <td class="judul">03</td>
     <td class="desc">Nuova Simonelli Appia Life 2 group</td>
-    <td class="judul">PRM-1/STOCK</td>
     <td class="judul">1</td>
     <td class="judul">(Unit)s</td>
     <td class="judul">60.000.000</td>
-    <td class="judul">0.00</td>
     <td class="judul">60.000.000</td>
   </tr>
       
        
           <tr>
-            <td colspan="7" class="grand total">Total</td>
+            <td colspan="5" class="grand total">Total</td>
             <td class="grand total" width="100">Rp 180.000.000</td>
           </tr>
         </tbody>
       </table>
       <div id="notices">
-        <div>NOTE:</div>
+        <div><strong>Payment Information:</strong></div>
         <div class="notice">This acknowledges your orders pricing term & condition.
             to confirm, please sign.</div>
-      </div><br/>
+      </div>
+      <br/>
       <table style="width: 50%;">
         <thead>
           <tr style="background-color: rgb(204, 204, 204); height: 30px;">
