@@ -9608,7 +9608,7 @@ textarea.form-control {
 
 @media (min-width: 768px) {
   .blog-entry {
-    margin-bottom: 60px; } }
+    margin-bottom: 20px; } }
 
 @media (max-width: 767.98px) {
   .blog-entry {
@@ -10783,3 +10783,30 @@ textarea.form-control {
 }
 
 .lt-ie9 .search input { line-height: 26px }
+
+
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
