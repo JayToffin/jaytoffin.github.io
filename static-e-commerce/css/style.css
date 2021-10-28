@@ -4141,6 +4141,13 @@ input[type="button"].btn-block {
     color: #fff;
     background-color: #0062cc; }
 
+.badge-pilih {
+      color: #fff;
+      background-color: #FFA465; }
+      a.badge-primary:hover, a.badge-primary:focus {
+        color: #fff;
+        background-color: #ffffff !important; }
+
 .badge-secondary {
   color: #fff;
   background-color: #6c757d; }
@@ -9622,8 +9629,8 @@ textarea.form-control {
   .blog-entry .text .tag {
     color: #b3b3b3; }
   .blog-entry .text .heading {
-    font-size: 20px;
-    margin-bottom: 16px; }
+    font-size: 17px;
+    margin-bottom: 8px; }
     .blog-entry .text .heading a {
       color: #000000; }
       .blog-entry .text .heading a:hover, .blog-entry .text .heading a:focus, .blog-entry .text .heading a:active {
