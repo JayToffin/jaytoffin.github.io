@@ -4162,13 +4162,6 @@ input[type="button"].btn-block {
     color: #fff;
     background-color: #1e7e34; }
 
-.badge-info {
-  color: #fff;
-  background-color: #17a2b8; }
-  a.badge-info:hover, a.badge-info:focus {
-    color: #fff;
-    background-color: #117a8b; }
-
 .badge-warning {
   color: #212529;
   background-color: #ffc107; }
