@@ -261,7 +261,7 @@
                               <div class="col-md-3">
                                 <form action="#" class="search-form" style="padding: 5px;">
                                   <div class="form-group">
-                                    <a href="#" class="btn btn-primary py-3 px-4" style="border-radius: 0px !important; float: right;">Tambah alamat</a>
+                                    <a href="#" class="btn btn-primary py-3 px-4" data-toggle="modal" data-target="#tambah-alamat" style="border-radius: 0px !important; float: right;">Tambah alamat</a>
                                   </div>
                                 </form>
                               </div>
@@ -760,7 +760,7 @@
 
 
                       <!-- start modal tambah alamat-->
-                      <div id="contact-modal1" class="modal fade" role="dialog">
+                      <div id="tambah-alamat" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -811,6 +811,7 @@
                               <input type="text" class="form-control" placeholder="">
                               </div>
                             </div>
+                            
                             <div class="w-100"></div>
                             <div class="col-md-6">
                               <div class="form-group">
@@ -822,6 +823,12 @@
                             <div class="form-group">
                               <label for="negara">Country</label>
                               <input type="text" class="form-control" placeholder="Indonesia">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="kabupaten">Pin Lokasi alamat</label>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pin-map" style="border-radius: 0px;">Open map</button>
                             </div>
                           </div>
                             </div>
@@ -948,6 +955,49 @@
                           </div>
                       </div>
                   </div>
+
+
+                  <!-- start modal edit alamat-->
+                  <div id="pin-map" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                              <h5>Edit Alamat</h5>
+                                <a class="close" data-dismiss="modal">×</a>
+                            </div>
+
+                            
+                              <div class="modal-body">
+                                
+        
+                               
+                              <!--Google map-->
+<div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
+
+<!--Google Maps-->
+            
+                 
+    
+                              </div> 
+
+                           
+
+                              <div class="modal-footer">
+                                   
+                                <div class="btnact" style="float:right;">
+                                  <button class="btn btn-primary py-3 px-4 add-to-cart text-center py-2 mr-1" style="border-radius: 0px;">Ubah</button>
+                                  <button class="btn btn-primary py-3 px-4 buy-now text-center py-2" style="border-radius: 0px;">Hapus</button>
+                                </div></div>
+
+
+                           
+                    
+                        </div>
+                    </div>
+                </div>
 
 
                     <div id="resetpass" class="modal fade" role="dialog">
