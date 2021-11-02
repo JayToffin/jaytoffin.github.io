@@ -828,7 +828,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="kabupaten">Pin Lokasi alamat</label>
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pin-map" style="border-radius: 0px;">Open map</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pin-map" style="border-radius: 0px;" data-dismiss="modal fade">Open map</button>
                             </div>
                           </div>
                             </div>
@@ -957,7 +957,7 @@
                   </div>
 
 
-                  <!-- start modal edit alamat-->
+                  <!-- start modal pin map-->
                   <div id="pin-map" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -968,19 +968,28 @@
 
                             
                               <div class="modal-body">
-                                
-        
-                               
-                              <!--Google map-->
-<div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 500px">
-  <iframe src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-    style="border:0" allowfullscreen></iframe>
-</div>
+                                <!--Google map-->
+                                <div id="map-container-google-2" class="z-depth-1-half map-container">
+                                  <iframe width="100%" height="485px" src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"style="border:0" allowfullscreen></iframe>
+                                </div><br/>
 
-<!--Google Maps-->
+                                <!--Google Maps-->
+
+                                <div class="blog-entry align-self-stretch d-md-flex" style="border: 1px solid rgba(201, 201, 201, 0.432);">
+                                  <div class="col-md-12 sidebar-box">
+                                    <div class="text d-block" style="padding: 10px;">
+                                      <!-- <h3 class="heading">Toffin Indonesia</h3> -->
+                                        <div class="row" style="display: flex;">
+                                          <div class="col-md-12">
+                                            <div>Jl. Pluit Permai No.4, RT.9/RW.4, Pluit, Kec. Penjaringan, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14450.</div>
+                                           
+                                          </div>
+                                          
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
             
-                 
-    
                               </div> 
 
                            
@@ -988,8 +997,8 @@
                               <div class="modal-footer">
                                    
                                 <div class="btnact" style="float:right;">
-                                  <button class="btn btn-primary py-3 px-4 add-to-cart text-center py-2 mr-1" style="border-radius: 0px;">Ubah</button>
-                                  <button class="btn btn-primary py-3 px-4 buy-now text-center py-2" style="border-radius: 0px;">Hapus</button>
+                                  <button class="btn btn-primary py-3 px-4 add-to-cart text-center py-2 mr-1" data-dismiss="modal" style="border-radius: 0px;">Pin lokasi ini</button>
+                                  
                                 </div></div>
 
 
