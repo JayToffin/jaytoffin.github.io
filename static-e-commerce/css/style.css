@@ -10810,3 +10810,68 @@ textarea.form-control {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+
+/* breadcrumbs */
+
+.first a:hover {
+  color: #ffa45c !important
+}
+
+.active-1 {
+  color: #ffa45c !important
+}
+
+.breadcrumb>li+li:before {
+  content: "" !important
+}
+
+.breadcrumb {
+  /* padding: 19px; */
+  font-size: 9px;
+  color: #aaa !important;
+  letter-spacing: 1px;
+  border-radius: 5px !important
+}
+
+.first {
+  background-color: white !important
+}
+
+.text-uppercase1 {
+  text-transform: uppercase !important; 
+  color: rgb(168, 152, 152);}
+
+a:focus,
+a:active {
+  outline: none !important;
+  box-shadow: none !important
+}
+
+.fa-caret-right {
+  vertical-align: middle;
+  font-size: 14px !important
+}
+
+@media (max-width: 767px) {
+  .breadcrumb {
+      font-size: 10px
+  }
+
+  .breadcrumb-item+.breadcrumb-item {
+      padding-left: 0
+  }
+
+  .fa {
+      font-size: 9px !important
+  }
+
+  .breadcrumb {
+      letter-spacing: 1px !important
+  }
+
+  .fa-caret-right:before {
+      content: "\f0da";
+      vertical-align: super !important
+  }
+}
