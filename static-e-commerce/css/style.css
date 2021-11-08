@@ -8967,13 +8967,13 @@ h1, h2, h3, h4, h5,
   .table .thead-primary {
     background: #fbfbfb; }
     .table .thead-primary tr th {
-      padding: 20px 10px;
+      padding: 10px 10px;
       color: #fff !important;
       border: 1px solid transparent !important; }
   .table tbody tr td {
     text-align: center !important;
     vertical-align: middle;
-    padding: 15px 10px;
+    padding: 10px 10px;
     border: 1px solid transparent !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; }
     .table tbody tr td.product-remove a {
@@ -8990,7 +8990,7 @@ h1, h2, h3, h4, h5,
     .table tbody tr td.image-prod .img {
       display: block;
       width: 100px;
-      height: 150px;
+      height: 100px;
       margin: 0 auto; }
     .table tbody tr td.product-name {
       width: 30%; }
