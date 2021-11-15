@@ -11034,6 +11034,7 @@ a:active {
   .shopping-cart {
     margin: 0;
     padding-top: 20px;
+    padding-bottom: 20px;
     border-top: 1px solid #eee;
   }
 
