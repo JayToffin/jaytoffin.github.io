@@ -10892,26 +10892,26 @@ a:active {
 
 .product-price {
   float: left;
-  width: 12%;
-  text-align: left;
-}
-
-.product-quantity {
-  float: left;
   width: 10%;
   text-align: center;
 }
 
-.product-removal {
+.product-quantity {
   float: left;
+  width: 14%;
+  text-align: center;
+}
+
+.product-removal {
+  float: right;
   width: 16%;
-  text-align: right;
+  text-align: center;
 }
 
 .product-line-price {
   float: left;
-  width: 12%;
-  text-align: right;
+  width: 10%;
+  text-align: center;
 }
 
 /* This is used as the traditional .clearfix class */
@@ -10969,7 +10969,7 @@ a:active {
 .product {
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 5px solid #eee;
 }
 .product .product-image {
   text-align: center;
@@ -10986,6 +10986,7 @@ a:active {
 }
 .product .product-quantity input {
   width: 40px;
+  text-align: center;
 }
 .product-title {
   font-weight: bold;
@@ -11052,13 +11053,13 @@ a:active {
 
   .product-details {
     float: none;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     width: auto;
   }
 
   .product-price {
     /* clear: both; */
-    width: 70px;
+    width: fit-content;
   }
 
   .product-quantity {
@@ -11077,7 +11078,7 @@ a:active {
   }
 
   .product-line-price {
-    float: right;
+    /* float: right; */
     width: 70px;
     visibility: hidden;
   }
