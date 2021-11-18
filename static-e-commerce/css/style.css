@@ -4,7 +4,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -10942,13 +10942,7 @@ a:active {
   zoom: 1;
 }
 
-/* Apply clearfix in a few places */
-/* Apply dollar signs */
-.product .product-price:before,
-.product .product-line-price:before,
-.totals-value:before {
-  content: "Rp";
-}
+
 
 
 
@@ -10956,7 +10950,7 @@ a:active {
 .column-labels label {
   padding-bottom: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 4px solid #adadad;
   font-weight: bold;
 }
 .column-labels .product-image,
@@ -10966,11 +10960,7 @@ a:active {
 }
 
 /* Product entries */
-.product {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 5px solid #eee;
-}
+
 .product .product-image {
   text-align: center;
 }
@@ -11011,9 +11001,7 @@ a:active {
   width: 21%;
   text-align: right;
 }
-.totals .totals-item-total {
-  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
-}
+
 
 .checkout {
   float: right;
@@ -11026,9 +11014,7 @@ a:active {
   border-radius: 3px;
 }
 
-.checkout:hover {
-  background-color: #494;
-}
+
 
 /* Make adjustments for tablet */
 @media screen and (max-width: 650px) {
@@ -11047,9 +11033,7 @@ a:active {
     float: left;
     width: auto;
   }
-  .product-image img {
-    margin: 0 0 10px 10px;
-  }
+
 
   .product-details {
     float: none;
@@ -11094,6 +11078,9 @@ a:active {
     clear: left;
     width: auto;
     margin-top: 10px;
+  }
+  .product .product-image {
+    width: 80px;
   }
 
   .product .product-line-price:before {
