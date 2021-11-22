@@ -11054,10 +11054,12 @@ a:active {
   .product-price {
     /* clear: both; */
     width: fit-content;
+    padding: 1px !important;
   }
 
   .product-quantity {
     width: 100px;
+    padding: 0px !important;
   }
 
   .product-quantity1 {
@@ -11077,6 +11079,8 @@ a:active {
 
   .product-removal {
     width: auto;
+    padding: 1px !important;
+    float: left;
   }
 
   .product-remove {
@@ -11085,7 +11089,7 @@ a:active {
 
   .product-line-price {
     /* float: right; */
-    width: 70px;
+    width: 100px;
     visibility: hidden;
   }
 
