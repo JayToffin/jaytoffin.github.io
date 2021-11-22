@@ -10983,6 +10983,7 @@ a:active {
 .product .product-quantity input {
   width: 40px;
   text-align: center;
+  padding: 0px;
 }
 .product .product-quantity1 input {
   width: 40px;
