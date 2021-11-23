@@ -10920,6 +10920,10 @@ a:active {
   text-align: center;
 }
 
+.product-line-discount {
+  text-align: center;
+}
+
 /* This is used as the traditional .clearfix class */
 .group:before, .shopping-cart:before,
 .column-labels:before,
@@ -11064,6 +11068,8 @@ a:active {
 
   .product-quantity1 {
     width: 100px;
+    padding: 0px !important;
+    text-align: left;
   }
   /* .product-quantity input {
     margin-left: 20px;
@@ -11103,6 +11109,8 @@ a:active {
   .procuct-rmv {
     float: right !important;
   }
+
+  
 }
 /* Make more adjustments for phone */
 @media screen and (max-width: 350px) {
