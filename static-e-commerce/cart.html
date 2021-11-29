@@ -174,381 +174,250 @@
 		</div>
 	</div>
 
-	<section class="ftco-section ftco-cart">
+	<section class="ftco-section bg-light ftco-cart">
 		<div class="container">
-			<div class="shopping-cart col-md-12" style="padding-left: 0px; padding-right: 0px;">
-				<div class="column-labels">
-					<label class="product-image">Image</label>
-					<label class="product-details">Product</label>
-					<label class="product-price">Price</label>
-					<label class="product-quantity">Quantity</label>
-					<label class="product-line-price">Total</label>
-					<label class="product-removal">Rating</label>
-				</div>
-
-				<div class="product-byseller" style="border: solid 1px #808080;">
-					<div class="distri" style="padding: 10px; background-color: #EBEBED;">
-						<input class="checkbox-bundle" type="checkbox" id="" name="" value="" style="width: 15px;">
-						<label style="margin-bottom: 0px; padding-right: 15px;">Pilih</label>
-						<span>Distributor: <span style="font-weight: bold; padding-right: 15px;">Toffin Jakarta</span></span>
-						<div class="procuct-rmv" style="padding-left: 20px; display: contents;">
-						<a class="procuct-rmv btn btn-primary ion-ios-trash"
-							style="border-radius: 0px; padding: 2px 10px; background: transparent;"
-							data-field=""></a>
+			<div class="shopping-cart-wrap">
+				<div class="cart-total-amount">
+					<div class="cart-total-amount-inner">
+						<div class="amount-title"><input id="checkbox" type="checkbox" checked="" style="width: 15px; height: 15px;"> Distributor: <span class="distributor">Toffin Jakarta</span>
 						</div>
-					</div>
-
-					<div class="product-bundling" style="border-top: solid 1px; border-bottom: solid 1px;">
-						<div class="distri1" style="padding: 10px; display: flex; background: #f7f7f7;">
-							<div class="bundle-name" style="width: 60.4%;">
-								<span style="font-weight: bold;"> Produk bundle 1</span>
-							</div>
-
-							<div class="product-quantity1">
-								<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; background: none;">
-							</div>
-
-							<div class="product-line-price" style="font-weight: bold; visibility: visible !important; font-size: 16px;">50.000.000</div>
-
-							<div class="product-remove" style="border-top: none; width: 15.5%; text-align: center;">
-								<a class="quantity-left-minus btn btn-primary ion-ios-remove"
-									style="border-radius: 0px; padding: 2px 10px;" data-type="minus" data-field=""></a>
-								<a class="quantity-right-plus btn btn-primary ion-ios-add"
-									style="border-radius: 0px; padding: 2px 10px;" data-type="plus" data-field=""></a>
-								<a class=" btn btn-primary ion-ios-trash"
-									style="border-radius: 0px; padding: 2px 10px; background: transparent; "
-									data-field=""></a>
-							</div>
-						</div>
-
-						<div class="product" style="margin-bottom: 0px">
-							<div class="product-image">
-								<img src="images/product-3.jpg">
-							</div>
-							<div class="product-details">
-								<div class="product-title" style="padding-top: 20px;">Nuova simonelli </div>
-							</div>
-							<div class="product-price " style="padding-top: 20px;">15.000.000</div>
-							<div class="product-quantity" style="padding-top: 20px;">
-								<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-							</div>
-							<div class="product-line-price" style="padding-top: 20px; color: #c5c5c5;">
-								<del>150.000.000</del></div>
-						</div>
-						<div class="product" style="margin-bottom: 0px; padding-top: 10px;">
-							<div class="product-image">
-								<img src="images/product-3.jpg">
-							</div>
-							<div class="product-details">
-								<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group
+					  <div class="amount-no">
+						<div class="cart-item" style="border: none;">
+							<div class="product-info">
+							  <div class="price-count">
+								<div class="count-product" style="margin-left: 5px;">
+									<button type="button"><i class="fa fa-trash"></i></button>
 								</div>
+							  </div>
 							</div>
-							<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-							<div class="product-quantity" style="padding-top: 20px;">
-								<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
+							
+						  </div>
+					  </div>
+					</div>
+					
+				  </div>
+				  <div class="cart-total-amount" style="background: none;">
+					<div class="cart-total-amount-inner">
+						<div class="amount-title"><span class="distributor">Produk Bundle Home</span>
+						</div>
+					  <div class="amount-no">
+						<div class="cart-item" style="border: none;">
+							<div class="product-info">
+								<div class="amount-no">Rp300.000.000.000</div>
 							</div>
-
-							<div class="product-line-price" style="padding-top: 20px; color: #c5c5c5;">
-								<del>150.000.000</del>
+							
+						  </div>
+					  </div>
+					</div>
+					
+				  
+					
+					<div class="cart-total-amount-inner" style="justify-content: flex-end;">
+						<div class="cart-item" style="border-bottom: 0px;">
+							<div class="product-info">
+							  <div class="price-count" >
+								<!-- <div class="s-product-price">100.000.000</div> -->
+								<div class="count-product">
+									<button type="button" class="quantity-left-minus" data-type="minus"><i class="fa fa-minus"></i></button>
+									<!-- <span class="count-no" type="text" id="quantity" name="quantity" value="1" min="1" max="100">1</span> -->
+									<input class="count-no" type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; color: white; background-color: black;">
+									<button type="button" class="quantity-right-plus" data-type="plus"><i class="fa fa-plus"></i></button>
+								  </div>
+								<div class="count-product" style="margin-left: 5px;">
+									<button type="button"><i class="fa fa-trash"></i></button>
+								</div>
+							  </div>
 							</div>
-						</div>
-						<div class="product" style="margin-bottom: 0px; padding-top: 10px; ">
-							<div class="product-image">
-								<img src="images/product-3.jpg">
-							</div>
-							<div class="product-details">
-								<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group test</div>
-							</div>
-							<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-							<div class="product-quantity" style="padding-top: 20px;">
-								<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-							</div>
-							<div class="product-line-price" style="padding-top: 20px; color: #c5c5c5;">
-								<del>150.000.000</del></div>
-						</div>
-
-						<div class="bundle-detail" style="padding: 10px; display: flex; justify-content: space-around;">
-							<div class="product-details" style="text-align: center;">
-								<div class="product-title1">Discount:</div>
-							</div>
-							<div class="product-line-discount" style="font-weight: bold; width: 130px;">30.000.000</div>
-						</div>
-					</div>
-
-					<div class="product" style="margin-bottom: 0px; padding-top: 10px;">
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group</div>
-						</div>
-						<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-						</div>
-
-						<div class="product-line-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-removal" style="padding: 18px;">
-							<a class="quantity-left-minus btn btn-primary ion-ios-remove"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="minus" data-field=""></a>
-							<a class="quantity-right-plus btn btn-primary ion-ios-add"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="plus" data-field=""></a>
-							<a class=" btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent; "
-								data-field=""></a>
-						</div>
-					</div>
-					<div class="product" style="margin-bottom: 0px; padding-top: 10px;">
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group</div>
-						</div>
-						<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-						</div>
-
-						<div class="product-line-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-removal" style="padding: 18px;">
-							<a class="quantity-left-minus btn btn-primary ion-ios-remove"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="minus" data-field=""></a>
-							<a class="quantity-right-plus btn btn-primary ion-ios-add"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="plus" data-field=""></a>
-							<a class=" btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent; "
-								data-field=""></a>
-						</div>
-					</div>
-					<div class="product" style="margin-bottom: 0px; padding-top: 10px;">
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group</div>
-						</div>
-						<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-						</div>
-
-						<div class="product-line-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-removal" style="padding: 18px;">
-							<a class="quantity-left-minus btn btn-primary ion-ios-remove"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="minus" data-field=""></a>
-							<a class="quantity-right-plus btn btn-primary ion-ios-add"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="plus" data-field=""></a>
-							<a class=" btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent; "
-								data-field=""></a>
-						</div>
-					</div>
-					<div class="bundle-detail" style="padding: 10px; display: flex; justify-content: space-around; background-color: #f7f7f7;">
-						<div class="product-details" style="text-align: center;">
-							<div class="product-title1">SUBTOTAL:</div>
-						</div>
-						<div class="product-line-discount" style="font-weight: bold; width: 130px;">500.000.000</div>
-					</div>
-				</div><br>
-
-				<div class="product-byseller" style="border: solid 1px #808080;">
-					<div class="distri" style="padding: 10px; background-color: #EBEBED;">
-						<input class="checkbox-bundle" type="checkbox" id="" name="" value="" style="width: 15px;">
-						<label style="margin-bottom: 0px; padding-right: 15px;">Pilih</label>
-						<span>Distributor: <span style="font-weight: bold; padding-right: 15px;">Toffin Jakarta</span></span>
-						<div class="procuct-rmv" style="padding-left: 20px; display: contents;">
-							<a class="procuct-rmv btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent;"
-								data-field=""></a>
-							</div>	
-					</div>
-
-					<div class="product" style="margin-bottom: 0px; padding-top: 10px;">
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group</div>
-						</div>
-						<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-						</div>
-
-						<div class="product-line-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-removal" style="padding: 18px;">
-							<a class="quantity-left-minus btn btn-primary ion-ios-remove"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="minus" data-field=""></a>
-							<a class="quantity-right-plus btn btn-primary ion-ios-add"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="plus" data-field=""></a>
-							<a class=" btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent; "
-								data-field=""></a>
-						</div>
-					</div>
-					<div class="product" style="margin-bottom: 0px; padding-top: 10px; align-items: center;" >
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group</div>
-						</div>
-						
-						<div class="product-price" style="padding-top: 20px;">120.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
+						  </div>
 						</div>
 					
-
-						<div class="product-line-price" style="padding-top: 20px;">120.000.000</div>
-						<div class="product-removal" style="padding: 18px;">
-							<a class="quantity-left-minus btn btn-primary ion-ios-remove"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="minus" data-field=""></a>
-							<a class="quantity-right-plus btn btn-primary ion-ios-add"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="plus" data-field=""></a>
-							<a class=" btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent; "
-								data-field=""></a>
-						</div>
-					</div>
-					<div class="product" style="margin-bottom: 0px; padding-top: 10px;">
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group</div>
-						</div>
-						<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-						</div>
-						<div class="product-line-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-removal" style="padding: 18px;">
-							<a class="quantity-left-minus btn btn-primary ion-ios-remove"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="minus" data-field=""></a>
-							<a class="quantity-right-plus btn btn-primary ion-ios-add"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="plus" data-field=""></a>
-							<a class=" btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent; "
-								data-field=""></a>
-						</div>
-					</div>
-					<div class="bundle-detail" style="padding: 10px; display: flex; justify-content: space-around; background-color: #f7f7f7;">
-						<div class="product-details" style="text-align: center;">
-							<div class="product-title1">SUBTOTAL:</div>
-						</div>
-						<div class="product-line-discount" style="font-weight: bold; width: 130px;">500.000.000</div>
-					</div>
+					
+				  
 				</div>
-				<br>
-
-
-				<div class="product-byseller" style="border: solid 1px #808080;">
-					<div class="distri" style="padding: 10px; background-color: #EBEBED;">
-						<input class="checkbox-bundle" type="checkbox" id="" name="" value="" style="width: 15px;">
-						<label style="margin-bottom: 0px; padding-right: 15px;">Pilih</label>
-						<span>Distributor: <span style="font-weight: bold; padding-right: 15px;">Toffin Jakarta</span></span>
-						<div class="procuct-rmv" style="padding-left: 20px; display: contents;">
-							<a class="procuct-rmv btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent;"
-								data-field=""></a>
-						</div>		
+				
+				<div class="shopping-cart-items">
+					<div class="cart-item">
+						<div class="product-thumb">
+							<img alt="Single product" style="width: 100px;" src="images/product-4.jpg">
+						</div>
+						<div class="product-info">
+						  <div class="info-left">
+							<a href="#"><h4 class="title">LavAzza Ground Coffee Gran Selexion Dark Roast Selexion Dark Roast</h4></a>
+							<div class="unit-price"><del>Rp 88.000.000.000</del></div>
+						  </div>
+						  <div class="price">
+							<div class="price-count">
+								<div class="s-product-price">Rp 185.000.000.000</div>
+							  </div>
+						  <div class="price-count" style="opacity: 0.3;">
+							<div class="count-product">
+								<button disabled type="button" class="quantity-left-minus" data-type="minus"><i class="fa fa-minus"></i></button>
+								<input disabled class="count-no" type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; color: white; background-color: black;">
+								<button disabled type="button" class="quantity-right-plus" data-type="plus"><i class="fa fa-plus"></i></button>
+								</div>
+							  <div class="count-product" style="margin-left: 5px;">
+								<button disabled type="button"><i class="fa fa-trash"></i></button>
+							  </div>
+						  </div>
+						</div>
+						</div>
+					  </div>
+				  <div class="cart-item">
+					<div class="product-thumb">
+						<img alt="Single product" style="width: 100px;" src="images/product-4.jpg">
 					</div>
-					<div class="distri1" style="padding: 10px; display: flex; background: #f7f7f7;">
-						<div class="bundle-name" style="width: 60.4%;">
-							<span style="font-weight: bold;"> Produk bundle 2</span>
-						</div>
-						<div class="product-quantity1">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; background: none;">
-						</div>
-						<div class="product-line-price" style="font-weight: bold; font-size: 16px; visibility: visible !important;">50.000.000</div>
-						<div class="product-remove" style="border-top: none; width: 15.5%; text-align: center;">
-							<a class="quantity-left-minus btn btn-primary ion-ios-remove"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="minus" data-field=""></a>
-							<a class="quantity-right-plus btn btn-primary ion-ios-add"
-								style="border-radius: 0px; padding: 2px 10px;" data-type="plus" data-field=""></a>
-							<a class=" btn btn-primary ion-ios-trash"
-								style="border-radius: 0px; padding: 2px 10px; background: transparent; "
-								data-field=""></a>
-						</div>
-					</div>
-					<div class="product" style="margin-bottom: 0px">
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli </div>
-						</div>
-						<div class="product-price " style="padding-top: 20px;">15.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-						</div>
-						<div class="product-line-price" style="padding-top: 20px; color: #c5c5c5;">
-							<del>150.000.000</del>
-						</div>
-					</div>
-					<div class="product" style="margin-bottom: 0px; padding-top: 10px;">
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group</div>
-						</div>
-						<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; ">
-						</div>
-
-						<div class="product-line-price" style="padding-top: 20px; color: #c5c5c5;">
-							<del>150.000.000</del>
-						</div>
-					</div>
-					<div class="product" style="margin-bottom: 0px; padding-top: 10px;">
-
-						<div class="product-image">
-							<img src="images/product-3.jpg">
-						</div>
-						<div class="product-details">
-							<div class="product-title" style="padding-top: 20px;">Nuova simonelli appia life 2 group
+					<div class="product-info">
+					  <div class="info-left">
+						<h4 class="title">LavAzza Ground Coffee Gran Selexion Dark Roast</h4>
+						<div class="unit-price"><del>85.000.000</del></div>
+					  </div>
+					  <div class="price">
+						<div class="price-count">
+							<div class="s-product-price">Rp 185.000.000.000</div>
+						  </div>
+					  <div class="price-count" style="opacity: 0.3;">
+						<div class="count-product">
+							<button disabled type="button" class="quantity-left-minus" data-type="minus"><i class="fa fa-minus"></i></button>
+							<input disabled class="count-no" type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; color: white; background-color: black;">
+							<button disabled type="button" class="quantity-right-plus" data-type="plus"><i class="fa fa-plus"></i></button>
 							</div>
-						</div>
-						<div class="product-price" style="padding-top: 20px;">150.000.000</div>
-						<div class="product-quantity" style="padding-top: 20px;">
-							<input type="text" id="quantity" name="quantity" value="1" min="1" max="100"
-								style="border: 0px !important; ">
-
-						</div>
-						<div class="product-line-price" style="padding-top: 20px; color: #c5c5c5;">
-							<del>150.000.000</del>
-						</div>
+						  <div class="count-product" style="margin-left: 5px;">
+							<button disabled type="button"><i class="fa fa-trash"></i></button>
+						  </div>
+					  </div>
 					</div>
-
-					<div class="bundle-detail" style="padding: 10px; display: flex; justify-content: space-around;">
-						<div class="product-details" style="text-align: center;">
-							<div class="product-title1">Discount:</div>
-						</div>
-						<div class="product-line-discount" style="font-weight: bold; width: 130px;">30.000.000</div>
 					</div>
-					<div class="bundle-detail" style="padding: 10px; display: flex; justify-content: space-around; background-color: #f7f7f7;">
-						<div class="product-details" style="text-align: center;">
-							<div class="product-title1">SUBTOTAL:</div>
-						</div>
-						<div class="product-line-discount" style="font-weight: bold; width: 130px;">500.000.000</div>
+				  </div>
+				  <div class="cart-item" style="border-bottom:none ;">
+					<div class="product-thumb">
+						<img alt="Single product" style="width: 100px;" src="images/product-4.jpg">
 					</div>
+					<div class="product-info">
+					  <div class="info-left">
+						<h4 class="title">LavAzza Ground Coffee Gran Selexion Dark Roast</h4>
+						<div class="unit-price"><del>100.000.000</del></div>
+					  </div>
+					  <div class="price">
+						<div class="price-count">
+							<div class="s-product-price">Rp 185.000.000</div>
+						  </div>
+					  <div class="price-count" style="opacity: 0.3;">
+						<div class="count-product">
+							<button disabled type="button" class="quantity-left-minus" data-type="minus"><i class="fa fa-minus"></i></button>
+							<input disabled class="count-no" type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; color: white; background-color: black;">
+							<button disabled type="button" class="quantity-right-plus" data-type="plus"><i class="fa fa-plus"></i></button>
+							</div>
+						  <div class="count-product" style="margin-left: 5px;">
+							<button disabled type="button"><i class="fa fa-trash"></i></button>
+						  </div>
+					  </div>
+					</div>
+					</div>
+				  </div>
+				
 				</div>
-
-				<div class="col-md-4 pt-3 d-flex" style="float: right !important;">
-					<div class="cart-detail cart-total p-3 p-md-4">
-						<hr>
-						<p class="d-flex">
-							<span>SUBTOTAL</span>
-							<span style="text-align: right; font-weight: bold;">Rp 350.520.000</span>
-						</p>
-						<hr>
+				<div class="cart-total-amount cart-footer" style="background: none;">
+					<div class="cart-total-amount-inner">
+					  <div class="amount-title">Discount:</div>
+					  <div class="amount-no">Rp 50.000.000.000</div>
 					</div>
+				  </div>
+				
+			  </div>
+			  <br>
+			  <div class="shopping-cart-wrap" style="padding-top: 20px;">
+				
+				
+				<div class="shopping-cart-items">
+				  <div class="cart-item">
+					<div class="product-thumb">
+					  <img alt="Single product" style="width: 100px;" src="images/product-1.jpg">
+					</div>
+					<div class="product-info">
+					  <div class="info-left">
+						<h4 class="title">Nuova Simpnelli Appia Life 2 Group</h4>
+						<div class="unit-price">100.000.000</div>
+						<div class="unit-price"><span style="font-size: small;">space info</span></div>
+					  </div>
+					  <div class="price">
+						<div class="price-count">
+							<div class="s-product-price">Rp 185.000.000.000</div>
+						  </div>
+					  <div class="price-count">
+						<div class="count-product">
+							<button disabled type="button" class="quantity-left-minus" data-type="minus"><i class="fa fa-minus"></i></button>
+							<input disabled class="count-no" type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; color: white; background-color: black;">
+							<button disabled type="button" class="quantity-right-plus" data-type="plus"><i class="fa fa-plus"></i></button>
+							</div>
+						  <div class="count-product" style="margin-left: 5px;">
+							<button disabled type="button"><i class="fa fa-trash"></i></button>
+						  </div>
+					  </div>
+					</div>
+					</div>
+				  </div>
+				  <div class="cart-item">
+					<div class="product-thumb">
+						<img alt="Single product" style="width: 100px;" src="images/product-3.jpg">
+					</div>
+					<div class="product-info">
+					  <div class="info-left">
+						<h4 class="title">LavAzza Ground Coffee Gran Selexion Dark Roast</h4>
+						<div class="unit-price">45.000.000</div>
+					  </div>
+					  <div class="price">
+						<div class="price-count">
+							<div class="s-product-price">Rp 185.000.000.000</div>
+						  </div>
+					  <div class="price-count">
+						<div class="count-product">
+							<button disabled type="button" class="quantity-left-minus" data-type="minus"><i class="fa fa-minus"></i></button>
+							<input disabled class="count-no" type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; color: white; background-color: black;">
+							<button disabled type="button" class="quantity-right-plus" data-type="plus"><i class="fa fa-plus"></i></button>
+							</div>
+						  <div class="count-product" style="margin-left: 5px;">
+							<button disabled type="button"><i class="fa fa-trash"></i></button>
+						  </div>
+					  </div>
+					</div>
+					</div>
+				  </div>
+				  <div class="cart-item" style="border-bottom:none ;">
+					<div class="product-thumb">
+						<img alt="Single product" style="width: 100px;" src="images/product-4.jpg">
+					</div>
+					<div class="product-info">
+					  <div class="info-left">
+						<h4 class="title">LavAzza Ground Coffee Gran Selexion Dark Roast</h4>
+						<div class="unit-price">88.000.000</div>
+					  </div>
+					  <div class="price">
+						<div class="price-count">
+							<div class="s-product-price">Rp 185.000.000.000</div>
+						  </div>
+					  <div class="price-count">
+						<div class="count-product">
+							<button disabled type="button" class="quantity-left-minus" data-type="minus"><i class="fa fa-minus"></i></button>
+							<input disabled class="count-no" type="text" id="quantity" name="quantity" value="1" min="1" max="100" style="border: 0px !important; width: 40px; text-align: center; color: white; background-color: black;">
+							<button disabled type="button" class="quantity-right-plus" data-type="plus"><i class="fa fa-plus"></i></button>
+							</div>
+						  <div class="count-product" style="margin-left: 5px;">
+							<button disabled type="button"><i class="fa fa-trash"></i></button>
+						  </div>
+					  </div>
+					</div>
+					</div>
+				  </div>
+				
 				</div>
-			</div>
+				<div class="cart-total-amount cart-footer">
+					
+					<div class="cart-total-amount-inner">
+					  <div class="amount-title">Subtotal:</div>
+					  <div class="amount-no">Rp 3.000.000.000.000</div>
+					</div>
+				  </div>
+			  </div>
 		</div>
 		<br>
 		<div class="container">
