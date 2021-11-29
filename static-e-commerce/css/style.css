@@ -15848,7 +15848,8 @@ a:active {
 @media only screen and (max-width: 575px) {
   .shopping-cart-wrap .cart-item .product-info {
     display: block;
-    width: calc(100% - 80px);
+    /* width: calc(100% - 80px); */
+    width: 100%;
   }
 }
 
@@ -15998,8 +15999,8 @@ a:active {
 }
 
 .cart-footer {
-  border-top: 1px solid #e6e3e3;
-  border-bottom: 1px solid #e6e3e3;
+  /* border-top: 1px solid #e6e3e3; */
+  /* border-bottom: 1px solid #e6e3e3; */
   background: #cbcbcb;
 }
 
@@ -16012,4 +16013,14 @@ a:active {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.checkout-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.check-total-price {
+  font-weight: bold;
+  color: black;
 }
