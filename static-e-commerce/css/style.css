@@ -15839,7 +15839,8 @@ a:active {
 }
 
 .shopping-cart-wrap .cart-item .product-info {
-  width: calc(100% - 100px);
+  /* width: calc(100% - 100px); */
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding-left: 15px;
@@ -16013,11 +16014,13 @@ a:active {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: flex-end;
 }
 
 .checkout-price {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+    flex-direction: column;
 }
 
 .check-total-price {
