@@ -15630,6 +15630,10 @@ a:active {
     float: right !important;
   }
 
+  .price {
+    align-items: baseline !important;
+  }
+
 
 }
 
