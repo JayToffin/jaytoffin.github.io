@@ -16014,7 +16014,7 @@ a:active {
   font-weight: bold;
 }
 
-.price {
+.price2 {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -16030,4 +16030,50 @@ a:active {
 .check-total-price {
   font-weight: bold;
   color: black;
+}
+
+
+
+
+#teams-dropdown-menu {
+
+  position: relative;
+  width: 100%;
+}
+
+#teams-dropdown-menu ul {
+  background: #000000;
+  box-shadow: 0 2px 5px rgba(10, 10, 10, 0.05), 0 0 10px 0 rgba(10, 10, 10, 0.08);
+  display: none;
+  left: 0;
+  overflow: hidden;
+  padding: 10px 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#teams-dropdown-menu ul.active {
+  display: block;
+  animation: slidedown 0.2s;
+}
+
+@keyframes slidedown {
+  from {
+    margin-top: -25px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+#teams-dropdown-menu ul li {
+  padding: 10px 15px;
+}
+
+#teams-dropdown-menu ul li:hover {
+  border-left: 5px solid #004e66;
+  color: #ffffff !important;
+  padding-left: 10px;
 }
