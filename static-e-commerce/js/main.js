@@ -333,7 +333,7 @@ $(document).ready(function () {
 
 
 
-	
+	// ---------- Not used in Odoo ----------
 	function toggleActive(self) {
 		let ul = self.getElementsByTagName('ul')[0];
 		if(ul.classList.contains('active')) {
@@ -353,4 +353,5 @@ $(document).ready(function () {
 		self.classList.add('has-text-weight-semibold');
 		team.innerHTML = self.innerHTML;
 	  }
+	// ---------- End of: Not used in Odoo ----------
 	  
