@@ -355,3 +355,24 @@ $(document).ready(function () {
 	  }
 	// ---------- End of: Not used in Odoo ----------
 	  
+
+
+
+	// Dropdown Shipping
+	$(".dropdown-menu li a").click(function(){
+		$(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+		$(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+	  });
+
+	// Checkbox Asuransi show/hide
+	  function myFunction() {
+		var checkBox = document.getElementById("asuransi");
+		var text = document.getElementById("text");
+		if (checkBox.checked == true){
+		  text.style.display = "block";
+		} else {
+		   text.style.display = "none";
+		}
+	  }
+
+
