@@ -344,125 +344,75 @@
                                     data-target="#deliv-addr"
                                     style="width: 100%; border-radius: 0px; font-size: 14px; float: right;">Ubah Alamat
                                     Pengiriman</button>
-                                
-                                <div class="dropdown">
-                                    <button class="btn btn-primary py-2 px-4 text-center" type="button"
-                                        id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="true"
-                                        style="width: 100%; border-radius: 0px; font-size: 14px; margin-top: 10px;">
-                                        Pilih Ekspedisi Pengiriman
-                                    </button>
-                                    <ul class="dropdown-menu" onclick="myFunction()" aria-labelledby="dropdownMenu"
-                                        style="width: 100%; text-align: center; padding: 0; font-size: 14px;">
-                                        <li><a  data-value="">JNE</a></li>
-                                        <li><a data-value="">JNT</a></li>
-                                        <li><a  data-value="">Sicepat</a></li>
-                                        <li><a data-value="">Go Send</a></li>
-                                    </ul>
+
+                                <div class="select-wrapper">
+                                    <div class="select">
+                                        <div class="select__trigger"><span>Durasi Pengiriman</span>
+
+                                        </div>
+                                        <div class="custom-options">
+                                            <div class="custom-option selected" data-value="regular">Regular</div>
+                                            <div class="custom-option" data-value="express">Express</div>
+                                            <div class="custom-option" data-value="sameday">Same Day</div>
+                                            <div class="custom-option" data-value="cargo">Cargo</div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="dropdown teams-dropdown-menu">
-                                    <button class="dropdown-toggle" type="button" data-toggle="dropdown"
-                                        style="font-weight: bold; font-size: 14px; margin-top: 10px; color: gray;">Pilih
-                                        servis pengiriman
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" style="width: 100%; padding: 0; font-size: 14px;">
+                                <div class="select-wrapper">
+                                    <div class="select">
+                                        <div class="select__trigger" style="text-align: center;"><span>Ekspedisi
+                                                Pengiriman</span>
 
-                                        <li onclick="setTeam(this)" class="has-text-weight-semibold"
-                                            style="padding: 10px;">JNE - Yes <span
-                                                style="margin-inline-start: 5px; float: right;"><strong> Rp
-                                                    50.000.000</strong></span><br>
-                                            <span style="font-size: 11px; margin-inline-end: 5px;">Estimasi tiba: 2 - 3
-                                                hari</span>
-                                        </li>
-                                        <li onclick="setTeam(this)" class="has-text-weight-semibold"
-                                            style="padding: 10px;">JNE - Oke <span
-                                                style="margin-inline-start: 5px; float: right;"><strong> Rp
-                                                    50.000.000</strong></span><br>
-                                            <span style="font-size: 11px; margin-inline-end: 5px;">Estimasi tiba: 2 - 3
-                                                hari</span>
-                                        </li>
-                                        <li onclick="setTeam(this)" class="has-text-weight-semibold"
-                                            style="padding: 10px;">JNE - Reg <span
-                                                style="margin-inline-start: 5px; float: right;"><strong> Rp
-                                                    50.000.000</strong></span><br>
-                                            <span style="font-size: 11px; margin-inline-end: 5px;">Estimasi tiba: 2 - 3
-                                                hari</span>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                        <div class="custom-options">
+                                            <div class="custom-option selected" data-value="">JNE - REG<br>
+                                                <span class="info-delivery">
+                                                    <span style="font-size: 12px; font-weight: bold;">(Rp
+                                                        500.000)</span>
+                                                    <span style="font-size: 12px; font-weight: bold;">(Estimasi tiba 2 -
+                                                        3 hari)</span>
+                                                </span>
+                                            </div>
+                                            <div class="custom-option" data-value="">JNE - OKE<br>
+                                                <span class="info-delivery">
+                                                    <span style="font-size: 12px; font-weight: bold;">(Rp 50.000)</span>
+                                                    <span style="font-size: 12px; font-weight: bold;">(Estimasi tiba 4 -
+                                                        5 hari)</span>
+                                                </span>
+                                            </div>
+                                            <div class="custom-option" data-value="">JNE - YES<br>
+                                                <span class="info-delivery">
+                                                    <span style="font-size: 12px; font-weight: bold;">(Rp
+                                                        1.150.000)</span>
+                                                    <span style="font-size: 12px; font-weight: bold;">(Estimasi tiba - 1
+                                                        hari)</span>
+                                                </span>
+                                            </div>
+                                            <div class="custom-option" data-value="">JNE - JTR<br>
+                                                <span class="info-delivery">
+                                                    <span style="font-size: 12px; font-weight: bold;">(Rp
+                                                        150.000)</span>
+                                                    <span style="font-size: 12px; font-weight: bold;">(Estimasi tiba 2 -
+                                                        3 hari)</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <span id="current-team"></span>
 
                                 <div class="asuransi">
-                                    <p id="text" style="display:none; margin-bottom: 0px; font-size: 14px;">Asuransi
-                                        pengiriman <span style="float: right;"><strong>Rp 50.000</strong></span></p>
                                     <input type="checkbox" id="asuransi" name="" class="checkmark"
                                         onclick="myFunction()">
                                     <label class="customcheck" for="asuransi"
-                                        style="margin-top: 6px; margin-left: 30px;">Asuransi pengiriman</label>
+                                        style="margin-top: 8px; margin-left: 25px; font-size: 13px;">Asuransi
+                                        pengiriman</label>
+                                    <p id="text"
+                                        style=" display: none; float: right; margin-top: 6px; font-weight: bold;">Rp
+                                        5.000.000</p>
                                 </div>
-
                             </div>
-
                         </div>
-
-
-                        <!-- <div class="distri" style="width: 100%; display: flex; flex-wrap: wrap;">
-                                <div class="col-md-8" style="padding: 0px;">
-                                    <div class="namapenerima" style="font-size: 13px;"><strong>Nama Penerima</strong></div>
-                                    <div class="nohp" style="font-size: 13px;">081222000xxx</div>
-                                    <div class="alamat" style="font-size: 13px;">Tshirtbar, Jl. Abdul Majid Raya, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta, 12150
-                                        Kebayoran Baru, Jakarta Selatan, 12150</div><br>
-                                </div>
-                                <div class="col-md-4" style="padding: 0px;">
-                                    <button class="btn btn-primary py-2 px-4 text-center" data-toggle="modal" data-target="#deliv-addr" style="width: 100%; border-radius: 0px; font-size: 14px; float: right;" >Ubah Alamat Pengiriman</button>
-                                   
-                                    <div class="dropdown teams-dropdown-menu" >
-                                        <button class="btn btn-primary py-2 px-4 text-center" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 100%; border-radius: 0px; font-size: 14px; float: right; margin-top: 10px;">
-                                          Pilih Pengiriman
-                                          <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" onclick="myFunction()" aria-labelledby="dropdownMenu1" style="width: 100%; text-align: center; background-color: black;">
-                                          <li><a href="#" data-value="action">JNE</a></li>
-                                          <li><a href="#" data-value="another action">JNT</a></li>
-                                          <li><a href="#" data-value="something else here">Sicepat</a></li>
-                                          <li><a href="#" data-value="separated link">Go Send</a></li>
-                                        </ul>
-                                      </div>
-                                          
-                 
-                                      <div class="" style="width: 100%; border-radius: 0px; font-size: 14px; float: right; margin-top: 10px;">
-                                        <div id="teams-dropdown-menu" onclick="toggleActive(this)" style="display: block; z-index: 10;">
-                                          <ul>
-                                            <li onclick="setTeam(this)" class="has-text-weight-semibold">JNE - Yes <span style="margin-inline-start: 5px; float: right;"><strong> Rp 50.000.000</strong></span><br>
-                                                <span style="font-size: 11px; margin-inline-end: 5px;">Estimasi tiba: 2 - 3 hari</span>
-                                                </li>
-                                            <li onclick="setTeam(this)" class="has-text-weight-semibold">JNE - Oke<br>
-                                                <span style="font-size: 11px; margin-inline-end: 5px;">Estimasi tiba: 2 - 3 hari</span>
-                                                <span style="font-size: 11px; margin-inline-start: 5px;">Rp 50.000.000</span></li>
-                                            <li onclick="setTeam(this)" class="has-text-weight-semibold">JNE - Reg<br>
-                                                <span style="font-size: 11px; margin-inline-end: 5px;">Estimasi tiba: 2 - 3 hari</span>
-                                                <span style="font-size: 11px; margin-inline-start: 5px;">Rp 50.000.000</span></li>
-                                          </ul>
-                                          <span class="is-size-6 has-text-weight-semibold" id="current-team" style="">Pilih servis pengiriman</span>
-                                          
-                                        </div>
-                                      </div>
-                                     
-                                            
-                                      
-                                            <div class="asuransi">
-                                                <p id="text" style="display:none; margin-bottom: 0px; font-size: 14px;">Asuransi pengiriman <span style="float: right;"><strong>Rp 50.000</strong></span></p>
-                                                <input type="checkbox" id="asuransi" name="" class="checkmark" onclick="myFunction()">
-                                                <label class="customcheck" for="asuransi" style="margin-top: 6px; margin-left: 30px;">Asuransi pengiriman</label>
-                                            </div>
-
-                                      
-                                     </div>
-
-                                   
-                                
-                            </div> -->
                     </div>
 
                     <hr>
