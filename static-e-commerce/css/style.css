@@ -15777,6 +15777,7 @@ a:active {
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: 1px solid #e6e3e3;
+  align-items: center;
 }
 
 .shopping-cart-wrap .cart-item .product-thumb {
