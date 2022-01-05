@@ -329,70 +329,63 @@ $(document).ready(function () {
 	});
 
 
+// ---------- Not used in Odoo ----------
+function toggleActive(self) {
+	let ul = self.getElementsByTagName('ul')[0];
+	if(ul.classList.contains('active')) {
+		ul.classList.remove('active');
+	} else {
+		ul.classList.add('active');
+	}
+}
+	
+function setTeam(self) {
+	let team = document.getElementById('current-team');
+	let node = self.parentNode.firstChild;
+	while( node && node.nodeType === Node.ELEMENT_NODE && node !== this ) {
+		node.classList.remove('has-text-weight-semibold');
+		node = node.nextElementSibling || node.nextSibling;
+	}
+	self.classList.add('has-text-weight-semibold');
+	team.innerHTML = self.innerHTML;
+}
 
 
-
-
-	// ---------- Not used in Odoo ----------
-	function toggleActive(self) {
-		let ul = self.getElementsByTagName('ul')[0];
-		if(ul.classList.contains('active')) {
-		  ul.classList.remove('active');
-		} else {
-		  ul.classList.add('active');
-		}
-	  }
-	  
-	  function setTeam(self) {
-		let team = document.getElementById('current-team');
-		let node = self.parentNode.firstChild;
-		while( node && node.nodeType === Node.ELEMENT_NODE && node !== this ) {
-		  node.classList.remove('has-text-weight-semibold');
-		  node = node.nextElementSibling || node.nextSibling;
-		}
-		self.classList.add('has-text-weight-semibold');
-		team.innerHTML = self.innerHTML;
-	  }
-	// ---------- End of: Not used in Odoo ----------
-	  
-
-
-	// Checkbox Asuransi show/hide
-	  function myFunction() {
-		var checkBox = document.getElementById("asuransi");
-		var text = document.getElementById("text");
-		if (checkBox.checked == true){
-		  text.style.display = "block";
-		} else {
-		   text.style.display = "none";
-		}
-	  }
-
+// Checkbox Asuransi show/hide
+function myFunction() {
+	var checkBox = document.getElementById("asuransi");
+	var text = document.getElementById("text");
+	if (checkBox.checked == true){
+		text.style.display = "block";
+	} else {
+		text.style.display = "none";
+	}
+}
 
 
 // Dropdown pilih pengiriman
 for (const dropdown of document.querySelectorAll(".select-wrapper")) {
-    dropdown.addEventListener('click', function() {
-        this.querySelector('.select').classList.toggle('open');
-    })
+	dropdown.addEventListener('click', function() {
+		this.querySelector('.select').classList.toggle('open');
+	})
 }
 // Click function select toggles
 for (const option of document.querySelectorAll(".custom-option")) {
-    option.addEventListener('click', function() {
-        if (!this.classList.contains('selected')) {
-            this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-            this.classList.add('selected');
-            this.closest('.select').querySelector('.select__trigger span').textContent = this.textContent;
-        }
-    })
+	option.addEventListener('click', function() {
+		if (!this.classList.contains('selected')) {
+			this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+			this.classList.add('selected');
+			this.closest('.select').querySelector('.select__trigger span').textContent = this.textContent;
+		}
+	})
 }
 window.addEventListener('click', function(e) {
-    for (const select of document.querySelectorAll('.select')) {
-        if (!select.contains(e.target)) {
-            select.classList.remove('open');
-        }
-    }
+	for (const select of document.querySelectorAll('.select')) {
+		if (!select.contains(e.target)) {
+			select.classList.remove('open');
+		}
+	}
 });
-	
 
+// ---------- End of: Not used in Odoo ----------
 	
