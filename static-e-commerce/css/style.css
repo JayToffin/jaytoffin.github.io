@@ -15456,6 +15456,13 @@ a:active {
   text-align: center;
 }
 
+.product-removal-hide {
+  float: left;
+  width: 16%;
+  text-align: center;
+  visibility: hidden;
+}
+
 .product-line-price {
   float: left;
   width: 16%;
