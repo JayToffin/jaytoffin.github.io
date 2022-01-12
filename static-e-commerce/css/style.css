@@ -16325,3 +16325,17 @@ a:active {
   font-size: 18px;
 }
  
+
+
+@media (min-width: 767px) {
+  .navbar .dropdown-toggle:not(.nav-link)::after {
+      vertical-align: 0;
+      
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+.navbar-nav .show .dropdown-menu .dropdown-menu > li > a{padding:5px 45px}
+/* .navbar-nav .show .dropdown-menu .dropdown-menu .dropdown-menu > li > a{padding:16px 15px 16px 45px} */
+} 
