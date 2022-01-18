@@ -241,7 +241,7 @@
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-0 bread" style="color:white;">Single Product</h1>
+					<h1 class="mb-0 bread" style="color:white;">Detail Product</h1>
 				</div>
 			</div>
 		</div>
@@ -430,6 +430,10 @@
 						</div>
 						<div class="w-100"></div>
 						<br />
+						<div class="col-md-12">
+							<h5>Quantity</h5>
+							
+						</div>
 						<div class="input-group product-details col-md-6 d-flex mb-3">
 							<span class="input-group-btn mr-2">
 								<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
@@ -450,54 +454,66 @@
 							<p class="text-left mr-4">
 								Stok yang tersedia : <span style="font-weight: bold;">7</span>
 							</p>
-							<p class="text-left mr-4" style="font-size: small;">
-								<span style="font-size: small;">Rekomendasi stok yang tersedia dicabang lain</span>
-								(dengan tambahan biaya pengiriman dan harga jual mengikuti harga di masing-masing
-								cabang)
-							</p>
 						</div>
 
-						<div class="input-group product-details col-md-6 d-flex mb-3">
-							<span class="input-group-btn mr-2">
-								<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-									<i class="ion-ios-remove"></i>
-								</button>
-							</span>
-							<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
-								min="1" max="100">
-							<span class="input-group-btn ml-2">
-								<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-									<i class="ion-ios-add"></i>
-								</button>
-							</span>
-						</div>
-						<div class="input-group product-details col-md-6 d-flex mb-3">
-							<div class="distri">
-								<span>Stok Toffin Bandung :</span>
-								<span style="font-weight: bold;">80</span>
+
+						  <div class="container">
+							
+							<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style="border-radius: 0px;">Rekomendasi stok distributor lain <i class="fa fa-caret-down" aria-hidden="true"></i></button>
+							<div id="demo" class="collapse"><br>
+								
+								<p class="text-left">
+									<span>Rekomendasi stok yang tersedia dicabang lain</span>
+									(dengan tambahan biaya pengiriman dan harga jual mengikuti harga di masing-masing
+									cabang)
+								</p>
+								<div class="input-group  d-flex">
+									<div class="distri">
+										<span>Stok Toffin Bandung :</span>
+										<span style="font-weight: bold;">80</span>
+									</div>
+								</div>
+								<div class="input-group product-details d-flex mb-3" style="width: fit-content;">
+									<span class="input-group-btn mr-2">
+										<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+											<i class="ion-ios-remove"></i>
+										</button>
+									</span>
+									<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
+										min="1" max="100">
+									<span class="input-group-btn ml-2">
+										<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+											<i class="ion-ios-add"></i>
+										</button>
+									</span>
+								</div>
+								
+								<div class="input-group  d-flex">
+									<div class="distri">
+										<span>Stok Toffin Bogor :</span>
+										<span style="font-weight: bold;">44</span>
+									</div>
+								</div>
+								<div class="input-group product-details d-flex mb-3" style="width: fit-content;">
+									<span class="input-group-btn mr-2">
+										<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+											<i class="ion-ios-remove"></i>
+										</button>
+									</span>
+									<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
+										min="1" max="100">
+									<span class="input-group-btn ml-2">
+										<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+											<i class="ion-ios-add"></i>
+										</button>
+									</span>
+								</div>
+								
 							</div>
-						</div>
-						<div class="input-group product-details col-md-6 d-flex mb-3">
-							<span class="input-group-btn mr-2">
-								<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-									<i class="ion-ios-remove"></i>
-								</button>
-							</span>
-							<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
-								min="1" max="100">
-							<span class="input-group-btn ml-2">
-								<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-									<i class="ion-ios-add"></i>
-								</button>
-							</span>
-						</div>
-						<div class="input-group product-details col-md-6 d-flex mb-3">
-							<div class="distri">
-								<span>Stok Toffin Bogor :</span>
-								<span style="font-weight: bold;">44</span>
-							</div>
-						</div>
-					</div>
+						  </div>
+
+
+					</div><br>
 					<span class="input-group-btn">
 						<button type="submit" class="btn btn-black py-3 px-5"
 							style=" border-radius: 0px !important; margin: 0 auto;">Add to cart</button>
