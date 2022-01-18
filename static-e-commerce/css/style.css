@@ -12081,7 +12081,7 @@ h5,
 }
 
 .owl-carousel.home-slider .slider-item .slider-text .one-third {
-  width: 50%;
+  width: 100%;
   position: relative;
   z-index: -1;
   background-position: center center;
@@ -12150,7 +12150,7 @@ h5,
 @media (min-width: 992px) {
   .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 0;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -16333,7 +16333,7 @@ a:active {
 
 
 .rating{
-  font-size: 18px;
+  font-size: 20px;
 }
  
 
@@ -16454,4 +16454,12 @@ a:active {
 }
 .img-detail-produk {
   height: fit-content;
+}
+
+.a-dark{
+  color: gray;
+}
+.a-dark-normal-fonts{
+  color: gray;
+  font-weight: 500;
 }
