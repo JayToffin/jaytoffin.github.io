@@ -538,7 +538,16 @@ $(document).ready(function () {
 });
 
 
+//----- PASSWORD VISIBILITY-----//
 
+$(".reveal").on('click',function() {
+    var $pwd = $(".pwd");
+    if ($pwd.attr('type') === 'password') {
+        $pwd.attr('type', 'text');
+    } else {
+        $pwd.attr('type', 'password');
+    }
+});
 
 
 // -----js carousel rekomendasi, alternatif product, dll ------ //

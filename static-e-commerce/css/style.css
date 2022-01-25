@@ -16446,6 +16446,16 @@ a:active {
 }
 
 
+/* ----- PRODUCT NOT FOUND ----- */
+.product-notfoud {
+  width: 100%;
+}
+.lead {
+  background-color:#ffa55c36; 
+  padding: 20px; 
+  border-radius: 10px;
+}
+
 
 
 .thumb-produk-detail {
@@ -16462,4 +16472,8 @@ a:active {
 .a-dark-normal-fonts{
   color: gray;
   font-weight: 500;
+}
+
+.reveal{
+  border-radius: 0px;
 }

@@ -62,11 +62,17 @@
 							  <input type="text" class="form-control" placeholder="">
 							</div><br>
 			
-						  <div class="form-group">
-							<label for="streetaddress">Kata Sandi</label>
-							<input type="password" id="inputPassword" class="form-control" placeholder="" required>
-							
-						  </div><br>
+						  <div class="form-group">    
+                <label for="streetaddress">Kata Sandi</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control pwd" value="">
+                      <span class="input-group-btn">
+                        <a class="btn btn-primary reveal" type="button"><i class="ion-ios-eye"></i></a>
+                      </span>          
+                    </div>
+              </div>  <br>
+                
+               
 			
 						  <div class="custom-control custom-checkbox mb-3">
 							<input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -74,28 +80,12 @@
               <a href="#" class="label" data-toggle="modal" data-target="#resetpass" style="float: right; color: red;"> Lupa Sandi?</a>
 					  
 						  </div>
-              <div class="alert">
-                <span class="closebtn">&times;</span>  
-                <i class="fas fa-exclamation-circle"></i> <strong>Error!</strong> Indicates a dangerous or potentially negative action.
-              </div>
+            </form>
               
-              <div class="alert success">
-                <span class="closebtn">&times;</span>  
-                <i class="fas fa-check-circle"></i> <strong>Success!</strong> Indicates a successful or positive action.
-              </div>
-              
-              <div class="alert info">
-                <span class="closebtn">&times;</span>  
-                <i class="fas fa-info-circle"></i> <strong>Info!</strong> Indicates a neutral informative change or action.
-              </div>
-              
-              <div class="alert warning">
-                <span class="closebtn">&times;</span>  
-                <i class="fas fa-exclamation-triangle"></i> <strong>Warning!</strong> Indicates a warning that might need attention.
-              </div>
+             
 						  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="border-radius: 0% !important;">Masuk</button>
 						  <hr class="my-4">
-            </form>
+            
             <a href="register.html"><button class="btn btn-lg btn-facebook btn-block text-uppercase" style="border-radius: 0% !important;">Daftar</button></a> <br> 
      
             
