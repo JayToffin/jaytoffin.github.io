@@ -193,25 +193,27 @@
 					</li>
 
 
-					<li class="nav-item">
+					<li class="nav-item dropdown">
 						<div class="sidebar-box">
-							<form class="search" method="post" action="index.html">
-								<input type="text" name="q" placeholder="Search"
+							<form class="search" method="post" action="">
+								<input type="text" placeholder="Type a keywords" data-toggle="dropdown"
 									onkeyUp="document.getElementById('printchatbox-product').innerHTML = this.value;document.getElementById('printchatbox-category').innerHTML = this.value;document.getElementById('printchatbox-brand').innerHTML = this.value;" />
-								<ul class="results">
-									<li><a href="toffin-for-gelateria.html"><span id='printchatbox-product'
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="toffin-for-gelateria.html"><span id='printchatbox-product'
 												style="font-size: 12px; font-weight: bold;"></span><br />
-											<span>By Product</span></a></li>
-									<li><a href="toffin-for-home.html"><span id='printchatbox-category'
+												<span class="icon-search"></span> &#160; <span>By Product</span>&nbsp;</a></li>
+									<li><a class="dropdown-item" href="toffin-for-home.html"><span id='printchatbox-category'
 												style="font-size: 12px; font-weight: bold;"></span><br />
-											<span>By Category</span></a></li>
-									<li><a href="#"><span id='printchatbox-brand'
+												<span class="icon-search"></span> &#160; <span>By Category</span></a></li>
+									<li><a class="dropdown-item" href="#"><span id='printchatbox-brand'
 												style="font-size: 12px; font-weight: bold;"></span><br />
-											<span>By Brand</span></a></li>
+												<span class="icon-search"></span> &#160; <span>By Brand</span></a></li>
 								</ul>
 							</form>
 						</div>
 					</li>
+
+					
 
 
 				</ul>

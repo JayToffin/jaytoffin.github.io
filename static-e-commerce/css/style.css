@@ -3842,7 +3842,7 @@ input[type="button"].btn-block {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: 0.25rem 1rem;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -14639,7 +14639,7 @@ textarea.form-control {
   }
 
   .dropdown-menu>li:hover {
-    background-color: #f1f1f1
+    background-color: rgb(225, 164, 95, 0.3);
   }
 
   .dropdown-menu>li:hover>.submenu {
