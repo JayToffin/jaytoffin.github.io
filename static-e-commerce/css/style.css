@@ -12547,7 +12547,7 @@ h5,
 
 @media (max-width: 991.98px) {
   .product {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 
@@ -15018,6 +15018,8 @@ textarea.form-control {
   align-items: center;
   background: white;
   border-radius: 10px;
+  padding-right: 8px;
+  border: 1px solid #ffa45c;
 }
 
 .dialog span {
@@ -15048,6 +15050,23 @@ textarea.form-control {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
+  
+}
+
+.close-icon
+{
+  display:block;
+  box-sizing:border-box;
+  width:15px;
+  height:15px;
+  border-width:3px;
+  border-style: solid;
+  border-color:red;
+  border-radius:100%;
+  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
+  background-color:red;
+  box-shadow:0px 0px 5px 2px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 
 
@@ -16476,4 +16495,50 @@ a:active {
 
 .reveal{
   border-radius: 0px;
+}
+
+
+
+/* SCROLLING FILTER APPLY BUTTON */
+.filterapply{
+  white-space: nowrap;
+  overflow: auto;
+}
+
+
+.Filtersbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .Filtersbtn {
+    padding-bottom: 20px;
+    display: block;
+  }
+}
+
+.filteration {
+  display: flex;
+  padding-top: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .reset-fil {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .two-grid-mobile-view-left {
+    width: 50%;
+    padding-right: 5px;
+  }
+  .two-grid-mobile-view-right {
+    width: 50%;
+    padding-left: 5px;
+  }
 }
