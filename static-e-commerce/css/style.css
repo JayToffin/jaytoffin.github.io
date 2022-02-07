@@ -12686,6 +12686,14 @@ h5,
   letter-spacing: 1px;
 }
 
+.product .text h3 {
+  font-size: 17px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  line-height: 1.23536;
+  letter-spacing: 0,1px;
+}
+
 .product .text h3 a {
   color: #000000;
 }
@@ -16550,9 +16558,10 @@ a:active {
 
 .card-container {
   overflow-x: scroll;
+  overflow-y: hidden;
   display: flex;
   /* background-color: #100e17; */
-  padding: 3rem;
+  padding-left: 11em;
 }
 
 .card-cat {
@@ -16792,8 +16801,10 @@ a:active {
 
 .card-container-slider {
   overflow-x: scroll;
+  overflow-y: hidden;
   display: flex;
-  padding: 3rem;
+  /* background-color: #100e17; */
+  padding-left: 11em;
 }
 
 .card-slider {
@@ -16861,9 +16872,132 @@ a:active {
   box-shadow: 0px 0px 10px 8px rgba(12,12,12,0.2);
   
 }
-
-
-
 .pr-images{
   padding-right: 20px;
+}
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+.card-container-feature {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  /* background-color: #100e17; */
+  padding-left: 11em;
+}
+
+.card-feature {
+  min-width: 300px;
+  /* height: 350px; */
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 12px rgb(0 0 0 / 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  transition: 0.2s;
+}
+
+.card-product {
+ 
+  width: 315px;
+  /* height: 350px; */
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 12px rgb(0 0 0 / 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  transition: 0.2s;
+}
+
+.date {
+  color: #8a8a8a;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0 1rem;
+}
+
+.tags div {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+}
+
+.card-feature .category-title {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.card-feature .article-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: initial;
+}
+
+.card-feature .article-header {
+  margin-bottom: auto;
+}
+
+.card-feature .author {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 75px 1fr;
+}
+
+.author .info .caption {
+  color: #8a8a8a;
+}
+
+/* .card-feature:not(:first-child) {
+  margin-left: -130px;
+} */
+
+.card-feature:hover {
+  box-shadow: 0px 0px 10px 8px rgba(12,12,12,0.2);
+}
+
+/* .card-feature:hover ~ .card-feature {
+  transform: translateX(50px);
+} */
+
+.box-feature {
+  padding-right: 20px;
+}
+
+.feature-icon {
+  font-size: 40px;
+}
+
+.heading-section {
+  font-weight: 600;
+}
+
+.card-img-prod {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.prod-home-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+
+.card-product:hover {
+  box-shadow: 0px 0px 10px 8px rgba(12,12,12,0.2);
 }
