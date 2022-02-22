@@ -611,5 +611,11 @@ var swiper = new Swiper( '.swiper-container.two', {
 } );
 
 
-
-
+function onlyNumberKey(e) {
+	var charCode = e.which ? e.which : event.keyCode;
+	if (String.fromCharCode(charCode).match(/[^0-9]/g)) {
+		alert("Hanya No KTP valid yang diperbolehkan!");
+		return false;
+	}
+	return true;
+}
