@@ -29,6 +29,8 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
+
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
 		integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
 </head>
@@ -43,48 +45,32 @@
 				aria-controls="navbarDropdownMenuLink" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbarDropdownMenuLink">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Category </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item dropdown-toggle" href="#"> Coffee Machine </a>
 								<ul class="submenu dropdown-menu">
-									<li><a class="dropdown-item"
-											href="category/coffee-machine/home-espresso-machine.html"> Home Espresso
-											Machine</a></li>
-									<li><a class="dropdown-item"
-											href="category/coffee-machine/commercial-espresso-machine.html"> Commercial
-											Espresso Machine</a></li>
-									<li><a class="dropdown-item"
-											href="category/coffee-machine/fully-automatic-machine.html"> Fully Automatic
-											Machine</a></li>
-									<li><a class="dropdown-item"
-											href="category/coffee-machine/automatic-coffee-brewers.html"> Automatic
-											Coffee Brewers</a></li>
-									<li><a class="dropdown-item" href="category/coffee-machine/accessories.html">
-											Accessories</a></li>
+									<li><a class="dropdown-item" href="category/coffee-machine/home-espresso-machine.html"> Home Espresso Machine</a></li>
+									<li><a class="dropdown-item" href="category/coffee-machine/commercial-espresso-machine.html"> Commercial Espresso Machine</a></li>
+									<li><a class="dropdown-item" href="category/coffee-machine/fully-automatic-machine.html"> Fully Automatic Machine</a></li>
+									<li><a class="dropdown-item" href="category/coffee-machine/automatic-coffee-brewers.html"> AutomaticCoffee Brewers</a></li>
+									<li><a class="dropdown-item" href="category/coffee-machine/accessories.html">Accessories</a></li>
 								</ul>
 							</li>
 							<li><a class="dropdown-item dropdown-toggle" href="#"> Ingredients </a>
 								<ul class="submenu dropdown-menu">
+									<li><a class="dropdown-item" href="category/ingredients/sauce.html"> Roasted Beans</a></li>
 									<li><a class="dropdown-item" href="category/ingredients/sauce.html"> Sauce</a></li>
 									<li><a class="dropdown-item" href="category/ingredients/syrup.html"> Syrup</a></li>
-									<li><a class="dropdown-item" href="category/ingredients/pure-extract.html"> Pure
-											Extract</a></li>
-									<li><a class="dropdown-item" href="category/ingredients/concentrate.html">
-											Concentrate</a></li>
-									<li><a class="dropdown-item" href="category/ingredients/powder.html"> Powder</a>
-									</li>
-									<li><a class="dropdown-item" href="category/ingredients/ancillary.html">
-											Ancillary</a></li>
-									<li><a class="dropdown-item" href="category/ingredients/amarena-cherry.html">
-											Amarena Cherry</a></li>
-									<li><a class="dropdown-item" href="category/ingredients/cream-charger.html"> Cream
-											Charger</a></li>
+									<li><a class="dropdown-item" href="category/ingredients/pure-extract.html"> Pure Extract</a></li>
+									<li><a class="dropdown-item" href="category/ingredients/concentrate.html"> Concentrate</a></li>
+									<li><a class="dropdown-item" href="category/ingredients/powder.html"> Powder</a></li>
+									<li><a class="dropdown-item" href="category/ingredients/ancillary.html"> Ancillary</a></li>
+									<li><a class="dropdown-item" href="category/ingredients/amarena-cherry.html"> Amarena Cherry</a></li>
+									<li><a class="dropdown-item" href="category/ingredients/cream-charger.html"> Cream Charger</a></li>
 								</ul>
 							</li>
 							<li><a class="dropdown-item dropdown-toggle" href="#"> Coffee Grinder </a>
@@ -93,91 +79,81 @@
 											Manual Grinders</a></li>
 									<li><a class="dropdown-item" href="category/coffee-grinder/espresso-grinder.html">
 											Espresso Grinders</a></li>
+									<li><a class="dropdown-item" href="category/coffee-grinder/espresso-grinder.html">
+											Accessories</a></li>
 								</ul>
 							</li>
 							<li><a class="dropdown-item" href="category/water-treatment.html"> Water Treatment </a></li>
 							<li><a class="dropdown-item dropdown-toggle" href="#"> Manual Brew </a>
 								<ul class="submenu dropdown-menu">
-									<li><a class="dropdown-item" href="category/manual-brew/pour-over.html"> Pour
-											Over</a></li>
-									<li><a class="dropdown-item" href="category/manual-brew/immersion.html">
-											Immersion</a></li>
-									<li><a class="dropdown-item" href="category/manual-brew/kettle.html"> Kettle</a>
-									</li>
-									<li><a class="dropdown-item" href="category/manual-brew/server.html"> Server</a>
-									</li>
+									<li><a class="dropdown-item" href="category/manual-brew/pour-over.html"> Pour Over</a></li>
+									<li><a class="dropdown-item" href="category/manual-brew/immersion.html">Immersion</a></li>
+									<li><a class="dropdown-item" href="category/manual-brew/kettle.html"> Kettle</a></li>
+									<li><a class="dropdown-item" href="category/manual-brew/server.html"> Server</a></li>
 									<li><a class="dropdown-item" href="category/manual-brew/scale.html"> Scale</a></li>
-									<li><a class="dropdown-item" href="category/manual-brew/tea-equipment.html"> Tea
-											Equipment</a></li>
-									<li><a class="dropdown-item" href="category/manual-brew/cold-brew-coffee.html"> Cold
-											Brew Coffee</a></li>
-									<li><a class="dropdown-item" href="category/manual-brew/syphon-beam-heater.html">
-											Syphon & Beam Heater</a></li>
-									<li><a class="dropdown-item" href="category/manual-brew/paper-filter.html"> Paper
-											Filter</a></li>
+									<li><a class="dropdown-item" href="category/manual-brew/tea-equipment.html"> Tea Equipment</a></li>
+									<li><a class="dropdown-item" href="category/manual-brew/cold-brew-coffee.html"> Cold Brew Coffee</a></li>
+									<li><a class="dropdown-item" href="category/manual-brew/syphon-beam-heater.html">Syphon & Beam Heater</a></li>
+									<li><a class="dropdown-item" href="category/manual-brew/paper-filter.html"> PaperFilter</a></li>
 								</ul>
 							</li>
 							<li><a class="dropdown-item dropdown-toggle" href="#"> Gelato </a>
 								<ul class="submenu dropdown-menu">
-									<li><a class="dropdown-item" href="category/gelato/gelato-machine.html"> Gelato
-											Machine</a></li>
-									<li><a class="dropdown-item" href="category/gelato/soft-ice-ingredients.html"> Soft
-											Ice Ingredients</a></li>
-									<li><a class="dropdown-item" href="category/gelato/gelato-ingredients.html"> Gelato
-											Ingredients</a></li>
-									<li><a class="dropdown-item" href="category/gelato/gelato-accessories.html"> Gelato
-											Accessories</a></li>
+									<li><a class="dropdown-item" href="category/gelato/gelato-machine.html"> GelatoMachine</a></li>
+									<li><a class="dropdown-item" href="category/gelato/soft-ice-ingredients.html"> SoftIce Ingredients</a></li>
+									<li><a class="dropdown-item" href="category/gelato/gelato-ingredients.html"> GelatoIngredients</a></li>
+									<li><a class="dropdown-item" href="category/gelato/gelato-accessories.html"> GelatoAccessories</a></li>
 								</ul>
 							</li>
-							<li><a class="dropdown-item dropdown-toggle" href="#"> Roasted Beans </a>
+							<li><a class="dropdown-item dropdown-toggle" href="#">Hot Kitchen Equipment </a>
 								<ul class="submenu dropdown-menu">
-									<li><a class="dropdown-item" href="category/roasted-bean/single-origin.html"> Single
-											Origin</a></li>
-									<li><a class="dropdown-item" href="category/roasted-bean/espresso-blend.html">
-											Espresso Blend</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/modular-cooking.html">Oven</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/stove.html"> Dishwasher</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/oven.html"> Griddle</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/chiller-freezer.html">Burner</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/toaster.html">Fryer</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/fryer.html"> Pasta Cooker</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/ice-cube-machine.html"> Grill</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/ice-cube-machine.html"> Wok</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/ice-cube-machine.html"> Toaster</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/ice-cube-machine.html"> Pastry Showcase</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/ice-cube-machine.html"> Other Equipments</a></li>
 								</ul>
 							</li>
-							<li><a class="dropdown-item dropdown-toggle" href="#"> Kitchen Equipment </a>
+							<li><a class="dropdown-item dropdown-toggle" href="#">Cold Kitchen Equipment </a>
 								<ul class="submenu dropdown-menu">
-									<li><a class="dropdown-item" href="category/kitchen-equipment/modular-cooking.html">
-											Modular Cooking</a></li>
-									<li><a class="dropdown-item" href="category/kitchen-equipment/refrigeration.html">
-											Refrigeration</a></li>
-									<li><a class="dropdown-item" href="category/kitchen-equipment/stove.html"> Stove</a>
-									</li>
-									<li><a class="dropdown-item" href="category/kitchen-equipment/oven.html"> Oven</a>
-									</li>
-									<li><a class="dropdown-item" href="category/kitchen-equipment/chiller-freezer.html">
-											Chiller & Freezer</a></li>
-									<li><a class="dropdown-item" href="category/kitchen-equipment/toaster.html">
-											Toaster</a></li>
-									<li><a class="dropdown-item" href="category/kitchen-equipment/blender.html">
-											Blender</a></li>
-									<li><a class="dropdown-item" href="category/kitchen-equipment/fryer.html"> Fryer</a>
-									</li>
-									<li><a class="dropdown-item"
-											href="category/kitchen-equipment/ice-cube-machine.html"> Ice Cube
-											Machine</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/modular-cooking.html">Chiller & Frezzer</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/refrigeration.html">Ice Maker</a></li>
+									<li><a class="dropdown-item" href="category/kitchen-equipment/stove.html"> Juicer & Blender</a></li>
 								</ul>
 							</li>
-							<li><a class="dropdown-item dropdown-toggle" href="#"> Other Equipment </a>
+							<li><a class="dropdown-item dropdown-toggle" href="#"> Other Equipments </a>
 								<ul class="submenu dropdown-menu">
-									<li><a class="dropdown-item" href="category/other-equipment/cups-glasses.html"> Cups
-											& Glasses</a></li>
-									<li><a class="dropdown-item" href="category/other-equipment/cream-dispenser.html">
-											Cream Dispenser</a></li>
-									<li><a class="dropdown-item" href="category/other-equipment/drink-mixer.html"> Drink
-											Mixer</a></li>
+									<li><a class="dropdown-item" href="category/other-equipment/cups-glasses.html"> Serveware</a></li>
+									<li><a class="dropdown-item" href="category/other-equipment/cream-dispenser.html">Cream Dispenser</a></li>
+									<li><a class="dropdown-item" href="category/other-equipment/drink-mixer.html"> Drink Mixer</a></li>
+									<li><a class="dropdown-item" href="category/other-equipment/drink-mixer.html"> Soda Maker</a></li>
 								</ul>
 							</li>
-
-
 						</ul>
 					</li>
-
 					<li class="nav-item"><a href="brand.html" class="nav-link">Brand</a></li>
-
-					<li class="nav-item"><a href="promotion.html" class="nav-link">Promotion</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Promotion </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item dropdown-toggle" href="#"> Product Bundle </a>
+								<ul class="submenu dropdown-menu">
+									<li><a class="dropdown-item" href="product-bundle.html">Toffin for Home</a></li>
+									<li><a class="dropdown-item" href="product-bundle.html">Toffin for Cafe</a></li>
+									<li><a class="dropdown-item" href="product-bundle.html">Toffin for Office</a></li>
+									<li><a class="dropdown-item" href="product-bundle.html">Toffin for Ingredients</a></li>
+									<li><a class="dropdown-item" href="product-bundle.html">Toffin for Kitchen</a></li>
+									<li><a class="dropdown-item" href="product-bundle.html">Toffin for Gelateria</a></li>
+								</ul>
+							</li>
+							<li><a class="dropdown-item" href="promotion.html"> Promotion </a></li>
+						</ul>
+					</li>
 
 					<li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span
 								class="icon-shopping_cart"></span>[0]</a></li>
@@ -192,38 +168,34 @@
 						</ul>
 					</li>
 
-
 					<li class="nav-item dropdown">
 						<div class="sidebar-box">
 							<form class="search" method="post" action="">
 								<input type="text" placeholder="Type a keywords" data-toggle="dropdown"
 									onkeyUp="document.getElementById('printchatbox-product').innerHTML = this.value;document.getElementById('printchatbox-category').innerHTML = this.value;document.getElementById('printchatbox-brand').innerHTML = this.value;" />
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="toffin-for-gelateria.html"><span id='printchatbox-product'
+									<li><a class="dropdown-item" href="toffin-for-gelateria.html"><span
+												id='printchatbox-product'
 												style="font-size: 12px; font-weight: bold;"></span><br />
-												<span class="icon-search"></span> &#160; <span>By Product</span>&nbsp;</a></li>
-									<li><a class="dropdown-item" href="toffin-for-home.html"><span id='printchatbox-category'
+											<span class="icon-search"></span> &#160; <span>By Product</span>&nbsp;</a>
+									</li>
+									<li><a class="dropdown-item" href="toffin-for-home.html"><span
+												id='printchatbox-category'
 												style="font-size: 12px; font-weight: bold;"></span><br />
-												<span class="icon-search"></span> &#160; <span>By Category</span></a></li>
+											<span class="icon-search"></span> &#160; <span>By Category</span></a></li>
 									<li><a class="dropdown-item" href="#"><span id='printchatbox-brand'
 												style="font-size: 12px; font-weight: bold;"></span><br />
-												<span class="icon-search"></span> &#160; <span>By Brand</span></a></li>
+											<span class="icon-search"></span> &#160; <span>By Brand</span></a></li>
 								</ul>
 							</form>
 						</div>
 					</li>
-
-					
-
-
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-
 	<!-- END nav -->
-
 
 
 	<div class="py-1 " style="background: #ffa45c !important;">
@@ -231,13 +203,11 @@
 			<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
 				<div class="col-lg-12 d-block">
 					<div class="row d-flex" style="float: right;">
-
 						<div class="col-md-12 pr-4 d-flex topper align-items-right text-lg-right"
 							style="margin-bottom: 0;">
 							<span data-toggle="modal" data-target="#contact-modal"
 								style="color: white; cursor: pointer;"><i class="fas fa-map-marker-alt"></i> Dikirim ke
 								<strong>Pluit Permai No 4</strong>&nbsp;<i class="fas fa-caret-down"></i></span>
-
 						</div>
 					</div>
 				</div>
@@ -245,903 +215,624 @@
 		</div>
 	</div>
 
-
-	<section id="home-section" class="hero">
-		<div class="home-slider js-fullheight owl-carousel">
-			<div class="slider-item js-fullheight">
-				<div class="overlay"></div>
-				<div class="container-fluid p-0">
-					<div class="row no-gutters slider-text js-fullheight align-items-center"
-						data-scrollax-parent="true">
-						<div class="one-third order-md-last img js-fullheight"
-							style="background-image:url(images/slider.jpg);">
-						</div>
-						<div class="one-forth d-flex js-fullheight align-items-center ftco-animate"
-							data-scrollax=" properties: { translateY: '70%' }" style="justify-content: space-evenly; top:40%">
-								<div class="horizontal">
-									<p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover Now</a></p>
-								</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<div class="slider-item js-fullheight">
-				<div class="overlay"></div>
-				<div class="container-fluid p-0">
-					<div class="row no-gutters slider-text js-fullheight align-items-center"
-						data-scrollax-parent="true">
-						<div class="one-third order-md-last img js-fullheight"
-							style="background-image:url(images/sliderhome-ecommerce.jpg);">
-						</div>
-						<div class="one-forth d-flex js-fullheight align-items-center ftco-animate"
-							data-scrollax=" properties: { translateY: '70%' }" style="justify-content: space-evenly; top:40%">
-								<div class="horizontal">
-									<p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover Now</a></p>
-								</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<div class="slider-item js-fullheight">
-				<div class="overlay"></div>
-				<div class="container-fluid p-0">
-					<div class="row no-gutters slider-text js-fullheight align-items-center"
-						data-scrollax-parent="true">
-						<div class="one-third order-md-last img js-fullheight"
-							style="background-image:url(images/sliderhome2.jpg);">
-						</div>
-						<div class="one-forth d-flex js-fullheight align-items-center ftco-animate"
-							data-scrollax=" properties: { translateY: '70%' }" style="justify-content: space-evenly; top:40%">
-								<div class="horizontal">
-									<p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover Now</a></p>
-								</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-
-			<!-- <div class="slider-item js-fullheight">
-	      	<div class="overlay"></div>
-	        <div class="container-fluid p-0">
-	          <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third order-md-last img js-fullheight" style="background-image:url(images/bg_2.jpg);">
-	          	</div>
-		          <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<div class="horizontal">
-		          			<h1 class="mb-4 mt-3">A Thouroughly Modern</h1>
-				            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
-				            
-				            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Shop Now</a></p>
-				          </div>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div> -->
-		</div>
-	</section>
-
-	<section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+	<section class="ftco-section  ftco-no-pb ftco-no-pt bg-light">
 		<div class="container">
 			<div class="row">
-
-				<div class="col-md-12 py-5 wrap-about ftco-animate">
-					<div class="heading-section-bold mb-4 mt-md-5">
-						<div class="ml-md-0">
-							<h2 class="mb-4" style="text-align: center;">Dari Personal Hingga Profesional</h2>
-						</div>
+				<div class="col-md-8 py-md-5 pt-5 ftco-animate bg-light">
+					<div class="heading-section ">
+						<h2>Store. The best way to buy the products you love.</h2>
 					</div>
-					<div class="pb-md-5">
-						<p style="text-align: center;"></p><br><br><br>
-						<div class="row ftco-services" style="justify-content:space-around;">
-							<div class="col-lg-2 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-cafe.html"><img src="images/tfn-for-cafe.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-coffeeshop.html">
-											<h3 class="heading">Toffin For Cafe</h3>
-										</a>
-										<p>Temukan mesin kopi kelas dunia yang cocok untuk bisnis rintisan hingga kedai kopi specialty</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-2 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-home.html"><img src="images/tfn-for-home.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-home.html">
-											<h3 class="heading">Toffin For Home</h3></a>
-										<p>Wujudkan kemewahan dengan menghadirkan mesin kopi dan perlengkapan dapur di rumah</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-2 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-office.html"><img src="images/tfn-for-office.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-office.html">
-											<h3 class="heading">Toffin For Office</h3></a>
-										<p>Tingkatkan produktifitas karyawan melalui coffee station dari rangkaian produk dari Toffin</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-2 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-gelateria.html"><img src="images/tfn-for-ingredients.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-gelateria.html">
-											<h3 class="heading">Toffin for Ingredients</h3></a>
-										<p>Kreasikan aneka minuman untuk bisnis kafe dan restoran dengan bahan baku terbaik</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-2 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-gelateria.html"><img src="images/tfn-for-gelateria.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-gelateria.html">
-											<h3 class="heading">Toffin For Gelateria</h3>
-										</a>
-										<p>Saatnya Anda mempunyai bisnis gerai es krim dengan mesin dan bahan gelato asal Italia</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section bg-light">
-		<div class="container">
-			<div class="row justify-content-center mb-3 pb-3">
-				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Produk Terlaris</h2>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="MultiCarousel" data-items="1,2,3,4" data-slide="1" id="MultiCarousel" data-interval="1000">
-					<div class="MultiCarousel-inner">
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red)</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red)</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<button class="btn btn-primary leftLst" style="border-radius: 0px;"><</button>
-					<button class="btn btn-primary rightLst" style="border-radius: 0px;">></button>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<section class="ftco-section ftco-no-pb ftco-no-pt">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-md-12 py-5 wrap-about pb-md-5 ftco-animate">
-					<div class="heading-section-bold mb-4 mt-md-5">
-						<div class="ml-md-0">
-							<h2 class="mb-4" style="text-align: center;">Toffin For Kitchen</h2>
-						</div>
-					</div>
-					<div class="pb-md-5">
-						<p style="text-align: center;"></p><br><br><br>
-						<div class="row ftco-services">
-							<div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-western-food.html"><img src="images/western.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-western-food.html">
-											<h3 class="heading">Western Food</h3>
-										</a>
-										<p>Prosesnya yang sederhana dan tampilannya yang elegan membuat siapapun tergiur untuk mencicipi masakan barat. Temukan set perlengkapan dapur untuk masakan barat yang sudah banyak dipakai  restoran dan hotel internasional.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-chinese-food.html"><img src="images/chinese.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-chinese-food.html">
-											<h3 class="heading">Chinese Food</h3>
-										</a>
-										<p>Masakan China tidak pernah kehilangan popularitas. Di sini Anda bisa mencari tahu set perlengkapan dapur apa saja yang bisa dihadirkan di restoran Anda. Dapatkan juga tips bagaimana mendatangkan pelanggan.
-										</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-indonesian-food.html"><img src="images/indonesian.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-indonesian-food.html">
-											<h3 class="heading">Indonesian Food</h3>
-										</a>
-										<p>Ratusan mitra telah banyak menggunakan set perlengkapan dapur dari Toffin. Di sini Anda bisa memilih perlengkapan mana yang cocok untuk restoran Indonesia. Hubungi kami untuk referensi produk dapur terbaik untuk Anda.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-japanese-food.html"><img src="images/japanese.png"
-												style="width: 60px;"></span></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-japanese-food.html">
-											<h3 class="heading">Japanese Food</h3>
-										</a>
-										<p>Peluang besar bagi Anda yang tertarik untuk membangun restoran masakan Jepang.  Tidak lupa, penuhi seluruh kebutuhan set perlengkapan dapurnya sehingga sajian yang dihidangkan dapat memenuhi ekspektasi pelanggan Anda.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-korean-food.html"><img src="images/korean.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-korean-food.html">
-											<h3 class="heading">Korean Food</h3>
-										</a>
-										<p>Makanan Korea tengah menjadi tren di Indonesia yang digemari oleh banyak kalangan. Tangkap peluang bisnisnya dengan menghadirkan set perlengkapan dapur yang dirancang khusus untuk restoran berkonsep Korea.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-								<div class="media block-6 services">
-									<div class="icon d-flex justify-content-center align-items-center mb-4">
-										<a href="toffin-for-kafe-restoran.html"><img src="images/cafe.png"
-												style="width: 60px;"></a>
-									</div>
-									<div class="media-body">
-										<a href="toffin-for-kafe-restoran.html">
-											<h3 class="heading">Kafe & Restoran</h3>
-										</a>
-										<p>Kesulitan mencari perlengkapan dapur yang sesuai dengan jaminan jasanya?. Di sini Anda bisa mendapatkan beragam jenis produk dengan kualitas terbaik, termasuk jaminan garansi, perawatan dan perbaikan.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- <section class="ftco-section bg-light">
-    	<div class="container">
-				<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Best Sellers</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-          </div>
-        </div>   		
-    	</div>
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="product" id="recipeCarousel2"  data-ride="carousel" style="margin: 0 auto;">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="Colorlib Template">
-    						<span class="status">30%</span>
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">Floral Jackquard Pullover</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							<p class="text-right">
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    							</p>
-	    						</div>
-	    					</div>
-	    					<p class="bottom-area d-flex px-3">
-    							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="#" class="buy-now text-center py-2" onclick="myFavorite()">Favorit<span><i class="ion-ios-heart ml-1"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">Floral Jackquard Pullover</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							<p class="text-right">
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    							</p>
-	    						</div>
-	    					</div>
-    						<p class="bottom-area d-flex px-3">
-    							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="#" class="buy-now text-center py-2" onclick="myFavorite()">Favorit<span><i class="ion-ios-heart ml-1"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-3.jpg" alt="Colorlib Template">
-	    					<div class="overlay"></div>
-	    				</a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">Floral Jackquard Pullover</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							<p class="text-right">
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    							</p>
-	    						</div>
-	    					</div>
-    						<p class="bottom-area d-flex px-3">
-    							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="#" class="buy-now text-center py-2" onclick="myFavorite()">Favorit<span><i class="ion-ios-heart ml-1"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">Floral Jackquard Pullover</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							<p class="text-right">
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    								<a href="#"><span class="ion-ios-star-outline"></span></a>
-	    							</p>
-	    						</div>
-	    					</div>
-    						<p class="bottom-area d-flex px-3">
-    							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="#" class="buy-now text-center py-2" onclick="myFavorite()">Favorit<span><i class="ion-ios-heart ml-1"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-				</div>
-				<a class="carousel-control-prev w-auto" href="#recipeCarousel2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next w-auto" href="#recipeCarousel2" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-    		</div>
-    	</div>
-    </section>-->
-
-
-	<section class="ftco-section ftco-choose ftco-no-pb ftco-no-pt">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 d-flex align-items-stretch">
-					<div class="img" style="background-image: url(images/learning.jpg); height: 435px;"></div>
 				</div>
 				<div class="col-md-4 py-md-5 ftco-animate">
-					<div class="text text-2 py-md-6">
-						<h2 class="mb-4">Toffin E-Learning Center</h2>
-						<p>Belajar, berlatih dan mengembangkan bisnis kini bisa lebih mudah. Toffin E-Learning Center adalah platform pembelajaran kopi secara online terbesar di Indonesia.  Anda dapat meningkatkan kemampuan dari puluhan mentor, baik secara gratis ataupun berbayar.</p>
-						<p class="btn btn-white px-4 py-3"></p>
-					</div>
+					<ul class="comment-list">
+						<li class="comment">
+							<div class="vcard bio">
+								<img src="https://res.cloudinary.com/idemo/image/upload/dpr_1.0,c_thumb,g_face,w_200,h_200/woman.jpg"
+									alt="">
+							</div>
+							<div class="comment-body">
+								<h6>Need shopping help?</h6>
+								<p><a href="#" class="reply"><span class="ion-ios-text"></span> Ask a Specialist</a></p>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
+		
+	
+		<div class=" card-container pt-3 pb-3 bg-light">
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/e1prima_header.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Coffee Machine
+					</div>
+				</header>
+			</div>
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/compak.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Coffee Grinder
+					</div>
+				</header>
+			</div>
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/e1prima_header.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Ingredients
+					</div>
+				</header>
+			</div>
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/e1prima_header.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Water Treatment
+					</div>
+				</header>
+			</div>
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/e1prima_header.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Manual Brew
+					</div>
+				</header>
+			</div>
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/e1prima_header.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Gelato
+					</div>
+				</header>
+			</div>
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/e1prima_header.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Roasted Beans
+					</div>
+				</header>
+			</div>
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/e1prima_header.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Kitchen Equipment
+					</div>
+				</header>
+			</div>
+			<div class="card-cat">
+				<header class="article-header">
+					<div>
+						<div class="article-title">
+							<img src="images/e1prima_header.png" height="110">
+						</div>
+					</div>
+					<div class="article-title">
+						Other Equipment
+					</div>
+				</header>
+			</div>
+		</div>
+	</div>
+	
+	</section>
 
+
+	<section class="ftco-section  ftco-no-pb ftco-no-pt bg-light">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-5 order-md-last d-flex align-items-stretch">
-					<div class="img img-2" style="background-image: url(images/learning2.jpg);"></div>
-				</div>
-				<div class="col-md-7 py-3 py-md-5 ftco-animate">
-					<div class="text text-2 py-md-5">
-						<h2 class="mb-4">Toffin E-Learning Center</h2>
-						<p>Ada tiga kelas yang dibahas antara lain : resep pembuatan aneka minuman, strategi bisnis, marketing dan operasional kedai kopi, serta pelatihan barista dan pengetahuan kopi. Gabung sekarang!.</p>
-						<p><a href="https://toffin.id/toffin-e-learning/" class="btn btn-white px-4 py-3">E-Learning
-								Center</a></p>
+				<div class="col-md-12 pt-3 ftco-animate">
+					<div class="heading-section">
+						<h3 class="heading-section "><span style="color: orange;">Terbaru. </span> Temukan sekarang.
+						</h3>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="ftco-section bg-light">
+	<section class="ftco-section pt-5 pb-5 bg-light">
 		<div class="container">
-			<div class="row justify-content-center mb-3 pb-3">
-				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Produk Terbaru</h2>
-				</div>
+	<div class="blog-slider">
+		<div class="blog-slider__wrp swiper-wrapper">
+		  <div class="blog-slider__item swiper-slide">
+			<div class="blog-slider__img">
+			  
+			  <img src="images/va-slider.jpg" alt="">
 			</div>
+			<div class="blog-slider__content">
+			  <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+			  <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
+			  <a href="#" class="blog-slider__button">Discover Now</a>
+			</div>
+		  </div>
+		  <div class="blog-slider__item swiper-slide">
+			<div class="blog-slider__img">
+			  <img src="images/vbm-slider.jpg" alt="">
+			</div>
+			<div class="blog-slider__content">
+			  <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
+			  <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+			  <a href="#" class="blog-slider__button">Discover Now</a>
+			</div>
+		  </div>
+		  
+		  <div class="blog-slider__item swiper-slide">
+			<div class="blog-slider__img">
+			  <img src="images/va-slider.jpg" alt="">
+			</div>
+			<div class="blog-slider__content">
+			  <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+			  <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+			  <a href="#" class="blog-slider__button">Discover Now</a>
+			</div>
+		  </div>
+		  
 		</div>
+		<div class="blog-slider__pagination"></div>
+	  </div>
+	</div>
+</section>
+
+
+	
+	<section class="ftco-section  ftco-no-pb ftco-no-pt bg-light">
 		<div class="container">
 			<div class="row">
-				<div class="MultiCarousel" data-items="1,2,3,4" data-slide="1" id="MultiCarousel" data-interval="1000">
-					<div class="MultiCarousel-inner">
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red)</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red)</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-sm col-lg ftco-animate">
-								<div class="product" id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
-									<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
-											alt="Colorlib Template"></a>
-									<div class="overlay"></div>
-									<p class="product__list__item--icons" style="margin-bottom: 0px;">
-										<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-													class="fas fa-heart fa-2x"></i></a></span>
-									</p>
-									<div class="text py-3 px-3" style="text-align: left; height: 150px">
-										<h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
-										<div class="d-flex">
-											<div class="pricing" style="width: 100%;">
-												<p class="price">
-													<p class="price"><span class="mr-2 price-dc"
-															style="font-size: 13px;">Rp 250.000.000</span></p>
-													<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-												</p>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-
+				<div class="col-md-12 pt-5 ftco-animate">
+					<div class="heading-section">
+						<h3 class="heading-section ">Kelebihan berbelanja di <span style="color: orange;">Toffin
+								Indonesia. </span>
+						</h3>
 					</div>
-					<button class="btn btn-primary leftLst" style="border-radius: 0px;"><</button>
-				<button class="btn btn-primary rightLst" style="border-radius: 0px;">></button>
+				</div>
+			
+
+		<div class="card-container pt-3 pb-4">
+			<div class="box-feature">
+				<div class="card-feature">
+					<header class="article-header">
+						<div class="feature-icon">
+							<div class="ion-ios-cube">
+							</div>
+						</div>
+						<div class="article-title">
+							Custom Theme with Angular Material
+						</div>
+					</header>
+				</div>
+			</div>
+			<div class="box-feature">
+				<div class="card-feature">
+					<header class="article-header">
+						<div class="feature-icon">
+							<div class="ion-ios-cube">
+							</div>
+						</div>
+						<div class="article-title">
+							Custom Theme with Angular Material
+						</div>
+					</header>
+				</div>
+			</div>
+			<div class="box-feature">
+				<div class="card-feature">
+					<header class="article-header">
+						<div class="feature-icon">
+							<div class="ion-ios-cube">
+							</div>
+						</div>
+						<div class="article-title">
+							Custom Theme with Angular Material
+						</div>
+					</header>
+				</div>
+			</div>
+			<div class="box-feature">
+				<div class="card-feature">
+					<header class="article-header">
+						<div class="feature-icon">
+							<div class="ion-ios-cube">
+							</div>
+						</div>
+						<div class="article-title">
+							Custom Theme with Angular Material
+						</div>
+					</header>
+				</div>
+			</div>
+			<div class="box-feature">
+				<div class="card-feature">
+					<header class="article-header">
+						<div class="feature-icon">
+							<div class="ion-ios-cube">
+							</div>
+						</div>
+						<div class="article-title">
+							Custom Theme with Angular Material
+						</div>
+					</header>
+				</div>
+			</div>
+			<div class="box-feature">
+				<div class="card-feature">
+					<header class="article-header">
+						<div class="feature-icon">
+							<div class="ion-ios-cube">
+							</div>
+						</div>
+						<div class="article-title">
+							Custom Theme with Angular Material
+						</div>
+					</header>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 	</section>
 
 
-	<footer class="ftco-footer bg-light ftco-section">
+	<section class="ftco-section  ftco-no-pb ftco-no-pt bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 pt-4 ftco-animate">
+					<div class="heading-section">
+						<h3 class="heading-section ">Produk terlaris</h3>
+					</div>
+				</div>
+			
+
+		<div class="card-container pt-3 pb-3">
+			<div class="box-feature ftco-animate">
+				<div class="card-product product">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-feature ftco-animate">
+				<div class="card-product product ">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-feature ftco-animate">
+				<div class="card-product product">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-feature ftco-animate">
+				<div class="card-product product">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-feature ftco-animate">
+				<div class="card-product product">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</section>
+
+	<section class="ftco-section  ftco-no-pb ftco-no-pt bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 pt-4 ftco-animate">
+					<div class="heading-section">
+						<h3 class="heading-section ">Produk terbaru</h3>
+					</div>
+				</div>
+			
+
+		<div class="card-container pt-3 pb-3">
+			<div class="box-feature ftco-animate">
+				<div class="card-product product">
+					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="box-feature ftco-animate">
+				<div class="card-product product ">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-feature ftco-animate">
+				<div class="card-product product">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-feature ftco-animate">
+				<div class="card-product product">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-feature ftco-animate">
+				<div class="card-product product">
+					<div id="recipeCarousel2" data-ride="carousel" style="margin: 0 auto;">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+								alt="Colorlib Template"></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</section>
+
+	<section class="ftco-section  ftco-no-pb ftco-no-pt bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 pt-4 ftco-animate">
+					<div class="heading-section">
+						<h3 class="heading-section ">Produk bundle</h3>
+					</div>
+				</div>
+			
+		<div class="card-container pt-3 pb-5" id="concord-cardssdsd">
+			<div class="bundle-pr-images">
+					<img class="card-slider-bundle" src="images/vbm-slider.jpg">
+				
+				<div class="content"></div>
+			</div>
+			<div class="bundle-pr-images">
+				<a href="#">
+					<img class="card-slider-bundle" src="images/va-slider.jpg">
+				</a>
+			</div>
+			<div class="bundle-pr-images">
+				<a href="#"></a>
+					<img class="card-slider-bundle" src="images/vbm-slider.jpg">
+				</a>
+			</div>
+			<div class="bundle-pr-images">
+				<a href="#"></a>
+					<img class="card-slider-bundle" src="images/va-slider.jpg">
+				</a>
+			</div>
+			<div class="bundle-pr-images">
+				<a href="#"></a>
+					<img class="card-slider-bundle" src="images/vbm-slider.jpg">
+				</a>
+			</div>
+			<div class="bundle-pr-images">
+				<a href="#">
+					<img class="card-slider-bundle" src="images/va-slider.jpg">
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+	</section>
+
+	<footer class="ftco-footer ftco-section">
 		<div class="container">
 			<div class="row">
 				<div class="mouse">
@@ -1153,8 +844,9 @@
 			<div class="row mb-5">
 				<div class="col-md-4">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Toffin Indonesia</h2>
-						<p>Solusi bisnis kopi terintegrasi yang menawarkan kebutuhan untuk kafe, restoran, rumah, kantor, bisnis gelato, hingga perlengkapan dapur, dari merek kelas dunia.</p>
+						<h2 class="ftco-heading-2"><strong>TOFFIN INDONESIA</strong></h2>
+						<p>Solusi bisnis kopi terintegrasi yang menawarkan kebutuhan untuk kafe, restoran, rumah,
+							kantor, bisnis gelato, hingga perlengkapan dapur, dari merek kelas dunia.</p>
 						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
 							<li class="ftco-animate"><a href="https://www.youtube.com/channel/UCNrUySuF5xfkE7wO12Q_iig"
 									target="_blank" rel="noopener noreferrer"><span class="icon-youtube"></span></a>
@@ -1171,7 +863,7 @@
 				</div>
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4 ml-md-5">
-						<h2 class="ftco-heading-2">Informasi</h2>
+						<h2 class="ftco-heading-2"><strong>INFORMASI</strong></h2>
 						<ul class="list-unstyled">
 							<li><a href="toffin.id/about" class="py-2 d-block">Tentang Kami</a></li>
 							<li><a href="faq.html" class="py-2 d-block">FAQ</a></li>
@@ -1182,7 +874,7 @@
 				</div>
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Kontak</h2>
+						<h2 class="ftco-heading-2"><strong>KONTAK</strong></h2>
 						<div class="block-23 mb-3">
 							<ul>
 								<li><span class="icon icon-map-marker"></span><span class="text">Jl. Pluit Permai No.4,
@@ -1296,6 +988,8 @@
 				stroke="#F96D00" /></svg></div>
 
 
+				
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
