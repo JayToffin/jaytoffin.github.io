@@ -14176,73 +14176,6 @@ textarea.form-control {
   border: 1px solid #000;
 }
 
-.comment-form-wrap {
-  clear: both;
-}
-
-.comment-list {
-  padding: 0;
-  margin: 0;
-}
-
-.comment-list .children {
-  padding: 50px 0 0 40px;
-  margin: 0;
-  float: left;
-  width: 100%;
-}
-
-.comment-list li {
-  padding: 0;
-  /* margin: 0 0 30px 0; */
-  float: left;
-  width: 100%;
-  clear: both;
-  list-style: none;
-}
-
-.comment-list li .vcard {
-  width: 80px;
-  float: left;
-}
-
-.comment-list li .vcard img {
-  width: 40px;
-  border-radius: 50%;
-}
-
-.comment-list li .comment-body {
-  float: right;
-  width: calc(100% - 80px);
-}
-
-.comment-list li .comment-body h3 {
-  font-size: 20px;
-}
-
-.comment-list li .comment-body .meta {
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: .1em;
-  color: #ccc;
-}
-
-.comment-list li .comment-body .reply {
-  padding: 5px 10px;
-  background: #e6e6e6;
-  color: #000000;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: .1em;
-  font-weight: 400;
-  border-radius: 4px;
-}
-
-.comment-list li .comment-body .reply:hover {
-  color: #fff;
-  background: black;
-}
-
 .search-form .form-group {
   position: relative;
 }
@@ -16562,6 +16495,11 @@ a:active {
   align-items: center;
 }
 
+.card-container:active {
+  cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
 .card-container::-webkit-scrollbar {
   width: 0 !important
 }
@@ -16570,6 +16508,12 @@ a:active {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  transition: all 0.3s;
+}
+
+.card-cat:hover {
+  transform: scale(1.2);
+  color: orange;
 }
 
 .card-cat .category-title {
@@ -16604,12 +16548,31 @@ a:active {
   height: 625px;
   transition: all 0.3s;
 }
-@media screen and (max-width: 992px) {
+
+@media screen and (min-width: 768px) {
+.blog-slider {
+  width: 100%;
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  /* box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2); */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  padding: 25px;
+  border-radius: 25px;
+  height: 625px;
+  transition: all 0.3s;
+  transform: translateX(105px);
+  }
+}
+
+
+/* @media screen and (max-width: 992px) {
   .blog-slider {
     max-width: 680px;
     height: 400px;
   }
-}
+} */
 @media screen and (max-width: 768px) {
   .blog-slider {
     min-height: 500px;
@@ -16696,6 +16659,21 @@ a:active {
   transform: translateX(-130px);
   overflow: hidden;
 }
+
+@media screen and (min-width: 768px) {
+  .blog-slider__img {
+    width: 450px;
+    flex-shrink: 0;
+    /* height: 425px; */
+    background-image: linear-gradient(147deg, #fe8a39 0%, #ffa45c 74%);
+    /* box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2); */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    transform: translateX(-235px);
+    overflow: hidden;
+}
+}
+
 .blog-slider__img:after {
   content: "";
   position: absolute;
@@ -16703,7 +16681,7 @@ a:active {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: 25px;
   opacity: 0.8;
 }
 .blog-slider__img img {
@@ -16746,6 +16724,13 @@ a:active {
     padding: 0;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .blog-slider__content {
+    transform: translateX(-110px);
+  }
+}
+
 .blog-slider__content > * {
   opacity: 0;
   transform: translateY(25px);
@@ -16849,7 +16834,7 @@ a:active {
 
 .bundle-pr-images{
   border-radius: 18px;
-  padding-right: 20px;
+  padding-right: 25px;
 }
 
 .card-slider-bundle {
@@ -16896,8 +16881,10 @@ a:active {
 }
 
 .box-feature {
-  padding-right: 20px;
-  /* transform: translateX(calc(max(1149px, 90vw)/2 - 480px)); */
+  padding-right: 25px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
 }
 
 .feature-icon {
@@ -16909,8 +16896,8 @@ a:active {
 /* HOMPAGE PRODUCT */
 
 .card-product {
-  width: 200px;
-  height: 350px;
+  width: 225px;
+  height: 380px;
   border-radius: 18px;
   background-color: #ffffff;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
@@ -16924,6 +16911,10 @@ a:active {
 
 .card-product:hover {
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.box-product {
+  padding-right: 25px;
 }
 
 .prod-home-title {
@@ -16942,3 +16933,38 @@ a:active {
 .white {
   background: white;
 }
+
+
+/* CSS Multiple Whatsapp Chat */
+
+a.blantershow-chat {
+  /*   background: #009688; */
+  background: #fff;
+  color: #000000;
+  position: fixed;
+  display: flex;
+  height: 40px;
+  font-weight: 600;
+  justify-content: space-between;
+  z-index: 98;
+  bottom: 25px;
+  right: 30px;
+  font-size: 12px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 1px 15px rgba(32, 33, 36, 0.28);
+}
+a.blantershow-chat svg {
+  transform: scale(1.2);
+  margin: 0 10px 0 0;
+}
+
+.alert-form {
+  font-size: 12px;
+  color: red;
+  font-weight: 500;
+}
+
+
+
+
