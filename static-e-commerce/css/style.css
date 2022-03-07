@@ -16422,6 +16422,11 @@ a:active {
 
 .reveal{
   border-radius: 0px;
+  font-size: 80%;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
 }
 
 
