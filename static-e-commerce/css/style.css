@@ -14568,7 +14568,7 @@ textarea.form-control {
   }
 
   .dropdown-menu>li:hover {
-    background-color: rgba(225, 164, 95, 0.7);
+    background-color: rgba(225, 164, 95, 0.3);
   }
 
   .dropdown-menu>li:hover>.submenu {
