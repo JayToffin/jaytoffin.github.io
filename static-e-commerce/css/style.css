@@ -4,7 +4,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -16422,11 +16422,6 @@ a:active {
 
 .reveal{
   border-radius: 0px;
-  font-size: 80%;
-  letter-spacing: .1rem;
-  font-weight: bold;
-  padding: 1rem;
-  transition: all 0.2s;
 }
 
 
@@ -16547,7 +16542,7 @@ a:active {
   margin: auto;
   background: #fff;
   /* box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2); */
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0px 7px rgb(32 33 36 / 28%);
   padding: 25px;
   border-radius: 25px;
   height: 625px;
@@ -16562,7 +16557,7 @@ a:active {
   margin: auto;
   background: #fff;
   /* box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2); */
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0px 7px rgb(32 33 36 / 28%);
   padding: 25px;
   border-radius: 25px;
   height: 625px;
@@ -16659,7 +16654,7 @@ a:active {
   /* height: 425px; */
   background-image: linear-gradient(147deg, #fe8a39 0%, #ffa45c 74%);
   /* box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2); */
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0px 7px rgb(32 33 36 / 28%);
   border-radius: 20px;
   transform: translateX(-130px);
   overflow: hidden;
@@ -16672,7 +16667,7 @@ a:active {
     /* height: 425px; */
     background-image: linear-gradient(147deg, #fe8a39 0%, #ffa45c 74%);
     /* box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2); */
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0px 7px rgb(32 33 36 / 28%);
     border-radius: 25px;
     transform: translateX(-235px);
     overflow: hidden;
@@ -16845,14 +16840,14 @@ a:active {
 .card-slider-bundle {
   width: 250px;
   border-radius: 18px;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0px 7px rgb(32 33 36 / 28%);
   display: flex;
   flex-direction: column;
   transition: 0.2s;
 }
 
 .card-slider-bundle:hover {
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0px 7px rgb(32 33 36 / 28%);
 }
 
 
@@ -16863,7 +16858,7 @@ a:active {
   min-width: 225px;
   border-radius: 18px;
   background-color: #ffaf6b;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0px 7px rgb(32 33 36 / 28%);
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -16882,7 +16877,10 @@ a:active {
 }
 
 .card-feature:hover {
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.03);
+  box-shadow: 0 0px 10px rgb(32 33 36 / 28%);
 }
 
 .box-feature {
@@ -16905,7 +16903,7 @@ a:active {
   height: 380px;
   border-radius: 18px;
   background-color: #ffffff;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0px 7px rgb(32 33 36 / 28%);
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -16915,7 +16913,10 @@ a:active {
 }
 
 .card-product:hover {
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.03);
+  box-shadow: 0 0px 10px rgb(32 33 36 / 28%);
 }
 
 .box-product {
@@ -16973,3 +16974,56 @@ a.blantershow-chat svg {
 
 
 
+
+.swiper-container {
+  width: 1140px;
+  margin: auto;
+}
+.swiper-container-nav {
+  width: 1240px;
+  margin: auto;
+}
+
+@media (max-width: 576px) {
+  .swiper-container {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-container{
+  width: 100% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .swiper-container-nav {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-container-nav{
+  width: 100% !important;
+  }
+}
+
+
+.swiper-button-next, .swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  width: 30px !important;
+  height: 30px !important;
+  margin-top: -10px !important;
+  z-index: 10;
+  cursor: pointer;
+  -moz-background-size: 27px 44px;
+  -webkit-background-size: 27px 44px;
+  background-size: 10px 14px !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  box-shadow: 0 0px 5px rgba(32, 33, 36, 0.28);
+  border-radius: 50px; }
+  
+ 
