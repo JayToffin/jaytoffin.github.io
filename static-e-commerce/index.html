@@ -168,6 +168,8 @@
 							<li><a class="dropdown-item" href="register.html"> Register </a></li>
 							<li><a class="dropdown-item" href="my-account.html"> My Account </a></li>
 							<li><a class="dropdown-item" href="#"> Logout </a></li>
+							<li><a class="dropdown-item" href="#"> Daftar Belanja </a></li>
+							<li><a class="dropdown-item" href="#"> Favorite </a></li>
 						</ul>
 					</li>
 
@@ -614,6 +616,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -637,6 +642,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -660,6 +668,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -683,6 +694,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -706,6 +720,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -729,6 +746,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -768,6 +788,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -791,6 +814,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -814,6 +840,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -837,6 +866,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -860,6 +892,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -883,6 +918,9 @@
 								</p>
 							</div>
 						</div>
+						<p class="bottom-area d-flex px-3">
+							<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+						</p>
 					</div>
 					
 				</div>
@@ -1115,44 +1153,6 @@
       }
     </script>
 
-<!-- Initialize Swiper -->
-<script>
-	var swiper = new Swiper('.swiper-container-bundle', {
-	  slidesPerView: 1,
-	  direction: getDirection(),
-	  navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	  },
-	  breakpoints: {
-		  300: {
-		  slidesPerView: 2,
-		  spaceBetween: 5
-		},
-		768: {
-		  slidesPerView: 3,
-		  spaceBetween: 10
-		},
-		1024: {
-		  slidesPerView: 4,
-		  spaceBetween: 5
-		}
-	  },
-	  on: {
-		resize: function () {
-		  swiper.changeDirection(getDirection());
-		},
-	  },
-	});
-
-
-	function getDirection() {
-	  var windowWidth = window.innerWidth;
-	  var direction = window.innerWidth <= 0 ? 'vertical' : 'horizontal';
-
-	  return direction;
-	}
-  </script>
 
 	<script>
 		window.dataLayer = window.dataLayer || [];
