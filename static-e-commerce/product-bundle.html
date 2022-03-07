@@ -30,6 +30,10 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
+	<link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
 		integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
@@ -223,359 +227,396 @@
 		</div>
 	</nav>
 	<!-- END nav -->
-
-	<div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
+	<section class="ftco-section ftco-no-pb pt-3 bg-light">
 		<div class="container">
-			<div class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-
-					<h1 class="mb-0 bread" style="color: white;">Product Bundle</h1>
+			<div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
+				<div class="row no-gutters slider-text align-items-center justify-content-center">
+					<div class="col-md-9 ftco-animate text-center">
+						<h1 class="mb-0 bread" style="color: white;">Product Bundle</h1>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
+  
 
+	<section class="ftco-section ftco-no-pb pt-3 bg-light">
+		<div class="container Filtersbtn" style="justify-content: flex-end;">
+			<div class="filteration">
+				<button class="reset-fil btn btn-primary py-2 px-4 dropdown-toggle" type="button" id="shortlist"
+					data-toggle="dropdown" style=" border-radius: 10px !important;">Sort By</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="shortlis" style="padding-left: 10px;">
+					<li role="shortby"><a role="shortitem" tabindex="-1" href="#"
+							style="font-size: 14px; color: black;">Featured</a></li>
+					<li role="shortby"><a role="shortitem" tabindex="-1" href="#"
+							style="font-size: 14px; color: black;">Newest</a></li>
+					<li role="shortby"><a role="shortitem" tabindex="-1" href="#"
+							style="font-size: 14px; color: black;">Price Low To High</a></li>
+					<li role="shortby"><a role="shortitem" tabindex="-1" href="#"
+							style="font-size: 14px; color: black;">Price High To Low</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<div class="card-container white page-bundle pt-4 pb-3">
 
-	<section class="ftco-section  ftco-no-pb ftco-no-pt bg-light">
-
-		<div class="container" style="padding: 15px;">
-			<div class="row">
-
-				<div class="container Filtersbtn" style="justify-content: flex-end;">
-					<div class="filteration">
-						<button class="reset-fil btn btn-primary py-2 px-4 dropdown-toggle" type="button" id="shortlist"
-							data-toggle="dropdown" style=" border-radius: 10px !important;">Sort By</button>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="shortlis" style="padding-left: 10px;">
-							<li role="shortby"><a role="shortitem" tabindex="-1" href="#"
-									style="font-size: 14px; color: black;">Featured</a></li>
-							<li role="shortby"><a role="shortitem" tabindex="-1" href="#"
-									style="font-size: 14px; color: black;">Newest</a></li>
-							<li role="shortby"><a role="shortitem" tabindex="-1" href="#"
-									style="font-size: 14px; color: black;">Price Low To High</a></li>
-							<li role="shortby"><a role="shortitem" tabindex="-1" href="#"
-									style="font-size: 14px; color: black;">Price High To Low</a></li>
-						</ul>
+				<div class="box-heading-bundle text-center">
+					<div class="heading-section box-heading-bundle">
+						<h5 class="heading-section ">Produk bundle 1 toffin for home</h5>
+						<p>Rp 150.000.000</p>
+						<a href="checkout.html" class="btn btn-primary py-2 px-4" data-toggle="modal" data-target="#bundle-variant" style="border-radius: 0px !important;">Add to cart</a>
 					</div>
 				</div>
 
-				<div class="card-container white page-bundle pt-4 pb-3">
-
-					<div class="box-heading-bundle">
-						<div class="heading-section box-heading-bundle">
-							<h5 class="heading-section ">Produk bundle 1 toffin for home</h5>
-							<p>Rp 150.000.000</p>
-							<a href="checkout.html" class="btn btn-primary py-2 px-4" data-toggle="modal" data-target="#bundle-variant" style="border-radius: 0px !important;">Add to cart</a>
-						</div>
-					</div>
-
-					<div class="box-feature ftco-animate"> 
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<div class="price">
-											<span class="mr-2 price-dc" style="font-size: 13px;">Rp 250.000.000</span>
-										</div>
-										<div class="price-sale">
-											<strong>Rp 230.000.000</strong>
-										</div>
+				<div class="box-feature ftco-animate"> 
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<div class="price">
+										<span class="mr-2 price-dc" style="font-size: 13px;">Rp 250.000.000</span>
 									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
+									<div class="price-sale">
+										<strong>Rp 230.000.000</strong>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="card-container white page-bundle pt-4 pb-3 mt-5">
-
-					<div class="box-heading-bundle">
-						<div class="heading-section box-heading-bundle">
-							<h5 class="heading-section ">Produk bundle 1</h5>
-							<p>Rp 150.000.000</p>
-							<a href="checkout.html" class="btn btn-primary py-2 px-4" data-toggle="modal" data-target="#bundle-variant" style="border-radius: 0px !important;">Add to cart</a>
-						</div>
-					</div>
-
-					
-					
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container pt-4">
+			<div class="card-container white page-bundle pt-4 pb-3">
+
+				<div class="box-heading-bundle text-center">
+					<div class="heading-section box-heading-bundle">
+						<h5 class="heading-section ">Produk bundle 1 toffin for home</h5>
+						<p>Rp 150.000.000</p>
+						<a href="checkout.html" class="btn btn-primary py-2 px-4" data-toggle="modal" data-target="#bundle-variant" style="border-radius: 0px !important;">Add to cart</a>
+					</div>
+				</div>
+
+				<div class="box-feature ftco-animate"> 
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<div class="price">
+										<span class="mr-2 price-dc" style="font-size: 13px;">Rp 250.000.000</span>
+									</div>
+									<div class="price-sale">
+										<strong>Rp 230.000.000</strong>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container pt-4">
+			<div class="card-container white page-bundle pt-4 pb-3">
 
-				<div class="card-container white page-bundle pt-4 pb-3 mt-5">
+				<div class="box-heading-bundle text-center">
+					<div class="heading-section box-heading-bundle">
+						<h5 class="heading-section ">Produk bundle 1 toffin for home</h5>
+						<p>Rp 150.000.000</p>
+						<a href="checkout.html" class="btn btn-primary py-2 px-4" data-toggle="modal" data-target="#bundle-variant" style="border-radius: 0px !important;">Add to cart</a>
+					</div>
+				</div>
 
-					<div class="box-heading-bundle">
-						<div class="heading-section box-heading-bundle">
-							<h5 class="heading-section ">Produk bundle 1</h5>
-							<p>Rp 150.000.000</p>
-							<a href="checkout.html" data-toggle="modal" data-target="#bundle-variant" class="btn btn-primary py-2 px-4" style="border-radius: 0px !important;">Add to cart</a>
-						</div>
-					</div>
-
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
+				<div class="box-feature ftco-animate"> 
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<div class="price">
+										<span class="mr-2 price-dc" style="font-size: 13px;">Rp 250.000.000</span>
+									</div>
+									<div class="price-sale">
+										<strong>Rp 230.000.000</strong>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="box-feature ftco-animate">
-						<div class="card-product product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
-							<div class="overlay"></div>
-							<p class="product__list__item--icons" style="margin-bottom: 0px;">
-								<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
-											class="fas fa-heart fa-2x"></i></a></span>
-							</p>
-							<div class="text pt-3">
-								<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-								<div class="d-flex">
-									<div class="pricing" style="width: 100%;">
-										<p class="price">
-											<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-													250.000.000</span></p>
-											<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-										</p>
-									</div>
+				</div>
+				<div class="box-feature ftco-animate">
+					<div class="card-product product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt=""></a>
+						<div class="overlay"></div>
+						<p class="product__list__item--icons" style="margin-bottom: 0px;">
+							<span id="addtocart"><a href=" "><i id="heart--liked" style="float: right; "
+										class="fas fa-heart fa-2x"></i></a></span>
+						</p>
+						<div class="text pt-3">
+							<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
+							<div class="d-flex">
+								<div class="pricing" style="width: 100%;">
+									<p class="price">
+										<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+												250.000.000</span></p>
+										<span class="price-sale"><strong>Rp 230.000.000</strong></span>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -584,12 +625,6 @@
 			</div>
 		</div>
 	</section>
-
-
-
-
-
-
 
 
 	<footer class="ftco-footer bg-light ftco-section">
@@ -830,6 +865,43 @@
 			
 					gtag('config', 'UA-23581568-13');
 				</script>
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper('.card-container', {
+        slidesPerView: 1,
+        direction: getDirection(),
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 6,
+            spaceBetween: 10
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 10
+          }
+        },
+        on: {
+          resize: function () {
+            swiper.changeDirection(getDirection());
+          },
+        },
+      });
+
+      function getDirection() {
+        var windowWidth = window.innerWidth;
+        var direction = window.innerWidth <= 0 ? 'vertical' : 'horizontal';
+
+        return direction;
+      }
+    </script>
 
 
 </body>
