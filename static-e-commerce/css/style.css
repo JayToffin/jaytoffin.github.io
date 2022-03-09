@@ -14476,6 +14476,7 @@ textarea.form-control {
   float: left;
   width: 13.66%;
   border: 1px solid rgb(238, 238, 238);
+  margin: 3px;
 }
 
 /* Add a transparency effect for thumnbail images */
@@ -16406,7 +16407,7 @@ a:active {
 
 .thumb-produk-detail {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .img-detail-produk {
   height: fit-content;
