@@ -16407,7 +16407,7 @@ a:active {
 
 .thumb-produk-detail {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .img-detail-produk {
   height: fit-content;
