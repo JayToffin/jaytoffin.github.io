@@ -1488,7 +1488,7 @@
                     <div class="col-md-12">
                       <h5>Verifikasi ID</h5>
                       <p>Anda belum melengkapi data KTP atau NPWP, yang diperlukan untuk menerbitkan faktur pajak dari kami.</p>
-                      <p>Silahkan ini data KTP atau NPWP dibawah ini.</p>
+                      <p>Silahkan isi data KTP atau NPWP dibawah ini.</p>
                     </div>
                   </div> <!-- end row -->
 
@@ -1516,13 +1516,22 @@
                       <input type="file" class="file" placeholder="" name="img[]" accept="image/*" style="width: 100%;">
                     </div>
                   </div>
-                </div>
+                </div><hr>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="noktp">No NPWP</label>
                       <input type="text" name="noktp" maxlength="16" class="form-control noktp" placeholder="">
                     </div>
+                    <div class="form-group">
+                      <label for="noktp">Nama NPWP</label>
+                      <input type="text" name="noktp" maxlength="16" class="form-control noktp" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="noktp">Alamat NPWP</label>
+                      <textarea rows="2" cols="80" style="max-width: 100%;">
+                        </textarea>
+                      </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
@@ -1531,22 +1540,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="noktp">Nama NPWP</label>
-                      <input type="text" name="noktp" maxlength="16" class="form-control noktp" placeholder="">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="noktp">Alamat NPWP</label>
-                      <textarea rows="2" cols="50" style="max-width: 100%;">
-                        </textarea>
-                      </div>
-                  </div>
-                </div>
-                <div class="btnact" style="text-align: center;">
+                
+                <div class="btnact pt-5" style="text-align: center;">
                   <p class="btn btn-primary py-3 px-4 add-to-cart text-center py-2 mr-1" data-toggle="modal"
                     data-target="#resetpass1" style="border-radius: 0px;">Kirim Identitas</p>
                   
