@@ -16847,7 +16847,7 @@ a:active {
 @media (max-width: 576px) {
   .bundle-pr-images{
     width: auto;
-    height: 235px;
+    height: 225px;
     border-radius: 18px;
     /* padding-right: 25px; */
   }
@@ -16856,7 +16856,7 @@ a:active {
 @media (max-width: 768px) {
   .bundle-pr-images{
     width: auto;
-    height: 235px;
+    height: 225px;
     border-radius: 18px;
     /* padding-right: 25px; */
   }
