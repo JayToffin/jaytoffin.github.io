@@ -17055,14 +17055,21 @@ a.blantershow-chat svg {
 .swiper-container-product {
   width: 1140px;
   margin: auto;
-  overflow-x: auto;
+  overflow-x: scroll;
   padding: 5px;
 }
+.swiper-container-product::-webkit-scrollbar {
+  width: 0 !important
+}
+
 .swiper-container-kelebihan {
   width: 1140px;
   margin: auto;
-  overflow-x: auto;
+  overflow-x: scroll;
   padding: 5px;
+}
+.swiper-container-kelebihan::-webkit-scrollbar {
+  width: 0 !important
 }
 
 @media (max-width: 576px) {
