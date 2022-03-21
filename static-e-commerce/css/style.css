@@ -17136,3 +17136,36 @@ a.blantershow-chat svg {
   box-shadow: 0 0px 5px rgba(32, 33, 36, 0.28);
   border-radius: 50px; }
 
+  .sub ol {
+    list-style-type: none;
+    counter-reset: item;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  .sub li {
+    display: table;
+    counter-increment: item;
+    margin-bottom: 0.6em;
+  }
+  .sub li:before {
+      content: counters(item, ".") ;
+      display: table-cell;
+      padding-right: 0.6em;   
+      font-weight: bold; 
+  }
+  
+  .sub li li {
+      margin: 0;
+  }
+  
+  .sub li li:before {
+      content: counters(item, ".") " ";
+      font-weight: 600;
+  }
+
+  .alpha {
+    font-weight: 600;
+  }
+
