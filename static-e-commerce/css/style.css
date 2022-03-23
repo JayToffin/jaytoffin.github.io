@@ -14441,7 +14441,7 @@ textarea.form-control {
   top: 50%;
   width: auto;
   padding: 16px;
-  margin-top: -50px;
+  margin-top: -100px;
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -17055,7 +17055,7 @@ a.blantershow-chat svg {
 .swiper-container-product {
   width: 1140px;
   margin: auto;
-  overflow-x: scroll;
+  overflow-x: hidden;
   padding: 5px;
 }
 .swiper-container-product::-webkit-scrollbar {
@@ -17065,7 +17065,7 @@ a.blantershow-chat svg {
 .swiper-container-kelebihan {
   width: 1140px;
   margin: auto;
-  overflow-x: scroll;
+  overflow-x: hidden;
   padding: 5px;
 }
 .swiper-container-kelebihan::-webkit-scrollbar {
@@ -17125,7 +17125,7 @@ a.blantershow-chat svg {
   width: 30px !important;
   height: 30px !important;
   margin-top: -10px !important;
-  z-index: 10;
+  z-index: 1 !important;
   cursor: pointer;
   -moz-background-size: 27px 44px;
   -webkit-background-size: 27px 44px;
