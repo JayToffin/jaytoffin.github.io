@@ -14438,7 +14438,7 @@ textarea.form-control {
 .lanjut {
   cursor: pointer;
   position: absolute;
-  top: 25%;
+  top: 36%;
   width: auto;
   padding: 16px;
   /* margin-top: -100px; */
@@ -14813,7 +14813,6 @@ textarea.form-control {
   position: absolute;
   top: 15px;
   right: 15px;
-  padding: 15px;
 }
 
 #heart--liked2 {
@@ -14822,6 +14821,7 @@ textarea.form-control {
   position: absolute;
   top: 15px;
   right: 15px;
+  padding-right: 15px;
 }
 
 
@@ -15086,13 +15086,13 @@ textarea.form-control {
 
 
 .l-radio {
-  padding: 6px;
+  padding: 3px;
   border: 1px solid;
   border-radius: 50px;
   display: inline-flex;
   cursor: pointer;
   transition: background 0.2s ease;
-  margin: 8px 0;
+  margin: 5px 0;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -17177,3 +17177,8 @@ a.blantershow-chat svg {
     font-weight: 600;
   }
 
+.head-detail {
+  font-size: 18px; 
+  font-weight: bold; 
+  color: black;
+}
