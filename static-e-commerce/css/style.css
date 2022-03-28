@@ -17178,7 +17178,13 @@ a.blantershow-chat svg {
   }
 
 .head-detail {
-  font-size: 18px; 
+  font-size: 17px; 
   font-weight: bold; 
   color: black;
+}
+
+@media (max-width: 575.98px) {
+.input-group-btn-detail {
+  text-align: center !important;
+}
 }
