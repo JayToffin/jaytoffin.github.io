@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
+    integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+
   </head>
   <body class="goto-here">
 		
@@ -51,19 +55,31 @@
               </div>  
 						<form class="form-signin">
 							<div class="row align-items-end">
-			
+                
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="namaktp">Nama Sesuai KTP</label>
                   <input type="text" class="form-control" placeholder="">
                 </div>
               </div>
+              
               <div class="col-md-6">
                 <div class="form-group">
+                  <label for="namaktp">Nama Non-Korporat</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+                </div>
+              <div class="col-md-12">
+                <p style="font-size: 11px;">Nama non-korporat diperlukan untuk penamaan Virtual Account Anda. Jika Anda adalah korporat, mohon mengisi tanpa menggunakan penamaan dengan unsur korporasi (PT, CV, Bank, Rumah Sakit, dll). Jika Anda adalah non-korporat, dapat mengisi sesuai dengan nama KTP.</p>
+              </div>
+           
+              <div class="col-md-12">
+                <div class="form-group col-md-6 pl-0">
                   <label for="email">Email</label>
                   <input type="text" class="form-control" placeholder="">
                 </div>
               </div>
+              
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="noktp">No KTP</label>
@@ -112,26 +128,18 @@
               </div>
               <div class="w-100"></div>
               <div class="col-md-6">
-                <div class="form-group">    
-                  <label for="streetaddress">Kata Sandi</label>
-                      <div class="input-group">
-                        <input type="password" class="form-control pwd" value="">
-                        <span class="input-group-btn">
-                          <a class="btn btn-primary reveal" type="button"><i class="ion-ios-eye"></i></a>
-                        </span>          
-                      </div>
-                </div> 
+                <div class="form-group">
+                  <label class="control-label" for="password">Kata Sandi</label>
+                  <input type="password" id="password" class="form-control" value="">
+                  <i class="toggle-password fa fa-fw fa-eye-slash"></i>
+                </div> <br>
                 </div>
                 <div class="col-md-6">
-                <div class="form-group">    
-                <label for="streetaddress">Konfirmasi Sandi</label>
-                    <div class="input-group">
-                      <input type="password" class="form-control pwd" value="">
-                      <span class="input-group-btn">
-                        <a class="btn btn-primary reveal" type="button"><i class="ion-ios-eye"></i></a>
-                      </span>          
-                    </div>
-              </div> 
+                  <div class="form-group">
+                    <label class="control-label" for="password">Konfirmasi Sandi</label>
+                    <input type="password" id="password" class="form-control" value="">
+                    <i class="toggle-password fa fa-fw fa-eye-slash"></i>
+                  </div> <br>
                 </div>
             </div>
             </form>
