@@ -53,6 +53,20 @@
                   <h5>REGISTER</h5>
                 </div>
               </div>  
+
+              <div class="row pb-4">
+                <div class="container">
+                <label class="">
+                  <input type="radio" name="radio">
+                  <span style="font-weight: bold;">INDIVIDU</span>
+                </label><br>
+                <label class="">
+                  <input type="radio" name="radio">
+                  <span style="font-weight: bold;">KORPORAT</span>
+                </label>
+              </div>
+              </div> <!-- end row -->
+
 						<form class="form-signin">
 							<div class="row align-items-end">
                 
@@ -89,6 +103,97 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="fotoktp">Upload KTP</label>
+                  <input type="file" class="file" placeholder="" name="img[]" accept="image/*" style="width: 100%;">
+                </div>
+              </div>
+              <div class="w-100"></div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="streetaddress">Alamat</label>
+                  <textarea type="text" class="form-control" placeholder=""></textarea>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="towncity">Provinsi</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="towncity">Kota</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phone">Kode pos</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="postcodezip">Nomor Handphone</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="w-100"></div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label" for="password">Kata Sandi</label>
+                  <input type="password" id="password" class="form-control" value="">
+                  <i class="toggle-password fa fa-fw fa-eye-slash"></i>
+                </div> <br>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label" for="password">Konfirmasi Sandi</label>
+                    <input type="password" id="password" class="form-control" value="">
+                    <i class="toggle-password fa fa-fw fa-eye-slash"></i>
+                  </div> <br>
+                </div>
+            </div>
+            </form><hr>
+
+            <form class="form-signin">
+							<div class="row align-items-end">
+                
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="namaktp">Nama Sesuai NPWP</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="namaktp">Nama Non-Korporat</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+                </div>
+              <div class="col-md-12">
+                <p style="font-size: 11px;">Nama non-korporat diperlukan untuk penamaan Virtual Account Anda. Jika Anda adalah korporat, mohon mengisi tanpa menggunakan penamaan dengan unsur korporasi (PT, CV, Bank, Rumah Sakit, dll). Jika Anda adalah non-korporat, dapat mengisi sesuai dengan nama KTP.</p>
+              </div>
+           
+              <div class="col-md-12">
+                <div class="form-group col-md-6 pl-0">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="noktp">No NPWP</label>
+                  <input type="text" name="noktp" maxlength="16" class="form-control noktp" placeholder="" onkeypress="return onlyNumberKey(event);">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="fotoktp">Upload NPWP</label>
                   <input type="file" class="file" placeholder="" name="img[]" accept="image/*" style="width: 100%;">
                 </div>
               </div>
