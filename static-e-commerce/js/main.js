@@ -693,6 +693,10 @@ function showMyImage(fileInput) {
 		reader.readAsDataURL(file);
 	}
 }
+
+
+
+
 /*Menu Onclick*/
 let sideMenuToggle = $(".menu-toggle");
 let sideMenu = $(".side-menu");
@@ -711,17 +715,16 @@ if (sideMenuToggle.length) {
 		sideMenu.removeClass("side-menu-active");
 		$(".side-menu-bg").fadeOut(200);
 	});
-	$(".side-nav-menu > .menu-item > .arrow").on("click", function () {
-	  if ($(this).hasClass('open')) {
-		$(this).removeClass('open');
-		$(this).next('.sub-menu').slideUp();
-	  } else {
-		$('.arrow').removeClass('open');
-		$('.side-menu .sub-menu').slideUp();
-		$(this).addClass('open');
-		$(this).next('.sub-menu').slideDown();
-	  }
-	});
+	$('.sidebar ul li a').click(function(){
+		var id = $(this).attr('id');
+		$('nav ul li ul.item-show-'+id).toggleClass("show");
+		$('nav ul li #'+id+' span').toggleClass("rotate");
+		
+		});
+		
+		$('nav ul li').click(function(){
+		$(this).addClass("active").siblings().removeClass("active");
+		});
 	$(document).keyup(e => {
 		if (e.keyCode === 27) { // escape key maps to keycode `27`
 			if (sideMenu.hasClass("side-menu-active")) {
@@ -732,3 +735,22 @@ if (sideMenuToggle.length) {
 		}
 	});
 }
+
+// -----js menu dropdown fix----- //
+// $('.btn').click(function(){
+// 	$(this).toggleClass("click");
+// 	$('.sidebar').toggleClass("show");
+// 	});
+	
+	
+// 	$('.sidebar ul li a').click(function(){
+// 	var id = $(this).attr('id');
+// 	$('nav ul li ul.item-show-'+id).toggleClass("show");
+// 	$('nav ul li #'+id+' span').toggleClass("rotate");
+	
+// 	});
+	
+// 	$('nav ul li').click(function(){
+// 	$(this).addClass("active").siblings().removeClass("active");
+// 	});
+// -----END - js menu dropdown fix----- //
