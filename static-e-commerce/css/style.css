@@ -16508,6 +16508,7 @@ a:active {
 .filteration {
   display: flex;
   padding-top: 10px;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 767px) {
