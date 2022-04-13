@@ -17342,7 +17342,6 @@ a.blantershow-chat svg {
 
 }
 
-
 .toggle-password {
   position: relative;
   float: right;
@@ -17353,6 +17352,7 @@ a.blantershow-chat svg {
 }
 
 
+/* SIDENAV MENU MOBILE VIEW  */
 
 /******* Mobile Menu Button *******/
 .mobile-menu-button .menu-toggle {
@@ -17535,8 +17535,6 @@ a.blantershow-chat svg {
   cursor: pointer;
 }
 
-
-
 @media only screen and (max-width: 1199px) {
   .main-header-bar {
     padding: 15px 0;
@@ -17568,9 +17566,6 @@ a.blantershow-chat svg {
     font-size: 14px;
   }
 }
-
-
-
 
 @media only screen and (max-width: 1199px) {
 nav ul {
@@ -17671,7 +17666,7 @@ nav ul li a span.rotate {
 
 
 
-
+/* SEARCH MOBILE VIEW POP UP */
 .white-popup {
   position: relative;
   background: #FFF;
@@ -17691,15 +17686,19 @@ nav ul li a span.rotate {
   transition: all 0.15s ease-out;
 }
 
-
 /* overlay animate in */
 
 .mfp-fade.mfp-bg.mfp-ready {
   opacity: 0.8;
 }
 
-
 /* overlay animate out */
+
+.mfp-content {
+  position: fixed;
+  left: 0;
+  top: 250px;
+}
 
 .mfp-fade.mfp-bg.mfp-removing {
   opacity: 0;
