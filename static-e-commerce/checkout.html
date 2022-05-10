@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
+		integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+
 
 </head>
 
@@ -320,10 +323,22 @@
             <div class="shopping-cart-wrap">
                 <div class="cart-total-amount">
                     <div class="cart-total-amount-inner">
-                        <div class="amount-title"> Distributor: <span class="distributor">Toffin
+                        <div class="amount-title"><input id="checkbox" type="checkbox" checked=""
+                            style="width: 15px; height: 15px;"> Distributor: <span class="distributor">Toffin
                                 Jakarta</span>
                         </div>
+                        <div class="amount-no">
+							<div class="cart-item" style="border: none;">
+								<div class="product-info">
+									<div class="price-count">
+										<div class="count-product" style="margin-left: 5px;">
+											<button type="button"><i class="fa fa-trash"></i></button>
+										</div>
+									</div>	
+								</div>
 
+							</div>
+						</div>
                     </div>
                 </div>
 
@@ -340,20 +355,20 @@
                                     Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta, 12150
                                     Kebayoran Baru, Jakarta Selatan, 12150</div><br>
                                     <div class="unit-price"><span style="font-size: small; color: red;">Lengkapi alamat Anda untuk melanjutkan proses belanja</span><br>
-                                        <button class="btn btn-primary py-2 px-4 text-center" data-toggle="modal"
+                                        <button class="btn btn-primary notice-btn py-2 px-4 text-center" data-toggle="modal"
                                     data-target="#contact-modal1"
                                     style=" border-radius: 0px; font-size: 13px; padding: 4px !important;">Update Alamat</button>
                                     </div><br>
                             </div>
                             <div class="col-md-4" style="padding: 0px; display: flex; flex-direction: column;">
-                                <button class="btn btn-primary py-2 px-4 text-center" data-toggle="modal"
+                                <button class="btn btn-primary notice-btn py-2 px-4 text-center" data-toggle="modal"
                                     data-target="#deliv-addr"
                                     style="width: 100%; border-radius: 0px; font-size: 14px; float: right;">Ubah Alamat
                                     Pengiriman</button>
 
                                 <div class="select-wrapper">
                                     <div class="select">
-                                        <div class="select__trigger"><span>Pilih Durasi Pengiriman</span>
+                                        <div class="select__trigger notice-btn"><span>Pilih Durasi Pengiriman</span>
 
                                         </div>
                                         <div class="custom-options">
@@ -367,7 +382,7 @@
 
                                 <div class="select-wrapper">
                                     <div class="select">
-                                        <div class="select__trigger" style="text-align: center;"><span>Pilih Ekspedisi
+                                        <div class="select__trigger notice-btn" style="text-align: center;"><span>Pilih Ekspedisi
                                                 Pengiriman</span>
 
                                         </div>
@@ -563,7 +578,8 @@
             <div class="shopping-cart-wrap">
                 <div class="cart-total-amount">
                     <div class="cart-total-amount-inner">
-                        <div class="amount-title"> Distributor: <span class="distributor">Toffin
+                        <div class="amount-title"> <input id="checkbox" type="checkbox" checked=""
+								style="width: 15px; height: 15px;"> Distributor: <span class="distributor">Toffin
                                 Jakarta</span>
                         </div>
 
@@ -752,7 +768,8 @@
             <div class="shopping-cart-wrap">
                 <div class="cart-total-amount">
                     <div class="cart-total-amount-inner">
-                        <div class="amount-title"> Distributor: <span class="distributor">Toffin
+                        <div class="amount-title"> <input id="checkbox" type="checkbox" checked=""
+                            style="width: 15px; height: 15px;">  Distributor: <span class="distributor">Toffin
                                 Jakarta</span>
                         </div>
 
@@ -784,7 +801,7 @@
 
                                         </div>
                                         <div class="custom-options">
-                                            <div class="custom-option selected" data-value="regular">Regular</div>
+                                            <div class="custom-option" data-value="regular">Regular</div>
                                             <div class="custom-option" data-value="express">Express</div>
                                             <div class="custom-option" data-value="sameday">Same Day</div>
                                             <div class="custom-option" data-value="cargo">Cargo</div>
@@ -799,7 +816,7 @@
 
                                         </div>
                                         <div class="custom-options">
-                                            <div class="custom-option selected" data-value="">JNE - REG<br>
+                                            <div class="custom-option" data-value="">JNE - REG<br>
                                                 <span class="info-delivery">
                                                     <span style="font-size: 12px; font-weight: bold;">(Rp
                                                         500.000)</span>

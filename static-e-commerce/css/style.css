@@ -15906,7 +15906,7 @@ a:active {
     /* flex-direction: row-reverse; */
     padding-left: 0px;
     align-items: center;
-    padding-top: 10px;
+    /* padding-top: 10px; */
   }
 }
 
@@ -16125,12 +16125,12 @@ a:active {
 
 .custom-option:hover {
   cursor: pointer;
-  background-color: #d5d5d5;
+  background-color: #ffa45c;
 }
 
 .custom-option.selected {
   color: #000000;
-  background-color: #d5d5d5;
+  background-color: #ffa45c;
 }
 
 .info-delivery {
@@ -17809,4 +17809,10 @@ nav ul li a span.rotate {
 .mfp-fade.mfp-wrap {
   overflow: hidden !important;
   position: fixed !important; 
+}
+
+.notice-btn {
+  background-color: #ff4b4b !important;
+  border: 1px solid #ff4b4b !important;
+  color: white !important;
 }
