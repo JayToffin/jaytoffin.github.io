@@ -14830,6 +14830,14 @@ textarea.form-control {
   padding-right: 15px;
 }
 
+#share--nodes {
+  /*display: none; REMOVED */
+  transition: .2s;
+  position: absolute;
+  top: 15px;
+  right: 60px;
+}
+
 
 /*STYLE FAVORITE REMOVE */
 .product__list__item2--icons a {
