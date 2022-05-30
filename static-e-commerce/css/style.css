@@ -17855,7 +17855,7 @@ label.share{
   top: 0px;
   transform: translateX(-50%);
   background: #fff;
-  width: 100px;
+  width: 125px;
   /* height: 110%; */
   text-align: center;
   display: flex;
@@ -17873,7 +17873,7 @@ label.share{
   opacity: 1;
   pointer-events: auto;
   top: 50px;
-  font-size: 18px;
+  font-size: 22px;
 }
 .media-icons::before{
   content: '';
