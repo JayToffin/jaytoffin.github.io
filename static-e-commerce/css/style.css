@@ -17824,3 +17824,83 @@ nav ul li a span.rotate {
   border: 1px solid #ff4b4b !important;
   color: white !important;
 }
+
+
+
+
+
+.mainbox{
+  z-index: 1;
+  transition: .2s;
+  position: absolute;
+  top: 15px;
+  right: 60px;
+}
+label.share{
+  text-align: center;
+  color: lightgray;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+ 
+#check{
+  display: none;
+}
+#check:checked ~ label.share::before{
+  opacity: 1;
+}
+.media-icons{
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  transform: translateX(-50%);
+  background: #fff;
+  width: 100px;
+  /* height: 110%; */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border-radius: 35px; */
+  padding: 4px;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+#check:checked ~ .media-icons{
+  opacity: 1;
+  pointer-events: auto;
+  top: 50px;
+  font-size: 18px;
+}
+.media-icons::before{
+  content: '';
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 50%;
+  background: #fff;
+  top: -9px;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: -1;
+}
+.media-icons a{
+  /* font-size: 22px; */
+  /* color: #0984e3; */
+  transition: all 0.3s ease;
+}
+.media-icons a:hover{
+  transform: translateY(-2px);
+}
+.media-icons a:nth-child(1):hover{
+  color: #426782;
+}
+.media-icons a:nth-child(2):hover{
+  color: #1da1f2;
+}
+.media-icons a:nth-child(3):hover{
+  color: #e1306c;
+}
+
