@@ -17855,12 +17855,12 @@ label.share{
   top: 0px;
   transform: translateX(-50%);
   background: #fff;
-  width: 125px;
+  width: 145px;
   /* height: 110%; */
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   /* border-radius: 35px; */
   padding: 4px;
   z-index: 1;
@@ -17873,7 +17873,7 @@ label.share{
   opacity: 1;
   pointer-events: auto;
   top: 50px;
-  font-size: 22px;
+  font-size: 25px;
 }
 .media-icons::before{
   content: '';
