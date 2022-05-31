@@ -17855,10 +17855,11 @@ label.share{
   top: 0px;
   transform: translateX(-50%);
   background: #fff;
-  width: 145px;
-  /* height: 110%; */
+  width: 105px;
+  height: 120px;
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   /* border-radius: 35px; */
@@ -17874,6 +17875,7 @@ label.share{
   pointer-events: auto;
   top: 50px;
   font-size: 25px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
 .media-icons::before{
   content: '';
@@ -17886,21 +17888,3 @@ label.share{
   transform: translateX(-50%) rotate(45deg);
   z-index: -1;
 }
-.media-icons a{
-  /* font-size: 22px; */
-  /* color: #0984e3; */
-  transition: all 0.3s ease;
-}
-.media-icons a:hover{
-  transform: translateY(-2px);
-}
-.media-icons a:nth-child(1){
-  color: #426782;
-}
-.media-icons a:nth-child(2){
-  color: #1da1f2;
-}
-.media-icons a:nth-child(3){
-  color: #1e1e1e;
-}
-
