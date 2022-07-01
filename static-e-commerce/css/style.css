@@ -15567,7 +15567,7 @@ a:active {
 
 
 /* Make adjustments for tablet */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 760px) {
   .shopping-cart {
     margin: 0;
     padding-top: 20px;
