@@ -18013,3 +18013,9 @@ input[type="number"]::-webkit-inner-spin-button {
     color: orange;
 }
 
+
+.hapus-kodepromo{
+  background-color: #ff4b4b !important;
+  border: 1px solid #ff4b4b !important;
+  color: white !important;
+}
