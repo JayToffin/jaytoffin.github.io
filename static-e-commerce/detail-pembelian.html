@@ -202,13 +202,16 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="col-md-3">
-					<div class="badge badge-warning"
-						style="border-radius: 0px !important; font-size: 20px; text-align: center; width: 100%; padding: 10px;">
-						<!-- <span id="copy-so">NO/SO000111</span> -->
-						<a href="" class="copy-click ion-ios-copy"  data-tooltip-text="Click to copy" data-tooltip-text-copied="✔ Copied to clipboard"> NO/SO000111</a>
-						<!-- <a onclick="copy('copy-so')" style="cursor: copy;"> <i class="ion-ios-copy"></i></a> -->
-					</div>
+					<div class="badge badge-warning color-so" style="border-radius: 0px !important; font-size: 1rem; text-align: center; width: 100%; padding: 10px; display: flex; justify-content: center;"  id="color-so">
+						<span>NO/SO000111</span>
+						<div class="copy" id="copy-so">
+						  <div class="tooltip">Copied</div>
+						  <a><i class="ion-ios-copy pl-2"></i></a>
+						</div>
+					  </div>
+					<!--  -->
 
 					<div class="d-flex pt-3">
 						<a href="#" class="btn btn-primary py-3 px-4"
@@ -418,69 +421,70 @@
 
 
 
-		<div class="container padding-bottom-3x mb-1">
-			<div class="card mb-3">
-				<!-- <div class="p-4 text-center text-white text-lg bg-dark rounded-top">
-					<span class="text-uppercase">Tracking Order No - </span>
-					<a href="#" class="text-medium copy-click" data-toggle="modal" data-target="#trackingdetail"
-						>GK-12345678</a>
-					<a href="" class="copy-click ion-ios-copy"  data-tooltip-text="Click to copy" data-tooltip-text-copied="✔ Copied to clipboard"></a>
-					<p id="alertcopy-resi">Copied</p>
+			
 
-					</div> -->
+
+
+			<div class="container padding-bottom-3x mb-1">
+				<div class="card mb-3">
+
 					<div class="p-4 text-center text-white text-lg bg-dark rounded-top">
-						<span class="text-uppercase">Tracking Order No - </span>
-						<a href="#" class="text-medium" data-toggle="modal" data-target="#trackingdetail"
-						  id="copy-resi">GK-12345678</a>
-						<a onclick="copy('copy-resi')" style="cursor: copy;" data-tooltip-text="Click to copy"> <i class="ion-ios-copy"></i></a>
-						<p id="alertcopy-resi">Copied</p>
-					  
+				
+							
+						<div class="text-uppercase color-resi" id="color-resi" style="display: flex; justify-content: center;">Tracking Order No -
+						
+							<a href="#" class="text-medium" data-toggle="modal" data-target="#trackingdetail" id="color-resi">GK-12345678</a>
+						  <div class="copy" id="copy-1">
+							<div class="tooltip">Copied</div>
+							<a><i class="ion-ios-copy pl-2"></i></a>
+						  </div>
 						</div>
-				<div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
-					<div class="w-100 text-center py-1 px-2"><span class="text-medium">Pengiriman Via:</span> Gojek
-						- Same Day</div>
-					<div class="w-100 text-center py-1 px-2"><span class="text-medium">Status:</span> Pesanan
-						Diproses</div>
+					  </div>
+					<div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
+						<div class="w-100 text-center py-1 px-2"><span class="text-medium">Pengiriman Via:</span> Gojek
+							- Same Day</div>
+						<div class="w-100 text-center py-1 px-2"><span class="text-medium">Status:</span> Pesanan
+							Diproses</div>
 
-				</div>
-				<div class="card-body" style="z-index: 1;">
-					<div
-						class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
-						<div class="step completed">
-							<div class="step-icon-wrap">
-								<div class="step-icon"><i class="ion-ios-cart"></i></div>
+					</div>
+					<div class="card-body" style="z-index: 1;">
+						<div
+							class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+							<div class="step completed">
+								<div class="step-icon-wrap">
+									<div class="step-icon"><i class="ion-ios-cart"></i></div>
+								</div>
+								<h4 class="step-title">Pesanan Terkonfirmasi</h4>
 							</div>
-							<h4 class="step-title">Pesanan Terkonfirmasi</h4>
-						</div>
-						<div class="step completed">
-							<div class="step-icon-wrap">
-								<div class="step-icon"><i class="ion-ios-cash"></i></div>
+							<div class="step completed">
+								<div class="step-icon-wrap">
+									<div class="step-icon"><i class="ion-ios-cash"></i></div>
+								</div>
+								<h4 class="step-title">Pembayaran Diterima</h4>
 							</div>
-							<h4 class="step-title">Pembayaran Diterima</h4>
-						</div>
-						<div class="step completed">
-							<div class="step-icon-wrap">
-								<div class="step-icon"><i class="ion-ios-cube"></i></div>
+							<div class="step completed">
+								<div class="step-icon-wrap">
+									<div class="step-icon"><i class="ion-ios-cube"></i></div>
+								</div>
+								<h4 class="step-title">Pesanan Diproses</h4>
 							</div>
-							<h4 class="step-title">Pesanan Diproses</h4>
-						</div>
-						<div class="step">
-							<div class="step-icon-wrap">
-								<div class="step-icon"><i class="ion-ios-car"></i></div>
+							<div class="step">
+								<div class="step-icon-wrap">
+									<div class="step-icon"><i class="ion-ios-car"></i></div>
+								</div>
+								<h4 class="step-title">Proses Pengiriman</h4>
 							</div>
-							<h4 class="step-title">Proses Pengiriman</h4>
-						</div>
-						<div class="step">
-							<div class="step-icon-wrap">
-								<div class="step-icon"><i class="ion-ios-home"></i></div>
+							<div class="step">
+								<div class="step-icon-wrap">
+									<div class="step-icon"><i class="ion-ios-home"></i></div>
+								</div>
+								<h4 class="step-title">Pesanan Diterima</h4>
 							</div>
-							<h4 class="step-title">Pesanan Diterima</h4>
 						</div>
 					</div>
 				</div>
-			</div>
 
-		</div>
+			</div>
 
 
 
@@ -725,249 +729,241 @@
 					</div>
 				</div>
 			</div>
-			</div>
-			</div>
+		</div>
+	</div>
 
-			<!-- modal-->
+	<!-- modal-->
 
-			<!-- start modal tracker-->
-			<div id="trackingdetail" class="modal fade" role="dialog">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5>Live Tracking</h5>
-							<a class="close" data-dismiss="modal">×</a>
+	<!-- start modal tracker-->
+	<div id="trackingdetail" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5>Live Tracking</h5>
+					<a class="close" data-dismiss="modal">×</a>
+				</div>
+				<form id="contactForm" name="contact" role="form">
+					<div class="modal-body">
+
+						<div class="tracking-list">
+							<div class="form-group">
+
+								<iframe width="100%" height="350" id="gmap_canvas"
+									src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
+									frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+								<a href="https://codepen.io/embed-google-map/full/BaLrEGr"></a>
+							</div>
 						</div>
-						<form id="contactForm" name="contact" role="form">
-							<div class="modal-body">
 
-								<div class="tracking-list">
-									<div class="form-group">
-
-										<iframe width="100%" height="350" id="gmap_canvas"
-											src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
-											frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-										<a href="https://codepen.io/embed-google-map/full/BaLrEGr"></a>
+						<div class="tracking-list">
+							<div class="container-fluid" style="background-color: #f5f5f5; padding-top: 25px;">
+								<div class="tracking-item">
+									<div class="tracking-icon status-attemptfail">
+										<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
+											data-prefix="fas" data-icon="circle" role="img"
+											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+											<path fill="currentColor"
+												d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
+											</path>
+										</svg>
+										<!-- <i class="fas fa-circle"></i> -->
+									</div>
+									<div class="tracking-date">Aug 10, 2018<span>05:01 PM</span></div>
+									<div class="tracking-content">ORDER VALID</div>
+								</div>
+								<div class="tracking-item">
+									<div class="tracking-icon status-attemptfail">
+										<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
+											data-prefix="fas" data-icon="circle" role="img"
+											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+											<path fill="currentColor"
+												d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
+											</path>
+										</svg>
+										<!-- <i class="fas fa-circle"></i> -->
+									</div>
+									<div class="tracking-date">Aug 10, 2018<span>11:19 AM</span></div>
+									<div class="tracking-content">SEARCHING DRIVER<span>MELAKUKAN PENCARIAN
+											DRIVER,
+											MOHON TUNGGU BEBERAPA MENIT</span></div>
+								</div>
+								<div class="tracking-item">
+									<div class="tracking-icon status-attemptfail">
+										<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
+											data-prefix="fas" data-icon="circle" role="img"
+											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+											<path fill="currentColor"
+												d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
+											</path>
+										</svg>
+										<!-- <i class="fas fa-circle"></i> -->
+									</div>
+									<div class="tracking-date">Jul 27, 2018<span>04:08 PM</span></div>
+									<div class="tracking-content">DRIVER ALREADY PICKUP<span>DRIVER SEDANG
+											MENUJU LOKASI
+											PENJUAL</span>
+										<span>NAMA : NAMA DRIVER</span>
+										<span>TELP : 081222000111</span>
+										<span>NO POLISI : B1234JKT</span>
 									</div>
 								</div>
-
-								<div class="tracking-list">
-									<div class="container-fluid" style="background-color: #f5f5f5; padding-top: 25px;">
-										<div class="tracking-item">
-											<div class="tracking-icon status-attemptfail">
-												<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
-													data-prefix="fas" data-icon="circle" role="img"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-													data-fa-i2svg="">
-													<path fill="currentColor"
-														d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
-													</path>
-												</svg>
-												<!-- <i class="fas fa-circle"></i> -->
-											</div>
-											<div class="tracking-date">Aug 10, 2018<span>05:01 PM</span></div>
-											<div class="tracking-content">ORDER VALID</div>
-										</div>
-										<div class="tracking-item">
-											<div class="tracking-icon status-attemptfail">
-												<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
-													data-prefix="fas" data-icon="circle" role="img"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-													data-fa-i2svg="">
-													<path fill="currentColor"
-														d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
-													</path>
-												</svg>
-												<!-- <i class="fas fa-circle"></i> -->
-											</div>
-											<div class="tracking-date">Aug 10, 2018<span>11:19 AM</span></div>
-											<div class="tracking-content">SEARCHING DRIVER<span>MELAKUKAN PENCARIAN
-													DRIVER,
-													MOHON TUNGGU BEBERAPA MENIT</span></div>
-										</div>
-										<div class="tracking-item">
-											<div class="tracking-icon status-attemptfail">
-												<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
-													data-prefix="fas" data-icon="circle" role="img"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-													data-fa-i2svg="">
-													<path fill="currentColor"
-														d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
-													</path>
-												</svg>
-												<!-- <i class="fas fa-circle"></i> -->
-											</div>
-											<div class="tracking-date">Jul 27, 2018<span>04:08 PM</span></div>
-											<div class="tracking-content">DRIVER ALREADY PICKUP<span>DRIVER SEDANG
-													MENUJU LOKASI
-													PENJUAL</span>
-												<span>NAMA : NAMA DRIVER</span>
-												<span>TELP : 081222000111</span>
-												<span>NO POLISI : B1234JKT</span>
-											</div>
-										</div>
-										<div class="tracking-item">
-											<div class="tracking-icon status-intransit">
-												<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
-													data-prefix="fas" data-icon="circle" role="img"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-													data-fa-i2svg="">
-													<path fill="currentColor"
-														d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
-													</path>
-												</svg>
-												<!-- <i class="fas fa-circle"></i> -->
-											</div>
-											<div class="tracking-date">Jul 20, 2018<span>05:25 PM</span></div>
-											<div class="tracking-content">PICKUP CANCELED<span>MELAKUKAN PENCARIAN
-													DRIVER ULANG,
-													MOHON TUNGGU BEBERAPA MENIT</span></div>
-										</div>
-										<div class="tracking-item">
-											<div class="tracking-icon status-intransit">
-												<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
-													data-prefix="fas" data-icon="circle" role="img"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-													data-fa-i2svg="">
-													<path fill="currentColor"
-														d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
-													</path>
-												</svg>
-												<!-- <i class="fas fa-circle"></i> -->
-											</div>
-											<div class="tracking-date">Jul 20, 2018<span>08:58 AM</span></div>
-											<div class="tracking-content">DRIVER ALREADY PICKUP - UPDATE RESI
-												<span>DRIVER SEDANG MENUJU LOKASI PENJUAL</span>
-												<span>NAMA : NAMA DRIVER</span>
-												<span>TELP : 081222000111</span>
-												<span>NO POLISI : B1234JKT</span>
-											</div>
-										</div>
-										<div class="tracking-item">
-											<div class="tracking-icon status-intransit">
-												<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
-													data-prefix="fas" data-icon="circle" role="img"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-													data-fa-i2svg="">
-													<path fill="currentColor"
-														d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
-													</path>
-												</svg>
-												<!-- <i class="fas fa-circle"></i> -->
-											</div>
-											<div class="tracking-date">Jul 19, 2018<span>05:42 PM</span></div>
-											<div class="tracking-content">PICKUP COMPLETE<span>DRIVER SEDANG MENGANTAR
-													PESANAN
-													KE TUJUAN</span></div>
-										</div>
-
-										<div class="tracking-item">
-											<div class="tracking-icon status-intransit">
-												<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
-													data-prefix="fas" data-icon="circle" role="img"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-													data-fa-i2svg="">
-													<path fill="currentColor"
-														d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
-													</path>
-												</svg>
-												<!-- <i class="fas fa-circle"></i> -->
-											</div>
-											<div class="tracking-date">Jul 06, 2018<span>02:02 PM</span></div>
-											<div class="tracking-content">ORDER COMPLETE
-												<span>PESANAN TELAH TIBA DI LOKASI TUJUAN</span>
-												<span>TRANSAKSI SELESAI</span></div>
-										</div>
+								<div class="tracking-item">
+									<div class="tracking-icon status-intransit">
+										<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
+											data-prefix="fas" data-icon="circle" role="img"
+											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+											<path fill="currentColor"
+												d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
+											</path>
+										</svg>
+										<!-- <i class="fas fa-circle"></i> -->
 									</div>
+									<div class="tracking-date">Jul 20, 2018<span>05:25 PM</span></div>
+									<div class="tracking-content">PICKUP CANCELED<span>MELAKUKAN PENCARIAN
+											DRIVER ULANG,
+											MOHON TUNGGU BEBERAPA MENIT</span></div>
+								</div>
+								<div class="tracking-item">
+									<div class="tracking-icon status-intransit">
+										<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
+											data-prefix="fas" data-icon="circle" role="img"
+											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+											<path fill="currentColor"
+												d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
+											</path>
+										</svg>
+										<!-- <i class="fas fa-circle"></i> -->
+									</div>
+									<div class="tracking-date">Jul 20, 2018<span>08:58 AM</span></div>
+									<div class="tracking-content">DRIVER ALREADY PICKUP - UPDATE RESI
+										<span>DRIVER SEDANG MENUJU LOKASI PENJUAL</span>
+										<span>NAMA : NAMA DRIVER</span>
+										<span>TELP : 081222000111</span>
+										<span>NO POLISI : B1234JKT</span>
+									</div>
+								</div>
+								<div class="tracking-item">
+									<div class="tracking-icon status-intransit">
+										<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
+											data-prefix="fas" data-icon="circle" role="img"
+											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+											<path fill="currentColor"
+												d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
+											</path>
+										</svg>
+										<!-- <i class="fas fa-circle"></i> -->
+									</div>
+									<div class="tracking-date">Jul 19, 2018<span>05:42 PM</span></div>
+									<div class="tracking-content">PICKUP COMPLETE<span>DRIVER SEDANG MENGANTAR
+											PESANAN
+											KE TUJUAN</span></div>
+								</div>
+
+								<div class="tracking-item">
+									<div class="tracking-icon status-intransit">
+										<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true"
+											data-prefix="fas" data-icon="circle" role="img"
+											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+											<path fill="currentColor"
+												d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
+											</path>
+										</svg>
+										<!-- <i class="fas fa-circle"></i> -->
+									</div>
+									<div class="tracking-date">Jul 06, 2018<span>02:02 PM</span></div>
+									<div class="tracking-content">ORDER COMPLETE
+										<span>PESANAN TELAH TIBA DI LOKASI TUJUAN</span>
+										<span>TRANSAKSI SELESAI</span></div>
 								</div>
 							</div>
-
-						</form>
+						</div>
 					</div>
-				</div>
+
+				</form>
 			</div>
+		</div>
+	</div>
 
 
 
-			<!-- loader -->
-			<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-					<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-					<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-						stroke="#F96D00" /></svg></div>
-
-			
-					
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" /></svg></div>
 
 
-			<script src="js/jquery.min.js"></script>
-			<script src="js/jquery-migrate-3.0.1.min.js"></script>
-			<script src="js/popper.min.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/jquery.easing.1.3.js"></script>
-			<script src="js/jquery.waypoints.min.js"></script>
-			<script src="js/jquery.stellar.min.js"></script>
-			<script src="js/owl.carousel.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>
-			<script src="js/aos.js"></script>
-			<script src="js/jquery.animateNumber.min.js"></script>
-			<script src="js/bootstrap-datepicker.js"></script>
-			<script src="js/scrollax.min.js"></script>
-			<script
-				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false">
-			</script>
-			<script src="js/google-map.js"></script>
-			<script src="js/main.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
-
-			<script>
-				$(document).ready(function () {
-
-					var quantitiy = 0;
-					$('.quantity-right-plus').click(function (e) {
-
-						// Stop acting like a button
-						e.preventDefault();
-						// Get the field name
-						var quantity = parseInt($('#quantity').val());
-
-						// If is not undefined
-
-						$('#quantity').val(quantity + 1);
 
 
-						// Increment
 
-					});
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false">
+	</script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
 
-					$('.quantity-left-minus').click(function (e) {
-						// Stop acting like a button
-						e.preventDefault();
-						// Get the field name
-						var quantity = parseInt($('#quantity').val());
+	<script>
+		$(document).ready(function () {
 
-						// If is not undefined
+			var quantitiy = 0;
+			$('.quantity-right-plus').click(function (e) {
 
-						// Increment
-						if (quantity > 0) {
-							$('#quantity').val(quantity - 1);
-						}
-					});
+				// Stop acting like a button
+				e.preventDefault();
+				// Get the field name
+				var quantity = parseInt($('#quantity').val());
 
-				});
-			</script>
+				// If is not undefined
 
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-			<script>
-				window.dataLayer = window.dataLayer || [];
+				$('#quantity').val(quantity + 1);
 
-				function gtag() {
-					dataLayer.push(arguments);
+
+				// Increment
+
+			});
+
+			$('.quantity-left-minus').click(function (e) {
+				// Stop acting like a button
+				e.preventDefault();
+				// Get the field name
+				var quantity = parseInt($('#quantity').val());
+
+				// If is not undefined
+
+				// Increment
+				if (quantity > 0) {
+					$('#quantity').val(quantity - 1);
 				}
-				gtag('js', new Date());
+			});
 
-				gtag('config', 'UA-23581568-13');
-			</script>
+		});
+	</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-23581568-13');
+	</script>
 
 </body>
 

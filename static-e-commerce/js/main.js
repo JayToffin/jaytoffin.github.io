@@ -3,7 +3,39 @@ AOS.init({
 	easing: 'slide'
 });
 
-
+$(document).ready(function() {
+	
+	/*  COPY TO CLIPBOARD  */
+	
+	// click the icon
+	$("[id^=copy-]").on("click", function(e) {
+	  e.preventDefault;
+	  
+	  
+	  // find the id number of the parent
+	  let num = $(this).parent().attr("id").slice("color-".length);
+	  let elem = $(".color-" + num);
+	  
+	  // copy the text of the background color
+	  let $temp = $("<input>");
+	  $("body").append($temp);
+	  $temp.val(elem.children(":first").text()).select();
+	  document.execCommand("copy");
+	  $temp.remove();
+	  
+	  $(this).children(".tooltip").addClass("appear").delay(1000).queue(function( next ){
+		$(this).removeClass("appear"); 
+		$(this).dequeue();
+	  });
+	});
+	
+	});
+	
+	
+	
+	
+	
+  
 const links = document.querySelectorAll('.copy-click');
 						const cls = {
 						  copied: 'is-copied',
@@ -887,23 +919,22 @@ $(document).ready(function() {
     });
 });
 
-function copy(copyId){
-    let inputElement = document.createElement("input");
-    inputElement.type = "text";
-    let copyText = document.getElementById(copyId).innerHTML;
-    inputElement.value = copyText;
-    document.body.appendChild(inputElement);
-    inputElement.select();
-    document.execCommand('copy');
-    document.body.removeChild(inputElement);
+// function copy(copyId){
+//     let inputElement = document.createElement("input");
+//     inputElement.type = "text";
+//     let copyText = document.getElementById(copyId).innerHTML;
+//     inputElement.value = copyText;
+//     document.body.appendChild(inputElement);
+//     inputElement.select();
+//     document.execCommand('copy');
+//     document.body.removeChild(inputElement);
     
 
-	document.getElementById("alertcopy-resi").style.display = "block";
-    setTimeout(function(){
-        document.getElementById("alertcopy-resi").style.display = "none";
-    }, 1000);
-}
-
+// 	document.getElementById("alertcopy-resi").style.display = "block";
+//     setTimeout(function(){
+//         document.getElementById("alertcopy-resi").style.display = "none";
+//     }, 1000);
+// }
 
 
 
