@@ -13313,10 +13313,10 @@ h5,
 }
 
 .form-control {
-  height: 52px !important;
+  height: 50px !important;
   background: #fff !important;
   color: #000000 !important;
-  font-size: 18px;
+  font-size: 15px;
   border-radius: 0px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
