@@ -787,7 +787,7 @@ a:hover {
 
 .setviewmoresecthree {
     position: relative;
-    background-color: #555555;
+    background-color: #b8b8b8;
     margin-top: -20px;
     padding: 30px 0 30px 0;
 }
@@ -1161,17 +1161,17 @@ figure:hover .middlesecthree {
 }
 
 .settextthaifootersubject {
-    font-family: sathonmedium !important;
+    font-family: gotham_book !important;
     font-size: 1.5em;
     color: #ffffff;
     margin-bottom: 0px;
 }
 
 .settextthaifootergray {
-    line-height: 11pt;
-    font-family: sathon !important;
+    /* line-height: 11pt; */
+    font-family: gotham_book !important;
     font-size: 0.9em;
-    color: #ffffff;
+    color: #bebebe;
 }
 
 .settelnumber {
@@ -1183,7 +1183,7 @@ figure:hover .middlesecthree {
 }
 
 .setfootertelpic {
-    width: 140px;
+    width: 21px;
 }
 
 .setfooterproud {
