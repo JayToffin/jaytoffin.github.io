@@ -12628,8 +12628,9 @@ h5,
   left: -1px;
   padding: 2px 15px;
   color: #000000;
-  font-weight: 300;
-  background: #ffa45c;
+  font-weight: bold;
+  background: red;
+  color: white;
 }
 
 .product .img-prod img {
@@ -18228,4 +18229,9 @@ section.faq {
 }
 #faq ul li input[type=checkbox]:checked ~ i:after {
   transform: translate(-2px, 0) rotate(-45deg);
+}
+
+
+.img-sold{
+  opacity: 30%;
 }
