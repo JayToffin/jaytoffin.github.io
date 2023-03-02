@@ -1746,14 +1746,14 @@ transform: rotate(-135deg);
 .setnewstextdate {
     font-family: gotham_book;
     font-size: 12px;
-    color: #000;
+    color: #ffffff;
 }
 
 .setnewstextheadline {
     /* font-family: gotham_bold; */
     font-family: sukhumvit !important;
     /* font-size: 40px; */
-    color: #000;
+    color: #ffffff;
 }
 
 .setnewstextheadline1 {
@@ -1782,9 +1782,9 @@ transform: rotate(-135deg);
     font-family: gotham_book;
     font-size: 10px;
     letter-spacing: 2px;
-    background-color: #fff;
-    border: 1px solid #000;
-    color: #000 !important;
+    /* background-color: #fff; */
+    border: 1px solid #ffffff;
+    color: #ffffff !important;
     padding: 10px 40px 10px 40px;
 }
 
@@ -1792,8 +1792,8 @@ transform: rotate(-135deg);
     font-family: gotham_book;
     font-size: 10px;
     letter-spacing: 2px;
-    background-color: #000;
-    color: #fff !important;
+    background-color: #ffffff;
+    color: #000000 !important;
     padding: 10px 40px 10px 40px;
 }
 
@@ -2910,7 +2910,7 @@ a.download-pdf:hover {
 }
 
 .stk {
-    background: url('../../image/sticky/bg_shadow.jpg');
+    background: url('../image/sticky/bg_shadow.jpg');
     background-size: cover;
     background-position: bottom;
 }
@@ -3095,4 +3095,18 @@ a.download-pdf:hover {
     .hidden-lg {
       display: block !important
     }
+  }
+
+
+  /* Set the size of the div element that contains the map */
+#map {
+    height: 400px; /* The height is 400 pixels */
+    width: 100%; /* The width is the width of the web page */
+  }
+
+
+
+  .setheightnewspixall{
+    overflow: hidden;
+
   }
