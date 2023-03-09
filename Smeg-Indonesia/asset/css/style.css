@@ -710,7 +710,7 @@ border-radius: 4px;
   font-size: 26px; */
     white-space: nowrap;
     letter-spacing: 1px;
-    color: #fff;
+    color: #000000;
 }
 
 .settextsectwo2 {
@@ -1556,6 +1556,7 @@ LEVEL 4. SETTINGS
     font-family: sukhumvit !important;
     font-size: 36px;
     letter-spacing: 1px;
+    color: #000;
 }
 
 .settextsecsix3 {
@@ -1564,7 +1565,7 @@ LEVEL 4. SETTINGS
   font-family: gotham_book !important; */
 
     font-size: 16px;
-    font-family: sukhumvit !important;
+    font-family: gotham_book !important;
 }
 
 .setslideheightsecone {
@@ -2598,9 +2599,9 @@ background-color: #fff !important;
 #detail h4,
 #detail h5,
 #detail h6 {
-    line-height: 35px;
-    font-family: sathon !important;
-    font-size: 20px !important;
+    line-height: 30px;
+    font-family: gotham_book !important;
+    font-size: 17px !important;
 }
 
 #search-clear {
@@ -2674,12 +2675,12 @@ a.title-news:hover {
 
 .title-detail {
     font-weight: bold;
-    font-family: sathon !important;
+    font-family: gotham_book !important;
 }
 
 .font-detail {
     font-size: 20px;
-    font-family: sathon !important;
+    font-family: gotham_book !important;
 }
 
 .text-line {
