@@ -1,6 +1,190 @@
-<?php 
-include 'header.php';
-?>
+<!DOCTYPE html>
+<html lang="in" class="no-js">
+
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="asset/image/fav.png">
+  <!-- Author Meta -->
+  <meta name="author" content="Smeg">
+  <!-- Meta Description -->
+  <meta name="description"
+    content="Smeg ประเทศไทย - พบกับเครื่องใช้ไฟฟ้าในครัวหลากหลายสไตล์ของสเมก ที่ช่วยเติมเต็มของห้องครัวของคุณให้สวยสมบูรณ์แบบ">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="Smeg, Smeg Indonesia">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <meta name="thumbnail" content="asset/image/og-image.jpg" />
+  <meta property="og:url" content="index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SMEG Technology with style">
+  <meta property="og:image" content="asset/image/og-image5e1f.jpg?v=2">
+  <!-- <meta property="og:image:url" itemprop="image" content="http://www.smeg.co.th/asset/image/og-image.jpg" />
+	<meta property="og:image:type" content="asset/image/jpeg" /> -->
+  <meta property="og:description" content="Smeg Indonesia">
+  <title> SMEG Technology with style</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="asset/css/custom.css">
+  <link rel="stylesheet" href="asset/css/bootstrap.css">
+  <link rel="stylesheet" href="asset/css/style.css">
+  <link rel="stylesheet" href="asset/select2/css/select2.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" crossorigin="anonymous">
+  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link href="asset/lib/zoomer/jquery.spzoom.css" rel="stylesheet" type="text/css">
+  <link href="asset/lib/slick/slick.css" rel="stylesheet" type="text/css">
+  <link href="asset/lib/slick/slick-theme.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <section>
+    <div class="container-fluid header navbar-fixed-top text-center">
+      <div class="row sethighmenu d-none d-md-none d-lg-flex">
+        <div class="col-lg-3" style="height: 40px;">
+          <span class="float-left" id="opennav">
+            <div id="nav-icon1">
+              <span id='hamone'></span>
+              <span id="cen"></span>
+              <span id='hamthree'></span>
+            </div>
+          </span>
+        </div>
+        <div class="col-lg-6 text-center">
+          <a href="index.html" class="setpointer" id='logo'>
+            <img src="asset/image/logo-white.png" width="200">
+          </a>
+        </div>
+        <!-- <div class="col-lg-3 menu-right">
+          <a href="javascript:void(0)" id="desktop-search" class="float-right  search-product"><i
+              class="fa fa-search mgr-10" aria-hidden="true"></i></a>
+          <div class="search-box float-right">
+            <form action="whatinstore/searchproduct.html" method="GET">
+              <input id="search-product" class="form-control input-sm" name="keyword" placeholder="Search Product"
+                required />
+            </form>
+
+          </div>
+        </div> -->
+      </div>
+      <div class="row sethighmenu d-flex d-md-flex d-lg-none mobile">
+        <div class="col-lg-12 sethighmenu ">
+          <span class="float-left" id="opennavmobile">
+            <div id="nav-icon1">
+              <span id='hamone'></span>
+              <span id="cen"></span>
+              <span id='hamthree'></span>
+            </div>
+          </span>
+
+          <a href="index.html" class="setpointer" id='logo'>
+            <img src="asset/image/logo-white.png" width="200">
+          </a>
+
+          <!-- <a href="javascript:void(0)" id="open-serach" class="float-right search-product"><i
+              class="fa fa-search mgr-10" aria-hidden="true"></i></a> -->
+        </div>
+      </div>
+      <!-- <div class="row  my-3 search-product-mobile" style="display: none;">
+        <div class="col-lg-12">
+          <a href="javascript:void(0)" class="float-right search-product d-flex d-md-flex d-lg-none"><i
+              class="fa fa-arrow-circle-right mgr-10" aria-hidden="true"></i></a>
+          <div class="search-box  d-flex d-md-flex d-lg-none">
+            <form id="search-mobile" action="whatinstore/searchproduct.html" method="GET"
+              onsubmit="return checkValue ()">
+              <input id="search-product" class="form-control input-sm" name="keyword" placeholder="Search Product"
+                required />
+            </form>
+
+          </div>
+        </div>
+      </div> -->
+
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" id="closenav">&times;</a>
+        <!-- <br>
+        <br>
+        <a href="javascript:void(0)" class="float-right search-product d-flex d-md-flex d-lg-none"><i
+            class="fa fa-search mgr-10" aria-hidden="true"></i></a>
+        <div class="search-box  d-flex d-md-flex d-lg-none">
+          <form id="search-mobile" action="whatinstore/searchproduct.html" method="POST">
+            <input id="search-product" class="form-control input-sm" name="keyword" placeholder="Search Product" />
+          </form>
+        </div> -->
+        <br>
+        <br>
+        <a href="index.html" class="forcenowrap text-left mgl-80"><span class="setbordermenu">Ho</span>me</a>
+        <a href="about.html" class="forcenowrap text-left mgl-80"><span class="setbordermenu">Ab</span>out Smeg</a>
+        <a href="catalog.html" class="forcenowrap text-left mgl-80"><span class="setbordermenu">Ca</span>talog</a>
+        <a href="news.html" class="forcenowrap text-left mgl-80"><span class="setbordermenu">Ne</span>ws & Event</a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky menu desktop -->
+  <div class="sticky d-none d-sm-none d-md-block">
+    <a href="index.html">
+      <div class="stickyitem" style="background-color: #FFFFFF">
+        <img class="stickyicon" src="asset/image/sticky/home.png" alt="Home">
+        <span style="color:#000000;font-size: 14px;">Home</span>
+      </div>
+    </a>
+    <a href="contact.html">
+      <div class="stickyitem" style="background-color: #FFFFFF">
+        <img class="stickyicon" src="asset/image/sticky/location.png" alt="Store">
+        <span style="color:#000000;font-size: 14px;">Store</span>
+      </div>
+    </a>
+    <a href="catalog.html">
+      <div class="stickyitem" style="background-color: #FFFFFF">
+        <img class="stickyicon" src="asset/image/sticky/brochure.png" alt="Catalog">
+        <span style="color:#000000;font-size: 14px;">Catalog</span>
+      </div>
+    </a>
+  </div>
+  <!-- Sticky menu desktop -->
+
+  <!-- Sticky menu mobile -->
+  <div class="sticky-mo d-block d-sm-block d-md-none d-lg-none d-xl-none" style="opacity: 0;">
+
+    <a class="stk" href="index.html">
+      <div class="stickyitem-mo text-center" style="background-color: #FFFFFF">
+        <img class="stickyicon-mo" src="asset/image/sticky/home.png" alt="Home">
+        <!-- <p class="text-center" style="color:#000000;">Home</p> -->
+      </div>
+      <p class="stickytxt-mo text-center" style="background-color: #FFFFFF;color:#000000;">Home</p>
+    </a>
+    <a class="stk" href="whatinstore.html">
+      <div class="stickyitem-mo text-center" style="background-color: #FFFFFF">
+        <img class="stickyicon-mo" src="asset/image/sticky/news.png" alt="Product">
+        <!-- <p class="text-center" style="color:#000000;">Product</p> -->
+      </div>
+      <p class="stickytxt-mo text-center" style="background-color: #FFFFFF;color:#000000;">News</p>
+    </a>
+    <a class="stk" href="contact.html">
+      <div class="stickyitem-mo text-center" style="background-color: #FFFFFF">
+        <img class="stickyicon-mo" src="asset/image/sticky/location.png" alt="Store">
+        <!-- <p class="text-center" style="color:#000000;">Store</p> -->
+      </div>
+      <p class="stickytxt-mo text-center" style="background-color: #FFFFFF;color:#000000;">Store</p>
+    </a>
+    <a class="stk" href="catalog.html">
+      <div class="stickyitem-mo text-center" style="background-color: #FFFFFF">
+        <img class="stickyicon-mo" src="asset/image/sticky/brochure.png" alt="Catalog">
+        <!-- <p class="text-center" style="color:#000000;">Catalog</p> -->
+      </div>
+      <p class="stickytxt-mo text-center" style="background-color: #FFFFFF;color:#000000;">Catalog</p>
+    </a>
+    <a class="stk" href="https://line.me/R/ti/p/%40smegthai">
+      <div class="stickyitem-mo text-center" style="background-color: #FFFFFF">
+        <img class="stickyicon-mo" src="asset/image/sticky/whatsapp.png" alt="Chat">
+        <!-- <p class="text-center" style="color:#000000;">Chat</p> -->
+      </div>
+      <p class="stickytxt-mo text-center" style="background-color: #FFFFFF;color:#000000;">Chat</p>
+    </a>
+  </div>
+  <!-- Sticky menu mobile -->
+
 
   <section>
     <!--Carousel Wrapper-->
@@ -765,11 +949,149 @@ include 'header.php';
         <!--/.Controls-->
 
       </div>
+      <!--Carousel Wrapper-->
     </div>
+    <!-- <div class="row setviewmoresecthree d-block">
+      <div class="col-lg-4 offset-lg-4"><a href="news.html" class="btn d-block text-center"><span
+            class="setbtnreadmore">View more<span></a></div>
+    </div> -->
     </div>
   </section>
- 
-  
-  <?php 
-include 'footer.php';
-?>
+  <!-- 
+  <div class="instagram-feed1"></div> -->
+
+
+  <!-- <section>
+    <div class="container-fluid mt-5 mt-md-5 mt-lg-0">
+      <div class="row instagram">
+        <div class="col-lg-4 offset-lg-4">
+          <div class="text-center">
+            <h3 class="setheadsection">Ins<span class="setheadborder">tagr</span>am</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div id="instafeed-container" class="home-ig row"></div>
+        <script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+        <script type="text/javascript">
+          var userFeed = new Instafeed({
+
+            get: 'user',
+            target: "instafeed-container",
+            limit: 12,
+            resolution: 'low_resolution',
+            accessToken: 'IGQVJYYW5hRHpTVjV6YV9LeUJ4bnlkRC1IVElkWThNcDQzdmZARN0twQ3BXV0w1bElkQWRMYTJPWHljeDVTMFFLQ2RnY01qckpKWU5RS09CUHpPUXc4LWJudG1sZAVJWWUJQZAjdpWlU4LTFOeE9XRjZAIcgZDZD',
+            template: '<div class="col-lg-2 col-md-2 col-4 p-0" ><a class="grow pic" href="{{link}}" target="_blank"><img class=" img-fluid" title="{{caption}}" src="{{image}}" /></a></div>',
+          });
+          userFeed.run();
+        </script>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="landdingpage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><img src="http://smeg.co.th/asset/image/5fd0b37cd7dbbb00f97ba6ce92bf5add.jpg" style="width:100%" /></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" id="status_landding" name="status_landding" value="0">
+  <input type="hidden" id="session_landding" name="session_landding" value="1">
+
+  <footer>
+    <div class="container-fluid setbody">
+      <div class="row my-md-5 d-none d-md-none d-lg-flex">
+        <div class="col-12 col-md-6 col-lg-4 centerres">
+          <p class="settextthaifootersubject">Get In Touch</p>
+          <p class="settextthaifootergray">Jl. Pluit Permai No.4, RT.1/RW.7, Pluit, Kec. Penjaringan, Kota Jkt Utara,
+            Daerah Khusus Ibukota Jakarta 14450</p>
+          <p class="settelnumber"><a href="tel:0878-8665-3186" class="setpointer boldtel"> <img
+                src="asset/image/phone.png" class="setfootertelpic" alt=""> 0878-8665-3186 <a></p>
+
+          <p class="settelnumber"><a href="https://wa.link/vja2mv" target="_blank" class="setpointer boldtel"> <img
+                src="asset/image/whatsapp.png" class="setfootertelpic" alt=""> +62 895-1501-8285 <a></p>
+          <p class="settelnumber"><a href="mailto:smeg@toffin.id" class="setpointer boldtel"> <img
+                src="asset/image/mail.png" class="setfootertelpic" alt=""> smeg@toffin.id<a></p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <p class="text-center">
+            <img src="asset/image/italy.png" class="setfooterproud" alt="">
+          </p>
+          <p class="text-center">
+            <a href="https://www.instagram.com/smeg.id/" target="_blank" class="setpointer mglr-10">
+              <img src="asset/image/instagram.png" width="31">
+            </a>
+            <a href="https://www.tiktok.com/@toffinforhome" target="_blank" class="setpointer mglr-10">
+              <img src="asset/image/tiktok.png" width="27">
+            </a>
+          </p>
+          <p class="text-center setcopyright">Copyright &copy; SMEG All right reserved.</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 text-center">
+          <a href="#" class="setpointer">
+            <img src="asset/image/logo-white.png" width="200" class="setlogofootersize text-center" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="row d-block d-md-block d-lg-none">
+        <div class="col-12 text-center setborderhomefooter">
+          <a href="#" class="setpointer">
+            <img src="asset/image/logo-white.png" width="200" class="setlogofootersize text-center" alt="">
+          </a>
+        </div>
+        <div class="col-12  centerres setcenter-responsive">
+          <p class="settextthaifootersubject">Get In Touch</p>
+          <p class="settextthaifootergray">Jl. Pluit Permai No.4, RT.1/RW.7, Pluit, Kec. Penjaringan, Kota Jkt Utara,
+            Daerah Khusus Ibukota Jakarta 14450</p>
+          <p class="settelnumber"><a href="tel:0878-8665-3186" class="setpointer boldtel"> <img
+                src="asset/image/phone.png" class="setfootertelpic" alt=""> 0878-8665-3186 <a></p>
+          <p class="settelnumber"><a href="https://wa.link/vja2mv" target="_blank" class="setpointer boldtel"> <img
+                src="asset/image/whatsapp.png" class="setfootertelpic" alt=""> +62 895-1501-8285 <a></p>
+          <p class="settelnumber"><a href="mailto:smeg@toffin.id" class="setpointer boldtel"> <img
+                src="asset/image/mail.png" class="setfootertelpic" alt=""> smeg@toffin.id<a></p>
+          <p class="text-center">
+            <a href="https://www.instagram.com/smeg.id/" target="_blank" class="setpointer mglr-10">
+              <img src="asset/image/instagram.png" width="31">
+            </a>
+            <a href="https://www.tiktok.com/@toffinforhome" target="_blank" class="setpointer mglr-10">
+              <img src="asset/image/tiktok.png" width="27">
+            </a>
+          </p>
+        </div>
+        <div class="col-12">
+          <p class="text-center">
+            <img src="asset/image/italy.png" class="setfooterproud" alt="">
+          </p>
+          <p class="text-center setcopyright">Copyright &copy; SMEG All right reserved.</p>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" name="urisegone" value="home">
+  </footer>
+
+  <script src="asset/js/jquery.js"></script>
+  <script src="asset/lib/jquery-mobile-custom/jquery-migrate-3.0.0.js"></script>
+  <script src="asset/lib/jquery-mobile-custom/jquery.mobile.custom.min.js"></script>
+  <!-- <script src="/asset/js/popper.min.js"></script> -->
+  <script src="asset/js/elfsight-instagram-feed.js"></script>
+  <script src="asset/js/bootstrap.js"></script>
+  <script src="asset/js/custom.js"></script>
+  <script type="text/javascript" src="asset/lib/slick/slick.min.js"></script>
+
+
+</body>
+
+</html>
