@@ -17381,6 +17381,44 @@ a.blantershow-chat svg {
 }
 
 
+/* SWIPER CONTAINER PRODUK */
+.swiper-container-bootcamp {
+  /* width: 1140px; */
+  margin: auto;
+  overflow-x: hidden;
+  padding: 5px;
+}
+
+.swiper-container-bootcamp::-webkit-scrollbar {
+  width: 0 !important
+}
+
+
+@media (min-width: 576px) {
+  .swiper-container-bootcamp {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper-container-bootcamp {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .swiper-container-bootcamp {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .swiper-container-bootcamp {
+    max-width: 1140px;
+  }
+}
+
+
 /* STYLING ORDERED LIST FOOTER */
 .sub ol {
   list-style-type: none;
