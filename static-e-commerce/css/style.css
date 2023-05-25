@@ -18273,3 +18273,115 @@ section.faq {
 .img-sold{
   opacity: 30%;
 }
+
+
+
+/* BOOTCAMP ACCORDION QNA*/
+.accordion-header {
+  padding: 1.5em 1.5em;
+  background: #ffffff;
+  box-shadow: 0 3px 10px -2px rgba(0,0,0,0.1);
+  color: black;
+  cursor: pointer;
+  letter-spacing: .1em;
+  transition: all .3s;
+  text-transform: uppercase;
+}
+
+/* .accordion__item {
+    border-bottom: 1px solid #3a4ba4;
+} */
+
+.accordion-header:hover {
+  /* background: #2D3D99; */
+  position: relative;
+  z-index: 5;
+}
+
+.accordion-body {
+  background: #fcfcfc;
+  color: #353535;
+  display: none;
+}
+
+.accordion-body__contents {
+  padding: 1.5em 1.5em; 
+}
+
+.accordion__item.active:last-child .accordion-header {
+  border-radius: none;
+}
+
+.accordion:first-child > .accordion__item > .accordion-header {
+  border-bottom: 1px solid transparent;
+}
+
+.accordion__item > .accordion-header:after {
+  content: "\f3d0";
+  font-family: IonIcons;
+  float: right;
+  position: relative;
+  top: -2px;
+  transition: .3s all;
+  transform: rotate(0deg);
+  color: #ff8d00;
+  font-size: 20px;
+}
+
+.accordion__item.active > .accordion-header:after {
+  transform: rotate(-180deg);
+}
+
+.accordion__item.active .accordion-header {
+  background: #ffffff;
+}
+
+.accordion__item .accordion__item .accordion-header {
+  background: #f1f1f1;
+  color: #353535;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 1em;
+  }
+  
+  .accordion {
+    width: 100%;
+  }
+}
+
+
+
+/* BOOTCAMP ACCRODION DATA PESERTA */
+
+.myaccordion .card,
+.myaccordion .card:last-child .card-header {
+  border: none;
+}
+
+.myaccordion .card-header {
+  border-bottom-color: #EDEFF0;
+  background: transparent;
+}
+
+.myaccordion .fa-stack {
+  font-size: 10px;
+}
+
+.myaccordion .btn {
+  width: 100%;
+  font-weight: bold;
+  color: gray;
+  padding: 0;
+}
+
+.myaccordion .btn-link:hover,
+.myaccordion .btn-link:focus {
+  text-decoration: none;
+}
+
+.myaccordion li + li {
+  margin-top: 10px;
+}
+
