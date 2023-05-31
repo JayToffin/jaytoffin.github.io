@@ -18449,3 +18449,40 @@ section.faq {
   float: left;
   width: 200px;
 }
+
+
+/* BADGE SISA TIKET */
+.product span.sisa-tiket {
+  position: absolute;
+  top: 10px;
+  left: -1px;
+  padding: 2px 15px;
+  color: #000000;
+  font-weight: bold;
+  background: #ffffff;
+}
+
+/* ADD TO CART TBC */
+
+.product .text .bottom-area a.add-to-cart-tbc,
+.product .text .bottom-area a.buy-now {
+  font-size: 13px;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.product .text .bottom-area a.add-to-cart-tbc i,
+.product .text .bottom-area a.buy-now i {
+  font-size: 16px;
+}
+
+.product .text .bottom-area a.add-to-cart-tbc {
+  background: #ffa45c;
+  color: #fff;
+}
+
+.product .text .bottom-area a.add-to-cart-tbc:hover {
+  background: #ffffff;
+  color: #000000;
+}

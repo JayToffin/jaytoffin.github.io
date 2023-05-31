@@ -214,11 +214,9 @@
 								<div class="cart-total-amount-inner">
 									<div class="col-md-12 pl-0 pr-0">
 										<div class="form-group col-md-6 pl-0">
-											<label>
 												<div class="amount-title">
 													<span class="distributor">Data Pemesan</span>
 												</div>
-											</label>
 											<input type="text" disabled class="form-control"
 												placeholder="NAMA READ ONLY">
 										</div>
@@ -229,132 +227,78 @@
 							<div class="cart-total-amount" style="background: none; ">
 								<div class="cart-total-amount-inner">
 									<div class="col-md-12 pl-0 pr-0">
-										<div class="amount-title pb-3">
+										<div class="amount-title pb-3 text-center">
 											<span class="distributor">Data Peserta</span>
 										</div>
-										<div id="accordion" class="myaccordion">
-											<div class="card">
-												<div class="card-header p-0" id="headingOne"
-													style="border: none; padding-bottom: 10px!important; padding-top: 10px!important;">
-
-													<div class="d-flex justify-content-between btn btn-link collapsed"
-														data-toggle="collapse" data-target="#collapseOne"
-														aria-expanded="false" aria-controls="collapseOne">
-														Peserta 1
-														<span class="fa-stack fa-sm">
-															<i class="fas fa-circle fa-stack-2x"></i>
-															<i class="fas fa-plus fa-stack-1x fa-inverse"></i>
-														</span>
+										<div class="amount-title">
+											<span class="distributor" style="color: gray;">Peserta 1</span>
+										</div>
+											<div class="row align-items-end">
+												
+												<div class="col-md-12">
+													<div class="form-group">
+														<input id="checkbox" type="checkbox"
+															style="width: 15px; height: 15px;"> Sama dengan
+														data
+														pemesan
 													</div>
 												</div>
-												<div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-													<div class="card-body">
-														<div class="row align-items-end">
-															<div class="col-md-12">
-																<div class="form-group">
-																	<input id="checkbox" type="checkbox"
-																		style="width: 15px; height: 15px;"> Sama dengan
-																	data
-																	pemesan
-																</div>
-															</div>
-
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="towncity">Nama Sesuai Tanda Pengenal</label>
-																	<input type="text" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="noktp">No KTP/SIM/Passport</label>
-																	<input type="text" name="noktp" maxlength="16"
-																		class="form-control noktp" placeholder=""
-																		onkeypress="return onlyNumberKey(event);">
-																</div>
-															</div>
-
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="towncity">No Handphone</label>
-																	<input type="text" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-
-
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="email">Alamat Email</label>
-																	<input type="email" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><hr>
-											<div class="card">
-												<div class="card-header p-0" id="headingTwo"
-													style="border: none; padding-bottom: 10px!important; padding-top: 10px!important;">
-													<h2 class="mb-0">
-														<div class="d-flex align-items-center justify-content-between btn btn-link collapsed"
-															data-toggle="collapse" data-target="#collapseTwo"
-															aria-expanded="false" aria-controls="collapseTwo">
-															Peserta 2
-															<span class="fa-stack fa-2x">
-																<i class="fas fa-circle fa-stack-2x"></i>
-																<i class="fas fa-plus fa-stack-1x fa-inverse"></i>
-															</span>
-														</div>
-													</h2>
-												</div>
-												<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
-													<div class="card-body">
-														<div class="row align-items-end">
-															<div class="col-md-12">
-																<div class="form-group">
-																	<input id="checkbox" type="checkbox"
-																		style="width: 15px; height: 15px;"> Sama dengan
-																	data
-																	pemesan
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="towncity">Nama Sesuai Tanda Pengenal</label>
-																	<input type="text" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="noktp">No KTP/SIM/Passport</label>
-																	<input type="text" name="noktp" maxlength="16"
-																		class="form-control noktp" placeholder=""
-																		onkeypress="return onlyNumberKey(event);">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="towncity">No Handphone</label>
-																	<input type="text" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="email">Alamat Email</label>
-																	<input type="email" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
+										  <div class="col-md-6">
+											<div class="form-group">
+											  <label for="nama">Nama Sesuai Tanda Pengenal</label>
+											  <input type="text" class="form-control" placeholder="">
 											</div>
+										  </div>
+										  <div class="col-md-6">
+											<div class="form-group">
+											  <label for="hp">No Handphone</label>
+											  <input type="text" class="form-control" placeholder="">
+											</div>
+										  </div>
+										  <div class="col-md-6">
+											<div class="form-group">
+											  <label for="email">Alamat Email</label>
+											  <input type="email" class="form-control" placeholder="">
+											</div>
+										  </div>
+										  <div class="col-md-6">
+											<div class="form-group">
+											  <label for="ktp">No KTP/SIM/Passport</label>
+											  <input type="text" class="form-control" placeholder="">
+											</div>
+										  </div>
+										</div><hr>
+
+										<div class="amount-title">
+											<span class="distributor" style="color: gray;">Peserta 2</span>
+										</div>
+											<div class="row align-items-end">
+										  <div class="col-md-6">
+											<div class="form-group">
+											  <Label>Nama Sesuai Tanda Pengenal</Label>
+											</div>
+										  </div>
+										  <div class="col-md-6">
+											<div class="form-group">
+											  <input type="text" class="form-control" placeholder="">
+											</div>
+										  </div>
+										</div><hr>
+
+										<div class="amount-title">
+											<span class="distributor" style="color: gray;">Peserta 3</span>
+										</div>
+											<div class="row align-items-end">
+										  <div class="col-md-6">
+											<div class="form-group">
+											  <Label>Nama Sesuai Tanda Pengenal</Label>
+											</div>
+										  </div>
+										  <div class="col-md-6">
+											<div class="form-group">
+											  <input type="text" class="form-control" placeholder="">
+											</div>
+										  </div>
 										</div>
 									</div>
 								</div>
@@ -363,182 +307,13 @@
 					</div>
 					<div class="pb-5"></div>
 
-					<div class="shopping-cart-wrap">
-						<div class="cart-total-amount">
-							<div class="cart-total-amount-inner">
-								<div class="amount-title"><span class="distributor">Event Registration - Coffee</span>
-								</div>
-								<div class="amount-no">
-									<div class="cart-item" style="border: none;">
-										<div class="product-info">
-											<div class="amount-no">QTY <span>2</span></div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-						<form class="form">
-							<div class="cart-total-amount" style="background: none; ">
-								<div class="cart-total-amount-inner">
-									<div class="col-md-12 pl-0 pr-0">
-										<div class="form-group col-md-6 pl-0">
-											<label>
-												<div class="amount-title">
-													<span class="distributor">Data Pemesan</span>
-												</div>
-											</label>
-											<input type="text" disabled class="form-control"
-												placeholder="NAMA READ ONLY">
-										</div>
-										<hr>
-									</div>
-								</div>
-							</div>
-							<div class="cart-total-amount" style="background: none; ">
-								<div class="cart-total-amount-inner">
-									<div class="col-md-12 pl-0 pr-0">
-										<div class="amount-title pb-3">
-											<span class="distributor">Data Peserta</span>
-										</div>
-										<div id="accordion" class="myaccordion">
-											<div class="card">
-												<div class="card-header p-0" id="headingOne"
-													style="border: none; padding-bottom: 10px!important; padding-top: 10px!important;">
-
-													<div class="d-flex justify-content-between btn btn-link collapsed"
-														data-toggle="collapse" data-target="#collapseOne"
-														aria-expanded="false" aria-controls="collapseOne">
-														Peserta 1
-														<span class="fa-stack fa-sm">
-															<i class="fas fa-circle fa-stack-2x"></i>
-															<i class="fas fa-plus fa-stack-1x fa-inverse"></i>
-														</span>
-													</div>
-												</div>
-												<div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-													<div class="card-body">
-														<div class="row align-items-end">
-															<div class="col-md-12">
-																<div class="form-group">
-																	<input id="checkbox" type="checkbox"
-																		style="width: 15px; height: 15px;"> Sama dengan
-																	data
-																	pemesan
-																</div>
-															</div>
-
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="towncity">Nama Sesuai Tanda Pengenal</label>
-																	<input type="text" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="noktp">No KTP/SIM/Passport</label>
-																	<input type="text" name="noktp" maxlength="16"
-																		class="form-control noktp" placeholder=""
-																		onkeypress="return onlyNumberKey(event);">
-																</div>
-															</div>
-
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="towncity">No Handphone</label>
-																	<input type="text" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-
-
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="email">Alamat Email</label>
-																	<input type="email" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><hr>
-											<div class="card">
-												<div class="card-header p-0" id="headingTwo"
-													style="border: none; padding-bottom: 10px!important; padding-top: 10px!important;">
-													<h2 class="mb-0">
-														<div class="d-flex align-items-center justify-content-between btn btn-link collapsed"
-															data-toggle="collapse" data-target="#collapseTwo"
-															aria-expanded="false" aria-controls="collapseTwo">
-															Peserta 2
-															<span class="fa-stack fa-2x">
-																<i class="fas fa-circle fa-stack-2x"></i>
-																<i class="fas fa-plus fa-stack-1x fa-inverse"></i>
-															</span>
-														</div>
-													</h2>
-												</div>
-												<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
-													<div class="card-body">
-														<div class="row align-items-end">
-															<div class="col-md-12">
-																<div class="form-group">
-																	<input id="checkbox" type="checkbox"
-																		style="width: 15px; height: 15px;"> Sama dengan
-																	data
-																	pemesan
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="towncity">Nama Sesuai Tanda Pengenal</label>
-																	<input type="text" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="noktp">No KTP/SIM/Passport</label>
-																	<input type="text" name="noktp" maxlength="16"
-																		class="form-control noktp" placeholder=""
-																		onkeypress="return onlyNumberKey(event);">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="towncity">No Handphone</label>
-																	<input type="text" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label for="email">Alamat Email</label>
-																	<input type="email" class="form-control"
-																		placeholder="">
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
+					
 
 				</div>
 			</div>
 
 
 		</div>
-
 
 
 		<br><br>
