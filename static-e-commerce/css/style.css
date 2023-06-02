@@ -18486,3 +18486,29 @@ section.faq {
   background: #ffffff;
   color: #000000;
 }
+
+/* ADD TO CART - TBC - MOBILE VIEW  */
+
+@media (max-width: 992px) {
+  .tbc-addtocart-mobile {
+    padding: 0px !important; 
+    
+    top: 0px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .tbc-text {
+    padding-top: 3rem !important; 
+    
+  }
+}
+
+/* SISA TIKET MOBILE */
+@media (max-width: 992px) {
+  .product span.sisa-tiket {
+    font-size: 10px;
+    padding: 1px 5px;
+    
+  }
+}
