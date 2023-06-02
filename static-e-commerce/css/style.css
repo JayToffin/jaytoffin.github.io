@@ -18517,3 +18517,10 @@ section.faq {
     
   }
 }
+
+
+@media (max-width: 991.98px) {
+  .box-tbc {
+   height: 450px !important;
+  }
+}
