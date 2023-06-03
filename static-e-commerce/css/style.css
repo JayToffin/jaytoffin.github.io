@@ -18491,16 +18491,17 @@ section.faq {
 
 @media (max-width: 992px) {
   .tbc-addtocart-mobile {
-    padding: 0px !important; 
-    
-    top: 0px !important;
+    position: relative !important;
+    top: 0 !important;
+    opacity: 0;
   }
 }
 
 @media (max-width: 992px) {
   .tbc-text {
-    padding-top: 3rem !important; 
-    
+    padding-left: 0px !important; 
+    padding-right: 0px !important; 
+    padding-bottom: 0px !important; 
   }
 }
 
@@ -18509,7 +18510,6 @@ section.faq {
   .product span.sisa-tiket {
     font-size: 10px;
     padding: 1px 5px;
-    
   }
   .tiket-sold {
     font-size: 10px;
@@ -18519,8 +18519,15 @@ section.faq {
 }
 
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
   .box-tbc {
    height: 450px !important;
+  }
+} */
+
+
+@media (max-width: 768px) {
+  .tbc-sm {
+   font-size: 13px !important;
   }
 }
