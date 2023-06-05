@@ -18269,7 +18269,6 @@ section.faq {
   transform: translate(-2px, 0) rotate(-45deg);
 }
 
-
 .img-sold{
   opacity: 30%;
 }
@@ -18340,11 +18339,6 @@ section.faq {
   background: #f1f1f1;
   color: #353535;
 }
-
-@media screen and (max-width: 1000px) {
-  body {
-    padding: 1em;
-  }
   
   .accordion {
     width: 100%;
@@ -18352,44 +18346,7 @@ section.faq {
 }
 
 
-
-/* BOOTCAMP ACCRODION DATA PESERTA */
-
-.myaccordion .card,
-.myaccordion .card:last-child .card-header {
-  border: none;
-}
-
-.myaccordion .card-header {
-  border-bottom-color: #EDEFF0;
-  background: transparent;
-}
-
-.myaccordion .fa-stack {
-  font-size: 10px;
-}
-
-.myaccordion .btn {
-  width: 100%;
-  font-weight: bold;
-  color: gray;
-  padding: 0;
-}
-
-.myaccordion .btn-link:hover,
-.myaccordion .btn-link:focus {
-  text-decoration: none;
-}
-
-.myaccordion li + li {
-  margin-top: 10px;
-}
-
-
-
-
 /* BOOTCAMP MODAL  */
-
 .bootcamp-modal-content {
   position: relative;
   display: -webkit-box;
@@ -18488,12 +18445,12 @@ section.faq {
 }
 
 /* ADD TO CART - TBC - MOBILE VIEW  */
-
 @media (max-width: 992px) {
   .tbc-addtocart-mobile {
     position: relative !important;
     top: 0 !important;
     opacity: 0;
+    padding-top: 0.5rem !important;
   }
 }
 
@@ -18502,6 +18459,13 @@ section.faq {
     padding-left: 0px !important; 
     padding-right: 0px !important; 
     padding-bottom: 0px !important; 
+  }
+}
+
+@media (max-width: 768px) {
+  .product .text .bottom-area a.add-to-cart-tbc {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
   }
 }
 
@@ -18519,15 +18483,31 @@ section.faq {
 }
 
 
-/* @media (max-width: 991.98px) {
-  .box-tbc {
-   height: 450px !important;
-  }
-} */
-
-
 @media (max-width: 768px) {
   .tbc-sm {
    font-size: 13px !important;
   }
+}
+
+
+/* CARDS MENTOR */
+.card-mentors {
+  background-color: dodgerblue;
+  color: white;
+  padding: 1rem;
+  height: 4rem;
+}
+
+.cards-mentors {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+@media (max-width: 991px) {
+  .cards-mentors { grid-template-columns: repeat(2, 2fr); }
+}
+
+@media (min-width: 991px) {
+  .cards-mentors { grid-template-columns: repeat(5, 2fr); }
 }
