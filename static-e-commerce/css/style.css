@@ -18339,7 +18339,8 @@ section.faq {
   background: #f1f1f1;
   color: #353535;
 }
-  
+
+@media screen and (max-width: 1000px) {
   .accordion {
     width: 100%;
   }
@@ -18510,4 +18511,10 @@ section.faq {
 
 @media (min-width: 991px) {
   .cards-mentors { grid-template-columns: repeat(5, 2fr); }
+}
+
+
+/* HR BIO MENTOR */
+.hr-mentor{
+  background-color: white;
 }
