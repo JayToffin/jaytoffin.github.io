@@ -2957,14 +2957,14 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #ff4b4b;
+  border-color: #ff4b4b;
 }
 
 .btn-secondary:hover {
-  color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
+  color: #ff4b4b;
+  background-color: #ffffff;
+  border-color: #ff4b4b;
 }
 
 .btn-secondary:focus,
@@ -14668,6 +14668,12 @@ textarea.form-control {
   background-color: #3b5998;
 }
 
+.btn-facebook:hover {
+  color: #3b5998;
+  background-color: #ffffff;
+  border-color: #3b5998;
+}
+
 /* Fallback for Edge
 -------------------------------------------------- */
 
@@ -15735,8 +15741,8 @@ a:active {
 .shopping-cart-wrap button {
   cursor: pointer;
   border-radius: 0px;
-  background-color: transparent;
-  border: 0px solid;
+  /* background-color: transparent;
+  border: 0px solid; */
   transition: all 0.25s;
   padding: 0;
 }
@@ -16008,13 +16014,12 @@ a:active {
 
 
 
-/* Oculto la caja original */
 .check-field [type="checkbox"] {
   position: absolute !important;
   left: -9999px;
 }
 
-/* Posición de la label */
+
 .check-field [type="checkbox"]+label {
   position: relative !important;
   padding-left: 2rem !important;
@@ -16122,7 +16127,7 @@ a:active {
   color: #ffffff;
   min-height: 40px;
   height: fit-content;
-  background: #ffa45c;
+  background: #ff4b4b;
   cursor: pointer;
 
 }
@@ -18064,13 +18069,6 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .radio-toolbar input[type="radio"]:checked+label {
   color: orange;
-}
-
-
-.hapus-kodepromo {
-  background-color: #ff4b4b !important;
-  border: 1px solid #ff4b4b !important;
-  color: white !important;
 }
 
 
