@@ -1003,3 +1003,24 @@ var accordion = (function(){
 	  .toggleClass("fa-minus fa-plus");
   });
   
+
+
+
+  function toggleTab(element, tabname) {
+	// Select all tab panels and hide them
+	var tabPanels = $('.panel-masterclass');
+	// Loop through every element and hide it by changing the display to none
+	for (var i =0; i < tabPanels.length; i++) {
+	  $(tabPanels[i]).css('display', 'none');
+	}
+	// Now that we hid everything we can show the user the element that they clicked on.
+	// We select the panel that has the ID of tabname
+	$('#' + tabname).css('display', 'block');
+  
+	// For toggling styling
+	var tabButtons = $('.btn');
+	for (var i =0; i < tabButtons.length; i++) {
+	  $(tabButtons[i]).removeClass('toggled');
+	}
+	$(element).addClass('toggled');
+  }
