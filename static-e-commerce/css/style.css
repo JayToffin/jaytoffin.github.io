@@ -12624,13 +12624,14 @@ h5,
 
 .product span.status {
   position: absolute;
-  top: 10px;
-  left: -1px;
+  top: 15px;
+  left: 15px;
   padding: 2px 15px;
   color: #000000;
   font-weight: bold;
   background: red;
   color: white;
+  border-radius: 15px;
 }
 
 .product .img-prod img {
@@ -13343,6 +13344,10 @@ textarea.form-control {
 
 .bg-black {
   background: #000000 !important;
+}
+
+.bg-mc {
+  background: #121212 !important;
 }
 
 .goto-here {
@@ -18410,9 +18415,10 @@ section.faq {
 /* BADGE SISA TIKET */
 .product span.sisa-tiket {
   position: absolute;
-  top: 10px;
-  left: -1px;
+  top: 15px;
+  left: 15px;
   padding: 2px 15px;
+  border-radius: 15px;
   color: #ffffff;
   font-weight: bold;
   background: #ffa45c;
@@ -18520,7 +18526,9 @@ section.faq {
 
 
 
-
+/* MASTERCLASS */
+/* MASTERCLASS */
+/* MASTERCLASS */
 
 #buttoncontainer {
   display: flex;
@@ -18536,39 +18544,24 @@ section.faq {
     border: no;
 }
 
-.panel-masterclass {
+/* .panel-masterclass {
     background-color: #000000;
     border-radius: 30px;
     padding: 10px;
     overflow: hidden;
-}
-
-/* .img-rounded-masterclass {
-  border-radius: 20px 20px 0 0;
-}
-.box-rounded-masterclass {
-  border-radius: 0 0 20px 20px;
 } */
 
-
-
-
+.img-rounded-masterclass {
+  border-radius: 30px 30px 0 0;
+}
+.box-rounded-masterclass {
+  border-radius: 0 0 30px 30px;
+}
 /* This class will only apply to the div of the active tab panel */
 .toggled {
-  /* Background-color can also be background-image */
   background: linear-gradient(to right, #ffa45c , #ff8829);
 
 }
-
-
-
-
-
-
-
-
-
-
 
 .module-content{
   position:relative;
@@ -18624,50 +18617,11 @@ section.faq {
   text-color:#1d1d1f;
 }
 
-.unit-heading{
-  margin:0;
-  font-size:56px;
-  font-weight:600;
-  line-height:1.07;
-}
 
-/* .heading{
-  font-size:40px;
-  font-weight:600;
-  line-height:1.07;
-  margin:0;
-  max-width:490px;
-  width:88%;
-} */
 
-.unit-subhead{
-  font-size:28px;
-  font-weight:300;
-  line-height:1.10;
-  margin-top:5px;
-  margin-bottom:0;
-  width:100%;
-}
 
-.subhead{
-  font-size:21px;
-  font-weight:400;
-  line-height:1.10;
-  margin:10px 0 5px 0;
-}
 
-.icon{
-  color:#06c;
-}
 
-.icon:hover,
-.icon:active{
-  text-decoration:underline;
-}
-
-.icon:not(:only-child):not(:first-child){
-  margin-left:22px;
-}
 
 .theme-dark{
   background:url("https://www.apple.com/v/home/be/images/heroes/iphone-15-pro/hero_iphone15pro__i70z9oz3hj2i_largetall_2x.jpg")no-repeat center center;
@@ -18714,207 +18668,5 @@ section.faq {
   background-size:cover; 
 }
 
-.bg-light{
-  color:rgb(245, 245, 247) ;
-}
 
-.links {
-  position:relative;
-  display:inline-flex;
-  justify-content:center;
-  font-size:19px;
-  z-index:4;
-  margin-top:14px;;
-}
-
-.module-links{
-  display:inline-flex;
-  text-align:center;
-  font-size:17px;
-  margin-top:0.8em;
-}
-
-.unit-img-svg{
-  width:15px;
-  height:15px;
-  color:#06c;
-}
-
-.module-img-svg{
-  width:13px;
-  height:13px;
-  color:#2997ff;
-}
-
-.logo-image-series-9{
-  background:url("https://www.apple.com/v/home/be/images/logos/apple-watch-series-9/hero_logo_apple_watch_series_9__eg5xcrxghuaa_mediumtall_2x.png")no-repeat center center;
-  background-size:cover;
-  margin-top:8px;
-  width:190px;
-  height:70px;
-  margin-right:auto;
-  margin-left:auto;
-}
-
-.global-footer{
-  font-size:12px;
-  font-weight:400;
-  color:#6e6e73;
-  background:#f5f5f7;
-  line-height:1.33;
-}
-
-.gf-content{
-  max-width:980px;
-  margin:0 auto;
-  padding:0 22px;
-}
-
-.gf-footnotes,
-.gf-shop{
-  display:block;
-  border-bottom:1px solid #d2d2d7;
-  margin:0;
-}
-
-.gf-footnotes{
-  padding:17px 0px 11px;
-}
-
-ol, 
-ul{
-  display:block;
-  margin:0;
-  padding:0;
-}
-
-.gf-shop{
-  padding-bottom:8px;
-  margin-bottom:7px;
-}
-
-.gf-directory{
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-   position:relative;
-  padding-top:20px;
-}
-
-.gf-directory-list{
-  display:flex;
-  flex-direction:column;
-  margin-right:20px;
-  padding:0;
-}
-
-.gf-directory-col{
-  display:block;
-  flex-basis:25%;
-}
-
-.gf-directory-col-section{
-  display:block;
-  margin-top:25px;
-  margin-right:10px;
-}
-
-.gf-link,
-.gf-local-link,
-.gf-directory-link{
-  color:#424245;
-}
-
-.gf-link,
-.gf-shop-link,
-.gf-directory-link:hover{
-  text-decoration:underline;
-}
-
-.footnotes-item{
-  padding-bottom:0.8em;
-}
-
-.gf-footnotes ul,
-.gf-directory,
-.gf-legal-directory,
-.gf-directory-list,
-ol{
-  list-style:none;
-}
-
-.gf-footnotes{
-  padding:17px 0px 11px;
-}
-
-.gf-footer-legal{
-  padding-top:34px;
-}
-
-.gf-shop-link{
-  color:#06c;
-}
-
-.gf-directory-col-section-title{
-  font-size:12px;
-  font-weight:600;
-  color:#1d1d1f;
-  margin-bottom:0.8em;
-}
-
-.gf-directory-list li{
-  margin-bottom:0.8em;
-}
-
-.gf-footer-legal-content{
-  box-sizing: border-box;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 3fr 5fr 2fr;
-  align-items: center;
-}
-
-.gf-footer-legal-content p {
-  font-size: 1em;
-  letter-spacing: -0.3px;
-  color: #6e6e73;
-}
-
-.gf-footer-legal-content ul {
-  padding: 0%;
-  display: flex;
-  gap: 12px;
-  list-style:none;
-}
-
-.gf-footer-legal-content li {
-  border-right: 1px solid #757575;
-  padding-right: 12px;
-  line-height: 113%;
-  font-size: 1em;
-  color:#757575;
-}
-
-.gf-footer-legal-content li:hover{
-  text-decoration: underline;
-}
-
-.gf-footer-legal-content li:last-child {
-  border: none
-}
-
-.gf-local-link p{
-  text-align: end
-}
-
-.gf-local-link a {
-  text-decoration: none;
-  color: #757575;
-}
-
-.gf-legal-directory-link{
-  display:inline-block;
-  white-space:nowrap;
-  color:#6e6e73;
-}
 
