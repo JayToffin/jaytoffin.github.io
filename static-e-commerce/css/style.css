@@ -18469,8 +18469,9 @@ section.faq {
 
 @media (max-width: 768px) {
   .product .text .bottom-area a.add-to-cart-tbc {
-    padding-top: 4px !important;
-    padding-bottom: 4px !important;
+    /* padding-top: 4px !important;
+    padding-bottom: 4px !important; */
+    border-radius: 15px;
   }
 }
 
@@ -18671,3 +18672,59 @@ section.faq {
 
 
 
+/* .row-collection{
+  display:flex;
+  flex-direction: row;
+/
+}
+
+.margin-right-column{
+  margin-top: 12px;
+  margin-left: 6px;
+  margin-right: 12px; 
+}
+
+.margin-left-column{
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-right: 6px
+}
+
+.collection-column{
+  background-size: cover;
+  display:flex;
+  width: 50%;
+  height: 500px;
+  background-repeat: no-repeat;
+  display:flex;
+  flex-direction: column;
+  text-align: center; 
+  align-items: center;
+}
+
+.collection-column-ctabox{
+  display:flex;
+  justify-content: space-around;
+}
+
+
+
+.shop-iphone{
+  background: url(https://www.apple.com/v/home/be/images/promos/shop-iphone/promo_shop_iphone__c5oza9nrkf42_large.jpg) center center;
+  background-repeat: no-repeat;
+}
+
+.trade-in{
+  background: url(https://www.apple.com/v/home/be/images/promos/iphone-tradein/promo_iphone_tradein__bugw15ka691e_large.jpg) center center;
+  background-repeat: no-repeat;
+}
+
+.airpods{
+  background: url(https://www.apple.com/v/home/be/images/promos/airpods-pro/promo_airpods_pro_order__d8xv36p4uwae_large.jpg) center center;
+  background-repeat: no-repeat;
+}
+
+.apple-card{
+  background: url(https://www.apple.com/v/home/be/images/promos/apple-card/tile__cauwwcyyn9hy_large.jpg) center center;
+  background-repeat: no-repeat;
+} */
