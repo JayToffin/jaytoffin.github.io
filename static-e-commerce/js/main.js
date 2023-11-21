@@ -1024,3 +1024,10 @@ var accordion = (function(){
 	}
 	$(element).addClass('toggled');
   }
+
+
+
+
+  document.getElementById('test').onclick = function () {
+	window.location.hash = "#bottom-sheet"; 
+};
