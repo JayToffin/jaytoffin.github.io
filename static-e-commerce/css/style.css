@@ -18538,7 +18538,7 @@ section.faq {
 
 .btn-masterclass {
   background: white;
-    width: 150px;
+    width: 140px;
     border-radius: 12px;
     font-size: 14px;
     font-weight: 600;
@@ -18556,12 +18556,12 @@ section.faq {
 
 }
 
-.module-content{
+/* .module-content{
   position:relative;
   display:border-box;
   height:650px;
   margin:0;
-}
+} */
 
 .module-content:hover,
 .module-content:active{
@@ -18610,56 +18610,6 @@ section.faq {
   text-color:#1d1d1f;
 }
 
-
-
-
-
-
-
-.theme-dark{
-  background:url("https://www.apple.com/v/home/be/images/heroes/iphone-15-pro/hero_iphone15pro__i70z9oz3hj2i_largetall_2x.jpg")no-repeat center center;
-  background-size:cover;
-}
-
-.theme-light{
-  background:url("https://www.apple.com/v/home/be/images/heroes/iphone-15/hero_iphone15_announce__uuemlcwczn6u_largetall_2x.jpg")no-repeat center center;
-  background-size:cover;
-}
-
-.theme-dark-watch{
-  background:url("https://www.apple.com/uk/home/includes/heroes/apple-watch-series-9/hero_apple_watch_series_9_order__d0fi9mb84dci_largetall_2x.jpg")no-repeat center center;
-  background-size:cover;
-}
-
-.theme-light-watch{
-  background:url("https://www.apple.com/uk/home/includes/promos/apple-watch-ultra-2/promo_apple_watch_ultra2_order__dyxqj5ia98om_large_2x.jpg")no-repeat center center;
-  background-size:cover;
-}
-
-.theme-dark-pods{
-  background:url("https://www.apple.com/v/home/be/images/promos/airpods-pro/promo_airpods_pro_order__d8xv36p4uwae_large_2x.jpg")no-repeat center center;
-  background-size:cover;
-}
-
-.theme-light-carbon{
-  background:url("https://www.apple.com/v/home/be/images/promos/apple-watch-carbon-neutral/promo_carbon_neutral__fmzt9ypcw9e2_large_2x.jpg")no-repeat center center;
-  background-size:cover; 
-}
-
-.theme-save-for-uni{
-  background:url("https://www.apple.com/v/home/be/images/promos/back-to-school-2023/promo_bts2023_startframe__exvt2t1iuxme_large_2x.jpg")no-repeat center center;
-  background-size:cover; 
-}
-
-.theme-macbook-air{
-  background:url("https://www.apple.com/v/home/be/images/promos/macbook-air-15/promo_macbook_air_15_midnight__3zojl1nanrme_large_2x.jpg")no-repeat center center;
-  background-size:cover; 
-}
-
-.theme-apple-tradein{
-  background:url("https://www.apple.com/v/home/be/images/promos/iphone-tradein/promo_iphone_tradein__bugw15ka691e_large_2x.jpg")no-repeat center center;
-  background-size:cover; 
-}
 
 
 /* MASTERCLASS ACCORDION FAQ*/
