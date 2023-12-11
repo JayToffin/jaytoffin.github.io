@@ -18811,3 +18811,10 @@ section.faq {
     }
     
     }
+
+
+    @media screen and (min-width: 1024px) {
+      .swiper-wrapper-masterclass {
+        justify-content: center !important;
+      }
+      }
