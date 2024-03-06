@@ -24,7 +24,7 @@ E-mail: samson3d@gmail.com
 	text-align: left
 }
 .ace-responsive-menu > li > a.active span {
-	color: #ffffff
+	color: orange;
 }
 .ace-responsive-menu > li > a {
 	border: 0px;
