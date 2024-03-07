@@ -9722,7 +9722,7 @@ input:focus-visible {
 }
 .table-style1 .table th {
   color: #222222;
-  line-height: 55px;
+  /* line-height: 55px; */
   padding-left: 27px;
 }
 .table-style1 .table th:first-child {
@@ -9734,7 +9734,7 @@ input:focus-visible {
 .table-style1 .table td {
   border-bottom: 1px solid #DDDDDD;
   font-family: var(--title-font-family);
-  line-height: 52px;
+  /* line-height: 52px; */
   padding-left: 27px;
 }
 
@@ -9751,8 +9751,8 @@ input:focus-visible {
   font-weight: 600;
   font-size: 15px;
   line-height: 22px;
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .table-style2 table.table .t-head2 th {
   padding-bottom: 22px;
@@ -9771,8 +9771,8 @@ input:focus-visible {
   font-size: 15px;
   line-height: 23px;
   letter-spacing: 0em;
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .table-style2 .t-body tr {
   border: 1px solid #DDDDDD;
@@ -9781,8 +9781,8 @@ input:focus-visible {
   color: var(--headings-color);
   font-family: var(--title-font-family);
   font-weight: 400;
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 .table-style2 .t-body .check_circle {
   background-color: #F7F7F7;
