@@ -230,16 +230,10 @@
                       <div class="ps-widget bgc-white bdrs12 p30 overflow-hidden position-relative">
                         <form class="form-style1">
                           <div class="row">
-                            <div class="col-sm-6 col-xl-6">
+                            <div class="col-sm-12">
                               <div class="mb30">
                                 <label class="heading-color ff-heading fw600 mb10">Company Name</label>
                                 <input type="text" class="form-control" placeholder="Your Company Name">
-                              </div>
-                            </div>
-                            <div class="col-sm-6 col-xl-6">
-                              <div class="mb30">
-                                <label class="heading-color ff-heading fw600 mb10">Phone</label>
-                                <input type="text" class="form-control" placeholder="Phone">
                               </div>
                             </div>
                             <div class="col-sm-12">
@@ -252,7 +246,7 @@
                               <div class="mb20">
                                 <label class="heading-color ff-heading fw600 mb10">State</label>
                                 <div class="location-area">
-                                  <select class="selectpicker" multiple>
+                                  <select class="selectpicker" data-live-search="true" data-width="100%">
                                     <option>Belgiul</option>
                                     <option>France</option>
                                     <option>Kewait</option>
@@ -270,7 +264,7 @@
                               <div class="mb20">
                                 <label class="heading-color ff-heading fw600 mb10">City</label>
                                 <div class="location-area">
-                                  <select class="selectpicker" multiple>
+                                  <select class="selectpicker" data-live-search="true" data-width="100%">
                                     <option>California</option>
                                     <option>Chicago</option>
                                     <option>Los Angeles</option>
@@ -295,15 +289,7 @@
                                 <label class="heading-color ff-heading fw600 mb10">Country</label>
                                 <div class="location-area">
                                   <select class="selectpicker" multiple>
-                                    <option>Belgiul</option>
-                                    <option>France</option>
-                                    <option>Kewait</option>
-                                    <option>Qatar</option>
-                                    <option>Netherland</option>
-                                    <option>Germany</option>
-                                    <option>Turkey</option>
-                                    <option>UK</option>
-                                    <option>USA</option>
+                                    <option>Indonesia</option>
                                   </select>
                                 </div>
                               </div>
@@ -315,6 +301,12 @@
                               </div>
                             </div>
                             <div class="col-sm-6 col-xl-6">
+                              <div class="mb30">
+                                <label class="heading-color ff-heading fw600 mb10">Phone</label>
+                                <input type="text" class="form-control" placeholder="Phone">
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
                               <div class="mb30">
                                 <label class="heading-color ff-heading fw600 mb10">NPWP Number</label>
                                 <input type="text" class="form-control" placeholder="">
@@ -366,69 +358,6 @@
                         </form>
                       </div>
                     </div>
-                    <!-- <div class="tab-pane fade" id="nav-item2" role="tabpanel" aria-labelledby="nav-item2-tab">                      
-                      <div class="ps-widget bgc-white bdrs12 p30 overflow-hidden position-relative">
-                        <h4 class="title fz17 mb30">Upload photos of your property</h4>
-                        <div class="col-lg-12">
-                          <div class="upload-img position-relative overflow-hidden bdrs12 text-center mb30 px-2">
-                            <div class="icon mb30"><span class="flaticon-upload"></span></div>
-                            <h4 class="title fz17 mb10">Upload photos of your property</h4>
-                            <p class="text mb25">Photos must be JPEG or PNG format and least 2048x768</p>
-                            <a class="ud-btn btn-white" href="#">Browse Files<i class="fal fa-arrow-right-long"></i></a>
-                          </div>
-                        </div>
-                        <div class="col-lg-5">
-                          <div class="profile-box position-relative d-md-flex align-items-end mb50">
-                            <div class="profile-img position-relative overflow-hidden bdrs12 mb20-sm">
-                              <img class="w-100" src="images/listings/profile-1.jpg" alt="">
-                              <a href="#" class="tag-del" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete Image" aria-label="Delete Item"><span class="fas fa-trash-can"></span></a>
-                            </div>
-                            <div class="profile-img position-relative overflow-hidden bdrs12 ml20 ml0-sm">
-                              <img class="w-100" src="images/listings/profile-2.jpg" alt="">
-                              <a href="#" class="tag-del" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete Image" aria-label="Delete Item"><span class="fas fa-trash-can"></span></a>
-                            </div>
-                          </div>
-                        </div>
-                        <form class="form-style1">
-                          <div class="row">
-                            <h4 class="title fz17 mb30">Video Option</h4>
-                            <div class="col-sm-6 col-xl-4">
-                              <div class="mb30">
-                                <label class="heading-color ff-heading fw600 mb10">Video from</label>
-                                <div class="location-area">
-                                  <select class="selectpicker" multiple>
-                                    <option>Youtube</option>
-                                    <option>Facebook</option>
-                                    <option>Vimeo</option>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-sm-6 col-xl-4">
-                              <div class="mb30">
-                                <label class="heading-color ff-heading fw600 mb10">Embed Video id</label>
-                                <input type="text" class="form-control" placeholder="Your Name">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <h4 class="title fz17 mb30">Virtual Tour</h4>
-                            <div class="col-sm-6 col-xl-12">
-                              <div class="mb30">
-                                <label class="heading-color ff-heading fw600 mb10">Virtual Tour</label>
-                                <input type="text" class="form-control" placeholder="Virtual Tour">
-                              </div>
-                            </div>
-                            <div class="col-md-12">
-                              <div class="d-sm-flex justify-content-between">
-                                <a class="ud-btn btn-white" href="#">Prev Step<i class="fal fa-arrow-right-long"></i></a>
-                                <a class="ud-btn btn-dark" href="#">Next Step<i class="fal fa-arrow-right-long"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div> -->
                     <div class="tab-pane fade" id="nav-item3" role="tabpanel" aria-labelledby="nav-item3-tab">
                       <div class="ps-widget bgc-white bdrs12 p30 overflow-hidden position-relative">
                         <form class="form-style1">
@@ -467,7 +396,7 @@
                               <div class="mb20">
                                 <label class="heading-color ff-heading fw600 mb10">State</label>
                                 <div class="location-area">
-                                  <select class="selectpicker" multiple>
+                                  <select class="selectpicker" data-live-search="true" data-width="100%">
                                     <option>Belgiul</option>
                                     <option>France</option>
                                     <option>Kewait</option>
@@ -485,7 +414,7 @@
                               <div class="mb20">
                                 <label class="heading-color ff-heading fw600 mb10">City</label>
                                 <div class="location-area">
-                                  <select class="selectpicker" multiple>
+                                  <select class="selectpicker" data-live-search="true" data-width="100%">
                                     <option>California</option>
                                     <option>Chicago</option>
                                     <option>Los Angeles</option>
@@ -510,15 +439,7 @@
                                 <label class="heading-color ff-heading fw600 mb10">Country</label>
                                 <div class="location-area">
                                   <select class="selectpicker" multiple>
-                                    <option>Belgiul</option>
-                                    <option>France</option>
-                                    <option>Kewait</option>
-                                    <option>Qatar</option>
-                                    <option>Netherland</option>
-                                    <option>Germany</option>
-                                    <option>Turkey</option>
-                                    <option>UK</option>
-                                    <option>USA</option>
+                                    <option>Indonesia</option>
                                   </select>
                                 </div>
                               </div>
@@ -547,7 +468,7 @@
                               <div class="mb20">
                                 <label class="heading-color ff-heading fw600 mb10">NIK Type</label>
                                 <div class="location-area">
-                                  <select class="selectpicker" multiple>
+                                  <select class="selectpicker" data-live-search="true" data-width="100%">
                                     <option>KTP</option>
                                     <option>SIM</option>
                                     <option>PASSPORT</option>
@@ -584,28 +505,23 @@
                       <div class="ps-widget bgc-white bdrs12 p30 overflow-hidden position-relative">
                         <form class="form-style1">
                           <div class="row">
-                            <div class="col-sm-6 col-xl-4">
+                            <div class="col-sm-12">
                               <div class="mb30">
                                 <label class="heading-color ff-heading fw600 mb10">Machine Option</label>
                                 <div class="location-area">
-                                  <select class="selectpicker" multiple>
+                                  <select class="selectpicker" data-live-search="true" data-width="100%">
                                     <option>Option 1 - E30 (30-50 Cups/Day) IDR 2.5 million</option>
                                     <option>Option 2 - E60L (50-80 Cups/Day) IDR 3 million</option>
                                     <option>Option 3 - M50LT (80-100 Cups/Day) IDR 4 million</option>
-                                    <option>Option 4 - X580 (100-150 Cups/Day) IDR 5 million</option>
+                                    <option>Option 4 - X580 (100-150 Cups/Day) IDR 5.5 million</option>
                                   </select>
                                 </div>
                               </div>
                             </div>
-                            <div class="col-sm-6 col-xl-6">
-                              <div class="mb20">
+                            <div class="col-sm-12">
+                              <div class="mb30">
                                 <label class="heading-color ff-heading fw600 mb10">Location</label>
-                                <div class="location-area">
-                                  <select class="selectpicker" multiple>
-                                    <option>Meeting Room</option>
-                                    <option>Pantry</option>
-                                  </select>
-                                </div>
+                                <input type="text" class="form-control" placeholder="">
                               </div>
                             </div>
                             <div class="col-md-12">
@@ -618,115 +534,6 @@
                         </form>
                       </div>
                     </div>
-                    <!-- <div class="tab-pane fade" id="nav-item5" role="tabpanel" aria-labelledby="nav-item5-tab">
-                      <div class="ps-widget bgc-white bdrs12 p30 overflow-hidden position-relative">
-                        <h4 class="title fz17 mb30">Select Amenities</h4>
-                        <div class="row">
-                          <div class="col-sm-6 col-lg-3 col-xxl-2">
-                            <div class="checkbox-style1">
-                              <label class="custom_checkbox">Attic
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Basketball court
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Air Conditioning
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Lawn
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Swimming Pool
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Barbeque
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Microwave
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-sm-6 col-lg-3 col-xxl-2">
-                            <div class="checkbox-style1">
-                              <label class="custom_checkbox">TV Cable
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Dryer
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Outdoor Shower
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Washer
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Gym
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Ocean view
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Private space
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-sm-6 col-lg-3 col-xxl-2">
-                            <div class="checkbox-style1">
-                              <label class="custom_checkbox">Lake view
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Wine cellar
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Front yard
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Refrigerator
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">WiFi
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Laundry
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                              <label class="custom_checkbox">Sauna
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mt30">
-                            <div class="d-sm-flex justify-content-between">
-                              <a class="ud-btn btn-white" href="#">Prev Step<i class="fal fa-arrow-right-long"></i></a>
-                              <a class="ud-btn btn-thm" href="#">Submit Property<i class="fal fa-arrow-right-long"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
                   </div>
                 </div>
               </div>

@@ -4850,7 +4850,7 @@ section {
 
 .cta-banner4 {
   background-attachment: fixed;
-  background-image: url(../images/background/cta-bg-1.jpg);
+  background-image: url(../images/home/about1.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4873,7 +4873,7 @@ section {
 }
 
 .cta-banner5:before {
-  background-image: url(../images/about/cta-side-bg-2.jpg);
+  background-image: url(../images/home/about1.png);
   background-size: cover;
   content: "";
   position: absolute;
@@ -4912,7 +4912,7 @@ section {
 }
 
 .cta-banner6:before {
-  background-image: url(../images/about/cta-side-bg-3.jpg);
+  background-image: url(../images/home/about1.png);
   background-size: cover;
   content: "";
   position: absolute;
