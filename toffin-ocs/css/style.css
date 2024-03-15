@@ -8930,8 +8930,10 @@ input:focus-visible {
 .explore-apartment-slider .owl-stage-outer,
 .testimonial-slider .owl-stage-outer {
   display: inline-block;
-  padding-top: 5px;
   
+}
+.owl-stage-outer{
+  padding: 5px;
 }
 
 .property-city-slider.style2.vam_nav_style.owl-theme .owl-nav button.owl-prev,
