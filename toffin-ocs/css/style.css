@@ -5991,8 +5991,9 @@ textarea:focus {
   -moz-box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
   -o-box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
   /* box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07); */
-  box-shadow: 1px 1px 4px 3px rgba(24, 26, 32, 0.07);
-  margin-bottom: 15px;
+  box-shadow: 1px 1px 3px 3px rgba(24, 26, 32, 0.07);
+  /* margin-bottom: 15px; */
+  margin: 5px;
   padding: 30px 10px 30px 30px;
 }
 .testimonial-style1 .testimonial-content {
