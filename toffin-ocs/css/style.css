@@ -7716,7 +7716,7 @@ li.mm-listitem:focus {
   width: auto;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: 25px;
 }
 
 .mm-panel_has-navbar .mm-navbar {
@@ -8932,9 +8932,9 @@ input:focus-visible {
   display: inline-block;
   
 }
-.owl-stage-outer{
+/* .owl-stage-outer{
   padding: 5px;
-}
+} */
 
 .property-city-slider.style2.vam_nav_style.owl-theme .owl-nav button.owl-prev,
 .property-city-slider.style2.vam_nav_style.owl-theme .owl-nav button.owl-next {
@@ -10416,4 +10416,29 @@ input:focus-visible {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+
+
+
+/* CSS Whatsapp Chat */
+a.blantershow-chat {
+  /*   background: #009688; */
+  background: #fff;
+  color: #000000;
+  position: fixed;
+  display: flex;
+  /* height: 40px; */
+  font-weight: 600;
+  justify-content: space-between;
+  z-index: 98;
+  bottom: 25px;
+  right: 30px;
+  font-size: 12px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 1px 15px rgba(32, 33, 36, 0.28);
+}
+
+a.blantershow-chat svg {
+  transform: scale(1.2);
+  margin: 0 10px 0 0;
+}
