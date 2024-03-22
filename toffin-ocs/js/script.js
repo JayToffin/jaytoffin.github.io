@@ -342,12 +342,12 @@
 /* ======
    When document is ready, do
    ====== */
-    $(document).on('ready', function() {
-        // add your functions
-        navbarScrollfixed();
-        scrollToTop();
-        mobileNavToggle();
-    });
+    // $(document).on('ready', function() {
+    //     // add your functions
+    //     navbarScrollfixed();
+    //     scrollToTop();
+    //     mobileNavToggle();
+    // });
     
 /* ======
    When document is loading, do
