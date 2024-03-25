@@ -6336,7 +6336,7 @@ textarea:focus {
   color: var(--headings-color);
   font-family: var(--title-font-family);
   font-weight: 400;
-  padding: 20px 0 35px;
+  padding: 20px 20 35px;
   max-width: 410px;
 }
 .accordion-style1.faq-page .accordion-body {
@@ -10442,4 +10442,11 @@ a.blantershow-chat {
 a.blantershow-chat svg {
   transform: scale(1.2);
   margin: 0 10px 0 0;
+}
+
+
+@media (max-width: 767.98px) {
+  .p30 {
+    padding: 15px !important;
+  }
 }
