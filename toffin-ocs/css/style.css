@@ -10432,7 +10432,7 @@ a.blantershow-chat {
   justify-content: space-between;
   z-index: 98;
   bottom: 25px;
-  right: 30px;
+  left: 30px;
   font-size: 12px;
   padding: 10px 20px;
   border-radius: 30px;
