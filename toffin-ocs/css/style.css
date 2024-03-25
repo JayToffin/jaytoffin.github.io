@@ -2383,7 +2383,7 @@ h2 {
 }
 @media (max-width: 991.98px) {
   .listing-style11 {
-    padding: 40px 30px;
+    padding: 30px 15px;
   }
 }
 .listing-style11 .list-thumb .img-1 {
@@ -5994,7 +5994,7 @@ textarea:focus {
   box-shadow: 1px 1px 3px 3px rgba(24, 26, 32, 0.07);
   /* margin-bottom: 15px; */
   margin: 5px;
-  padding: 30px 10px 30px 30px;
+  padding: 20px 25px 20px 25px;
 }
 .testimonial-style1 .testimonial-content {
   border-bottom: 1px solid #DDDDDD;
@@ -6297,7 +6297,7 @@ textarea:focus {
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 10px;
-  padding: 4px 30px;
+  padding: 4px 15px;
 }
 .accordion-style1 .accordion-item.active {
   -webkit-box-shadow: 0px 10px 40px rgba(24, 26, 32, 0.05);
@@ -9741,7 +9741,7 @@ input:focus-visible {
   border-bottom: 1px solid #DDDDDD;
   font-family: var(--title-font-family);
   /* line-height: 52px; */
-  padding-left: 27px;
+  padding-left: 15px;
 }
 
 .table-style2 {
