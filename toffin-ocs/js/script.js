@@ -60,14 +60,14 @@
 
     /* ----- This code for menu ----- */
     $(window).on('scroll', function() {
-        if ($('.scroll-to-top').length) {
-            var strickyScrollPos = 100;
-            if ($(window).scrollTop() > strickyScrollPos) {
-                $('.scroll-to-top').fadeIn(500);
-            } else if ($(this).scrollTop() <= strickyScrollPos) {
-                $('.scroll-to-top').fadeOut(500);
-            }
-        };
+        // if ($('.scroll-to-top').length) {
+        //     var strickyScrollPos = 100;
+        //     if ($(window).scrollTop() > strickyScrollPos) {
+        //         $('.scroll-to-top').fadeIn(500);
+        //     } else if ($(this).scrollTop() <= strickyScrollPos) {
+        //         $('.scroll-to-top').fadeOut(500);
+        //     }
+        // };
         if ($('.stricky').length) {
             var headerScrollPos = $('.header-navigation').next().offset().top;
             var stricky = $('.stricky');
@@ -291,79 +291,79 @@
     /*** ====  Perspective Hover Animation Code End ==== ***/
 
     /* ----- Scroll To top ----- */
-    function scrollToTop() {
-        var btn = $('.scrollToHome');
-        $(window).on('scroll', function () {
-            if ($(window).scrollTop() > 300) {
-                btn.addClass('show');
-            } else {
-                btn.removeClass('show');
-            }
-        });
-        btn.on('click', function (e) {
-            e.preventDefault();
-            $('html, body').animate({
-                scrollTop: 0
-            }, '300');
-        });
-    }
+//     function scrollToTop() {
+//         var btn = $('.scrollToHome');
+//         $(window).on('scroll', function () {
+//             if ($(window).scrollTop() > 300) {
+//                 btn.addClass('show');
+//             } else {
+//                 btn.removeClass('show');
+//             }
+//         });
+//         btn.on('click', function (e) {
+//             e.preventDefault();
+//             $('html, body').animate({
+//                 scrollTop: 0
+//             }, '300');
+//         });
+//     }
 
-    $(".mouse_scroll").on('click', function() {
-      $('html, body').animate({
-          scrollTop: $("#explore-property").offset().top
-      }, 1200);
-    });
+//     $(".mouse_scroll").on('click', function() {
+//       $('html, body').animate({
+//           scrollTop: $("#explore-property").offset().top
+//       }, 1200);
+//     });
     
-    /* ----- Mega Dropdown Content ----- */
-    $(document).on('ready', function(){
-        $(".drop_btn").on('click',function(){
-            $(".drop_content").toggle();
-        });
-        $(".drop_btn2").on('click',function(){
-            $(".drop_content2").toggle();
-        });
-        $(".drop_btn3").on('click',function(){
-            $(".drop_content3").toggle();
-        }); 
-        $(".drop_btn4").on('click',function(){
-            $(".drop_content4").toggle();
-        });        
-    });
+//     /* ----- Mega Dropdown Content ----- */
+//     $(document).on('ready', function(){
+//         $(".drop_btn").on('click',function(){
+//             $(".drop_content").toggle();
+//         });
+//         $(".drop_btn2").on('click',function(){
+//             $(".drop_content2").toggle();
+//         });
+//         $(".drop_btn3").on('click',function(){
+//             $(".drop_content3").toggle();
+//         }); 
+//         $(".drop_btn4").on('click',function(){
+//             $(".drop_content4").toggle();
+//         });        
+//     });
     
 
-    /*----------- Addclass Remove Class for Home 2 Accordion ----------*/
-    (function( $ ) {
-      $(".accordion-style1 .accordion-item, .accordion-style1.style2 .accordion-item, .accordion-style2 .accordion-item").on("click",function() {
-        $(this).toggleClass( "active", 1000)
-      });
-    })(jQuery);
+//     /*----------- Addclass Remove Class for Home 2 Accordion ----------*/
+//     (function( $ ) {
+//       $(".accordion-style1 .accordion-item, .accordion-style1.style2 .accordion-item, .accordion-style2 .accordion-item").on("click",function() {
+//         $(this).toggleClass( "active", 1000)
+//       });
+//     })(jQuery);
 
 
-/* ======
-   When document is ready, do
-   ====== */
-    $(document).on('ready', function() {
-        // add your functions
-        navbarScrollfixed();
-        scrollToTop();
-        mobileNavToggle();
-    });
+// /* ======
+//    When document is ready, do
+//    ====== */
+//     $(document).on('ready', function() {
+//         // add your functions
+//         navbarScrollfixed();
+//         scrollToTop();
+//         mobileNavToggle();
+//     });
     
-/* ======
-   When document is loading, do
-   ====== */
-    // window on Load function
-    $(window).on('load', function() {
-        // add your functions
-        preloaderLoad();
-    });
-    // window on Scroll function
-    $(window).on('scroll', function() {
-        // add your functions
-    });
+// /* ======
+//    When document is loading, do
+//    ====== */
+//     // window on Load function
+//     $(window).on('load', function() {
+//         // add your functions
+//         preloaderLoad();
+//     });
+//     // window on Scroll function
+//     $(window).on('scroll', function() {
+//         // add your functions
+//     });
 
 
-})(window.jQuery);
+// })(window.jQuery);
 
 
 // window.addEventListener('DOMContentLoaded', event => {
