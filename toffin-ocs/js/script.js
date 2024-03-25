@@ -291,28 +291,28 @@
     /*** ====  Perspective Hover Animation Code End ==== ***/
 
     /* ----- Scroll To top ----- */
-    // function scrollToTop() {
-    //     var btn = $('.scrollToHome');
-    //     $(window).on('scroll', function () {
-    //         if ($(window).scrollTop() > 300) {
-    //             btn.addClass('show');
-    //         } else {
-    //             btn.removeClass('show');
-    //         }
-    //     });
-    //     btn.on('click', function (e) {
-    //         e.preventDefault();
-    //         $('html, body').animate({
-    //             scrollTop: 0
-    //         }, '300');
-    //     });
-    // }
+    function scrollToTop() {
+        var btn = $('.scrollToHome');
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, '300');
+        });
+    }
 
-    // $(".mouse_scroll").on('click', function() {
-    //   $('html, body').animate({
-    //       scrollTop: $("#explore-property").offset().top
-    //   }, 1200);
-    // });
+    $(".mouse_scroll").on('click', function() {
+      $('html, body').animate({
+          scrollTop: $("#explore-property").offset().top
+      }, 1200);
+    });
     
     /* ----- Mega Dropdown Content ----- */
     $(document).on('ready', function(){
@@ -339,9 +339,9 @@
     })(jQuery);
 
 
-// /* ======
-//    When document is ready, do
-//    ====== */
+/* ======
+   When document is ready, do
+   ====== */
     $(document).on('ready', function() {
         // add your functions
         navbarScrollfixed();
@@ -349,9 +349,9 @@
         mobileNavToggle();
     });
     
-// /* ======
-//    When document is loading, do
-//    ====== */
+/* ======
+   When document is loading, do
+   ====== */
     // window on Load function
     $(window).on('load', function() {
         // add your functions
@@ -364,7 +364,3 @@
 
 
 })(window.jQuery);
-
-
-
-
