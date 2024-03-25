@@ -291,28 +291,28 @@
     /*** ====  Perspective Hover Animation Code End ==== ***/
 
     /* ----- Scroll To top ----- */
-    function scrollToTop() {
-        var btn = $('.scrollToHome');
-        $(window).on('scroll', function () {
-            if ($(window).scrollTop() > 300) {
-                btn.addClass('show');
-            } else {
-                btn.removeClass('show');
-            }
-        });
-        btn.on('click', function (e) {
-            e.preventDefault();
-            $('html, body').animate({
-                scrollTop: 0
-            }, '300');
-        });
-    }
+    // function scrollToTop() {
+    //     var btn = $('.scrollToHome');
+    //     $(window).on('scroll', function () {
+    //         if ($(window).scrollTop() > 300) {
+    //             btn.addClass('show');
+    //         } else {
+    //             btn.removeClass('show');
+    //         }
+    //     });
+    //     btn.on('click', function (e) {
+    //         e.preventDefault();
+    //         $('html, body').animate({
+    //             scrollTop: 0
+    //         }, '300');
+    //     });
+    // }
 
-    $(".mouse_scroll").on('click', function() {
-      $('html, body').animate({
-          scrollTop: $("#explore-property").offset().top
-      }, 1200);
-    });
+    // $(".mouse_scroll").on('click', function() {
+    //   $('html, body').animate({
+    //       scrollTop: $("#explore-property").offset().top
+    //   }, 1200);
+    // });
     
     /* ----- Mega Dropdown Content ----- */
     $(document).on('ready', function(){
@@ -361,34 +361,6 @@
     $(window).on('scroll', function() {
         // add your functions
     });
-
-
-
-window.addEventListener('DOMContentLoaded', event => {
-
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
-        });
-    };
-
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
-
-});
 
 
 })(window.jQuery);
