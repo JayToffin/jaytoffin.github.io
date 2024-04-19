@@ -6317,7 +6317,7 @@ textarea:focus {
   color: var(--headings-color);
   font-family: var(--title-font-family);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   padding-left: 20px;
 }
 .accordion-style1 .accordion-button:before {
