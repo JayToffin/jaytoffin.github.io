@@ -10450,3 +10450,9 @@ a.blantershow-chat svg {
     padding: 15px !important;
   }
 }
+
+/* Form Upload Img */
+.imgHidden{
+   display: none;
+}
+
