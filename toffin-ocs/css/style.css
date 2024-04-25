@@ -8894,7 +8894,7 @@ input:focus-visible {
 }
 .vam_nav_style.owl-theme .owl-nav button.owl-prev,
 .vam_nav_style.owl-theme .owl-nav button.owl-next {
-  background-color: #ffffff;
+  background-color: rgb(255 255 255 / 33%);
   -webkit-box-shadow: 0px 10px 35px rgba(5, 16, 54, 0.1);
   -moz-box-shadow: 0px 10px 35px rgba(5, 16, 54, 0.1);
   -o-box-shadow: 0px 10px 35px rgba(5, 16, 54, 0.1);
@@ -8920,7 +8920,7 @@ input:focus-visible {
 .vam_nav_style.owl-theme .owl-nav button.owl-next:hover,
 .vam_nav_style.owl-theme .owl-nav button.owl-next:active,
 .vam_nav_style.owl-theme .owl-nav button.owl-next:focus {
-  background-color: #EB6753;
+  background-color: orange;
   color: #ffffff;
 }
 
@@ -8933,9 +8933,9 @@ input:focus-visible {
   display: inline-block;
   
 }
-/* .owl-stage-outer{
+.owl-stage-outer{
   padding: 5px;
-} */
+}
 
 .property-city-slider.style2.vam_nav_style.owl-theme .owl-nav button.owl-prev,
 .property-city-slider.style2.vam_nav_style.owl-theme .owl-nav button.owl-next {
