@@ -364,7 +364,11 @@
 
 
     $('form#contactform').submit(function(){
-        var name = $('#name').val()
+        var name = $('#name')
+        var email = $('#email')
+        var company = $('#company')
+        var message = $('#message')
+        var phone = $('#phone')
         
         $.ajax({
             type:'POST',
@@ -374,14 +378,22 @@
             },
             dataType: "json",
             data:JSON.stringify({
-                "name":$('#name').val(),
-                "email":$('#email').val(),
-                "company":$('#company').val(),
-                "message":$('#message').val(),
-                "phone":$('#phone').val(),
+                "name":name.val(),
+                "email":email.val(),
+                "company":company.val(),
+                "message":message.val(),
+                "phone":phone.val(),
             }),
             success:function(res){
-                console.log(res)
+                if(res['result']  && res['result']['id']){
+                    // reset form
+                    name.val('')
+                    email.val('')
+                    company.val('')
+                    message.val('')
+                    phone.val('')
+                    $('#contactusmsg').html('<div class="alert alert-success" role="alert">Berhasil mengirim pesan, tim kami segera akan merespons pada email/nomor hp yang diberikan!Terimakasih</div>')
+                }
             }
         })
         return false;
