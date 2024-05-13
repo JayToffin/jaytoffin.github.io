@@ -975,18 +975,18 @@
           <div class="col-lg-7 position-relative">
             <div class="home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white">
               <h2 class="form-title mb25">Have questions? Get in touch!</h2>
-              <form class="form-style1">
+              <form class="form-style1" id="contactform" method="post">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="mb20">
                       <label class="heading-color ff-heading fw600 mb10">Your Name</label>
-                      <input type="text" class="form-control" placeholder="Your Name">
+                      <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="mb20">
                       <label class="heading-color ff-heading fw600 mb10">Email Addres</label>
-                      <input type="email  " class="form-control" placeholder="Your Email">
+                      <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
                     </div>
                   </div>
                 </div>
@@ -994,24 +994,24 @@
                   <div class="col-md-6">
                     <div class="mb20">
                       <label class="heading-color ff-heading fw600 mb10">Phone Number</label>
-                      <input type="phone" class="form-control" placeholder="+62">
+                      <input type="phone" name="phone" id="phone" class="form-control" placeholder="+62">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="mb20">
                       <label class="heading-color ff-heading fw600 mb10">Company</label>
-                      <input type="text" class="form-control" placeholder="Your Company">
+                      <input type="text" name="company" id="company" class="form-control" placeholder="Your Company">
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="mb10">
                       <label class="heading-color ff-heading fw600 mb10">Message</label>
-                      <textarea cols="30" rows="4" placeholder="There are many variations of passages."></textarea>
+                      <textarea name="message" id="message" cols="30" rows="4" placeholder="There are many variations of passages."></textarea>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="d-grid">
-                      <a class="ud-btn btn-dark" href="#">Submit<i class="fal fa-arrow-right-long"></i></a>
+                      <button class="ud-btn btn-dark">Submit<i class="fal fa-arrow-right-long"></i></a>
                     </div>
                   </div>
                 </div>
