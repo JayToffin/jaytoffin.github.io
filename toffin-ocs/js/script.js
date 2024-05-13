@@ -364,6 +364,14 @@
 
 
     $('form#contactform').submit(function(){
+        // recaptcha
+        const recaptchaRes = grecaptcha.getResponse();
+        if(!recaptchaRes.length>0){
+            // throw new Error('Captcha not complete!')
+            alert("Captcha not valid!")
+            return false;
+        }
+
         var name = $('#name')
         var email = $('#email')
         var company = $('#company')
@@ -429,7 +437,4 @@ function ReadUrl(input){
 //     }
 
 // })
-
-
-    
 })(window.jQuery);
