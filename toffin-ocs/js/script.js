@@ -364,20 +364,22 @@
 
 
     $('form#contactform').submit(function(){
+        var name = $('#name').val()
+        
         $.ajax({
             type:'POST',
             url:'/ocs/post-contact',
             headers:{
                 'Content-Type':'application/json',
             },
-            data:{
+            dataType: "json",
+            data:JSON.stringify({
                 "name":$('#name').val(),
                 "email":$('#email').val(),
                 "company":$('#company').val(),
                 "message":$('#message').val(),
                 "phone":$('#phone').val(),
-            },
-            dataType:"json",
+            }),
             success:function(res){
                 console.log(res)
             }
