@@ -363,7 +363,27 @@
     });
 
 
-
+    $('form#contactform').submit(function(){
+        $.ajax({
+            type:'POST',
+            url:'/ocs/post-contact',
+            headers:{
+                'Content-Type':'application/json',
+            },
+            data:{
+                "name":$('#name').val(),
+                "email":$('#email').val(),
+                "company":$('#company').val(),
+                "message":$('#message').val(),
+                "phone":$('#phone').val(),
+            },
+            dataType:"json",
+            success:function(res){
+                console.log(res)
+            }
+        })
+        return false;
+    })
  
     
 // Image Upload Click Event 
@@ -384,16 +404,18 @@ function ReadUrl(input){
 
 }
 
-imgInput.addEventListener('change', function (e){
-    if(e.currentTarget.files[0].type == 'image/png' ||e.currentTarget.files[0].type == 'image/jpeg'||e.currentTarget.files[0].type == 'image/jpg'){
-        ReadUrl(e.currentTarget.files[0])
-        img = e.currentTarget.files[0].name
-        nameShow.innerText = img
-    }else{
-        nameShow.innerText = 'Please, provide image file'
-        nameShow.style.color = 'red'
-    }
+// imgInput.addEventListener('change', function (e){
+//     if(e.currentTarget.files[0].type == 'image/png' ||e.currentTarget.files[0].type == 'image/jpeg'||e.currentTarget.files[0].type == 'image/jpg'){
+//         ReadUrl(e.currentTarget.files[0])
+//         img = e.currentTarget.files[0].name
+//         nameShow.innerText = img
+//     }else{
+//         nameShow.innerText = 'Please, provide image file'
+//         nameShow.style.color = 'red'
+//     }
 
-})
+// })
+
+
     
 })(window.jQuery);
