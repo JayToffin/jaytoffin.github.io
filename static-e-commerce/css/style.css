@@ -16809,7 +16809,7 @@ a:active {
   overflow: hidden;
 }
 
-@media screen and (min-width: 1199px) {
+@media screen and (min-width: 1200px) {
   .blog-slider__img {
     width: 450px;
     flex-shrink: 0;
