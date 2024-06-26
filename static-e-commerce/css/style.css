@@ -18826,3 +18826,15 @@ section.faq {
 .mc-shdw2 {
   box-shadow: 0px 0px 2px rgba(32, 33, 36, 0.28);
 }
+
+/* Button download app */
+.btn.btn-primary-mc {
+  background: #ffffff;
+  border: 1px solid #ffa45c;
+  color: #fff;
+}
+.btn.btn-primary-mc:hover {
+  border: 1px solid #ffa45c;
+  background: #ffa45c;
+  color: #ffa45c;
+}
