@@ -18618,13 +18618,14 @@ section.faq {
 
 .accordion-header-masterclass {
   padding: 1.5em 1.5em;
-  background: #121212;
+  background: #ffffff;
   box-shadow: 0 3px 10px -2px rgba(0,0,0,0.1);
-  color: white;
+  color: black;
   cursor: pointer;
   letter-spacing: .1em;
   transition: all .3s;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 .accordion-header-masterclass:hover {
@@ -18633,8 +18634,8 @@ section.faq {
 }
 
 .accordion-body-masterclass {
-  background: #121212;
-  color: #ffffff;
+  background: #f9f9f9;
+  color: #979797;
   display: none;
 }
 
@@ -18671,8 +18672,8 @@ section.faq {
 }
 
 .accordion__item .accordion__item .accordion-header {
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: gray;
 }
 
 @media screen and (max-width: 1000px) {
