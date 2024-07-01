@@ -18537,12 +18537,13 @@ section.faq {
 }
 
 .btn-masterclass {
-  background: #ffa45c;
+  /* background: #ffa45c; */
     width: 140px;
     border-radius: 12px;
     font-size: 14px;
     font-weight: 600;
-    border: no;
+    border: 1px solid orange;
+  
 }
 
 .img-rounded-masterclass {
