@@ -1,0 +1,22 @@
+/* navbar dekstop center logo / hide dekstop*/
+  @media screen and (min-width: 768px) {
+    .header-logo{
+      display: none !important;
+      visibility: hidden !important;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .header-right-wrap{
+      display: none !important;
+      visibility: hidden !important;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .primary-header-inner{
+      justify-content: center !important;
+    }
+  }
+
+
