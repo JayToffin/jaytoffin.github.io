@@ -12098,7 +12098,7 @@ h5,
 }
 
 .owl-carousel.home-slider .slider-item .slider-text .one-third {
-  width: 100%;
+  width: 30%;
   position: relative;
   z-index: -1;
   background-position: center center;
@@ -18839,4 +18839,11 @@ section.faq {
   border: 1px solid #ffa45c;
   background: #ffa45c;
   color: #ffa45c;
+}
+
+/* logo TBC */
+@media (min-width: 767.98px) {
+  .navbar-brand {
+    width: 220px;
+}
 }
