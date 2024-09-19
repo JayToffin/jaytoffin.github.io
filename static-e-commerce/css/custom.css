@@ -11,11 +11,13 @@
     }
   }
 
+  @media (max-width: 767.98px) {
+    .owl-carousel.home-slider .slider-item .slider-text h1 {
+      font-size: 40px !important;
+    }
+  }
 
-
-
-
-
+/* ANIMATION IMAGE WATER  */
 .motion-water {
     -webkit-animation:spin 6s linear infinite;
     -moz-animation:spin 60s linear infinite;
@@ -24,10 +26,6 @@
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-
-
-
 
 
 
@@ -135,41 +133,7 @@
     }
 }
 
-/* 
-* Main Styles
-=================================
-=================================
-*
-*/
 
-
-
-.f--label {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.f--title {
-    font-weight: 900;
-}
-
-.f--cta {
-    font-weight: 700;
-}
-
-.f--text {
-    font-size: 16px;
-    line-height: 1.4;
-}
-
-.content--top {
-    top: 45px; 
-}
-
-.content--bottom {
-    bottom: 45px; 
-}
 
 .hero-container {
     position: relative;
@@ -188,32 +152,6 @@
     height: 100%;
     margin: auto;
     z-index: 1;
-}
-
-.rectangles {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-
-}
-
-.shape--rect {
-    position: absolute;
-    width: 50%;
-    height: 0;
-    animation: growHeight 1s cubic-bezier(.83,.14,.21,1.01) 500ms forwards;
-}
-
-#rect-1 {
-    bottom: 0;
-    left: 0;
-}
-
-#rect-2 {
-    top: 0;
-    right: 0;
 }
 
 .circles {
@@ -254,188 +192,8 @@
     height: 100%;
 }
 
-.live-label {
-    position: absolute;
-    z-index: 1;
-}
-
-.live-label span {
-    display: block;
-    padding: 10px 15px;
-    background-color: #fff;
-    text-transform: uppercase;
-    font-weight: 700;
-
-}
-
-.live-label span:before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 100%;
-    background-color: red;
-    position: relative;
-    left: -5px;
-    vertical-align: middle;
-    animation-name: buttonFlash;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-duration: 5s;
-
-}
 
 
-.media--video {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding-bottom: 56.25%;
-}
-
-.reveal-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    animation: revealWidth 1s cubic-bezier(.83,.14,.21,1.01) 600ms forwards;
-}
-
-.media--video iframe, embed, video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-
-.callout--hero .c-item--text {
-    height: 100%;
-}
-
-.callout--hero .c-item--text span {
-    display: block;
-}
-
-.callout--hero .c-item--text .reveal-text--ltr,
-.callout--hero .c-item--cta,
-.callout--hero .c-item--cta .cta-content--btn .btn--border span.btn-text {
-    opacity: 0;
-    visibility: hidden;
-    animation: fadeFromLeft 1s cubic-bezier(.83,.14,.21,1.01) 750ms forwards;
-}
-
-.callout--hero .c-item--text .reveal-text--ltr:nth-child(1) {
-    animation-delay: 750ms;
-}
-
-.callout--hero .c-item--text .reveal-text--ltr:nth-child(2) {
-    animation-delay: 800ms;
-}
-
-.callout--hero .c-item--text .reveal-text--ltr:nth-child(3) {
-    animation-delay: 850ms;
-}
-
-.callout--hero .c-item--cta {
-    animation-delay: 900ms;
-}
-
-.callout--hero .c-item--cta .cta-content--btn .btn--border span.btn-text {
-    animation-duration: 1.5s;
-    animation-delay: 925ms;
-}
-
-.center {
-    display: table;
-    height: 100%;
-    width: 100%;
-}
-
-.vert-center {
-    display: table-cell;
-    height: 100%;
-    vertical-align: middle;
-}
-
-
-/* 
-* Media Queries
-=================================
-=================================
-*
-*/
-
-@media only screen and (min-width: 768px) {
-
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(12,1fr);
-        grid-column-gap: 15px;
-        grid-row-gap: 30px;
-        position: relative;
-        max-width: 1280px;
-        margin: auto; 
-    }
-
-    .grid-col-1 {
-        grid-column: span 1;
-    }
-
-    .grid-col-2 {
-        grid-column: span 2;
-    }
-
-    .grid-col-3 {
-        grid-column: span 3;
-    }
-
-    .grid-col-4 {
-        grid-column: span 4;
-    }
-
-    .grid-col-5 {
-        grid-column: span 5;
-    }
-
-    .grid-col-6 {
-        grid-column: span 6;
-    }
-
-    .grid-col-7 {
-        grid-column: span 7;
-    }
-
-    .grid-col-8 {
-        grid-column: span 8;
-    }
-
-    .grid-col-9 {
-        grid-column: span 9;
-    }
-
-    .grid-col-10 {
-        grid-column: span 10;
-    }
-
-    .grid-col-11 {
-        grid-column: span 11;
-    }
-
-    .grid-col-12 {
-        grid-column: span 12;
-    }
-
-    .pos--rel {
-        position: relative !important;
-    }
-    
-    .pos--abs {
-        width: 100%;
-        position: absolute !important;
-    }
-
-}
 
 
 

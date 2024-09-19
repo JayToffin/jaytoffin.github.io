@@ -12186,7 +12186,7 @@ h5,
   letter-spacing: 4px;
   text-transform: uppercase;
   display: inline-block;
-  color: #fff;
+  
 }
 
 @media (min-width: 992px) {
@@ -12259,7 +12259,7 @@ h5,
 
 @media (max-width: 991.98px) {
   .owl-carousel.home-slider .slider-item .slider-text h1 {
-    color: #fff;
+    color: #000000;
     font-size: 50px;
   }
 }
@@ -12277,8 +12277,8 @@ h5,
 
 @media (max-width: 991.98px) {
   .owl-carousel.home-slider .slider-item .slider-text p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 23px;
+    color: #000000;
+    font-size: 16px;
   }
 }
 
