@@ -17,6 +17,13 @@
     }
   }
 
+  @media (max-width: 991.98px) {
+    .owl-carousel.home-slider .slider-item .slider-text .one-forth {
+      padding: 0;
+      overflow-y:unset !important;
+    }
+  }
+
 /* ANIMATION IMAGE WATER  */
 .motion-water {
     -webkit-animation:spin 6s linear infinite;
