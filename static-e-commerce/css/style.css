@@ -12146,7 +12146,7 @@ h5,
   }
 }
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
   .owl-carousel.home-slider .slider-item .slider-text .one-forth {
     width: 100%;
     position: absolute;
@@ -12158,7 +12158,7 @@ h5,
     padding: 1em;
     overflow-y: scroll;
   }
-}
+} */
 
 .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
   position: relative;
