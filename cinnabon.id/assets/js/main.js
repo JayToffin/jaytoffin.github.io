@@ -217,7 +217,7 @@
                     spaceBetween: 30,
                 },
                 1024: {
-                    slidesPerView: 3,
+                    slidesPerView: 4,
                     slidesPerGroup: 1,
                 },
             },
@@ -310,16 +310,16 @@
         // Blog Inner Carousel
         var swiperPostthumb= new Swiper(".post-thumb-carousel", {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 30,
             slidesPerGroup: 1,
-            loop: true,
+            // loop: true,
             autoplay: true,
             grabcursor: true,
             speed: 600,
             grabcursor: true,
             navigation: {
-                nextEl: ".post-thumb-carousel .swiper-prev",
-                prevEl: ".post-thumb-carousel .swiper-next",
+                nextEl: ".post-thumb-carousel .swiper-next",
+                prevEl: ".post-thumb-carousel .swiper-prev",
             },
             pagination: {
                 el: ".swiper-pagination",
@@ -332,12 +332,84 @@
                     spaceBetween: 10,
                 },
                 767: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     slidesPerGroup: 1,
                     spaceBetween: 10,
                 },
                 1024: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 1,
+                },
+            },
+        });
+
+        // Blog Inner Carousel cinnapack
+        var swiperPostthumb= new Swiper(".post-thumb-carousel-cinnapack", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            slidesPerGroup: 1,
+            // loop: true,
+            autoplay: false,
+            grabcursor: true,
+            speed: 600,
+            grabcursor: true,
+            navigation: {
+                nextEl: ".post-thumb-carousel-cinnapack .swiper-next",
+                prevEl: ".post-thumb-carousel-cinnapack .swiper-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                320: {
                     slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    spaceBetween: 10,
+                },
+                767: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 1,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 1,
+                },
+            },
+        });
+
+        // Blog Inner Carousel Beverages
+        var swiperPostthumb= new Swiper(".post-thumb-carousel-beverages", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            slidesPerGroup: 1,
+            loop: true,
+            autoplay: false,
+            grabcursor: true,
+            speed: 600,
+            grabcursor: true,
+            navigation: {
+                nextEl: ".post-thumb-carousel-beverages .swiper-next",
+                prevEl: ".post-thumb-carousel-beverages .swiper-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    spaceBetween: 10,
+                },
+                767: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 1,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 4,
                     slidesPerGroup: 1,
                 },
             },
