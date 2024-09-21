@@ -1,119 +1,5 @@
 
 /* HEADER SECTION */
-.owl-carousel.home-slider .slider-item .slider-text h1 {
-    font-size: 80px !important;
-  }
-
-  @media (min-width: 992px) {
-    .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
-      top: 40% !important;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 767.98px) {
-    .owl-carousel.home-slider .slider-item .slider-text h1 {
-      font-size: 40px !important;
-    }
-  }
-
-  @media (max-width: 991.98px) {
-    .owl-carousel.home-slider .slider-item .slider-text .one-forth {
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1;
-      overflow-y: hidden !important;
-    }
-  }
-
-/* ANIMATION IMAGE WATER  */
-.motion-water {
-    -webkit-animation:spin 6s linear infinite;
-    -moz-animation:spin 60s linear infinite;
-    animation:spin 60s linear infinite;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-
-/* SECTION TBC V2 INVESTMENT */
-/*Tabs*/
-ul.tab-menu {
-    text-align: center;
-    margin: 40px 0;
-    top: 50px;
-    z-index: 1;
-  }
-  
-  @media screen and (max-width: 767px) {
-    ul.tab-menu {
-      margin: 20px 0;
-    }
-  }
-  ul.tab-menu li {
-    display: inline-block;
-  }
-  
-  @media screen and (max-width: 767px) {
-    ul.tab-menu li {
-      margin: 0;
-      width: 100%;
-    }
-  }
-  ul.tab-menu li a {
-    display: block;
-    color: rgb(219, 219, 219);
-    border: 2px solid;
-    border-radius: 50px;
-    padding: 10px 20px;
-    /* max-width: 300px; */
-    margin: 5px;
-    font-weight: 700;
-    /* text-decoration: none;
-    font-family: "Roboto Mono", monospace;
-    text-transform: uppercase; */
-    letter-spacing: 1px;
-  }
-  
-  @media screen and (max-width: 767px) {
-    ul.tab-menu li a {
-      margin: 10px auto;
-      width: 100%;
-    }
-  }
- 
-  /*Data tabs */
-  [data-click].active {
-    background: #ffa45c;
-    color: #ffffff;
-    border-radius: 50px;
-    border: 2px solid #ffa45c;
-  }
-  
-  [data-target] {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    transform: translate3d(-50px, 0, 0);
-  }
-  
-  [data-target].active {
-    opacity: 1;
-    visibility: visible;
-    position: relative;
-    top: auto;
-    transition: 0.3s;
-    transform: translate3d(0px, 0, 0);
-  }
-  
-  
-
 .hero-container {
     position: relative;
     overflow: hidden;
@@ -171,10 +57,126 @@ ul.tab-menu {
     height: 100%;
 }
 
+.owl-carousel.home-slider .slider-item .slider-text h1 {
+    font-size: 80px !important;
+  }
+
+  @media (min-width: 992px) {
+    .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
+      top: 40% !important;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .owl-carousel.home-slider .slider-item .slider-text h1 {
+      font-size: 40px !important;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .owl-carousel.home-slider .slider-item .slider-text .one-forth {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      overflow-y: hidden !important;
+    }
+  }
+
+/* ANIMATION IMAGE WATER  */
+.motion-water {
+    -webkit-animation:spin 6s linear infinite;
+    -moz-animation:spin 60s linear infinite;
+    animation:spin 60s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 
+/* SECTION TBC V2 INVESTMENT */
+  .panel {
+    
+    padding: 15px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .pricing-table {
+    box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (min-width: 900px) {
+    .pricing-table {
+      flex-direction: row;
+    }
+  }
+  
+  .pricing-table * {
+    text-align: center;
+  }
+  
+  .pricing-plan {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px;
+  }
+  
+  .pricing-plan:last-child {
+    border-bottom: none;
+  }
+  
+  @media (min-width: 900px) {
+    .pricing-plan {
+      border-bottom: none;
+      border-right: 1px solid #dbdbdb;
+      flex-basis: 100%;
+      padding: 10px;
+    }
+  
+    .pricing-plan:last-child {
+      border-right: none;
+    }
+  }
+  
+  
+  .pricing-header {
+    color: #000000;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .pricing-features {
+    font-weight: 600;
+    margin: 25px 0 25px;
+    list-style-type: none
+  }
+  
+  .pricing-features-item {
+    border-top: 1px solid #ffe5cf;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+  }
+  
+  .pricing-features-item:last-child {
+    border-bottom: 1px solid #ffe5cf;
+  }
+  
+  .pricing-price {
+    color: #016FF9;
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+  }
 
 
-
-
-
+  .mc-shdw{
+    box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+  }
