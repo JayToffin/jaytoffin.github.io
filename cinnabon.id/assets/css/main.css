@@ -65,7 +65,7 @@ START: Template Default CSS
 	Typography CSS
 */
 body {
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   font-family: var(--rr-ff-body);
   font-size: 16px;
   line-height: 1.625;
@@ -420,7 +420,8 @@ ul {
 }
 @media only screen and (max-width: 767px) {
   .section-heading .section-title {
-    font-size: 24px;
+    /* font-size: 24px; */
+    font-size: 50px;
   }
 }
 .section-heading.white-content .sub-heading {
@@ -3114,6 +3115,7 @@ START: Header CSS
   background-color: var(--rr-color-common-white);
   padding: 0 30px;
   border-radius: 0 0 20px 20px;
+  box-shadow: 0px 2px 5px 3px rgba(0, 0, 0, 0.03);
 }
 @media only screen and (max-width: 992px) {
   .header-2 .primary-header-inner {
@@ -4549,7 +4551,8 @@ START: Theme Slider CSS
   height: 100%;
   position: absolute;
   top: 0;
-  right: 0;
+  /* right: 0; */
+  left: 0;
 }
 .hero-section-3 .hero-img-3 img {
   height: 100%;
@@ -4982,12 +4985,12 @@ START: Theme Slider CSS
 @media only screen and (max-width: 992px) {
   .about-items {
     margin: 0 auto;
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
 }
 @media only screen and (max-width: 767px) {
   .about-items {
-    padding: 30px 20px;
+    /* padding: 30px 20px; */
   }
 }
 .about-items .about-item {
@@ -5866,12 +5869,12 @@ START: Theme Slider CSS
 ----------------------------------------*/
 .team-item {
   position: relative;
-  border-radius: 27px;
+  /* border-radius: 27px; */
   overflow: hidden;
   z-index: 1;
 }
 .team-item .overlay {
-  background: linear-gradient(180deg, rgba(23, 23, 23, 0) 20.71%, rgba(23, 23, 23, 0.7) 72.39%, rgba(23, 23, 23, 0.9) 100%);
+  /* background: linear-gradient(180deg, rgba(23, 23, 23, 0) 20.71%, rgba(23, 23, 23, 0.7) 72.39%, rgba(23, 23, 23, 0.9) 100%); */
   width: 100%;
   height: 100%;
   position: absolute;
@@ -5892,29 +5895,34 @@ START: Theme Slider CSS
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0) contrast(110%);
+  /* filter: saturate(0) contrast(110%); */
 }
 .team-item .team-content {
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
 @media (max-width: 1170px) {
   .team-item .team-content {
-    left: 30px;
-    padding-right: 30px;
+    /* left: 30px;
+    padding-right: 30px; */
   }
 }
 @media only screen and (max-width: 767px) {
   .team-item .team-content {
-    left: 20px;
-    padding-right: 20px;
+    /* left: 20px;
+    padding-right: 20px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 .team-item .team-content .title {
   color: var(--rr-color-common-white);
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 600;
   margin-bottom: 5px;
 }
@@ -5989,8 +5997,8 @@ START: Theme Slider CSS
 }
 .team-item-2 .team-content {
   bottom: 35px;
-  visibility: hidden;
-  opacity: 0;
+  /* visibility: hidden; */
+  /* opacity: 0; */
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -7297,10 +7305,10 @@ START: Theme Slider CSS
 }
 
 .project-details-items {
-  background-color: var(--rr-color-heading-primary);
-  padding: 50px 35px;
-  border-radius: 40px;
-  margin-bottom: 60px;
+  /* background-color: var(--rr-color-heading-primary); */
+  padding: 15px 35px;
+  /* border-radius: 40px;
+  margin-bottom: 60px; */
 }
 @media (max-width: 1170px) {
   .project-details-items {
@@ -7313,10 +7321,10 @@ START: Theme Slider CSS
   }
 }
 .project-details-items .project-details-item {
-  display: grid;
+  /* display: grid;
   align-items: center;
   grid-template-columns: 50px 1fr;
-  grid-gap: 15px;
+  grid-gap: 15px; */
 }
 @media only screen and (max-width: 992px) {
   .project-details-items .project-details-item {
@@ -7349,9 +7357,9 @@ START: Theme Slider CSS
   }
 }
 .project-details-items .project-details-item .content .title {
-  color: var(--rr-color-common-white);
+  color: var(--rr-color-common-black);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 0;
 }
@@ -7374,13 +7382,14 @@ START: Theme Slider CSS
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 800px;
+  /* height: 800px; */
+  height: 100%;
   max-width: 875px;
-  width: 100%;
+  /* width: 100%; */
 }
 @media (max-width: 1700px) {
   .feature-section .feature-img {
-    left: -150px;
+    /* left: -150px; */
   }
 }
 @media (max-width: 1399px) {
@@ -7980,10 +7989,10 @@ START: Theme Slider CSS
     START: Testi CSS
 ----------------------------------------*/
 .testi-item {
-  background-color: var(--rr-color-common-white);
-  padding: 40px;
-  border: 2px solid var(--rr-color-heading-primary);
-  border-radius: 30px;
+  /* background-color: var(--rr-color-common-white); */
+  /* padding: 40px; */
+  /* border: 2px solid var(--rr-color-heading-primary); */
+  /* border-radius: 30px; */
 }
 @media only screen and (max-width: 767px) {
   .testi-item {
@@ -7991,13 +8000,13 @@ START: Theme Slider CSS
   }
 }
 .testi-item .testi-thumb {
-  height: 85px;
-  width: 85px;
-  border-radius: 50%;
-  margin-bottom: 35px;
+  width: 100%;
+  padding: 30px;
+  /* border-radius: 50%;
+  margin-bottom: 35px; */
 }
 .testi-item .testi-thumb img {
-  filter: saturate(0);
+  /*   */
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -8007,7 +8016,7 @@ START: Theme Slider CSS
 .testi-item .content {
   margin-bottom: 30px;
   padding-bottom: 30px;
-  border-bottom: 1px solid #D2D2D2;
+  /* border-bottom: 1px solid #D2D2D2; */
 }
 .testi-item .content .title {
   font-size: 24px;
@@ -8481,16 +8490,16 @@ START: Theme Slider CSS
 START: Blog CSS
 ----------------------------------------*/
 .post-card {
-  background-color: var(--rr-color-common-white);
-  border: 2px solid var(--rr-color-border-1);
-  border-radius: 30px;
+  /* background-color: var(--rr-color-common-white); */
+  /* border: 2px solid var(--rr-color-border-1); */
+  /* border-radius: 30px; */
   overflow: hidden;
 }
 .post-card .post-thumb {
   position: relative;
   height: 350px;
   overflow: hidden;
-  border-radius: 25px 25px 30px 30px;
+  /* border-radius: 25px 25px 30px 30px; */
 }
 @media only screen and (max-width: 767px) {
   .post-card .post-thumb {
@@ -8500,7 +8509,7 @@ START: Blog CSS
 .post-card .post-thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: 0.3s ease-in-out;
   transform: scale(1);
 }
@@ -8658,16 +8667,16 @@ START: Blog CSS
 
 .post-inner {
   margin-bottom: 30px;
-  border: 3px solid var(--rr-color-heading-primary);
+  /* border: 3px solid var(--rr-color-heading-primary); */
 }
 .post-inner .post-thumb {
   height: 450px;
-  border-radius: 20px 20px 0 0;
+  /* border-radius: 20px 20px 0 0; */
   position: relative;
 }
 @media only screen and (max-width: 767px) {
   .post-inner .post-thumb {
-    height: 350px;
+    height: 100%;
   }
 }
 .post-inner .post-thumb .video-btn {
@@ -8737,15 +8746,15 @@ START: Blog CSS
 }
 
 .post-thumb-carousel .swiper-arrow .swiper-nav {
-  background-color: var(--rr-color-common-white);
+  background-color: #f5f5f5;
   color: var(--rr-color-heading-primary);
   font-size: 24px;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--rr-color-heading-primary);
+  /* border: 2px solid var(--rr-color-heading-primary); */
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -8760,6 +8769,7 @@ START: Blog CSS
 }
 .post-thumb-carousel .swiper-arrow .swiper-nav:hover {
   background-color: var(--rr-color-theme-primary);
+  color: #ffffff;
 }
 @media only screen and (max-width: 767px) {
   .post-thumb-carousel .swiper-arrow .swiper-nav {
@@ -8776,6 +8786,91 @@ START: Blog CSS
   }
 }
 
+/* CAROUSEL CINNAPACK */
+.post-thumb-carousel-cinnapack .swiper-arrow .swiper-nav {
+  background-color: #f5f5f5;
+  color: var(--rr-color-heading-primary);
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid var(--rr-color-heading-primary); */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  z-index: 2;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.post-thumb-carousel-cinnapack .swiper-arrow .swiper-nav:hover {
+  background-color: var(--rr-color-theme-primary);
+  color: #ffffff;
+}
+@media only screen and (max-width: 767px) {
+  .post-thumb-carousel-cinnapack .swiper-arrow .swiper-nav {
+    left: 10px;
+  }
+}
+.post-thumb-carousel-cinnapack .swiper-arrow .swiper-nav.swiper-next {
+  left: auto;
+  right: 40px;
+}
+@media only screen and (max-width: 767px) {
+  .post-thumb-carousel-cinnapack .swiper-arrow .swiper-nav.swiper-next {
+    right: 10px;
+  }
+}
+
+/* CAROUSEL BEVERAGES */
+/* CAROUSEL CINNAPACK */
+.post-thumb-carousel-beverages .swiper-arrow .swiper-nav {
+  background-color: #f5f5f5;
+  color: var(--rr-color-heading-primary);
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid var(--rr-color-heading-primary); */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  z-index: 2;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.post-thumb-carousel-beverages .swiper-arrow .swiper-nav:hover {
+  background-color: var(--rr-color-theme-primary);
+  color: #ffffff;
+}
+@media only screen and (max-width: 767px) {
+  .post-thumb-carousel-beverages .swiper-arrow .swiper-nav {
+    left: 10px;
+  }
+}
+.post-thumb-carousel-beverages .swiper-arrow .swiper-nav.swiper-next {
+  left: auto;
+  right: 40px;
+}
+@media only screen and (max-width: 767px) {
+  .post-thumb-carousel-beverages .swiper-arrow .swiper-nav.swiper-next {
+    right: 10px;
+  }
+}
+
 /* !END: Theme Blog CSS */
 /**----------------------------------------
     START: Page Header CSS
@@ -8784,9 +8879,10 @@ START: Blog CSS
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 138px;
+  /* background-position: center 138px; */
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  height: 100vh;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -9891,7 +9987,7 @@ blockquote .content p {
 START: Footer CSS
 ----------------------------------------*/
 .footer-section {
-  background-color: var(--rr-color-heading-primary);
+  background-color: #eeeeee;
   position: relative;
   z-index: 1;
 }
@@ -10120,12 +10216,12 @@ START: Footer CSS
 }
 
 .copyright-content {
-  border-top: 1px solid #353535;
+  border-top: 1px solid #dadada;
   padding: 30px 0;
 }
 .copyright-content p {
   font-family: var(--rr-ff-body);
-  color: var(--rr-color-common-white);
+  color: var(--rr-color-theme-primary);
   font-size: 18px;
   margin: 0;
 }
@@ -10135,7 +10231,7 @@ START: Footer CSS
 .copyright-content.content-2 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   row-gap: 20px;
 }
@@ -10157,11 +10253,12 @@ START: Footer CSS
 }
 .copyright-content.content-2 .copy-list li a {
   font-family: var(--rr-ff-heading);
-  color: var(--rr-color-common-white);
+  color: var(--rr-color-theme-primary);
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 700;
 }
 .copyright-content.content-2 .copy-list li a:hover {
   color: var(--rr-color-theme-primary);
