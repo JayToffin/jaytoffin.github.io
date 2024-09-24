@@ -5,6 +5,13 @@
   }
   }
 
+/* logo TBC2 */
+@media (max-width: 767.98px) {
+    .navbar-brand-tbc {
+      width: 120px;
+  }
+  }
+
 
 /* HEADER SECTION */
 .hero-container {
