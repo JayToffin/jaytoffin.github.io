@@ -89,6 +89,23 @@
     height: 100%;
 }
 
+/* Text Content */
+.owl-carousel.home-slider .slider-item .slider-text .subheading {
+    color: #000000 !important;
+  }
+  
+  @media (min-width: 992px) {
+    .owl-carousel.home-slider .slider-item .slider-text .subheading {
+      color: #000000 !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .owl-carousel.home-slider .slider-item .slider-text p {
+      color: #000000 !important;
+    }
+  }
+
 .owl-carousel.home-slider .slider-item .slider-text h1 {
     font-size: 80px !important;
   }

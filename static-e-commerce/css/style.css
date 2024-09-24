@@ -12180,18 +12180,17 @@ h5,
 }
 
 .owl-carousel.home-slider .slider-item .slider-text .subheading {
-  color: #000000;
+  color: #ffffff;
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 4px;
   text-transform: uppercase;
   display: inline-block;
-  
 }
 
 @media (min-width: 992px) {
   .owl-carousel.home-slider .slider-item .slider-text .subheading {
-    color: #000000;
+    color: #ffffff;
     position: relative;
   }
 
@@ -12277,7 +12276,7 @@ h5,
 
 @media (max-width: 991.98px) {
   .owl-carousel.home-slider .slider-item .slider-text p {
-    color: #000000;
+    color: #ffffff;
     font-size: 16px;
   }
 }
