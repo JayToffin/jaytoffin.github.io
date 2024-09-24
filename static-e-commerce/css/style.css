@@ -18841,9 +18841,3 @@ section.faq {
   color: #ffa45c;
 }
 
-/* logo TBC */
-@media (min-width: 767.98px) {
-  .navbar-brand {
-    width: 220px;
-}
-}
