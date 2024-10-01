@@ -1,3 +1,8 @@
+/* Text color cinnabon */
+.text-color-cinnabon {
+  color: #071D49 !important;
+}
+
 /* navbar dekstop center logo / hide dekstop*/
   @media screen and (min-width: 768px) {
     .header-logo{
@@ -25,4 +30,35 @@
   .about-section{
     padding-top: 0 !important;
   }
+}
+
+.visit-our-store {
+  /* max-width: 480px; */
+  width: 100%;
+  /* border: 2px solid var(--rr-color-heading-primary); */
+  background: var(--rr-color-theme-secondary);
+  /* border-radius: 30px; */
+  padding: 50px;
+  /* margin-left: 50px; */
+  height: 100%;
+  align-content: center;
+}
+
+
+
+.solution-price {
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0px;
+}
+.original-price{
+  font-size: x-large;
+  font-weight: 100;
+  color: gray;
+}
+.brush {
+  background: #ffffff;
+  border-radius: 3em 0.5em 2em 0.5em/0.4em 2em 0.5em 3em;
+display: inline-block;
 }
