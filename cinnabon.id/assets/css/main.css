@@ -1,8 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Unbounded:wght@200..900&amp;display=swap");
+@font-face {
+	font-family: 'Henrietta';
+	src: 
+		url('fonts/VCHenrietta-Regular.otf') format('opentype'),
+		url('fonts/VCHenrietta-Regular.woff2') format('woff2'),
+		url('fonts/VCHenrietta-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'urbane-medium';
+	src: 
+		url('fonts/Urbane-Rounded-Medium-original.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+}
+
 :root {
-  --rr-ff-body: 'DM Sans', sans-serif;
-  --rr-ff-heading: 'Unbounded', serif;
-  --rr-ff-p: 'DM Sans', sans-serif;
+  --rr-ff-body: 'urbane-medium';
+  --rr-ff-heading: 'Henrietta';
+  --rr-ff-p: 'urbane-medium';
   --rr-fw-normal: normal;
   --rr-fw-thin: 100;
   --rr-fw-elight: 200;

@@ -77,6 +77,15 @@
             meanExpand: ['<i class="fa-solid fa-caret-down"></i>'],
         });
 
+        //Mobile Menu Js
+        $(".mobile-menu-items2").meanmenu({
+            meanMenuContainer: ".side-menu-wrap2",
+            meanScreenWidth: "992",
+            meanMenuCloseSize: "30px",
+            meanRemoveAttrs: true,
+            meanExpand: ['<i class="fa-solid fa-caret-down"></i>'],
+        });
+
         // Mobile Sidemenu
         $(".mobile-side-menu-toggle").on("click", function () {
             $(".mobile-side-menu, .mobile-side-menu-overlay").toggleClass("is-open");
