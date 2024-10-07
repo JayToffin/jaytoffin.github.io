@@ -18458,39 +18458,11 @@ section.faq {
   }
 }
 
-@media (max-width: 992px) {
-  .tbc-text {
-    padding-left: 0px !important; 
-    padding-right: 0px !important; 
-    padding-bottom: 1px !important; 
-  }
-}
-
 @media (max-width: 768px) {
   .product .text .bottom-area a.add-to-cart-tbc {
     /* padding-top: 4px !important;
     padding-bottom: 4px !important; */
     border-radius: 15px;
-  }
-}
-
-/* SISA TIKET MOBILE */
-@media (max-width: 992px) {
-  .product span.sisa-tiket {
-    font-size: 10px;
-    padding: 1px 5px;
-  }
-  .tiket-sold {
-    font-size: 10px;
-    padding: 1px 5px;
-    
-  }
-}
-
-
-@media (max-width: 768px) {
-  .tbc-sm {
-   font-size: 13px !important;
   }
 }
 
