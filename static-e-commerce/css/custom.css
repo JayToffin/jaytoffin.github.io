@@ -293,3 +293,18 @@
     padding-bottom: 1px !important; 
   }
 }
+
+
+/* Upselling */
+.product span.status-add-to-cart {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  padding: 5px 15px;
+  font-weight: bold;
+  background: #ffa45c;
+  color: white;
+  border-radius: 15px;
+  width: 89%;
+  text-align: center;
+}
