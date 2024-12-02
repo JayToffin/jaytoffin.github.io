@@ -6,7 +6,8 @@
 <head>
 	<title>Toffin - Coffee Business Platform</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 shrink-to-fit=no">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 shrink-to-fit=no">
 
 
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
@@ -29,10 +30,12 @@
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css">
+
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.3.41/css/materialdesignicons.min.css"/>
+	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.3.41/css/materialdesignicons.min.css" />
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
 		integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
@@ -48,16 +51,17 @@
 				d="M12 21.8c-3.1 0-5.2-1.6-5.4-1.6l-3.7 1 1-3.7-.3-.4A9.9 9.9 0 012.1 12a10 10 0 0117-7 9.9 9.9 0 01-7 16.9z" />
 			<path fill="#fafafa"
 				d="M17.5 14.3c-.3 0-1.8-.8-2-.9-.7-.2-.5 0-1.7 1.3-.1.2-.3.2-.6.1s-1.3-.5-2.4-1.5a9 9 0 01-1.7-2c-.3-.6.4-.6 1-1.7l-.1-.5-1-2.2c-.2-.6-.4-.5-.6-.5-.6 0-1 0-1.4.3-1.6 1.8-1.2 3.6.2 5.6 2.7 3.5 4.2 4.2 6.8 5 .7.3 1.4.3 1.9.2.6 0 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z" />
-			</svg>Contact Customer Service</a>
+		</svg>Contact Customer Service</a>
 
 	<!-- MOBILE NAV MENU -->
 	<div class="side-menu d-flex">
 		<div class="inner-wrapper w-100">
 			<div class="btn-close"></div>
 			<nav class="sidebar pt-4" style="width: 100%;">
-				
+
 				<ul class="main_side">
 					<li class="active"><a href="#">Home</a></li>
+					<li class="nav-item"><a href="#" data-toggle="modal" data-target="#upselling" class="nav-link">Upselling</a></li>
 					<li> <a href="#" id="2">Category <span class="fas fa-caret-down"></span> </a>
 						<ul class="item-show-2">
 							<li><a href="#" id="2-1">Coffee Machine <span class="fas fa-caret-down"></span></a>
@@ -116,8 +120,8 @@
 							</li>
 						</ul>
 					</li>
-					
-					
+
+
 					<li><a href="#">Brand</a></li>
 					<li> <a href="#" id="1">Promotion <span class="fas fa-caret-down"></span> </a>
 						<ul class="item-show-1">
@@ -126,10 +130,11 @@
 						</ul>
 					</li>
 					<li class="nav-item cta cta-colored"><a href="cart.html">
-						<i class="icon-shopping_cart"></i>&nbsp;[0]</a>
+							<i class="icon-shopping_cart"></i>&nbsp;[0]</a>
 					</li>
-					
-					<li><a href="#" id="11"><i class="icon-user"></i> &nbsp; My Account <span class="fas fa-caret-down"></span></a>
+
+					<li><a href="#" id="11"><i class="icon-user"></i> &nbsp; My Account <span
+								class="fas fa-caret-down"></span></a>
 						<ul class="item-show-11">
 							<li><a href="#">Contact us</a></li>
 							<li><a href="#">Our Team</a></li>
@@ -145,10 +150,12 @@
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="https://toffin.id/"><img src="images/toffin-logo.png" style="width:100%;"></a>
-			
+
 			<div class="mobile-menu-button d-block d-xl-none ml-auto">
-				<a href="cart.html" class="btn" style="margin: 5px 2px 0px 2px;"> <i class="icon-shopping_cart" style="font-size: 20px; color: #555555;"></i></a>
-				<a href="#test-popup" class="btn open-popup-link" style="margin: 5px 10px 0px 0px"><i class="icon-search" style="font-size: 20px; color: #555555; line-height: 0 !important;"></i></a>
+				<a href="cart.html" class="btn" style="margin: 5px 2px 0px 2px;"> <i class="icon-shopping_cart"
+						style="font-size: 20px; color: #555555;"></i></a>
+				<a href="#test-popup" class="btn open-popup-link" style="margin: 5px 10px 0px 0px"><i
+						class="icon-search" style="font-size: 20px; color: #555555; line-height: 0 !important;"></i></a>
 				<button class="menu-toggle">
 					<span></span>
 					<span></span>
@@ -158,6 +165,7 @@
 			<div class="collapse navbar-collapse" id="navbarDropdownMenuLink">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="#" data-toggle="modal" data-target="#upselling" class="nav-link">Upselling</a></li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Category </a>
 						<ul class="dropdown-menu">
@@ -1320,9 +1328,112 @@
 	</footer>
 
 
+	<!-- start modal tambah alamat-->
+	<div id="upselling" class="modal fade" role="dialog">
+		<div class="modal-dialog upsell">
+			<div class="modal-content">
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal">×</a>
+				</div>
+				<div class="modal-body">
+					<section class="ftco-section ftco-no-pb ftco-no-pt">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12 ftco-animate">
+									<div class="heading-section text-center">
+										<h4 class="heading-section ">Terima kasih telah memilih mesin kopi dari Toffin!
+										</h4>
+										<p>Sebagai apresiasi, kami dengan senang hati menawarkan penawaran khusus untuk
+											berbagai peralatan pendukung yang dapat melengkapi kebutuhan Anda.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="swiper-container-nav ftco-section pb-4 pt-4">
+						<div class="swiper-container-product-upsell">
+							<div class="swiper-wrapper">
+								<div class="box-product ftco-animate swiper-slide">
+									<div class="product">
+										<div href="#" class="img-prod" style="border-radius: 25px;"><img
+												class="img-fluid" src="images/produk-upsell.png">
+											<a href="#"> <span class="status-add-to-cart">Add to cart <i
+														class="ion-ios-add ml-1"></i></span></a>
+										</div>
+									</div>
+								</div>
+								<div class="box-product ftco-animate swiper-slide">
+									<div class="product">
+										<div href="#" class="img-prod" style="border-radius: 25px;"><img
+												class="img-fluid" src="images/produk-upsell.png">
+											<a href="#"> <span class="status-add-to-cart">Add to cart <i
+														class="ion-ios-add ml-1"></i></span></a>
+										</div>
+									</div>
+								</div>
+								<div class="box-product ftco-animate swiper-slide">
+									<div class="product">
+										<div href="#" class="img-prod" style="border-radius: 25px;"><img
+												class="img-fluid" src="images/produk-upsell.png">
+											<a href="#"> <span class="status-add-to-cart">Add to cart <i
+														class="ion-ios-add ml-1"></i></span></a>
+										</div>
+									</div>
+								</div>
+								<div class="box-product ftco-animate swiper-slide">
+									<div class="product">
+										<div href="#" class="img-prod" style="border-radius: 25px;"><img
+												class="img-fluid" src="images/produk-upsell.png">
+											<a href="#"> <span class="status-add-to-cart">Add to cart <i
+														class="ion-ios-add ml-1"></i></span></a>
+										</div>
+									</div>
+								</div>
+								<div class="box-product ftco-animate swiper-slide">
+									<div class="product">
+										<div href="#" class="img-prod" style="border-radius: 25px;"><img
+												class="img-fluid" src="images/produk-upsell.png">
+											<a href="#"> <span class="status-add-to-cart">Add to cart <i
+														class="ion-ios-add ml-1"></i></span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+					</section>
+
+					<section class="pb-5">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12 ftco-animate">
+									<div class="heading-section text-center">
+										<p>Gunakan kode promo <span
+												style="font-weight: bolder; color: black">KUPON1</span> saat checkout
+											untuk mendapatkan harga spesial di atas!</p>
+										<button class="btn btn-primary color-so" style="border-radius: 20px !important;"
+											id="color-so">
+											<span style="display: none;">KUPON1</span>
+											<div class="copy" id="copy-so">
+												<div class="tooltip">Copied</div>
+												<a>Salin Kode Kupon<i class="ion-ios-copy pl-2"></i></a>
+											</div>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 
 	<!-- modal -->
-
 	<div id="contact-modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -1396,40 +1507,43 @@
 	</div>
 
 	<div id="bottom-sheet" tabindex="-1" class="overlay">
-		
-				<aside class="social" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
-					<a href="#" class="close" aria-hidden="true"><span class="mdi mdi-close"></span><span class="sr-only">Close</span></a>
-					<div class="container">
-						<div class="row justify-content-center">
-							<div class="col heading-section text-center pt-4 pb-4 ">
-							  <h5><strong>Belanja di Toffin App, nikmati promo dan diskonnya!</strong></h5>
-							</div>
-						  </div>
-						  <div class="row justify-content-center">
-						  <img src="images/mockup-hp.png" height="100">
-						</div>
-						<div class="row justify-content-center pt-3">
-							<div class="cart-wrap" style="width: 60%;">
-								<a href="#" class="btn btn-primary py-2 px-3" style="border-radius: 0px !important;">Buka di Aplikasi</a>
-							</div>
-						</div>
-						<div class="row justify-content-center pt-3 pb-3">
-							<div class="cart-wrap" style="width: 60%;">
-								<a href="#" class="btn btn-primary py-2 px-3" style="border-radius: 0px !important; background:white; color:#ffa45c;">Tetap di Sini</a>
-							
-						</div>
-						
+
+		<aside class="social" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+			<a href="#" class="close" aria-hidden="true"><span class="mdi mdi-close"></span><span
+					class="sr-only">Close</span></a>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col heading-section text-center pt-4 pb-4 ">
+						<h5><strong>Belanja di Toffin App, nikmati promo dan diskonnya!</strong></h5>
 					</div>
-					
+				</div>
+				<div class="row justify-content-center">
+					<img src="images/mockup-hp.png" height="100">
+				</div>
+				<div class="row justify-content-center pt-3">
+					<div class="cart-wrap" style="width: 60%;">
+						<a href="#" class="btn btn-primary py-2 px-3" style="border-radius: 0px !important;">Buka di
+							Aplikasi</a>
+					</div>
+				</div>
+				<div class="row justify-content-center pt-3 pb-3">
+					<div class="cart-wrap" style="width: 60%;">
+						<a href="#" class="btn btn-primary py-2 px-3"
+							style="border-radius: 0px !important; background:white; color:#ffa45c;">Tetap di Sini</a>
+
+					</div>
+
+				</div>
+
 		</aside>
-		
-</div>
+
+	</div>
 
 	<div id="test-popup" class="white-popup mfp-hide">
 		<form action="#" class="search-form">
 			<div class="form-group mb-0">
-			<span class="icon ion-ios-search"></span>
-			<input type="text" class="form-control" placeholder="Type a keyword">
+				<span class="icon ion-ios-search"></span>
+				<input type="text" class="form-control" placeholder="Type a keyword">
 			</div>
 
 			<div class="filteration">
@@ -1438,7 +1552,7 @@
 				<button class="reset-fil btn btn-primary py-2 px-4">Brand</button>
 			</div>
 		</form>
-	  </div>
+	</div>
 
 
 
@@ -1473,6 +1587,44 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+	<script>
+		var swiper = new Swiper('.swiper-container-product-upsell', {
+	slidesPerView: 1,
+	direction: getDirection(),
+	navigation: {
+	  nextEl: '.swiper-button-next',
+	  prevEl: '.swiper-button-prev',
+	},
+	breakpoints: {
+		300: {
+		slidesPerView: 2,
+		spaceBetween: 5
+	  },
+	  768: {
+		slidesPerView: 3,
+		spaceBetween: 10
+	  },
+	  1024: {
+		slidesPerView: 4,
+		spaceBetween: 10
+	  }
+	},
+	on: {
+	  resize: function () {
+		swiper.changeDirection(getDirection());
+	  },
+	},
+  });
+
+
+  function getDirection() {
+	var windowWidth = window.innerWidth;
+	var direction = window.innerWidth <= 0 ? 'vertical' : 'horizontal';
+
+	return direction;
+  }
+	</script>
 
 	<!-- Initialize Swiper -->
 	<script>
@@ -1622,6 +1774,9 @@
 			document.getElementById("mySidenav1").style.width = "0";
 		}
 	</script>
+
+
+	
 
 
 
