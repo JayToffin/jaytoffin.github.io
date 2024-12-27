@@ -357,3 +357,48 @@
     margin: 1.75rem auto;
   }
 }
+
+
+
+
+/* COUPON STYLE */
+/* .card-coupon {
+  box-shadow: 0px 0px 0px rgba(32, 33, 36, 0.28);
+} */
+
+.coupon .kanan {
+  border-left: 1px dashed #ddd;
+  width: 40% !important;
+  position:relative; 
+}
+
+.coupon .kanan .info::after, .coupon .kanan .info::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #f8f9fa;
+  border-radius: 100%;
+}
+.coupon .kanan .info::before {
+  top: -10px;
+  left: -10px;
+}
+
+.coupon .kanan .info::after {
+  bottom: -10px;
+  left: -10px;
+}
+.coupon .time {
+  font-size: 1.6rem;
+}
+
+.text-muted {
+  font-size: 13px;;
+}
+
+.card-coupon {
+  background-color: white;
+  border: none;
+  font-size: 13px;
+}
