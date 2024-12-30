@@ -402,3 +402,10 @@
   border: none;
   font-size: 13px;
 }
+
+
+@media (max-width: 768px) {
+  .img-voucher-sm {
+   width: 80px !important;
+  }
+}
