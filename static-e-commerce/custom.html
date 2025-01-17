@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Checkout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .select {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .select__trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0;
+        }
+
+        .custom-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 10;
+        }
+
+        .custom-option {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .custom-option:hover {
+            background-color: #f1f1f1;
+        }
+
+        .custom-option.selected {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .select.open .custom-options {
+            display: block;
+        }
+
+        .custom-input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: calc(100% - 22px);
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="select-wrapper">
+            <div class="select">
+                <div class="select__trigger btn btn-primary" style="border-radius: 0px;"><span>Pilih Voucher</span></div>
+                <div class="custom-options">
+                    <div class="custom-option selected" data-value="regular">Kode Voucher 1</div>
+                    <div class="custom-option" data-value="express">Kode Voucher 2</div>
+                    <div class="custom-option" data-value="sameday">Kode Voucher 3</div>
+                    <div class="custom-option" data-value="cargo">Kode Voucher 4</div>
+                    <div class="custom-option" data-value="custom">Masukkan Kode Voucher</div>
+                    <input type="text" id="Button" class="form-control" placeholder="Masukan Kode Voucher" style="height: 39px !important; font-size: 14px;">
+                    <span class="input-group-btn">
+                        <button type="submit" class="kodepromo btn btn-primary py-2 px-3" style="border-radius: 0px !important; margin: 0 auto; font-size: 14px;">Submit</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <form class="navbar-form navbar-left" role="kodepromo">
+                <div class="input-group">
+                    <input type="text" id="Button" class="form-control" placeholder="Masukan Kode Voucher" style="height: 39px !important; font-size: 14px;">
+                    <span class="input-group-btn">
+                        <button type="submit" class="kodepromo btn btn-primary py-2 px-3" style="border-radius: 0px !important; margin: 0 auto; font-size: 14px;">Submit</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.select__trigger').addEventListener('click', function () {
+            this.parentElement.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.custom-option').forEach(option => {
+            option.addEventListener('click', function () {
+                this.parentElement.querySelector('.custom-option.selected').classList.remove('selected');
+                this.classList.add('selected');
+                this.closest('.select').querySelector('.select__trigger span').textContent = this.textContent;
+                this.closest('.select').classList.remove('open');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
