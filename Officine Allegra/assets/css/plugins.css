@@ -1,0 +1,23 @@
+/* == bootstrap == */
+@import url(../plugins/bootstrap.min.css);
+
+/* == fontawesome == */
+@import url(../plugins/all.css);
+
+/* == fontawesome == */
+@import url(../plugins/remixicon.css);
+
+/* == fontawesome == */
+@import url(../plugins/bootstrap-icons.min.css);
+
+/* == magnific popup == */
+@import url(../plugins/magnific-popup.css);
+
+/* == meanmenu == */
+@import url(../plugins/meanmenu.min.css);
+
+/* == odometer == */
+@import url(../plugins/odometer.css);
+
+/* == swiper == */
+@import url(../plugins/swiper-bundle.min.css);
