@@ -417,7 +417,7 @@ ul {
 @media only screen and (max-width: 767px) {
   .section-heading .section-title {
     /* font-size: 24px; */
-    font-size: 50px;
+    font-size: 30px;
   }
 }
 .section-heading.white-content .sub-heading {
@@ -3827,12 +3827,12 @@ START: Theme Slider CSS
 }
 @media (max-width: 1399px) {
   .nunca-slider {
-    padding-top: 250px;
+    /* padding-top: 250px; */
   }
 }
 @media only screen and (max-width: 992px) {
   .nunca-slider {
-    padding-top: 200px;
+    padding-top: 0;
   }
 }
 .nunca-slider .slider-arrow {
@@ -3842,18 +3842,18 @@ START: Theme Slider CSS
   column-gap: 15px;
   margin-top: 75px;
   position: absolute;
-  top: 80%;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1111;
 }
 @media only screen and (max-width: 767px) {
   .nunca-slider .slider-arrow {
-    margin-top: 40px;
+    margin-top: 0px;
   }
 }
 .nunca-slider .slider-arrow .slider-nav {
-  background-color: var(--rr-color-common-white);
+  background-color: #ffffff9c;
   color: var(--rr-color-heading-primary);
   font-size: 24px;
   height: 50px;
@@ -3870,9 +3870,9 @@ START: Theme Slider CSS
 }
 @media only screen and (max-width: 767px) {
   .nunca-slider .slider-arrow .slider-nav {
-    width: 60px;
-    height: 60px;
-    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
   }
 }
 .nunca-slider .slider-arrow .slider-nav:hover {
@@ -5021,7 +5021,7 @@ START: Theme Slider CSS
 }
 @media only screen and (max-width: 767px) {
   .about-items .about-item .content .title {
-    font-size: 36px;
+    font-size: 30px;
   }
 }
 .about-items .about-item .content .title .odometer-auto-theme {
@@ -7997,7 +7997,7 @@ START: Theme Slider CSS
 }
 .testi-item .testi-thumb {
   width: 100%;
-  padding: 30px;
+  /* padding: 30px; */
   /* border-radius: 50%;
   margin-bottom: 35px; */
 }

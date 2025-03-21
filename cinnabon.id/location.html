@@ -107,7 +107,6 @@
         <div id="smooth-content">
 
             <!-- ./ page-header -->
-
             <section class="team-section pt-200 pb-60 overflow-hidden white-bg">
                 <div class="section-heading text-center">
                     <h2 class="section-title text-color-cinnabon" data-text-animation="fade-in-right" data-split="char" data-duration="0.6"
@@ -217,7 +216,10 @@
                     <div class="row align-items-center fade-wrapper" style="justify-content: center;">
                         <div class="col-lg-8">
                             <div class="appointment-form fade-top">
-                                <form action="#">
+                                <form action="https://api.web3forms.com/submit" method="POST">
+                                    <!-- Replace with your Access Key -->
+                                    <input type="hidden" name="access_key" value="c2e45ec1-bd51-455e-afd7-1d274100345b">
+                                    <input type="hidden" name="from_name" value="Website-Cinnabon">
                                     <div class="form-group row">
                                         <div class="col-md-6">
                                             <div class="form-item">
@@ -238,7 +240,7 @@
                                         <div class="col-md-12">
                                             <div class="form-item">
                                                 <h4 class="title">Subject*</h4>
-                                                <input type="email" id="Company" name="Company" class="form-control"
+                                                <input type="text" id="subject" name="subject" class="form-control"
                                                     placeholder="">
                                             </div>
                                         </div>
@@ -247,7 +249,7 @@
                                         <div class="col-md-12">
                                             <div class="form-item message-item">
                                                 <h4 class="title">Describe your message*</h4>
-                                                <textarea id="message" name="message" cols="30" rows="5"
+                                                <textarea id="text" name="message" cols="30" rows="5"
                                                     class="form-control address" placeholder=""></textarea>
                                             </div>
                                         </div>

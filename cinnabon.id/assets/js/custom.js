@@ -31,4 +31,4 @@ var locations = [
             infowindow.open(map, marker);
           }
         })(marker, i));
-      }
+      } 
