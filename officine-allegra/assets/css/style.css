@@ -771,7 +771,7 @@ body::-webkit-scrollbar-thumb {
   line-height: 144.444%;
   letter-spacing: -0.18px;
   padding-bottom: 4px;
-  border-bottom: 1px solid #f74f1c;
+  border-bottom: 1px solid #f5511e;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -784,7 +784,7 @@ body::-webkit-scrollbar-thumb {
   display: inline-block;
   width: 16px;
   height: 14px;
-  color: var(--color-primary);
+  color: #f5511e;
   font-size: inherit;
   font-style: normal;
   font-weight: inherit;
@@ -797,7 +797,7 @@ body::-webkit-scrollbar-thumb {
   left: 0px;
   transition: 0.3s cubic-bezier(0.37, 0.08, 0.02, 0.93);
   font-size: 16px;
-  color: #f74f1c;
+  color: #f5511e;
   transform: rotate(-45deg);
 }
 .quanto-link-btn span .arry2 {
@@ -825,7 +825,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .quanto-link-btn.btn-pill {
-  background-color: #f74f1c;
+  background-color: #f5511e;
   color: var(--color-white);
   border: none;
   padding: 14px 20px 14px 24px;
