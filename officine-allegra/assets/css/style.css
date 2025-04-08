@@ -119,7 +119,7 @@ h1,
 .h1 {
   font-size: 140px;
   line-height: 107.143%;
-  letter-spacing: -4.2px;
+  /* letter-spacing: -4.2px; */
 }
 
 h2,
@@ -1048,7 +1048,7 @@ body::-webkit-scrollbar-thumb {
 
 @media (max-width: 991px) {
   .sticky-wrap {
-    padding: 10px 0;
+    /* padding: 10px 0; */
   }
 }
 .header-logo {
