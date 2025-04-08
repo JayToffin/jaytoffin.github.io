@@ -5776,7 +5776,7 @@ a.quanto-default-btn.sm-size {
 26. Contact css
 =================================================*/
 .quanto-map-area iframe {
-  height: 800px;
+  height: 400px;
 }
 @media only screen and (max-width: 1399.98px) {
   .quanto-map-area iframe {
