@@ -5288,10 +5288,10 @@ a.quanto-default-btn.sm-size {
 .quanto-pricing-box:hover {
   color: var(--color-white);
 }
-.quanto-pricing-box:hover .pricing-title,
+/* .quanto-pricing-box:hover .pricing-title,
 .quanto-pricing-box:hover .pricing {
   color: var(--color-white);
-}
+} */
 
 /*================================================
 21. Team css
