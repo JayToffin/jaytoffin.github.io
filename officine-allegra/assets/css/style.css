@@ -5883,7 +5883,7 @@ a.quanto-default-btn.sm-size {
 }
 
 .footer-widgets.contact {
-  max-width: 206px;
+  /* max-width: 206px; */
 }
 .footer-widgets.quanto {
   max-width: 380px;
@@ -6112,7 +6112,7 @@ a.quanto-default-btn.sm-size {
   }
 }
 .footer__bottom.has-bodder .container {
-  border-top: 1px solid var(--color-4);
+  border-top: 1px solid #f5511e;
 }
 .footer__bottom-content {
   display: flex;
