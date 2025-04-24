@@ -14,57 +14,6 @@
   
   
   
-  
-  /* MODAL MENTOR */
-  .modalbg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0);
-    z-index: 99999;
-    display: block;
-    pointer-events: none;
-  }
-  .modalbg .dialog {
-    width: 90%;
-    max-width: 500px;
-    position: relative;
-    top: -1000px;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 20px;
-    background: #fff;
-  }
-  .modalbg:target {
-    display: block;
-    pointer-events: auto;
-    background: #000000cc;
-  }
-  .modalbg:target .dialog {
-    top: -20px;
-    -moz-transition: all 0.4s ease-out;
-    -webkit-transition: all 0.4s ease-out;
-    -o-transition: all 0.4s ease-out;
-    transition: all 0.4s ease-out;
-  }
-  .close {
-    background: red;
-    color: #ffffff;
-    line-height: 25px;
-    position: absolute;
-    right: -12px;
-    text-align: center;
-    top: -10px;
-    width: 24px;
-    text-decoration: none;
-    border-radius: 50px;
-  }
-  /* MODAL MENTOR */
-  
-    
-  
 /* HIDE BUTTON LINK TOFFIN APP / POPUP QR */
     @media (min-width: 991.98px) {
       .mobile-app-link {
@@ -79,3 +28,60 @@
       }
     }
 /* HIDE BUTTON LINK TOFFIN APP / POPUP QR */
+
+
+/* MODAL MENTOR */
+.modal-window {
+  position: fixed;
+  background-color: #000000a9;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  
+}
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window > div {
+  width: 90%;
+  max-width: 500px;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em;
+  background: white;
+  overflow:auto;
+}
+
+.modal-close {
+  background: #ff0000;
+  color: #ffffff;
+  line-height: 30px;
+  font-size: 80%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  width: 30px;
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+.modal-close:hover {
+  color: black;
+}
+
+.modal-window > div {
+  border-radius: 1rem;
+}
+/* MODAL MENTOR */
