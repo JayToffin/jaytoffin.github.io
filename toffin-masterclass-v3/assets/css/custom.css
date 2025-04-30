@@ -8,14 +8,13 @@
   @media only screen and (min-width: 575px) {
     .p-about {
        margin-right: 28px !important;
-       padding-top: 20px !important;
+       /* padding-top: 20px !important; */
     }
   }
   
   
-  
 /* HIDE BUTTON LINK TOFFIN APP / POPUP QR */
-    @media (min-width: 991.98px) {
+    /* @media (min-width: 991.98px) {
       .mobile-app-link {
         display: none !important;
         visibility: hidden !important;
@@ -26,12 +25,12 @@
         display: none !important;
         visibility: hidden !important;
       }
-    }
+    } */
 /* HIDE BUTTON LINK TOFFIN APP / POPUP QR */
 
 
 /* MODAL MENTOR */
-.modal-window {
+/* .modal-window {
   position: fixed;
   background-color: #000000a9;
   top: 0;
@@ -83,5 +82,5 @@
 
 .modal-window > div {
   border-radius: 1rem;
-}
+} */
 /* MODAL MENTOR */
