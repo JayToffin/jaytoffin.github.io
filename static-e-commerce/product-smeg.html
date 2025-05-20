@@ -204,18 +204,28 @@
 							<li><a class="dropdown-item" href="#"> Logout </a></li>
 						</ul>
 					</li>
-
-					<li class="nav-item">
+					<li class="nav-item dropdown">
 						<div class="sidebar-box">
 							<form action="#" class="search-form">
-								<div class="form-group">
+								<div class="form-group" style="border-bottom: 1px solid #000000;">
 									<span class="icon ion-ios-search"></span>
-									<input type="text" class="form-control" placeholder="Type a keyword">
+									<input type="text" class="form-control no-border" placeholder="SEARCH..." data-toggle="dropdown" onkeyUp="document.getElementById('printchatbox-product').innerHTML = this.value;document.getElementById('printchatbox-category').innerHTML = this.value;document.getElementById('printchatbox-brand').innerHTML = this.value;">
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="toffin-for-gelateria.html">
+											<span id='printchatbox-product' style="font-size: 12px; font-weight: bold;"></span><br />
+											<span class="icon-search"></span> &#160; <span>By Product</span>&nbsp;</a>
+										</li>
+										<li><a class="dropdown-item" href="toffin-for-home.html">
+											<span id='printchatbox-category' style="font-size: 12px; font-weight: bold;"></span><br />
+											<span class="icon-search"></span> &#160; <span>By Category</span></a></li>
+										<li><a class="dropdown-item" href="#">
+											<span id='printchatbox-brand' style="font-size: 12px; font-weight: bold;"></span><br />
+											<span class="icon-search"></span> &#160; <span>By Brand</span></a></li>
+									</ul>
 								</div>
 							</form>
 						</div>
 					</li>
-
 				</ul>
 			</div>
 		</div>
@@ -235,11 +245,35 @@
 	</section>
 
 
-	<section class="ftco-section pt-0 bg-light">
-		<div class="container p-4 pt-5">
-			<div class="row align-items-center bg-white" style="box-shadow: 0px 0px 7px rgba(32, 33, 36, 0.28); border-radius: 15px;">
-				<div class="col-md-6 d-flex align-items-center justify-content-start p-3">
-					<div class="filterapply">
+
+	<section class="ftco-section pt-5 bg-white" >
+		<div class="container Filtersbtn">
+			<div class="filterapply">
+				<div class="dialog">
+					<span>Home Espresso Machine </span>
+					<a href="cart.html" class="close-icon"></a>
+				</div>
+				<div class="dialog">
+					<span>Nuova Simonelli</span>
+					<a href="commercial-espresso-machine.html" class="close-icon"></a>
+				</div>
+				<div class="dialog">
+					<span>Price</span>
+					<a href="index.html" class="close-icon"></a>
+				</div>
+			</div>
+
+			<div class="filteration pt-3">
+				<button class="reset-fil btn btn-primary py-2 px-4">Reset</button>
+				<button class="reset-fil btn btn-primary py-2 px-4" data-toggle="modal"
+					data-target="#filters">Filters</button>
+			</div>
+		</div>
+		<div class="dekstop-hidden">
+		<div class="container" style="box-shadow: 0px 0px 7px rgba(32, 33, 36, 0.28); border-radius: 15px;">
+			<div class="row">
+			  <div class="col">
+					<div class="filterapply py-3">
 						<label for="c-option" class="l-radio">
 							<input type="checkbox" id="c-option" name="selector" tabindex="1">
 							<span>Coffee</span>
@@ -252,43 +286,68 @@
 							<input type="checkbox" id="e-option" name="selector" tabindex="2">
 							<span>Kitchen</span>
 						</label>
-						<label for="f-option" class="l-radio">
-							<input type="checkbox" id="f-option" name="selector" tabindex="2">
-							<span>Bakeware</span>
+						<label for="c-option" class="l-radio">
+							<input type="checkbox" id="c-option" name="selector" tabindex="1">
+							<span>Coffee</span>
+						</label>
+						<label for="d-option" class="l-radio">
+							<input type="checkbox" id="d-option" name="selector" tabindex="2">
+							<span>Blender & Juicer</span>
 						</label>
 						<label for="e-option" class="l-radio">
 							<input type="checkbox" id="e-option" name="selector" tabindex="2">
 							<span>Kitchen</span>
 						</label>
-						<label for="f-option" class="l-radio">
-							<input type="checkbox" id="f-option" name="selector" tabindex="2">
-							<span>Bakeware</span>
+						<label for="c-option" class="l-radio">
+							<input type="checkbox" id="c-option" name="selector" tabindex="1">
+							<span>Coffee</span>
 						</label>
-
-					</div>
+						<label for="d-option" class="l-radio">
+							<input type="checkbox" id="d-option" name="selector" tabindex="2">
+							<span>Blender & Juicer</span>
+						</label>
+						<label for="e-option" class="l-radio">
+							<input type="checkbox" id="e-option" name="selector" tabindex="2">
+							<span>Kitchen</span>
+						</label>
 				</div>
-				<div class="col-md-3 justify-content-end align-items-center p-3">
-					<div class=" pt-0">
-						<form action="#" class="search-form" style="width: 100%;">
-							<div class="form-group mb-0">
-								<span class="icon ion-ios-search"></span>
-								<input type="text" class="form-control" placeholder="Type a keyword or product name"
-									style="border-radius: 10px; height: 42px !important;">
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="col-md-3 d-md-flex justify-content-end p-3">
-					<div class=" pt-0 justify-content-end align-items-center">
-						<button class="reset-fil btn btn-primary py-2 px-4"
-							style="background: red; border:none;">Reset</button>
-						<button class="reset-fil btn btn-primary py-2 px-4" data-toggle="modal"
-							data-target="#filters" style="border:none;">Filters</button>
-					</div>
-				</div>
+			  </div>
 			</div>
+			<hr class="line" style="width: 100%; height: 1px; background-color: #dcdddf; margin: 0px;">
+			<div class="row">
+			  <div class="col">
+				<div class="filterapply py-3">
+					<div class="dialog">
+						<span>Home Espresso Machine </span>
+						<a href="cart.html" class="close-icon"></a>
+					</div>
+					<div class="dialog">
+						<span>Nuova Simonelli</span>
+						<a href="commercial-espresso-machine.html" class="close-icon"></a>
+					</div>
+					<div class="dialog">
+						<span>Price</span>
+						<a href="index.html" class="close-icon"></a>
+					</div>
+				</div>
+			  </div>
+			  <div class="col">
+				<div class="filteration" style="padding: 13px;">
+					<div class="search-container">
+						<input class="search expandright" id="searchright" type="search" placeholder="Search...">
+						<label class="btn btn-primary button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+					</div>
+					<button class="reset-fil btn btn-secondary py-2 px-4">Reset</button>
+					<button class="reset-fil btn btn-primary py-2 px-4" data-toggle="modal"data-target="#filters">Filters</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
 		</div>
-		<div class="container">
+		  
+
+
+		<div class="container pt-5">
 			<div class="row">
 				<div class="col-md-12 col-lg-12 order-md-last">
 					<div class="row">
@@ -706,6 +765,16 @@
 								</div>
 							</div>
 						</div>
+						<div class="container mobile-search">
+							<span class="head-detail">Search</span>
+							<div class="sidebar-box">
+								<form action="#" class="search-form">
+									<div class="form-group" style="border-bottom: 1px solid #000000;">
+										<input type="text" class="form-control no-border" placeholder="Type a keywords or product...">
+									</div>
+								</form>
+							</div>
+						</div>
 						<div class="container">
 							<div class="row justify-content-center">
 								<div class="col-md-12 ftco-animate">
@@ -973,12 +1042,8 @@
 										</div>
 									</div>
 								</div>
-
-
-
 							</div>
 						</div>
-
 					</div>
 					<div class="modal-footer text-center">
 						<button class="reset-fil btn btn-primary py-2 px-4"
@@ -1013,6 +1078,8 @@
 	</script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/custom.js"></script>
+	
 
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -1059,7 +1126,5 @@
 
 
 </body>
-
-<!-- Mirrored from preview.colorlib.com/theme/winkel/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2020 04:18:35 GMT -->
 
 </html>

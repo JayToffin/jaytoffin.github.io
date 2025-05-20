@@ -2957,14 +2957,15 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: #ff4b4b;
-  border-color: #ff4b4b;
+  background-color: #ff0019;
+  border: 1px solid #ff0019 !important;
 }
 
 .btn-secondary:hover {
-  color: #ff4b4b;
+  color: #ff0019;
   background-color: #ffffff;
-  border-color: #ff4b4b;
+  border: 1px solid #ff0019 !important;
+
 }
 
 .btn-secondary:focus,
@@ -3117,20 +3118,14 @@ fieldset:disabled a.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  background-color: #ff0019;
 }
 
 .btn-danger:hover {
-  color: #fff;
-  background-color: #c82333;
-  border-color: #bd2130;
-}
-
-.btn-danger:focus,
-.btn-danger.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+  color: #ff0019;
+  background-color: #ffffff;
+  border: 1px solid #ff0019;
+  
 }
 
 .btn-danger.disabled,
@@ -15022,7 +15017,6 @@ textarea.form-control {
 }
 
 .reset-fil {
-  background-color: #ffa45c;
   border: none;
   color: white;
   padding: 6px 20px;
@@ -15033,7 +15027,6 @@ textarea.form-control {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
-
 }
 
 .close-icon {
@@ -15159,9 +15152,9 @@ textarea.form-control {
 
 .l-radio input {
   vertical-align: middle;
-  width: 20px;
+  /* width: 20px;
   height: 20px;
-  border-radius: 10px;
+  border-radius: 10px; */
   background: none;
   border: 0;
   box-shadow: inset 0 0 0 1px #9F9F9F;
@@ -15177,24 +15170,7 @@ textarea.form-control {
   outline: none;
 }
 
-.l-radio input:checked {
-  box-shadow: inset 0 0 0 5px #ffffff;
-  /* Change the box-shadow to create a checkmark effect */
-  background-color: #ffffff; /* Set a background color */
-  border: 2px solid #ffa45c; /* Add a border */
-  box-shadow: none; /* Remove the original box-shadow */
-  position: relative; /* Position the checkmark */
-}
-
-.l-radio input:checked::after {
-  content: '\2713'; /* Add a checkmark character */
-  font-size: 14px; /* Adjust the size */
-  color: #ffa45c; /* Set the color */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the checkmark */
-}
+/*  */
 
 .l-radio span {
   vertical-align: middle;
@@ -16561,21 +16537,24 @@ a:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
 }
 
+@media only screen and (min-width: 767px) {
+  .Filtersbtn {
+    display: none;
+    visibility: hidden;
+  }
+}
 
 @media only screen and (max-width: 767px) {
   .Filtersbtn {
-    padding-bottom: 20px;
     display: block;
   }
 }
 
 .filteration {
   display: flex;
-  padding-top: 10px;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 @media only screen and (max-width: 767px) {
@@ -18830,5 +18809,9 @@ section.faq {
   border: 1px solid #ffa45c;
   background: #ffa45c;
   color: #ffa45c;
+}
+
+.no-border {
+  border: none !important;
 }
 
