@@ -505,4 +505,9 @@
    display: none;
   }
 }
+
+.filter-not-brand {
+  display: none;
+  visibility: hidden;
+}
 /* SEARCH & FILTER */
