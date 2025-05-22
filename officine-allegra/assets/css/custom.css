@@ -10,5 +10,9 @@
     height: 30px;
     display: inline-block; /* Or block, depending on your layout */
     border-radius: 50%; /* Makes it circular */
-    
+  }
+
+  #map {
+    height: 550px;
+    width: 100%;
   }
