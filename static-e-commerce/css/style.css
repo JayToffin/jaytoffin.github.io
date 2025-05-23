@@ -16523,49 +16523,6 @@ a:active {
   transition: all 0.2s;
 } */
 
-
-
-/* SCROLLING FILTER APPLY BUTTON */
-.filterapply {
-  white-space: nowrap;
-  overflow: auto;
-  font-size: 13px;
-}
-
-
-.Filtersbtn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
-}
-
-/* @media only screen and (min-width: 767px) {
-  .Filtersbtn {
-    display: none;
-    visibility: hidden;
-  }
-} */
-
-@media only screen and (max-width: 767px) {
-  .Filtersbtn {
-    display: block;
-    padding-bottom: 20px;
-  }
-}
-
-.filteration {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 10px;
-}
-
-@media only screen and (max-width: 767px) {
-  .reset-fil {
-    width: 100%;
-  }
-}
-
 @media only screen and (max-width: 767px) {
   .two-grid-mobile-view-left {
     width: 50%;

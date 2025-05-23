@@ -493,21 +493,67 @@
 	padding: 0 0 0 16px;
 }
 
-@media (max-width: 768px) {
-  .dekstop-hidden {
-   visibility: hidden;
-   display: none;
-  }
-}
 @media (min-width: 768px) {
-  .mobile-search {
+  .brand-mobile-search {
    visibility: hidden;
    display: none;
   }
 }
 
-.filter-not-brand {
-  display: none;
-  visibility: hidden;
+.filterapply {
+  white-space: nowrap;
+  overflow: auto;
+  font-size: 13px;
+}
+
+.Filtersbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.filteration {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .Filtersbtn {
+    display: block;
+    padding-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .reset-fil {
+    width: 100%;
+  }
+}
+
+/* Mobile - hide search popup*/
+@media (min-width: 768px) {
+  .brand-mobile-search {
+   visibility: hidden;
+   display: none;
+  }
+}
+
+/* Dekstop - hide filter brand */
+@media only screen and (min-width: 767px) {
+  .filter-no-brand {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+/* Mobile - hide filter brand */
+@media (max-width: 768px) {
+  .filter-brand {
+   visibility: hidden;
+   display: none;
+  }
 }
 /* SEARCH & FILTER */
