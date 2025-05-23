@@ -493,13 +493,6 @@
 	padding: 0 0 0 16px;
 }
 
-@media (min-width: 768px) {
-  .brand-mobile-search {
-   visibility: hidden;
-   display: none;
-  }
-}
-
 .filterapply {
   white-space: nowrap;
   overflow: auto;
@@ -556,4 +549,12 @@
    display: none;
   }
 }
+
+@media (min-width: 768px) {
+  .dekstop-view {
+   visibility: visible;
+    display: block;
+  }
+}
+
 /* SEARCH & FILTER */
