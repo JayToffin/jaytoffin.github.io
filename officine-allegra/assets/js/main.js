@@ -181,23 +181,19 @@
     const swiper = new Swiper(testimonialSlider, {
       loop: true,
       slidesPerView: 1,
-      spaceBetween: 10,
       autoplay: {
-        delay: 3000,
+        delay: 4000,
         disableOnInteraction: false,
       },
       breakpoints: {
         768: {
-          slidesPerView: 2,
-          spaceBetween: 25,
+          slidesPerView: 1,
         },
         1200: {
-          spaceBetween: 30,
-          slidesPerView: 2,
+          slidesPerView: 1,
         },
         1400: {
-          spaceBetween: 40,
-          slidesPerView: 2.5,
+          slidesPerView: 1,
         },
       },
     });
