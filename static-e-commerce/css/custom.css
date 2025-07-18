@@ -584,7 +584,6 @@
 }
 
 
-
 /* Chat Widget AI & WA Styling */
 #chat-toggle {
   position: fixed;
@@ -674,7 +673,7 @@
 }
 
 .user-ai {
-  text-align: right;
+  text-align: left;
   margin-left: auto;
   color: #121111;
   padding: 10px;
@@ -776,15 +775,17 @@
 
 @media(max-width:480px) {
   #chat-widget {
-    width: 90vw;
-    right: 5vw;
-    bottom: 15vw;
-    height: 75vh;
+        width: 100%;
+        right: 0;
+        bottom: 0vw;
+        overflow: auto !important;
+        height: 100vh;
+        z-index: 1111;
   }
 
   #chat-toggle {
-    width: 16vw;
-    height: 16vw;
+    width: 13vw;
+    height: 13vw;
     font-size: 7vw;
   }
 }
@@ -826,4 +827,11 @@ button.full img {
   font-size: 11px;
   color: #5d5d5d;
   opacity: 0.9;
+}
+
+#chat-messages {
+  scroll-behavior: smooth;
+}
+.selected-machine {
+  background:#fff3ea !important;
 }

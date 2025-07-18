@@ -39,6 +39,10 @@
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
 		integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+		<!-- Swiper CSS & JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
 
 <body class="goto-here">
@@ -94,15 +98,23 @@
 						<li onclick="suggest('Rekomendasikan mesin kopi untuk cafe kapasitas 100 orang')">"Rekomendasikan mesin kopi untuk cafe kapasitas 100 orang"</li>
 						<li onclick="suggest('Fitur utama Allegra Speed Oven Pro')">"Fitur utama Allegra Speed Oven Pro"</li>
 						<li onclick="suggest('Trend gelato 2025')">"Trend gelato 2025"</li>
+						<li onclick="suggest('Rekomendasi mesin kopi yang bagus')">Rekomendasi mesin kopi yang bagus</li>
+						<li onclick="suggest('List mesin tersedia')">"Pilih daftar mesin"</li>
+
+						
 					</ul>
 				</div>
 				<div id="chat-messages"></div>
 			</div>
-			<div class="footer-ai" id="chat-input"><input id="chat-input-field" type="text" placeholder="Tulis pertanyaan..." />
-				<button onclick="sendMessage()">
-					<span class="ion-ios-arrow-up"></span>
-				</button>
-			</div>
+			<div class="footer-ai" id="chat-input">
+            <input id="chat-input-field" type="text" placeholder="Tulis pertanyaan..." />
+            <button id="booking-btn" onclick="handleBooking()" style="display:none; background:#ffa45c; margin-right:8px;">
+                <img src="images/booking-icon.png" alt="Booking" style="width: 25px; height: 25px;" />
+            </button>
+            <button onclick="sendMessage()"><span class="ion-ios-arrow-up"></span></button>
+            </div>
+
+
 		</div>
 		<div id="history-page" class="page-ai">
 			<div class="header-ai">
@@ -856,7 +868,6 @@
 											class="ion-ios-add ml-1"></i></span></a>
 							</p>
 						</div>
-
 					</div>
 				</div>
 				<div class="box-product ftco-animate swiper-slide">

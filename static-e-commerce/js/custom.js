@@ -28,6 +28,8 @@
 
 
 // Chat Widget AI & WA
+let selectedMachine = null;
+
 const chatToggle = document.getElementById('chat-toggle'),
   widget = document.getElementById('chat-widget'),
   choice = document.getElementById('choice-page'),
@@ -102,53 +104,168 @@ function sendMessage() {
 function addMessage(sender, text, time = null) {
   const timestamp = time || new Date().toISOString();
   if (!time) {
-    history.push({
-      sender,
-      text,
-      time: timestamp
-    });
+    history.push({ sender, text, time: timestamp });
     save();
   }
   const div = document.createElement('div');
   div.className = 'msg ' + sender;
-  let inner = `<div class="text-ai">${text}</div>`;
-  // if(sender !== 'ai') inner += `<span class="time">${formatTime(timestamp)}</span>`;
-  div.innerHTML = inner;
+  div.innerHTML = `<div class="text-ai">${text}</div>`;
   chatMessages.appendChild(div);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
+  autoScroll();
 }
+
 
 function smoothAIResponse(userText) {
   const placeholderDiv = document.createElement('div');
   placeholderDiv.className = 'msg ai';
-  placeholderDiv.innerHTML = `<div class="text-ai">AI sedang mengetik...</div>`;
+
+  const typingText = document.createElement('div');
+  typingText.className = 'text-ai typing-loader';
+  typingText.textContent = 'AI sedang mengetik';
+  placeholderDiv.appendChild(typingText);
   chatMessages.appendChild(placeholderDiv);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
+  autoScroll();
 
   const response = 'Respon AI: ' + userText;
-  typeWriter(placeholderDiv, response, 0, () => {
-    // replace placeholder
+  const lower = userText.toLowerCase();
+
+  typeWriter(typingText, response, 0, () => {
+    typingText.classList.remove('typing-loader');
+    typingText.textContent = response;
+    autoScroll();
+
     const timeNow = new Date().toISOString();
-    placeholderDiv.className = 'msg ai';
-    placeholderDiv.innerHTML = `<div class="text-ai">${response}</div>`;
-    history.push({
-      sender: 'ai',
-      text: response,
-      time: timeNow
-    });
+    history.push({ sender: 'ai', text: response, time: timeNow });
     save();
+
+    if (lower.includes('mesin kopi') || lower.includes('rekomendasi mesin')) {
+      renderProductCarousel([
+        { img: 'images/product-1.jpg', title: 'Nuova Simonelli Appia Life V (2 Groups)', price: 'Rp112.000.000' },
+        { img: 'images/product-2.jpg', title: 'Victoria Arduino VA388 Black Eagle T3 2 Group', price: 'Rp81.500.000' },
+        { img: 'images/product-3.jpg', title: 'Victoria Arduino VA388 Black Eagle T3 2 Group', price: 'Rp61.750.000' },
+        { img: 'images/product-1.jpg', title: 'Nuova Simonelli Appia Life V (2 Groups)', price: 'Rp112.000.000' },
+        { img: 'images/product-2.jpg', title: 'Victoria Arduino VA388 Black Eagle T3 2 Group', price: 'Rp81.500.000' },
+        { img: 'images/product-3.jpg', title: 'Victoria Arduino VA388 Black Eagle T3 2 Group', price: 'Rp61.750.000' }
+      ]);
+    }
+
+    else if (lower.includes('list mesin') || lower.includes('daftar mesin')) {
+    const machines = [
+        { img: 'images/product-1.jpg', title: 'Appia Life Compact', serial: 'SN-A12345', location: 'Jakarta' },
+        { img: 'images/product-1.jpg', title: 'Black Eagle VA388', serial: 'SN-B67890', location: 'Bandung' },
+        { img: 'images/product-1.jpg', title: 'Linea Mini', serial: 'SN-C54321', location: 'Bali' },
+        { img: 'images/product-1.jpg', title: 'Appia Life Compact', serial: 'SN-A12345', location: 'Jakarta' },
+        { img: 'images/product-1.jpg', title: 'Black Eagle VA388', serial: 'SN-B67890', location: 'Bandung' },
+        { img: 'images/product-1.jpg', title: 'Linea Mini', serial: 'SN-C54321', location: 'Bali' }
+    ];
+    renderMachineSwiper(machines);
+    }
+
   });
 }
 
-function typeWriter(el, text, i, callback) {
+function renderMachineSwiper(machines) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'swiper msg ai';
+  wrapper.style.marginTop = '12px';
+  wrapper.style.width = '100%';
+
+  const swiperId = 'swiper-' + Math.random().toString(36).slice(2, 8);
+
+  wrapper.innerHTML = `
+    <div class="swiper-wrapper" id="${swiperId}">
+      ${machines.map((m, i) => `
+        <div class="swiper-slide machine-slide" data-index="${i}" style="
+          display: flex;
+          gap: 12px;
+          background: #f9f9f9;
+          border-radius: 12px;
+          padding: 8px;
+          flex-shrink: 0;
+          width: auto;
+          min-width: 260px;
+          box-sizing: border-box;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        ">
+          <img src="${m.img}" alt="${m.title}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" />
+          <div style="flex: 1; overflow: hidden;">
+            <div style="font-weight: bold; font-size: 12px; margin-bottom: 4px;">${m.title}</div>
+            <div style="font-size: 11px; color: #333;">SN: ${m.serial}</div>
+            <div style="font-size: 11px; color: #777;">Label alamat: ${m.location}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  chatMessages.appendChild(wrapper);
+
+  const swiper = new Swiper(wrapper, {
+    slidesPerView: 'auto',
+    spaceBetween: 12,
+    freeMode: false,
+    slidesOffsetAfter: 16,
+    pagination: {
+      el: wrapper.querySelector('.swiper-pagination'),
+      clickable: true,
+      dynamicBullets: true
+    }
+  });
+
+  // 🔥 SELECT FEATURE
+  const slideEls = wrapper.querySelectorAll('.machine-slide');
+  slideEls.forEach((el, index) => {
+    el.addEventListener('click', () => {
+  slideEls.forEach(e => e.classList.remove('selected-machine'));
+  el.classList.add('selected-machine');
+
+  selectedMachine = machines[index];
+  console.log('📦 Mesin terpilih:', selectedMachine);
+
+  // Munculkan tombol booking
+  document.getElementById('booking-btn').style.display = 'inline-block';
+});
+
+  });
+
+  autoScroll();
+}
+
+function handleBooking() {
+  if (!selectedMachine) return alert('Pilih mesin terlebih dahulu');
+
+  // 👉 Kirim ke backend, atau tampilkan modal booking
+  alert(`Booking untuk mesin: ${selectedMachine.title}\nSN: ${selectedMachine.serial}`);
+  
+  // Optional: reset selection
+  document.getElementById('booking-btn').style.display = 'none';
+  selectedMachine = null;
+}
+
+function typeWriter(el, text, i = 0, callback) {
   if (i <= text.length) {
-    el.querySelector('.text-ai').textContent = text.slice(0, i);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    setTimeout(() => typeWriter(el, text, i + 1, callback), 30);
+    el.textContent = text.slice(0, i);
+    autoScroll(); // update tiap karakter
+    setTimeout(() => typeWriter(el, text, i + 1, callback), 25);
   } else {
-    callback();
+    callback && callback();
+    autoScroll(); // pastikan scroll terakhir juga dilakukan
   }
 }
+
+
+
+function typeWriter(el, text, i = 0, callback) {
+  if (i <= text.length) {
+    el.textContent = text.slice(0, i);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    setTimeout(() => typeWriter(el, text, i + 1, callback), 25);
+  } else {
+    callback && callback();
+  }
+}
+
 
 function renderHistory() {
   historyList.innerHTML = '';
@@ -199,4 +316,41 @@ chatInput.addEventListener('keydown', e => {
 
 function contactCS() {
   window.open('https://wa.me/+628119983378', '_blank');
+}
+
+function autoScroll() {
+  setTimeout(() => {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }, 50); // Delay sedikit agar update DOM selesai
+}
+
+function renderProductCarousel(products) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'swiper msg ai';
+  wrapper.style.marginTop = '8px';
+
+  wrapper.innerHTML = `
+    <div class="swiper-wrapper">
+      ${products.map(p => `
+        <div class="swiper-slide" style="width:150px; background:#f9f9f9; border-radius:12px; padding:10px;">
+          <img src="${p.img}" style="width:100%; border-radius:8px;"/>
+          <div style="margin-top:8px; font-weight:bold; font-size:10px;">${p.title}</div>
+          <div style="color:#555; font-size:10px;"><span style=" text-decoration: line-through; color: #b3b3b3; font-size: 9px;">${p.price}</span></div>
+          <div style="color:#555; font-size:10px;"><span class="mr-2 price-dc" style="font-size: 9px;">${p.price}</span></div>
+          <button style="margin-top:8px; background:#ffa45c; border:none; color:#fff; padding: 5px 0px; width:100%; border-radius:6px; font-size:9px; cursor:pointer;">Add to cart +</button>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  chatMessages.appendChild(wrapper);
+
+  const swiper = new Swiper(wrapper, {
+    slidesPerView: 'auto',
+    spaceBetween: 12,
+    freeMode: false,
+    slidesOffsetAfter: 16,
+  });
+
+  autoScroll();
 }
