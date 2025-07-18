@@ -354,3 +354,15 @@ function renderProductCarousel(products) {
 
   autoScroll();
 }
+
+// DISABLE SCROLL (BELAKANG) SAAT CHAT DIBUKA
+chatToggle.onclick = () => {
+  widget.style.display = 'flex';
+  document.body.classList.add('no-scroll'); // ✅ DISABLE SCROLL
+  showChoice();
+};
+
+function toggleChat() {
+  widget.style.display = 'none';
+  document.body.classList.remove('no-scroll'); // ✅ ENABLE SCROLL BACK
+}
