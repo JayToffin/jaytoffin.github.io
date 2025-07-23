@@ -93,7 +93,6 @@
 
 .footer-ai {
   padding: 15px;
-  border-top: 1px solid #cccccc;
 }
 
 @media (max-width: 768px) {
@@ -104,7 +103,6 @@
     right: 0;
     z-index: 10;
     background: #fff;
-    border-top: 1px solid #ccc;
     display: flex;
     gap: 10px;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
@@ -165,7 +163,7 @@
 
 #chat-input {
   display: flex;
-  border-top: 1px solid #e6e6e6;
+  align-items: center;
   gap: 10px;
 }
 
@@ -1201,19 +1199,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const isKeyboardVisible = newHeight < lastHeight;
 
       const chatInput = document.getElementById('chat-input');
-      if (isKeyboardVisible) {
-        chatInput.style.position = 'fixed';
-        chatInput.style.bottom = '0';
-        chatInput.style.left = '0';
-        chatInput.style.right = '0';
-        chatInput.style.zIndex = '10';
+      if (window.innerWidth <= 768) {
+        chatInput.style.position = isKeyboardVisible ? 'absolute' : 'fixed';
       } else {
-        chatInput.style.position = 'fixed';
-        chatInput.style.bottom = '0';
-        chatInput.style.left = '0';
-        chatInput.style.right = '0';
-        chatInput.style.zIndex = '10';
+        chatInput.style.position = '';
       }
+
       lastHeight = newHeight;
     });
   }
