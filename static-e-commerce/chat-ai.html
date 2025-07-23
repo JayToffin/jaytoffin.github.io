@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+	<title>Toffin - Coffee Business Platform</title>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 shrink-to-fit=no">
+
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<link rel="stylesheet" href="css/aos.css">
+
+	<link rel="stylesheet" href="css/ionicons.min.css">
+
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.3.41/css/materialdesignicons.min.css" />
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
+		integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+		<!-- Swiper CSS & JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="sidebar expanded" id="sidebar">
+    <div class="logo-wrapper">
+      <img src="images/AI-logo.png" alt="Toffin AI" class="logo-img" />
+      <button onclick="toggleSidebarExpand(); toggleSidebarMobile()" id="sidebar-toggle">
+        <img src="images/sidebar.png" alt="Toggle Sidebar" class="toggle-icon" />
+      </button>
+
+    </div>
+
+    <div class="search-sidebar" id="search-input">
+      <input type="text" placeholder="Search here..." />
+    </div>
+
+    <a href="#" onclick="startNewChat()"><i class="fas fa-plus-circle"></i> <span class="link-text">New Chat</span></a>
+
+    <div style="width: 100%; padding: 0 16px; margin-top: 10px;">
+      <div id="sidebar-history"></div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" onclick="toggleSidebarMobile()"></div>
+
+
+  <div class="header-ai">
+    <button class="mobile-sidebar-toggle" onclick="toggleSidebarMobile()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <span>Toffin AI Assistant 2.0</span>
+    <div>
+      <button onclick="toggleChat()"><span class="icon-close"></span></button>
+    </div>
+  </div>
+  <div class="ai-container">
+
+    <div class="page-ai">
+      <div class="content-ai">
+        <div id="chat-suggestions">
+          <div class="text-center">
+            <p style="font-weight:700; padding-bottom: 10px;">F&B Consultant at Your Fingertips</p>
+            <p style="font-size:13px;">Temukan semua jawaban serta solusi secara instan. Tingkatkan bisnis dan
+              pengetahuan melalui fitur yang dirancang serasa memiliki konsultan F&B pribadi.</p>
+            <i class="icon-search"></i> <span style="font-weight:600;"> Contoh</span>
+          </div>
+          <ul>
+            <li onclick="suggest('Apa resep untuk membuat coffee late?')">“Apa resep untuk membuat coffee late?”</li>
+            <li onclick="suggest('Kenapa mesin kopi saya keluar uap?')">"Kenapa mesin kopi saya keluar uap?"</li>
+            <li onclick="suggest('Rekomendasikan mesin kopi untuk cafe kapasitas 100 orang')">"Rekomendasikan mesin kopi
+              untuk cafe kapasitas 100 orang"</li>
+            <li onclick="suggest('Fitur utama Allegra Speed Oven Pro')">"Fitur utama Allegra Speed Oven Pro"</li>
+            <li onclick="suggest('Trend gelato 2025')">"Trend gelato 2025"</li>
+            <li onclick="suggest('Rekomendasi mesin kopi yang bagus')">Rekomendasi mesin kopi yang bagus</li>
+            <li onclick="suggest('List mesin tersedia')">"Pilih daftar mesin"</li>
+          </ul>
+        </div>
+        <div id="chat-messages"></div>
+      </div>
+      <div class="footer-ai" id="chat-input">
+        <textarea id="chat-input-field" type="text" placeholder="Tulis pertanyaan..." rows="2"
+          style="resize: none;"></textarea>
+        <button id="booking-btn" onclick="handleBooking()" style="display:none; background:#ffa45c;">
+          <img src="images/booking-icon.png" alt="Booking" style="width: 30px; height: 30px;" />
+        </button>
+        <button onclick="sendMessage()"><span class="ion-ios-arrow-up"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false">
+	</script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/custom.js"></script>
+	<!-- <script src='https://kit.fontawesome.com/a076d05399.js'></script> -->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ 
+</body>
+
+</html>
