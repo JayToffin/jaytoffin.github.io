@@ -104,7 +104,6 @@
     right: 0;
     z-index: 10;
     background: #fff;
-    padding: 15px;
     border-top: 1px solid #ccc;
     display: flex;
     gap: 10px;
@@ -1203,11 +1202,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const chatInput = document.getElementById('chat-input');
       if (isKeyboardVisible) {
-        chatInput.style.position = 'absolute'; // hindari ketimpa keyboard
+        chatInput.style.position = 'fixed';
+        chatInput.style.bottom = '0';
+        chatInput.style.left = '0';
+        chatInput.style.right = '0';
+        chatInput.style.zIndex = '10';
       } else {
         chatInput.style.position = 'fixed';
+        chatInput.style.bottom = '0';
+        chatInput.style.left = '0';
+        chatInput.style.right = '0';
+        chatInput.style.zIndex = '10';
       }
-
       lastHeight = newHeight;
     });
   }
