@@ -104,7 +104,7 @@
     right: 0;
     z-index: 10;
     background: #fff;
-    padding: 15px 15px calc(15px + env(safe-area-inset-bottom, 0));
+    padding: 15px;
     border-top: 1px solid #ccc;
     display: flex;
     gap: 10px;
@@ -531,6 +531,80 @@ button.full img {
     flex: 1;
   }
 }
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.modal-content h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.modal-content label {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  display: block;
+}
+
+.modal-content select,
+.modal-content textarea,
+.modal-content input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.modal-content textarea {
+  resize: vertical;
+}
+
+.modal-content .btn-primary {
+  margin-top: 16px;
+  width: 100%;
+  background: #ffa45c;
+  border: none;
+  color: #fff;
+  padding: 10px 0;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-content .btn-secondary {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
 </style>
 </head>
 
@@ -598,12 +672,54 @@ button.full img {
         <textarea id="chat-input-field" type="text" placeholder="Tulis pertanyaan..." rows="2"
           style="resize: none;"></textarea>
         <button id="booking-btn" onclick="handleBooking()" style="display:none; background:#ffa45c;">
-          <img src="images/booking-icon.png" alt="Booking" style="width: 30px; height: 30px;" />
-        </button>
+  <img src="images/booking-icon.png" alt="Booking" style="width: 30px; height: 30px;" />
+</button>
+
         <button onclick="sendMessage()"><span class="ion-ios-arrow-up"></span></button>
       </div>
     </div>
   </div>
+<!-- Popup Booking Form -->
+<div id="booking-modal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Form Booking Service</h3>
+    <form id="booking-form">
+      <label>Lokasi:</label>
+      <select name="lokasi" required>
+        <option value="">Pilih lokasi</option>
+        <option>Jakarta</option>
+        <option>Bandung</option>
+        <option>Surabaya</option>
+      </select>
+
+      <label>Mesin:</label>
+      <select name="mesin" required>
+        <option value="">Pilih mesin</option>
+        <option>Appia Life Compact</option>
+        <option>Black Eagle VA388</option>
+        <option>Linea Mini</option>
+      </select>
+
+      <label>Tipe Servis:</label>
+      <select name="tipe" required>
+        <option value="">Pilih tipe servis</option>
+        <option>Perawatan Rutin</option>
+        <option>Perbaikan</option>
+        <option>Instalasi</option>
+      </select>
+
+      <label>Kendala Mesin:</label>
+      <textarea name="kendala" rows="3" placeholder="Ceritakan masalah mesin..."></textarea>
+
+      <label>Unggah Foto (opsional):</label>
+      <input type="file" name="foto" accept="image/*" />
+
+      <button type="submit" class="btn btn-primary">Checkout</button>
+    </form>
+    <button class="close-modal btn btn-secondary" onclick="toggleBookingModal()">Tutup</button>
+  </div>
+</div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
 	<script src="js/jquery.min.js"></script>
@@ -721,6 +837,26 @@ function toggleSidebarMobile() {
   const sidebar = document.getElementById('sidebar');
   sidebar.classList.toggle('collapsed');
 }
+
+
+function toggleBookingModal() {
+  const modal = document.getElementById('booking-modal');
+  modal.classList.toggle('hidden');
+}
+
+function handleBooking() {
+  if (!selectedMachine) {
+    alert('Pilih mesin terlebih dahulu');
+    return;
+  }
+
+  // Optional: Pre-fill form jika mau
+  document.querySelector('#booking-form select[name="mesin"]').value = selectedMachine.title;
+
+  // Tampilkan modal form
+  toggleBookingModal();
+}
+
 
 
 
@@ -953,17 +1089,6 @@ function toggleSidebarMobile() {
       autoScroll();
     }
 
-    function handleBooking() {
-      if (!selectedMachine) return alert('Pilih mesin terlebih dahulu');
-
-      // 👉 Kirim ke backend, atau tampilkan modal booking
-      alert(`Booking untuk mesin: ${selectedMachine.title}\nSN: ${selectedMachine.serial}`);
-
-      // Optional: reset selection
-      document.getElementById('booking-btn').style.display = 'none';
-      selectedMachine = null;
-    }
-
     function typeWriter(el, text, i = 0, callback) {
       if (i <= text.length) {
         el.textContent = text.slice(0, i);
@@ -1063,6 +1188,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   renderSidebarHistory(); // panggil untuk menampilkan daftar riwayat
 });
+
+
 
 </script>
 
