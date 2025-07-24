@@ -710,12 +710,12 @@ button.full img {
 
       <label>Kendala Mesin:</label>
       <textarea 
-  id="chat-input-field" 
-  placeholder="Tulis pertanyaan..." 
-  rows="2" 
-  style="resize: none;" 
-  enterkeyhint="go">
-</textarea>
+        id="chat-input-field" 
+        placeholder="Tulis pertanyaan..." 
+        rows="2" 
+        style="resize: none;" 
+        enterkeyhint="Send">
+      </textarea>
 
 
       <label>Unggah Foto (opsional):</label>
@@ -750,10 +750,6 @@ button.full img {
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/custom.js"></script>
-	<!-- <script src='https://kit.fontawesome.com/a076d05399.js'></script> -->
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
 
@@ -894,13 +890,17 @@ function handleBooking() {
 
 
     function sendMessage() {
-      const txt = chatInput.value.trim();
-      if (!txt) return;
-      chatSuggestions.style.display = 'none';
-      addMessage('user-ai', txt);
-      chatInput.value = '';
-      setTimeout(() => smoothAIResponse(txt), 300);
-    }
+  const txt = chatInput.value.trim();
+  if (!txt) return;
+  chatSuggestions.style.display = 'none';
+  addMessage('user-ai', txt);
+  chatInput.value = '';
+
+  chatInput.blur();    // ⬅️ Tutup keyboard
+  autoScroll();        // ⬅️ Scroll ke bawah
+
+  setTimeout(() => smoothAIResponse(txt), 300);
+}
 
     function addMessage(sender, text, time = null) {
       const timestamp = time || new Date().toISOString();
@@ -1128,10 +1128,17 @@ function handleBooking() {
     }
 
     function autoScroll() {
-      setTimeout(() => {
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }, 50); // Delay sedikit agar update DOM selesai
-    }
+  const messages = document.getElementById('chat-messages');
+  const lastMsg = messages.lastElementChild;
+
+  if (lastMsg) {
+    lastMsg.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end'
+    });
+  }
+}
+
 
     function renderProductCarousel(products) {
       const wrapper = document.createElement('div');
