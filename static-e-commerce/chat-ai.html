@@ -189,12 +189,12 @@
 
 #chat-input button {
   background: #000000;
-  width: 45px;
-  height: 45px;
+  width: 58px;
+  height: 58px;
   color: white;
   border: none;
   /* padding: 0 16px; */
-  font-size: 20px;
+  
   cursor: pointer;
   border-radius: 50px;
 }
@@ -671,11 +671,11 @@ button.full img {
       <div class="footer-ai" id="chat-input">
         <textarea id="chat-input-field" type="text" placeholder="Tulis pertanyaan..." rows="2"
           style="resize: none;"></textarea>
-        <button id="booking-btn" onclick="handleBooking()" style="display:none; background:#ffa45c;">
-  <img src="images/booking-icon.png" alt="Booking" style="width: 30px; height: 30px;" />
+        <button id="booking-btn" onclick="handleBooking()" style="display:none; background:#000000;">
+  <img src="images/booking-icon.png" width="35" alt="Booking"/>
 </button>
 
-        <button onclick="sendMessage()"><span class="ion-ios-arrow-up"></span></button>
+        <!-- <button onclick="sendMessage()"><span class="ion-ios-arrow-up"></span></button> -->
       </div>
     </div>
   </div>
@@ -709,7 +709,14 @@ button.full img {
       </select>
 
       <label>Kendala Mesin:</label>
-      <textarea name="kendala" rows="3" placeholder="Ceritakan masalah mesin..."></textarea>
+      <textarea 
+  id="chat-input-field" 
+  placeholder="Tulis pertanyaan..." 
+  rows="2" 
+  style="resize: none;" 
+  enterkeyhint="go">
+</textarea>
+
 
       <label>Unggah Foto (opsional):</label>
       <input type="file" name="foto" accept="image/*" />
