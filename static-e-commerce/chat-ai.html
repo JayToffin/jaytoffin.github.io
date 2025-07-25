@@ -1103,7 +1103,7 @@ function handleBooking() {
       if (i <= text.length) {
         el.textContent = text.slice(0, i);
         autoScroll(); // update tiap karakter
-        setTimeout(() => typeWriter(el, text, i + 1, callback), 25);
+        setTimeout(() => typeWriter(el, text, i + 1, callback), 10);
       } else {
         callback && callback();
         autoScroll(); // pastikan scroll terakhir juga dilakukan
