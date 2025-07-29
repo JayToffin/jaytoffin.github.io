@@ -6,7 +6,8 @@ function initMap() {
     });
   
     var locations = [
-      { lat: 45.4642, lng: 9.1900 }, // Milan
+      // Daftar koordinat untuk lokasi di seluruh dunia
+      { lat: 45.43639819999799, lng: 9.349993470552295 }, // Milan
       { lat: -6.200000, lng: 106.816666 }, // Indonesia
       { lat: 14.0583, lng: 108.2772 }, // Vietnam
       { lat: 28.3949, lng: 84.1240 }, // Nepal

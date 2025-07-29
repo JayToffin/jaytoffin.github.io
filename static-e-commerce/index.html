@@ -39,9 +39,9 @@
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
 		integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
-		<!-- Swiper CSS & JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<!-- Swiper CSS & JS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </head>
 
@@ -49,82 +49,26 @@
 	<!-- Chat Widget Button -->
 	<button id="chat-toggle">💬</button>
 	<div id="chat-widget">
-		<div id="choice-page" class="page-ai">
-			<div class="header-ai"><span>Toffin Smart Assistan</span><button onclick="toggleChat()"><span class="icon-close"></span></button></div>
-			<div class="container py-3">
-				<button class="full btn-ai" onclick="startChat()">
-					<img src="images/AI-logo.png" width="36" />
-					<div class="btn-text">
-						<div class="btn-title">Personal Toffin AI Assistant 2.0</div>
-						<div class="btn-subtitle">AI asisten untuk setiap langkah bisnis F&B Anda</div>
+		<div id="choice-page" class="page-widget-ai">
+			<div class="header-widget-ai"><span>Toffin Smart Assistan</span><button onclick="toggleChat()"><span
+						class="icon-close"></span></button></div>
+			<div class="container pt-3">
+				<a href="chat-ai.html" class="chat-option">
+					<img src="images/AI-logo.png" alt="AI Chat" class="chat-icon">
+					<div class="chat-text">
+						<div class="chat-title">Personal Toffin AI Assistant 2.0</div>
+						<div class="chat-desc">AI asisten untuk setiap langkah bisnis F&B Anda</div>
 					</div>
-				</button>
+				</a>
 			</div>
-			<div class="container pb-3">
-				<button class="full btn-ai" onclick="contactCS()">
-					<img src="images/whatsapp.png" width="36" />
-					<div class="btn-text">
-						<div class="btn-title">Contact Customer Service</div>
-						<div class="btn-subtitle">Layanan pelanggan untuk dukungan Anda</div>
+			<div class="container p-3">
+				<a href="https://wa.me/628119983378" target="_blank" class="chat-option">
+					<img src="images/whatsapp.png" alt="WhatsApp" class="chat-icon">
+					<div class="chat-text">
+						<div class="chat-title">Contact Customer Service</div>
+						<div class="chat-desc">Layanan pelanggan untuk dukungan Anda</div>
 					</div>
-				</button>
-			</div>
-		</div>
-		<div id="chat-page" class="page-ai">
-			<div class="header-ai">
-				<button onclick="backToChoice()">
-					<span style="color: #000000;" class="icon-arrow-left"></span>
-				</button>
-				<span>Toffin AI Assistant 2.0</span>
-				<div>
-					<button onclick="showHistory()">
-						<span style="color: #000000;" class="icon-history"></span>
-					</button>
-					<button onclick="toggleChat()">
-						<span class="icon-close"></span>
-					</button>
-				</div>
-			</div>
-			<div class="content-ai">
-				<div id="chat-suggestions">
-					<div class="text-center">
-						<p style="font-weight:700; padding-bottom: 10px;">F&B Consultant at Your Fingertips</p>
-						<p style="font-size:13px;">Temukan semua jawaban serta solusi secara instan. Tingkatkan bisnis dan pengetahuan melalui fitur yang dirancang serasa memiliki konsultan F&B pribadi.</p>
-						<i class="icon-search"></i> <span style="font-weight:600;"> Contoh</span>
-					</div>
-					<ul>
-						<li onclick="suggest('Apa resep untuk membuat coffee late?')">“Apa resep untuk membuat coffee late?”</li>
-						<li onclick="suggest('Kenapa mesin kopi saya keluar uap?')">"Kenapa mesin kopi saya keluar uap?"</li>
-						<li onclick="suggest('Rekomendasikan mesin kopi untuk cafe kapasitas 100 orang')">"Rekomendasikan mesin kopi untuk cafe kapasitas 100 orang"</li>
-						<li onclick="suggest('Fitur utama Allegra Speed Oven Pro')">"Fitur utama Allegra Speed Oven Pro"</li>
-						<li onclick="suggest('Trend gelato 2025')">"Trend gelato 2025"</li>
-						<li onclick="suggest('Rekomendasi mesin kopi yang bagus')">Rekomendasi mesin kopi yang bagus</li>
-						<li onclick="suggest('List mesin tersedia')">"Pilih daftar mesin"</li>
-
-						
-					</ul>
-				</div>
-				<div id="chat-messages"></div>
-			</div>
-			<div class="footer-ai" id="chat-input">
-            <input id="chat-input-field" type="text" placeholder="Tulis pertanyaan..." />
-            <button id="booking-btn" onclick="handleBooking()" style="display:none; background:#ffa45c; margin-right:8px;">
-                <img src="images/booking-icon.png" alt="Booking" style="width: 25px; height: 25px;" />
-            </button>
-            <button onclick="sendMessage()"><span class="ion-ios-arrow-up"></span></button>
-            </div>
-
-
-		</div>
-		<div id="history-page" class="page-ai">
-			<div class="header-ai">
-				<button onclick="showChat()"><span style="color: #000000;" class="icon-arrow-left"></span></button>
-				<span>Riwayat</span>
-				<button onclick="toggleChat()"><span class="icon-close"></span></button>
-			</div>
-			<div id="history-list" class="content-ai"></div>
-			<div class="footer-ai">
-				<button class="btn" style="background:#f44336;color:white; font-size:13px" onclick="clearHistory()">Hapus Semua</button>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -1422,7 +1366,7 @@
 	</footer>
 
 
-	<!-- start modal tambah alamat-->
+	<!-- start modal upselling-->
 	<div id="upselling" class="modal fade" role="dialog">
 		<div class="modal-dialog upsell">
 			<div class="modal-content">
@@ -1869,6 +1813,23 @@
 			document.getElementById("mySidenav1").style.width = "0";
 		}
 	</script>
+
+	<script>
+  // Toggle chat widget show/hide
+  document.getElementById('chat-toggle').onclick = function() {
+    var widget = document.getElementById('chat-widget');
+    if (widget.style.display === 'block') {
+      widget.style.display = 'none';
+    } else {
+      widget.style.display = 'block';
+    }
+  };
+
+  // Tombol close di header widget
+  function toggleChat() {
+    document.getElementById('chat-widget').style.display = 'none';
+  }
+</script>
 
 
 

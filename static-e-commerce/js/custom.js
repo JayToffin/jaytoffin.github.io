@@ -14,15 +14,22 @@
       const now = new Date().getTime(),
         distance = countDown - now;
 
-      document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-        document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-        document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
-
       if (distance < 0) {
         document.getElementById("countdown").style.display = "none";
         document.getElementById("content").style.display = "block";
         clearInterval(x);
+      } else {
+        const hoursElem = document.getElementById("hours");
+        const minutesElem = document.getElementById("minutes");
+        const secondsElem = document.getElementById("seconds");
+        if (hoursElem && minutesElem && secondsElem) {
+          hoursElem.innerText = Math.floor((distance % (day)) / (hour));
+          minutesElem.innerText = Math.floor((distance % (hour)) / (minute));
+          secondsElem.innerText = Math.floor((distance % (minute)) / second);
+        }
       }
-    }, 0)
+      }
+    , 0)
 }());
+
 
