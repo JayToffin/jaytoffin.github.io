@@ -661,3 +661,32 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+/* Responsive: kecilkan image dan judul di mobile */
+@media (max-width: 767.98px) {
+  .card-body img {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 10px !important;
+  }
+  .card-title {
+    font-size: 13px !important;
+    margin-bottom: 6px !important;
+  }
+  
+}
+
+.lihat-semua-link {
+  font-size: 1rem;
+  text-decoration: none;
+}
+@media (max-width: 767.98px) {
+  .lihat-semua-link {
+    font-size: 0.95rem;
+    padding-top: 8px;
+    display: inline-block;
+  }
+  .heading-section {
+    margin-bottom: 0;
+  }
+}
