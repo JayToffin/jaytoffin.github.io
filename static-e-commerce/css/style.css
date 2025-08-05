@@ -18775,3 +18775,7 @@ section.faq {
   border: none !important;
 }
 
+#lokasi-trigger, #mesin-trigger {
+  display: flex;
+  align-items: center;
+}
