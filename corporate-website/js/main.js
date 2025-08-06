@@ -9,17 +9,17 @@
     )
       ? true
       : false;
-  var webvibe = {
+  var tfn = {
     /* Init */
     init() {
-      webvibe.mobileMenu();
-      webvibe.sidebarToggle();
-      webvibe.marquee();
-      webvibe.stickySidebar();
-      webvibe.scrollBtn();
-      webvibe.slider();
-      webvibe.counter();
-      webvibe.popup();
+      tfn.mobileMenu();
+      tfn.sidebarToggle();
+      tfn.marquee();
+      tfn.stickySidebar();
+      tfn.scrollBtn();
+      tfn.slider();
+      tfn.counter();
+      tfn.popup();
     },
 
     slider() {
@@ -40,9 +40,56 @@
       }
       if ($(".testimonial-slider-items").length) {
         new Swiper(".testimonial-slider-items", {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
           pagination: {
             el: ".swiper-pagination",
             type: "progressbar",
+          },
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+        });
+      }
+      if ($(".hero-slider").length) {
+        new Swiper(".hero-slider", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: ".arrow-next",
+            prevEl: ".arrow-prev",
+          },
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+        });
+      }
+      if ($(".event-slider").length) {
+        new Swiper(".event-slider", {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: ".arrow-next",
+            prevEl: ".arrow-prev",
           },
           loop: true,
           autoplay: {
@@ -181,7 +228,7 @@
   $(document).ready(function () {
     AOS.init({ offset: 30, duration: 1500 });
     $("select").niceSelect();
-    webvibe.init();
+    tfn.init();
     // const wcuLists = document.querySelectorAll(".wcu-lists li");
     // const wcuImg = document.querySelector("#wcu-img");
     // wcuLists.forEach((li) => {
@@ -193,4 +240,5 @@
     //   });
     // });
   });
-})(jQuery);
+}
+)(jQuery);
