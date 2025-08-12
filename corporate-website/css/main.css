@@ -36513,7 +36513,7 @@ button {
   position: fixed;
   padding: 100px 115px;
   width: 80%;
-  width: 1400px;
+  /* width: 1400px; */
   right: 0;
   top: 0;
   z-index: 999;
@@ -36533,7 +36533,8 @@ button {
   .sidebar .sidebar-content {
     width: 80%;
     position: absolute;
-    top: 50%;
+    /* top: 50%; */
+    top: 20%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -36970,7 +36971,7 @@ button {
   padding: 15px 35px;
   border-radius: 999px;
   color: var(--primary);
-  border: 1px solid var(--primary);
+  /* border: 1px solid var(--primary); */
 }
 .theme-btn.with-icon {
   gap: 10px;
@@ -37264,7 +37265,8 @@ button {
 }
 
 .join-img {
-  border-radius: 60px 0 0 60px;
+  /* border-radius: 60px 0 0 60px; */
+  border-radius: 50px;
   height: 100%;
 }
 @media (max-width: 991px) {
@@ -38187,9 +38189,10 @@ button {
 }
 
 .testimonial-2-item {
-  padding: 40px 30px;
+  /* padding: 40px 30px; */
+  padding: 20px 30px;
   border-radius: 20px;
-  background-color: var(--gray100);
+  background-color: var(--white);
 }
 .testimonial-2-item .ratings {
   background-color: var(--white);

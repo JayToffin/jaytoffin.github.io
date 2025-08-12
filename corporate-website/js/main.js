@@ -96,6 +96,55 @@
             delay: 3000,
             disableOnInteraction: false,
           },
+          breakpoints: {
+            0: {
+              slidesPerView: 1,
+            },
+            576: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            992: {
+              slidesPerView: 3,
+            },
+            1200: {
+              slidesPerView: 3,
+            },
+          },
+        });
+      }
+      if ($(".brands-slider").length) {
+        new Swiper(".brands-slider", {
+          slidesPerView: 6,
+          spaceBetween: 20,
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: ".arrow-next",
+            prevEl: ".arrow-prev",
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 2,
+            },
+            576: {
+              slidesPerView: 3,
+            },
+            768: {
+              slidesPerView: 4,
+            },
+            992: {
+              slidesPerView: 5,
+            },
+            1200: {
+              slidesPerView: 6,
+            },
+          },
         });
       }
     },
