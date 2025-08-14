@@ -13,6 +13,57 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="shortcut icon" href="img/fav.png" type="image/x-icon" />
     <title>Toffin Group - Toffin Group Tagline</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "8qrCSYqiAgwBvOZvj",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('service_t7sec4k', 'template_q9hr1bz', this)
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+
+        window.onload = function() {
+  const form = document.getElementById('contact-form');
+  const btn = form.querySelector('button[type="submit"]');
+  const msg = document.getElementById('form-message');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    msg.innerHTML = '';
+
+    emailjs.sendForm('service_t7sec4k', 'template_q9hr1bz', this)
+      .then(() => {
+        msg.innerHTML = '<div class="alert alert-success">Your message has been sent successfully.</div>';
+        form.reset();
+      })
+      .catch((error) => {
+        msg.innerHTML = '<div class="alert alert-danger">Failed to send message. Please try again later.</div>';
+        console.error(error);
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = 'Send Now';
+      });
+  });
+};
+    </script>
   </head>
   <body>
     <!-- header -->
@@ -67,64 +118,60 @@
       <div class="container">
         <div class="row gap-lg-30">
           <div class="col-lg-6">
-            <div class="contact-img">
-              <img class="w-100 h-100" src="img/contact.png" alt="" />
               <div class="contact-info">
                 <div class="footer-menu">
                   <ul class="footer-contact">
                     <li>
-                      <i class="fa-solid fa-location-dot"></i>
+                      <i class="fa-solid fa-location-dot bg-black"></i>
                       <div class="contact-content">
-                        <p>Address</p>
-                        <h4>Jl. Pluit Permai No.4 Kec. Penjaringan
+                        <p class="text-black">Address</p>
+                        <h4 class="text-black">Jl. Pluit Permai No.4 Kec. Penjaringan
                           <br/>Kota Jakarta Utara, DKI Jakarta
                           <br/>Indonesia (14450)</h6>
                         </h4>
                       </div>
                     </li>
                     <li>
-                      <i class="fa-solid fa-phone"></i>
+                      <i class="fa-solid fa-phone bg-black"></i>
                       <div class="contact-content">
-                        <p>Phone Number</p>
-                        <h4>(+62) 2166695381</h4>
+                        <p class="text-black">Phone Number</p>
+                        <h4 class="text-black">(+62) 2166695381</h4>
                       </div>
                     </li>
                     <li>
-                      <i class="fa-solid fa-envelope"></i>
+                      <i class="fa-solid fa-envelope bg-black"></i>
                       <div class="contact-content">
-                        <p>Email</p>
-                        <h4>info@toffin.id</h4>
+                        <p class="text-black">Email</p>
+                        <h4 class="text-black">info@toffin.id</h4>
                       </div>
                     </li>
                   </ul>
                 </div>
               </div>
-            </div>
           </div>
           <div class="col-lg-6">
-            <form class="contact-form">
+            <form id="contact-form" class="contact-form">
               <h2>Get In Touch</h2>
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" placeholder="Your Name" />
+                  <input type="text" name="name" required placeholder="Your Name" />
                 </div>
                 <div class="col-md-6">
-                  <input type="email" placeholder="Your Email" />
+                  <input type="email" name="email" required placeholder="Your Email" />
+                </div>
+                <div class="col-md-6">
+                  <input type="text" name="phone" required  placeholder="Phone Number" />
+                </div>
+                <div class="col-md-6">
+                  <input type="text" name="company" required placeholder="Company" />
                 </div>
                 <div class="col-md-12">
-                  <select>
-                    <option value="1" disabled selected>Chose An Option</option>
-                    <option value="2">Your Website</option>
-                    <option value="3">Your Website</option>
-                    <option value="4">Your Website</option>
-                  </select>
+                  <textarea name="message" required placeholder="Message here.."></textarea>
                 </div>
                 <div class="col-md-12">
-                  <textarea placeholder="Message here.."></textarea>
-                </div>
-                <div class="col-md-12">
-                  <button class="theme-btn-2 primary-bg color-white pl-50 pr-50">
-                    Sent Now <i class="fa-light fa-arrow-right-long"></i>
+                  <div id="form-message" class="mb-20"></div>
+                  <button class="theme-btn-2 primary-bg color-white pl-50 pr-50" type="submit" value="Send">
+                    Send Now <i class="fa-light fa-arrow-right-long"></i>
                   </button>
                 </div>
               </div>

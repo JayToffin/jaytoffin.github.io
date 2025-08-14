@@ -39111,7 +39111,7 @@ blockquote::before {
 }
 
 .portfolio-img {
-  max-height: 580px;
+  max-height: 700px;
   -webkit-transition: all 0.4s ease-in-out !important;
   transition: all 0.4s ease-in-out !important;
 }
@@ -39292,4 +39292,10 @@ blockquote::before {
   .theme-btn-white {
     padding: 18px 24px;
   }
+}
+
+.casa-slider img {
+  border-radius: 40px;
+  object-fit: cover;
+  height: 100%;
 }
