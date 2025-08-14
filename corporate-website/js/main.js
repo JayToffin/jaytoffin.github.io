@@ -117,7 +117,7 @@
       }
       if ($(".brands-slider").length) {
         new Swiper(".brands-slider", {
-          slidesPerView: 6,
+          slidesPerView: 4,
           spaceBetween: 20,
           loop: true,
           autoplay: {
@@ -139,14 +139,25 @@
               slidesPerView: 4,
             },
             992: {
-              slidesPerView: 5,
+              slidesPerView: 4,
             },
             1200: {
-              slidesPerView: 6,
+              slidesPerView: 5,
             },
           },
         });
       }
+      var casaSwiper = new Swiper(".casa-slider", {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".casa-slider .swiper-pagination",
+    clickable: true,
+  }
+});
     },
     marquee() {
       if ($(".marquee").length) {
