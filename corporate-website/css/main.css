@@ -37483,7 +37483,7 @@ button {
 .swiper-pagination {
   height: 10px !important;
   max-width: 270px;
-  background-color: rgb(from var(--white) r g b/10%);
+  /* background-color: rgb(from var(--white) r g b/10%); */
   border-radius: 999px !important;
   bottom: 0;
   top: unset !important;
