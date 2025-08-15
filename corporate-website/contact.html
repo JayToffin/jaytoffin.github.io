@@ -1,287 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
-    <link rel="stylesheet" href="css/font.css" />
-    <link rel="stylesheet" href="css/nice-select.min.css" />
-    <link rel="stylesheet" href="css/aos.mini.css" />
-    <link rel="stylesheet" href="css/magnific-popup.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon" />
-    <title>Toffin Group - Toffin Group Tagline</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <link rel="stylesheet" href="css/font.css" />
+  <link rel="stylesheet" href="css/nice-select.min.css" />
+  <link rel="stylesheet" href="css/aos.mini.css" />
+  <link rel="stylesheet" href="css/magnific-popup.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="shortcut icon" href="img/fav.png" type="image/x-icon" />
+  <title>Toffin Group</title>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init({
-              publicKey: "8qrCSYqiAgwBvOZvj",
-            });
-        })();
-    </script>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // these IDs from the previous steps
-                emailjs.sendForm('service_t7sec4k', 'template_q9hr1bz', this)
-                    .then(() => {
-                        console.log('SUCCESS!');
-                    }, (error) => {
-                        console.log('FAILED...', error);
-                    });
-            });
-        }
-
-        window.onload = function() {
-  const form = document.getElementById('contact-form');
-  const btn = form.querySelector('button[type="submit"]');
-  const msg = document.getElementById('form-message');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    msg.innerHTML = '';
-
-    emailjs.sendForm('service_t7sec4k', 'template_q9hr1bz', this)
-      .then(() => {
-        msg.innerHTML = '<div class="alert alert-success">Your message has been sent successfully.</div>';
-        form.reset();
-      })
-      .catch((error) => {
-        msg.innerHTML = '<div class="alert alert-danger">Failed to send message. Please try again later.</div>';
-        console.error(error);
-      })
-      .finally(() => {
-        btn.disabled = false;
-        btn.textContent = 'Send Now';
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      // https://dashboard.emailjs.com/admin/account
+      emailjs.init({
+        publicKey: "8qrCSYqiAgwBvOZvj",
       });
-  });
-};
-    </script>
-  </head>
-  <body>
-    <!-- header -->
-    <header class="header-1 main-menu">
-      <div class="container-fluid">
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-10">
-          <a href="index.html" class="header-logo">
-            <img src="img/logo.png" width="220" alt="Logo" />
-          </a>
-          <nav class="header-nav navbar-nav" id="navbarNav">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li class="dropdown-nav">
-                <a href="#">Operations</a>
-                <ul class="submenu">
-                  <li><a href="indonesia-operation.html">Indonesia Operations</a></li>
-                  <li><a href="vietnam-operation.html">Vietnam Operations</a></li>
-                  <li><a href="italy-operation.html">Italy Operations</a></li>
-                </ul>
-              </li>
-              <li><a href="https://www.instagram.com/event.toffin/" target="_blank">Events & Activities</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
-          <a href="#" class="toggle-sidebar">
-            <div class="toggle">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </header>
-    <div class="sidebar gray-500-bg">
-      <div class="container">
-        <div class="sidebar-content">
-          <div class="row">
-            <a href="#" class="header-logo mb-30">
-              <img src="img/footer-logo.png" width="180px" alt=""
-            /></a>
-            <div class="main-menu-mobile"></div>
+    })();
+  </script>
+  <script type="text/javascript">
+    window.onload = function () {
+      const form = document.getElementById('contact-form');
+      const btn = form.querySelector('button[type="submit"]');
+      const msg = document.getElementById('form-message');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        msg.innerHTML = '';
+
+        emailjs.sendForm('service_t7sec4k', 'template_q9hr1bz', this)
+          .then(() => {
+            msg.innerHTML = '<div class="alert alert-success">Your message has been sent successfully.</div>';
+            form.reset();
+          })
+          .catch((error) => {
+            msg.innerHTML =
+              '<div class="alert alert-danger">Failed to send message. Please try again later.</div>';
+            console.error(error);
+          })
+          .finally(() => {
+            btn.disabled = false;
+            btn.textContent = 'Send Now';
+          });
+      });
+    };
+  </script>
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header-1 main-menu">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-10">
+        <a href="index.html" class="header-logo">
+          <img src="img/logo.png" width="220" alt="Logo" />
+        </a>
+        <nav class="header-nav navbar-nav" id="navbarNav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown-nav">
+              <a href="#">Operations</a>
+              <ul class="submenu">
+                <li><a href="indonesia-operation.html">Indonesia Operations</a></li>
+                <li><a href="vietnam-operation.html">Vietnam Operations</a></li>
+                <li><a href="italy-operation.html">Italy Operations</a></li>
+              </ul>
+            </li>
+            <li><a href="https://www.instagram.com/event.toffin/" target="_blank">Events & Activities</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="#" class="toggle-sidebar">
+          <div class="toggle">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="sidebar gray-500-bg">
+    <div class="container">
+      <div class="sidebar-content">
+        <div class="row">
+          <a href="#" class="header-logo mb-30">
+            <img src="img/footer-logo.png" width="180px" alt="" /></a>
+          <div class="main-menu-mobile"></div>
         </div>
       </div>
     </div>
-    <div class="sidebar-overlay"></div>
-    <!-- header -->
-   
-    <!-- Contact  -->
-    <section class="section-margin">
-      <div class="container">
-        <div class="row gap-lg-30">
-          <div class="col-lg-6">
-              <div class="contact-info">
-                <div class="footer-menu">
-                  <ul class="footer-contact">
-                    <li>
-                      <i class="fa-solid fa-location-dot bg-black"></i>
-                      <div class="contact-content">
-                        <p class="text-black">Address</p>
-                        <h4 class="text-black">Jl. Pluit Permai No.4 Kec. Penjaringan
-                          <br/>Kota Jakarta Utara, DKI Jakarta
-                          <br/>Indonesia (14450)</h6>
-                        </h4>
-                      </div>
-                    </li>
-                    <li>
-                      <i class="fa-solid fa-phone bg-black"></i>
-                      <div class="contact-content">
-                        <p class="text-black">Phone Number</p>
-                        <h4 class="text-black">(+62) 2166695381</h4>
-                      </div>
-                    </li>
-                    <li>
-                      <i class="fa-solid fa-envelope bg-black"></i>
-                      <div class="contact-content">
-                        <p class="text-black">Email</p>
-                        <h4 class="text-black">info@toffin.id</h4>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-            <form id="contact-form" class="contact-form">
-              <h2>Get In Touch</h2>
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" name="name" required placeholder="Your Name" />
-                </div>
-                <div class="col-md-6">
-                  <input type="email" name="email" required placeholder="Your Email" />
-                </div>
-                <div class="col-md-6">
-                  <input type="text" name="phone" required  placeholder="Phone Number" />
-                </div>
-                <div class="col-md-6">
-                  <input type="text" name="company" required placeholder="Company" />
-                </div>
-                <div class="col-md-12">
-                  <textarea name="message" required placeholder="Message here.."></textarea>
-                </div>
-                <div class="col-md-12">
-                  <div id="form-message" class="mb-20"></div>
-                  <button class="theme-btn-2 primary-bg color-white pl-50 pr-50" type="submit" value="Send">
-                    Send Now <i class="fa-light fa-arrow-right-long"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section-margin p-20" style="margin-bottom: 120px;">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31735.819944173378!2d106.7541235055968!3d-6.133726256590029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d93e46e4d63%3A0x6a1e3c3d2040c7dd!2sToffin%20Indonesia.%20PT!5e0!3m2!1sen!2sid!4v1754280347410!5m2!1sen!2sid"
-        width="100%"
-        height="600"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-      </section>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <!-- header -->
 
-    <!-- Footer  -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-lg-3 col-sm-6 mb-lg-30">
-            <a href="#" class="footer-logo"
-              ><img src="img//footer-logo.png" width="180px" alt="Logo"
-            /></a>
-            <p class="mt-30 fs-14">
-              Empowering Your F&B Business
-            </p>
-            <div class="footer-social">
-              <ul>
+  <!-- Contact  -->
+  <section class="section-margin">
+    <div class="container">
+      <div class="row gap-lg-30">
+        <div class="col-lg-6">
+          <div class="contact-info">
+            <div class="footer-menu">
+              <ul class="footer-contact">
                 <li>
-                  <a href="https://www.instagram.com/toffin.id/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                  <i class="fa-solid fa-location-dot bg-black"></i>
+                  <div class="contact-content">
+                    <p class="text-black">Address</p>
+                    <h4 class="text-black">Jl. Pluit Permai No.4 Kec. Penjaringan
+                      <br />Kota Jakarta Utara, DKI Jakarta
+                      <br />Indonesia (14450)</h6>
+                    </h4>
+                  </div>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/toffinindonesia/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                  <i class="fa-solid fa-phone bg-black"></i>
+                  <div class="contact-content">
+                    <p class="text-black">Phone Number</p>
+                    <h4 class="text-black">(+62) 2166695381</h4>
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope bg-black"></i>
+                  <div class="contact-content">
+                    <p class="text-black">Email</p>
+                    <h4 class="text-black">info@toffin.id</h4>
+                  </div>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-2 col-sm-6 offset-xl-1 mb-lg-30 d-flex justify-content-start justify-content-sm-end justify-content-lg-center">
-            <div class="footer-menu-container">
-              <h3 class="footer-menu-title">Page</h3>
-              <div class="footer-menu">
-                <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="indonesia-operation.html">Indonesia Operation</a></li>
-                  <li><a href="vietnam-operation.html">Vietnam Operation</a></li>
-                  <li><a href="italy-operation.html">Italy Operation</a></li>
-                  <li><a href="https://www.instagram.com/event.toffin/" target="_blank">Events & Activities</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
+        </div>
+        <div class="col-lg-6">
+          <form id="contact-form" class="contact-form">
+            <h2>Get In Touch</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <input type="text" name="name" required placeholder="Your Name" />
+              </div>
+              <div class="col-md-6">
+                <input type="email" name="email" required placeholder="Your Email" />
+              </div>
+              <div class="col-md-6">
+                <input type="text" name="phone" required placeholder="Phone Number" />
+              </div>
+              <div class="col-md-6">
+                <input type="text" name="company" required placeholder="Company" />
+              </div>
+              <div class="col-md-12">
+                <textarea name="message" required placeholder="Message here.."></textarea>
+              </div>
+              <div class="col-md-12">
+                <div id="form-message" class="mb-20"></div>
+                <button class="theme-btn-2 primary-bg color-white pl-50 pr-50" type="submit" value="Send">
+                  Send Now <i class="fa-light fa-arrow-right-long"></i>
+                </button>
               </div>
             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-margin p-20" style="margin-bottom: 120px;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31735.819944173378!2d106.7541235055968!3d-6.133726256590029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d93e46e4d63%3A0x6a1e3c3d2040c7dd!2sToffin%20Indonesia.%20PT!5e0!3m2!1sen!2sid!4v1754280347410!5m2!1sen!2sid"
+      width="100%" height="600" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <!-- Footer  -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-sm-6 mb-lg-30">
+          <a href="#" class="footer-logo"><img src="img//footer-logo.png" width="180px" alt="Logo" /></a>
+          <p class="mt-30 fs-14">
+            Empowering Your F&B Business
+          </p>
+          <div class="footer-social">
+            <ul>
+              <li>
+                <a href="https://www.instagram.com/toffin.id/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/toffinindonesia/" target="_blank"><i
+                    class="fa-brands fa-linkedin-in"></i></a>
+              </li>
+            </ul>
           </div>
-          <div class="col-xl-4 col-lg-4 offset-xl-1 col-sm-6 flex-lg-end mb-md-30">
-            <div class="footer-menu-container">
-              <h3 class="footer-menu-title">Contact</h3>
-              <div class="footer-menu">
-                <ul class="footer-contact">
-                  <li>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div class="contact-content">
-                      <span>Address</span>
-                      <h6>Jl. Pluit Permai No.4 Kec. Penjaringan 
-                      <br/>Kota Jakarta Utara, DKI Jakarta
-                      <br/>Indonesia (14450)</h6>
-                    </div>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-phone"></i>
-                    <div class="contact-content">
-                      <span>Phone Number</span>
-                      <h6>(+62) 2166695381</h6>
-                    </div>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-envelope"></i>
-                    <div class="contact-content">
-                      <span>Email</span>
-                      <h6>info@toffin.id</h6>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-2 col-sm-6 offset-xl-1 mb-lg-30 d-flex justify-content-start justify-content-sm-end justify-content-lg-center">
+          <div class="footer-menu-container">
+            <h3 class="footer-menu-title">Page</h3>
+            <div class="footer-menu">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="indonesia-operation.html">Indonesia Operation</a></li>
+                <li><a href="vietnam-operation.html">Vietnam Operation</a></li>
+                <li><a href="italy-operation.html">Italy Operation</a></li>
+                <li><a href="https://www.instagram.com/event.toffin/" target="_blank">Events & Activities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="footer-copyright">
-          <div class="row gap-lg-10">
-            <div class="col-lg-12">
-              <p>© Toffin 2025 | All Rights Reserved</p>
+        <div class="col-xl-4 col-lg-4 offset-xl-1 col-sm-6 flex-lg-end mb-md-30">
+          <div class="footer-menu-container">
+            <h3 class="footer-menu-title">Contact</h3>
+            <div class="footer-menu">
+              <ul class="footer-contact">
+                <li>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div class="contact-content">
+                    <span>Address</span>
+                    <h6>Jl. Pluit Permai No.4 Kec. Penjaringan
+                      <br />Kota Jakarta Utara, DKI Jakarta
+                      <br />Indonesia (14450)</h6>
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-phone"></i>
+                  <div class="contact-content">
+                    <span>Phone Number</span>
+                    <h6>(+62) 2166695381</h6>
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope"></i>
+                  <div class="contact-content">
+                    <span>Email</span>
+                    <h6>info@toffin.id</h6>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </footer>
-    <div class="scroll_btn"><i class="far fa-long-arrow-up"></i></div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/query.counterup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.marquee.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/main.js"></script>
-    <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-    <script src="https://static.elfsight.com/platform/platform.js" async></script>
-  </body>
+      <div class="footer-copyright">
+        <div class="row gap-lg-10">
+          <div class="col-lg-12">
+            <p>© Toffin 2025 | All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="scroll_btn"><i class="far fa-long-arrow-up"></i></div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/query.counterup.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.marquee.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+</body>
+
 </html>

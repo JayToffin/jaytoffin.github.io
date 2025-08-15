@@ -11,7 +11,46 @@
     <link rel="stylesheet" href="css/magnific-popup.min.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="shortcut icon" href="img/fav.png" type="image/x-icon" />
-    <title>Toffin Group - Toffin Group Tagline</title>
+    <title>Toffin Group</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      // https://dashboard.emailjs.com/admin/account
+      emailjs.init({
+        publicKey: "8qrCSYqiAgwBvOZvj",
+      });
+    })();
+  </script>
+  <script type="text/javascript">
+    window.onload = function () {
+      const form = document.getElementById('contact-form');
+      const btn = form.querySelector('button[type="submit"]');
+      const msg = document.getElementById('form-message');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        msg.innerHTML = '';
+
+        emailjs.sendForm('service_t7sec4k', 'template_q9hr1bz', this)
+          .then(() => {
+            msg.innerHTML = '<div class="alert alert-success">Your message has been sent successfully.</div>';
+            form.reset();
+          })
+          .catch((error) => {
+            msg.innerHTML =
+              '<div class="alert alert-danger">Failed to send message. Please try again later.</div>';
+            console.error(error);
+          })
+          .finally(() => {
+            btn.disabled = false;
+            btn.textContent = 'Send Now';
+          });
+      });
+    };
+  </script>
   </head>
   <body class="home-1">
     <!-- header -->
