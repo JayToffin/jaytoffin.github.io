@@ -228,37 +228,38 @@
               </h2>
             </div>
             <div class="col-xl-6 col-lg-6">
-              <form class="faq-contact-form flex-grow-1 d-flex flex-column justify-content-between">
+              <form id="contact-form" class="faq-contact-form flex-grow-1 d-flex flex-column justify-content-between">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="input-group" data-aos="fade-up">
-                      <input type="text" placeholder="Your Name" />
+                       <input type="text" name="name" required placeholder="Your Name" />
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="input-group" data-aos="fade-up">
-                      <input type="email" placeholder="Your Email" />
+                      <input type="email" name="email" required placeholder="Your Email" />
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="input-group" data-aos="fade-up">
-                      <input type="text" placeholder="Phone Number" />
+                      <input type="text" name="phone" required placeholder="Phone Number" />
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="input-group" data-aos="fade-up">
-                      <input type="text" placeholder="Company" />
+                      <input type="text" name="company" required placeholder="Company" />
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="input-group" data-aos="fade-up">
-                      <textarea placeholder="Message here.."></textarea>
+                      <textarea name="message" required placeholder="Message here.."></textarea>
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <button class="theme-btn-2" data-aos="fade-up">
-                      Send Now <i class="fa-light fa-arrow-right-long"></i>
-                    </button>
+                    <div id="form-message" class="mb-20"></div>
+                <button class="theme-btn-2 primary-bg color-white pl-50 pr-50" type="submit" value="Send">
+                  Send Now <i class="fa-light fa-arrow-right-long"></i>
+                </button>
                   </div>
                 </div>
               </form>
