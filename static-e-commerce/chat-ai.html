@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/custom.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.3.41/css/materialdesignicons.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
@@ -28,9 +27,8 @@
   <!-- Swiper CSS & JS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  
-  <style>
 
+  <style>
     /* Chat AI & WA Styling */
     .ai-container {
       margin-left: 300px;
@@ -43,13 +41,6 @@
       gap: 12px;
     }
 
-    .sidebar.collapsed~.ai-container {
-      margin-left: 60px;
-    }
-
-    .sidebar.collapsed~.header-ai {
-      margin-left: 60px;
-    }
 
     .page-ai {
       max-width: 720px;
@@ -288,14 +279,6 @@
     }
 
 
-    .sidebar .logo {
-      margin-bottom: 10px;
-    }
-
-    .sidebar .logo img {
-      width: 30px;
-      height: auto;
-    }
 
     .sidebar a,
     .sidebar ul li {
@@ -354,17 +337,13 @@
     }
 
 
-    .sidebar.collapsed {
-      width: 60px;
+    .sidebar .logo {
+      margin-bottom: 10px;
     }
-
-    .sidebar.collapsed .link-text,
-    .sidebar.collapsed .search-sidebar,
-    .sidebar.collapsed .logo img,
-    .sidebar.collapsed .logo .logo-img {
-      display: none;
+    .sidebar .logo img {
+      width: 30px;
+      height: auto;
     }
-
     .sidebar .logo img {
       height: 28px;
       width: auto;
@@ -461,14 +440,47 @@
       height: auto;
     }
 
+    /* Gabungan .sidebar.collapsed */
     .sidebar.collapsed {
       width: 60px;
     }
-
     .sidebar.collapsed .link-text,
     .sidebar.collapsed .search-sidebar,
-    .sidebar.collapsed .logo-img {
+    .sidebar.collapsed .logo-img,
+    .sidebar.collapsed .logo img {
       display: none;
+    }
+    .sidebar.collapsed~.ai-container {
+      margin-left: 60px;
+    }
+    .sidebar.collapsed~.header-ai {
+      margin-left: 60px;
+    }
+    /* Custom classes */
+    .close-modal-btn {
+      position: absolute;
+      color: red;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .machine-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background: #fafafa;
+      cursor: pointer;
+    }
+    .booking-btn {
+      display: none;
+      background: #000000;
     }
 
     #sidebar-toggle {
@@ -601,6 +613,19 @@
       text-decoration: underline;
       cursor: pointer;
     }
+
+    #daftar-mesin-list {
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    #loading-spinner {
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      color: #666;
+      display: none;
+    }
   </style>
 </head>
 
@@ -649,6 +674,7 @@
             <li onclick="suggest('Trend gelato 2025')">"Trend gelato 2025"</li>
             <li onclick="suggest('Rekomendasi mesin kopi yang bagus')">Rekomendasi mesin kopi yang bagus</li>
             <li onclick="suggest('List mesin tersedia')">"Pilih daftar mesin"</li>
+            <li onclick="suggest('List mesin banyak')">"Daftar mesin banyak"</li>
           </ul>
         </div>
         <div id="chat-messages"></div>
@@ -656,14 +682,14 @@
       <div class="footer-ai" id="chat-input">
         <textarea id="chat-input-field" type="text" placeholder="Tulis pertanyaan..." rows="2"
           style="resize: none;"></textarea>
-        <button id="booking-btn" onclick="handleBooking()" style="display:none; background:#000000;">
+        <button id="booking-btn" onclick="handleBooking()" class="booking-btn">
           <img src="images/booking-icon.png" width="35" alt="Booking" />
         </button>
-
         <!-- <button onclick="sendMessage()"><span class="ion-ios-arrow-up"></span></button> -->
       </div>
     </div>
   </div>
+
   <!-- Popup Booking Form -->
   <div id="booking-modal" class="modal hidden">
     <div class="modal-content">
@@ -676,7 +702,6 @@
           <option>Bandung</option>
           <option>Surabaya</option>
         </select>
-
         <label>Mesin:</label>
         <select name="mesin" required>
           <option value="">Pilih mesin</option>
@@ -684,7 +709,6 @@
           <option>Black Eagle VA388</option>
           <option>Linea Mini</option>
         </select>
-
         <label>Tipe Servis:</label>
         <select name="tipe" required>
           <option value="">Pilih tipe servis</option>
@@ -692,27 +716,40 @@
           <option>Perbaikan</option>
           <option>Instalasi</option>
         </select>
-
         <label>Kendala Mesin:</label>
         <textarea id="chat-input-field" placeholder="Tulis pertanyaan..." rows="2" style="resize: none;">
       </textarea>
-
-
         <label>Unggah Foto (opsional):</label>
         <input type="file" name="foto" accept="image/*" />
-
         <button type="submit" class="btn btn-primary">Checkout</button>
       </form>
-      <a class="close-modal" onclick="toggleBookingModal()"
-        style="position:absolute; color:red; top:10px; right:15px; background:none; border:none; font-size:15px; cursor:pointer;">
+      <a class="close-modal-btn" onclick="toggleBookingModal()">
         <i class="fas fa-times"></i>
       </a>
+    </div>
+  </div>
 
+  <!-- modal list mesin banyak-->
+  <div id="daftar-mesin" class="modal hidden">
+    <div class="modal-content">
+      <h5>Daftar Mesin</h5>
+      <div class="sidebar-box p-0 pb-4">
+        <form action="#" class="search-form">
+          <div class="form-group">
+            <span class="icon ion-ios-search"></span>
+            <input type="text" class="form-control" placeholder="Cari mesin...">
+          </div>
+        </form>
+      </div>
+      <div id="daftar-mesin-list"></div>
+      <div id="loading-spinner">Loading...</div>
+      <a class="close-modal-btn" onclick="toggleDaftarMesinModal()">
+        <i class="fas fa-times"></i>
+      </a>
     </div>
   </div>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -757,15 +794,71 @@
       });
     }
 
+    // Data mesin global
+    const allMachines = [{
+        img: 'images/product-1.jpg',
+        title: 'Appia Life Compact',
+        serial: 'SN-A12345',
+        location: 'Jakarta'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Black Eagle VA388',
+        serial: 'SN-B67890',
+        location: 'Bandung'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Linea Mini',
+        serial: 'SN-C54321',
+        location: 'Bali'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-D98765',
+        location: 'Surabaya'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One',
+        serial: 'SN-E11111',
+        location: 'Medan'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-F22222',
+        location: 'Semarang'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Nuova Simonelli Aurelia',
+        serial: 'SN-G33333',
+        location: 'Makassar'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-H44444',
+        location: 'Yogyakarta'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-I55555',
+        location: 'Bali'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-J66666',
+        location: 'Jakarta'
+      }
+    ];
+    let loadedCount = 0;
 
-    function startChat() {
-      choice.style.display = 'none';
-      showChat();
-    }
 
-    function backToChoice() {
-      showChoice();
-    }
 
     chatInput.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' && !e.shiftKey) {
@@ -829,6 +922,19 @@
       modal.classList.toggle('hidden');
     }
 
+    function toggleDaftarMesinModal() {
+      const modal = document.getElementById('daftar-mesin');
+      modal.classList.toggle('hidden');
+    }
+
+    function openDaftarMesinModal() {
+      const container = document.getElementById('daftar-mesin-list');
+      container.innerHTML = '';
+      loadedCount = 0;
+      loadMoreMachines(5); // tampilkan 5 mesin pertama
+      toggleDaftarMesinModal();
+    }
+
     function handleBooking() {
       if (!selectedMachine) {
         alert('Pilih mesin terlebih dahulu');
@@ -841,8 +947,6 @@
       // Tampilkan modal form
       toggleBookingModal();
     }
-
-
 
 
     function renderSidebarHistory() {
@@ -905,12 +1009,9 @@
       chatInput.focus();
     }
 
-
-
     function smoothAIResponse(userText) {
       const placeholderDiv = document.createElement('div');
       placeholderDiv.className = 'msg ai';
-
       const typingText = document.createElement('div');
       typingText.className = 'text-ai typing-loader';
       typingText.textContent = 'AI sedang mengetik';
@@ -966,6 +1067,8 @@
               price: 'Rp61.750.000'
             }
           ]);
+        } else if (lower.includes('list mesin banyak') || lower.includes('daftar mesin banyak')) {
+          openDaftarMesinModal();
         } else if (lower.includes('list mesin') || lower.includes('daftar mesin')) {
           const machines = [{
               img: 'images/product-1.jpg',
@@ -1007,8 +1110,53 @@
           renderMachineSwiper(machines);
         }
 
+
       });
     }
+
+    function loadMoreMachines(batch = 5) {
+      const container = document.getElementById('daftar-mesin-list');
+      const slice = allMachines.slice(loadedCount, loadedCount + batch);
+
+      slice.forEach((m, index) => {
+        const div = document.createElement('div');
+        div.classList.add('machine-item');
+        div.innerHTML = `
+      <img src="${m.img}" alt="${m.title}" style="width:50px; height:50px; border-radius:8px; object-fit:cover"/>
+      <div style="flex:1">
+        <div style="font-weight:600; font-size:13px; margin-bottom:2px;">${m.title}</div>
+        <div style="font-size:12px; color:#555;">SN: ${m.serial}</div>
+        <div style="font-size:12px; color:#777;">${m.location}</div>
+      </div>
+    `;
+
+        // 👉 Klik untuk memilih mesin
+        div.addEventListener('click', () => {
+          document.querySelectorAll('#daftar-mesin-list .machine-item')
+            .forEach(el => el.classList.remove('selected-machine'));
+          div.classList.add('selected-machine');
+          selectedMachine = m;
+          console.log("📦 Mesin terpilih dari modal:", selectedMachine);
+
+          // Munculkan tombol booking
+          document.getElementById('booking-btn').style.display = 'inline-block';
+        });
+
+        container.appendChild(div);
+      });
+
+      loadedCount += slice.length;
+    }
+
+    // Event listener scroll untuk daftar-mesin-list (infinite scroll)
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById('daftar-mesin-list');
+      container.addEventListener('scroll', () => {
+        if (container.scrollTop + container.clientHeight >= container.scrollHeight - 10) {
+          loadMoreMachines(5);
+        }
+      });
+    });
 
     function renderMachineSwiper(machines) {
       const wrapper = document.createElement('div');
@@ -1168,20 +1316,11 @@
 
 
     document.addEventListener('DOMContentLoaded', () => {
+      // Reset sidebar mobile state & render history
       if (window.innerWidth <= 768) {
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.remove('expanded', 'collapsed');
       }
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.innerWidth <= 768) {
-        document.getElementById('sidebar').classList.remove('expanded');
-        document.getElementById('sidebar').classList.remove('collapsed');
-      }
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
       renderSidebarHistory(); // panggil untuk menampilkan daftar riwayat
     });
   </script>
