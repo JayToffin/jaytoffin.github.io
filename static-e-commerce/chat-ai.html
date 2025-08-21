@@ -854,6 +854,60 @@
         title: 'Victoria Arduino Eagle One Prima',
         serial: 'SN-J66666',
         location: 'Jakarta'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Black Eagle VA388',
+        serial: 'SN-B67890',
+        location: 'Bandung'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Linea Mini',
+        serial: 'SN-C54321',
+        location: 'Bali'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-D98765',
+        location: 'Surabaya'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One',
+        serial: 'SN-E11111',
+        location: 'Medan'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-F22222',
+        location: 'Semarang'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Nuova Simonelli Aurelia',
+        serial: 'SN-G33333',
+        location: 'Makassar'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-H44444',
+        location: 'Yogyakarta'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-I55555',
+        location: 'Bali'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-J66666',
+        location: 'Jakarta'
       }
     ];
     let loadedCount = 0;
@@ -1124,9 +1178,9 @@
         div.innerHTML = `
       <img src="${m.img}" alt="${m.title}" style="width:50px; height:50px; border-radius:8px; object-fit:cover"/>
       <div style="flex:1">
-        <div style="font-weight:600; font-size:13px; margin-bottom:2px;">${m.title}</div>
-        <div style="font-size:12px; color:#555;">SN: ${m.serial}</div>
-        <div style="font-size:12px; color:#777;">Label alamat: ${m.location}</div>
+        <div style="font-weight:600; font-size:12px; margin-bottom:2px;">${m.title}</div>
+        <div style="font-size:10px; color:#333;">SN : ${m.serial}</div>
+        <div style="font-size:10px; color:#333;">Lokasi : ${m.location}</div>
       </div>
     `;
 
@@ -1184,9 +1238,9 @@
         ">
           <img src="${m.img}" alt="${m.title}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" loading="lazy"/>
           <div style="flex: 1; overflow: hidden;">
-            <div style="font-weight: bold; font-size: 12px; margin-bottom: 4px;">${m.title}</div>
-            <div style="font-size: 11px; color: #333;">SN: ${m.serial}</div>
-            <div style="font-size: 11px; color: #777;">Label alamat: ${m.location}</div>
+            <div style="font-weight: bold; font-size: 12px; margin-bottom: 2px;">${m.title}</div>
+            <div style="font-size: 10px; color: #333;">SN : ${m.serial}</div>
+            <div style="font-size: 10px; color: #333;">Lokasi : ${m.location}</div>
           </div>
         </div>
       `).join('')}
