@@ -340,10 +340,12 @@
     .sidebar .logo {
       margin-bottom: 10px;
     }
+
     .sidebar .logo img {
       width: 30px;
       height: auto;
     }
+
     .sidebar .logo img {
       height: 28px;
       width: auto;
@@ -404,21 +406,6 @@
       .header-ai {
         margin-left: 0 !important;
       }
-
-      .overlay {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 998;
-      }
-
-      .overlay.hidden {
-        display: none;
-      }
     }
 
 
@@ -444,18 +431,22 @@
     .sidebar.collapsed {
       width: 60px;
     }
+
     .sidebar.collapsed .link-text,
     .sidebar.collapsed .search-sidebar,
     .sidebar.collapsed .logo-img,
     .sidebar.collapsed .logo img {
       display: none;
     }
+
     .sidebar.collapsed~.ai-container {
       margin-left: 60px;
     }
+
     .sidebar.collapsed~.header-ai {
       margin-left: 60px;
     }
+
     /* Custom classes */
     .close-modal-btn {
       position: absolute;
@@ -467,6 +458,7 @@
       font-size: 15px;
       cursor: pointer;
     }
+
     .machine-item {
       display: flex;
       align-items: center;
@@ -478,6 +470,7 @@
       background: #fafafa;
       cursor: pointer;
     }
+
     .booking-btn {
       display: none;
       background: #000000;
@@ -645,7 +638,6 @@
       <div id="sidebar-history"></div>
     </div>
   </div>
-  <div class="overlay hidden" onclick="toggleSidebarMobile()"></div>
   <div class="header-ai">
     <button class="mobile-sidebar-toggle" onclick="toggleSidebarMobile()">
       <i class="fas fa-bars" style="color: #121111;"></i>
@@ -929,14 +921,9 @@
 
     function toggleSidebarMobile() {
       const sidebar = document.getElementById('sidebar');
-      const overlay = document.querySelector('.overlay');
-
       // Hanya tangani class "show" (bukan collapsed/expanded)
       sidebar.classList.toggle('show');
-      overlay.classList.toggle('active');
     }
-
-
 
     function showChat() {
       chatPage.style.display = 'flex';
@@ -1368,12 +1355,10 @@
       // Atau nanti bisa tampilkan input dan filter historyList
     }
 
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Reset sidebar mobile state & render history
+    window.addEventListener('resize', function () {
+      const sidebar = document.getElementById('sidebar');
       if (window.innerWidth <= 768) {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.remove('expanded', 'collapsed');
+        sidebar.classList.remove('collapsed', 'expanded', 'show');
       }
       renderSidebarHistory(); // panggil untuk menampilkan daftar riwayat
     });
