@@ -6,9 +6,9 @@
   var isMobile =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Nokia|Opera Mini/i.test(
       navigator.userAgent
-    )
-      ? true
-      : false;
+    ) ?
+    true :
+    false;
   var tfn = {
     /* Init */
     init() {
@@ -148,16 +148,27 @@
         });
       }
       var casaSwiper = new Swiper(".casa-slider", {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".casa-slider .swiper-pagination",
-    clickable: true,
-  }
-});
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".casa-slider .swiper-pagination",
+          clickable: true,
+        }
+      });
+      var casaSwiper = new Swiper(".about-slider", {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".about-slider .swiper-pagination",
+          clickable: true,
+        }
+      });
     },
     marquee() {
       if ($(".marquee").length) {
@@ -258,8 +269,7 @@
     },
     scrollBtn() {
       $(".scroll_btn").on("click", function () {
-        $("html, body").animate(
-          {
+        $("html, body").animate({
             scrollTop: 0,
           },
           300
@@ -286,7 +296,10 @@
     },
   };
   $(document).ready(function () {
-    AOS.init({ offset: 30, duration: 1500 });
+    AOS.init({
+      offset: 30,
+      duration: 1500
+    });
     $("select").niceSelect();
     tfn.init();
     // const wcuLists = document.querySelectorAll(".wcu-lists li");
@@ -300,5 +313,4 @@
     //   });
     // });
   });
-}
-)(jQuery);
+})(jQuery);
