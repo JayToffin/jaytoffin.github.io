@@ -3197,6 +3197,7 @@ a.quanto-default-btn.sm-size {
   padding-right: 30px;
   border-left: 1px solid var(--color-1);
   border-right: 1px solid var(--color-1);
+  background-color: inherit;
 }
 @media only screen and (min-width: 768px) {
   .quanto-service-box.style-2 {
@@ -3204,6 +3205,7 @@ a.quanto-default-btn.sm-size {
     padding-right: 0px;
     border-left: 1px solid var(--color-1);
     border-right: none;
+    background-color: inherit;
   }
 }
 .quanto-service-box.style-2 .quanto-iconbox-data h5 {
@@ -3211,6 +3213,7 @@ a.quanto-default-btn.sm-size {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  
 }
 
 .quanto-iconbox-data {
