@@ -39301,11 +39301,19 @@ blockquote::before {
 }
 
 .team-title{
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
 }
 
 .team-subtitle{
-  font-size: 14px;
+  font-size: 13px;
   color: #858585;
+}
+
+/* 5 columns on desktop (xl) */
+@media (min-width: 1200px) {
+  .team-section .row > [class*="col-xl-2"] {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
 }
