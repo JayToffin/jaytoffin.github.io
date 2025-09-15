@@ -36372,6 +36372,7 @@ button {
 }
 .header-1 {
   padding: 30px 120px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.040);
 }
 @media (max-width: 1199px) {
   .header-1 {
@@ -39301,12 +39302,12 @@ blockquote::before {
 }
 
 .team-title{
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
 }
 
 .team-subtitle{
-  font-size: 13px;
+  font-size: 14px;
   color: #858585;
 }
 
