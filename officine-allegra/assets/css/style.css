@@ -3703,7 +3703,7 @@ a.quanto-default-btn.sm-size {
   line-height: 144.444%;
 }
 .career-box .career-left {
-  max-width: 400px;
+  max-width: 130px;
   width: 100%;
 }
 @media only screen and (max-width: 1199.98px) {
@@ -5171,7 +5171,7 @@ a.quanto-default-btn.sm-size {
 20. Pricing css
 =================================================*/
 .quanto-pricing-box {
-  padding: 54px 48px 48px 60px;
+  padding: 35px;
   position: relative;
   z-index: 0;
   overflow: hidden;

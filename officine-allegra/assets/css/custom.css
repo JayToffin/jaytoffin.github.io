@@ -20,3 +20,7 @@
 .footer-bg {
   background-color:#B4864D;
 }
+
+.justify-content {
+  justify-content: center !important;
+}
