@@ -3677,7 +3677,7 @@ a.quanto-default-btn.sm-size {
 .career-box {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   border-top: 1px solid var(--color-1);
   padding-block: 15px;
   transition: all 0.5s ease;
@@ -5176,6 +5176,7 @@ a.quanto-default-btn.sm-size {
   z-index: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  height: 100%;
 }
 .quanto-pricing-box .hover-overlay {
   content: "";
