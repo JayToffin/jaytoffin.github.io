@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toffin BoothCamp 2025 — Event</title>
+  <!-- Tailwind via CDN (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system; }
+    .shadow-soft { box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+  </style>
+</head>
+<body class="antialiased text-gray-900">
+  <!-- Header/Nav -->
+  <header class="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#" class="text-base font-bold tracking-tight">Toffin BoothCamp 2025</a>
+        <nav class="hidden gap-6 md:flex text-sm">
+          <a href="#about" class="hover:text-black text-gray-700">About</a>
+          <a href="#headliners" class="hover:text-black text-gray-700">Headliners</a>
+          <a href="#omakase" class="hover:text-black text-gray-700">Omakase</a>
+          <a href="#market" class="hover:text-black text-gray-700">Pop-up Market</a>
+          <a href="#tenants" class="hover:text-black text-gray-700">Tenants</a>
+          <a href="#faq" class="hover:text-black text-gray-700">FAQ</a>
+          <a href="#contact" class="hover:text-black text-gray-700">Contact</a>
+        </nav>
+        <button id="navToggle" class="md:hidden" aria-label="Toggle menu">
+          <div class="h-5 w-6">
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="mt-1 block h-0.5 w-full bg-black"></span>
+            <span class="mt-1 block h-0.5 w-full bg-black"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="hidden border-t bg-white md:hidden">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-2 py-4 text-sm">
+        <a href="#about" class="py-2 text-gray-700">About</a>
+        <a href="#headliners" class="py-2 text-gray-700">Headliners</a>
+        <a href="#omakase" class="py-2 text-gray-700">Omakase</a>
+        <a href="#market" class="py-2 text-gray-700">Pop-up Market</a>
+        <a href="#tenants" class="py-2 text-gray-700">Tenants</a>
+        <a href="#faq" class="py-2 text-gray-700">FAQ</a>
+        <a href="#contact" class="py-2 text-gray-700">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-amber-50 to-white">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-20">
+      <div>
+        <div class="mb-3 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs">
+          <span>Featuring with Gigi Susu • Makmur Jaya • Roti Macan • Locavore</span>
+        </div>
+        <h1 class="text-4xl font-extrabold leading-tight sm:text-5xl">Toffin BoothCamp 2025</h1>
+        <p class="mt-3 text-lg text-gray-700">A Festival of Flavour & Collaboration</p>
+        <div class="mt-5 flex flex-wrap items-center gap-3 text-sm text-gray-700">
+          <div class="inline-flex items-center gap-2">📅 27–30 November 2025</div>
+          <div class="inline-flex items-center gap-2">📍 Blok M Hub, Jakarta, Indonesia</div>
+          <span class="rounded-full border px-3 py-1 text-gray-700">FREE ENTRY</span>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#omakase" class="rounded-2xl bg-black px-5 py-3 text-sm font-medium text-white shadow-soft">Experience Omakase</a>
+          <a href="#market" class="rounded-2xl bg-black/80 px-5 py-3 text-sm font-medium text-white/95 shadow-soft">Explore Pop-up Market</a>
+          <a href="#tickets" class="rounded-2xl border px-5 py-3 text-sm font-medium">Book in Toffin App</a>
+        </div>
+        <div class="mt-6 grid gap-3 sm:grid-cols-2">
+          <div class="rounded-2xl border p-5 shadow-sm">
+            <p class="text-base font-semibold">+30 Tenants</p>
+            <p class="text-sm text-gray-600">F&B, Clothing, Lifestyle</p>
+          </div>
+          <div class="rounded-2xl border p-5 shadow-sm">
+            <p class="text-base font-semibold">+27,000 Visitor</p>
+            <p class="text-sm text-gray-600">Target attendance</p>
+          </div>
+          <div class="rounded-2xl border p-5 shadow-sm">
+            <p class="text-base font-semibold">4 Headliners</p>
+            <p class="text-sm text-gray-600">Gigi Susu, Makmur Jaya, Roti Macan, Locavore</p>
+          </div>
+          <div class="rounded-2xl border p-5 shadow-sm">
+            <p class="text-base font-semibold">+50 Co-creation</p>
+            <p class="text-sm text-gray-600">Coffee, pastry, gelato, cocktails, tea</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="aspect-[4/3] w-full rounded-3xl border bg-white shadow-sm flex items-center justify-center text-gray-400">
+          Hero image / video placeholder
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">Tentang Event</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Tentang Toffin BoothCamp 2025</h2>
+        <p class="mt-2 text-gray-600">Lebih dari sekadar festival—tempat brand, kreator, dan foodies berkolaborasi.</p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="rounded-2xl border p-6">
+          <h3 class="mb-2 text-xl font-semibold">Ringkasan</h3>
+          <p class="text-gray-700">TBC 2025 menghadirkan eksplorasi tren minuman & makanan, serta co-creation bareng Toffin Indonesia. Ada pengalaman omakase dan pop-up market yang kurasi.</p>
+        </div>
+        <div class="rounded-2xl border p-6">
+          <h3 class="mb-2 text-xl font-semibold">Tentang Toffin Indonesia</h3>
+          <p class="text-gray-700">Pemimpin pasar HORECA: mesin kopi, bahan sirup & powder, pelatihan, dan konsultasi bisnis di 20+ kota. Unduh Toffin App untuk belajar, konsultasi, dan belanja.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Headliners -->
+  <section id="headliners" class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">Headliners</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Kolaborator Utama</h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+        <!-- Repeat cards for each headliner -->
+        <div class="rounded-2xl border bg-white p-6 text-center shadow-sm">
+          <div class="mb-3 flex h-24 items-center justify-center rounded-xl border bg-gray-50">Logo/Photo</div>
+          <p class="font-semibold">Gigi Susu</p>
+        </div>
+        <div class="rounded-2xl border bg-white p-6 text-center shadow-sm">
+          <div class="mb-3 flex h-24 items-center justify-center rounded-xl border bg-gray-50">Logo/Photo</div>
+          <p class="font-semibold">Makmur Jaya Roastery</p>
+        </div>
+        <div class="rounded-2xl border bg-white p-6 text-center shadow-sm">
+          <div class="mb-3 flex h-24 items-center justify-center rounded-xl border bg-gray-50">Logo/Photo</div>
+          <p class="font-semibold">Roti Macan</p>
+        </div>
+        <div class="rounded-2xl border bg-white p-6 text-center shadow-sm">
+          <div class="mb-3 flex h-24 items-center justify-center rounded-xl border bg-gray-50">Logo/Photo</div>
+          <p class="font-semibold">Locavore</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Omakase -->
+  <section id="omakase" class="py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">Experience</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Omakase Street</h2>
+        <p class="mt-2 text-gray-600">2–3 course menu spesial & eksklusif (hanya di TBC 2025).</p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="rounded-2xl border p-6">
+          <ul class="space-y-3 text-gray-700 list-disc pl-5">
+            <li>Booking in advance di Toffin App</li>
+            <li>Cek jadwal & harga di Toffin App</li>
+            <li>Kursi terbatas: 20 orang per sesi</li>
+          </ul>
+          <a href="#tickets" class="mt-5 inline-flex items-center gap-2 rounded-2xl bg-black px-5 py-3 text-sm font-medium text-white">Book Omakase</a>
+        </div>
+        <div class="rounded-2xl border p-6">
+          <h4 class="mb-2 font-semibold">Konsep</h4>
+          <p class="text-gray-700">Omakase bersama Gigi Susu, Roti Macan, Makmur Jaya Roastery, dan Locavore—menu unik yang tidak dijual di tempat lain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market -->
+  <section id="market" class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">Explore</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Pop-up Market</h2>
+        <p class="mt-2 text-gray-600">35+ tenants F&B & non-F&B, transaksi cashless.</p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="rounded-2xl border p-6">
+          <ul class="space-y-3 text-gray-700 list-disc pl-5">
+            <li>Walk-in welcome</li>
+            <li>Buka 10.00–23.00 WIB (Kamis–Minggu)</li>
+            <li>Dapatkan promo spesial dari brand favorit</li>
+          </ul>
+          <a href="#tenants" class="mt-5 inline-flex items-center gap-2 rounded-2xl border px-5 py-3 text-sm font-medium">Lihat Tenant</a>
+        </div>
+        <div class="rounded-2xl border p-6">
+          <h4 class="mb-2 font-semibold">Area</h4>
+          <p class="text-gray-700">Dua area besar: <strong>Omakase Street</strong> & <strong>Pop-up Market</strong>. Pilih tujuanmu—Experience atau Explore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tenants -->
+  <section id="tenants" class="py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">Daftar Tenant</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Brand & Tenants</h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Bluedoors</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Knots</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Libero</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Supa Love</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Kwasong</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Bunny Bun</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Kopi Se-Indonesia</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Kopi Nako</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Karrai Bakehouse</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Yoguchi</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Cinnabon</div>
+        <div class="rounded-2xl border p-4 text-center text-sm shadow-sm">Inori Ice</div>
+      </div>
+      <p class="mt-6 text-center text-sm text-gray-600">Lebih banyak tenant akan diumumkan.</p>
+    </div>
+  </section>
+
+  <!-- Schedule & Venue -->
+  <section id="schedule" class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">Info</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Jadwal & Lokasi</h2>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="rounded-2xl border p-6">
+          <h4 class="mb-2 font-semibold">Tanggal & Jam</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>📅 27–30 November 2025</li>
+            <li>🕙 Pop-up Market: 10.00–23.00 WIB</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border p-6">
+          <h4 class="mb-2 font-semibold">Venue</h4>
+          <p class="text-gray-700">📍 Blok M Hub, Jakarta, Indonesia</p>
+          <div class="mt-4 aspect-[16/9] w-full rounded-xl border bg-white flex items-center justify-center text-gray-400">
+            Map embed placeholder
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partners" class="py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">Partners</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Supported By & Media Partners</h2>
+      </div>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="rounded-2xl border p-6">
+          <h4 class="mb-3 font-semibold">Featuring With</h4>
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Makmur Jaya</div>
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Gigi Susu</div>
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Roti Macan</div>
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Locavore</div>
+          </div>
+        </div>
+        <div class="rounded-2xl border p-6">
+          <h4 class="mb-3 font-semibold">Supported By</h4>
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Brand A</div>
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Brand B</div>
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Brand C</div>
+          </div>
+        </div>
+        <div class="rounded-2xl border p-6">
+          <h4 class="mb-3 font-semibold">Media Partners</h4>
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Media 1</div>
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Media 2</div>
+            <div class="flex h-16 items-center justify-center rounded-xl border bg-gray-50 text-xs">Media 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">FAQ</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Pertanyaan Umum</h2>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border p-5">
+          <p class="font-semibold">Apakah event ini gratis?</p>
+          <p class="mt-1 text-gray-700">Ya, FREE ENTRY untuk umum.</p>
+        </div>
+        <div class="rounded-2xl border p-5">
+          <p class="font-semibold">Apakah perlu reservasi?</p>
+          <p class="mt-1 text-gray-700">Reservasi diperlukan untuk Omakase Street; Pop-up Market menerima walk-in.</p>
+        </div>
+        <div class="rounded-2xl border p-5">
+          <p class="font-semibold">Metode pembayaran?</p>
+          <p class="mt-1 text-gray-700">Transaksi cashless di semua tenant.</p>
+        </div>
+        <div class="rounded-2xl border p-5">
+          <p class="font-semibold">Apakah ada batasan umur?</p>
+          <p class="mt-1 text-gray-700">Semua umur dipersilakan. Anak-anak harus dalam pengawasan orang tua.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center">
+        <p class="mb-2 text-xs uppercase tracking-widest text-gray-500">Contact</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Kontak & Sosial</h2>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-3">
+        <a href="https://instagram.com/toffin.id" target="_blank" class="flex items-center gap-3 rounded-2xl border p-5 text-sm hover:shadow">
+          <span>📸</span> Instagram
+        </a>
+        <a href="https://toffin.id" target="_blank" class="flex items-center gap-3 rounded-2xl border p-5 text-sm hover:shadow">
+          <span>🌐</span> Website
+        </a>
+        <a href="tel:+62210000000" class="flex items-center gap-3 rounded-2xl border p-5 text-sm hover:shadow">
+          <span>📞</span> Hotline
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t py-10 text-sm text-gray-600">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8">
+      <p>©️ 2025 Toffin Indonesia. All rights reserved.</p>
+      <div class="flex gap-3">
+        <a href="#" class="hover:text-black">Terms</a>
+        <a href="#" class="hover:text-black">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', function () {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('hidden');
+    });
+
+    // Optional: close mobile nav on link click
+    document.querySelectorAll('#mobileNav a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('mobileNav').classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
