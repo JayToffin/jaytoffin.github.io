@@ -99,7 +99,7 @@
     --_animspeed-medium: 0.3s;
     --_animspeed-slow: 0.6s;
     --_animbezier: cubic-bezier(0.23, 0.65, 0.74, 1.09);
-    --base--light: #FAF7F6;
+    --base--light: #fafaec;
     --base-rgb--light: 250, 247, 246;
     --base-tint--light: #FFFFFF;
     --base-shade--light: #e0dddb;
@@ -144,7 +144,7 @@
     --base-opp-tint--dark: #ffffff;
     --accent--dark: #DDF160;
     --accent-rgb--dark: 221, 241, 96;
-    --additional--dark: #9F8BE7;
+    --additional--dark: #fcda52;
     --additional-rgb--dark: 159, 139, 231;
     --neutral-transparent--dark: rgba(0, 0, 0, 0.3);
     --st-bright--dark: #FFFFFF;
@@ -313,15 +313,15 @@
 }
 
 .image-values-1 {
-    background-image: url(../img/team/1200x1600_team-01.webp)
+    background-image: url(../img/omakase1.jpg)
 }
 
 .image-values-2 {
-    background-image: url(../img/team/1600x1200_team-01.webp)
+    background-image: url(../img/omakase2.jpg)
 }
 
 .prj-details-img-01 {
-    background-image: url(../img/works/2200x1650_prj-details-01.webp)
+    background-image: url(../img/works/1200x1200_prj-details-01.webp)
 }
 
 .prj-details-img-02 {
@@ -419,7 +419,7 @@ body {
     overflow-x: unset !important;
     font: normal 400 var(--_size)/1.6 var(--_font-default);
     text-rendering: optimizeLegibility;
-    background-color: var(--base);
+    background-color: var(--base--light);
     color: var(--t-medium);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
@@ -532,7 +532,7 @@ html.lenis body {
 }
 
 .wrapper.wrapper-opposite {
-    background-color: var(--base-opp);
+    background-color: var(--base--dark);
     -moz-border-radius: var(--_radius-l);
     border-radius: var(--_radius-l)
 }
@@ -1960,7 +1960,7 @@ h1 {
 h2 {
     font: normal var(--fw-medium) 4.4rem/1.1 var(--_font-accent);
     letter-spacing: -.06rem;
-    color: var(--t-bright)
+    color: var(--t-bright--light)
 }
 
 h2.opposite {
@@ -2009,7 +2009,7 @@ h3 {
 }
 
 h3.opposite {
-    color: var(--t-opp-bright)
+    color: var(--t-opp-bright--light)
 }
 
 @media only screen and (min-width:768px) {
@@ -3152,8 +3152,8 @@ p.t-semibold {
 .btn-outline {
     background-color: transparent;
     border-style: solid;
-    border-color: var(--st-bright);
-    color: var(--t-bright)
+    border-color: var(--st-bright--light);
+    color: var(--t-bright--light)
 }
 
 .btn-outline.opposite {
@@ -3207,7 +3207,7 @@ p.t-semibold {
 }
 
 .no-touch .btn-muted:hover {
-    color: var(--t-bright)
+    color: #e3161a;
 }
 
 .btn-bright {
@@ -3502,13 +3502,13 @@ p.t-semibold {
 }
 
 .tag-default {
-    height: 3.2rem;
+    height: 5rem;
     line-height: 3.2rem;
-    padding: 0 1.2rem;
+    padding: 0 3rem;
     -moz-border-radius: 1.6rem;
     border-radius: 1.6rem;
     border-width: 1px;
-    font: normal var(--fw-regular) 1.4rem/1.5 var(--_font-accent)
+    font: normal var(--fw-regular) 1.7rem/1.5 var(--_font-accent)
 }
 
 @media only screen and (min-width:1600px) {
@@ -5009,7 +5009,7 @@ form textarea:required:valid {
 
 @media only screen and (min-width:1200px) {
     .data-list__column {
-        gap: 3.4rem
+        gap: 1rem
     }
 }
 
@@ -7209,7 +7209,7 @@ form textarea:required:valid {
     gap: 3rem
 }
 
-@media only screen and (min-width:1200px) {
+/* @media only screen and (min-width:1200px) {
     .footer-blocks__column {
         height: 650px
     }
@@ -7219,7 +7219,7 @@ form textarea:required:valid {
     .footer-blocks__column {
         height: 650px
     }
-}
+} */
 
 .footer-blocks__card {
     display: -webkit-box;
@@ -8029,7 +8029,7 @@ form textarea:required:valid {
 @media only screen and (min-width:1200px) {
     .hero-01 {
         height: 100%;
-        padding-bottom: 6rem
+        padding-bottom: 9rem
     }
 }
 
@@ -9993,7 +9993,7 @@ form textarea:required:valid {
     line-height: 4.6rem;
     -moz-border-radius: 2.3rem;
     border-radius: 2.3rem;
-    border: 1px solid var(--st-opp-bright);
+    border: 1px solid #fcda52;
     background-color: var(--neutral-transparent);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
@@ -16743,8 +16743,8 @@ form textarea:required:valid {
 }
 
 .pinned__img {
-    width: auto;
-    height: 30rem;
+    width: 480px;
+    height: auto;
     -o-object-fit: cover;
     object-fit: cover;
     -moz-border-radius: 2em;
@@ -19094,7 +19094,7 @@ form textarea:required:valid {
         -moz-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        padding: 6rem 0 7rem 0
+        padding: 3rem 0 3rem 0
     }
 }
 
@@ -21097,7 +21097,7 @@ form textarea:required:valid {
 
 .partners-cards__item {
     position: relative;
-    height: 250px
+    /* height: 250px */
 }
 
 .partners-cards__inner {
@@ -21126,7 +21126,7 @@ form textarea:required:valid {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--base-tint);
+    background-color: #ffffff;
     -moz-border-radius: var(--_radius-m);
     border-radius: var(--_radius-m);
     z-index: -1;
@@ -21158,7 +21158,7 @@ form textarea:required:valid {
 }
 
 .partners-cards__logo img {
-    opacity: .6;
+    /* opacity: .6; */
     -webkit-transition: opacity var(--_animspeed-slow) ease;
     -moz-transition: opacity var(--_animspeed-slow) ease;
     transition: opacity var(--_animspeed-slow) ease
@@ -22321,13 +22321,13 @@ form textarea:required:valid {
 
 @media only screen and (min-width:768px) {
     .values__image {
-        height: 600px
+        height: 350px
     }
 }
 
 @media only screen and (min-width:1200px) {
     .values__image.image-large-desktop {
-        height: 930px
+        height: 630px
     }
 }
 
@@ -22572,7 +22572,7 @@ form textarea:required:valid {
     width: -moz-calc(100% - 3rem);
     width: calc(100% - 3rem);
     height: .2rem;
-    background-color: var(--base-opp)
+    background-color: #ffffff;
 }
 
 .project__navitem {
@@ -22605,7 +22605,7 @@ form textarea:required:valid {
 
 .project__link {
     font: normal var(--fw-medium) 2.2rem/1.2 var(--_font-accent);
-    color: var(--t-bright)
+    color: var(--t-bright--dark)
 }
 
 .project__link.opposite {
@@ -22628,7 +22628,7 @@ form textarea:required:valid {
 }
 
 .no-touch .project__link span:hover {
-    color: var(--t-bright);
+    color: #fcda52;
     -moz-background-size: 0 1px, 100% 1px;
     background-size: 0 1px, 100% 1px
 }
@@ -22644,4 +22644,25 @@ form textarea:required:valid {
 }
 .text-tbc3{
     color: #fcda52 !important;
+}
+.text-tbc3-blue{
+    color: #1501A6 !important;
+}
+
+/* Samakan tinggi semua card di section services-cards-s */
+.services-cards-s__item {
+  display: flex;
+}
+
+.services-cards-s__inner,
+.hero-05__videoblock {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.services-cards-s__item > div {
+  height: 100%;
 }
