@@ -1928,7 +1928,7 @@ h5.opposite a {
 
 h6 {
     font: normal var(--fw-medium) 2.2rem/1.2 var(--_font-accent);
-    color: var(--t-bright)
+    color: var(--t-opp-bright)
 }
 
 h6 a {
@@ -2219,7 +2219,7 @@ p.t-semibold {
 
 @media only screen and (min-width:1200px) {
     .stats-number {
-        font-size: 9rem
+        font-size: 5rem
     }
 }
 
@@ -22542,15 +22542,6 @@ form textarea:required:valid {
   display: block;
 }
 
-@media (min-width: 1200px) {
-  .col-xl-5th {
-    flex: 0 0 20%;
-    max-width: 20%;
-    padding: 0 1rem;
-  }
-}
-
-
   .qr-modal {
     position: fixed;
     top: 0; left: 0;
@@ -22571,7 +22562,7 @@ form textarea:required:valid {
   .qr-modal__content {
     background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 40px;
     text-align: center;
     max-width: 90%;
     width: 420px;
@@ -22594,3 +22585,11 @@ form textarea:required:valid {
     from { transform: scale(0.9); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
   }
+
+
+  @media (max-width: 767px) {
+  .hero-07-info__container-featuring {
+    order: 1; /* pindahkan ke atas */
+    margin-bottom: 1rem; /* kasih jarak biar tidak dempet */
+  }
+}
