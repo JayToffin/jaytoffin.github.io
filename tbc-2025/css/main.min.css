@@ -186,7 +186,7 @@
 }
 
 .image-values-2 {
-    background-image: url(../img/omakase2.jpg)
+    background-image: url(../img/popup-market-img.png)
 }
 
 *,
@@ -19205,8 +19205,8 @@ form textarea:required:valid {
 
 .marquee__item {
     position: relative;
-    width: 430px;
-    height: 320px;
+    width: 300px;
+    height: 200px;
     -moz-border-radius: var(--_radius-m);
     border-radius: var(--_radius-m);
     overflow: hidden;
@@ -19342,8 +19342,8 @@ form textarea:required:valid {
 
 @media only screen and (min-width:1200px) {
     .marquee__item {
-        width: 540px;
-        height: 400px
+        width: 470px;
+        height: 320px
     }
 
     .marquee__item.item-vertical {
@@ -22724,3 +22724,28 @@ form textarea:required:valid {
     transform: translateX(50%);
   }
 }
+
+ul.t-omakase {
+  list-style: disc;        /* aktifkan bullet bulat */
+  padding-left: 1.5rem;    /* kasih jarak ke kiri supaya rapi */
+  margin: 1rem 0;          /* beri spasi atas-bawah */
+}
+
+ul.t-omakase li {
+  margin-bottom: 0.5rem;   /* jarak antar item */
+}
+
+.logo-frame-small {
+  max-width: 160px;   /* ukuran frame */
+  margin: 0 auto;     /* center */
+  padding: 0.5rem;    /* padding biar nggak terlalu besar */
+}
+
+.logo-frame-small img {
+  max-width: 100%;    /* gambar ikut kecil */
+  height: auto;
+}
+
+.text-justify-custom {
+      text-align: justify;
+    }
