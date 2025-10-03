@@ -22508,6 +22508,9 @@ form textarea:required:valid {
 .text-white {
     color: white !important
 }
+.text-lightgray {
+    color: #a7a7a7 !important
+}
 .text-tbc3{
     color: #fcda52 !important;
 }
