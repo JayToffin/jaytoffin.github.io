@@ -5821,6 +5821,7 @@ form textarea:required:valid {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: center;
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
@@ -8383,7 +8384,8 @@ form textarea:required:valid {
     -moz-box-direction: reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
-    width: 100%
+    width: 100%;
+    margin-bottom: 50px !important;
 }
 
 @media only screen and (min-width:1200px) {
@@ -8395,13 +8397,16 @@ form textarea:required:valid {
         -ms-flex-direction: row;
         flex-direction: row;
         gap: 6rem;
-        height: 16rem
+        height: 40rem;
+        position: absolute !important; 
+        bottom: 0;
+        align-items: center;
     }
 }
 
 @media only screen and (min-width:1600px) {
     .hero-01__bottom {
-        height: 20rem
+        height: 20rem;
     }
 }
 
@@ -22613,6 +22618,12 @@ form textarea:required:valid {
   color: white;
   padding: 2rem;
 }
+ @media screen and (min-width: 768px) {
+  .hero-section {
+    padding: 6rem !important;
+  }
+    
+ }
 
 .hero-inner {
   display: flex;
@@ -22752,3 +22763,16 @@ ul.t-omakase li {
 .text-justify-custom {
       text-align: justify;
     }
+
+@media (min-width: 769px) {
+    .tbc-logo img {
+      width: 80% !important;
+      margin: 0 auto;
+    }
+  }
+
+@media (min-width: 1200px) {
+    .featuring-with {
+      max-width: 270px;
+    }
+  }

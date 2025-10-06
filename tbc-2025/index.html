@@ -23,6 +23,13 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Custom Browser Color End -->
+  <style>
+    .section.hero-section.hero-fullheight {
+  min-height: 100vh !important;
+  height: auto !important;
+  position: relative;
+}
+  </style>
 </head>
 
 <body>
@@ -58,26 +65,28 @@
   <!-- Page Content Start -->
   <main id="page-content" class="page-content">
 
-    
-
     <!-- Hero Section Start -->
-    <div class="section" style="background-color: #e3161a; height: 100vh; display: flex; align-items: center;">
-      <div class="hero-07">
-        <div class="hero-07__wrap loading-wrap">
-          <!-- top part -->
-          <!-- bottom part -->
-          <div class="hero-07__bottom">
-            <div class="hero-07__circle mb-0">
-              <div class="hero-07-slide-out-scroll loading__item">
-                <img src="img/TBC-2025.gif" alt="Logo Toffin BoothCamp 2025" style="max-width:80%; margin: 0 auto;">
-                <!-- <video width="100%" preload="auto" autoplay loop muted poster="video/1280x720_video-01.webp" playsinline
-                        webkit-playsinline="true" disablePictureInPicture
-                        controlslist="nodownload nofullscreen noremoteplayback">
-                        <source type="video/mp4" src="video/TBC-2025.mp4">
-                        <source type="video/webm" src="video/TBC-2025.webm">
-                        <source type="video/ogv" src="video/TBC-2025.ogv">
-                      </video> -->
+    <div class="section hero-section hero-fullheight">
+      <div class="hero-01">
+        <!-- Gate Open Info -->
+        <div class="hero-gateopen position-absolute end-0 text-end d-none d-md-block"
+          style="z-index:10; top: 50px">
+          <h6 class="text-white" style="font-weight:800;">GATE OPEN</h6>
+          <h6><span style="font-weight:800; color:#ffe16a">10.00 WIB - 22.00 WIB</span> <span class="text-white"></span>
+          </h6>
+        </div>
+        <div class="loading-wrap">
+          <!-- top group -->
+          <div class="hero-01__top p-0">
+            <div class="hero-01__title-wrap">
+              <div class="tbc-logo" style="margin-top:80px; text-align:center;">
+                <img src="img/TBC-2025.gif" alt="Logo Toffin BoothCamp 2025"
+                  style="width:90%; max-width:600px; margin: 0 auto;">
               </div>
+            </div>
+          </div>
+          <div class="hero-01__top p-0">
+            <div class="hero-01__title-wrap">
               <h6 class="hero-subtitle fw-bold text-center mt-4 pb-5" style="color:#ffe16a;">
                 A FESTIVAL OF FLAVOUR & COLLABORATION
               </h6>
@@ -85,78 +94,67 @@
                 27-30 <span style="color: #ffffff;">NOVEMBER 2025 |</span> BLOK M HUB <span style="color: #ffffff;">|
                   JAKARTA, INDONESIA</span>
               </p>
+              <p class="hero-subtitle fw-bold text-center text-white d-block d-md-none">GATE OPEN <span style="font-weight:800; color:#ffe16a">10.00 WIB - 22.00 WIB</span></p>
             </div>
-            <div class="hero-07__info loading__fade text-center text-md-start">
-              <div class="hero-07-info__container hero-07-info__container-featuring">
-                <div class="hero-07-info__tags">
-                  <div
-                    style="position:absolute; bottom:100px; left:50px; display:flex; flex-direction:column; align-items:flex-start;">
-                    <h6 class="text-white" style="font-weight:100; padding-bottom: 1.5rem;">FEATURING WITH:</h6>
+          </div>
 
-                    <div class="row" style="padding-bottom: 1.5rem;">
-                      <div class="col-md-6 text-start" style="width: fit-content;">
-                        <div class="hero-05-videoblock__descr p-1">
-                          <img src="img/brands/roti-macan.png" style="width:120px;">
-                        </div>
-                      </div>
-                      <div class="col-md-6 text-start" style="width: fit-content;">
-                        <div class="hero-05-videoblock__descr p-1">
-                          <img src="img/brands/bali-boozy.png" style="width:120px;">
-                        </div>
-                      </div>
+          <!-- bottom group -->
+          <div class="hero-01__bottom">
+            <div class="hero-01__data-wrap p-0">
+              <div>
+                <h6 class="text-white" style="font-weight:100; padding-bottom: 1.5rem;">FEATURING WITH:</h6>
+                <div class="featuring-with row g-3">
+                  <div class="col-3 col-sm-3 col-md-3 col-lg-6">
+                    <div class="hero-05-videoblock__descr p-1">
+                      <img src="img/brands/roti-macan.png">
                     </div>
-                    <div class="row">
-                      <div class="col-md-6 text-start" style="width: fit-content;">
-                        <div class="hero-05-videoblock__descr p-1">
-                          <img src="img/brands/makmur-jaya.png" style="width:120px;">
-                        </div>
-                      </div>
-                      <div class="col-md-6 text-start" style="width: fit-content;">
-                        <div class="hero-05-videoblock__descr p-1">
-                          <img src="img/brands/gigi-susu.png" style="width:120px;">
-                        </div>
-                      </div>
+                  </div>
+                  <div class="col-3 col-sm-3 col-md-3 col-lg-6">
+                    <div class="hero-05-videoblock__descr p-1">
+                      <img src="img/brands/bali-boozy.png">
+                    </div>
+                  </div>
+                  <div class="col-3 col-sm-3 col-md-3 col-lg-6">
+                    <div class="hero-05-videoblock__descr p-1">
+                      <img src="img/brands/makmur-jaya.png">
+                    </div>
+                  </div>
+                  <div class="col-3 col-sm-3 col-md-3 col-lg-6">
+                    <div class="hero-05-videoblock__descr p-1">
+                      <img src="img/brands/gigi-susu.png">
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="hero-07-info__container">
-                <div class="hero-07-info__tags right-align-desktop">
-                  <h6 class="text-white" style="font-weight:800;">GATE OPEN</h6>
-                  <h6><span style="font-weight:800; color:#ffe16a">10.00 WIB - 22.00 WIB</span> <span
-                      class="text-white"></span></h6>
-                </div>
+            </div>
+            <div class="loading__item">
+              <div class="hero-01__data-btn loading__fade pt-3 text-center">
+                <a class="btn-rotating btn-rotating-120-160">
+                  <!-- SVG rotating text -->
+                  <svg version="1.1" id="scrollDown" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160 160"
+                    style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px) rotate(327.138deg);"
+                    xml:space="preserve" class="btn-rotating__text animate-rotation" data-value="360">
+                    <defs>
+                      <path id="textPath"
+                        d="M149.7,80c0,38.5-31.2,69.7-69.7,69.7S10.3,118.5,10.3,80S41.5,10.3,80,10.3S149.7,41.5,149.7,80z">
+                      </path>
+                    </defs>
+                    <g>
+                      <use xlink:href="#textPath" fill="none"></use>
+                      <text>
+                        <!-- button text here!!! -->
+                        <textPath xlink:href="#textPath">Scroll for More * Scroll for More * Scroll for More *
+                        </textPath>
+                      </text>
+                    </g>
+                  </svg>
+                  <!-- image -->
+                  <img class="btn-rotating__image" src="img/free-entry.png" alt="Object">
+                </a>
               </div>
             </div>
           </div>
-          <div class="hero-07__more loading__fade">
-            <div class="hero-01__data-btn loading__fade text-tbc3">
-              <a href="#projects" class="btn-rotating btn-rotating-120-160">
-                <!-- SVG rotating text -->
-                <svg version="1.1" id="scrollDown" xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160 160"
-                  style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px) rotate(327.138deg);"
-                  xml:space="preserve" class="btn-rotating__text animate-rotation" data-value="360">
-                  <defs>
-                    <path id="textPath"
-                      d="M149.7,80c0,38.5-31.2,69.7-69.7,69.7S10.3,118.5,10.3,80S41.5,10.3,80,10.3S149.7,41.5,149.7,80z">
-                    </path>
-                  </defs>
-                  <g>
-                    <use xlink:href="#textPath" fill="none"></use>
-                    <text>
-                      <!-- button text here!!! -->
-                      <textPath xlink:href="#textPath">Free Entry * Free Entry * Free Entry * Free Entry * Free Entry
-                        * </textPath>
-                    </text>
-                  </g>
-                </svg>
-                <!-- image -->
-                <img class="btn-rotating__image" src="img/free-entry.png" alt="Object">
-              </a>
-            </div>
-          </div>
-          <div class="hero-07__tl-trigger"></div>
         </div>
       </div>
       <!-- Running Text -->
@@ -217,6 +215,154 @@
         </div>
       </div>
     </div>
+    <!-- Hero Section End -->
+
+
+    <!-- Hero Section Start -->
+    <!-- <div class="section" style="background-color: #e3161a; height: 100vh; display: flex; align-items: center;">
+      <div class="hero-07">
+        <div class="hero-07__wrap loading-wrap">
+          <div class="hero-07__bottom">
+            <div class="hero-07__circle mb-0">
+              <div class="hero-07-slide-out-scroll loading__item">
+                <img src="img/TBC-2025.gif" alt="Logo Toffin BoothCamp 2025" style="max-width:80%; margin: 0 auto;">
+              </div>
+              <h6 class="hero-subtitle fw-bold text-center mt-4 pb-5" style="color:#ffe16a;">
+                A FESTIVAL OF FLAVOUR & COLLABORATION
+              </h6>
+              <p class="hero-subtitle fw-bold text-center" style="color:#1a2ebc;">
+                27-30 <span style="color: #ffffff;">NOVEMBER 2025 |</span> BLOK M HUB <span style="color: #ffffff;">|
+                  JAKARTA, INDONESIA</span>
+              </p>
+            </div>
+            <div class="hero-07__info loading__fade text-center text-md-start">
+              <div class="hero-07-info__container hero-07-info__container-featuring">
+                <div class="hero-07-info__tags">
+                  <div
+                    style="position:absolute; bottom:100px; left:50px; display:flex; flex-direction:column; align-items:flex-start;">
+                    <h6 class="text-white" style="font-weight:100; padding-bottom: 1.5rem;">FEATURING WITH:</h6>
+                    <div class="row" style="padding-bottom: 1.5rem;">
+                      <div class="col-md-6 text-start" style="width: fit-content;">
+                        <div class="hero-05-videoblock__descr p-1">
+                          <img src="img/brands/roti-macan.png" style="width:120px;">
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-start" style="width: fit-content;">
+                        <div class="hero-05-videoblock__descr p-1">
+                          <img src="img/brands/bali-boozy.png" style="width:120px;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 text-start" style="width: fit-content;">
+                        <div class="hero-05-videoblock__descr p-1">
+                          <img src="img/brands/makmur-jaya.png" style="width:120px;">
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-start" style="width: fit-content;">
+                        <div class="hero-05-videoblock__descr p-1">
+                          <img src="img/brands/gigi-susu.png" style="width:120px;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-07-info__container">
+                <div class="hero-07-info__tags right-align-desktop">
+                  <h6 class="text-white" style="font-weight:800;">GATE OPEN</h6>
+                  <h6><span style="font-weight:800; color:#ffe16a">10.00 WIB - 22.00 WIB</span> <span
+                      class="text-white"></span></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-07__more loading__fade">
+            <div class="hero-01__data-btn loading__fade text-tbc3">
+              <a href="#projects" class="btn-rotating btn-rotating-120-160">
+            
+                <svg version="1.1" id="scrollDown" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160 160"
+                  style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px) rotate(327.138deg);"
+                  xml:space="preserve" class="btn-rotating__text animate-rotation" data-value="360">
+                  <defs>
+                    <path id="textPath"
+                      d="M149.7,80c0,38.5-31.2,69.7-69.7,69.7S10.3,118.5,10.3,80S41.5,10.3,80,10.3S149.7,41.5,149.7,80z">
+                    </path>
+                  </defs>
+                  <g>
+                    <use xlink:href="#textPath" fill="none"></use>
+                    <text>
+                   
+                      <textPath xlink:href="#textPath">Free Entry * Free Entry * Free Entry * Free Entry * Free Entry
+                        * </textPath>
+                    </text>
+                  </g>
+                </svg>
+                <img class="btn-rotating__image" src="img/free-entry.png" alt="Object">
+              </a>
+            </div>
+          </div>
+          <div class="hero-07__tl-trigger"></div>
+        </div>
+      </div>
+      <div class="hero-checkerboard" style="position: absolute; bottom: 0; left: 0; width: 100%;">
+        <div class="hero-04-marquee mt-5" style="position:absolute; bottom:0; left:0; width:100%;">
+          <div class="marquee marquee-right--gsap">
+            <div class="marquee__toright marquee-flex">
+              <div class="marquee__item item-regular text">
+                <p>POP UP MARKET</p>
+                <img src="img/runtext-cocktail.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>COFFEE</p>
+                <img src="img/runtext-cup.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>MATCHA</p>
+                <img src="img/runtext-dessert.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>COCKTAILS</p>
+                <img src="img/runtext-gelas.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>MOCKTAILS</p>
+                <img src="img/runtext-mug.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>PASTRY</p>
+                <img src="img/runtext-cocktail.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>BAKERY</p>
+                <img src="img/runtext-cup.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>TRADITIONAL CAKE</p>
+                <img src="img/runtext-dessert.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>CHOCOLATE</p>
+                <img src="img/runtext-gelas.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>BURGER</p>
+                <img src="img/runtext-mug.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>PIZZA</p>
+                <img src="img/runtext-cocktail.png" style="width:40px; height:auto;">
+              </div>
+              <div class="marquee__item item-regular text">
+                <p>EXPERIENCE BAR</p>
+                <img src="img/runtext-dessert.png" style="width:40px; height:auto;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
     <!-- Hero Section End -->
 
     <!-- Section - Services Cards Start -->
@@ -295,7 +441,8 @@
                 style="height: 310px;">
                 <div class="services-cards-s__inner bg-base-opp radius-l p-5" style="background-color: #e4151a;">
                   <div class="services-cards-s__title">
-                    <h6 id="stats-counter-4" class="anim-uni-in-up text-white counter__number stats-number opposite text-white">0</h6>
+                    <h6 id="stats-counter-4"
+                      class="anim-uni-in-up text-white counter__number stats-number opposite text-white">0</h6>
                     <h6 class="opposite anim-uni-in-up text-white">Co-creation</h6>
                   </div>
                   <div class="services-cards-s__info">
@@ -447,7 +594,8 @@
     <!-- Section - Services/Features Stacking Cards End -->
 
     <!-- Wrapper - Opposite Sections Group Start -->
-    <div id="experience" class="wrapper wrapper-opposite padding-top-pre-title margin-bottom-pre-title anim-zoom-in-container">
+    <div id="experience"
+      class="wrapper wrapper-opposite padding-top-pre-title margin-bottom-pre-title anim-zoom-in-container">
       <!-- Section - Experience bar Start -->
       <div class="section padding-grid-pre-mtext">
         <div class="container grid-container">
@@ -476,8 +624,17 @@
                   </div>
                   <div class="col-12 col-xl-6 values__item mobile-reverse grid-item no-margin animate-card-2 pt-3">
                     <div class="anim-uni-in-up">
-                      <p class="t-omakase text-lightgray opposite t-medium pb-3 text-justify-custom">The Experience Bar menghadirkan sebuah perjalanan rasa yang belum pernah ada di tempat lain. Para pengunjung akan diajak untuk menikmati <span class="fw-bold text-white">menu eksklusif hasil kolaborasi</span> dari <span class="fw-bold text-white">Gigi Susu, Roti Macan, Makmur Jaya Roastery, dan Bali Boozy</span>, dan <span class="fw-bold text-white">brand pilihan lainnya</span>, yang disajikan dalam format <span class="fw-bold text-white">Omakase-style</span>. </p>
-                      <p class="t-omakase text-lightgray opposite t-medium pb-3 text-justify-custom">Melalui <span class="fw-bold text-white">3–4 course makanan dan minuman pilihan</span>, pengunjung tidak hanya mencicipi kreasi unik, tetapi juga merasakan kreativitas serta kolaborasi di balik setiap hidangan. Konsep eksklusif ini memberikan pengalaman intim dan berkesan, menjadikan The Experience Bar Toffin Booth Camp 2025 lebih dari sekadar festival F&B biasa.</p>
+                      <p class="t-omakase text-lightgray opposite t-medium pb-3 text-justify-custom">The Experience Bar
+                        menghadirkan sebuah perjalanan rasa yang belum pernah ada di tempat lain. Para pengunjung akan
+                        diajak untuk menikmati <span class="fw-bold text-white">menu eksklusif hasil kolaborasi</span>
+                        dari <span class="fw-bold text-white">Gigi Susu, Roti Macan, Makmur Jaya Roastery, dan Bali
+                          Boozy</span>, dan <span class="fw-bold text-white">brand pilihan lainnya</span>, yang
+                        disajikan dalam format <span class="fw-bold text-white">Omakase-style</span>. </p>
+                      <p class="t-omakase text-lightgray opposite t-medium pb-3 text-justify-custom">Melalui <span
+                          class="fw-bold text-white">3–4 course makanan dan minuman pilihan</span>, pengunjung tidak
+                        hanya mencicipi kreasi unik, tetapi juga merasakan kreativitas serta kolaborasi di balik setiap
+                        hidangan. Konsep eksklusif ini memberikan pengalaman intim dan berkesan, menjadikan The
+                        Experience Bar Toffin Booth Camp 2025 lebih dari sekadar festival F&B biasa.</p>
                       <ul class="t-omakase text-white opposite t-medium">
                         <li>Beli dan cek jadwal The Experience Bar di Toffin App</li>
                         <li>Booking in advance lebih disarankan</li>
@@ -487,12 +644,13 @@
                         <li>Omakase concept berdurasi 90 menit</li>
                       </ul>
                       <div class="text-center d-block d-xl-flex justify-content-xl-start">
-                      <a class="mt-5 downloadAppBtn btn btn-anim btn-default btn-opposite"
-                      aria-label="Unduh Toffin App sekarang melalui QR code link" style="background-color: #ffffff; color:#000000;">
-                      <img src="img/toffin-apps-logo.png" style="width:150px; margin-right:10px;">
-                      <i class="ph-bold ph-download"></i>
-                    </a>
-                    </div>
+                        <a class="mt-5 downloadAppBtn btn btn-anim btn-default btn-opposite"
+                          aria-label="Unduh Toffin App sekarang melalui QR code link"
+                          style="background-color: #ffffff; color:#000000;">
+                          <img src="img/toffin-apps-logo.png" style="width:150px; margin-right:10px;">
+                          <i class="ph-bold ph-download"></i>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -500,59 +658,59 @@
             </div>
           </div>
           <!-- Block - Images & Description Start -->
-           <!-- Section - Partners Cards Start -->
-      <div class="section padding-top-pre-title" style="padding-top: 90px;">
-        <div class="container grid-container">
+          <!-- Section - Partners Cards Start -->
+          <div class="section padding-top-pre-title" style="padding-top: 90px;">
+            <div class="container grid-container">
 
-          <!-- Block - Partners Cards Start -->
-          <div class="block">
-            <div class="partners-cards">
-              <div class="container-fluid p-0">
-                <div class="row g-0">
-                  <div class="col-12 col-xl-12 text-center pb-5">
-                  <div class="block__name">
-                    <h2 class="anim-uni-in-up text-white">Featuring With</h2>
-                  </div>
-                </div>
-                  <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
-                    <a class="partners-cards__inner" href="#0">
-                      <div class="partners-cards__logo">
-                        <img src="img/brands/makmur-jaya.png" alt="Partner Logo">
+              <!-- Block - Partners Cards Start -->
+              <div class="block">
+                <div class="partners-cards">
+                  <div class="container-fluid p-0">
+                    <div class="row g-0">
+                      <div class="col-12 col-xl-12 text-center pb-5">
+                        <div class="block__name">
+                          <h2 class="anim-uni-in-up text-white">Featuring With</h2>
+                        </div>
                       </div>
-                    </a>
-                  </div>
-                  <!-- item -->
-                  <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
-                    <a class="partners-cards__inner" href="#0">
-                      <div class="partners-cards__logo">
-                        <img src="img/brands/roti-macan.png" alt="Partner Logo">
+                      <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
+                        <a class="partners-cards__inner" href="#0">
+                          <div class="partners-cards__logo">
+                            <img src="img/brands/makmur-jaya.png" alt="Partner Logo">
+                          </div>
+                        </a>
                       </div>
-                    </a>
-                  </div>
-                  <!-- item -->
-                  <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
-                    <a class="partners-cards__inner" href="#0">
-                      <div class="partners-cards__logo">
-                        <img src="img/brands/gigi-susu.png" alt="Partner Logo">
+                      <!-- item -->
+                      <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
+                        <a class="partners-cards__inner" href="#0">
+                          <div class="partners-cards__logo">
+                            <img src="img/brands/roti-macan.png" alt="Partner Logo">
+                          </div>
+                        </a>
                       </div>
-                    </a>
-                  </div>
-                  <!-- item -->
-                  <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
-                    <a class="partners-cards__inner" href="#0">
-                      <div class="partners-cards__logo">
-                        <img src="img/brands/bali-boozy.png" alt="Partner Logo">
+                      <!-- item -->
+                      <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
+                        <a class="partners-cards__inner" href="#0">
+                          <div class="partners-cards__logo">
+                            <img src="img/brands/gigi-susu.png" alt="Partner Logo">
+                          </div>
+                        </a>
                       </div>
-                    </a>
+                      <!-- item -->
+                      <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
+                        <a class="partners-cards__inner" href="#0">
+                          <div class="partners-cards__logo">
+                            <img src="img/brands/bali-boozy.png" alt="Partner Logo">
+                          </div>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- Block - Partners Cards End -->
             </div>
           </div>
-          <!-- Block - Partners Cards End -->
-        </div>
-      </div>
-      <!-- Section - Partners Cards End -->
+          <!-- Section - Partners Cards End -->
         </div>
       </div>
       <!-- Section - Experience bar End -->
@@ -560,7 +718,8 @@
     <!-- Wrapper - Opposite Sections Experience bar End -->
 
     <!-- Wrapper - Opposite Sections Group Start -->
-    <div id="explore" class="wrapper wrapper-opposite padding-top-pre-title margin-bottom-pre-title anim-zoom-in-container">
+    <div id="explore"
+      class="wrapper wrapper-opposite padding-top-pre-title margin-bottom-pre-title anim-zoom-in-container">
       <!-- Section - Experience bar Start -->
       <div class="section padding-grid-pre-mtext">
         <div class="container grid-container">
@@ -592,8 +751,16 @@
                   <!-- deskripsi: tampil kedua di mobile -->
                   <div class="col-12 col-xl-6 values__item grid-item no-margin animate-card-2 order-2 order-xl-1 pt-3">
                     <div class="anim-uni-in-up">
-                      <p class="t-omakase text-lightgray t-medium pb-3 text-justify-custom">Area Pop-Up Market menghadirkan pengalaman menjelajah kuliner dan lifestyle dalam satu tempat. Pengunjung dapat menikmati sajian dari lebih dari <span class="fw-bold text-white">45 tenant F&B dan 10 tenant non-F&B</span>, yang menyuguhkan beragam menu mulai dari <span class="fw-bold text-white">kopi, matcha, pastry, bakery, cokelat, ice cream, hingga kudapan internasional populer seperti burger dan pizza</span>.</p>
-                      <p class="t-omakase text-lightgray t-medium pb-3 text-justify-custom">Selain berwisata rasa, pengunjung juga bisa bersantai di <span class="fw-bolder text-white">Dining Area</span> atau bermain di <span class="fw-bold text-white">Playground Area</span>, menjadikan pengalaman di Toffin Booth Camp semakin lengkap dan menyenangkan.</p>
+                      <p class="t-omakase text-lightgray t-medium pb-3 text-justify-custom">Area Pop-Up Market
+                        menghadirkan pengalaman menjelajah kuliner dan lifestyle dalam satu tempat. Pengunjung dapat
+                        menikmati sajian dari lebih dari <span class="fw-bold text-white">45 tenant F&B dan 10 tenant
+                          non-F&B</span>, yang menyuguhkan beragam menu mulai dari <span
+                          class="fw-bold text-white">kopi, matcha, pastry, bakery, cokelat, ice cream, hingga kudapan
+                          internasional populer seperti burger dan pizza</span>.</p>
+                      <p class="t-omakase text-lightgray t-medium pb-3 text-justify-custom">Selain berwisata rasa,
+                        pengunjung juga bisa bersantai di <span class="fw-bolder text-white">Dining Area</span> atau
+                        bermain di <span class="fw-bold text-white">Playground Area</span>, menjadikan pengalaman di
+                        Toffin Booth Camp semakin lengkap dan menyenangkan.</p>
                       <ul class="t-omakase text-white t-medium">
                         <li>Buka jam 10.00 WIB - 22.00 WIB</li>
                         <li>Tidak menerima transaksi tunai (cashless transaction)</li>
@@ -613,155 +780,155 @@
     <!-- Wrapper - Opposite Sections Experience bar End -->
 
     <!-- Section - Marquee Images Two Lines Start -->
-      <div class="section padding-pre-title">
-        <div class="container fullwidth-container">
-          <!-- Block - Marquee Images Two Lines Start -->
-          <div class="block">
-            <div class="marquee marquee--gsap">
-              <!-- top line -->
-              <div class="marquee__top">
-                <!-- item -->
-                <div class="marquee__item image">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri1.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri2.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri3.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri4.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri5.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri6.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri7.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri8.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri9.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri10.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/top-galeri11.jpg" >
-                  </a>
-                </div>
+    <div class="section padding-pre-title">
+      <div class="container fullwidth-container">
+        <!-- Block - Marquee Images Two Lines Start -->
+        <div class="block">
+          <div class="marquee marquee--gsap">
+            <!-- top line -->
+            <div class="marquee__top">
+              <!-- item -->
+              <div class="marquee__item image">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri1.jpg">
+                </a>
               </div>
-              <!-- bottom line -->
-              <div class="marquee__bottom">
-                <!-- item -->
-                <div class="marquee__item image">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri1.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri2.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri3.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri4.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri5.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri6.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri7.jpg" >
-                  </a>
-                </div>
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri8.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                 <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri9.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri10.jpg" >
-                  </a>
-                </div>
-                <!-- item -->
-                <div class="marquee__item">
-                  <a class="marquee__link" >
-                    <img src="img/galeri/galeri11.jpg" >
-                  </a>
-                </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri2.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri3.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri4.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri5.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri6.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri7.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri8.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri9.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri10.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/top-galeri11.jpg">
+                </a>
+              </div>
+            </div>
+            <!-- bottom line -->
+            <div class="marquee__bottom">
+              <!-- item -->
+              <div class="marquee__item image">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri1.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri2.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri3.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri4.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri5.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri6.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri7.jpg">
+                </a>
+              </div>
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri8.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri9.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri10.jpg">
+                </a>
+              </div>
+              <!-- item -->
+              <div class="marquee__item">
+                <a class="marquee__link">
+                  <img src="img/galeri/galeri11.jpg">
+                </a>
               </div>
             </div>
           </div>
-          <!-- Block - Marquee Images Two Lines End -->
         </div>
+        <!-- Block - Marquee Images Two Lines End -->
       </div>
-      <!-- Section - Marquee Images Two Lines End -->
+    </div>
+    <!-- Section - Marquee Images Two Lines End -->
 
     <!-- Section - Daftar Tenant Start -->
     <div class="section padding-pre-title">
@@ -779,6 +946,10 @@
                 <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                   <img class="p-3" src="img/brands/taralle-bakery.png">
+                </div>
+                <!-- item -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+                  <img class="p-3" src="img/brands/bluedoors.png">
                 </div>
               </div>
             </div>
@@ -862,13 +1033,13 @@
                   <img class="p-3" src="img/brands/roti-macan.png">
                 </div>
                 <!-- item -->
-                
+
                 <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                   <img class="p-3" src="img/brands/roti-macan.png">
                 </div>
                 <!-- item -->
-                
+
                 <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                   <img class="p-3" src="img/brands/gigi-susu.png">
