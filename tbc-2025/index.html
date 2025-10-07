@@ -25,10 +25,10 @@
   <!-- Custom Browser Color End -->
   <style>
     .section.hero-section.hero-fullheight {
-  min-height: 100vh !important;
-  height: auto !important;
-  position: relative;
-}
+      min-height: 100vh !important;
+      height: auto !important;
+      position: relative;
+    }
   </style>
 </head>
 
@@ -47,7 +47,7 @@
   <!-- Loader End -->
 
   <!-- Header Start -->
-  <header id="header" class="header">
+  <header class="header d-none d-md-flex">
     <!-- header logo -->
     <div class="header__logo loading__fade">
       <a href="index-main.html" class="logo">
@@ -69,40 +69,55 @@
     <div class="section hero-section hero-fullheight">
       <div class="hero-01">
         <!-- Gate Open Info -->
-        <div class="hero-gateopen position-absolute end-0 text-end d-none d-md-block"
-          style="z-index:10; top: 50px">
+        <div class="hero-gateopen position-absolute end-0 text-end d-none d-md-block" style="z-index:10; top: 50px">
           <h6 class="text-white" style="font-weight:800;">GATE OPEN</h6>
-          <h6><span style="font-weight:800; color:#ffe16a">10.00 WIB - 22.00 WIB</span> <span class="text-white"></span>
+          <h6><span style="font-weight:800; color:#ffe16a">10.00 - 22.00 WIB</span> <span class="text-white"></span>
           </h6>
         </div>
         <div class="loading-wrap">
+          <div class="hero-01__top p-0 d-block d-md-none text-center">
+            <a href="index-main.html" class="logo">
+              <!-- logo icon -->
+              <img src="img/toffin-logo.png" style="width:150px;" alt="Toffin Indonesia">
+              <div>
+                <span class="text-tbc3" style="font-size:1.1rem;">PRESENTS</span>
+              </div>
+            </a>
+          </div>
           <!-- top group -->
           <div class="hero-01__top p-0">
             <div class="hero-01__title-wrap">
-              <div class="tbc-logo" style="margin-top:80px; text-align:center;">
-                <img src="img/TBC-2025.gif" alt="Logo Toffin BoothCamp 2025"
-                  style="width:90%; max-width:600px; margin: 0 auto;">
+              <div class="tbc-logo" style="margin-top:30px; text-align:center;">
+                <video src="video/TBC-2025.mov" autoplay loop muted playsinline
+                  style="width:100%; max-width:550px; margin: 0 auto; display:block;"
+                  poster="img/TBC-2025-poster.jpg"></video>
               </div>
             </div>
           </div>
-          <div class="hero-01__top p-0">
+          <div class="hero-01__top p-0 my4-mobile">
             <div class="hero-01__title-wrap">
-              <h6 class="hero-subtitle fw-bold text-center mt-4 pb-5" style="color:#ffe16a;">
+              <h6 class="hero-subtitle fw-bold text-center my-4" style="color:#ffe16a;">
                 A FESTIVAL OF FLAVOUR & COLLABORATION
               </h6>
-              <p class="hero-subtitle fw-bold text-center" style="color:#1a2ebc;">
+              </div>
+              </div>
+          <div class="hero-01__top desc-mobile p-2 my4-mobile">
+            <div class="hero-01__title-wrap">
+              <p class="hero-subtitle fw-bold text-center my-3" style="color:#1a2ebc;">
                 27-30 <span style="color: #ffffff;">NOVEMBER 2025 |</span> BLOK M HUB <span style="color: #ffffff;">|
                   JAKARTA, INDONESIA</span>
               </p>
-              <p class="hero-subtitle fw-bold text-center text-white d-block d-md-none">GATE OPEN <span style="font-weight:800; color:#ffe16a">10.00 WIB - 22.00 WIB</span></p>
+              <div class="d-block d-md-none" style="border: solid 1px #ffaeae"></div>
+              <p class="hero-subtitle fw-bold text-center text-white d-block d-md-none my-3">GATE OPEN <span
+                  style="font-weight:800; color:#ffe16a">10.00 - 22.00 WIB </span>| <span style="color:#1a2ebc;">FREE ENTRY</span></p>
             </div>
           </div>
 
           <!-- bottom group -->
-          <div class="hero-01__bottom">
-            <div class="hero-01__data-wrap p-0">
+          <div class="hero-01__bottom my4-mobile">
+            <div class="hero-01__data-wrap p-0 order-1">
               <div>
-                <h6 class="text-white" style="font-weight:100; padding-bottom: 1.5rem;">FEATURING WITH:</h6>
+                <h6 class="text-white hero-subtitle fw-bold text-center my-4">FEATURING WITH:</h6>
                 <div class="featuring-with row g-3">
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
                     <div class="hero-05-videoblock__descr p-1">
@@ -127,8 +142,7 @@
                 </div>
               </div>
             </div>
-            <div class="loading__item">
-              <div class="hero-01__data-btn loading__fade pt-3 text-center">
+              <div class="hero-01__data-btn loading__fade pt-3 text-center order-md-1 d-none d-md-block">
                 <a class="btn-rotating btn-rotating-120-160">
                   <!-- SVG rotating text -->
                   <svg version="1.1" id="scrollDown" xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +167,6 @@
                   <img class="btn-rotating__image" src="img/free-entry.png" alt="Object">
                 </a>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -374,8 +387,8 @@
             <div class="row">
               <!-- item -->
               <div class="col-12 col-sm-6 col-md-4 col-lg-3 services-cards-s__item anim-uni-scale-in mb-5"
-                style="height: 310px;">
-                <div class="services-cards-s__inner bg-base-opp radius-l p-5" style="background-color: #e4151a;">
+                style="height: 320px;">
+                <div class="services-cards-s__inner bg-base-opp radius-l p-5" style="background-color: #e3151a;">
                   <div class="services-cards-s__title">
                     <h6 id="stats-counter-1" class="counter__number stats-number opposite text-white">0</h6>
                     <h6 class="opposite anim-uni-in-up text-white">Tenants</h6>
@@ -395,7 +408,7 @@
               </div>
               <!-- item -->
               <div class="col-12 col-sm-6 col-md-4 col-lg-3 services-cards-s__item anim-uni-scale-in mb-5"
-                style="height: 310px;">
+                style="height: 320px;">
                 <div class="services-cards-s__inner justify-end bg-base-tint radius-l p-5"
                   style="background-color: #e4151a;">
                   <div class="services-cards-s__title">
@@ -410,8 +423,8 @@
               </div>
               <!-- item -->
               <div class="col-12 col-sm-6 col-md-4 col-lg-3 services-cards-s__item anim-uni-scale-in mb-5"
-                style="height: 310px;">
-                <div class="services-cards-s__inner justify-between radius-l p-5" style="background-color: #e4151a;">
+                style="height: 320px;">
+                <div class="services-cards-s__inner justify-between radius-l p-5" style="background-color: #e3151a;">
                   <div class="services-cards-s__title">
                     <h6 id="stats-counter-3"
                       class="anim-uni-in-up text-white counter__number stats-number opposite text-white">0</h6>
@@ -419,7 +432,7 @@
                   </div>
                   <div class="services-cards-s__info">
                     <div class="services-cards-s__tags">
-                      <p class="t-small text-white fw-bold">#Makmur Jaya Roastery</p>
+                      <p class="t-small text-white fw-bold pb-0">#Makmur Jaya Roastery</p>
                       <p class="t-small text-white fw-bold">#Roti Macan</p>
                       <p class="t-small text-white fw-bold">#Gigi Susu</p>
                       <p class="t-small text-white fw-bold">#Bali Boozy</p>
@@ -438,8 +451,8 @@
               </div>
               <!-- item -->
               <div class="col-12 col-sm-6 col-md-4 col-lg-3 services-cards-s__item anim-uni-scale-in mb-5"
-                style="height: 310px;">
-                <div class="services-cards-s__inner bg-base-opp radius-l p-5" style="background-color: #e4151a;">
+                style="height: 320px;">
+                <div class="services-cards-s__inner bg-base-opp radius-l p-5" style="background-color: #e3151a;">
                   <div class="services-cards-s__title">
                     <h6 id="stats-counter-4"
                       class="anim-uni-in-up text-white counter__number stats-number opposite text-white">0</h6>
@@ -541,7 +554,7 @@
               <div class="services-stack">
                 <!-- services stack single item -->
                 <div class="stack-item">
-                  <div class="services-stack__inner showcase-inner" style="background-color: #e3161a; width:100%;">
+                  <div class="services-stack__inner showcase-inner" style="background-color: #e3151a; width:100%;">
                     <div class="services-stack__container">
                       <div class="showcase-title pb-3">
                         <h3 class="opposite text-center">Pilih tujuan mu</h3>
@@ -1093,7 +1106,7 @@
               <div class="row gx-0">
                 <!-- item -->
                 <div class="col-12 col-xl-7 stats-cards__item grid-item anim-uni-scale-in-right">
-                  <div class="stats-cards__inner bg-base-tint radius-m padding-4" style="background-color: #e3161a;">
+                  <div class="stats-cards__inner bg-base-tint radius-m padding-4" style="background-color: #e3151a;">
                     <div class="counter">
                       <h4 class=" text-white">Tiket hanya tersedia di Toffin APP, unduh aplikasinya sekarang juga</h4>
                       <div class="d-flex gap-3 mt-3 justify-content-start flex-wrap">

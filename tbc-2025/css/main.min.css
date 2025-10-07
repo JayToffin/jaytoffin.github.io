@@ -18612,7 +18612,7 @@ form textarea:required:valid {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.6rem;
     margin-bottom: 2.6rem
 }
 
@@ -22522,6 +22522,9 @@ form textarea:required:valid {
 .text-tbc3-blue{
     color: #1501A6 !important;
 }
+.bg-tbc3{
+    color: #e3151a !important;
+}
 
 /* Samakan tinggi semua card di section services-cards-s */
 .services-cards-s__item {
@@ -22587,9 +22590,9 @@ form textarea:required:valid {
   }
   .qr-modal__close {
     padding: 8px 25px;
-    border: solid 2px #e3161a;
+    border: solid 2px #e3151a;
     background: transparent;
-    color: #e3161a;
+    color: #e3151a;
     border-radius: 50px;
     cursor: pointer;
   }
@@ -22608,7 +22611,7 @@ form textarea:required:valid {
 
 
 .hero-section {
-  background: #e3161a;
+  background: #e3151a;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22776,3 +22779,28 @@ ul.t-omakase li {
       max-width: 270px;
     }
   }
+
+/* Kecilkan text hero-subtitle di mobile view */
+@media (max-width: 767.98px) {
+  .hero-subtitle {
+    font-size: 1.6rem !important;
+  }
+}
+
+/* Style desc mobile view */
+@media (max-width: 767.98px) {
+  .desc-mobile {
+    background-color: #ffffff4d !important;
+    border-radius: 25px !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Style desc mobile view */
+@media (max-width: 767.98px) {
+  .my4-mobile {
+    margin-bottom: 2rem !important;
+    margin-top: 2rem !important;
+  }
+}
