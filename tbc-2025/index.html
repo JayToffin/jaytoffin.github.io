@@ -29,6 +29,11 @@
       height: auto !important;
       position: relative;
     }
+    @media (max-width: 767px) {
+    .section.hero-section.hero-fullheight {
+      min-height: 103vh !important;
+    }
+  }
   </style>
 </head>
 
@@ -76,11 +81,11 @@
         </div>
         <div class="loading-wrap">
           <div class="hero-01__top p-0 d-block d-md-none text-center">
-            <a href="index-main.html" class="logo">
+            <a href="index-main.html" class="logo" style="flex-direction: column !important; gap:0">
               <!-- logo icon -->
               <img src="img/toffin-logo.png" style="width:150px;" alt="Toffin Indonesia">
               <div>
-                <span class="text-tbc3" style="font-size:1.1rem;">PRESENTS</span>
+                <span class="text-tbc3 fw-bold" style="font-size: 1.6rem;">PRESENTS</span>
               </div>
             </a>
           </div>
@@ -121,12 +126,12 @@
                 <div class="featuring-with row g-3">
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
                     <div class="hero-05-videoblock__descr p-1">
-                      <img src="img/brands/roti-macan.png">
+                      <img src="img/brands/gigi-susu.png">
                     </div>
                   </div>
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
                     <div class="hero-05-videoblock__descr p-1">
-                      <img src="img/brands/bali-boozy.png">
+                      <img src="img/brands/roti-macan.png">
                     </div>
                   </div>
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
@@ -136,7 +141,7 @@
                   </div>
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
                     <div class="hero-05-videoblock__descr p-1">
-                      <img src="img/brands/gigi-susu.png">
+                      <img src="img/brands/bali-boozy.png">
                     </div>
                   </div>
                 </div>
@@ -432,16 +437,17 @@
                   </div>
                   <div class="services-cards-s__info">
                     <div class="services-cards-s__tags">
-                      <p class="t-small text-white fw-bold pb-0">#Makmur Jaya Roastery</p>
-                      <p class="t-small text-white fw-bold">#Roti Macan</p>
-                      <p class="t-small text-white fw-bold">#Gigi Susu</p>
-                      <p class="t-small text-white fw-bold">#Bali Boozy</p>
-                      <p class="t-small text-white fw-bold">#Knots</p>
-                      <p class="t-small text-white fw-bold">#Bodas</p>
+                      <p class="t-small text-white fw-bold ">#Knots</p>
                       <p class="t-small text-white fw-bold">#Kissa</p>
                       <p class="t-small text-white fw-bold">#Mamitoko</p>
                       <p class="t-small text-white fw-bold">#Crio</p>
+                      <p class="t-small text-white fw-bold">#Bittersweet</p>
                       <p class="t-small text-white fw-bold">#Braud</p>
+                      <p class="t-small text-white fw-bold">#Kopi Kina</p>
+                      <p class="t-small text-white fw-bold">#Bodas</p>
+                      <p class="t-small text-white fw-bold">#Lull</p>
+                      <p class="t-small text-white fw-bold">#Kopi se-Indonesia</p>
+                      <p class="t-small text-white fw-bold">etc</p>
                     </div>
                   </div>
                   <div class="services-cards-s__image image-right">
@@ -1180,7 +1186,7 @@
 
   <!-- counters -->
   <script>
-    const statsCounter1 = new countUp.CountUp("stats-counter-1", 45, optionsPlus);
+    const statsCounter1 = new countUp.CountUp("stats-counter-1", 50, optionsPlus);
     const statsCounter2 = new countUp.CountUp("stats-counter-2", 27, optionsDecimalThree);
     const statsCounter3 = new countUp.CountUp("stats-counter-3", 10, optionsPlus);
     const statsCounter4 = new countUp.CountUp("stats-counter-4", 20, optionsPlus);
