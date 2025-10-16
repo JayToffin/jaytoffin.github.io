@@ -24,6 +24,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Custom Browser Color End -->
   <style>
+    /* Hero sizing */
     .section.hero-section.hero-fullheight {
       min-height: 100vh !important;
       height: auto !important;
@@ -34,6 +35,26 @@
       .section.hero-section.hero-fullheight {
         min-height: 103vh !important;
       }
+    }
+
+    .hero-04-marquee {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      margin-left: -50vw;
+      box-sizing: border-box;
+    }
+
+    /* ===== Mobile fallbacks ===== */
+    @media (max-width: 767px) {
+      .hero-04-marquee {
+        position: static;
+        width: 100%;
+        left: auto;
+        margin-left: 0;
+        
+      }
+
     }
   </style>
 </head>
@@ -94,9 +115,8 @@
           <div class="hero-01__top p-0">
             <div class="hero-01__title-wrap">
               <div class="tbc-logo" style="margin-top:30px; text-align:center;">
-                <video src="video/testtesttest.mov" autoplay loop muted playsinline
-                  style="width:100%; max-width:550px; margin: 0 auto; display:block;"
-                  poster="img/TBC-2025-poster.jpg"></video>
+                <img src="video/tbc-logo.gif" autoplay loop muted playsinline
+                  style="width:100%; max-width:550px; margin: 0 auto; display:block;">
               </div>
             </div>
           </div>
@@ -128,22 +148,22 @@
                 <div class="featuring-with row g-3">
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
                     <div class="hero-05-videoblock__descr p-1">
-                      <img src="img/brands/gigi-susu.png">
+                      <img src="img/big-4/gigi-susu.png">
                     </div>
                   </div>
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
                     <div class="hero-05-videoblock__descr p-1">
-                      <img src="img/brands/roti-macan.png">
+                      <img src="img/big-4/roti-macan.png">
                     </div>
                   </div>
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
                     <div class="hero-05-videoblock__descr p-1">
-                      <img src="img/brands/makmur-jaya.png">
+                      <img src="img/big-4/makmur-jaya.png">
                     </div>
                   </div>
                   <div class="col-3 col-sm-3 col-md-3 col-lg-6">
                     <div class="hero-05-videoblock__descr p-1">
-                      <img src="img/brands/bali-boozy.png">
+                      <img src="img/big-4/bali-boozy.png">
                     </div>
                   </div>
                 </div>
@@ -163,7 +183,7 @@
                   </defs>
                   <g>
                     <use xlink:href="#textPath" fill="none"></use>
-                    <text>
+                    <text>  
                       <!-- button text here!!! -->
                       <textPath xlink:href="#textPath">Free Entry * Free Entry * Free Entry * Free Entry * Free Entry
                       </textPath>
@@ -178,8 +198,7 @@
         </div>
       </div>
       <!-- Running Text -->
-      <div class="hero-checkerboard" style="position: absolute; bottom: 0; left: 0; width: 100%;">
-        <div class="hero-04-marquee mt-5 mb-4" style="position:absolute; bottom:0; left:0; width:100%;">
+       <div class="hero-04-marquee" >
           <div class="marquee marquee-right--gsap">
             <div class="marquee__toright marquee-flex">
               <div class="marquee__item item-regular text">
@@ -233,156 +252,7 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
-    <!-- Hero Section End -->
-
-
-    <!-- Hero Section Start -->
-    <!-- <div class="section" style="background-color: #e3161a; height: 100vh; display: flex; align-items: center;">
-      <div class="hero-07">
-        <div class="hero-07__wrap loading-wrap">
-          <div class="hero-07__bottom">
-            <div class="hero-07__circle mb-0">
-              <div class="hero-07-slide-out-scroll loading__item">
-                <img src="img/TBC-2025.gif" alt="Logo Toffin BoothCamp 2025" style="max-width:80%; margin: 0 auto;">
-              </div>
-              <h6 class="hero-subtitle fw-bold text-center mt-4 pb-5" style="color:#ffe16a;">
-                A FESTIVAL OF FLAVOUR & COLLABORATION
-              </h6>
-              <p class="hero-subtitle fw-bold text-center" style="color:#1a2ebc;">
-                27-30 <span style="color: #ffffff;">NOVEMBER 2025 |</span> BLOK M HUB <span style="color: #ffffff;">|
-                  JAKARTA, INDONESIA</span>
-              </p>
-            </div>
-            <div class="hero-07__info loading__fade text-center text-md-start">
-              <div class="hero-07-info__container hero-07-info__container-featuring">
-                <div class="hero-07-info__tags">
-                  <div
-                    style="position:absolute; bottom:100px; left:50px; display:flex; flex-direction:column; align-items:flex-start;">
-                    <h6 class="text-white" style="font-weight:100; padding-bottom: 1.5rem;">FEATURING WITH:</h6>
-                    <div class="row" style="padding-bottom: 1.5rem;">
-                      <div class="col-md-6 text-start" style="width: fit-content;">
-                        <div class="hero-05-videoblock__descr p-1">
-                          <img src="img/brands/roti-macan.png" style="width:120px;">
-                        </div>
-                      </div>
-                      <div class="col-md-6 text-start" style="width: fit-content;">
-                        <div class="hero-05-videoblock__descr p-1">
-                          <img src="img/brands/bali-boozy.png" style="width:120px;">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6 text-start" style="width: fit-content;">
-                        <div class="hero-05-videoblock__descr p-1">
-                          <img src="img/brands/makmur-jaya.png" style="width:120px;">
-                        </div>
-                      </div>
-                      <div class="col-md-6 text-start" style="width: fit-content;">
-                        <div class="hero-05-videoblock__descr p-1">
-                          <img src="img/brands/gigi-susu.png" style="width:120px;">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="hero-07-info__container">
-                <div class="hero-07-info__tags right-align-desktop">
-                  <h6 class="text-white" style="font-weight:800;">GATE OPEN</h6>
-                  <h6><span style="font-weight:800; color:#ffe16a">10.00 WIB - 22.00 WIB</span> <span
-                      class="text-white"></span></h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hero-07__more loading__fade">
-            <div class="hero-01__data-btn loading__fade text-tbc3">
-              <a href="#projects" class="btn-rotating btn-rotating-120-160">
-            
-                <svg version="1.1" id="scrollDown" xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160 160"
-                  style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px) rotate(327.138deg);"
-                  xml:space="preserve" class="btn-rotating__text animate-rotation" data-value="360">
-                  <defs>
-                    <path id="textPath"
-                      d="M149.7,80c0,38.5-31.2,69.7-69.7,69.7S10.3,118.5,10.3,80S41.5,10.3,80,10.3S149.7,41.5,149.7,80z">
-                    </path>
-                  </defs>
-                  <g>
-                    <use xlink:href="#textPath" fill="none"></use>
-                    <text>
-                   
-                      <textPath xlink:href="#textPath">Free Entry * Free Entry * Free Entry * Free Entry * Free Entry
-                        * </textPath>
-                    </text>
-                  </g>
-                </svg>
-                <img class="btn-rotating__image" src="img/free-entry.png" alt="Object">
-              </a>
-            </div>
-          </div>
-          <div class="hero-07__tl-trigger"></div>
-        </div>
-      </div>
-      <div class="hero-checkerboard" style="position: absolute; bottom: 0; left: 0; width: 100%;">
-        <div class="hero-04-marquee mt-5" style="position:absolute; bottom:0; left:0; width:100%;">
-          <div class="marquee marquee-right--gsap">
-            <div class="marquee__toright marquee-flex">
-              <div class="marquee__item item-regular text">
-                <p>POP UP MARKET</p>
-                <img src="img/runtext-cocktail.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>COFFEE</p>
-                <img src="img/runtext-cup.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>MATCHA</p>
-                <img src="img/runtext-dessert.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>COCKTAILS</p>
-                <img src="img/runtext-gelas.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>MOCKTAILS</p>
-                <img src="img/runtext-mug.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>PASTRY</p>
-                <img src="img/runtext-cocktail.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>BAKERY</p>
-                <img src="img/runtext-cup.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>TRADITIONAL CAKE</p>
-                <img src="img/runtext-dessert.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>CHOCOLATE</p>
-                <img src="img/runtext-gelas.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>BURGER</p>
-                <img src="img/runtext-mug.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>PIZZA</p>
-                <img src="img/runtext-cocktail.png" style="width:40px; height:auto;">
-              </div>
-              <div class="marquee__item item-regular text">
-                <p>EXPERIENCE BAR</p>
-                <img src="img/runtext-dessert.png" style="width:40px; height:auto;">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <!-- Hero Section End -->
 
     <!-- Section - Services Cards Start -->
@@ -513,7 +383,7 @@
                 <div class="col-12 col-md services-cards-s__item grid-item anim-uni-scale-in">
                   <div class="hero-05__videoblock loading__item">
                     <div class="hero-05-videoblock__video">
-                      <video preload="auto" autoplay loop muted poster="video/1280x720_video-01.webp" playsinline
+                      <video preload="auto" autoplay loop muted playsinline
                         webkit-playsinline="true" disablePictureInPicture
                         controlslist="nodownload nofullscreen noremoteplayback">
                         <source type="video/mp4" src="video/venue.mp4">
@@ -696,7 +566,7 @@
                       <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
                         <a class="partners-cards__inner" href="#0">
                           <div class="partners-cards__logo">
-                            <img src="img/brands/makmur-jaya.png" alt="Partner Logo">
+                            <img src="img/big-4/gigi-susu.png" alt="Partner Logo">
                           </div>
                         </a>
                       </div>
@@ -704,7 +574,7 @@
                       <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
                         <a class="partners-cards__inner" href="#0">
                           <div class="partners-cards__logo">
-                            <img src="img/brands/roti-macan.png" alt="Partner Logo">
+                            <img src="img/big-4/roti-macan.png" alt="Partner Logo">
                           </div>
                         </a>
                       </div>
@@ -712,7 +582,7 @@
                       <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
                         <a class="partners-cards__inner" href="#0">
                           <div class="partners-cards__logo">
-                            <img src="img/brands/gigi-susu.png" alt="Partner Logo">
+                            <img src="img/big-4/makmur-jaya.png" alt="Partner Logo">
                           </div>
                         </a>
                       </div>
@@ -720,7 +590,7 @@
                       <div class="col-6 col-md-6 col-xl-3 partners-cards__item grid-item animate-card-4">
                         <a class="partners-cards__inner" href="#0">
                           <div class="partners-cards__logo">
-                            <img src="img/brands/bali-boozy.png" alt="Partner Logo">
+                            <img src="img/big-4/bali-boozy.png" alt="Partner Logo">
                           </div>
                         </a>
                       </div>
@@ -966,11 +836,11 @@
                 </div>
                 <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/taralle-bakery.png">
+                  <img class="p-3" src="img/tenant/bluedoors.png">
                 </div>
                 <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/bluedoors.png">
+                  <img class="p-3" src="img/tenant/taralle-bakery.png">
                 </div>
               </div>
             </div>
@@ -996,29 +866,12 @@
                 </div>
                 <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/gigi-susu.png">
+                  <img class="p-3" src="img/partner-sponsor/arayaindo.png">
                 </div>
                 <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/makmur-jaya.png">
+                  <img class="p-3" src="img/partner-sponsor/fingerdex.png">
                 </div>
-                <!-- item -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/roti-macan.png">
-                </div>
-                <!-- item -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/gigi-susu.png">
-                </div>
-                <!-- item -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/makmur-jaya.png">
-                </div>
-                <!-- item -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/roti-macan.png">
-                </div>
-                <!-- item -->
               </div>
             </div>
           </div>
@@ -1041,34 +894,18 @@
                     <h2 class="anim-uni-in-up text-black">Powered By</h2>
                   </div>
                 </div>
-                <!-- item -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/gigi-susu.png">
+                <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+                  <img class="p-3" src="img/big-4/gigi-susu.png">
                 </div>
-                <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/makmur-jaya.png">
+                  <img class="p-3" src="img/big-4/makmur-jaya.png">
                 </div>
-                <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/roti-macan.png">
+                  <img class="p-3" src="img/big-4/roti-macan.png">
                 </div>
-                <!-- item -->
-
-                <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/roti-macan.png">
-                </div>
-                <!-- item -->
-
-                <!-- item -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/gigi-susu.png">
-                </div>
-                <!-- item -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/makmur-jaya.png">
-                </div>
+                  <img class="p-3" src="img/big-4/roti-macan.png">
+                </div> -->
               </div>
             </div>
           </div>
@@ -1079,9 +916,8 @@
     <!-- Section - Services Cards End -->
 
     <!-- Section - About Start -->
-    <div class="section padding-pre-title">
+    <!-- <div class="section padding-pre-title">
       <div class="container">
-        <!-- Block - Partners Cards Start -->
         <div class="block pt-5">
           <div class="partners-cards">
             <div class="container">
@@ -1091,17 +927,15 @@
                     <h2 class="anim-uni-in-up text-black">Bank Partner</h2>
                   </div>
                 </div>
-                <!-- item -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-                  <img class="p-3" src="img/brands/ocbc.png">
+                  <img class="p-3" src="img/bank-partner/ocbc.png">
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- Block - Partners Cards End -->
       </div>
-    </div>
+    </div> -->
     <!-- Section - Services Cards End -->
 
     <!-- Section - Download app Start -->
@@ -1146,7 +980,6 @@
       </div>
     </div>
     <!-- Section - Download app End -->
-
   </main>
   <!-- Page Content End -->
 
@@ -1223,5 +1056,4 @@
   </script>
 
 </body>
-
 </html>
