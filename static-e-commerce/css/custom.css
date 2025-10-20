@@ -690,3 +690,84 @@
     margin-bottom: 0;
   }
 }
+
+
+/* TOFFIN POINTS */
+.tab-content-point {
+  border-radius: 10px;box-shadow: 0 1px 4px rgba(141, 150, 170, 0.4);
+    border-radius: 10px;
+}
+.debit{
+  color: #00de07;
+  font-weight: 700;
+}
+.credit{
+  color: #de0000;
+  font-weight: 700;
+}
+.box-point{
+    border-radius: 15px;
+    border: solid 1px #e9e9e9;
+    padding: 15px;
+}
+.tab-myaccount{
+    flex-wrap: nowrap; 
+    white-space: nowrap; 
+    overflow: auto; background: white;
+    border-radius: 15px;
+    border: solid 1px #e9e9e9;
+    padding: 10px;
+}
+
+
+.point-datepicker{
+  height: 44px !important;
+  border-radius: 5px;
+}
+
+
+input[type="checkbox"].switch{
+  appearance: none;
+  width: 3.5em;
+  height: 1.5em;
+  background: #ddd;
+  border-radius: 3em;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"].switch:checked{
+  background: #ffa45c;
+}
+
+input[type="checkbox"].switch:after{
+  position: absolute;
+  content: "";
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 .25em rgba(0,0,0,.3);
+  transform: scale(.7);
+  left: 0;
+  transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"].switch:checked:after{
+  left: calc(100% - 1.5em);
+}
+
+.switch-point{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-tfn-point{
+    border: solid 1px #ffa45c;
+    border-radius: 15px;
+    padding: 10px;
+    background: #fff1e7;
+}

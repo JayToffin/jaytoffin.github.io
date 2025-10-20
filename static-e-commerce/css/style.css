@@ -15812,7 +15812,7 @@ a:active {
 }
 
 .shopping-cart-wrap .cart-total-amount .cart-total-amount-inner .amount-no {
-  color: #000;
+  /* color: #000; */
   font-weight: 700;
 }
 

@@ -32,4 +32,12 @@
     , 0)
 }());
 
-
+// Filter points datepicker
+var date = new Date();
+var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+$('#point-date, #datePicker')
+  .datepicker({
+    dateFormat: 'dd/mm/yy'
+  })
+  .datepicker('setDate', null)
+  .attr('placeholder', 'dd/mm/yyyy');

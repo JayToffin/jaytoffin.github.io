@@ -181,6 +181,7 @@
   <!-- END nav -->
 
   <section class="ftco-section ftco-no-pb pt-3 bg-light">
+
     <div class="container">
       <div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -202,7 +203,6 @@
         </div>
         <form id="contactForm" name="contact" role="form">
           <div class="modal-body">
-
             <div class="row align-items-end">
               <div class="col-md-12">
                 <div class="form-group">
@@ -210,12 +210,9 @@
                   <input type="text" class="form-control" placeholder="">
                 </div>
               </div>
-
-
             </div>
           </div>
           <div class="modal-footer">
-
             <button class="btn btn-lg btn-primary btn-block text-uppercase" data-toggle="modal" data-target="#resetpass"
               data-dismiss="modal" type="submit"
               style="border-radius: 0% !important; margin: 0 auto; width: fit-content;">Kirim</button>
@@ -253,7 +250,9 @@
       <div class="row">
         <div class="col-lg-12 col-xl-12">
           <div class="card-box">
-            <ul class="nav nav-pills navtab-bg tab-myaccount">
+            <ul class="nav nav-pills navtab-bg p-2" style="border: #e5e7e9 1px solid;
+  border-radius: 15px; flex-wrap: nowrap; white-space: nowrap; overflow: auto; background: white;">
+
               <li class="nav-item">
                 <a href="#settings" data-toggle="tab" aria-expanded="false" class="nav-link ml-0 active"
                   style="border-radius: 10px !important;">
@@ -298,6 +297,7 @@
               </li>
             </ul>
             <div class="mb-3 text-uppercase bg-light p-2"></div>
+
             <div class="tab-content">
 
               <!-- start content daftar alamat -->
@@ -700,12 +700,191 @@
               </div>
               <!-- end settings content-->
 
+
+              <!-- start content favorite -->
+              <div class="tab-pane ftco-animate" id="favorite">
+                <form>
+                  <div class="row">
+
+                    <div class="col-sm-6 col-md-6 col-lg-3 ftco-animate">
+                      <div class="product">
+                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+                            alt="Colorlib Template"></a>
+                        <div class="overlay"></div>
+                        <p class="product__list__item2--icons" style="margin-bottom: 0px;">
+                          <span id="addtocart"><a href=" "><i id="heart--liked2" style="float: right; "
+                                class="fas fa-heart fa-2x"></i></a></span>
+                        </p>
+                        <div class="text py-3 px-3" style="text-align: left; height: 150px">
+                          <h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
+                          <div class="d-flex">
+                            <div class="pricing" style="width: 100%;">
+                              <p class="price">
+                                <p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+                                    250.000.000</span></p>
+                                <span class="price-sale"><strong>Rp 230.000.000</strong></span>
+                              </p>
+                            </div>
+                          </div>
+                          <p class="bottom-area d-flex px-3">
+                            <a href="#" class="add-to-cart text-center py-2 mr-1" onclick="myFavorite()"><span>Add to
+                                cart <i class="ion-ios-add ml-1"></i></span></a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6 col-lg-3 ftco-animate">
+                      <div class="product">
+                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+                            alt="Colorlib Template"></a>
+                        <div class="overlay"></div>
+                        <p class="product__list__item2--icons" style="margin-bottom: 0px;">
+                          <span id="addtocart"><a href=" "><i id="heart--liked2" style="float: right; "
+                                class="fas fa-heart fa-2x"></i></a></span>
+                        </p>
+                        <div class="text py-3 px-3" style="text-align: left; height: 150px">
+                          <h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
+                          <div class="d-flex">
+                            <div class="pricing" style="width: 100%;">
+                              <p class="price">
+                                <p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+                                    250.000.000</span></p>
+                                <span class="price-sale"><strong>Rp 230.000.000</strong></span>
+                              </p>
+                            </div>
+                          </div>
+                          <p class="bottom-area d-flex px-3">
+                            <a href="#" class="add-to-cart text-center py-2 mr-1" onclick="myFavorite()"><span>Add to
+                                cart <i class="ion-ios-add ml-1"></i></span></a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6 col-lg-3 ftco-animate">
+                      <div class="product">
+                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+                            alt="Colorlib Template"></a>
+                        <div class="overlay"></div>
+                        <p class="product__list__item2--icons" style="margin-bottom: 0px;">
+                          <span id="addtocart"><a href=" "><i id="heart--liked2" style="float: right; "
+                                class="fas fa-heart fa-2x"></i></a></span>
+                        </p>
+                        <div class="text py-3 px-3" style="text-align: left; height: 150px">
+                          <h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
+                          <div class="d-flex">
+                            <div class="pricing" style="width: 100%;">
+                              <p class="price">
+                                <p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+                                    250.000.000</span></p>
+                                <span class="price-sale"><strong>Rp 230.000.000</strong></span>
+                              </p>
+                            </div>
+                          </div>
+                          <p class="bottom-area d-flex px-3">
+                            <a href="#" class="add-to-cart text-center py-2 mr-1" onclick="myFavorite()"><span>Add to
+                                cart <i class="ion-ios-add ml-1"></i></span></a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 ftco-animate">
+                      <div class="product">
+                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+                            alt="Colorlib Template"></a>
+                        <div class="overlay"></div>
+                        <p class="product__list__item2--icons" style="margin-bottom: 0px;">
+                          <span id="addtocart"><a href=" "><i id="heart--liked2" style="float: right; "
+                                class="fas fa-heart fa-2x"></i></a></span>
+                        </p>
+                        <div class="text py-3 px-3" style="text-align: left; height: 150px">
+                          <h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
+                          <div class="d-flex">
+                            <div class="pricing" style="width: 100%;">
+                              <p class="price">
+                                <p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+                                    250.000.000</span></p>
+                                <span class="price-sale"><strong>Rp 230.000.000</strong></span>
+                              </p>
+                            </div>
+                          </div>
+                          <p class="bottom-area d-flex px-3">
+                            <a href="#" class="add-to-cart text-center py-2 mr-1" onclick="myFavorite()"><span>Add to
+                                cart <i class="ion-ios-add ml-1"></i></span></a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+
+                    <div class="col-sm-6 col-md-6 col-lg-3 ftco-animate">
+                      <div class="product">
+                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+                            alt="Colorlib Template"></a>
+                        <div class="overlay"></div>
+                        <p class="product__list__item2--icons" style="margin-bottom: 0px;">
+                          <span id="addtocart"><a href=" "><i id="heart--liked2" style="float: right; "
+                                class="fas fa-heart fa-2x"></i></a></span>
+                        </p>
+                        <div class="text py-3 px-3" style="text-align: left; height: 150px">
+                          <h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judskeul Panjang</a></h3>
+                          <div class="d-flex">
+                            <div class="pricing" style="width: 100%;">
+                              <p class="price">
+                                <p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+                                    250.000.000</span></p>
+                                <span class="price-sale"><strong>Rp 230.000.000</strong></span>
+                              </p>
+                            </div>
+                          </div>
+                          <p class="bottom-area d-flex px-3">
+                            <a href="#" class="add-to-cart text-center py-2 mr-1" onclick="myFavorite()"><span>Add to
+                                cart <i class="ion-ios-add ml-1"></i></span></a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6 col-lg-3 ftco-animate">
+                      <div class="product">
+                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"
+                            alt="Colorlib Template"></a>
+                        <div class="overlay"></div>
+                        <p class="product__list__item2--icons" style="margin-bottom: 0px;">
+                          <span id="addtocart"><a href=" "><i id="heart--liked2" style="float: right; "
+                                class="fas fa-heart fa-2x"></i></a></span>
+                        </p>
+                        <div class="text py-3 px-3" style="text-align: left; height: 150px">
+                          <h3><a href="#">Nuova Simoneli Appia Life 2 group (Red) Judul Panjang</a></h3>
+                          <div class="d-flex">
+                            <div class="pricing" style="width: 100%;">
+                              <p class="price">
+                                <p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
+                                    250.000.000</span></p>
+                                <span class="price-sale"><strong>Rp 230.000.000</strong></span>
+                              </p>
+                            </div>
+                          </div>
+                          <p class="bottom-area d-flex px-3">
+                            <a href="#" class="add-to-cart text-center py-2 mr-1" onclick="myFavorite()"><span>Add to
+                                cart <i class="ion-ios-add ml-1"></i></span></a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- end settings content-->
+
               <!-- start content daftar alamat -->
               <div class="tab-pane" id="toffin-points">
                 <div class="row">
                   <div class="col-md-5 ftco-animate">
                     <div class="blog-entry align-self-stretch d-md-flex">
-                      <div class="col-md-12 sidebar-box box-point">
+                      <div class="col-md-12 sidebar-box">
                         <div class="text d-flex align-items-start" style="padding: 10px;">
                           <img src="images/icon-toffin-points.png" alt="" style="width: 30px; margin-right: 10px;">
                           <div>
@@ -721,9 +900,9 @@
                   </div>
                   <div class="col-md-7 ftco-animate">
                     <div class="blog-entry align-self-stretch d-md-flex">
-                      <div class="col-md-12 sidebar-box box-point">
+                      <div class="col-md-12 sidebar-box">
                         <div class="card-box">
-                          <ul class="nav nav-pills navtab-bg" style="background: white; align-items: center;">
+                          <ul class="nav nav-pills navtab-bg" style="background: white;">
                             <li class="nav-item">
                               <a href="#tab1" data-toggle="tab" class="nav-link active"
                                 style="border-radius: 10px !important;">
@@ -735,13 +914,6 @@
                                 style="border-radius: 10px !important;">
                                 Akan Kedaluwarsa
                               </a>
-                            </li>
-                            <li class="ml-auto nav-item d-flex align-items-center">
-                              <!-- Filter di kanan -->
-                              <button type="submit" class="btn btn-primary" title="Filter" data-toggle="modal"
-                                data-target="#filter-points" style="border-radius: 10px !important;">
-                                <i class="fas fa-sliders-h"></i>
-                              </button>
                             </li>
                           </ul>
                         </div>
@@ -2151,89 +2323,6 @@
     </div>
   </footer>
 
-  <!-- start modal filter-->
-  <div id="filter-points" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5>Filter</h5>
-          <a class="close" data-dismiss="modal">×</a>
-        </div>
-        <form id="filterForm" name="" role="form">
-          <div class="modal-body">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-md-12 ftco-animate">
-                  <div class=" pb-4">
-                    <span class="head-detail">Point</span>
-                    <div>
-                      <label for="b-option" class="l-radio">
-                        <input type="radio" id="b-option" name="selector">
-                        <span>Poin Diperoleh</span>
-                      </label>
-                      <label for="a-option" class="l-radio">
-                        <input type="radio" id="a-option" name="selector" tabindex="2">
-                        <span>Poin Ditukarkan</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class=" pb-4">
-                    <span class="head-detail">Tanggal</span>
-                    <div>
-                      <label for="b-option" class="l-radio">
-                        <input type="radio" id="b-option" name="selector">
-                        <span>Hari Ini</span>
-                      </label>
-                      <label for="a-option" class="l-radio">
-                        <input type="radio" id="a-option" name="selector" tabindex="2">
-                        <span>Bulan Ini</span>
-                      </label>
-                      <label for="a-option" class="l-radio">
-                        <input type="radio" id="a-option" name="selector" tabindex="2">
-                        <span>Tahun Ini</span>
-                      </label>
-                    </div>
-                  </div>
-                      <div class=" pb-4">
-                        <span class="head-detail">Pilih Tanggal Sendiri</span>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div id="date-start" class="form-group">
-                              <label for="point-date">Mulai</label>
-                              <div class="input-group">
-                                <input id="point-date" type="text" class="form-control point-datepicker"
-                                  placeholder="dd/mm/yyyy" value="">
-                                <div class="input-group-append">
-                                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div id="date-end" class="form-group">
-                              <label for="point-date">Akhir</label>
-                              <div class="input-group">
-                                <input id="point-date" type="text" class="form-control point-datepicker"
-                                  placeholder="dd/mm/yyyy" value="">
-                                <div class="input-group-append">
-                                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                       
-                      
-                    </div>
-                  </div>
-                  <div class="modal-footer text-center">
-                    <button class="reset-fil btn btn-secondary py-2 px-4">Reset</button>
-                    <button class="reset-fil btn btn-primary py-2 px-4">Apply Filter</button>
-                  </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
@@ -2260,8 +2349,6 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/custom.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js">
-  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
