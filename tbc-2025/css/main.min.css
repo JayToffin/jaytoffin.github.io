@@ -2799,14 +2799,15 @@ p.t-semibold {
 }
 
 .btn-default {
-    height: 5.6rem;
+    height: 4.5rem;
     line-height: 5.6rem;
     gap: 1.2rem;
     padding: 0 2.2rem;
     -moz-border-radius: 2.8rem;
     border-radius: 2.8rem;
     border-width: 2px;
-    font: normal var(--fw-medium) 2.2rem/1.5 var(--_font-accent)
+    font-size: 20px;
+    font-weight: var(--fw-semibold)
 }
 
 .btn-default .btn-caption,
@@ -18832,7 +18833,7 @@ form textarea:required:valid {
     position: relative;
     width: 100%;
     height: 2px;
-    background-color: var(--st-bright)
+    background-color: #424242
 }
 
 .cpb-list__content {
@@ -18849,13 +18850,13 @@ form textarea:required:valid {
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 3rem 0 3.5rem 0;
+    padding: 1rem 0 1rem 0;
     overflow: hidden
 }
 
 @media only screen and (min-width:1200px) {
     .cpb-list__content {
-        padding: 3rem 0
+        padding: 1rem 0
     }
 }
 
@@ -21600,8 +21601,8 @@ form textarea:required:valid {
 
 @media only screen and (min-width:1200px) {
     .pricing-table__inner {
-        height: 100%;
-        padding: 4rem
+        /* height: 100%; */
+        padding: 3rem
     }
 }
 
