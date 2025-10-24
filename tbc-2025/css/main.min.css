@@ -2938,8 +2938,8 @@ p.t-semibold {
 }
 
 .btn-round-small {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     border-width: 1px
 }
 
@@ -3008,8 +3008,8 @@ p.t-semibold {
 .btn-outline {
     background-color: transparent;
     border-style: solid;
-    border-color: var(--st-bright--light);
-    color: var(--t-bright--light)
+    border-color: #e3151a;
+    color: #e3151a;
 }
 
 .btn-outline.opposite {
@@ -21580,7 +21580,7 @@ form textarea:required:valid {
     -moz-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     width: 100%;
     background-color: var(--base-tint);
     -moz-border-radius: var(--_radius-m);
@@ -21601,7 +21601,7 @@ form textarea:required:valid {
 
 @media only screen and (min-width:1200px) {
     .pricing-table__inner {
-        /* height: 100%; */
+        height: 100%;
         padding: 3rem
     }
 }
@@ -22795,3 +22795,40 @@ ul.t-omakase li {
     margin-top: 2rem !important;
   }
 }
+
+.foto-co-creation {
+  border-radius: 20px;
+}
+
+.swiper-testimonials__controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* kiri & kanan */
+  align-items: center;
+  transform: translateY(-50%);
+  padding: 0 10px; /* jarak dari tepi */
+  z-index: 10;
+}
+
+/* tombol */
+.swiper-testimonials__controls .slider-btn {
+  background: rgba(179, 179, 179, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.swiper-testimonials__controls .slider-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* hilangkan efek margin default dari btn a */
+.swiper-testimonials__controls a.btn {
+  margin: 0;
+}
+
