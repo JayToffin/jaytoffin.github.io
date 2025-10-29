@@ -769,5 +769,12 @@ input[type="checkbox"].switch:checked:after{
     border: solid 1px #ffa45c;
     border-radius: 15px;
     padding: 10px;
-    background: #fff1e7;
+    background: #fff1e7 !important;
+}
+
+.info-discount{
+    border: solid 1px #08b34b;
+    border-radius: 15px;
+    padding: 10px;
+    background: #ccffe3;
 }
