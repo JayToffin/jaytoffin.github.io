@@ -24,3 +24,78 @@
 .justify-content {
   justify-content: center !important;
 }
+
+.hero-accent-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-left: 25px; /* jarak teks dari garis */
+}
+
+.hero-accent-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: -50px;
+  width: 100px;
+  height: 120%;
+  background-color: #f8501d; /* warna aksen */
+}
+
+/* --- Accent Styling --- */
+.accent-top-left,
+.accent-bottom-right {
+  position: absolute;
+  width: 200px; /* sesuaikan ukuran */
+  pointer-events: none;
+}
+
+/* Posisi kiri atas gambar Dinamica */
+.team-details__thumb {
+  position: relative;
+}
+.accent-top-left {
+  top: -40px;
+}
+
+/* Posisi kanan bawah deskripsi Dinamica */
+.team-details__content111 {
+  position: relative;
+  z-index: 1; /* pastikan teks tetap di atas */
+}
+
+.team-details__content111 p,
+.team-details__content111 h5 {
+  position: relative;
+  z-index: 2; /* teks di atas aksen */
+}
+
+.accent-bottom-right {
+  bottom: -40px;
+  right: -60px;
+}
+.team-details__thumb img.w-100 {
+  position: relative;
+  z-index: 2; /* mesin di atas */
+}
+
+.accent-top-left {
+  z-index: 1; /* di bawah mesin, tapi masih di atas background section */
+}
+
+.accent-bottom-right {
+  position: absolute;
+  bottom: -40px;   /* sesuaikan posisi vertikal */
+  right: -60px;    /* sesuaikan posisi horizontal */
+  width: 200px;    /* ukuran aksen */
+  z-index: 1;      /* di belakang teks tapi di atas background */
+  pointer-events: none;
+}
+
+.accent-artboard2 {
+  position: absolute;
+  top: -40px;
+  left: 30%;
+  width: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
