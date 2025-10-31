@@ -27,7 +27,6 @@
 
 .hero-accent-wrapper {
   position: relative;
-  display: inline-block;
   padding-left: 25px; /* jarak teks dari garis */
 }
 
@@ -98,4 +97,63 @@
   width: 50px;
   z-index: 2;
   pointer-events: none;
+}
+
+/* Orange accent bar under Technical Features */
+.technical-feature-artboard {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 600px;
+  height: 50px;
+  background-color: #f5511e; /* warna oranye */
+  z-index: 1;      /* di belakang teks tapi di atas background */
+  pointer-events: none;
+}
+
+/* Responsive layout for mobile view */
+@media (max-width: 768px) {
+  .technical-feature-artboard {
+    width: 90%;      /* artboard lebih pendek agar sesuai layar kecil */
+    height: 30px;    /* sedikit lebih tipis */
+    top: 25px;       /* jarak dari atas lebih kecil */
+  }
+
+  .quanto__header h3.title {
+    position: relative;
+    letter-spacing: 1px;
+    z-index: 2;       /* tetap di depan artboard */
+  }
+}
+
+/* Orange background block behind contact text */
+.quanto-contact__content {
+  position: relative;
+}
+
+
+.contact-orange-block::before {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: -50px;
+  width: 80px;
+  height: 120%;
+  background-color: #f8501d; /* warna aksen */
+}
+
+.quanto-contact__content .title {
+  position: relative;
+  z-index: 2; /* pastikan teks di depan blok */
+}
+
+/* Responsive layout for mobile view */
+@media (max-width: 768px) {
+  .contact-orange-block {
+    top: -20px;
+    left: 5%;
+    width: 90%;
+  }
+
+  
 }
