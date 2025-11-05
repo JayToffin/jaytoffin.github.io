@@ -577,7 +577,7 @@
 }
 
 
-
+/* Chat Widget AI & WA Toggle */
 /* Chat Widget AI & WA Toggle */
 #chat-toggle {
   position: fixed;
@@ -661,6 +661,8 @@
   font-size: 16px;
   cursor: pointer;
 }
+/* Chat Widget AI & WA Toggle */
+/* Chat Widget AI & WA Toggle */
 
 /* Responsive: kecilkan image dan judul di mobile */
 @media (max-width: 767.98px) {
@@ -691,7 +693,7 @@
   }
 }
 
-
+/* TOFFIN POINTS */
 /* TOFFIN POINTS */
 .tab-content-point {
   border-radius: 10px;box-shadow: 0 1px 4px rgba(141, 150, 170, 0.4);
@@ -719,12 +721,10 @@
     padding: 10px;
 }
 
-
 .point-datepicker{
   height: 44px !important;
   border-radius: 5px;
 }
-
 
 input[type="checkbox"].switch{
   appearance: none;
@@ -772,9 +772,103 @@ input[type="checkbox"].switch:checked:after{
     background: #fff1e7 !important;
 }
 
+/* Styling khusus checkbox di transaksi belum terbayar */
+.custom-check {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ffa45c;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  outline: none;
+}
+
+/* Hover efek lembut */
+.custom-check:hover {
+  box-shadow: 0 0 8px #e3a2154d;
+  transform: scale(1.05);
+}
+
+/* Saat dicentang */
+.custom-check:checked {
+  background-color: #ffa45c;
+  border-color: #ffa45c;
+}
+
+/* Tambahkan tanda centang putih */
+.custom-check:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.text-orange {
+		color: #FFA500;
+		font-weight: bold;
+	}
+.text-red {
+		color: #FF0000;
+		font-weight: bold;
+}
+/* TOFFIN POINTS */
+/* TOFFIN POINTS */
+
+
 .info-discount{
     border: solid 1px #08b34b;
     border-radius: 15px;
     padding: 10px;
     background: #ccffe3;
+}
+.info-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  padding: 3px 0;
+}
+
+.label {
+  padding-right: 10px;
+}
+
+.value {
+  text-align: right;
+}
+
+.order-card {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(141, 150, 170, 0.4);
+}
+
+.order-card img {
+  width: 75px;
+  height: 75px;
+}
+
+.icon-belanja{
+  width: 25px !important;
+  height: 25px !important;
+}
+
+@media (max-width: 768px) {
+  .order-card {
+    padding: 15px;
+  }
+  .order-card .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .order-card .btn {
+    width: 100%;
+  }
 }

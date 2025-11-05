@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from preview.colorlib.com/theme/winkel/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2020 04:18:37 GMT -->
-
 <head>
-  <title>Winkel - Free Bootstrap 4 Template by Colorlib</title>
+  <title>Toffin Ecommerce</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
-
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
-
   <link rel="stylesheet" href="css/aos.css">
-
   <link rel="stylesheet" href="css/ionicons.min.css">
-
   <link rel="stylesheet" href="css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
   <link rel="stylesheet" href="css/flaticon.css">
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/custom.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-    integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 </head>
 
 <body class="goto-here">
+  <!-- Chat Widget Button -->
+	<button id="chat-toggle">💬</button>
+	<div id="chat-widget">
+		<div id="choice-page" class="page-widget-ai">
+			<div class="header-widget-ai"><span>Toffin Smart Assistan</span><button onclick="toggleChat()"><span
+						class="icon-close"></span></button></div>
+			<div class="container pt-3">
+				<a href="chat-ai.html" class="chat-option">
+					<img src="images/AI-logo.png" alt="AI Chat" class="chat-icon">
+					<div class="chat-text">
+						<div class="chat-title">Personal Toffin AI Assistant 2.0</div>
+						<div class="chat-desc">AI asisten untuk setiap langkah bisnis F&B Anda</div>
+					</div>
+				</a>
+			</div>
+			<div class="container p-3">
+				<a href="https://wa.me/628119983378" target="_blank" class="chat-option">
+					<img src="images/whatsapp.png" alt="WhatsApp" class="chat-icon">
+					<div class="chat-text">
+						<div class="chat-title">Contact Customer Service</div>
+						<div class="chat-desc">Layanan pelanggan untuk dukungan Anda</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
@@ -44,11 +56,9 @@
         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
-
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Category </a>
             <ul class="dropdown-menu">
@@ -141,15 +151,10 @@
                   <li><a class="dropdown-item" href="category/other-equipment/drink-mixer.html"> Drink Mixer</a></li>
                 </ul>
               </li>
-
-
             </ul>
           </li>
-
           <li class="nav-item"><a href="brand.html" class="nav-link">Brand</a></li>
-
           <li class="nav-item"><a href="promotion.html" class="nav-link">Promotion</a></li>
-
           <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span
                 class="icon-shopping_cart"></span>[0]</a></li>
 
@@ -192,7 +197,7 @@
     </div>
   </section>
 
-  <!-- start modal-->
+  <!-- start modal ubah kata sandi-->
   <div id="resetpass1" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -202,7 +207,6 @@
         </div>
         <form id="contactForm" name="contact" role="form">
           <div class="modal-body">
-
             <div class="row align-items-end">
               <div class="col-md-12">
                 <div class="form-group">
@@ -210,12 +214,9 @@
                   <input type="text" class="form-control" placeholder="">
                 </div>
               </div>
-
-
             </div>
           </div>
           <div class="modal-footer">
-
             <button class="btn btn-lg btn-primary btn-block text-uppercase" data-toggle="modal" data-target="#resetpass"
               data-dismiss="modal" type="submit"
               style="border-radius: 0% !important; margin: 0 auto; width: fit-content;">Kirim</button>
@@ -225,7 +226,7 @@
     </div>
   </div>
 
-  <!-- start modal-->
+  <!-- start modal hapus akun-->
   <div id="hapus-akun" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -233,12 +234,10 @@
           <h5>Hapus Akun</h5>
           <a class="close" data-dismiss="modal">×</a>
         </div>
-
         <div class="modal-body">
           <p>Apakah Anda yakin untuk menghapus Akun Anda?</p>
         </div>
         <div class="modal-footer">
-
           <button class="btn btn-lg btn-secondary " type="submit"
             style="border-radius: 0% !important;  width: fit-content;">Batal</button>
           <button class="btn btn-lg btn-primary " type="submit"
@@ -247,6 +246,96 @@
       </div>
     </div>
   </div>
+
+  <!-- start modal informasi point-->
+  <div id="info-point" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content p-3">
+        <div class="modal-header justify-content-center position-relative">
+          <h5 class="text-center w-100 m-0 font-weight-bold">Syarat & Ketentuan Toffin Points</h5>
+          <a class="close position-absolute" data-dismiss="modal" style="right: 15px; top: 10px;">×</a>
+        </div>
+          <div class="modal-body">
+          <p><span class="text-orange">Toffin Points</span> adalah program loyalitas digital dari Toffin yang memberikan nilai tambah untuk setiap pembelian produk Anda di Toffin App.</p>
+          <p>Setiap transaksi produk yang berhasil dan terverifikasi akan menghasilkan poin yang dapat dikumpulkan dan digunakan kembali untuk menghemat pembelian berikutnya. Semakin sering Anda berbelanja, semakin besar keuntungan yang Anda dapatkan.</p>
+          <h6 class="font-weight-bold">Mendapatkan Toffin Points</h6>
+          <ul>
+            <li>Toffin Points diperoleh dari setiap pembelian <span class="text-orange">produk</span> di Toffin App.</li>
+            <li>Toffin Points <span class="text-red">tidak diberikan</span> untuk transaksi layanan seperti:
+              <ul class="show">
+                <li>Service fee (biaya servis mesin)</li>
+                <li>Training fee (biaya pelatihan)</li>
+                <li>Service Credit</li>
+                <li>Pembelian Event & Recipe</li>
+              </ul>
+            </li>
+            <li>Jumlah Toffin Points yang diterima dapat <span class="text-orange">berbeda</span> sesuai kategori dan varian produk.</li>
+            <li>Toffin Points <span class="text-red">tidak diberikan</span> untuk transaksi yang dibayar menggunakan Toffin Points (poin hanya diberikan untuk pembayaran penuh).</li>
+            <li>Toffin Points akan <span class="text-orange">aktif</span> setelah transaksi berhasil dan pembayaran terverifikasi.</li>
+            <li>Masa berlaku Toffin Points adalah  <span class="text-orange">1 tahun</span> sejak tanggal poin diterima.</li>
+            <li>Poin yang tidak digunakan hingga masa berlaku berakhir akan <span class="text-red">hangus otomatis</span> dan tidak dapat diklaim kembali.</li>
+            <li>Toffin Points <span class="text-orange">tidak dapat ditukar dengan uang tunai</span> atau bentuk nilai lainnya.</li>
+            <li>Jika pesanan dibatalkan atau direfund, Toffin Points yang telah diberikan akan <span class="text-orange">ditarik kembali</span>.</li>
+            <li>Toffin berhak mengubah skema earn rate, kategori reward, atau kebijakan program kapan saja.</li>
+          </ul>
+          <h6 class="font-weight-bold">Menggunakan Toffin Points</h6>
+          <ul>
+            <li>Toffin Points hanya dapat digunakan untuk membayar <span class="text-orange">produk</span> (tidak dapat digunakan untuk biaya pengiriman & biaya admin).</li>
+            <li><span class="text-orange">1 Point = Rp1</span>.</li>
+            <li>Toffin Points dapat digunakan saat checkout untuk mengurangi total belanja produk.</li>
+            <li><span class="text-orange">Minimal pembayaran setelah penggunaan poin adalah Rp10.000</span>.</li>
+            <li>Jika total pembayaran setelah penggunaan poin kurang dari Rp10.000, sistem akan <span class="text-orange">menyesuaikan jumlah poin secara otomatis</span>.</li>
+            <li>Sisa poin yang belum terpakai akan tetap tersimpan di akun Anda.</li>
+          </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal informasi point-->
+  
+  <!-- start modal service credit-->
+  <div id="info-service-credit" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content p-3">
+        <div class="modal-header justify-content-center position-relative">
+          <h5 class="text-center w-100 m-0 font-weight-bold">Syarat & Ketentuan Service Credit</h5>
+          <a class="close position-absolute" data-dismiss="modal" style="right: 15px; top: 10px;">×</a>
+        </div>
+          <div class="modal-body">
+            <p><span class="text-orange">Service Credits</span> adalah saldo digital dalam bentuk Rupiah yang dapat digunakan untuk membayar layanan purna jual Toffin, seperti biaya servis mesin dan biaya pelatihan. <br>Service Credits memberikan solusi pembayaran yang lebih hemat dan fleksibel untuk kebutuhan perawatan dan operasional bisnis Anda.</p>
+
+  <h6 class="font-weight-bold">Pembelian Service Credits</h6>
+  <ul>
+    <li>Service Credits dijual dalam nominal Rupiah.</li>
+    <li>Anda akan mendapatkan <span class="text-orange">nilai lebih besar</span> dibandingkan harga pembelian.<br>Contoh: Service Credit Rp1.000.000 dapat dibeli dengan harga Rp900.000.</li>
+    <li>Masa berlaku Service Credits adalah <span class="text-orange">12 bulan</span> sejak tanggal pembelian.</li>
+    <li>Service Credits yang tidak digunakan sampai masa berlaku berakhir akan <span class="text-red">hangus otomatis</span> dan tidak dapat dikembalikan atau diklaim.</li>
+  </ul>
+
+  <h6 class="font-weight-bold">Penggunaan Service Credits</h6>
+  <ul>
+    <li>Service Credits hanya dapat digunakan untuk membayar:
+      <ul class="show">
+        <li><span class="text-orange">Service Fee</span> (biaya servis mesin)</li>
+        <li><span class="text-orange">Training Fee</span> (biaya pelatihan)</li>
+      </ul>
+    </li>
+    <li>Service Credits <span class="text-red">tidak dapat</span> digunakan untuk membeli produk, event, recipe, ongkir, atau biaya admin pembayaran.</li>
+    <li>Nilai Service Credits dihitung dalam <span class="text-orange">Rupiah (IDR): 1 Service Credit = Rp1</span>.</li>
+    <li>Service Credits dapat digunakan sebagian atau seluruhnya sesuai kebutuhan transaksi.</li>
+    <li>Sisa saldo Service Credits akan tetap tersimpan di akun Anda hingga masa berlaku habis.</li>
+  </ul>
+
+  <h6 class="font-weight-bold">Kebijakan & Ketentuan Tambahan</h6>
+  <ul>
+    <li>Service Credits <span class="text-red">tidak dapat diuangkan kembali</span>, ditukar, atau dipindah ke akun lain.</li>
+    <li>Toffin berhak mengubah harga, ketentuan penggunaan, atau kebijakan program Service Credits kapan saja.</li>
+  </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal informasi service credit-->
 
   <section class="ftco-section bg-light">
     <div class="container">
@@ -276,6 +365,12 @@
                 <a href="#toffin-points" data-toggle="tab" aria-expanded="true" class="nav-link"
                   style="border-radius: 10px !important;">
                   <i class="mdi mr-1"></i>Toffin Points
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#service-credit" data-toggle="tab" aria-expanded="true" class="nav-link"
+                  style="border-radius: 10px !important;">
+                  <i class="mdi mr-1"></i>Service Credit
                 </a>
               </li>
               <li class="nav-item">
@@ -700,13 +795,14 @@
               </div>
               <!-- end settings content-->
 
-              <!-- start content daftar alamat -->
+              <!-- start content toffin points -->
               <div class="tab-pane" id="toffin-points">
                 <div class="row">
                   <div class="col-md-5 ftco-animate">
                     <div class="blog-entry align-self-stretch d-md-flex">
                       <div class="col-md-12 sidebar-box box-point">
-                        <div class="text d-flex align-items-start" style="padding: 10px;">
+                        <div class="text d-flex align-items-start" style="position: relative;">
+                          <i class="fas fa-info-circle" title="Informasi Point" style="font-size: 20px; position: absolute; top: 0px; right: 0px; color: #ffa45c; cursor: pointer;" data-toggle="modal" data-target="#info-point"></i>
                           <img src="images/icon-toffin-points.png" alt="" style="width: 30px; margin-right: 10px;">
                           <div>
                             <span style="width: fit-content; border-radius: 5px; font-weight: bold;">Toffin
@@ -909,7 +1005,7 @@
                           </div>
                           <div class="tab-pane" id="tab2">
                             <!-- Konten Tab 2 -->
-                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab1">
+                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab2">
                               <div class="tab-content-point bg-white mb-3">
                                 <div class="d-flex p-2 align-items-center">
                                   <div class="col-md-4 text-left">
@@ -1045,7 +1141,7 @@
                   </div>
                 </div>
               </div>
-              <!-- end settings content-->
+              <!-- end content toffin points-->
 
 
               <!-- start content favorite -->
@@ -1233,311 +1329,639 @@
 
               <div class="tab-pane ftco-animate" id="daftar-belanja">
 
-
-
-
-                <div class="table-responsive" style="background: white;">
-                  <table class="table table-borderless mb-0">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th>#</th>
-                        <th>Tanggal Pembelian</th>
-                        <th>No Sales Order</th>
-                        <th>Total Belanja</th>
-                        <th>Status</th>
-                        <th>Rating</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>10/15/2018</td>
-                        <td><a href="" class="copy-click" style="color:#6c757d;" data-tooltip-text="Click to copy"
-                            data-tooltip-text-copied="✔ Copied to clipboard"> NO/SO000111</a></td>
-                        <td>Rp 250.000.000</td>
-                        <td><span class="badge badge-success">Selesai</span></td>
-                        <td><a href="detail-pembelian.html">Detail Pesanan</a></td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>10/15/2018</td>
-                        <td><a href="" class="copy-click" style="color:#6c757d;" data-tooltip-text="Click to copy"
-                            data-tooltip-text-copied="✔ Copied to clipboard"> NO/SO000111</a></td>
-                        <td>Rp 300.000.000</td>
-                        <td><span class="badge badge-success">Selesai</span></td>
-                        <td><a href="detail-pembelian.html">Detail Pesanan</a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>10/15/2018</td>
-                        <td><a href="" class="copy-click" style="color:#6c757d;" data-tooltip-text="Click to copy"
-                            data-tooltip-text-copied="✔ Copied to clipboard"> NO/SO000111</a></td>
-                        <td>Rp 100.000.000</td>
-                        <td><span class="badge badge-success">Selesai</span></td>
-                        <td><a href="detail-pembelian.html">Detail Pesanan</a></td>
-                      </tr>
-
-
-                    </tbody>
-                  </table>
+                <!-- start content credit limit -->
+                <div class="row">
+                  <div class="col-md-12 ftco-animate">
+                    <div class="blog-entry align-self-stretch d-md-flex">
+                      <div class="col-md-12 sidebar-box box-point">
+                        <div class="tab-content">
+                          <div class="tab-pane show active">
+                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active">
+                              <div class="shopping-history container my-4">
+                                <h5 class="mb-3">Daftar Belanja</h5>
+                                <!-- Card transaksi -->
+                                <div class="order-card p-3 mb-4">
+                                  <!-- Header -->
+                                  <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+                                      <div><img src="images/shopping-bag.png" class="icon-belanja">
+                                        <span>Tanggal Transaksi</span> 
+                                        <span class="product-title">30 Nov 2025</span>
+                                      </div>
+                                      <p class="m-0 product-title">SO1234567890</p>
+                                    <span class="badge badge-success">Selesai</span>
+                                  </div>
+                                  <!-- Distributor -->
+                                  <div class="mt-2">
+                                    <p class="m-0">Distributor: <strong>Toffin Jakarta</strong></p>
+                                  </div>
+                                  <!-- Produk -->
+                                  <div class="product-list mt-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                      <img src="images/product-1.jpg" class="me-3 pr-2" alt="Produk">
+                                      <div class="flex-grow-1">
+                                        <p class="m-0 product-title">Nuova Simonelli Grinder MDXS On Demand D65 (Titan Grey)</p>
+                                        <p class="m-0">Qty: 2 | Harga: Rp20.500.000</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Total & Aksi -->
+                                  <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap">
+                                    <p class="fw-bold mb-2 mb-md-0">Total Belanja <span class="product-title">Rp41.000.000</span></p>
+                                    <div class="d-flex gap-2">
+                                      <button class="btn btn-success mx-2">Lihat Detail transaksi</button>
+                                      <button class="btn btn-primary mx-2">Beri Rating</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Card transaksi -->
+                                <div class="order-card p-3 mb-4">
+                                  <!-- Header -->
+                                  <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+                                      <div><img src="images/shopping-bag.png" class="icon-belanja">
+                                        <span>Tanggal Transaksi</span> 
+                                        <span class="product-title">30 Nov 2025</span>
+                                      </div>
+                                      <p class="m-0 product-title">SO1234567890</p>
+                                    <span class="badge badge-success">Selesai</span>
+                                  </div>
+                                  <!-- Distributor -->
+                                  <div class="mt-2">
+                                    <p class="m-0">Distributor: <strong>Toffin Jakarta</strong></p>
+                                  </div>
+                                  <!-- Produk -->
+                                  <div class="product-list mt-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                      <img src="images/product-1.jpg" class="me-3 pr-2" alt="Produk">
+                                      <div class="flex-grow-1">
+                                        <p class="m-0 product-title">Nuova Simonelli Grinder MDXS On Demand D65 (Titan Grey)</p>
+                                        <p class="m-0">Qty: 2 | Harga: Rp20.500.000</p>
+                                        <p class="m-0 small">+ Produk lainnya</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Total & Aksi -->
+                                  <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap">
+                                    <p class="fw-bold mb-2 mb-md-0">Total Belanja <span class="product-title">Rp82.000.000</span></p>
+                                    <div class="d-flex gap-2">
+                                      <button class="btn btn-success mx-2">Lihat Detail transaksi</button>
+                                      <button class="btn btn-primary mx-2">Beri Rating</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                                <!-- <div class="row mt-5">
+                                <div class="col text-center">
+                                  <div class="block-27">
+                                    <ul>
+                                      <li><a href="#">&lt;</a></li>
+                                      <li class="active"><span>1</span></li>
+                                      <li><a href="#">2</a></li>
+                                      <li><a href="#">3</a></li>
+                                      <li><a href="#">4</a></li>
+                                      <li><a href="#">5</a></li>
+                                      <li><a href="#">&gt;</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              <!-- end settings content-->
 
               </div>
               <!-- end timeline content-->
 
 
-              <!-- start content credit limit -->
-              <div class="tab-pane ftco-animate" id="climit">
-                <form style="padding: 20px; background: white;">
-
-                  <div class="row pt-3">
-                    <div class="col-md-4">
-                      <label for="firstname"><strong>Credit Limit yang bisa digunakan</strong></label>
-                    </div>
-                    <div class="col-md-8">
-                      <h5><strong>Rp 10.000.000</strong></h5>
-                    </div>
-                  </div>
-
-                  <div class="row pt-3">
-                    <div class="col-md-4">
-                      <label for="firstname"><strong>Tanggal Kedaluwarsa</strong></label>
-
-                    </div>
-                    <div class="col-md-8">
-                      <h5><strong>12, Maret 2022</strong></h5>
-
-                    </div>
-                  </div>
-
-                  <div class="row pt-3">
-                    <div class="col-md-4">
-                      <label for="firstname"><strong>Plafon Credit Limit</strong></label>
-                    </div>
-                    <div class="col-md-8">
-                      <h5><strong>Rp 10.000.000</strong></h5>
-                    </div>
-                  </div>
-
-                  <div class="row pt-3">
-                    <div class="col-md-4">
-                      <label for="firstname"><strong>Syarat Lama Pembayaran</strong></label>
-                    </div>
-                    <div class="col-md-8">
-                      <h5><strong>15 Hari</strong></h5>
-                    </div>
-                  </div> <!-- end row -->
-
-                  <hr>
-
-
-                  <div class="card-box pt-5">
-                    <ul class="nav nav-pills navtab-bg"
-                      style="flex-wrap: nowrap; white-space: nowrap; overflow: auto; background: white;">
-
-                      <li class="nav-item">
-                        <a href="#aaaaa" data-toggle="tab" aria-expanded="false" class="nav-link ml-0 active"
-                          style="border-radius: 0px !important;">
-                          <i class="mdi mr-1"></i>Transaksi Belum Terbayarkan
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#bbbbb" data-toggle="tab" aria-expanded="false" class="nav-link"
-                          style="border-radius: 0px !important;">
-                          <i class="mdi mr-1"></i>Mutasi
-                        </a>
-                      </li>
-                    </ul>
-                    <div class=" text-uppercase bg-light"></div>
-                    <div class="tab-content pt-3">
-
-                      <!-- end settings content-->
-
-                      <div class="tab-pane show active ftco-animate" id="aaaaa">
-                        <div class="table-responsive" style="background: white;">
-                          <table class="table table-borderless mb-0">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th>Pilih</th>
-                                <th>#</th>
-                                <th>Tanggal Pembelian</th>
-                                <th>No Sales Order</th>
-                                <th>Total Belanja</th>
-                                <th>Status</th>
-
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td><input type="checkbox" id=""></td>
-                                <td>1</td>
-                                <td>10/15/2018</td>
-                                <td>INV/2020/12/00034</td>
-                                <td>Rp 250.000.000</td>
-                                <td><span class="badge badge-warning">Unpaid</span></td>
-                              </tr>
-                              <tr>
-                                <td><input type="checkbox" id=""></td>
-                                <td>2</td>
-                                <td>10/15/2018</td>
-                                <td>INV/2020/12/00034</td>
-                                <td>Rp 300.000.000</td>
-                                <td><span class="badge badge-warning">Unpaid</span></td>
-                              </tr>
-                              <tr>
-                                <td><input type="checkbox" id=""></td>
-                                <td>3</td>
-                                <td>10/15/2018</td>
-                                <td>INV/2020/12/00034</td>
-                                <td>Rp 100.000.000</td>
-                                <td><span class="badge badge-warning">Unpaid</span></td>
-
-                              </tr>
-
-                            </tbody>
-
-                          </table>
-
-
-
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col col-lg-4 col-md-6 mt-5 cart-wrap ftco-animate">
-                            <p class="text-center"><a href="#" class="btn btn-primary py-3 px-3"
-                                style="border-radius: 0px !important;">Lanjut ke Pembayaran</a></p>
+              <!-- start content service credit -->
+              <div class="tab-pane ftco-animate" id="service-credit">
+                <div class="row">
+                  <div class="col-md-5 ftco-animate">
+                    <div class="blog-entry align-self-stretch d-md-flex">
+                      <div class="col-md-12 sidebar-box box-point">
+                        <div class="text d-flex align-items-start">
+                          <i class="fas fa-info-circle" title="Informasi Service Credit" style="font-size: 20px; position: absolute; top: 0px; right: 0px; color: #ffa45c; cursor: pointer;" data-toggle="modal" data-target="#info-service-credit"></i>
+                          <img src="images/icon-service-credit.png" alt="" style="width: 30px; margin-right: 10px;">
+                          <div class="w-100">
+                            <span style="width: fit-content; border-radius: 5px; font-weight: bold;">Service Credit Balance</span>
+                            <h5><strong>10.000.000</strong></h5>
                           </div>
                         </div>
                       </div>
-                      <!-- end timeline content-->
+                    </div>
+                  </div>
+                  <div class="col-md-7 ftco-animate">
+                    <div class="blog-entry align-self-stretch d-md-flex">
+                      <div class="col-md-12 sidebar-box box-point">
+                        <div class="card-box">
+                          <ul class="nav nav-pills navtab-bg" style="background: white; align-items: center;">
+                            <li class="nav-item">
+                              <a href="#tab-sc-mutasi" data-toggle="tab" class="nav-link active"
+                                style="border-radius: 10px !important;">
+                                Mutasi
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <hr>
+                        <div class="tab-content">
+                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab-sc-mutasi">
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  </div>
+                                  <div class="col-md-3 text-right credit">
+                                    <p>- Rp 500.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Update credit plafond Rp 3.875.500 -> Rp 10.000.000</p>
+                                  </div>
+                                  <div class="col-md-3 text-right debit">
+                                    <p>+ Rp 5.000.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Update credit plafond Rp 5.000.000</p>
+                                  </div>
+                                  <div class="col-md-3 text-right debit">
+                                    <p>+ Rp 500.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  </div>
+                                  <div class="col-md-3 text-right credit">
+                                    <p>- Rp 500.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  </div>
+                                  <div class="col-md-3 text-right credit">
+                                    <p>- Rp 500.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row mt-5">
+                                <div class="col text-center">
+                                  <div class="block-27">
+                                    <ul>
+                                      <li><a href="#">&lt;</a></li>
+                                      <li class="active"><span>1</span></li>
+                                      <li><a href="#">2</a></li>
+                                      <li><a href="#">3</a></li>
+                                      <li><a href="#">4</a></li>
+                                      <li><a href="#">5</a></li>
+                                      <li><a href="#">&gt;</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end settings content-->
 
-                      <div class="tab-pane ftco-animate" id="bbbbb">
-                        <div class="table-responsive" style="background: white;">
-                          <table class="table table-borderless mb-0">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th>#</th>
-                                <th>Tanggal</th>
-                                <th>Keterangan</th>
-                                <th>Debit</th>
-                                <th>Kredit</th>
-                                <th>Balance</th>
 
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>10/15/2018</td>
-                                <td>Beginning Balance</td>
-                                <td>Rp 10.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>2</td>
-                                <td>10/15/2018</td>
-                                <td>SO/2020/12/00034</td>
-                                <td></td>
-                                <td>3.000.000</td>
-                                <td>Rp 7.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>3</td>
-                                <td>10/15/2018</td>
-                                <td>Pembayaran SO/2020/12/00034</td>
-                                <td>Rp 3.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>4</td>
-                                <td>10/15/2018</td>
-                                <td>Pembayaran SO/2020/12/00034</td>
-                                <td>Rp 3.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>5</td>
-                                <td>10/15/2018</td>
-                                <td>Pembayaran SO/2020/12/00034</td>
-                                <td>Rp 3.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>6</td>
-                                <td>10/15/2018</td>
-                                <td>Pembayaran SO/2020/12/00034</td>
-                                <td>Rp 3.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>7</td>
-                                <td>10/15/2018</td>
-                                <td>Pembayaran SO/2020/12/00034</td>
-                                <td>Rp 3.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>8</td>
-                                <td>10/15/2018</td>
-                                <td>Pembayaran SO/2020/12/00034</td>
-                                <td>Rp 3.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>9</td>
-                                <td>10/15/2018</td>
-                                <td>Pembayaran SO/2020/12/00034</td>
-                                <td>Rp 3.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-                              <tr>
-                                <td>10</td>
-                                <td>10/15/2018</td>
-                                <td>Pembayaran SO/2020/12/00034</td>
-                                <td>Rp 3.000.000</td>
-                                <td></td>
-                                <td>Rp 10.000.000</td>
-                              </tr>
-
-
-                            </tbody>
-                          </table>
-
-                          <div class="row mt-5 mb-4">
-                            <div class="col text-center">
-                              <div class="block-27">
-                                <ul>
-                                  <li><a href="#">&lt;</a></li>
-                                  <li class="active"><span>1</span></li>
-                                  <li><a href="#">2</a></li>
-                                  <li><a href="#">3</a></li>
-                                  <li><a href="#">4</a></li>
-                                  <li><a href="#">5</a></li>
-                                  <li><a href="#">&gt;</a></li>
-                                </ul>
+              <!-- start content credit limit -->
+              <div class="tab-pane ftco-animate" id="climit">
+                <div class="row">
+                  <div class="col-md-5 ftco-animate">
+                    <div class="blog-entry align-self-stretch d-md-flex">
+                      <div class="col-md-12 sidebar-box box-point">
+                        <div class="text d-flex align-items-start">
+                          <i class="fas fa-info-circle" title="Informasi Credit Limit" style="font-size: 20px; position: absolute; top: 0px; right: 0px; color: #ffa45c; cursor: pointer;" data-toggle="modal" data-target="#info-credit-limit"></i>
+                          <img src="images/icon-credit-limit.png" alt="" style="width: 30px; margin-right: 10px;">
+                          <div class="w-100">
+                            <span style="width: fit-content; border-radius: 5px; font-weight: bold;">Credit Limit yang bisa digunakan</span>
+                            <h5><strong>10.000.000</strong></h5>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="text d-flex align-items-start">
+                          <div class="w-100">
+                            <div class="info-row">
+                              <span class="label">Tanggal Kedaluwarsa</span>
+                              <span class="value" style="color: red;"><strong>15 Desember 2025</strong></span>
+                            </div>
+                            <div class="info-row">
+                              <span class="label">Plafon Credit Limit</span>
+                              <span class="value"><strong>10.000.000</strong></span>
+                            </div>
+                            <div class="info-row">
+                              <span class="label">Syarat Lama Pembayaran</span>
+                              <span class="value"><strong>15 Hari</strong></span>
+                            </div>
+                            <div class="info-row">
+                              <span class="label">Distributor yang tersedia</span>
+                              <span class="value"><strong>Jakarta</strong></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-7 ftco-animate">
+                    <div class="blog-entry align-self-stretch d-md-flex">
+                      <div class="col-md-12 sidebar-box box-point">
+                        <div class="card-box">
+                          <ul class="nav nav-pills navtab-bg" style="background: white; align-items: center;">
+                            <li class="nav-item">
+                              <a href="#tab-cl-transaksi" data-toggle="tab" class="nav-link active"
+                                style="border-radius: 10px !important;">
+                                Transaksi belum terbayarkan
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a href="#tab-cl-mutasi" data-toggle="tab" class="nav-link"
+                                style="border-radius: 10px !important;">
+                                Mutasi
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <hr>
+                        <div class="tab-content">
+                          <div class="tab-pane show active" id="tab-cl-transaksi">
+                            <!-- Konten Tab 1 -->
+                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab-cl-transaksi">
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center py-2">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                  <div class="select-box" style="line-height: 1px;">
+                                    <input type="checkbox" class="custom-check">
+                                  </div>
+                                </div>
+                                <div class="tab-content-point bg-white w-100">
+                                  <div class="d-flex p-2 align-items-center">
+                                    <div class="col-md-3 text-left">
+                                      <p class="m-0">30 Nov 25</p>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                      <p>SO1234567890</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                      <p>Rp100.000.000</p>
+                                    </div>
+                                    <div class="col-md-2 text-right">
+                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="text-center">
+                                <button class="reset-fil btn btn-primary py-2 px-5 mt-4 text-center">Pilih Metode Pembayaran</button>
+                              </div>
+                                <!-- <div class="row mt-5">
+                                <div class="col text-center">
+                                  <div class="block-27">
+                                    <ul>
+                                      <li><a href="#">&lt;</a></li>
+                                      <li class="active"><span>1</span></li>
+                                      <li><a href="#">2</a></li>
+                                      <li><a href="#">3</a></li>
+                                      <li><a href="#">4</a></li>
+                                      <li><a href="#">5</a></li>
+                                      <li><a href="#">&gt;</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div> -->
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="tab-cl-mutasi">
+                            <!-- Konten Tab 2 -->
+                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab-cl-mutasi">
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  </div>
+                                  <div class="col-md-3 text-right credit">
+                                    <p>- Rp 500.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Update credit plafond Rp 3.875.500 -> Rp 10.000.000</p>
+                                  </div>
+                                  <div class="col-md-3 text-right debit">
+                                    <p>+ Rp 5.000.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Update credit plafond Rp 5.000.000</p>
+                                  </div>
+                                  <div class="col-md-3 text-right debit">
+                                    <p>+ Rp 500.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  </div>
+                                  <div class="col-md-3 text-right credit">
+                                    <p>- Rp 500.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-3 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-6 text-center">
+                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  </div>
+                                  <div class="col-md-3 text-right credit">
+                                    <p>- Rp 500.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row mt-5">
+                                <div class="col text-center">
+                                  <div class="block-27">
+                                    <ul>
+                                      <li><a href="#">&lt;</a></li>
+                                      <li class="active"><span>1</span></li>
+                                      <li><a href="#">2</a></li>
+                                      <li><a href="#">3</a></li>
+                                      <li><a href="#">4</a></li>
+                                      <li><a href="#">5</a></li>
+                                      <li><a href="#">&gt;</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-
-
                       </div>
-
-
-                    </div> <!-- end tab-content -->
-                  </div> <!-- end card-box-->
-
-
-
-                </form>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!-- end settings content-->
 
