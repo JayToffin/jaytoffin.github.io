@@ -253,7 +253,7 @@
       <div class="modal-content p-3">
         <div class="modal-header justify-content-center position-relative">
           <h5 class="text-center w-100 m-0 font-weight-bold">Syarat & Ketentuan Toffin Points</h5>
-          <a class="close position-absolute" data-dismiss="modal" style="right: 15px; top: 10px;">×</a>
+          <a class="close position-absolute" data-dismiss="modal" style="right: 0px; top: 0px;">×</a>
         </div>
           <div class="modal-body">
           <p><span class="text-orange">Toffin Points</span> adalah program loyalitas digital dari Toffin yang memberikan nilai tambah untuk setiap pembelian produk Anda di Toffin App.</p>
@@ -299,7 +299,7 @@
       <div class="modal-content p-3">
         <div class="modal-header justify-content-center position-relative">
           <h5 class="text-center w-100 m-0 font-weight-bold">Syarat & Ketentuan Service Credit</h5>
-          <a class="close position-absolute" data-dismiss="modal" style="right: 15px; top: 10px;">×</a>
+          <a class="close position-absolute" data-dismiss="modal" style="right: 0px; top: 0px;">×</a>
         </div>
           <div class="modal-body">
             <p><span class="text-orange">Service Credits</span> adalah saldo digital dalam bentuk Rupiah yang dapat digunakan untuk membayar layanan purna jual Toffin, seperti biaya servis mesin dan biaya pelatihan. <br>Service Credits memberikan solusi pembayaran yang lebih hemat dan fleksibel untuk kebutuhan perawatan dan operasional bisnis Anda.</p>
@@ -843,7 +843,7 @@
                         </div>
                         <hr>
                         <div class="tab-content">
-                          <div class="tab-pane show active" id="tab1">
+                          <div class="tab-pane tab-content-mobile show active" id="tab1">
                             <!-- Konten Tab 1 -->
                             <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab1">
                               <div class="tab-content-point bg-white mb-3">
@@ -853,10 +853,10 @@
                                     <p class="small">13:00</p>
                                   </div>
                                   <div class="col-md-4 text-center">
-                                    <p>SO1234567890</p>
+                                    <p>SO/1234/56/78/90</p>
                                   </div>
                                   <div class="col-md-4 text-right debit">
-                                    <p> + 1.100.000</p>
+                                    <p> + 19.100.000</p>
                                   </div>
                                 </div>
                               </div>
@@ -1005,7 +1005,7 @@
                           </div>
                           <div class="tab-pane" id="tab2">
                             <!-- Konten Tab 2 -->
-                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab2">
+                            <div class="tab-pane tab-content-mobile ftco-animate fadeInUp ftco-animated show active" id="tab2">
                               <div class="tab-content-point bg-white mb-3">
                                 <div class="d-flex p-2 align-items-center">
                                   <div class="col-md-4 text-left">
@@ -1337,60 +1337,28 @@
                         <div class="tab-content">
                           <div class="tab-pane show active">
                             <div class="tab-pane ftco-animate fadeInUp ftco-animated show active">
-                              <div class="shopping-history container my-4">
-                                <h5 class="mb-3">Daftar Belanja</h5>
+                              <div class="shopping-history">
+                                <h5 class="mb-3 product-title">Daftar Belanja</h5>
                                 <!-- Card transaksi -->
                                 <div class="order-card p-3 mb-4">
                                   <!-- Header -->
-                                  <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
-                                      <div><img src="images/shopping-bag.png" class="icon-belanja">
-                                        <span>Tanggal Transaksi</span> 
-                                        <span class="product-title">30 Nov 2025</span>
+                                  <div class="d-flex justify-content-between border-bottom pb-2 align-items-center">
+                                    <div class="d-flex align-items-center">
+                                      <img src="images/shopping-bag.png" class="icon-belanja mr-2" alt="Shopping bag">
+                                      <div class="transaction-info">
+                                        <div>Tanggal Transaksi <span class="product-title ml-1">30 Nov 2025</span></div>
+                                        <div class="product-title">SO/12/34/56/7890</div>
                                       </div>
-                                      <p class="m-0 product-title">SO1234567890</p>
-                                    <span class="badge badge-success">Selesai</span>
+                                    </div>
+                                    <span class="badge badge-success h-100">Selesai</span>
                                   </div>
                                   <!-- Distributor -->
                                   <div class="mt-2">
                                     <p class="m-0">Distributor: <strong>Toffin Jakarta</strong></p>
                                   </div>
                                   <!-- Produk -->
-                                  <div class="product-list mt-3">
-                                    <div class="d-flex align-items-center mb-2">
-                                      <img src="images/product-1.jpg" class="me-3 pr-2" alt="Produk">
-                                      <div class="flex-grow-1">
-                                        <p class="m-0 product-title">Nuova Simonelli Grinder MDXS On Demand D65 (Titan Grey)</p>
-                                        <p class="m-0">Qty: 2 | Harga: Rp20.500.000</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <!-- Total & Aksi -->
-                                  <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap">
-                                    <p class="fw-bold mb-2 mb-md-0">Total Belanja <span class="product-title">Rp41.000.000</span></p>
-                                    <div class="d-flex gap-2">
-                                      <button class="btn btn-success mx-2">Lihat Detail transaksi</button>
-                                      <button class="btn btn-primary mx-2">Beri Rating</button>
-                                    </div>
-                                  </div>
-                                </div>
-                                <!-- Card transaksi -->
-                                <div class="order-card p-3 mb-4">
-                                  <!-- Header -->
-                                  <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
-                                      <div><img src="images/shopping-bag.png" class="icon-belanja">
-                                        <span>Tanggal Transaksi</span> 
-                                        <span class="product-title">30 Nov 2025</span>
-                                      </div>
-                                      <p class="m-0 product-title">SO1234567890</p>
-                                    <span class="badge badge-success">Selesai</span>
-                                  </div>
-                                  <!-- Distributor -->
-                                  <div class="mt-2">
-                                    <p class="m-0">Distributor: <strong>Toffin Jakarta</strong></p>
-                                  </div>
-                                  <!-- Produk -->
-                                  <div class="product-list mt-3">
-                                    <div class="d-flex align-items-center mb-2">
+                                  <div class="product-list mt-2">
+                                    <div class="d-flex mb-2">
                                       <img src="images/product-1.jpg" class="me-3 pr-2" alt="Produk">
                                       <div class="flex-grow-1">
                                         <p class="m-0 product-title">Nuova Simonelli Grinder MDXS On Demand D65 (Titan Grey)</p>
@@ -1400,16 +1368,149 @@
                                     </div>
                                   </div>
                                   <!-- Total & Aksi -->
-                                  <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap">
-                                    <p class="fw-bold mb-2 mb-md-0">Total Belanja <span class="product-title">Rp82.000.000</span></p>
-                                    <div class="d-flex gap-2">
-                                      <button class="btn btn-success mx-2">Lihat Detail transaksi</button>
-                                      <button class="btn btn-primary mx-2">Beri Rating</button>
+                                  <div class="d-flex align-items-center mt-2 flex-wrap flex-md-nowrap">
+                                    <div class="w-100 w-md-auto">
+                                      <p class="mb-2 mb-md-0">Total Belanja <span class="product-title">Rp41.000.000</span></p>
+                                    </div>
+                                    <!-- Buttons: full-width & centered on mobile, auto width and right-aligned on md+ -->
+                                    <div class="d-flex w-100 w-md-auto justify-content-center justify-content-md-end mt-2 mt-md-0">
+                                      <div class="d-flex">
+                                        <button class="btn btn-success mr-2">Lihat Detail transaksi</button>
+                                        <button class="btn btn-primary">Beri Rating</button>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
+                                <!-- Card transaksi -->
+                                <!-- Card transaksi -->
+                                <div class="order-card p-3 mb-4">
+                                  <!-- Header -->
+                                  <div class="d-flex justify-content-between border-bottom pb-2 align-items-center">
+                                    <div class="d-flex align-items-center">
+                                      <img src="images/shopping-bag.png" class="icon-belanja mr-2" alt="Shopping bag">
+                                      <div class="transaction-info">
+                                        <div>Tanggal Transaksi <span class="product-title ml-1">30 Nov 2025</span></div>
+                                        <div class="product-title">SO/12/34/56/7890</div>
+                                      </div>
+                                    </div>
+                                    <span class="badge badge-success h-100">Selesai</span>
+                                  </div>
+                                  <!-- Distributor -->
+                                  <div class="mt-2">
+                                    <p class="m-0">Distributor: <strong>Toffin Jakarta</strong></p>
+                                  </div>
+                                  <!-- Produk -->
+                                  <div class="product-list mt-2">
+                                    <div class="d-flex mb-2">
+                                      <img src="images/product-1.jpg" class="me-3 pr-2" alt="Produk">
+                                      <div class="flex-grow-1">
+                                        <p class="m-0 product-title">Nuova Simonelli Grinder MDXS On Demand D65 (Titan Grey)</p>
+                                        <p class="m-0">Qty: 2 | Harga: Rp20.500.000</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Total & Aksi -->
+                                  <div class="d-flex align-items-center mt-2 flex-wrap flex-md-nowrap">
+                                    <div class="w-100 w-md-auto">
+                                      <p class="mb-2 mb-md-0">Total Belanja <span class="product-title">Rp41.000.000</span></p>
+                                    </div>
+                                    <!-- Buttons: full-width & centered on mobile, auto width and right-aligned on md+ -->
+                                    <div class="d-flex w-100 w-md-auto justify-content-center justify-content-md-end mt-2 mt-md-0">
+                                      <div class="d-flex">
+                                        <button class="btn btn-success mr-2">Lihat Detail transaksi</button>
+                                        <button class="btn btn-primary">Beri Rating</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Card transaksi -->
+                                 <!-- Card transaksi -->
+                                <div class="order-card p-3 mb-4">
+                                  <!-- Header -->
+                                  <div class="d-flex justify-content-between border-bottom pb-2 align-items-center">
+                                    <div class="d-flex align-items-center">
+                                      <img src="images/shopping-bag.png" class="icon-belanja mr-2" alt="Shopping bag">
+                                      <div class="transaction-info">
+                                        <div>Tanggal Transaksi <span class="product-title ml-1">30 Nov 2025</span></div>
+                                        <div class="product-title">SO/12/34/56/7890</div>
+                                      </div>
+                                    </div>
+                                    <span class="badge badge-success h-100">Selesai</span>
+                                  </div>
+                                  <!-- Distributor -->
+                                  <div class="mt-2">
+                                    <p class="m-0">Distributor: <strong>Toffin Jakarta</strong></p>
+                                  </div>
+                                  <!-- Produk -->
+                                  <div class="product-list mt-2">
+                                    <div class="d-flex mb-2">
+                                      <img src="images/product-1.jpg" class="me-3 pr-2" alt="Produk">
+                                      <div class="flex-grow-1">
+                                        <p class="m-0 product-title">Nuova Simonelli Grinder MDXS On Demand D65 (Titan Grey)</p>
+                                        <p class="m-0">Qty: 2 | Harga: Rp20.500.000</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Total & Aksi -->
+                                  <div class="d-flex align-items-center mt-2 flex-wrap flex-md-nowrap">
+                                    <div class="w-100 w-md-auto">
+                                      <p class="mb-2 mb-md-0">Total Belanja <span class="product-title">Rp41.000.000</span></p>
+                                    </div>
+                                    <!-- Buttons: full-width & centered on mobile, auto width and right-aligned on md+ -->
+                                    <div class="d-flex w-100 w-md-auto justify-content-center justify-content-md-end mt-2 mt-md-0">
+                                      <div class="d-flex">
+                                        <button class="btn btn-success mr-2">Lihat Detail transaksi</button>
+                                        <button class="btn btn-primary">Beri Rating</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Card transaksi -->
+                                 <!-- Card transaksi -->
+                                <div class="order-card p-3 mb-4">
+                                  <!-- Header -->
+                                  <div class="d-flex justify-content-between border-bottom pb-2 align-items-center">
+                                    <div class="d-flex align-items-center">
+                                      <img src="images/shopping-bag.png" class="icon-belanja mr-2" alt="Shopping bag">
+                                      <div class="transaction-info">
+                                        <div>Tanggal Transaksi <span class="product-title ml-1">30 Nov 2025</span></div>
+                                        <div class="product-title">SO/12/34/56/7890</div>
+                                      </div>
+                                    </div>
+                                    <span class="badge badge-success h-100">Selesai</span>
+                                  </div>
+                                  <!-- Distributor -->
+                                  <div class="mt-2">
+                                    <p class="m-0">Distributor: <strong>Toffin Jakarta</strong></p>
+                                  </div>
+                                  <!-- Produk -->
+                                  <div class="product-list mt-2">
+                                    <div class="d-flex mb-2">
+                                      <img src="images/product-1.jpg" class="me-3 pr-2" alt="Produk">
+                                      <div class="flex-grow-1">
+                                        <p class="m-0 product-title">Nuova Simonelli Grinder MDXS On Demand D65 (Titan Grey)</p>
+                                        <p class="m-0">Qty: 2 | Harga: Rp20.500.000</p>
+                                        <p class="m-0 small">+ Produk lainnya</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Total & Aksi -->
+                                  <div class="d-flex align-items-center mt-2 flex-wrap flex-md-nowrap">
+                                    <div class="w-100 w-md-auto">
+                                      <p class="mb-2 mb-md-0">Total Belanja <span class="product-title">Rp41.000.000</span></p>
+                                    </div>
+                                    <!-- Buttons: full-width & centered on mobile, auto width and right-aligned on md+ -->
+                                    <div class="d-flex w-100 w-md-auto justify-content-center justify-content-md-end mt-2 mt-md-0">
+                                      <div class="d-flex">
+                                        <button class="btn btn-success mr-2">Lihat Detail transaksi</button>
+                                        <button class="btn btn-primary">Beri Rating</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Card transaksi -->
                               </div>
-                                <!-- <div class="row mt-5">
+                                <div class="row mt-5">
                                 <div class="col text-center">
                                   <div class="block-27">
                                     <ul>
@@ -1423,7 +1524,7 @@
                                     </ul>
                                   </div>
                                 </div>
-                              </div> -->
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1469,69 +1570,82 @@
                         </div>
                         <hr>
                         <div class="tab-content">
-                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab-sc-mutasi">
+                            <div class="tab-pane tab-content-mobile ftco-animate fadeInUp ftco-animated show active" id="tab-sc-mutasi">
                               <div class="tab-content-point bg-white mb-3">
                                 <div class="d-flex p-2 align-items-center">
-                                  <div class="col-md-3 text-left">
+                                  <div class="col-md-4 text-left">
                                     <p class="m-0">30 Nov 25</p>
                                   </div>
-                                  <div class="col-md-6 text-center">
-                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  <div class="col-md-4 text-center">
+                                    <p>Top Up Deposit</p>
                                   </div>
-                                  <div class="col-md-3 text-right credit">
-                                    <p>- Rp 500.000</p>
+                                  <div class="col-md-4 text-right debit">
+                                    <p> + 19.100.000</p>
                                   </div>
                                 </div>
                               </div>
                               <div class="tab-content-point bg-white mb-3">
                                 <div class="d-flex p-2 align-items-center">
-                                  <div class="col-md-3 text-left">
+                                  <div class="col-md-4 text-left">
                                     <p class="m-0">30 Nov 25</p>
                                   </div>
-                                  <div class="col-md-6 text-center">
-                                    <p>Update credit plafond Rp 3.875.500 -> Rp 10.000.000</p>
+                                  <div class="col-md-4 text-center">
+                                    <p>Service Credits Kedaluwarsa</p>
                                   </div>
-                                  <div class="col-md-3 text-right debit">
-                                    <p>+ Rp 5.000.000</p>
+                                  <div class="col-md-4 text-right credit">
+                                    <p> + 19.100.000</p>
                                   </div>
                                 </div>
                               </div>
                               <div class="tab-content-point bg-white mb-3">
                                 <div class="d-flex p-2 align-items-center">
-                                  <div class="col-md-3 text-left">
+                                  <div class="col-md-4 text-left">
                                     <p class="m-0">30 Nov 25</p>
                                   </div>
-                                  <div class="col-md-6 text-center">
-                                    <p>Update credit plafond Rp 5.000.000</p>
+                                  <div class="col-md-4 text-center">
+                                    <p>Pembayaran Pesanan SO/2025/02/0025</p>
                                   </div>
-                                  <div class="col-md-3 text-right debit">
-                                    <p>+ Rp 500.000</p>
+                                  <div class="col-md-4 text-right credit">
+                                    <p> + 19.100.000</p>
                                   </div>
                                 </div>
                               </div>
                               <div class="tab-content-point bg-white mb-3">
                                 <div class="d-flex p-2 align-items-center">
-                                  <div class="col-md-3 text-left">
+                                  <div class="col-md-4 text-left">
                                     <p class="m-0">30 Nov 25</p>
                                   </div>
-                                  <div class="col-md-6 text-center">
-                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  <div class="col-md-4 text-center">
+                                    <p>Top Up Deposit	</p>
                                   </div>
-                                  <div class="col-md-3 text-right credit">
-                                    <p>- Rp 500.000</p>
+                                  <div class="col-md-4 text-right debit">
+                                    <p> + 19.100.000</p>
                                   </div>
                                 </div>
                               </div>
                               <div class="tab-content-point bg-white mb-3">
                                 <div class="d-flex p-2 align-items-center">
-                                  <div class="col-md-3 text-left">
+                                  <div class="col-md-4 text-left">
                                     <p class="m-0">30 Nov 25</p>
                                   </div>
-                                  <div class="col-md-6 text-center">
-                                    <p>Transaksi: SO/2024/01/0006</p>
+                                  <div class="col-md-4 text-center">
+                                    <p>Pembayaran Pesanan SO/2025/02/0025</p>
                                   </div>
-                                  <div class="col-md-3 text-right credit">
-                                    <p>- Rp 500.000</p>
+                                  <div class="col-md-4 text-right credit">
+                                    <p> + 19.100.000</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-content-point bg-white mb-3">
+                                <div class="d-flex p-2 align-items-center">
+                                  <div class="col-md-4 text-left">
+                                    <p class="m-0">30 Nov 25</p>
+                                  </div>
+                                  <div class="col-md-4 text-center">
+                                    <p>Pembayaran Pesanan SO/2025/02/0025</p>
+                                  </div>
+                                  <div class="col-md-4 text-right credit">
+                                    <p> + 19.100.000</p>
                                   </div>
                                 </div>
                               </div>
@@ -1619,234 +1733,130 @@
                         </div>
                         <hr>
                         <div class="tab-content">
-                          <div class="tab-pane show active" id="tab-cl-transaksi">
+                          <div class="tab-pane tab-content-mobile show active" id="tab-cl-transaksi">
                             <!-- Konten Tab 1 -->
                             <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab-cl-transaksi">
                               <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                <div class="col-md-1 d-flex pl-0 justify-content-center align-items-center">
                                   <div class="select-box" style="line-height: 1px;">
                                     <input type="checkbox" class="custom-check">
                                   </div>
                                 </div>
                                 <div class="tab-content-point bg-white w-100">
                                   <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
+                                    <div class="col-md-4 text-left">
                                       <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
+                                      <p class="small">SO/1234567890</p>
                                     </div>
                                     <div class="col-md-4 text-center">
                                       <p>Rp100.000.000</p>
                                     </div>
-                                    <div class="col-md-2 text-right">
+                                    <div class="col-md-4 text-right">
                                       <p><span class="badge badge-danger">12 Jan 2024</span></p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                <div class="col-md-1 d-flex pl-0 justify-content-center align-items-center">
                                   <div class="select-box" style="line-height: 1px;">
                                     <input type="checkbox" class="custom-check">
                                   </div>
                                 </div>
                                 <div class="tab-content-point bg-white w-100">
                                   <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
+                                    <div class="col-md-4 text-left">
                                       <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
+                                      <p class="small">SO/1234567890</p>
                                     </div>
                                     <div class="col-md-4 text-center">
                                       <p>Rp100.000.000</p>
                                     </div>
-                                    <div class="col-md-2 text-right">
+                                    <div class="col-md-4 text-right">
                                       <p><span class="badge badge-danger">12 Jan 2024</span></p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                <div class="col-md-1 d-flex pl-0 justify-content-center align-items-center">
                                   <div class="select-box" style="line-height: 1px;">
                                     <input type="checkbox" class="custom-check">
                                   </div>
                                 </div>
                                 <div class="tab-content-point bg-white w-100">
                                   <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
+                                    <div class="col-md-4 text-left">
                                       <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
+                                      <p class="small">SO/1234567890</p>
                                     </div>
                                     <div class="col-md-4 text-center">
                                       <p>Rp100.000.000</p>
                                     </div>
-                                    <div class="col-md-2 text-right">
+                                    <div class="col-md-4 text-right">
                                       <p><span class="badge badge-danger">12 Jan 2024</span></p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                <div class="col-md-1 d-flex pl-0 justify-content-center align-items-center">
                                   <div class="select-box" style="line-height: 1px;">
                                     <input type="checkbox" class="custom-check">
                                   </div>
                                 </div>
                                 <div class="tab-content-point bg-white w-100">
                                   <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
+                                    <div class="col-md-4 text-left">
                                       <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
+                                      <p class="small">SO/1234567890</p>
                                     </div>
                                     <div class="col-md-4 text-center">
                                       <p>Rp100.000.000</p>
                                     </div>
-                                    <div class="col-md-2 text-right">
+                                    <div class="col-md-4 text-right">
                                       <p><span class="badge badge-danger">12 Jan 2024</span></p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                <div class="col-md-1 d-flex pl-0 justify-content-center align-items-center">
                                   <div class="select-box" style="line-height: 1px;">
                                     <input type="checkbox" class="custom-check">
                                   </div>
                                 </div>
                                 <div class="tab-content-point bg-white w-100">
                                   <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
+                                    <div class="col-md-4 text-left">
                                       <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
+                                      <p class="small">SO/1234567890</p>
                                     </div>
                                     <div class="col-md-4 text-center">
                                       <p>Rp100.000.000</p>
                                     </div>
-                                    <div class="col-md-2 text-right">
+                                    <div class="col-md-4 text-right">
                                       <p><span class="badge badge-danger">12 Jan 2024</span></p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                <div class="col-md-1 d-flex pl-0 justify-content-center align-items-center">
                                   <div class="select-box" style="line-height: 1px;">
                                     <input type="checkbox" class="custom-check">
                                   </div>
                                 </div>
                                 <div class="tab-content-point bg-white w-100">
                                   <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
+                                    <div class="col-md-4 text-left">
                                       <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
+                                      <p class="small">SO/1234567890</p>
                                     </div>
                                     <div class="col-md-4 text-center">
                                       <p>Rp100.000.000</p>
                                     </div>
-                                    <div class="col-md-2 text-right">
-                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
-                                  <div class="select-box" style="line-height: 1px;">
-                                    <input type="checkbox" class="custom-check">
-                                  </div>
-                                </div>
-                                <div class="tab-content-point bg-white w-100">
-                                  <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
-                                      <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                      <p>Rp100.000.000</p>
-                                    </div>
-                                    <div class="col-md-2 text-right">
-                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
-                                  <div class="select-box" style="line-height: 1px;">
-                                    <input type="checkbox" class="custom-check">
-                                  </div>
-                                </div>
-                                <div class="tab-content-point bg-white w-100">
-                                  <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
-                                      <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                      <p>Rp100.000.000</p>
-                                    </div>
-                                    <div class="col-md-2 text-right">
-                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
-                                  <div class="select-box" style="line-height: 1px;">
-                                    <input type="checkbox" class="custom-check">
-                                  </div>
-                                </div>
-                                <div class="tab-content-point bg-white w-100">
-                                  <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
-                                      <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                      <p>Rp100.000.000</p>
-                                    </div>
-                                    <div class="col-md-2 text-right">
-                                      <p><span class="badge badge-danger">12 Jan 2024</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="d-flex align-items-center py-2">
-                                <div class="col-md-1 d-flex justify-content-center align-items-center">
-                                  <div class="select-box" style="line-height: 1px;">
-                                    <input type="checkbox" class="custom-check">
-                                  </div>
-                                </div>
-                                <div class="tab-content-point bg-white w-100">
-                                  <div class="d-flex p-2 align-items-center">
-                                    <div class="col-md-3 text-left">
-                                      <p class="m-0">30 Nov 25</p>
-                                    </div>
-                                    <div class="col-md-3 text-left">
-                                      <p>SO1234567890</p>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                      <p>Rp100.000.000</p>
-                                    </div>
-                                    <div class="col-md-2 text-right">
+                                    <div class="col-md-4 text-right">
                                       <p><span class="badge badge-danger">12 Jan 2024</span></p>
                                     </div>
                                   </div>
@@ -1874,7 +1884,7 @@
                           </div>
                           <div class="tab-pane" id="tab-cl-mutasi">
                             <!-- Konten Tab 2 -->
-                            <div class="tab-pane ftco-animate fadeInUp ftco-animated show active" id="tab-cl-mutasi">
+                            <div class="tab-pane tab-content-mobile ftco-animate fadeInUp ftco-animated show active" id="tab-cl-mutasi">
                               <div class="tab-content-point bg-white mb-3">
                                 <div class="d-flex p-2 align-items-center">
                                   <div class="col-md-3 text-left">
@@ -1897,7 +1907,7 @@
                                     <p>Update credit plafond Rp 3.875.500 -> Rp 10.000.000</p>
                                   </div>
                                   <div class="col-md-3 text-right debit">
-                                    <p>+ Rp 5.000.000</p>
+                                    <p>+ Rp 500.000</p>
                                   </div>
                                 </div>
                               </div>
