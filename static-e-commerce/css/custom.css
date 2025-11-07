@@ -826,10 +826,6 @@ input[type="checkbox"].switch:checked:after{
     }
   
 }
-/* TOFFIN POINTS */
-/* TOFFIN POINTS */
-
-
 .info-discount{
     border: solid 1px #08b34b;
     border-radius: 15px;
@@ -841,15 +837,11 @@ input[type="checkbox"].switch:checked:after{
   grid-template-columns: auto 1fr;
   padding: 3px 0;
 }
+/* TOFFIN POINTS */
+/* TOFFIN POINTS */
 
-.label {
-  padding-right: 10px;
-}
 
-.value {
-  text-align: right;
-}
-
+/* DAFTAR BELANJA */
 .order-card {
   border-radius: 10px;
   background: #fff;
@@ -865,16 +857,4 @@ input[type="checkbox"].switch:checked:after{
   width: 25px !important;
   height: 25px !important;
 }
-
-/* @media (max-width: 768px) {
-  .order-card {
-    padding: 15px;
-  }
-  .order-card .d-flex {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .order-card .btn {
-    width: 100%;
-  }
-} */
+/* DAFTAR BELANJA */
