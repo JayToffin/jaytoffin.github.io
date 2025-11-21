@@ -8,6 +8,10 @@
 	<!-- Viewport Meta-->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description"
+		content="Toffin Boothcamp 2025 adalah festival kolaboratif yang mempertemukan brand, kreator, dan inovator F&B untuk merayakan kreativitas dan tren terbaru dalam kopi, mocktail, pastry, dan lifestyle.">
+	<meta name="keywords"
+		content="Toffin Boothcamp 2025, Festival F&B Indonesia, Event kopi dan pastry, Kolaborasi brand F&B, Event Toffin Indonesia, gigi susu, roti macan, bali boozy, makmur jaya coffee roastery, second floor coffee">
 	<!-- Template Favicon & Icons Start -->
 	<link rel="icon" href="img/favicon/fav.png" sizes="any">
 	<!-- Template Favicon & Icons End -->
@@ -23,6 +27,36 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<!-- Custom Browser Color End -->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWF0GMXKXS"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-MWF0GMXKXS');
+	</script>
+	<!-- Google Tag Manager -->
+	<script>
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({
+				'gtm.start': new Date().getTime(),
+				event: 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-WL9WVC7');
+	</script>
+	<!-- End Google Tag Manager -->
 	<style>
 		/* Hero sizing */
 		.section.hero-section.hero-fullheight {
@@ -52,6 +86,87 @@
 				width: 100%;
 				left: auto;
 				margin-left: 0;
+			}
+		}
+
+		/* Highlight slider styles */
+		.highlight-slider {
+			position: relative;
+			overflow: hidden;
+			padding: 1rem 0;
+		}
+
+		.highlight-slider .slides {
+			display: flex;
+			gap: 1rem;
+			transition: transform 400ms ease;
+			will-change: transform;
+		}
+
+		.highlight-slider .slide {
+			flex: 0 0 auto;
+			width: calc(100% / 3 - 0.66rem);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-sizing: border-box;
+			padding: 0.5rem;
+		}
+
+		.highlight-slider .slide img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.highlight-slider .slider-controls {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			right: 0;
+			pointer-events: none;
+		}
+
+		.highlight-slider .btn-prev,
+		.highlight-slider .btn-next {
+			pointer-events: auto;
+			background: rgba(0, 0, 0, 0.5);
+			border: none;
+			color: #fff;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.highlight-slider .btn-prev {
+			position: absolute;
+			left: 8px;
+		}
+
+		.highlight-slider .btn-next {
+			position: absolute;
+			right: 8px;
+		}
+
+		/* Responsive: fewer slides on small screens */
+		@media (max-width: 991px) {
+			.highlight-slider .slide {
+				width: calc(100% / 2 - 0.5rem);
+			}
+		}
+
+		@media (max-width: 600px) {
+			.highlight-slider .slide {
+				width: 100%;
+			}
+
+			.highlight-slider .btn-prev,
+			.highlight-slider .btn-next {
+				display: none;
 			}
 		}
 	</style>
@@ -103,7 +218,7 @@
 				</div>
 				<div class="loading-wrap">
 					<div class="hero-01__top p-0 d-block d-md-none text-center">
-						<a href="index-main.html" class="logo" style="flex-direction: column !important; gap:0">
+						<a href="/" class="logo" style="flex-direction: column !important; gap:0">
 							<!-- logo icon -->
 							<img src="img/toffin-logo.png" style="width:150px;" alt="Toffin Indonesia">
 							<div>
@@ -166,6 +281,16 @@
 									<div class="col-3 col-sm-3 col-md-3 col-lg-6">
 										<div class="hero-05-videoblock__descr p-1">
 											<img src="img/big-4/bali-boozy/bali-boozy.png">
+										</div>
+									</div>
+									<div class="col-3 col-sm-3 col-md-3 col-lg-6">
+										<div class="hero-05-videoblock__descr p-1">
+											<img src="img/big-4/second-floor/second-floor.png">
+										</div>
+									</div>
+									<div class="col-3 col-sm-3 col-md-3 col-lg-6">
+										<div class="hero-05-videoblock__descr p-1">
+											<img src="img/big-4/kibo/KIBOxSCI.png">
 										</div>
 									</div>
 								</div>
@@ -320,7 +445,7 @@
 									<div class="services-cards-s__info">
 										<div class="services-cards-s__tags">
 											<p class="t-small text-white fw-bold ">#Knots</p>
-											<p class="t-small text-white fw-bold">#Kissa</p>
+											<p class="t-small text-white fw-bold">#Cafe Kissa</p>
 											<p class="t-small text-white fw-bold">#Mamitoko</p>
 											<p class="t-small text-white fw-bold">#Crio</p>
 											<p class="t-small text-white fw-bold">#Bittersweet</p>
@@ -433,72 +558,6 @@
 		</div>
 		<!-- Section - Jadwal End -->
 
-		<!-- Section - Services/Features Stacking Cards Start -->
-		<div class="section padding-stacked-section">
-			<div class="container">
-				<!-- Block - Services/Features Stacking Cards Start -->
-				<div class="block">
-					<div class="content__block">
-						<div class="stack-wrapper">
-							<div class="stack-offset"></div>
-							<div class="services-stack">
-								<!-- services stack single item -->
-								<div class="stack-item">
-									<div class="services-stack__inner showcase-inner"
-										style="background-color: #e3151a; width:100%;">
-										<div class="services-stack__container">
-											<div class="showcase-title pb-3">
-												<h3 class="opposite text-center">Pilih tujuan mu</h3>
-											</div>
-											<div class="project__block no-margin">
-												<div class="project__divider anim-uni-in-up"></div><br>
-												<div class="container-fluid p-0">
-													<div class="row g-0">
-														<div
-															class="col-6 project__navitem left grid-item no-margin anim-uni-in-up">
-															<a class="btn btn-anim btn-line-small text-tbc3 anim-no-delay slide-left"
-																href="#experience">
-																<i class="ph ph-arrow-left"></i>
-																<span class="btn-caption">Pilih</span>
-															</a>
-															<a class="project__link anim-uni-in-up" href="#experience">
-																<span>Experience</span>
-															</a>
-														</div>
-														<div
-															class="col-6 project__navitem right grid-item no-margin anim-uni-in-up">
-															<a class="btn btn-anim btn-line-small text-tbc3 anim-no-delay slide-right"
-																href="#explore">
-																<span class="btn-caption">Pilih</span>
-																<i class="ph ph-arrow-right"></i>
-															</a>
-															<a class="project__link  anim-uni-in-up" href="#explore">
-																<span>Explore</span>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="services-stack__works pt-4">
-												<a class="services-stack__work" href="#experience">
-													<img class="services-stack__preview" src="img/experience.png">
-												</a>
-												<a class="services-stack__work" href="#explore">
-													<img class="services-stack__preview" src="img/explore.png">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Block - Services/Features Stacking Cards End -->
-			</div>
-		</div>
-		<!-- Section - Services/Features Stacking Cards End -->
-
 		<!-- Wrapper - Opposite Sections Group Start -->
 		<div id="experience"
 			class="wrapper wrapper-opposite padding-top-pre-title margin-bottom-pre-title anim-zoom-in-container">
@@ -567,7 +626,7 @@
 												<li>Omakase concept berdurasi 90 menit</li>
 											</ul>
 											<div class="text-center d-block d-xl-flex justify-content-xl-start">
-												<a class="mt-5 downloadAppBtn btn btn-anim btn-default btn-opposite"
+												<a class="mt-5 downloadAppBtn btn btn-anim btn-default btn-permanent"
 													aria-label="Unduh Toffin App sekarang melalui QR code link"
 													style="background-color: #ffffff; color:#000000;">
 													<img src="img/toffin-apps-logo.png"
@@ -585,7 +644,6 @@
 					<!-- Section - Partners Cards Start -->
 					<div class="section padding-top-pre-title" style="padding-top: 90px;">
 						<div class="container grid-container">
-
 							<!-- Block - Partners Cards Start -->
 							<div class="block">
 								<div class="partners-cards">
@@ -598,7 +656,7 @@
 											</div>
 											<div
 												class="col-6 col-sm-4 col-md-3 col-lg-2 justify-content-center partners-cards__item grid-item animate-card-4">
-												<a class="partners-cards__inner" href="#0">
+												<a class="partners-cards__inner">
 													<div class="partners-cards__logo">
 														<img src="img/big-4/gigi-susu/gigi-susu.png" alt="Partner Logo">
 													</div>
@@ -607,7 +665,7 @@
 											<!-- item -->
 											<div
 												class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center partners-cards__item grid-item animate-card-4">
-												<a class="partners-cards__inner" href="#0">
+												<a class="partners-cards__inner">
 													<div class="partners-cards__logo">
 														<img src="img/big-4/roti-macan/roti-macan.png"
 															alt="Partner Logo">
@@ -617,7 +675,7 @@
 											<!-- item -->
 											<div
 												class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center partners-cards__item grid-item animate-card-4">
-												<a class="partners-cards__inner" href="#0">
+												<a class="partners-cards__inner">
 													<div class="partners-cards__logo">
 														<img src="img/big-4/makmur-jaya/makmur-jaya.png"
 															alt="Partner Logo">
@@ -627,7 +685,7 @@
 											<!-- item -->
 											<div
 												class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center partners-cards__item grid-item animate-card-4">
-												<a class="partners-cards__inner" href="#0">
+												<a class="partners-cards__inner">
 													<div class="partners-cards__logo">
 														<img src="img/big-4/bali-boozy/bali-boozy.png"
 															alt="Partner Logo">
@@ -637,7 +695,7 @@
 											<!-- item -->
 											<div
 												class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center partners-cards__item grid-item animate-card-4">
-												<a class="partners-cards__inner" href="#0">
+												<a class="partners-cards__inner">
 													<div class="partners-cards__logo">
 														<img src="img/big-4/kibo/kibo.png" alt="Partner Logo">
 													</div>
@@ -646,7 +704,7 @@
 											<!-- item -->
 											<div
 												class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center partners-cards__item grid-item animate-card-4">
-												<a class="partners-cards__inner" href="#0">
+												<a class="partners-cards__inner">
 													<div class="partners-cards__logo">
 														<img src="img/big-4/second-floor/second-floor.png"
 															alt="Partner Logo">
@@ -667,440 +725,1301 @@
 		</div>
 		<!-- Wrapper - Opposite Sections Experience bar End -->
 
-		<!-- Section - Pairing Menu BIG4 -->
-		<div class="section padding-grid-pre-mtext">
-			<div class="container grid-container">
+		<div class="col-12 col-xl-12 text-center pb-5">
+			<div class="block__name">
+				<h2 class="anim-uni-in-up text-black">Experience Bar Schedule <br>& Co-creation</h2>
+			</div>
+		</div>
+
+		<!-- Section - day 1 -->
+		<div class="section " style="padding-top: 5rem; padding-bottom: 2rem;">
+			<div class="box-day">
+				<!-- Block - CTA Start -->
 				<div class="block">
-					<div class="pricing-table loading__fade">
-						<div class="container-fluid p-0">
-							<div class="row g-0">
-								<div class="col-12 col-xl-12 text-center pb-5">
-									<div class="block__name">
-										<h2 class="anim-uni-in-up text-black">Experience Bar Schedule <br>& Co-creation</h2>
-									</div>
+					<div class="promo">
+						<div class="promo__inner anim-zoom-out-container">
+							<!-- background -->
+							<div class="promo__bg"></div>
+							<!-- caption -->
+							<div style="padding-top: 5rem; padding-bottom: 5rem;">
+								<div class="showcase-title pb-3">
+									<h4 class="opposite text-center">Day 1 - Kamis, 27 November 2025</h4>
 								</div>
-								<div class="col-12 col-xl-4 pricing-table__item grid-item animate-card-3">
-									<div class="pricing-table__inner">
-										<div class="pricing-table__data">
-											<div class="pricing-data__header">
-												<div class="justify-content-center animate-card-4">
-													<div class="my-slider swiper">
-														<div class="swiper-wrapper">
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/gigi-susu/menu1.jpg"
-																	alt="Menu 1"></div>
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/gigi-susu/menu2.jpg"
-																	alt="Menu 2"></div>
+								<div class="promo__controls">
+									<div class="swiper day-slider">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img
+																					class="foto-co-creation"
+																					src="img/big-4/gigi-susu/menu1.jpg"
+																					alt="Menu 1"></div>
+																			<div class="swiper-slide"><img
+																					class="foto-co-creation"
+																					src="img/big-4/gigi-susu/menu2.jpg"
+																					alt="Menu 2"></div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/gigi-susu/gigi-susu-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Gigi Susu</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 450.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Kamis, 27 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			10:00 - 11:30 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
 														</div>
-														<div class="swiper-pagination"></div>
-														<div class="swiper-testimonials__controls">
-															<div
-																class="swiper-button-prev slider-btn slider-btn-round-prev">
-																<a class="btn btn-round btn-round-small btn-outline slide-left anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-left"></i>
-																</a>
+
+														<div class="pricing-table__plan">
+															<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Menu Co-creation:</p>
+															<div class="gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Amarena Tiramisu</span> <span
+																	class="text-tbc3 fw-bold"> (Cake)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Black Forest Tonic</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Pistachio Chocolate Tart</span>
+																<span class="text-tbc3 fw-bold"> (Pastry)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Kolak Milk Brew</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span>
 															</div>
-															<div class="swiper-pagination swiper-pagination-fraction">
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu1.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu2.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu3.jpg" alt="Menu 1">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
 															</div>
-															<div
-																class="swiper-button-next slider-btn slider-btn-round-next">
-																<a class="btn btn-round btn-round-small btn-outline slide-right anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-right"></i>
-																</a>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/makmur-jaya/makmur-jaya-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption t-semibold text-white anim-uni-in-up">
+																			Makmur Jaya Roastery</p>
+																		<p
+																			class="pricing-plan__caption t-large t-semibold text-white anim-uni-in-up">
+																			Rp 400.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Kamis, 27 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			12:30 - 14:00 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p
+																class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																Menu Co-creation:</p>
+															<div class="d-flex align-items-center gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Nebula Fusion</span> <span
+																	class="text-tbc3 fw-bold"> (Mocha)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">The Milky Way</span> <span
+																	class="text-tbc3 fw-bold"> (Cappuccino)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Interstellar</span> <span
+																	class="text-tbc3 fw-bold"> (Coffee Mocktail)</span> <span> | </span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Hijau-Harmony.jpg"></div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Peach-Sereh-Hari.jpg">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Kembang-Desa.jpg">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/bali-boozy/bali-boozy-white.png" style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Bali Boozy</p>
+																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Rp 600.000</p>
+																	</div>
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span> Kamis, 27 November 2025
+																		</p>
+																		<p class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span> 15:00 - 16:30 WIB 
+																		</p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up" href="contact.html">
+																		<span class="btn-caption">Beli Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up"></div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p
+																class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																Menu Co-creation:</p>
+															<div class="gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Peach di Sereh Hari</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Bao Bun Ayam Pedas Manis</span>
+																<span class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Hijau Harmoni</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Cumi Suna Cekuh</span> <span
+																	class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Kembang Desa</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Sate Ikan Pesisir</span> <span
+																	class="text-tbc3 fw-bold"> (Light Bite)</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/kibo/Smoked-Duck.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/kibo/Amarena-Soda.jpg" alt="Menu 2">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/kibo/Cheese-Burger.jpg" alt="Menu 3">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/kibo/Red-Beans.jpg" alt="Menu 2">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/kibo/Kibo-Mystery-Burger.jpg"
+																					alt="Menu 3"></div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/kibo/Lemon-Soda.jpg" alt="Menu 2">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/kibo/Black-Sesame.jpg" alt="Menu 3">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/kibo/kibo-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Kibo x Warung SCI</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 650.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Kamis, 27 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			17:30 - 19:30 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Menu Co-creation:</p>
+															<div class="d-flex align-items-center gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Smoked Duck Curry Burger</span>
+																<span class="text-tbc3 fw-bold"> (Thai Green)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Amarena Soda</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Double Smash Cheese Burger</span>
+																<span class="text-tbc3 fw-bold"> (Western Style)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Redbean Peanut Butter</span>
+																<span class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Mystery Burger</span> <span
+																	class="text-tbc3 fw-bold"> (Japanesse Style)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Lemon Soda</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Black Sesame Peanut Butter</span>
+																<span class="text-tbc3 fw-bold"> (Beverage)</span>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="d-flex align-items-center">
-											<img src="img/big-4/gigi-susu/gigi-susu-white.png"
-												style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
-											<div class="pricing-info d-flex flex-column">
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Menu
-													Co-creation</p>
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Rp
-													450.000</p>
-											</div>
-										</div>
-										<div class="gap-2 flex-wrap">
-											<span class="cpb-list__title t-small mb-0">Amarena Tiramisu</span> <span class="text-tbc3 fw-bold"> (Cake)</span> <span> | </span> 
-											<span class="cpb-list__title t-small mb-0">Amarena Coffee Mocktail</span> <span class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span> 
-											<span class="cpb-list__title t-small mb-0">Banana Milk Brew</span> <span class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span> 
-											<span class="cpb-list__title t-small mb-0">Pistachio Tart</span> <span class="text-tbc3 fw-bold"> (Pastry)</span>
-										</div>
-										<div class="pricing-table__link anim-uni-in-up">
-											<button
-												class="downloadAppBtn btn btn-anim btn-default btn-opposite btn-fullwidth slide-right-up"
-												href="contact.html">
-												<span class="btn-caption">Beli Tiket</span>
-												<i class="ph-bold ph-arrow-up-right"></i>
-											</button>
-										</div>
 									</div>
-								</div>
-								<div class="col-12 col-xl-4 pricing-table__item grid-item animate-card-3">
-									<div class="pricing-table__inner">
-										<div class="pricing-table__data">
-											<div class="pricing-data__header">
-												<div class="justify-content-center animate-card-4">
-													<div class="my-slider swiper">
-														<div class="swiper-wrapper">
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"></div>
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Peach-Sereh-Hari.jpg">
-															</div>
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Kembang-Desa.jpg">
-															</div>
-														</div>
-														<div class="swiper-pagination"></div>
-														<div class="swiper-testimonials__controls">
-															<div
-																class="swiper-button-prev slider-btn slider-btn-round-prev">
-																<a class="btn btn-round btn-round-small btn-outline slide-left anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-left"></i>
-																</a>
-															</div>
-															<div class="swiper-pagination swiper-pagination-fraction">
-															</div>
-															<div
-																class="swiper-button-next slider-btn slider-btn-round-next">
-																<a class="btn btn-round btn-round-small btn-outline slide-right anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-right"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center">
-											<img src="img/big-4/bali-boozy/bali-boozy-white.png" style="width: 60px; margin-right:10px; background-color: red;
-    border-radius: 50px;
-    padding: 5px;">
-											<div class="pricing-info d-flex flex-column">
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Menu
-													Co-creation</p>
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Rp
-													600.000</p>
-											</div>
-										</div>
-										<div class="gap-2 flex-wrap">
-											<span class="cpb-list__title t-small mb-0">Peach di Sereh Hari</span> <span class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span> 
-											<span class="cpb-list__title t-small mb-0">Cumi Suna Cekuh</span> <span class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span> 
-											<span class="cpb-list__title t-small mb-0">Bao Bun Ayam Pedas Manis</span> <span class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span> 
-											<span class="cpb-list__title t-small mb-0">Sate Ikan Pesisir</span> <span class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span> 
-											<span class="cpb-list__title t-small mb-0">Kembang Desa</span> <span class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span> 
-											<span class="cpb-list__title t-small mb-0">Hijau Harmoni</span> <span class="text-tbc3 fw-bold"> (Cocktail)</span>
-											
-										</div>
-										<div class="pricing-table__link anim-uni-in-up">
-											<button
-												class="downloadAppBtn btn btn-anim btn-default btn-opposite btn-fullwidth slide-right-up">
-												<span class="btn-caption">Beli Tiket</span>
-												<i class="ph-bold ph-arrow-up-right"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="col-12 col-xl-4 pricing-table__item grid-item animate-card-3">
-									<div class="pricing-table__inner">
-										<div class="pricing-table__data">
-											<div class="pricing-data__header">
-												<div class="justify-content-center animate-card-4">
-													<div class="my-slider swiper">
-														<div class="swiper-wrapper">
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/coming-soon.jpg"
-																	alt="Menu 1"></div>
-															<!-- <div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"
-																	alt="Menu 2"></div>
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"
-																	alt="Menu 3"></div> -->
-														</div>
-														<div class="swiper-pagination"></div>
-														<div class="swiper-testimonials__controls">
-															<div
-																class="swiper-button-prev slider-btn slider-btn-round-prev">
-																<a class="btn btn-round btn-round-small btn-outline slide-left anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-left"></i>
-																</a>
-															</div>
-															<div class="swiper-pagination swiper-pagination-fraction">
-															</div>
-															<div
-																class="swiper-button-next slider-btn slider-btn-round-next">
-																<a class="btn btn-round btn-round-small btn-outline slide-right anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-right"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center">
-											<img src="img/big-4/roti-macan/roti-macan-white.png"
-												style="width: 60px; margin-right:10px; background-color: red; border-radius: 50px; padding: 5px;">
-											<div class="pricing-info d-flex flex-column">
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Menu
-													Co-creation</p>
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Rp -
-												</p>
-											</div>
-										</div>
-										<div class="d-flex align-items-center gap-2 flex-wrap">
-											<p class="cpb-list__title t-small mb-0">Coming Soon</p>
-											<!-- <span>|</span>
-											<p class="cpb-list__title t-small mb-0">Cumi Suna Cekuh</p><span>|</span>
-											<p class="cpb-list__title t-small mb-0">Bao Bun Ayam Pedas Manis
-											</p>
-											<span>|</span>
-											<p class="cpb-list__title t-small mb-0">Hijau Harmoni</p>
-											<span>|</span>
-											<p class="cpb-list__title t-small mb-0">Sate Ikan Pesisir</p> -->
-										</div>
-										<div class="pricing-table__link anim-uni-in-up">
-											<button
-												class="downloadAppBtn btn btn-anim btn-default btn-opposite btn-fullwidth slide-right-up"
-												href="contact.html">
-												<span class="btn-caption">Beli Tiket</span>
-												<i class="ph-bold ph-arrow-up-right"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="col-12 col-xl-4 pricing-table__item grid-item animate-card-3">
-									<div class="pricing-table__inner">
-										<div class="pricing-table__data">
-											<div class="pricing-data__header">
-												<div class="justify-content-center animate-card-4">
-													<div class="my-slider swiper">
-														<div class="swiper-wrapper">
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/coming-soon.jpg"
-																	alt="Menu 1"></div>
-															<!-- <div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"
-																	alt="Menu 2"></div>
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"
-																	alt="Menu 3"></div> -->
-														</div>
-														<div class="swiper-pagination"></div>
-														<div class="swiper-testimonials__controls">
-															<div
-																class="swiper-button-prev slider-btn slider-btn-round-prev">
-																<a class="btn btn-round btn-round-small btn-outline slide-left anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-left"></i>
-																</a>
-															</div>
-															<div class="swiper-pagination swiper-pagination-fraction">
-															</div>
-															<div
-																class="swiper-button-next slider-btn slider-btn-round-next">
-																<a class="btn btn-round btn-round-small btn-outline slide-right anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-right"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center">
-											<img src="img/big-4/makmur-jaya/makmur-jaya-white.png" style="width: 60px; margin-right:10px; background-color: red;
-    border-radius: 50px;
-    padding: 5px;">
-											<div class="pricing-info d-flex flex-column">
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Menu
-													Co-creation</p>
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Rp -</p>
-											</div>
-										</div>
-										<div class="d-flex align-items-center gap-2 flex-wrap">
-											<p class="cpb-list__title t-small mb-0">Coming Soon</p>
-											<!-- <span>|</span>
-											<p class="cpb-list__title t-small mb-0">Cumi Suna Cekuh</p><span>|</span>
-											<p class="cpb-list__title t-small mb-0">Bao Bun Ayam Pedas Manis
-											</p>
-											<span>|</span>
-											<p class="cpb-list__title t-small mb-0">Hijau Harmoni</p>
-											<span>|</span>
-											<p class="cpb-list__title t-small mb-0">Sate Ikan Pesisir</p> -->
-										</div>
-										<div class="pricing-table__link anim-uni-in-up">
-											<button
-												class="downloadAppBtn btn btn-anim btn-default btn-opposite btn-fullwidth slide-right-up"
-												href="contact.html">
-												<span class="btn-caption">Beli Tiket</span>
-												<i class="ph-bold ph-arrow-up-right"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="col-12 col-xl-4 pricing-table__item grid-item animate-card-3">
-									<div class="pricing-table__inner">
-										<div class="pricing-table__data">
-											<div class="pricing-data__header">
-												<div class="justify-content-center animate-card-4">
-													<div class="my-slider swiper">
-														<div class="swiper-wrapper">
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/coming-soon.jpg"
-																	alt="Menu 1"></div>
-															<!-- <div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"
-																	alt="Menu 2"></div>
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"
-																	alt="Menu 3"></div> -->
-														</div>
-														<div class="swiper-pagination"></div>
-														<div class="swiper-testimonials__controls">
-															<div
-																class="swiper-button-prev slider-btn slider-btn-round-prev">
-																<a class="btn btn-round btn-round-small btn-outline slide-left anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-left"></i>
-																</a>
-															</div>
-															<div class="swiper-pagination swiper-pagination-fraction">
-															</div>
-															<div
-																class="swiper-button-next slider-btn slider-btn-round-next">
-																<a class="btn btn-round btn-round-small btn-outline slide-right anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-right"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center">
-											<img src="img/big-4/kibo/kibo-white.png" style="width: 60px; margin-right:10px; background-color: red;
-    border-radius: 50px;
-    padding: 5px;">
-											<div class="pricing-info d-flex flex-column">
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Menu
-													Co-creation</p>
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Rp -
-												</p>
-											</div>
-										</div>
-										<div class="d-flex align-items-center gap-2 flex-wrap">
-											<p class="cpb-list__title t-small mb-0">Coming Soon</p>
-											<!-- <span>|</span>
-											<p class="cpb-list__title t-small mb-0">Cumi Suna Cekuh</p><span>|</span>
-											<p class="cpb-list__title t-small mb-0">Bao Bun Ayam Pedas Manis
-											</p>
-											<span>|</span>
-											<p class="cpb-list__title t-small mb-0">Hijau Harmoni</p>
-											<span>|</span>
-											<p class="cpb-list__title t-small mb-0">Sate Ikan Pesisir</p> -->
-										</div>
-										<div class="pricing-table__link anim-uni-in-up">
-											<button
-												class="downloadAppBtn btn btn-anim btn-default btn-opposite btn-fullwidth slide-right-up">
-												<span class="btn-caption">Beli Tiket</span>
-												<i class="ph-bold ph-arrow-up-right"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="col-12 col-xl-4 pricing-table__item grid-item animate-card-3">
-									<div class="pricing-table__inner">
-										<div class="pricing-table__data">
-											<div class="pricing-data__header">
-												<div class="justify-content-center animate-card-4">
-													<div class="my-slider swiper">
-														<div class="swiper-wrapper">
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/coming-soon.jpg"
-																	alt="Menu 1"></div>
-															<!-- <div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"
-																	alt="Menu 2"></div>
-															<div class="swiper-slide"><img class="foto-co-creation"
-																	src="img/big-4/bali-boozy/Hijau-Harmony.jpg"
-																	alt="Menu 3"></div> -->
-														</div>
-														<div class="swiper-pagination"></div>
-														<div class="swiper-testimonials__controls">
-															<div
-																class="swiper-button-prev slider-btn slider-btn-round-prev">
-																<a class="btn btn-round btn-round-small btn-outline slide-left anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-left"></i>
-																</a>
-															</div>
-															<div class="swiper-pagination swiper-pagination-fraction">
-															</div>
-															<div
-																class="swiper-button-next slider-btn slider-btn-round-next">
-																<a class="btn btn-round btn-round-small btn-outline slide-right anim-no-delay"
-																	href="#0">
-																	<i class="ph ph-arrow-right"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center">
-											<img src="img/big-4/second-floor/second-floor-white.png" style="width: 60px; margin-right:10px; background-color: red;
-    border-radius: 50px;
-    padding: 5px;">
-											<div class="pricing-info d-flex flex-column">
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Menu
-													Co-creation</p>
-												<p class="pricing-plan__caption t-semibold t-bright anim-uni-in-up">Rp -
-												</p>
-											</div>
-										</div>
-										<div class="d-flex align-items-center gap-2 flex-wrap">
-											<p class="cpb-list__title t-small mb-0">Coming Soon</p>
-											<!-- <span>|</span>
-											<p class="cpb-list__title t-small mb-0">Cumi Suna Cekuh</p><span>|</span>
-											<p class="cpb-list__title t-small mb-0">Bao Bun Ayam Pedas Manis
-											</p>
-											<span>|</span>
-											<p class="cpb-list__title t-small mb-0">Hijau Harmoni</p>
-											<span>|</span>
-											<p class="cpb-list__title t-small mb-0">Sate Ikan Pesisir</p> -->
-										</div>
-										<div class="pricing-table__link anim-uni-in-up">
-											<button
-												class="downloadAppBtn btn btn-anim btn-default btn-opposite btn-fullwidth slide-right-up"
-												href="contact.html">
-												<span class="btn-caption">Beli Tiket</span>
-												<i class="ph-bold ph-arrow-up-right"></i>
-											</button>
-										</div>
-									</div>
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-button-next"></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- Block - CTA End -->
 			</div>
 		</div>
+		<!-- Section - day 1 -->
+
+		<!-- Section - day 2 -->
+		<div class="section " style="padding-top: 5rem; padding-bottom: 2rem;">
+			<div class="box-day">
+				<!-- Block - CTA Start -->
+				<div class="block">
+					<div class="promo">
+						<div class="promo__inner anim-zoom-out-container">
+							<!-- background -->
+							<div class="promo__bg"></div>
+							<!-- caption -->
+							<div style="padding-top: 5rem; padding-bottom: 5rem;">
+								<div class="showcase-title pb-3">
+									<h4 class="opposite text-center">Day 2 - Jumat, 28 November 2025</h4>
+								</div>
+								<div class="promo__controls">
+									<div class="swiper day-slider">
+										<div class="swiper-wrapper">
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img
+																					class="foto-co-creation"
+																					src="img/big-4/gigi-susu/menu1.jpg"
+																					alt="Menu 1"></div>
+																			<div class="swiper-slide"><img
+																					class="foto-co-creation"
+																					src="img/big-4/gigi-susu/menu2.jpg"
+																					alt="Menu 2"></div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/gigi-susu/gigi-susu-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Gigi Susu</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 450.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Jumat, 28 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			10:00 - 12:00 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Menu Co-creation:</p>
+															<div class="gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Amarena Tiramisu</span> <span
+																	class="text-tbc3 fw-bold"> (Cake)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Black Forest Tonic</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Pistachio Chocolate Tart</span>
+																<span class="text-tbc3 fw-bold"> (Pastry)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Kolak Milk Brew</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu1.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu2.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu3.jpg" alt="Menu 1">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/makmur-jaya/makmur-jaya-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Makmur Jaya Roastery</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 400.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Jumat, 28 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			12:30 - 14:30 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p
+																class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																Menu Co-creation:</p>
+															<div class="d-flex align-items-center gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Nebula Fusion</span> <span
+																	class="text-tbc3 fw-bold"> (Mocha)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">The Milky Way</span> <span
+																	class="text-tbc3 fw-bold"> (Cappuccino)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Interstellar</span> <span
+																	class="text-tbc3 fw-bold"> (Coffee Mocktail)</span> <span> | </span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/second-floor/AmarenaxAdam.jpg"
+																					alt="Menu 1"></div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/second-floor/Jgeg.jpg" alt="Menu 2">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/second-floor/M'King.jpg"
+																					alt="Menu 3"></div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/second-floor/second-floor-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Second Floor Bali</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 400.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Jumat, 28 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			17:30 - 19:00 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="d-flex align-items-center gap-2 flex-wrap" style="font-size: 15px;">
+															<span class="cpb-list__title text-white t-small mb-0">Amarena x Adam</span> <span
+																class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+															<span class="cpb-list__title text-white t-small mb-0">Jegég</span> <span
+																class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+															<span class="cpb-list__title text-white t-small mb-0">M'King</span> <span
+																class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Hijau-Harmony.jpg"></div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Peach-Sereh-Hari.jpg">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Kembang-Desa.jpg">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/bali-boozy/bali-boozy-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Bali Boozy</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 600.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Jumat, 28 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			19:30 - 21:30 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p
+																class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																Menu Co-creation:</p>
+															<div class="gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Peach di Sereh Hari</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Bao Bun Ayam Pedas Manis</span>
+																<span class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Hijau Harmoni</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Cumi Suna Cekuh</span> <span
+																	class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Kembang Desa</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Sate Ikan Pesisir</span> <span
+																	class="text-tbc3 fw-bold"> (Light Bite)</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-button-next"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Block - CTA End -->
+			</div>
+		</div>
+		<!-- Section - day 2 -->
+
+		<!-- Section - day 3 -->
+		<div class="section " style="padding-top: 5rem; padding-bottom: 5rem;">
+			<div class="box-day">
+				<!-- Block - CTA Start -->
+				<div class="block">
+					<div class="promo">
+						<div class="promo__inner anim-zoom-out-container">
+							<!-- background -->
+							<div class="promo__bg"></div>
+							<!-- caption -->
+							<div style="padding-top: 5rem; padding-bottom: 5rem;">
+								<div class="showcase-title pb-3">
+									<h4 class="opposite text-center">Day 3 - Sabtu, 29 November 2025</h4>
+								</div>
+								<div class="promo__controls">
+									<div class="swiper day-slider">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu1.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu2.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu3.jpg" alt="Menu 1">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/makmur-jaya/makmur-jaya-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Makmur Jaya Roastery</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 400.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Sabtu, 29 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			10:00 - 12:00 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p
+																class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																Menu Co-creation:</p>
+															<div class="d-flex align-items-center gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Nebula Fusion</span> <span
+																	class="text-tbc3 fw-bold"> (Mocha)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">The Milky Way</span> <span
+																	class="text-tbc3 fw-bold"> (Cappuccino)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Interstellar</span> <span
+																	class="text-tbc3 fw-bold"> (Coffee Mocktail)</span> <span> | </span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img
+																					class="foto-co-creation"
+																					src="img/big-4/gigi-susu/menu1.jpg"
+																					alt="Menu 1"></div>
+																			<div class="swiper-slide"><img
+																					class="foto-co-creation"
+																					src="img/big-4/gigi-susu/menu2.jpg"
+																					alt="Menu 2"></div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/gigi-susu/gigi-susu-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Gigi Susu</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 450.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Sabtu, 29 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			12:30 - 14:30 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Menu Co-creation:</p>
+															<div class="gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Amarena Tiramisu</span> <span
+																	class="text-tbc3 fw-bold"> (Cake)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Black Forest Tonic</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Pistachio Chocolate Tart</span>
+																<span class="text-tbc3 fw-bold"> (Pastry)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Kolak Milk Brew</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/second-floor/AmarenaxAdam.jpg"
+																					alt="Menu 1"></div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/second-floor/Jgeg.jpg" alt="Menu 2">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/second-floor/M'King.jpg"
+																					alt="Menu 3"></div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/second-floor/second-floor-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Second Floor Bali</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 400.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Sabtu, 29 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			17:30 - 19:00 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="d-flex align-items-center gap-2 flex-wrap" style="font-size: 15px;">
+															<span class="cpb-list__title text-white t-small mb-0">Amarena x Adam</span> <span
+																class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+															<span class="cpb-list__title text-white t-small mb-0">Jegég</span> <span
+																class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+															<span class="cpb-list__title text-white t-small mb-0">M'King</span> <span
+																class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Hijau-Harmony.jpg"></div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Peach-Sereh-Hari.jpg">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Kembang-Desa.jpg">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/bali-boozy/bali-boozy-white.png" style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Bali Boozy</p>
+																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Rp 600.000</p>
+																	</div>
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span> Sabtu, 29 November 2025
+																		</p>
+																		<p class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span> 19:30 - 21:00 WIB 
+																		</p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up" href="contact.html">
+																		<span class="btn-caption">Beli Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up"></div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p
+																class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																Menu Co-creation:</p>
+															<div class="gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Peach di Sereh Hari</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Bao Bun Ayam Pedas Manis</span>
+																<span class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Hijau Harmoni</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Cumi Suna Cekuh</span> <span
+																	class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Kembang Desa</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Sate Ikan Pesisir</span> <span
+																	class="text-tbc3 fw-bold"> (Light Bite)</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- dll -->
+										</div>
+									</div>
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-button-next"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Block - CTA End -->
+			</div>
+		</div>
+		<!-- Section - day 3 -->
+
+		<!-- Section - day 4 -->
+		<div class="section " style="padding-top: 5rem; padding-bottom: 5rem;">
+			<div class="box-day">
+				<!-- Block - CTA Start -->
+				<div class="block">
+					<div class="promo">
+						<div class="promo__inner anim-zoom-out-container">
+							<!-- background -->
+							<div class="promo__bg"></div>
+							<!-- caption -->
+							<div style="padding-top: 5rem; padding-bottom: 5rem;">
+								<div class="showcase-title pb-3">
+									<h4 class="opposite text-center">Day 4 - Minggu, 30 November 2025</h4>
+								</div>
+								<div class="promo__controls">
+									<div class="swiper day-slider">
+										<div class="swiper-wrapper">
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img
+																					class="foto-co-creation"
+																					src="img/big-4/gigi-susu/menu1.jpg"
+																					alt="Menu 1"></div>
+																			<div class="swiper-slide"><img
+																					class="foto-co-creation"
+																					src="img/big-4/gigi-susu/menu2.jpg"
+																					alt="Menu 2"></div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/gigi-susu/gigi-susu-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Gigi Susu</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 450.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Minggu, 30 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			10:00 - 12:00 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Menu Co-creation:</p>
+															<div class="gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Amarena Tiramisu</span> <span
+																	class="text-tbc3 fw-bold"> (Cake)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Black Forest Tonic</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Pistachio Chocolate Tart</span>
+																<span class="text-tbc3 fw-bold"> (Pastry)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Kolak Milk Brew</span> <span
+																	class="text-tbc3 fw-bold"> (Beverage)</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu1.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu2.jpg" alt="Menu 1">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/makmur-jaya/menu3.jpg" alt="Menu 1">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/makmur-jaya/makmur-jaya-white.png"
+																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p
+																			class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																			Makmur Jaya Roastery</p>
+																		<p
+																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
+																			Rp 400.000</p>
+																	</div>
+
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span>
+																			Minggu, 30 November 2025</p>
+																		<p
+																			class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span>
+																			15:30 - 17:30 WIB </p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
+																		href="contact.html">
+																		<span class="btn-caption">Beli
+																			Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up">
+																</div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p
+																class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																Menu Co-creation:</p>
+															<div class="d-flex align-items-center gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Nebula Fusion</span> <span
+																	class="text-tbc3 fw-bold"> (Mocha)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">The Milky Way</span> <span
+																	class="text-tbc3 fw-bold"> (Cappuccino)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Interstellar</span> <span
+																	class="text-tbc3 fw-bold"> (Coffee Mocktail)</span> <span> | </span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="swiper-slide">
+												<div class="col-12 pricing-table__item grid-item animate-card-3">
+													<div class="pricing-table__inner">
+														<div class="pricing-table__data">
+															<div class="pricing-data__header">
+																<div class="justify-content-center animate-card-4">
+																	<div class="my-slider swiper">
+																		<div class="swiper-wrapper">
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Hijau-Harmony.jpg"></div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Peach-Sereh-Hari.jpg">
+																			</div>
+																			<div class="swiper-slide"><img class="foto-co-creation"
+																					src="img/big-4/bali-boozy/Kembang-Desa.jpg">
+																			</div>
+																		</div>
+																		<div class="swiper-pagination"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="pricing-data__info">
+																<div class="d-flex align-items-center">
+																	<img src="img/big-4/bali-boozy/bali-boozy-white.png" style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
+																	<div class="pricing-info d-flex flex-column">
+																		<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Bali Boozy</p>
+																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Rp 600.000</p>
+																	</div>
+																</div>
+																<div class="pricing-data__price">
+																	<div class=" anim-uni-in-up">
+																		<p class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">📅</span> Minggu, 30 November 2025
+																		</p>
+																		<p class="pricing-data__currency t-semibold text-white text-white">
+																			<span style="padding-right: 10px;">⏰</span> 18:00 - 20:00 WIB 
+																		</p>
+																	</div>
+																</div>
+																<div class="pricing-data__btnholder anim-uni-in-up">
+																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up" href="contact.html">
+																		<span class="btn-caption">Beli Tiket</span>
+																		<i class="ph-bold ph-arrow-up-right"></i>
+																	</a>
+																</div>
+																<div class="pricing-data__divider anim-uni-in-up"></div>
+															</div>
+														</div>
+
+														<div class="pricing-table__plan">
+															<p
+																class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up">
+																Menu Co-creation:</p>
+															<div class="gap-2 flex-wrap" style="font-size: 15px;">
+																<span class="cpb-list__title text-white t-small mb-0">Peach di Sereh Hari</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Bao Bun Ayam Pedas Manis</span>
+																<span class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Hijau Harmoni</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Cumi Suna Cekuh</span> <span
+																	class="text-tbc3 fw-bold"> (Light Bite)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Kembang Desa</span> <span
+																	class="text-tbc3 fw-bold"> (Cocktail)</span> <span> | </span>
+																<span class="cpb-list__title text-white t-small mb-0">Sate Ikan Pesisir</span> <span
+																	class="text-tbc3 fw-bold"> (Light Bite)</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-button-next"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Block - CTA End -->
+			</div>
+		</div>
+		<!-- Section - day 4 -->
+
+		
+
+
+		<!-- Section - Pairing Menu BIG4 -->
+		
 		<!-- Section - Pricing Cards End -->
 
 		<!-- Wrapper - Opposite Sections Group Start -->
@@ -1449,6 +2368,24 @@
 								<div class="col-4 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
 									<img class="p-3" src="img/tenant/Yoguchi.png">
 								</div>
+								<div class="col-4 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/tenant/Photoplace.png">
+								</div>
+								<div class="col-4 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/tenant/Roomi.png">
+								</div>
+								<div class="col-4 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/tenant/supa-love.png">
+								</div>
+								<div class="col-4 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/tenant/yumirei.png">
+								</div>
+								<div class="col-4 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/tenant/tipsy-cream.png">
+								</div>
+								<div class="col-4 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/tenant/Bei-Studio.png">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1458,7 +2395,48 @@
 		</div>
 		<!-- Section - Daftar Tenant End -->
 
-		<!-- Section - About Start -->
+		<!-- Section - Powered by Start -->
+		<div class="section padding-pre-title">
+			<div class="container">
+				<div class="block pt-5">
+					<div class="partners-cards">
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-12 col-xl-12 text-center pb-5">
+									<div class="block__name">
+										<h2 class="anim-uni-in-up text-black">Powered By</h2>
+									</div>
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/powered/fabbri.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/powered/va.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/powered/oa.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/powered/fo.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/powered/tfn.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/powered/ns.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/powered/eureka.png">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Section - Services Cards End -->
+
+		<!-- Section - Partnered Start -->
 		<div class="section padding-pre-title">
 			<div class="container">
 				<!-- Block - Partners Cards Start -->
@@ -1468,7 +2446,7 @@
 							<div class="row justify-content-center">
 								<div class="col-12 col-xl-12 text-center pb-5">
 									<div class="block__name">
-										<h2 class="anim-uni-in-up text-black">Sponsor</h2>
+										<h2 class="anim-uni-in-up text-black">Partnered by</h2>
 									</div>
 								</div>
 								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
@@ -1479,6 +2457,52 @@
 								</div>
 								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
 									<img class="p-3" src="img/partner-sponsor/blok-m-hub.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/ice-hunt.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/aqua.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/mrk.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/glassware.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/Squezze.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/jbl.png">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Block - Partners Cards End -->
+			</div>
+		</div>
+		<!-- Section - Partnered Cards End -->
+
+		<!-- Section - Partnered Start -->
+		<div class="section padding-pre-title">
+			<div class="container">
+				<!-- Block - Partners Cards Start -->
+				<div class="block pt-5">
+					<div class="partners-cards">
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-12 col-xl-12 text-center pb-5">
+									<div class="block__name">
+										<h2 class="anim-uni-in-up text-black">Official Milk</h2>
+									</div>
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/frisianflag.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/omela.png">
 								</div>
 							</div>
 						</div>
@@ -1522,6 +2546,30 @@
 								</div>
 								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
 									<img class="p-3" src="img/media/suaradotcom.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/media/liputan6.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/media/IDN-times.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/media/yummy.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/media/medcom.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/media/metro.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/media/kumparan.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/media/manual.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/media/kompas.png">
 								</div>
 							</div>
 						</div>
@@ -1577,7 +2625,7 @@
 											</div>
 										</div>
 										<div class="stats-cards__btngrouappp">
-											<a class="downloadAppBtn btn btn-anim btn-default btn-opposite slide-right-up"
+											<a class="downloadAppBtn btn btn-anim btn-default btn-permanent slide-right-up"
 												aria-label="Unduh Toffin App sekarang melalui QR code link">
 												<span class="btn-caption">Unduh Sekarang</span>
 												<i class="ph-bold ph-download"></i>
@@ -1607,19 +2655,21 @@
 	<footer id="footer" class="footer">
 		<div class="footer__footer-blocks">
 			<div class="footer-blocks__column animate-card-3">
-				<div class="footer-blocks__card ">
+				<div class="footer-blocks__card bg-dark">
 					<div class="footer-blocks__links">
 						<div class=" btn-line-xsmall btn-muted slide-left anim-no-delay text-white">
 							<span class="btn-caption">&copy; 2025 Toffin BoothCamp. All rights reserved.</span>
 						</div>
-						<div class=" btn-line-xsmall btn-muted slide-right anim-no-delay text-white" style="font-family: Arial, Helvetica, sans-serif; letter-spacing:2px; font-size:12px;">
-						<div class="btn-caption d-block">
-							BCA berizin dan diawasi oleh Otoritas Jasa Keuangan & Bank Indonesia
+						<div class=" btn-line-xsmall btn-muted slide-right anim-no-delay text-white"
+							style="font-family: Arial, Helvetica, sans-serif; letter-spacing:2px; font-size:12px;">
+							<div class="btn-caption d-block">
+								BCA berizin dan diawasi oleh Otoritas Jasa Keuangan & Bank Indonesia
+							</div>
+							<div class="btn-caption d-block">
+								BCA merupakan peserta penjaminan LPS • <a href="https://www.bca.co.id"
+									style="font-size:12px; color:#ffffff;">bca.co.id</a>
+							</div>
 						</div>
-						<div class="btn-caption d-block">
-							BCA merupakan peserta penjaminan LPS • <a href="https://www.bca.co.id" style="font-size:12px; color:#ffffff;">bca.co.id</a>
-						</div>
-					</div>
 					</div>
 				</div>
 			</div>
@@ -1710,6 +2760,171 @@
 			}
 		});
 	</script>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'GTM-WL9WVC7');
+	</script>
+
+	<!-- Facebook Pixel Code -->
+	<script>
+		! function (f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '365334641280258');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none"
+			src="https://www.facebook.com/tr?id=365334641280258&ev=PageView&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL9WVC7" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+	<!-- Highlight slider script -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const slider = document.querySelector('.highlight-slider');
+			if (!slider) return;
+			const track = slider.querySelector('.slides');
+			const slides = Array.from(slider.querySelectorAll('.slide'));
+			const prevBtn = slider.querySelector('.btn-prev');
+			const nextBtn = slider.querySelector('.btn-next');
+
+			let index = 0;
+			let slideWidth = slides[0] ? slides[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track)
+				.gap || 0) : 0;
+			let autoPlayId = null;
+
+			function update() {
+				// compute width dynamically for responsiveness
+				slideWidth = slides[0] ? slides[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track)
+					.gap || 0) : 0;
+				const maxIndex = Math.max(0, slides.length - Math.floor(slider.offsetWidth / Math.max(1,
+					slideWidth)));
+				if (index > maxIndex) index = maxIndex;
+				const x = -(index * slideWidth);
+				track.style.transform = `translateX(${x}px)`;
+			}
+
+			function next() {
+				index = Math.min(index + 1, slides.length - 1);
+				update();
+			}
+
+			function prev() {
+				index = Math.max(index - 1, 0);
+				update();
+			}
+
+			nextBtn && nextBtn.addEventListener('click', () => {
+				next();
+				resetAutoplay();
+			});
+			prevBtn && prevBtn.addEventListener('click', () => {
+				prev();
+				resetAutoplay();
+			});
+
+			// touch support
+			let startX = 0,
+				deltaX = 0;
+			track.addEventListener('touchstart', (e) => {
+				startX = e.touches[0].clientX;
+			});
+			track.addEventListener('touchmove', (e) => {
+				deltaX = e.touches[0].clientX - startX;
+			});
+			track.addEventListener('touchend', () => {
+				if (deltaX < -40) next();
+				if (deltaX > 40) prev();
+				deltaX = 0;
+				resetAutoplay();
+			});
+
+			// autoplay
+			function startAutoplay() {
+				autoPlayId = setInterval(() => {
+					index = (index + 1) % slides.length;
+					update();
+				}, 3500);
+			}
+
+			function resetAutoplay() {
+				if (autoPlayId) {
+					clearInterval(autoPlayId);
+					startAutoplay();
+				}
+			}
+			startAutoplay();
+
+			// recalc on resize
+			window.addEventListener('resize', () => {
+				update();
+			});
+			// initial layout
+			update();
+		});
+	</script>
+
+	<script>
+		var daySlider = new Swiper(".day-slider", {
+			slidesPerView: 3, // tampil 3 card
+			autoplay: {
+				delay: 3500,
+				disableOnInteraction: false,
+			},
+			loop: false,
+
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+				},
+				768: {
+					slidesPerView: 2,
+				},
+				1200: {
+					slidesPerView: 3,
+				}
+			}
+		});
+	</script>
+
 
 </body>
 

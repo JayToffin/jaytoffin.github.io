@@ -1,78 +1,3 @@
-/*! File name: main.css
- * ------------------------------------------------
- * ------------------------------------------------
- * Table of Contents
- * ------------------------------------------------
- *  01. Fonts
- *  02. Variables
- *  03. Template Backgrounds
- *  04. Basic Styles
- *  05. Elements - Page Structure
- *  06. Elements - Typography
- *  07. Elements - Controls
- *  08. Elements - Forms
- *  09. Elements - Components
- *  10. Elements - Common Classes
- *  11. Block - Header
- *  12. Block - Menu
- *  13. Block - CTA
- *  14. Block - Footer
- *  15. Block - Popup
- *  16. Block - Hero Section #00
- *  17. Block - Hero Section #01
- *  18. Block - Hero Section #02
- *  19. Block - Hero Section #03
- *  20. Block - Hero Section #04
- *  21. Block - Hero Section #05
- *  22. Block - Hero Section #06
- *  22. Block - Hero Section #07
- *  23. Block - Hero Section #08
- *  24. Block - Hero Section #09
- *  25. Block - Blog
- *  26. Block - Blog Article
- *  27. Block - 404 Error
- *  28. Block - Demo List
- *  29. Block - Demo Cards
- *  30. Block - Demo Responsive Promo
- *  31. Block - Demo Inner Pages Slider
- *  32. Block - Demo Components
- *  33. Block - Demo Features
- *  34. Block - Demo CTA
- *  35. Block - Demo Footer
- *  36. Features - Hover Reveal
- *  37. Features - About
- *  38. Features - Pinned Image
- *  39. Features - Pinned Universal
- *  40. Features - Pinned Projects
- *  41. Features - Projects List
- *  42. Features - Projects Masonry
- *  43. Features - Awards List
- *  44. Features - Statistics Simple
- *  45. Features - Statistics Cards
- *  46. Features - Services Cards #01
- *  47. Features - Services Cards #02
- *  48. Features - Services List
- *  49. Features - Capabilities List
- *  50. Features - Resume List
- *  51. Features - Approach List
- *  52. Features - Divider Image Parallax
- *  53. Features - Marquee
- *  54. Features - Stack Services #01
- *  55. Features - Stack Services #02
- *  56. Features - Stack Projects
- *  57. Features - Testimonials Style #01
- *  58. Features - Testimonials Style #02
- *  59. Features - Partners Cards
- *  60. Features - Tech Stack Cards
- *  61. Features - Blog Preview
- *  62. Features - Accordion
- *  63. Features - Pricing Cards
- *  64. Features - Team Cards
- *  65. Features - Values
- *  66. Features - Project Details
- * ------------------------------------------------
- * Table of Contents End
- * ------------------------------------------------ */
 @import url(https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&amp;display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap);
 
@@ -6610,23 +6535,23 @@ form textarea:required:valid {
     -moz-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    background-color: var(--base-opp);
+    background-color: red;
     padding-left: 3rem;
     padding-right: 3rem;
     overflow: hidden
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (max-width:768px) {
     .promo__inner {
-        padding-left: 5rem;
-        padding-right: 5rem
+        padding-left: 2rem;
+        padding-right: 2rem
     }
 }
 
 @media only screen and (min-width:1200px) {
     .promo__inner {
-        padding-left: 6rem;
-        padding-right: 6rem
+        padding-left: 3rem;
+        padding-right: 3rem
     }
 }
 
@@ -19644,7 +19569,7 @@ form textarea:required:valid {
 .services-stack {
     width: 100%;
     position: relative;
-    height: 75vh;
+    height: 100%;
     min-height: 600px
 }
 
@@ -20645,8 +20570,8 @@ form textarea:required:valid {
 
 .swiper-slide {
     width: 100%;
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
+    /* -webkit-filter: blur(4px);
+    filter: blur(4px); */
     -webkit-transition: -webkit-filter var(--_animspeed-slow) var(--_animbezier);
     transition: -webkit-filter var(--_animspeed-slow) var(--_animbezier);
     -moz-transition: filter var(--_animspeed-slow) var(--_animbezier);
@@ -21582,7 +21507,7 @@ form textarea:required:valid {
     flex-direction: column;
     gap: 2rem;
     width: 100%;
-    background-color: var(--base-tint);
+    background-color: #1c1c1c;
     -moz-border-radius: var(--_radius-m);
     border-radius: var(--_radius-m);
     padding: 3rem;
@@ -21676,12 +21601,12 @@ form textarea:required:valid {
 }
 
 .pricing-header__descr {
-    font-size: 1.8rem
+    font-size: 1.6rem
 }
 
 @media only screen and (min-width:1600px) {
     .pricing-header__descr {
-        font-size: 1.8rem
+        font-size: 1.6rem
     }
 }
 
@@ -21697,7 +21622,7 @@ form textarea:required:valid {
     -moz-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 3rem
+    gap: 1rem
 }
 
 .pricing-data__price {
@@ -21765,10 +21690,10 @@ form textarea:required:valid {
 
 .pricing-data__divider {
     width: 100%;
-    height: .2rem;
+    height: .1rem;
     -moz-border-radius: .2rem;
     border-radius: .2rem;
-    background-color: var(--base-opp)
+    background-color: white
 }
 
 .pricing-table__plan {
@@ -21782,18 +21707,18 @@ form textarea:required:valid {
     -moz-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: .4rem;
+    gap: .2rem;
     width: 100%;
-    margin-top: .7rem
+    margin-top: 0
 }
 
 .pricing-plan__caption {
-    font-size: 1.8rem
+    font-size: 1.6rem
 }
 
 @media only screen and (min-width:1600px) {
     .pricing-plan__caption {
-        font-size: 1.8rem
+        font-size: 1.6rem
     }
 }
 
@@ -22832,3 +22757,36 @@ ul.t-omakase li {
   margin: 0;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(190, 190, 190, 0.765);
+  transform: scale(1.1);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+}
+
+@media only screen and (min-width: 768px) 
+{
+    .box-day {
+        padding: 0 6rem;
+        overflow: hidden;
+}
+        
+    }

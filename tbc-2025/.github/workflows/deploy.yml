@@ -1,0 +1,53 @@
+# .github/workflows/deploy.yml
+
+name: Deploy Static Website
+
+on:
+  push:
+    # Change 'main' to 'master' if that is your main branch name
+    branches:
+      - main 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    # Optional: If you need to build your site (e.g., run 'npm run build')
+    # Uncomment and adjust the 'build' job and its steps if necessary.
+    # If your site is just raw HTML/CSS/JS, you can skip to deployment.
+    # steps:
+    # - name: Checkout code
+    #   uses: actions/checkout@v4
+    # - name: Setup Node.js
+    #   uses: actions/setup-node@v4
+    #   with:
+    #     node-version: '18'
+    # - name: Install dependencies
+    #   run: npm install
+    # - name: Build static files
+    #   run: npm run build
+      
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    # --- DEPLOYMENT STEP (using SSH/SCP) ---
+    - name: Deploy via SSH/SCP
+      # You can use a pre-built action from the GitHub Marketplace
+      # This is a common one for SCP/SSH deployment
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        # The local path to the files you want to upload (e.g., your root directory, or 'dist' if you built the site)
+        source: "." 
+        # The remote directory on your server where the website files should go
+        target: "/home/toffin/git/toffin-tbc/" 
+        # Optional: You can run commands on the remote server after transfer
+        # script: |
+        #   sudo systemctl reload nginx
+        
+    - name: Deployment completed
+      run: echo "Deployment to ${{ secrets.SSH_HOST }} finished."
