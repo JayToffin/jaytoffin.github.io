@@ -1,4 +1,3 @@
-
   // simple "pill" radio behavior for company type
   (function () {
     var group = document.getElementById("company-type-group");
