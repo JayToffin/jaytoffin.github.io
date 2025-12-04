@@ -1264,7 +1264,7 @@ section {
     }
 
     .header-actions {
-        justify-content: flex-start;
+        justify-content: flex-end;
     }
 }
 
