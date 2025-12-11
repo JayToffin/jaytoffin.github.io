@@ -89,86 +89,6 @@
 			}
 		}
 
-		/* Highlight slider styles */
-		.highlight-slider {
-			position: relative;
-			overflow: hidden;
-			padding: 1rem 0;
-		}
-
-		.highlight-slider .slides {
-			display: flex;
-			gap: 1rem;
-			transition: transform 400ms ease;
-			will-change: transform;
-		}
-
-		.highlight-slider .slide {
-			flex: 0 0 auto;
-			width: calc(100% / 3 - 0.66rem);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			box-sizing: border-box;
-			padding: 0.5rem;
-		}
-
-		.highlight-slider .slide img {
-			max-width: 100%;
-			height: auto;
-			display: block;
-		}
-
-		.highlight-slider .slider-controls {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			left: 0;
-			right: 0;
-			pointer-events: none;
-		}
-
-		.highlight-slider .btn-prev,
-		.highlight-slider .btn-next {
-			pointer-events: auto;
-			background: rgba(0, 0, 0, 0.5);
-			border: none;
-			color: #fff;
-			width: 40px;
-			height: 40px;
-			border-radius: 50%;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.highlight-slider .btn-prev {
-			position: absolute;
-			left: 8px;
-		}
-
-		.highlight-slider .btn-next {
-			position: absolute;
-			right: 8px;
-		}
-
-		/* Responsive: fewer slides on small screens */
-		@media (max-width: 991px) {
-			.highlight-slider .slide {
-				width: calc(100% / 2 - 0.5rem);
-			}
-		}
-
-		@media (max-width: 600px) {
-			.highlight-slider .slide {
-				width: 100%;
-			}
-
-			.highlight-slider .btn-prev,
-			.highlight-slider .btn-next {
-				display: none;
-			}
-		}
 	</style>
 </head>
 
@@ -185,6 +105,8 @@
 		</div>
 	</div>
 	<!-- Loader End -->
+
+	<a class='blantershow-chat' href='https://wa.me/628119983378' ><svg width="20" viewBox="0 0 24 24"><defs/><path fill="#eceff1" d="M20.5 3.4A12.1 12.1 0 0012 0 12 12 0 001.7 17.8L0 24l6.3-1.7c2.8 1.5 5 1.4 5.8 1.5a12 12 0 008.4-20.3z"/><path fill="#4caf50" d="M12 21.8c-3.1 0-5.2-1.6-5.4-1.6l-3.7 1 1-3.7-.3-.4A9.9 9.9 0 012.1 12a10 10 0 0117-7 9.9 9.9 0 01-7 16.9z"/><path fill="#fafafa" d="M17.5 14.3c-.3 0-1.8-.8-2-.9-.7-.2-.5 0-1.7 1.3-.1.2-.3.2-.6.1s-1.3-.5-2.4-1.5a9 9 0 01-1.7-2c-.3-.6.4-.6 1-1.7l-.1-.5-1-2.2c-.2-.6-.4-.5-.6-.5-.6 0-1 0-1.4.3-1.6 1.8-1.2 3.6.2 5.6 2.7 3.5 4.2 4.2 6.8 5 .7.3 1.4.3 1.9.2.6 0 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>Pemesanan Tiket</a>
 
 	<!-- Header Start -->
 	<header class="header d-none d-md-flex">
@@ -737,7 +659,7 @@
 				<!-- Block - CTA Start -->
 				<div class="block">
 					<div class="promo">
-						<div class="promo__inner anim-zoom-out-container">
+						<div class="promo__inner ">
 							<!-- background -->
 							<div class="promo__bg"></div>
 							<!-- caption -->
@@ -779,7 +701,7 @@
 																			Gigi Susu</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 450.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -796,10 +718,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -852,32 +772,22 @@
 																	<img src="img/big-4/makmur-jaya/makmur-jaya-white.png"
 																		style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
 																	<div class="pricing-info d-flex flex-column">
-																		<p
-																			class="pricing-plan__caption t-semibold text-white anim-uni-in-up">
-																			Makmur Jaya Roastery</p>
-																		<p
-																			class="pricing-plan__caption t-large t-semibold text-white anim-uni-in-up">
-																			Rp 400.000</p>
+																		<p class="pricing-plan__caption t-semibold text-white anim-uni-in-up"> Makmur Jaya Roastery</p>
+																		<p class="pricing-plan__caption t-large t-semibold text-white anim-uni-in-up"> Sold Out</p>
 																	</div>
 
 																</div>
 																<div class="pricing-data__price">
 																	<div class=" anim-uni-in-up">
-																		<p
-																			class="pricing-data__currency t-semibold text-white">
-																			<span style="padding-right: 10px;">📅</span>
-																			Kamis, 27 November 2025</p>
-																		<p
-																			class="pricing-data__currency t-semibold text-white">
-																			<span style="padding-right: 10px;">⏰</span>
-																			12:30 - 14:00 WIB </p>
+																		<p class="pricing-data__currency t-semibold text-white">
+																			<span style="padding-right: 10px;">📅</span> Kamis, 27 November 2025</p>
+																		<p class="pricing-data__currency t-semibold text-white">
+																			<span style="padding-right: 10px;">⏰</span> 12:30 - 14:00 WIB </p>
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -929,7 +839,7 @@
 																	<img src="img/big-4/bali-boozy/bali-boozy-white.png" style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
 																	<div class="pricing-info d-flex flex-column">
 																		<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Bali Boozy</p>
-																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Rp 600.000</p>
+																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Sold Out</p>
 																	</div>
 																</div>
 																<div class="pricing-data__price">
@@ -943,8 +853,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up" href="contact.html">
-																		<span class="btn-caption">Beli Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1019,7 +929,7 @@
 																			Kibo x Warung SCI</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 650.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1036,10 +946,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1090,7 +998,7 @@
 				<!-- Block - CTA Start -->
 				<div class="block">
 					<div class="promo">
-						<div class="promo__inner anim-zoom-out-container">
+						<div class="promo__inner ">
 							<!-- background -->
 							<div class="promo__bg"></div>
 							<!-- caption -->
@@ -1133,7 +1041,7 @@
 																			Gigi Susu</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 450.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1150,10 +1058,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1211,7 +1117,7 @@
 																			Makmur Jaya Roastery</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 400.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1228,10 +1134,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1289,7 +1193,7 @@
 																			Second Floor Bali</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 400.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1306,10 +1210,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1361,7 +1263,7 @@
 																			Bali Boozy</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 600.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1378,10 +1280,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1432,7 +1332,7 @@
 				<!-- Block - CTA Start -->
 				<div class="block">
 					<div class="promo">
-						<div class="promo__inner anim-zoom-out-container">
+						<div class="promo__inner ">
 							<!-- background -->
 							<div class="promo__bg"></div>
 							<!-- caption -->
@@ -1475,7 +1375,7 @@
 																			Makmur Jaya Roastery</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 400.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1492,10 +1392,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1552,7 +1450,7 @@
 																			Gigi Susu</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 450.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1569,10 +1467,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1630,7 +1526,7 @@
 																			Second Floor Bali</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 400.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1647,10 +1543,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1697,7 +1591,7 @@
 																	<img src="img/big-4/bali-boozy/bali-boozy-white.png" style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
 																	<div class="pricing-info d-flex flex-column">
 																		<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Bali Boozy</p>
-																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Rp 600.000</p>
+																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Sold Out</p>
 																	</div>
 																</div>
 																<div class="pricing-data__price">
@@ -1711,8 +1605,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up" href="contact.html">
-																		<span class="btn-caption">Beli Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1763,7 +1657,7 @@
 				<!-- Block - CTA Start -->
 				<div class="block">
 					<div class="promo">
-						<div class="promo__inner anim-zoom-out-container">
+						<div class="promo__inner ">
 							<!-- background -->
 							<div class="promo__bg"></div>
 							<!-- caption -->
@@ -1806,7 +1700,7 @@
 																			Gigi Susu</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 450.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1823,10 +1717,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1884,7 +1776,7 @@
 																			Makmur Jaya Roastery</p>
 																		<p
 																			class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up">
-																			Rp 400.000</p>
+																			Sold Out</p>
 																	</div>
 
 																</div>
@@ -1901,10 +1793,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up"
-																		href="contact.html">
-																		<span class="btn-caption">Beli
-																			Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -1956,7 +1846,7 @@
 																	<img src="img/big-4/bali-boozy/bali-boozy-white.png" style="width: 60px; margin-right:10px; background-color: red;border-radius: 50px; padding: 5px;">
 																	<div class="pricing-info d-flex flex-column">
 																		<p class="pricing-plan__caption text-white t-semibold t-bright anim-uni-in-up"> Bali Boozy</p>
-																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Rp 600.000</p>
+																		<p class="pricing-plan__caption text-white t-large t-semibold t-bright anim-uni-in-up"> Sold Out</p>
 																	</div>
 																</div>
 																<div class="pricing-data__price">
@@ -1970,8 +1860,8 @@
 																	</div>
 																</div>
 																<div class="pricing-data__btnholder anim-uni-in-up">
-																	<a class="btn btn-anim btn-default btn-permanent btn-fullwidth slide-right-up" href="contact.html">
-																		<span class="btn-caption">Beli Tiket</span>
+																	<a class="btn btn-default btn-permanent btn-fullwidth" style="background-color: rgb(112, 112, 112); border-color: rgb(112, 112, 112); cursor: not-allowed;" >
+																		<span class="btn-caption">Sold Out</span>
 																		<i class="ph-bold ph-arrow-up-right"></i>
 																	</a>
 																</div>
@@ -2475,6 +2365,12 @@
 								</div>
 								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
 									<img class="p-3" src="img/partner-sponsor/jbl.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/indobake.png">
+								</div>
+								<div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+									<img class="p-3" src="img/partner-sponsor/meichu.png">
 								</div>
 							</div>
 						</div>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Toffin Boothcamp 2025 – Tiket Kamu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --toffin-red: #ffffff;
+      --text-dark: #fcda52;
+      --text-muted: #ffffff;
+      --bg: #e3151a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #fff5f6, #ffffff);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .ticket-card {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      width: 100%;
+      background: var(--bg);
+      border-radius: 24px;
+      padding: 2.5rem 2rem 2.2rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      border: 1px solid rgba(227, 0, 27, 0.18);
+      overflow: hidden;
+    }
+
+    .ticket-card::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(227,0,27,0.12), transparent 65%);
+      z-index: -1;
+    }
+
+    .logo img {
+      height: 225px;
+      display: block;
+      margin: 0 auto 1.5rem;
+    }
+
+    .title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin: 0 0 0.4rem;
+      color: var(--toffin-red);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      opacity: 0;
+      animation: slideUpFade 0.7s ease-out forwards;
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin: 0.2rem 0 1.4rem;
+      opacity: 0;
+      animation: fadeIn 0.7s ease-out forwards;
+      animation-delay: 0.22s;
+    }
+
+    .info-line {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin: 0.3rem 0;
+      opacity: 0;
+      animation: fadeIn 0.7s ease-out forwards;
+      animation-delay: 0.35s;
+    }
+
+    .ticket-id-label {
+      margin-top: 1.6rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      opacity: 0;
+      animation: fadeIn 0.7s ease-out forwards;
+      animation-delay: 0.45s;
+    }
+
+    .ticket-id {
+      margin-top: 0.2rem;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--toffin-red);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(8px) scale(0.96);
+      animation: popIn 0.6s ease-out forwards;
+      animation-delay: 0.6s;
+    }
+
+    .hint {
+      margin-top: 1.6rem;
+      font-size: 0.85rem;
+      color: var(--toffin-red);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0;
+      animation: fadeIn 0.7s ease-out forwards;
+      animation-delay: 0.75s;
+    }
+
+    .ciao {
+      margin-top: 1.4rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      opacity: 0;
+      animation: fadeIn 0.7s ease-out forwards;
+      animation-delay: 0.9s;
+    }
+
+    @keyframes slideUpFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: translateY(16px) scale(0.9); }
+      60% { opacity: 1; transform: translateY(0) scale(1.05); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 480px) {
+      .ticket-card {
+        padding: 2rem 1.4rem 1.9rem;
+        border-radius: 20px;
+      }
+      .ticket-id {
+        font-size: 1.7rem;
+        letter-spacing: 0.16em;
+      }
+      .hint {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="ticket-card">
+    <div class="logo">
+      <img src="https://toffin.id/toffin-boothcamp-2025/video/tbc-logo.gif" alt="Toffin Boothcamp 2025 Logo" />
+    </div>
+
+    <h1 class="title">Terima Kasih!</h1>
+
+    <p class="subtitle">Sudah mengisi form masuk ke Toffin Boothcamp 2025.</p>
+
+    <p class="info-line">Berikut ID tiket kamu:</p>
+
+    <div class="ticket-id-label small">Ticket ID</div>
+    <div class="ticket-id" style="color: #fcda52;">TBC25-<span></span></div>
+
+    <p class="hint">
+      KAMU BISA SCREENSHOT HALAMAN INI SEBAGAI BUKTI TIKET MASUK KAMU,<br />
+      ATAU CEK EMAIL SEBAGAI BUKTI PENGISIAN FORM.
+    </p>
+
+    <p class="ciao">Ciao!</p>
+  </div>
+
+<script>
+  (function initConfetti() {
+    var canvas = document.getElementById("confetti-canvas");
+    if (!canvas) return;
+
+    var ctx = canvas.getContext("2d");
+    var w, h, particles;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+
+    function createParticles(count) {
+      var arr = [];
+      for (var i = 0; i < count; i++) {
+        arr.push({
+          x: Math.random() * w,
+          y: Math.random() * -h,
+          size: 4 + Math.random() * 6,
+          speedY: 1 + Math.random() * 3,
+          speedX: -1 + Math.random() * 2,
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: -0.1 + Math.random() * 0.2,
+          color: pickColor(),
+        });
+      }
+      return arr;
+    }
+
+    function pickColor() {
+      var colors = ["#e3001b", "#ffafc5", "#ffd166", "#06d6a0", "#118ab2"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    particles = createParticles(140);
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach(function (p) {
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.rotation += p.rotationSpeed;
+
+        if (p.y > h + 20) {
+          p.y = -20;
+          p.x = Math.random() * w;
+        }
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        ctx.restore();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    setTimeout(draw, 500);
+  })();
+</script>
+
+<script>
+  const now = new Date();
+  const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+
+  const formatted =
+    String(now.getDate()).padStart(2, "0") + " " +
+    months[now.getMonth()] + " " +
+    now.getFullYear();
+
+  const ticketSpan = document.querySelector(".ticket-id span");
+  if (ticketSpan) ticketSpan.textContent = formatted;
+</script>
+
+</body>
+</html>
