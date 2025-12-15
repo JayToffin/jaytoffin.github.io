@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Day is live</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="margin:0; padding:0; background-color:#f6f6ee;">
+  <center style="width:100%; background-color:#f6f6ee;">
+
+    <!-- Preheader / Invisible preview text -->
+    <div style="display:none; max-height:0; overflow:hidden; font-size:1px; line-height:1px; color:#f6f6ee;">
+      Click Day has started. Enter your unique code and join the race.
+    </div>
+
+    <!-- Main Container -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+           style="max-width:600px; margin:0 auto; background-color:#ffffff;">
+
+      <!-- BRAND LOCKUP -->
+      <tr>
+        <td style="padding:24px 24px 0 24px; text-align:left;">
+            <!-- Co-brand lockup -->
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td style="
+                    font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+                    font-size:11px;
+                    letter-spacing:0.32em;
+                    text-transform:uppercase;
+                    color:#f8501d;
+                    padding-right:6px;
+                    ">
+                    CLICK
+                    </td>
+                    <td style="
+                    font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+                    font-size:18px;
+                    font-weight:800;
+                    letter-spacing:0.08em;
+                    color:#000000;
+                    padding-right:8px;
+                    ">
+                    DAY
+                    </td>
+                    <td style="
+                    font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+                    font-size:12px;
+                    color:#999999;
+                    padding-right:6px;
+                    ">
+                    ×
+                    </td>
+                    <td style="
+                    font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+                    font-size:11px;
+                    letter-spacing:0.18em;
+                    text-transform:uppercase;
+                    color:#666666;
+                    ">
+                    OFFICINE ALLEGRA
+                    </td>
+                </tr>
+            </table>
+        </td>
+      </tr>
+
+      <!-- Title -->
+      <tr>
+        <td style="padding:16px 24px 4px 24px; text-align:left;">
+          <h1 style="
+            margin:0;
+            font-family:'Anton',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:24px;
+            line-height:1.3;
+            letter-spacing:0.04em;
+            color:#000000;
+          ">
+            Click Day has started.
+          </h1>
+        </td>
+      </tr>
+
+      <!-- INTRO -->
+      <tr>
+        <td style="padding:4px 24px 16px 24px;">
+          <p style="
+            margin:0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:14px;
+            line-height:1.7;
+            color:#555555;
+          ">
+            Dear {{company_name}},<br><br>
+            You may now access the Click Day page, enter your unique company code, and complete
+            the flow as fast as possible. The fastest valid entry wins.
+          </p>
+        </td>
+      </tr>
+
+      <!-- CODE BLOCK -->
+      <tr>
+        <td style="padding:0 24px 16px 24px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="
+                border-radius:14px;
+                border:1px dashed #d2cdbe;
+                background-color:#f6f6ee;
+                padding:18px;
+                text-align:center;
+              ">
+                <div style="
+                  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+                  font-size:11px;
+                  letter-spacing:0.20em;
+                  text-transform:uppercase;
+                  color:#777;
+                  margin-bottom:6px;
+                ">
+                  Your unique code
+                </div>
+
+                <div style="
+                  font-family:'SF Mono',Menlo,Consolas,monospace;
+                  font-size:20px;
+                  letter-spacing:0.22em;
+                  text-transform:uppercase;
+                  color:#f8501d;
+                ">
+                  {{unique_code}}
+                </div>
+
+                <div style="
+                  margin-top:10px;
+                  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+                  font-size:12px;
+                  color:#777;
+                ">
+                  Use this code on the Click Day page to participate.
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- HOW IT WORKS -->
+      <tr>
+        <td style="padding:10px 24px 12px 24px;">
+          <p style="
+            margin:0 0 4px 0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:12px;
+            text-transform:uppercase;
+            letter-spacing:0.16em;
+            color:#999;
+          ">
+            How it works
+          </p>
+
+          <ol style="
+            margin:6px 0 0 20px;
+            padding:0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:13px;
+            line-height:1.7;
+            color:#555;
+          ">
+            <li>Click the button below to open the Click Day page.</li>
+            <li>Enter your unique code: <strong>{{unique_code}}</strong>.</li>
+            <li>Complete the steps as quickly as possible.</li>
+          </ol>
+        </td>
+      </tr>
+
+      <!-- CTA BUTTON -->
+      <tr>
+        <td style="padding:12px 24px 18px 24px;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td align="center" bgcolor="#f8501d" style="border-radius:999px;">
+                <a href="{{clickday_link}}" target="_blank" style="
+                  display:inline-block;
+                  padding:12px 26px;
+                  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+                  font-size:13px;
+                  color:#ffffff;
+                  text-decoration:none;
+                  text-transform:uppercase;
+                  letter-spacing:0.18em;
+                ">
+                  Enter Click Day
+                </a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- NOTES -->
+      <tr>
+        <td style="padding:4px 24px 12px 24px;">
+          <p style="
+            margin:0 0 4px 0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:12px;
+            text-transform:uppercase;
+            letter-spacing:0.12em;
+            color:#999;
+          ">
+            Notes
+          </p>
+
+          <ul style="
+            margin:6px 0 0 18px;
+            padding:0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:12px;
+            line-height:1.7;
+            color:#555;
+          ">
+            <li>The event begins the moment this email arrives in your inbox.</li>
+            <li>Your company has one attempt per Click Day.</li>
+            <li>Please keep this email confidential within your company.</li>
+            <li>Post-selection verification will be conducted. Officine Allegra reserves the right to perform background checks on the declared winner to validate the accuracy of all submitted information. The prize will only be awarded once verification is successfully completed. Submissions found to include incorrect, incomplete, or misleading data may result in disqualification.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- Closing -->
+      <tr>
+        <td style="padding:18px 24px 6px 24px; text-align:left;">
+          <p style="
+            margin:0 0 6px 0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:13px;
+            color:#555555;
+          ">
+            May the fastest and most accurate entry win.
+          </p>
+          <p style="
+            margin:0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:12px;
+            color:#777777;
+          ">
+            Best regards,<br>
+            <strong>Officine Allegra</strong>
+          </p>
+        </td>
+      </tr>
+
+      <!-- Divider -->
+      <tr>
+        <td style="padding:8px 24px 0 24px;">
+          <hr style="border:none; border-top:1px solid #e0ddd0; margin:0;">
+        </td>
+      </tr>
+
+      <!-- Footer -->
+      <tr>
+        <td style="padding:10px 24px 18px 24px; text-align:left;">
+          <p style="
+            margin:0 0 4px 0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:11px;
+            color:#999999;
+          ">
+            Officine Allegra S.r.l · Via G. Di Vittorio, 26 · 20090 Pantigliate (Milano) · Italy
+          </p>
+          <p style="
+            margin:0;
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            font-size:11px;
+            color:#bbbbbb;
+          ">
+            You are receiving this email because your company requested access to Click Day.
+            If you believe this is a mistake, please contact your Officine Allegra representative.
+          </p>
+        </td>
+      </tr>
+    </table>
+    <!--[if mso]>
+        </td>
+      </tr>
+    </table>
+    <![endif]-->
+  </center>
+</body>
+</html>
