@@ -190,8 +190,7 @@
           <div class="form-steps">
             <div class="form-step form-step--active">Company Info</div>
           </div>
-
-          <form onsubmit="event.preventDefault(); alert('Demo only – connect this form to your backend.');">
+          <form id="registration-form" class="register-form">
             <div class="form-grid form-grid-2">
               <!-- Company Name -->
               <div class="form-field">
@@ -267,17 +266,23 @@
                       I confirm that the information provided is accurate and I consent to its use for Click Day registration, verification, and event operations.
                     </label>
                   </div>
-
                   <div class="checkbox-item">
                     <input id="consent-marketing" type="checkbox" class="form-checkbox" required />
                     <label class="checkbox-label" for="consent-marketing">
                       I agree to receive updates, invitations, and marketing communications related to Officine Allegra and Click Day.
                     </label>
                   </div>
+                  <div class="checkbox-item">
+                    <input id="consent-terms" type="checkbox" class="form-checkbox" required />
+                    <label class="checkbox-label" for="consent-terms">
+                      I have read and agree to the <a href="terms.html" class="terms">Terms and Conditions.</a>
+                    </label>
+                  </div>
                 </div>
               </div>
-
-              <div class="form-actions" style="grid-column: 1 / -1; padding-top:1rem;">
+              <!-- ALERT (notif sukses / gagal) -->
+            <div id="form-alert" class="form-alert" role="status" aria-live="polite" style="grid-column: 1 / -1;"></div>
+              <div class="form-actions" style="grid-column: 1 / -1;">
                 <button type="submit" class="btn btn-primary">
                   Submit registration
                 </button>
@@ -525,6 +530,61 @@
       Officine Allegra S.r.l · Via G. Di Vittorio, 26 · 20090 Pantigliate (Milano) · Italy
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var form = document.getElementById("registration-form");
+    var alertBox = document.getElementById("form-alert");
+
+    if (!form || !alertBox) return;
+
+    function showAlert(type, message) {
+      alertBox.className = "form-alert"; // reset
+      alertBox.textContent = message;
+
+      if (type === "success") {
+        alertBox.classList.add("form-alert--success", "is-visible");
+      } else if (type === "error") {
+        alertBox.classList.add("form-alert--error", "is-visible");
+      }
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // cegah submit default
+
+      // Ambil data form
+      var formData = new FormData(form);
+
+      // TODO: ganti URL di bawah dengan endpoint backend kamu
+      // Kalau sekarang belum ada backend, boleh skip fetch dan langsung showAlert("success", ...)
+      fetch("/api/clickday/register", {
+        method: "POST",
+        body: formData
+      })
+      .then(function (res) {
+        if (!res.ok) {
+          throw new Error("Server returned " + res.status);
+        }
+        return res.json().catch(function () { return {}; });
+      })
+      .then(function (data) {
+        // Contoh: cek respon backend, misalnya { success: true }
+        if (data.success === false) {
+          showAlert("error", data.message || "Registration could not be completed. Please check your data and try again.");
+          return;
+        }
+
+        showAlert("success", "Your registration has been received. Your unique code will be sent to the email you provided.");
+        form.reset();
+      })
+      .catch(function (err) {
+        console.error(err);
+        showAlert("error", "Something went wrong while submitting the form. Please try again in a moment.");
+      });
+    });
+  })();
+</script>
+
 
   <script src="js/main.js"></script>
   <script src="https://elfsightcdn.com/platform.js" async></script>

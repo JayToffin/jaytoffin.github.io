@@ -624,7 +624,7 @@ section {
 }
 
 .form-actions {
-    margin-top: 1.4rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     position: relative;
@@ -1366,4 +1366,52 @@ section {
         width: 100% !important;
         display: block;
     }
+}
+
+
+/* ============================================
+   19. FORM ALERTS LAMA - PERLU UPDATE
+   ============================================ */
+.form-alert {
+  display: none;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  border: 1px solid transparent;
+}
+
+.form-alert.is-visible {
+  display: block;
+}
+
+.form-alert--success {
+  background-color: #e7f6ed;
+  border-color: #6ac48b;
+  color: #136f3c;
+}
+
+.form-alert--error {
+  background-color: #ffecec;
+  border-color: #f08a8a;
+  color: #9b1b1b;
+}
+
+
+.page-center {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+}
+
+
+/* ============================================
+   20. TERMS LINK STYLING
+   ============================================ */
+.terms{
+    color: var(--oa-orange);
+    font-weight: 500;
+    text-decoration: underline;
 }
