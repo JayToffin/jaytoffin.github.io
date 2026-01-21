@@ -119,6 +119,11 @@
               <option value="OTHER">Other</option>
             </select>
           </div>
+
+          <div class="form-field" id="cCountryOtherField" style="display:none;">
+            <label class="form-label" for="cCountryOther">Please specify *</label>
+            <input class="form-input" id="cCountryOther" name="companyCountryOther" type="text" placeholder="Enter country name" />
+          </div>
         </div>
 
         <!-- ITALY FIELDS -->
@@ -139,28 +144,28 @@
             </div>
 
             <div class="form-field">
-              <label class="form-label" for="sde">SDE *</label>
-              <input class="form-input" id="sde" name="sde" type="text" maxlength="7" placeholder="7 chars" />
+              <label class="form-label" for="sdi">SDI *</label>
+              <input class="form-input" id="sdi" name="sdi" type="text" maxlength="7" placeholder="7 chars" />
             </div>
           </div>
 
           <p class="form-note">Required when company country is Italy.</p>
         </div>
 
-        <!-- NON-ITALY SDE -->
-        <div id="nonItalySdeBlock" style="margin-top:1.2rem; display:none;">
+        <!-- NON-ITALY SDI -->
+        <div id="nonItalySdiBlock" style="margin-top:1.2rem; display:none;">
           <div class="form-steps">
-            <div class="form-step form-step--active">SDE</div>
+            <div class="form-step form-step--active">SDI</div>
           </div>
 
           <div class="form-grid">
             <div class="form-field">
-              <label class="form-label" for="sdeNonItaly">SDE</label>
-              <input class="form-input" id="sdeNonItaly" name="sdeNonItaly" type="text" value="XXXXXXX" readonly />
+              <label class="form-label" for="sdiNonItaly">SDI</label>
+              <input class="form-input" id="sdiNonItaly" name="sdiNonItaly" type="text" value="XXXXXXX" readonly />
             </div>
           </div>
 
-          <p class="form-note">For non-Italy companies, SDE is automatically set to XXXXXXX.</p>
+          <p class="form-note">For non-Italy companies, SDI is automatically set to XXXXXXX.</p>
         </div>
 
         <!-- DELIVERY ADDRESS -->
@@ -214,6 +219,11 @@
               <option value="OTHER">Other</option>
             </select>
           </div>
+
+          <div class="form-field" id="dCountryOtherField" style="display:none;">
+            <label class="form-label" for="dCountryOther">Please specify *</label>
+            <input class="form-input" id="dCountryOther" name="deliveryCountryOther" type="text" placeholder="Enter country name" />
+          </div>
         </div>
 
         <div class="form-actions" style="padding-top:1.5rem;">
@@ -239,13 +249,18 @@
   const submitBtn = $("submitBtn");
 
   const cCountry = $("cCountry");
+  const cCountryOtherField = $("cCountryOtherField");
+  const cCountryOther = $("cCountryOther");
+  const dCountry = $("dCountry");
+  const dCountryOtherField = $("dCountryOtherField");
+  const dCountryOther = $("dCountryOther");
   const italyBlock = $("italyBlock");
-  const nonItalySdeBlock = $("nonItalySdeBlock");
+  const nonItalySdiBlock = $("nonItalySdiBlock");
 
   const pec = $("pec");
   const codiceFiscale = $("codiceFiscale");
-  const sde = $("sde");
-  const sdeNonItaly = $("sdeNonItaly");
+  const sdi = $("sdi");
+  const sdiNonItaly = $("sdiNonItaly");
 
   const sameAsCompany = $("sameAsCompany");
 
@@ -280,17 +295,28 @@
 
   function setItalyMode(isItaly){
     italyBlock.style.display = isItaly ? "block" : "none";
-    nonItalySdeBlock.style.display = isItaly ? "none" : "block";
+    nonItalySdiBlock.style.display = isItaly ? "none" : "block";
 
     pec.required = isItaly;
     codiceFiscale.required = isItaly;
-    sde.required = isItaly;
+    sdi.required = isItaly;
 
     if(!isItaly){
       pec.value = "";
       codiceFiscale.value = "";
-      sde.value = "";
-      sdeNonItaly.value = "XXXXXXX";
+      sdi.value = "";
+      sdiNonItaly.value = "XXXXXXX";
+    }
+  }
+
+  function showOtherCountryField(isOther, field, fieldInput){
+    if(isOther){
+      field.style.display = "block";
+      fieldInput.required = true;
+    } else {
+      field.style.display = "none";
+      fieldInput.required = false;
+      fieldInput.value = "";
     }
   }
 
@@ -300,6 +326,15 @@
     delivery.province.value = company.province.value;
     delivery.zip.value = company.zip.value;
     delivery.country.value = company.country.value;
+    
+    // Copy custom country if company selected "OTHER"
+    if(normalizeCountry(company.country.value) === "OTHER"){
+      dCountryOther.value = cCountryOther.value;
+      showOtherCountryField(true, dCountryOtherField, dCountryOther);
+    } else {
+      dCountryOther.value = "";
+      showOtherCountryField(false, dCountryOtherField, dCountryOther);
+    }
 
     // lock/unlock
     Object.values(delivery).forEach((el) => {
@@ -309,14 +344,18 @@
         el.readOnly = !!lock;
       }
     });
+    
+    // Also lock/unlock custom country field
+    dCountryOther.readOnly = !!lock;
   }
 
   // Watch country
   cCountry.addEventListener("change", function(){
     const cc = normalizeCountry(cCountry.value);
+    showOtherCountryField(cc === "OTHER", cCountryOtherField, cCountryOther);
     if(!cc){
       italyBlock.style.display = "none";
-      nonItalySdeBlock.style.display = "none";
+      nonItalySdiBlock.style.display = "none";
       return;
     }
     setItalyMode(cc === "IT");
@@ -324,6 +363,12 @@
     if(sameAsCompany.checked){
       copyCompanyToDelivery(true);
     }
+  });
+
+  // Watch delivery country
+  dCountry.addEventListener("change", function(){
+    const cc = normalizeCountry(dCountry.value);
+    showOtherCountryField(cc === "OTHER", dCountryOtherField, dCountryOther);
   });
 
   // Sync delivery when locked
@@ -354,13 +399,13 @@
 
     const cc = normalizeCountry(cCountry.value);
     if(cc && cc !== "IT"){
-      sdeNonItaly.value = "XXXXXXX";
+      sdiNonItaly.value = "XXXXXXX";
     }
 
-    // If Italy, enforce SDE length 7 (optional but nice)
-    if(cc === "IT" && (sde.value || "").trim().length !== 7){
-      setAlert("error", "SDE must be exactly 7 characters for Italy.");
-      sde.focus();
+    // If Italy, enforce SDI length 7 (optional but nice)
+    if(cc === "IT" && (sdi.value || "").trim().length !== 7){
+      setAlert("error", "SDI must be exactly 7 characters for Italy.");
+      sdi.focus();
       return false;
     }
 
@@ -371,7 +416,7 @@
     form.reset();
     clearAlert();
     italyBlock.style.display = "none";
-    nonItalySdeBlock.style.display = "none";
+    nonItalySdiBlock.style.display = "none";
     Object.values(delivery).forEach((el) => { el.readOnly = false; el.disabled = false; });
   });
 
@@ -399,6 +444,7 @@
         province: (company.province.value.trim() || null),
         zip: company.zip.value.trim(),
         country: companyCountry,
+        customCountry: companyCountry === "OTHER" ? cCountryOther.value.trim() : null,
       },
 
       deliveryAddress: {
@@ -407,13 +453,14 @@
         province: (delivery.province.value.trim() || null),
         zip: delivery.zip.value.trim(),
         country: normalizeCountry(delivery.country.value),
+        customCountry: normalizeCountry(delivery.country.value) === "OTHER" ? dCountryOther.value.trim() : null,
         sameAsCompany: !!sameAsCompany.checked,
       },
 
       italyCompliance: {
         pec: companyCountry === "IT" ? (pec.value.trim()) : null,
         codiceFiscale: companyCountry === "IT" ? (codiceFiscale.value.trim()) : null,
-        sde: companyCountry === "IT" ? (sde.value.trim()) : "XXXXXXX"
+        sdi: companyCountry === "IT" ? (sdi.value.trim()) : "XXXXXXX"
       },
 
       isCustomer: true
@@ -432,7 +479,7 @@
       setAlert("success", "Submitted successfully. Customer data has been saved in ERP.");
       form.reset();
       italyBlock.style.display = "none";
-      nonItalySdeBlock.style.display = "none";
+      nonItalySdiBlock.style.display = "none";
       Object.values(delivery).forEach((el) => { el.readOnly = false; el.disabled = false; });
 
     }catch(err){
