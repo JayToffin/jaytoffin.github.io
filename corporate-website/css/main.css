@@ -1,10 +1,3 @@
-/*
-Teamplate Name: Webvibe Agency Template
-Author: Mugli
-Author URI: https://Webvibe.com
-Description: Webvibe Agency Template
-Version: 1.0.0
-*/
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap");
 :root {
   --primary: #1E1E1E;
@@ -37218,7 +37211,7 @@ button {
 .service-item {
   text-align: center;
   background-color: var(--white);
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
   margin-bottom: 30px;
   -webkit-transition: all 0.4s ease-in-out !important;
@@ -37232,7 +37225,7 @@ button {
   background-color: rgb(from var(--gray100) r g b/10%);
   color: var(--white);
 }
-.service-item:hover h3, .service-item.active h3 {
+.service-item:hover h3, .service-item.active h3, .service-item:hover h4, .service-item.active .h-41 {
   color: var(--white);
 }
 .service-item .service-icon {
@@ -39318,3 +39311,143 @@ blockquote::before {
     max-width: 20%;
   }
 }
+
+.service-description {
+  font-size: 15px;
+}
+
+.instagram-shortcut{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+  padding:12px 28px;
+  border-radius:50px;
+  background:#000;
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  transition:all .3s ease;
+}
+
+.instagram-shortcut:hover{
+  background:#f5511e;
+  color:#fff;
+  transform:translateY(-2px);
+  transition: all 0.4s ease-in-out !important;
+}
+
+/* ===============================
+   Business Units (clean sections)
+   =============================== */
+.bu-wrapper{
+  background:#fff;
+  padding:54px 0 180px;
+}
+
+.bu-header{max-width:900px;margin:0 auto 38px;}
+.bu-sub{
+  margin:14px auto 0;
+  max-width:720px;
+  color:rgba(0,0,0,.68);
+  font-size:16px;
+  line-height:1.7;
+}
+
+/* Each unit */
+.bu-unit{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:50px;
+  overflow:hidden;
+  box-shadow:0 16px 40px rgba(0,0,0,.06);
+  /* margin:0 40px 34px; */
+}
+@media (max-width: 991px){
+  .bu-unit{margin:0 10px 26px;}
+}
+
+.bu-row{min-height:420px;}
+@media (max-width: 991px){
+  .bu-row{min-height:auto;}
+}
+
+/* Media / slider */
+.bu-media{background:#0b0b0b;}
+.bu-slider{height:100%;}
+.bu-slider .swiper-slide img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+}
+@media (max-width: 991px){
+  .bu-slider .swiper-slide img{height:280px;}
+}
+
+/* Content */
+.bu-content{
+  display:flex;
+  align-items:flex-start;
+  padding:44px 44px;
+}
+@media (max-width: 991px){
+  .bu-content{padding:28px 0px;}
+}
+.bu-content-inner{
+  max-width:700px;
+}
+
+.bu-kicker{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(0,0,0,.06);
+  color:rgba(0,0,0,.72);
+  font-size:12px;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.bu-title{
+  margin:0 0 14px;
+  font-size:30px;
+  line-height:1.15;
+  color:#0b0b0b;
+}
+.bu-text{
+  margin:0 0 14px;
+  font-size:15.5px;
+  line-height:1.8;
+  color:rgba(0,0,0,.75);
+}
+
+/* Actions */
+.bu-actions{margin-top:10px;}
+
+/* Divider (optional line between units) */
+.bu-divider{
+  height:1px;
+  background:rgba(0,0,0,.08);
+  margin:22px 40px;
+}
+@media (max-width: 991px){
+  .bu-divider{margin:18px 10px;}
+}
+
+/* Business Units: lift swiper pagination so it doesn't stick to the bottom edge */
+.bu-unit .casa-slider { 
+  position: relative; 
+}
+
+.bu-unit .bu-pagination,
+.bu-unit .casa-slider .swiper-pagination {
+  bottom: 25px !important;  /* naikkan pagination */
+}
+
+@media (max-width: 991px){
+  .bu-unit .bu-pagination,
+  .bu-unit .casa-slider .swiper-pagination {
+    bottom: 14px !important;
+  }
+}
+
