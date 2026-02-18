@@ -4,21 +4,31 @@
   font-style: normal;
 }
 
+.archer-bold {
+  font-family: "Archer Bold", sans-serif;
+}
 
+.archer-semibold {
+  font-family: "Archer Semi Bold Pro", sans-serif;
+  font-weight: 700;
+}
+ 
 .color-swatch {
-    width: 30px;
-    height: 30px;
-    display: inline-block; /* Or block, depending on your layout */
-    border-radius: 50%; /* Makes it circular */
-  }
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  /* Or block, depending on your layout */
+  border-radius: 50%;
+  /* Makes it circular */
+}
 
-  #map {
-    height: 550px;
-    width: 100%;
-  }
+#map {
+  height: 550px;
+  width: 100%;
+}
 
 .footer-bg {
-  background-color:#B4864D;
+  background-color: #B4864D;
 }
 
 .justify-content {
@@ -27,7 +37,8 @@
 
 .hero-accent-wrapper {
   position: relative;
-  padding-left: 25px; /* jarak teks dari garis */
+  padding-left: 25px;
+  /* jarak teks dari garis */
 }
 
 .hero-accent-wrapper::before {
@@ -37,14 +48,16 @@
   top: -50px;
   width: 100px;
   height: 120%;
-  background-color: #f8501d; /* warna aksen */
+  background-color: #f8501d;
+  /* warna aksen */
 }
 
 /* --- Accent Styling --- */
 .accent-top-left,
 .accent-bottom-right {
   position: absolute;
-  width: 200px; /* sesuaikan ukuran */
+  width: 200px;
+  /* sesuaikan ukuran */
   pointer-events: none;
 }
 
@@ -52,6 +65,7 @@
 .team-details__thumb {
   position: relative;
 }
+
 .accent-top-left {
   top: -40px;
 }
@@ -59,34 +73,43 @@
 /* Posisi kanan bawah deskripsi Dinamica */
 .team-details__content111 {
   position: relative;
-  z-index: 1; /* pastikan teks tetap di atas */
+  z-index: 1;
+  /* pastikan teks tetap di atas */
 }
 
 .team-details__content111 p,
 .team-details__content111 h5 {
   position: relative;
-  z-index: 2; /* teks di atas aksen */
+  z-index: 2;
+  /* teks di atas aksen */
 }
 
 .accent-bottom-right {
   bottom: -40px;
   right: -60px;
 }
+
 .team-details__thumb img.w-100 {
   position: relative;
-  z-index: 2; /* mesin di atas */
+  z-index: 2;
+  /* mesin di atas */
 }
 
 .accent-top-left {
-  z-index: 1; /* di bawah mesin, tapi masih di atas background section */
+  z-index: 1;
+  /* di bawah mesin, tapi masih di atas background section */
 }
 
 .accent-bottom-right {
   position: absolute;
-  bottom: -40px;   /* sesuaikan posisi vertikal */
-  right: -60px;    /* sesuaikan posisi horizontal */
-  width: 200px;    /* ukuran aksen */
-  z-index: 1;      /* di belakang teks tapi di atas background */
+  bottom: -40px;
+  /* sesuaikan posisi vertikal */
+  right: -60px;
+  /* sesuaikan posisi horizontal */
+  width: 200px;
+  /* ukuran aksen */
+  z-index: 1;
+  /* di belakang teks tapi di atas background */
   pointer-events: none;
 }
 
@@ -106,23 +129,29 @@
   left: 0;
   width: 600px;
   height: 50px;
-  background-color: #f5511e; /* warna oranye */
-  z-index: 1;      /* di belakang teks tapi di atas background */
+  background-color: #f5511e;
+  /* warna oranye */
+  z-index: 1;
+  /* di belakang teks tapi di atas background */
   pointer-events: none;
 }
 
 /* Responsive layout for mobile view */
 @media (max-width: 768px) {
   .technical-feature-artboard {
-    width: 90%;      /* artboard lebih pendek agar sesuai layar kecil */
-    height: 30px;    /* sedikit lebih tipis */
-    top: 25px;       /* jarak dari atas lebih kecil */
+    width: 90%;
+    /* artboard lebih pendek agar sesuai layar kecil */
+    height: 30px;
+    /* sedikit lebih tipis */
+    top: 25px;
+    /* jarak dari atas lebih kecil */
   }
 
   .quanto__header h3.title {
     position: relative;
     letter-spacing: 1px;
-    z-index: 2;       /* tetap di depan artboard */
+    z-index: 2;
+    /* tetap di depan artboard */
   }
 }
 
@@ -139,12 +168,14 @@
   top: -50px;
   width: 80px;
   height: 120%;
-  background-color: #f8501d; /* warna aksen */
+  background-color: #f8501d;
+  /* warna aksen */
 }
 
 .quanto-contact__content .title {
   position: relative;
-  z-index: 2; /* pastikan teks di depan blok */
+  z-index: 2;
+  /* pastikan teks di depan blok */
 }
 
 /* Responsive layout for mobile view */
@@ -154,6 +185,446 @@
     left: 5%;
     width: 90%;
   }
+}
 
-  
+
+/* ===============================
+   Officine Allegra — Quick-Look Catalogue (Dinamica)
+   HTML + CSS only section
+   =============================== */
+.oa-qlc {
+  padding: 55px 0 40px;
+}
+
+.oa-qlc__topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(0, 0, 0, .15);
+  border-bottom: 1px solid rgba(0, 0, 0, .15);
+  padding: 22px 0;
+  margin-bottom: 44px;
+}
+
+.oa-qlc__topline-item {
+  font-family: Anton, sans-serif;
+  font-size: 13px;
+  letter-spacing: .06em;
+  color: rgba(0, 0, 0, .72);
+  text-transform: uppercase;
+}
+
+.oa-qlc__block {
+  display: grid;
+  grid-template-columns: 0.8fr 1.38fr;
+  gap: 46px;
+  align-items: start;
+}
+
+.oa-qlc__note {
+  font-size: 12px;
+  line-height: 1.35;
+  color: rgba(0, 0, 0, .7);
+  margin: 0 0 14px;
+}
+
+.oa-qlc__note-dot {
+  color: #f5511e;
+  font-weight: 800;
+  margin-right: 6px;
+}
+
+.oa-qlc__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 22px 18px rgba(0, 0, 0, .25));
+}
+
+.oa-qlc__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 8px 0 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.500);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.500);
+}
+
+/* Orange ribbon + long line */
+.oa-qlc__ribbon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: #f5511e;
+  padding: 10px 24px 10px 16px;
+  min-height: 44px;
+}
+
+
+.oa-qlc__ribbon-text {
+  font-family: Anton, sans-serif;
+  font-size: 30px;
+  letter-spacing: .01em;
+  line-height: 1;
+  color: #111;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Checker block under the ribbon */
+.oa-qlc__checker {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  width: 15px;
+  height: 15px;
+  opacity: .85;
+}
+
+/* Technical features label */
+.oa-qlc__tech {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(0, 0, 0, .65);
+  margin-top: 10px;
+  white-space: nowrap;
+}
+
+.oa-qlc__squiggle {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(0, 0, 0, .75);
+}
+
+.oa-qlc__squiggle svg {
+  display: block;
+}
+
+.oa-qlc__tech-text {
+  font-size: 11px;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+
+.oa-qlc__tech-meta {
+  font-size: 11px;
+  letter-spacing: .02em;
+  opacity: .8;
+}
+
+/* Table */
+.oa-qlc__thead {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 22px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .22);
+}
+
+.oa-qlc__th {
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left;
+}
+
+.oa-qlc__row {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr 1fr 1fr;
+  gap: 22px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .14);
+  align-items: center;
+}
+
+.oa-qlc__row--last {
+  border-bottom: 1px solid rgba(0, 0, 0, .22);
+}
+
+.oa-qlc__model {
+  font-size: 14px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, .85);
+}
+
+.oa-qlc__cell {
+  font-size: 15px;
+  line-height: 1.35;
+  color: rgba(0, 0, 0, .78);
+}
+
+/* Bottom info */
+.oa-qlc__bottom {
+  display: grid;
+  grid-template-columns: 1.4fr .9fr;
+  gap: 28px;
+  padding: 18px 0 2px;
+}
+
+.oa-qlc__bottom-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: rgba(0, 0, 0, .85);
+  margin-bottom: 6px;
+}
+
+.oa-qlc__bottom-text {
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, .78);
+}
+
+.oa-qlc__colorlist {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.oa-qlc__colorlist--multi {
+  gap: 14px 18px;
+}
+
+.oa-qlc__color {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.oa-qlc__swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 3px 3px 5px 0px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  display: inline-block;
+}
+
+.oa-qlc__swatch--steel {
+  background: #caccce;
+}
+
+.oa-qlc__swatch--artico {
+  background: #ffffff;
+}
+
+.oa-qlc__swatch--notturno {
+  background: #111d34;
+}
+
+.oa-qlc__colorname {
+  font-size: 16px;
+  color: rgba(0, 0, 0, .80);
+}
+
+.oa-qlc__divider {
+  height: 1px;
+  background: rgba(0, 0, 0, .14);
+  margin: 42px 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .oa-qlc__block {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .oa-qlc__ribbon:after {
+    display: none;
+  }
+
+  .oa-qlc__thead {
+    display: none;
+  }
+
+  .oa-qlc__row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px 0;
+  }
+
+  .oa-qlc__bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .oa-qlc__tech {
+    white-space: normal;
+    flex-wrap: wrap;
+    line-height: 1.5;
+    gap: 4px;
+  }
+}
+
+/* =====================================
+   OA QLC: Mobile table cleanup (stacked)
+   ===================================== */
+@media (max-width: 767px){
+  /* Block layout: image on top, table below */
+  .oa-qlc__block{
+    display: block !important;
+  }
+  .oa-qlc__left,
+  .oa-qlc__right{
+    width: 100% !important;
+  }
+
+  /* Hide header row (TH) on mobile */
+  .oa-qlc__table .oa-qlc__row:first-child{
+    display: none !important;
+  }
+
+  /* Each row becomes a stacked card */
+  .oa-qlc__table .oa-qlc__row{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px 14px;
+    border-top: 1px solid rgba(0,0,0,0.12);
+  }
+
+  /* Model name becomes row title */
+  .oa-qlc__table .oa-qlc__model{
+    margin: 0 !important;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  /* Each cell becomes label + value row */
+  .oa-qlc__table .oa-qlc__cell{
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: 110px 1fr;
+    gap: 10px;
+    align-items: start;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  /* Labels based on position inside row
+     (model = child 1, then 4 cells = child 2..5) */
+  .oa-qlc__table .oa-qlc__row > :nth-child(2).oa-qlc__cell::before{ content: "BOILERS"; }
+  .oa-qlc__table .oa-qlc__row > :nth-child(3).oa-qlc__cell::before{ content: "POWER"; }
+  .oa-qlc__table .oa-qlc__row > :nth-child(4).oa-qlc__cell::before{ content: "VOLTAGE"; }
+  .oa-qlc__table .oa-qlc__row > :nth-child(5).oa-qlc__cell::before{ content: "DIMENSIONS"; }
+
+  .oa-qlc__table .oa-qlc__cell::before{
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* keep visual closure */
+  .oa-qlc__table .oa-qlc__row--last{
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+  }
+
+  /* Bottom area stack */
+  .oa-qlc__bottom{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+    padding: 16px 14px 18px;
+  }
+
+  /* little spacing tweaks */
+  .oa-qlc__topline{
+    gap: 10px;
+    padding: 10px 0;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px){
+  .oa-qlc__table .oa-qlc__cell{
+    grid-template-columns: 92px 1fr;
+  }
+}
+
+/* =====================================
+   OA QLC: header overlay above image
+   ===================================== */
+.oa-qlc__left{
+  position: relative;
+}
+
+/* header overlay on image */
+.oa-qlc__header--onimg{
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 14px;
+  z-index: 5;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 14px 14px;
+  border-radius: 14px;
+  background: rgba(247, 247, 241, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+/* supaya gambar tetap rapi */
+.oa-qlc__img{
+  display: block;
+}
+
+/* mobile: jangan overlay, jadi normal di atas image */
+@media (max-width: 767px){
+  .oa-qlc__header--onimg{
+    position: static;
+    margin-bottom: 10px;
+  }
+}
+
+/* =====================================
+   Dinamica: move QLC header above image (mobile only)
+   Keeps desktop layout unchanged
+   ===================================== */
+@media (max-width: 767px){
+  /* Use CSS Grid for the block on mobile */
+  .oa-qlc--dinamica .oa-qlc__block{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "image"
+      "table";
+    gap: 12px;
+  }
+
+  /* Flatten right column so header/table can be positioned in grid */
+  .oa-qlc--dinamica .oa-qlc__right{
+    display: contents !important;
+  }
+
+  /* Header goes first */
+  .oa-qlc--dinamica .oa-qlc__header{
+    grid-area: header;
+    margin: 0 !important;
+  }
+
+  /* Image goes after header */
+  .oa-qlc--dinamica .oa-qlc__left{
+    grid-area: image;
+  }
+
+  /* Table goes after image */
+  .oa-qlc--dinamica .oa-qlc__table{
+    grid-area: table;
+  }
+
+  /* small spacing */
+  .oa-qlc--dinamica .oa-qlc__left .oa-qlc__note{
+    margin-bottom: 10px;
+  }
 }

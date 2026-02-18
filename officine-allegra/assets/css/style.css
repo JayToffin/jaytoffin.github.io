@@ -36,9 +36,20 @@
 @font-face {
     font-family: 'Archer Medium';
     src: url('../webfonts/archer-medium.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
-  }
+}
+
+@font-face {
+    font-family: 'Archer Bold';
+    src: url('../webfonts/archer-bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Archer Semi Bold Pro';
+    src: url('../webfonts/archer-semibold-pro.otf') format('opentype');
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap");
 /* Media Query Variable */
 /*CSS Variable*/
