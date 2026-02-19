@@ -288,9 +288,9 @@
 .oa-qlc__tech {
   display: flex;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
   color: rgba(0, 0, 0, .65);
-  margin-top: 10px;
+  /* margin-top: 10px; */
   white-space: nowrap;
 }
 
@@ -339,7 +339,7 @@
   gap: 22px;
   padding: 18px 0;
   border-bottom: 1px solid rgba(0, 0, 0, .14);
-  align-items: center;
+  /* align-items: center; */
 }
 
 .oa-qlc__row--last {
@@ -500,7 +500,7 @@
     display: grid !important;
     grid-template-columns: 110px 1fr;
     gap: 10px;
-    align-items: start;
+    align-items: center;
     font-size: 14px;
     line-height: 1.45;
   }
