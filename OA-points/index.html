@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Points Redemption Portal</title>
+  <style>
+    :root {
+      --primary: #f59b42;
+      --primary-dark: #d97a1d;
+      --bg: #f7f7f9;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --warning: #f59e0b;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .topbar {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 32px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      opacity: 0.95;
+      font-size: 15px;
+    }
+
+    .member-badge {
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 14px 18px;
+      border-radius: 14px;
+      min-width: 220px;
+    }
+
+    .member-badge small {
+      display: block;
+      opacity: 0.9;
+      margin-bottom: 4px;
+    }
+
+    .member-badge strong {
+      font-size: 18px;
+    }
+
+    .dashboard {
+      display: block;
+      margin-top: 0;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .points-card {
+      padding: 15px;
+    }
+
+    .points-label {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .points-value {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .points-caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .summary-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 150px;
+    }
+
+    .summary-card .label {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .summary-card .value {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .summary-card .note {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .section-card {
+      padding: 18px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-input,
+    .filter-select {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      background: white;
+    }
+
+    .filter-select {
+      padding-right: 44px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, #6b7280 50%), linear-gradient(135deg, #6b7280 50%, transparent 50%);
+      background-position: right 18px center, right 12px center;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .transaction-mobile-list {
+      display: none;
+    }
+
+    .transaction-mobile-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .transaction-mobile-card + .transaction-mobile-card {
+      margin-top: 14px;
+    }
+
+    .transaction-mobile-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .transaction-mobile-date {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .transaction-mobile-time {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .transaction-mobile-points {
+      font-size: 18px;
+      font-weight: 700;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .transaction-mobile-body {
+      display: grid;
+      gap: 10px;
+    }
+
+    .transaction-mobile-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .transaction-mobile-label {
+      font-size: 12px;
+      color: var(--muted);
+      min-width: 72px;
+      flex: 0 0 72px;
+    }
+
+    .transaction-mobile-value {
+      flex: 1;
+      text-align: right;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    th,
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 600;
+      background: #fafafa;
+    }
+
+    .trx-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .trx-sub {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .trx-plus {
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .trx-minus {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .status.success {
+      background: rgba(22, 163, 74, 0.1);
+      color: var(--success);
+    }
+
+    .status.pending {
+      background: rgba(245, 158, 11, 0.12);
+      color: #b45309;
+    }
+
+    .status.failed {
+      background: rgba(220, 38, 38, 0.1);
+      color: var(--danger);
+    }
+
+    .history-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      padding-top: 18px;
+    }
+
+    .history-pagination-info {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .history-pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .history-page-btn {
+      min-width: 38px;
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .history-page-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .history-page-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(245, 155, 66, 0.22);
+    }
+
+    .history-page-btn.nav-btn {
+      padding: 0 14px;
+    }
+
+    .sidebar-stack {
+      display: grid;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .redeem-list {
+      display: grid;
+      gap: 14px;
+      max-height: 520px;
+      overflow-y: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .redeem-list::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    .redeem-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .redeem-item h4 {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .redeem-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .redeem-points {
+      white-space: nowrap;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: rgba(245, 155, 66, 0.12);
+      border: 1px solid rgba(245, 155, 66, 0.25);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 78px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    .info-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .info-item.highlight-expiry {
+      background: rgba(245, 66, 66, 0.12);
+      border: 1px solid rgba(245, 66, 66, 0.28);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 10px;
+    }
+
+    .info-item.highlight-expiry span {
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    .info-item.highlight-expiry strong {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .info-item span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .info-item strong {
+      text-align: right;
+      font-size: 11px;
+    }
+
+    .btn {
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #ffffff;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-stack {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 16px;
+      }
+
+      .topbar {
+        padding: 24px 0;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+      }
+
+      .title {
+        font-size: 26px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
+
+      .member-badge {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+        margin-top: 16px;
+      }
+
+      .points-card,
+      .summary-card,
+      .section-card {
+        padding: 18px;
+      }
+
+      .points-value {
+        font-size: 34px;
+      }
+
+      .section-head {
+        align-items: stretch;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .filters {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .filter-input,
+      .filter-select,
+      .btn {
+        width: 100%;
+      }
+
+      .filter-select {
+        background-position: right 18px center, right 12px center;
+      }
+
+      .table-wrap {
+        display: none;
+      }
+
+      .transaction-mobile-list {
+        display: block;
+      }
+
+      .redeem-item {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .info-item strong {
+        text-align: left;
+      }
+
+      .info-item.highlight-expiry {
+        padding: 12px 14px;
+      }
+
+      .history-pagination {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .history-pagination-controls {
+        width: 100%;
+        justify-content: center; 
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+
+    <section class="content-grid">
+      <div class="sidebar-stack">
+        <div class="card points-card">
+          <div class="points-label">Available Points</div>
+          <h2 class="points-value">1650 Points</h2>
+          <div class="points-caption">Last updated: August 18, 2026, 10:15 WIB</div>
+          <div class="info-item highlight-expiry">
+              <span>Nearest Expiry</span>
+              <strong>300 pts - Dec 31, 2026</strong>
+            </div>
+        </div>
+        <div class="card section-card">
+          <div class="section-head">
+            <h3 class="section-title">Available Rewards</h3>
+            <button class="btn">Redeem Now</button>
+          </div>
+          <div class="redeem-list">
+            <div class="redeem-item">
+              <div>
+                <h4>Iphone 17 256GB</h4>
+              </div>
+              <div class="redeem-points">1800 pts</div>
+            </div>
+            <div class="redeem-item">
+              <div>
+                <h4>Fit Active Membership</h4>
+              </div>
+              <div class="redeem-points">600 pts</div>
+            </div>
+            <div class="redeem-item">
+              <div>
+                <h4>AirPods Pro (3rd Gen)</h4>
+              </div>
+              <div class="redeem-points">560 pts</div>
+            </div>
+            <div class="redeem-item">
+              <div>
+                <h4>Full Meal for 2 at "La Terrazza" Restaurant</h4>
+              </div>
+              <div class="redeem-points">100 pts</div>
+            </div>
+            <div class="redeem-item">
+              <div>
+                <h4>€50 Fuel Voucher</h4>
+              </div>
+              <div class="redeem-points">100 pts</div>
+            </div>
+            <div class="redeem-item">
+              <div>
+                <h4>€25 Amazon Gift Card</h4>
+              </div>
+              <div class="redeem-points">50 pts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card section-card">
+        <div class="section-head">
+          <h3 class="section-title">Points Transaction History</h3>
+          <div class="filters">
+            <input class="filter-input" type="text" placeholder="Search transactions" />
+            <select class="filter-select">
+              <option>Status</option>
+              <option>Success</option>
+              <option>Pending</option>
+              <option>Failed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Transaction</th>
+                <th>Type</th>
+                <th>Points</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>20 Aug 2026</td>
+                <td>
+                  <div class="trx-title">Monthly Coffee Purchase</div>
+                  <div class="trx-sub">TXN-EARN-20260820-001</div>
+                </td>
+                <td>Earn</td>
+                <td class="trx-plus">+120</td>
+                <td><span class="status success">Success</span></td>
+              </tr>
+              <tr>
+                <td>19 Aug 2026</td>
+                <td>
+                  <div class="trx-title">Coffee Machine Purchase Bonus</div>
+                  <div class="trx-sub">TXN-EARN-20260819-014</div>
+                </td>
+                <td>Earn</td>
+                <td class="trx-plus">+350</td>
+                <td><span class="status success">Success</span></td>
+              </tr>
+              <tr>
+                <td>18 Aug 2026</td>
+                <td>
+                  <div class="trx-title">Amazon Gift Card Redemption</div>
+                  <div class="trx-sub">INV-RDM-20260818-001</div>
+                </td>
+                <td>Redeem</td>
+                <td class="trx-minus">-50</td>
+                <td><span class="status success">Success</span></td>
+              </tr>
+              <tr>
+                <td>16 Aug 2026</td>
+                <td>
+                  <div class="trx-title">AirPods Pro (3rd Gen) Redemption</div>
+                  <div class="trx-sub">ORD-20260816-1042</div>
+                </td>
+                <td>Redeem</td>
+                <td class="trx-minus">-560</td>
+                <td><span class="status success">Success</span></td>
+              </tr>
+              <tr>
+                <td>14 Aug 2026</td>
+                <td>
+                  <div class="trx-title">Fuel Voucher Redemption</div>
+                  <div class="trx-sub">Campaign Reward</div>
+                </td>
+                <td>Redeem</td>
+                <td class="trx-minus">-100</td>
+                <td><span class="status success">Success</span></td>
+              </tr>
+              <tr>
+                <td>12 Aug 2026</td>
+                <td>
+                  <div class="trx-title">Restaurant Reward Redemption</div>
+                  <div class="trx-sub">REQ-RDM-20260812-022</div>
+                </td>
+                <td>Redeem</td>
+                <td class="trx-minus">-100</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>09 Aug 2026</td>
+                <td>
+                  <div class="trx-title">Fit Active Membership Redemption</div>
+                  <div class="trx-sub">ORD-20260809-0881</div>
+                </td>
+                <td>Redeem</td>
+                <td class="trx-minus">-600</td>
+                <td><span class="status success">Success</span></td>
+              </tr>
+              <tr>
+                <td>05 Aug 2026</td>
+                <td>
+                  <div class="trx-title">iPhone 17 256GB Redemption</div>
+                  <div class="trx-sub">REQ-RDM-20260805-014</div>
+                </td>
+                <td>Redeem</td>
+                <td class="trx-minus">-1800</td>
+                <td><span class="status failed">Failed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="transaction-mobile-list">
+          <div class="transaction-mobile-card">
+            <div class="transaction-mobile-top">
+              <div>
+                <div class="transaction-mobile-date">20 Aug 2026</div>
+                <div class="transaction-mobile-time">13:20 WIB</div>
+              </div>
+              <div class="transaction-mobile-points trx-plus">+120</div>
+            </div>
+            <div class="transaction-mobile-body">
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Transaction</div>
+                <div class="transaction-mobile-value">
+                  <div class="trx-title">Monthly Coffee Purchase</div>
+                  <div class="trx-sub">TXN-EARN-20260820-001</div>
+                </div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Type</div>
+                <div class="transaction-mobile-value">Earn</div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Status</div>
+                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="transaction-mobile-card">
+            <div class="transaction-mobile-top">
+              <div>
+                <div class="transaction-mobile-date">19 Aug 2026</div>
+                <div class="transaction-mobile-time">09:45 WIB</div>
+              </div>
+              <div class="transaction-mobile-points trx-plus">+350</div>
+            </div>
+            <div class="transaction-mobile-body">
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Transaction</div>
+                <div class="transaction-mobile-value">
+                  <div class="trx-title">Coffee Machine Purchase Bonus</div>
+                  <div class="trx-sub">TXN-EARN-20260819-014</div>
+                </div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Type</div>
+                <div class="transaction-mobile-value">Earn</div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Status</div>
+                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="transaction-mobile-card">
+            <div class="transaction-mobile-top">
+              <div>
+                <div class="transaction-mobile-date">18 Aug 2026</div>
+                <div class="transaction-mobile-time">10:15 WIB</div>
+              </div>
+              <div class="transaction-mobile-points trx-minus">-50</div>
+            </div>
+            <div class="transaction-mobile-body">
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Transaction</div>
+                <div class="transaction-mobile-value">
+                  <div class="trx-title">Amazon Gift Card Redemption</div>
+                  <div class="trx-sub">INV-RDM-20260818-001</div>
+                </div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Type</div>
+                <div class="transaction-mobile-value">Redeem</div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Status</div>
+                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="transaction-mobile-card">
+            <div class="transaction-mobile-top">
+              <div>
+                <div class="transaction-mobile-date">16 Aug 2026</div>
+                <div class="transaction-mobile-time">09:40 WIB</div>
+              </div>
+              <div class="transaction-mobile-points trx-minus">-560</div>
+            </div>
+            <div class="transaction-mobile-body">
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Transaction</div>
+                <div class="transaction-mobile-value">
+                  <div class="trx-title">AirPods Pro (3rd Gen) Redemption</div>
+                  <div class="trx-sub">ORD-20260816-1042</div>
+                </div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Type</div>
+                <div class="transaction-mobile-value">Redeem</div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Status</div>
+                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="transaction-mobile-card">
+            <div class="transaction-mobile-top">
+              <div>
+                <div class="transaction-mobile-date">14 Aug 2026</div>
+                <div class="transaction-mobile-time">14:05 WIB</div>
+              </div>
+              <div class="transaction-mobile-points trx-minus">-100</div>
+            </div>
+            <div class="transaction-mobile-body">
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Transaction</div>
+                <div class="transaction-mobile-value">
+                  <div class="trx-title">Fuel Voucher Redemption</div>
+                  <div class="trx-sub">Campaign Reward</div>
+                </div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Type</div>
+                <div class="transaction-mobile-value">Redeem</div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Status</div>
+                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="transaction-mobile-card">
+            <div class="transaction-mobile-top">
+              <div>
+                <div class="transaction-mobile-date">12 Aug 2026</div>
+                <div class="transaction-mobile-time">11:20 WIB</div>
+              </div>
+              <div class="transaction-mobile-points trx-minus">-100</div>
+            </div>
+            <div class="transaction-mobile-body">
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Transaction</div>
+                <div class="transaction-mobile-value">
+                  <div class="trx-title">Restaurant Reward Redemption</div>
+                  <div class="trx-sub">REQ-RDM-20260812-022</div>
+                </div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Type</div>
+                <div class="transaction-mobile-value">Redeem</div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Status</div>
+                <div class="transaction-mobile-value"><span class="status pending">Pending</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="transaction-mobile-card">
+            <div class="transaction-mobile-top">
+              <div>
+                <div class="transaction-mobile-date">09 Aug 2026</div>
+                <div class="transaction-mobile-time">08:55 WIB</div>
+              </div>
+              <div class="transaction-mobile-points trx-minus">-600</div>
+            </div>
+            <div class="transaction-mobile-body">
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Transaction</div>
+                <div class="transaction-mobile-value">
+                  <div class="trx-title">Fit Active Membership Redemption</div>
+                  <div class="trx-sub">ORD-20260809-0881</div>
+                </div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Type</div>
+                <div class="transaction-mobile-value">Redeem</div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Status</div>
+                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="transaction-mobile-card">
+            <div class="transaction-mobile-top">
+              <div>
+                <div class="transaction-mobile-date">05 Aug 2026</div>
+                <div class="transaction-mobile-time">16:30 WIB</div>
+              </div>
+              <div class="transaction-mobile-points trx-minus">-1800</div>
+            </div>
+            <div class="transaction-mobile-body">
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Transaction</div>
+                <div class="transaction-mobile-value">
+                  <div class="trx-title">iPhone 17 256GB Redemption</div>
+                  <div class="trx-sub">REQ-RDM-20260805-014</div>
+                </div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Type</div>
+                <div class="transaction-mobile-value">Redeem</div>
+              </div>
+              <div class="transaction-mobile-row">
+                <div class="transaction-mobile-label">Status</div>
+                <div class="transaction-mobile-value"><span class="status failed">Failed</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="history-pagination">
+  <div class="history-pagination-info">Showing 1-8 of 24 transactions</div>
+  <div class="history-pagination-controls">
+    <button class="history-page-btn nav-btn">Prev</button>
+    <button class="history-page-btn active">1</button>
+    <button class="history-page-btn">2</button>
+    <button class="history-page-btn">3</button>
+    <button class="history-page-btn nav-btn">Next</button>
+  </div>
+</div>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>
