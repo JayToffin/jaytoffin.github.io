@@ -5,45 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Points Redemption Portal</title>
   <style>
-    :root {
-      --primary: #f59b42;
-      --primary-dark: #d97a1d;
-      --bg: #f7f7f9;
-      --card: #ffffff;
-      --text: #222;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --success: #16a34a;
-      --danger: #dc2626;
-      --warning: #f59e0b;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      --radius: 18px;
+    .oa-points-page {
+      --oa-primary: #f59b42;
+      --oa-primary-dark: #d97a1d;
+      --oa-bg: #f7f7f9;
+      --oa-card: #ffffff;
+      --oa-text: #222;
+      --oa-muted: #6b7280;
+      --oa-border: #e5e7eb;
+      --oa-success: #16a34a;
+      --oa-danger: #dc2626;
+      --oa-warning: #f59e0b;
+      --oa-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --oa-radius: 18px;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--oa-text);
     }
 
-    * {
+    .oa-points-page,
+    .oa-points-page *,
+    .oa-points-page *::before,
+    .oa-points-page *::after {
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+    .oa-points-page button,
+    .oa-points-page input,
+    .oa-points-page select,
+    .oa-points-page textarea {
+      font: inherit;
     }
 
-    .container {
+    .oa-points-page a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .oa-points-page .oa-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 24px;
     }
 
-    .topbar {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    .oa-points-page .topbar {
+      background: linear-gradient(135deg, var(--oa-primary), var(--oa-primary-dark));
       color: white;
       padding: 32px 0;
     }
 
-    .topbar-inner {
+    .oa-points-page .topbar-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -51,19 +64,19 @@
       flex-wrap: wrap;
     }
 
-    .title {
+    .oa-points-page .oa-title {
       margin: 0;
       font-size: 32px;
       font-weight: 700;
     }
 
-    .subtitle {
+    .oa-points-page .oa-subtitle {
       margin: 8px 0 0;
       opacity: 0.95;
       font-size: 15px;
     }
 
-    .member-badge {
+    .oa-points-page .member-badge {
       background: rgba(255, 255, 255, 0.18);
       border: 1px solid rgba(255, 255, 255, 0.22);
       padding: 14px 18px;
@@ -71,51 +84,51 @@
       min-width: 220px;
     }
 
-    .member-badge small {
+    .oa-points-page .member-badge small {
       display: block;
       opacity: 0.9;
       margin-bottom: 4px;
     }
 
-    .member-badge strong {
+    .oa-points-page .member-badge strong {
       font-size: 18px;
     }
 
-    .dashboard {
+    .oa-points-page .dashboard {
       display: block;
       margin-top: 0;
     }
 
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
+    .oa-points-page .oa-card {
+      background: var(--oa-card);
+      border-radius: var(--oa-radius);
+      box-shadow: var(--oa-shadow);
+      border: 1px solid var(--oa-border);
     }
 
-    .points-card {
+    .oa-points-page .points-card {
       padding: 15px;
     }
 
-    .points-label {
-      color: var(--muted);
+    .oa-points-page .points-label {
+      color: var(--oa-muted);
       font-size: 14px;
       margin-bottom: 10px;
     }
 
-    .points-value {
+    .oa-points-page .points-value {
       font-size: 42px;
       font-weight: 700;
       margin: 0;
     }
 
-    .points-caption {
+    .oa-points-page .points-caption {
       margin-top: 10px;
-      color: var(--muted);
+      color: var(--oa-muted);
       font-size: 14px;
     }
 
-    .summary-card {
+    .oa-points-page .summary-card {
       padding: 22px;
       display: flex;
       flex-direction: column;
@@ -123,24 +136,24 @@
       min-height: 150px;
     }
 
-    .summary-card .label {
-      color: var(--muted);
+    .oa-points-page .summary-card .label {
+      color: var(--oa-muted);
       font-size: 14px;
       margin-bottom: 10px;
     }
 
-    .summary-card .value {
+    .oa-points-page .summary-card .value {
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 8px;
     }
 
-    .summary-card .note {
+    .oa-points-page .summary-card .note {
       font-size: 13px;
-      color: var(--muted);
+      color: var(--oa-muted);
     }
 
-    .content-grid {
+    .oa-points-page .content-grid {
       display: grid;
       grid-template-columns: 320px minmax(0, 1fr);
       gap: 24px;
@@ -148,11 +161,11 @@
       align-items: start;
     }
 
-    .section-card {
+    .oa-points-page .section-card {
       padding: 18px;
     }
 
-    .section-head {
+    .oa-points-page .section-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -161,27 +174,27 @@
       margin-bottom: 18px;
     }
 
-    .section-title {
+    .oa-points-page .section-title {
       margin: 0;
       font-size: 22px;
     }
 
-    .filters {
+    .oa-points-page .filters {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    .filter-input,
-    .filter-select {
-      border: 1px solid var(--border);
+    .oa-points-page .filter-input,
+    .oa-points-page .filter-select {
+      border: 1px solid var(--oa-border);
       border-radius: 10px;
       padding: 10px 12px;
       font-size: 14px;
       background: white;
     }
 
-    .filter-select {
+    .oa-points-page .filter-select {
       padding-right: 44px;
       appearance: none;
       -webkit-appearance: none;
@@ -192,28 +205,28 @@
       background-repeat: no-repeat;
     }
 
-    .table-wrap {
+    .oa-points-page .table-wrap {
       width: 100%;
       overflow-x: auto;
     }
 
-    .transaction-mobile-list {
+    .oa-points-page .transaction-mobile-list {
       display: none;
     }
 
-    .transaction-mobile-card {
-      border: 1px solid var(--border);
+    .oa-points-page .transaction-mobile-card {
+      border: 1px solid var(--oa-border);
       border-radius: 16px;
       background: #fff;
       padding: 16px;
-      box-shadow: var(--shadow);
+      box-shadow: var(--oa-shadow);
     }
 
-    .transaction-mobile-card + .transaction-mobile-card {
+    .oa-points-page .transaction-mobile-card + .transaction-mobile-card {
       margin-top: 14px;
     }
 
-    .transaction-mobile-top {
+    .oa-points-page .transaction-mobile-top {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -221,93 +234,93 @@
       margin-bottom: 12px;
     }
 
-    .transaction-mobile-date {
+    .oa-points-page .transaction-mobile-date {
       font-size: 14px;
       font-weight: 700;
-      color: var(--text);
+      color: var(--oa-text);
       margin-bottom: 4px;
     }
 
-    .transaction-mobile-time {
+    .oa-points-page .transaction-mobile-time {
       font-size: 12px;
-      color: var(--muted);
+      color: var(--oa-muted);
     }
 
-    .transaction-mobile-points {
+    .oa-points-page .transaction-mobile-points {
       font-size: 18px;
       font-weight: 700;
       text-align: right;
       white-space: nowrap;
     }
 
-    .transaction-mobile-body {
+    .oa-points-page .transaction-mobile-body {
       display: grid;
       gap: 10px;
     }
 
-    .transaction-mobile-row {
+    .oa-points-page .transaction-mobile-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
     }
 
-    .transaction-mobile-label {
+    .oa-points-page .transaction-mobile-label {
       font-size: 12px;
-      color: var(--muted);
+      color: var(--oa-muted);
       min-width: 72px;
       flex: 0 0 72px;
     }
 
-    .transaction-mobile-value {
+    .oa-points-page .transaction-mobile-value {
       flex: 1;
       text-align: right;
       font-size: 14px;
-      color: var(--text);
+      color: var(--oa-text);
     }
 
-    table {
+    .oa-points-page table {
       width: 100%;
       border-collapse: collapse;
       min-width: 760px;
     }
 
-    th,
-    td {
+    .oa-points-page th,
+    .oa-points-page td {
       padding: 14px 12px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--oa-border);
       text-align: left;
       font-size: 14px;
       vertical-align: middle;
     }
 
-    th {
-      color: var(--muted);
+    .oa-points-page th {
+      color: var(--oa-muted);
       font-weight: 600;
       background: #fafafa;
     }
 
-    .trx-title {
+    .oa-points-page .trx-title {
       font-weight: 600;
       margin-bottom: 4px;
     }
 
-    .trx-sub {
-      color: var(--muted);
+    .oa-points-page .trx-sub {
+      color: var(--oa-muted);
       font-size: 12px;
     }
 
-    .trx-plus {
-      color: var(--success);
+    .oa-points-page .trx-plus {
+      color: var(--oa-success);
       font-weight: 700;
     }
 
-    .trx-minus {
-      color: var(--danger);
+    .oa-points-page .trx-minus {
+      color: var(--oa-danger);
       font-weight: 700;
     }
 
-    .status {
+    .oa-points-page .oa-status {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -317,22 +330,22 @@
       font-weight: 700;
     }
 
-    .status.success {
+    .oa-points-page .oa-status.success {
       background: rgba(22, 163, 74, 0.1);
-      color: var(--success);
+      color: var(--oa-success);
     }
 
-    .status.pending {
+    .oa-points-page .oa-status.pending {
       background: rgba(245, 158, 11, 0.12);
       color: #b45309;
     }
 
-    .status.failed {
+    .oa-points-page .oa-status.failed {
       background: rgba(220, 38, 38, 0.1);
-      color: var(--danger);
+      color: var(--oa-danger);
     }
 
-    .history-pagination {
+    .oa-points-page .history-pagination {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -342,26 +355,26 @@
       padding-top: 18px;
     }
 
-    .history-pagination-info {
+    .oa-points-page .history-pagination-info {
       font-size: 13px;
-      color: var(--muted);
+      color: var(--oa-muted);
     }
 
-    .history-pagination-controls {
+    .oa-points-page .history-pagination-controls {
       display: flex;
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
     }
 
-    .history-page-btn {
+    .oa-points-page .history-page-btn {
       min-width: 38px;
       height: 38px;
       padding: 0 12px;
       border-radius: 10px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--oa-border);
       background: #fff;
-      color: var(--text);
+      color: var(--oa-text);
       font-size: 13px;
       font-weight: 600;
       display: inline-flex;
@@ -371,30 +384,30 @@
       transition: all 0.2s ease;
     }
 
-    .history-page-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
+    .oa-points-page .history-page-btn:hover {
+      border-color: var(--oa-primary);
+      color: var(--oa-primary);
     }
 
-    .history-page-btn.active {
-      background: var(--primary);
-      border-color: var(--primary);
+    .oa-points-page .history-page-btn.active {
+      background: var(--oa-primary);
+      border-color: var(--oa-primary);
       color: #fff;
       box-shadow: 0 6px 14px rgba(245, 155, 66, 0.22);
     }
 
-    .history-page-btn.nav-btn {
+    .oa-points-page .history-page-btn.nav-btn {
       padding: 0 14px;
     }
 
-    .sidebar-stack {
+    .oa-points-page .sidebar-stack {
       display: grid;
       gap: 20px;
       position: sticky;
       top: 24px;
     }
 
-    .redeem-list {
+    .oa-points-page .redeem-list {
       display: grid;
       gap: 14px;
       max-height: 520px;
@@ -403,14 +416,14 @@
       scrollbar-width: none;
     }
 
-    .redeem-list::-webkit-scrollbar {
+    .oa-points-page .redeem-list::-webkit-scrollbar {
       display: none;
       width: 0;
       height: 0;
     }
 
-    .redeem-item {
-      border: 1px solid var(--border);
+    .oa-points-page .redeem-item {
+      border: 1px solid var(--oa-border);
       border-radius: 14px;
       padding: 16px;
       display: flex;
@@ -419,22 +432,22 @@
       gap: 14px;
     }
 
-    .redeem-item h4 {
+    .oa-points-page .redeem-item h4 {
       margin: 0;
       font-size: 14px;
     }
 
-    .redeem-item p {
+    .oa-points-page .redeem-item p {
       margin: 0;
-      color: var(--muted);
+      color: var(--oa-muted);
       font-size: 13px;
       line-height: 1.5;
     }
 
-    .redeem-points {
+    .oa-points-page .redeem-points {
       white-space: nowrap;
       font-weight: 700;
-      color: var(--primary-dark);
+      color: var(--oa-primary-dark);
       background: rgba(245, 155, 66, 0.12);
       border: 1px solid rgba(245, 155, 66, 0.25);
       padding: 8px 12px;
@@ -448,25 +461,25 @@
       flex-shrink: 0;
     }
 
-    .info-list {
+    .oa-points-page .info-list {
       display: grid;
       gap: 12px;
     }
 
-    .info-item {
+    .oa-points-page .info-item {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--oa-border);
       padding-bottom: 12px;
     }
 
-    .info-item:last-child {
+    .oa-points-page .info-item:last-child {
       border-bottom: 0;
       padding-bottom: 0;
     }
 
-    .info-item.highlight-expiry {
+    .oa-points-page .info-item.highlight-expiry {
       background: rgba(245, 66, 66, 0.12);
       border: 1px solid rgba(245, 66, 66, 0.28);
       border-radius: 12px;
@@ -474,29 +487,29 @@
       margin-top: 10px;
     }
 
-    .info-item.highlight-expiry span {
-      color: var(--danger);
+    .oa-points-page .info-item.highlight-expiry span {
+      color: var(--oa-danger);
       font-weight: 600;
     }
 
-    .info-item.highlight-expiry strong {
-      color: var(--danger);
+    .oa-points-page .info-item.highlight-expiry strong {
+      color: var(--oa-danger);
       font-weight: 700;
     }
 
-    .info-item span {
-      color: var(--muted);
+    .oa-points-page .info-item span {
+      color: var(--oa-muted);
       font-size: 11px;
     }
 
-    .info-item strong {
+    .oa-points-page .info-item strong {
       text-align: right;
       font-size: 11px;
     }
 
-    .btn {
-      border: 1px solid var(--primary);
-      background: var(--primary);
+    .oa-points-page .oa-btn {
+      border: 1px solid var(--oa-primary);
+      background: var(--oa-primary);
       color: white;
       padding: 11px 16px;
       border-radius: 10px;
@@ -505,180 +518,172 @@
       transition: all 0.2s ease;
     }
 
-    .btn:hover {
+    .oa-points-page .oa-btn:hover {
       background: #ffffff;
-      color: var(--primary);
-      border-color: var(--primary);
+      color: var(--oa-primary);
+      border-color: var(--oa-primary);
     }
 
     @media (max-width: 1024px) {
-      .content-grid {
+      .oa-points-page .content-grid {
         grid-template-columns: 1fr;
       }
 
-      .sidebar-stack {
+      .oa-points-page .sidebar-stack {
         position: static;
       }
     }
 
     @media (max-width: 640px) {
-      .container {
-        padding: 16px;
+      .oa-points-page .oa-container {
+        padding: 10px;
       }
 
-      .topbar {
+      .oa-points-page .topbar {
         padding: 24px 0;
       }
 
-      .topbar-inner {
+      .oa-points-page .topbar-inner {
         align-items: flex-start;
       }
 
-      .title {
+      .oa-points-page .oa-title {
         font-size: 26px;
       }
 
-      .subtitle {
+      .oa-points-page .oa-subtitle {
         font-size: 14px;
       }
 
-      .member-badge {
+      .oa-points-page .member-badge {
         width: 100%;
         min-width: 0;
       }
 
-      .dashboard {
+      .oa-points-page .dashboard {
         grid-template-columns: 1fr;
         margin-top: 16px;
       }
 
-      .points-card,
-      .summary-card,
-      .section-card {
+      .oa-points-page .points-card,
+      .oa-points-page .summary-card,
+      .oa-points-page .section-card {
         padding: 18px;
       }
 
-      .points-value {
+      .oa-points-page .points-value {
         font-size: 34px;
       }
 
-      .section-head {
+      .oa-points-page .section-head {
         align-items: stretch;
       }
 
-      .section-title {
+      .oa-points-page .section-title {
         font-size: 20px;
       }
 
-      .filters {
+      .oa-points-page .filters {
         width: 100%;
         flex-direction: column;
       }
 
-      .filter-input,
-      .filter-select,
-      .btn {
+      .oa-points-page .filter-input,
+      .oa-points-page .filter-select,
+      .oa-points-page .oa-btn {
         width: 100%;
       }
 
-      .filter-select {
+      .oa-points-page .filter-select {
         background-position: right 18px center, right 12px center;
       }
 
-      .table-wrap {
+      .oa-points-page .table-wrap {
         display: none;
       }
 
-      .transaction-mobile-list {
+      .oa-points-page .transaction-mobile-list {
         display: block;
       }
 
-      .redeem-item {
+      .oa-points-page .redeem-item {
         flex-direction: row;
         align-items: center;
       }
 
-      .info-item strong {
+      .oa-points-page .info-item strong {
         text-align: left;
       }
 
-      .info-item.highlight-expiry {
+      .oa-points-page .info-item.highlight-expiry {
         padding: 12px 14px;
       }
 
-      .history-pagination {
+      .oa-points-page .history-pagination {
         flex-direction: column;
         align-items: center;
       }
 
-      .history-pagination-controls {
+      .oa-points-page .history-pagination-controls {
         width: 100%;
-        justify-content: center; 
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
+<div class="oa-points-page">
 
-  <main class="container">
+  <main class="oa-container">
 
     <section class="content-grid">
       <div class="sidebar-stack">
-        <div class="card points-card">
+        <div class="oa-card points-card">
           <div class="points-label">Available Points</div>
           <h2 class="points-value">1650 Points</h2>
           <div class="points-caption">Last updated: August 18, 2026, 10:15 WIB</div>
           <div class="info-item highlight-expiry">
-              <span>Nearest Expiry</span>
-              <strong>300 pts - Dec 31, 2026</strong>
-            </div>
+            <span>Nearest Expiry</span>
+            <strong>300 pts - Dec 31, 2026</strong>
+          </div>
         </div>
-        <div class="card section-card">
+
+        <div class="oa-card section-card">
           <div class="section-head">
             <h3 class="section-title">Available Rewards</h3>
-            <button class="btn">Redeem Now</button>
+            <button class="oa-btn">Redeem Now</button>
           </div>
+
           <div class="redeem-list">
             <div class="redeem-item">
-              <div>
-                <h4>Iphone 17 256GB</h4>
-              </div>
+              <div><h4>Iphone 17 256GB</h4></div>
               <div class="redeem-points">1800 pts</div>
             </div>
             <div class="redeem-item">
-              <div>
-                <h4>Fit Active Membership</h4>
-              </div>
+              <div><h4>Fit Active Membership</h4></div>
               <div class="redeem-points">600 pts</div>
             </div>
             <div class="redeem-item">
-              <div>
-                <h4>AirPods Pro (3rd Gen)</h4>
-              </div>
+              <div><h4>AirPods Pro (3rd Gen)</h4></div>
               <div class="redeem-points">560 pts</div>
             </div>
             <div class="redeem-item">
-              <div>
-                <h4>Full Meal for 2 at "La Terrazza" Restaurant</h4>
-              </div>
+              <div><h4>Full Meal for 2 at "La Terrazza" Restaurant</h4></div>
               <div class="redeem-points">100 pts</div>
             </div>
             <div class="redeem-item">
-              <div>
-                <h4>€50 Fuel Voucher</h4>
-              </div>
+              <div><h4>€50 Fuel Voucher</h4></div>
               <div class="redeem-points">100 pts</div>
             </div>
             <div class="redeem-item">
-              <div>
-                <h4>€25 Amazon Gift Card</h4>
-              </div>
+              <div><h4>€25 Amazon Gift Card</h4></div>
               <div class="redeem-points">50 pts</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="card section-card">
+
+      <div class="oa-card section-card">
         <div class="section-head">
           <h3 class="section-title">Points Transaction History</h3>
           <div class="filters">
@@ -712,7 +717,7 @@
                 </td>
                 <td>Earn</td>
                 <td class="trx-plus">+120</td>
-                <td><span class="status success">Success</span></td>
+                <td><span class="oa-status success">Success</span></td>
               </tr>
               <tr>
                 <td>19 Aug 2026</td>
@@ -722,7 +727,7 @@
                 </td>
                 <td>Earn</td>
                 <td class="trx-plus">+350</td>
-                <td><span class="status success">Success</span></td>
+                <td><span class="oa-status success">Success</span></td>
               </tr>
               <tr>
                 <td>18 Aug 2026</td>
@@ -732,7 +737,7 @@
                 </td>
                 <td>Redeem</td>
                 <td class="trx-minus">-50</td>
-                <td><span class="status success">Success</span></td>
+                <td><span class="oa-status success">Success</span></td>
               </tr>
               <tr>
                 <td>16 Aug 2026</td>
@@ -742,7 +747,7 @@
                 </td>
                 <td>Redeem</td>
                 <td class="trx-minus">-560</td>
-                <td><span class="status success">Success</span></td>
+                <td><span class="oa-status success">Success</span></td>
               </tr>
               <tr>
                 <td>14 Aug 2026</td>
@@ -752,7 +757,7 @@
                 </td>
                 <td>Redeem</td>
                 <td class="trx-minus">-100</td>
-                <td><span class="status success">Success</span></td>
+                <td><span class="oa-status success">Success</span></td>
               </tr>
               <tr>
                 <td>12 Aug 2026</td>
@@ -762,7 +767,7 @@
                 </td>
                 <td>Redeem</td>
                 <td class="trx-minus">-100</td>
-                <td><span class="status pending">Pending</span></td>
+                <td><span class="oa-status pending">Pending</span></td>
               </tr>
               <tr>
                 <td>09 Aug 2026</td>
@@ -772,7 +777,7 @@
                 </td>
                 <td>Redeem</td>
                 <td class="trx-minus">-600</td>
-                <td><span class="status success">Success</span></td>
+                <td><span class="oa-status success">Success</span></td>
               </tr>
               <tr>
                 <td>05 Aug 2026</td>
@@ -782,7 +787,7 @@
                 </td>
                 <td>Redeem</td>
                 <td class="trx-minus">-1800</td>
-                <td><span class="status failed">Failed</span></td>
+                <td><span class="oa-status failed">Failed</span></td>
               </tr>
             </tbody>
           </table>
@@ -811,7 +816,7 @@
               </div>
               <div class="transaction-mobile-row">
                 <div class="transaction-mobile-label">Status</div>
-                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+                <div class="transaction-mobile-value"><span class="oa-status success">Success</span></div>
               </div>
             </div>
           </div>
@@ -838,7 +843,7 @@
               </div>
               <div class="transaction-mobile-row">
                 <div class="transaction-mobile-label">Status</div>
-                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+                <div class="transaction-mobile-value"><span class="oa-status success">Success</span></div>
               </div>
             </div>
           </div>
@@ -865,7 +870,7 @@
               </div>
               <div class="transaction-mobile-row">
                 <div class="transaction-mobile-label">Status</div>
-                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+                <div class="transaction-mobile-value"><span class="oa-status success">Success</span></div>
               </div>
             </div>
           </div>
@@ -892,7 +897,7 @@
               </div>
               <div class="transaction-mobile-row">
                 <div class="transaction-mobile-label">Status</div>
-                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+                <div class="transaction-mobile-value"><span class="oa-status success">Success</span></div>
               </div>
             </div>
           </div>
@@ -919,7 +924,7 @@
               </div>
               <div class="transaction-mobile-row">
                 <div class="transaction-mobile-label">Status</div>
-                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+                <div class="transaction-mobile-value"><span class="oa-status success">Success</span></div>
               </div>
             </div>
           </div>
@@ -946,7 +951,7 @@
               </div>
               <div class="transaction-mobile-row">
                 <div class="transaction-mobile-label">Status</div>
-                <div class="transaction-mobile-value"><span class="status pending">Pending</span></div>
+                <div class="transaction-mobile-value"><span class="oa-status pending">Pending</span></div>
               </div>
             </div>
           </div>
@@ -973,7 +978,7 @@
               </div>
               <div class="transaction-mobile-row">
                 <div class="transaction-mobile-label">Status</div>
-                <div class="transaction-mobile-value"><span class="status success">Success</span></div>
+                <div class="transaction-mobile-value"><span class="oa-status success">Success</span></div>
               </div>
             </div>
           </div>
@@ -1000,24 +1005,26 @@
               </div>
               <div class="transaction-mobile-row">
                 <div class="transaction-mobile-label">Status</div>
-                <div class="transaction-mobile-value"><span class="status failed">Failed</span></div>
+                <div class="transaction-mobile-value"><span class="oa-status failed">Failed</span></div>
               </div>
             </div>
           </div>
         </div>
+
         <div class="history-pagination">
-  <div class="history-pagination-info">Showing 1-8 of 24 transactions</div>
-  <div class="history-pagination-controls">
-    <button class="history-page-btn nav-btn">Prev</button>
-    <button class="history-page-btn active">1</button>
-    <button class="history-page-btn">2</button>
-    <button class="history-page-btn">3</button>
-    <button class="history-page-btn nav-btn">Next</button>
-  </div>
-</div>
+          <div class="history-pagination-info">Showing 1-8 of 24 transactions</div>
+          <div class="history-pagination-controls">
+            <button class="history-page-btn nav-btn">Prev</button>
+            <button class="history-page-btn active">1</button>
+            <button class="history-page-btn">2</button>
+            <button class="history-page-btn">3</button>
+            <button class="history-page-btn nav-btn">Next</button>
+          </div>
+        </div>
       </div>
 
     </section>
   </main>
+</div>
 </body>
 </html>
