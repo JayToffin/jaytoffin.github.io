@@ -73,6 +73,8 @@
   --color-4-rgb: 49, 49, 49;
   --color-5: #eaeaea;
   --color-5-rgb: 234, 234, 234;
+  --bg-color-OA: #F7F7F1;
+  --OA-orange: #f5511e;
 }
 
 a {
@@ -292,7 +294,7 @@ body {
   font-weight: 400;
   font-size: 20px;
   line-height: 160%;
-  background-color: var(--color-white);
+  background-color: var(--bg-color-OA);
   color: var(--color-primary);
   font-family: 'helventica', sans-serif;
 }
@@ -3028,7 +3030,8 @@ a.quanto-default-btn.sm-size {
   height: 70px;
   padding: 18px 8px;
   border-radius: 100%;
-  background: var(--color-2);
+  background: var(--OA-orange);
+  color: var(--color-white);
 }
 @media only screen and (max-width: 991.98px) {
   .quanto-project__slider-navigation .next-btn,
@@ -6134,6 +6137,7 @@ a.quanto-default-btn.sm-size {
   justify-content: space-between;
   align-items: center;
   padding-top: 28px;
+  padding-bottom: 28px;
 }
 @media only screen and (max-width: 991.98px) {
   .footer__bottom-content {
