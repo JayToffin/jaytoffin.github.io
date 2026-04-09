@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redeem Successful | Points</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    .oa-redeem-success {
+      --oa-rs-surface: #f8f4ef;
+      --oa-rs-surface-soft: #efe7dd;
+      --oa-rs-surface-card: #ffffff;
+      --oa-rs-border: rgba(38, 32, 26, 0.08);
+      --oa-rs-text: #1f1b17;
+      --oa-rs-heading: #16120f;
+      --oa-rs-muted: #7a736b;
+      --oa-rs-accent: #f8501d;
+      --oa-rs-accent-dark: #e04514;
+      --oa-rs-accent-soft: rgba(248, 80, 29, 0.10);
+      --oa-rs-success: #4f9d69;
+      --oa-rs-shadow: 0 24px 60px rgba(47, 42, 38, 0.08);
+    }
+
+    .oa-redeem-success,
+    .oa-redeem-success *,
+    .oa-redeem-success *::before,
+    .oa-redeem-success *::after {
+      box-sizing: border-box;
+    }
+
+    .oa-redeem-success {
+      width: 100%;
+      color: var(--oa-rs-text);
+    }
+
+    .oa-redeem-success a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .oa-redeem-success .page-shell {
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .oa-redeem-success .hero-card {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+      width: 100%;
+      background: rgba(255, 250, 244, 0.92);
+      border-radius: 30px;
+      box-shadow: var(--oa-rs-shadow);
+      overflow: hidden;
+      border: 1px solid rgba(99, 74, 52, 0.06);
+    }
+
+    .oa-redeem-success .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 45%);
+    }
+
+    .oa-redeem-success .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: stretch;
+    }
+
+    .oa-redeem-success .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 48px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .oa-redeem-success .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #eef7f1;
+      color: var(--oa-rs-success);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border: 1px solid rgba(79, 157, 105, 0.12);
+    }
+
+    .oa-redeem-success .eyebrow i {
+      color: var(--oa-rs-success);
+      font-size: 13px;
+    }
+
+    .oa-redeem-success .hero-title {
+      margin: 0;
+      font-size: 68px;
+      line-height: 0.92;
+      font-weight: 700;
+      color: var(--oa-rs-heading);
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      max-width: 520px;
+    }
+
+    .oa-redeem-success .hero-text {
+      margin: 18px 0 0;
+      max-width: 460px;
+      color: var(--oa-rs-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .oa-redeem-success .hero-points {
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.05);
+    }
+
+    .oa-redeem-success .hero-points__icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: var(--oa-rs-accent);
+      box-shadow: 0 10px 22px rgba(248, 80, 29, 0.22);
+      flex-shrink: 0;
+    }
+
+    .oa-redeem-success .hero-points__label {
+      margin: 0;
+      font-size: 12px;
+      color: var(--oa-rs-muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 700;
+    }
+
+    .oa-redeem-success .hero-points__value {
+      margin: 4px 0 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #3a342e;
+    }
+
+    .oa-redeem-success .hero-actions {
+      display: flex;
+      margin-top: 24px;
+    }
+
+    .oa-redeem-success .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+    }
+
+    .oa-redeem-success .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .oa-redeem-success .btn--secondary {
+      background: #ffffff;
+      color: #4f473f;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .oa-redeem-success .hero-visual {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f1ece6 0%, #e7ddd1 100%);
+      min-height: 100%;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .oa-redeem-success .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      top: -120px;
+      right: -80px;
+    }
+
+    .oa-redeem-success .hero-visual::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.14);
+      bottom: -70px;
+      left: -40px;
+    }
+
+    .oa-redeem-success .reward-card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 360px;
+      background: rgba(255, 253, 249, 0.88);
+      border: 1px solid rgba(99, 74, 52, 0.10);
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(47, 42, 38, 0.12);
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .oa-redeem-success .reward-card__image-wrap {
+      padding: 14px 14px 0;
+    }
+
+    .oa-redeem-success .reward-card__image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      border-radius: 22px;
+      background: var(--oa-rs-surface-soft);
+    }
+
+    .oa-redeem-success .reward-card__body {
+      padding: 18px;
+    }
+
+    .oa-redeem-success .reward-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef7f1;
+      color: var(--oa-rs-success);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .oa-redeem-success .reward-card__title {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--oa-rs-text);
+      font-weight: 600;
+    }
+
+    .oa-redeem-success .reward-card__subtitle {
+      margin: 8px 0 0;
+      color: var(--oa-rs-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .oa-redeem-success .reward-card__meta {
+      margin-top: 14px;
+      gap: 10px;
+    }
+
+    .oa-redeem-success .reward-card__meta-item {
+      padding: 12px;
+      border-radius: 16px;
+      background: #f7f4f0;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .oa-redeem-success .reward-card__meta-item span {
+      display: block;
+      color: #8f8378;
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 700;
+    }
+
+    .oa-redeem-success .reward-card__meta-item strong {
+      display: block;
+      color: #352f29;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1024px) {
+      .oa-redeem-success .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .oa-redeem-success .hero-title {
+        font-size: 56px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .oa-redeem-success .page-shell {
+        padding: 14px;
+        align-items: flex-start;
+      }
+
+      .oa-redeem-success .hero-content {
+        padding: 28px 22px;
+      }
+
+      .oa-redeem-success .hero-visual {
+        padding: 16px;
+      }
+
+      .oa-redeem-success .hero-title {
+        font-size: 48px;
+        line-height: 0.98;
+      }
+
+      .oa-redeem-success .hero-text {
+        font-size: 15px;
+      }
+
+      .oa-redeem-success .reward-card__meta {
+        grid-template-columns: 1fr;
+      }
+
+      .oa-redeem-success .btn {
+        width: 100%;
+      }
+
+      .oa-redeem-success .reward-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="oa-redeem-success">
+    <div class="page-shell">
+      <section class="hero-card">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="eyebrow">
+              <i class="fa-solid fa-circle-check"></i>
+              Redeem Successful
+            </div>
+
+            <h1 class="hero-title">Your reward is on the way.</h1>
+
+            <p class="hero-text">
+              Your redemption has been confirmed successfully. We have received your request and your selected item will be prepared for shipment to your registered address.
+            </p>
+
+            <div class="hero-points">
+              <span class="hero-points__icon"><i class="fa-solid fa-star"></i></span>
+              <div>
+                <p class="hero-points__label">Points Used</p>
+                <p class="hero-points__value">560 pts deducted</p>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="index.html" class="btn btn--secondary">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Home
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <article class="reward-card">
+              <div class="reward-card__image-wrap">
+                <img class="reward-card__image" src="https://www.digimap.co.id/cdn/shop/files/0788-APPMFHP4ID-A-2.jpg?v=1762255013&width=823" alt="AirPods Pro reward" />
+              </div>
+
+              <div class="reward-card__body">
+                <span class="reward-card__badge">
+                  <i class="fa-solid fa-check"></i>
+                  Reward Redeemed
+                </span>
+
+                <h2 class="reward-card__title">AirPods Pro (3rd Gen)</h2>
+                <div class="reward-card__meta">
+                  <div class="reward-card__meta-item">
+                    <span>Transaction</span>
+                    <strong>#RD-20260409-0012</strong>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
