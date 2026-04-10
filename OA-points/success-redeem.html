@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redeem Successful | Points</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
     .oa-redeem-success {
@@ -40,7 +41,7 @@
     }
 
     .oa-redeem-success .page-shell {
-      min-height: 100vh;
+      min-height: calc(100dvh - 20px);
       padding: 20px;
       display: flex;
       align-items: center;
@@ -227,11 +228,17 @@
       left: -40px;
     }
 
-    .oa-redeem-success .reward-card {
+    .oa-redeem-success .reward-slider {
       position: relative;
       z-index: 2;
       width: 100%;
       max-width: 360px;
+      margin: 0 auto;
+    }
+
+
+    .oa-redeem-success .reward-card {
+      width: 100%;
       background: rgba(255, 253, 249, 0.88);
       border: 1px solid rgba(99, 74, 52, 0.10);
       border-radius: 24px;
@@ -239,6 +246,115 @@
       overflow: hidden;
       backdrop-filter: blur(16px);
     }
+
+    .oa-redeem-success .reward-slider.swiper {
+      overflow: visible;
+      padding-right: 0;
+    }
+
+    .oa-redeem-success .reward-slider.swiper.swiper-initialized:not(.is-single) {
+      padding-right: 0;
+    }
+
+    .oa-redeem-success .reward-slider.is-single {
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .oa-redeem-success .reward-slider.is-single .swiper-wrapper {
+      justify-content: center;
+    }
+
+    .oa-redeem-success .reward-slider.is-single .swiper-slide {
+      width: 100% !important;
+      max-width: 360px;
+      margin-right: 0 !important;
+      opacity: 1;
+      transform: none;
+    }
+
+    .oa-redeem-success .reward-slider.is-single .reward-slider__nav {
+      display: none;
+    }
+
+    .oa-redeem-success .reward-slider .swiper-slide {
+      opacity: 0.65;
+      transform: scale(0.94);
+      transition: transform .35s ease, opacity .35s ease;
+    }
+
+    .oa-redeem-success .reward-slider .swiper-slide-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .oa-redeem-success .reward-slider .swiper-slide-prev,
+    .oa-redeem-success .reward-slider .swiper-slide-next {
+      opacity: 0.82;
+      transform: scale(0.97);
+    }
+
+    .oa-redeem-success .reward-slider__nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .oa-redeem-success .reward-slider .swiper-pagination {
+      position: static;
+      width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .oa-redeem-success .reward-slider .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: rgba(248, 80, 29, 0.18);
+      opacity: 1;
+      transition: all .25s ease;
+    }
+
+    .oa-redeem-success .reward-slider .swiper-pagination-bullet-active {
+      width: 24px;
+      border-radius: 999px;
+      background: var(--oa-rs-accent);
+    }
+
+    .oa-redeem-success .reward-slider .swiper-button-prev,
+    .oa-redeem-success .reward-slider .swiper-button-next {
+      position: static;
+      margin: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(248, 80, 29, 0.12);
+      box-shadow: 0 10px 22px rgba(47, 42, 38, 0.08);
+      color: var(--oa-rs-accent);
+      flex-shrink: 0;
+    }
+
+    .oa-redeem-success .reward-slider .swiper-button-prev::after,
+    .oa-redeem-success .reward-slider .swiper-button-next::after {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .oa-redeem-success .reward-slider .swiper-button-prev:hover,
+    .oa-redeem-success .reward-slider .swiper-button-next:hover {
+      background: var(--oa-rs-accent);
+      color: #ffffff;
+    }
+
 
     .oa-redeem-success .reward-card__image-wrap {
       padding: 14px 14px 0;
@@ -286,6 +402,8 @@
     }
 
     .oa-redeem-success .reward-card__meta {
+      display: grid;
+      grid-template-columns: 1fr;
       margin-top: 14px;
       gap: 10px;
     }
@@ -327,8 +445,9 @@
 
     @media (max-width: 768px) {
       .oa-redeem-success .page-shell {
+        min-height: calc(100dvh - 28px);
         padding: 14px;
-        align-items: flex-start;
+        align-items: center;
       }
 
       .oa-redeem-success .hero-content {
@@ -356,7 +475,7 @@
         width: 100%;
       }
 
-      .oa-redeem-success .reward-card {
+      .oa-redeem-success .reward-slider {
         max-width: 100%;
       }
     }
@@ -376,7 +495,7 @@
             <h1 class="hero-title">Your reward is on the way.</h1>
 
             <p class="hero-text">
-              Your redemption has been confirmed successfully. We have received your request and your selected item will be prepared for shipment to your registered address.
+              Your redemption has been confirmed successfully.
             </p>
 
             <div class="hero-points">
@@ -396,30 +515,125 @@
           </div>
 
           <div class="hero-visual">
-            <article class="reward-card">
-              <div class="reward-card__image-wrap">
-                <img class="reward-card__image" src="https://www.digimap.co.id/cdn/shop/files/0788-APPMFHP4ID-A-2.jpg?v=1762255013&width=823" alt="AirPods Pro reward" />
-              </div>
+            <div class="reward-slider swiper" id="reward-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <article class="reward-card">
+                    <div class="reward-card__image-wrap">
+                      <img class="reward-card__image" src="https://www.digimap.co.id/cdn/shop/files/0788-APPMFHP4ID-A-2.jpg?v=1762255013&width=823" alt="AirPods Pro reward" />
+                    </div>
 
-              <div class="reward-card__body">
-                <span class="reward-card__badge">
-                  <i class="fa-solid fa-check"></i>
-                  Reward Redeemed
-                </span>
+                    <div class="reward-card__body">
+                      <span class="reward-card__badge">
+                        <i class="fa-solid fa-check"></i>
+                        Reward Redeemed
+                      </span>
 
-                <h2 class="reward-card__title">AirPods Pro (3rd Gen)</h2>
-                <div class="reward-card__meta">
-                  <div class="reward-card__meta-item">
-                    <span>Transaction</span>
-                    <strong>#RD-20260409-0012</strong>
-                  </div>
+                      <h2 class="reward-card__title">AirPods Pro (3rd Gen)</h2>
+                      <div class="reward-card__meta">
+                        <div class="reward-card__meta-item">
+                          <span>Transaction</span>
+                          <strong>#RD-20260409-0012</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
                 </div>
+
+                <div class="swiper-slide">
+                  <article class="reward-card">
+                    <div class="reward-card__image-wrap">
+                      <img class="reward-card__image" src="https://www.digimap.co.id/cdn/shop/files/0788-APPMFHP4ID-A-2.jpg?v=1762255013&width=823" alt="AirPods Pro reward" />
+                    </div>
+
+                    <div class="reward-card__body">
+                      <span class="reward-card__badge">
+                        <i class="fa-solid fa-check"></i>
+                        Reward Redeemed
+                      </span>
+
+                      <h2 class="reward-card__title">AirPods Pro (3rd Gen)</h2>
+                      <div class="reward-card__meta">
+                        <div class="reward-card__meta-item">
+                          <span>Transaction</span>
+                          <strong>#RD-20260409-0012</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="swiper-slide">
+                  <article class="reward-card">
+                    <div class="reward-card__image-wrap">
+                      <img class="reward-card__image" src="https://www.digimap.co.id/cdn/shop/files/0788-APPMFHP4ID-A-2.jpg?v=1762255013&width=823" alt="AirPods Pro reward" />
+                    </div>
+
+                    <div class="reward-card__body">
+                      <span class="reward-card__badge">
+                        <i class="fa-solid fa-check"></i>
+                        Reward Redeemed
+                      </span>
+
+                      <h2 class="reward-card__title">AirPods Pro (3rd Gen)</h2>
+                      <div class="reward-card__meta">
+                        <div class="reward-card__meta-item">
+                          <span>Transaction</span>
+                          <strong>#RD-20260409-0012</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
               </div>
-            </article>
+
+              <div class="reward-slider__nav">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const rewardSliderEl = document.getElementById('reward-slider');
+    const rewardSlides = rewardSliderEl ? rewardSliderEl.querySelectorAll('.swiper-slide') : [];
+
+    if (rewardSliderEl && rewardSlides.length <= 1) {
+      rewardSliderEl.classList.add('is-single');
+    }
+
+    const rewardSwiper = new Swiper('#reward-slider', {
+      slidesPerView: 1,
+      centeredSlides: false,
+      spaceBetween: rewardSlides.length > 1 ? 16 : 0,
+      speed: 700,
+      grabCursor: true,
+      allowTouchMove: rewardSlides.length > 1,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      watchOverflow: true,
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 1,
+        }
+      }
+    });
+  </script>
 </body>
 </html>
