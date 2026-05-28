@@ -1,0 +1,359 @@
+/* ============================================================
+   DINAMICA PAGE · Officine Allegra
+   Page-specific styles · loaded after styles.css + dinamica-pro.css
+   ============================================================ */
+
+/* ---------- DINAMICA wordmark (replaces PRO wordmark on this page) ---------- */
+.dn-series-wordmark {
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  transform: translateY(-50%);
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(48px, 6vw, 92px);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: rgba(0, 0, 0, 0.05);
+  writing-mode: vertical-rl;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+/* ---------- 2-column configuration grid (override Pro's 3-col) ---------- */
+.dp-config-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ============== FINISHES STRIP — minimalist color list ============== */
+.dn-finishes-strip {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--rule);
+}
+
+.dn-finishes-head {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dn-finishes-eyebrow {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--orange);
+}
+.dn-finishes-head h3 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.4vw, 30px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.dn-finishes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+
+.dn-finish {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.dn-finish-dot {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--rule);
+  display: block;
+}
+.dn-finish-dot--notturno {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  border-color: transparent;
+}
+.dn-finish-dot--artico {
+  background: linear-gradient(135deg, #f7f1e6 0%, #ece1cc 100%);
+}
+.dn-finish-dot--bluenavy {
+  background: linear-gradient(135deg, #1c3868 0%, #0d1f3d 100%);
+  border-color: transparent;
+}
+.dn-finish-dot--bronzo {
+  background: linear-gradient(135deg, #a87344 0%, #6d4521 100%);
+  border-color: transparent;
+}
+.dn-finish-dot--inox {
+  background: linear-gradient(135deg, #d8d8d8 0%, #9a9a9a 100%);
+}
+
+.dn-finish-name {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  line-height: 1;
+}
+.dn-finish-cat {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+/* ============== CONFIG SPEC COLOR SWATCH ============== */
+.dp-config-swatch {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-right: 7px;
+  vertical-align: -1px;
+  border: 1px solid var(--rule);
+}
+.dp-config-swatch--artico { background: linear-gradient(135deg, #f7f1e6 0%, #ece1cc 100%); }
+.dp-config-swatch--notturno { background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); border-color: transparent; }
+.dp-config-swatch--bluenavy { background: linear-gradient(135deg, #1c3868 0%, #0d1f3d 100%); border-color: transparent; }
+.dp-config-swatch--bronzo { background: linear-gradient(135deg, #a87344 0%, #6d4521 100%); border-color: transparent; }
+.dp-config-swatch--inox { background: linear-gradient(135deg, #d8d8d8 0%, #9a9a9a 100%); }
+.dp-config.is-flagship .dp-config-swatch {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Color spec — label on top, swatch + name flowing in one row */
+.dp-config-spec--colors {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.dp-config-colors {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 14px;
+  align-items: center;
+}
+.dp-config-color {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* ============== INLINE LINK (subtle in-paragraph link) ============== */
+.dp-inline-link {
+  color: var(--orange);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.2s, border-color 0.2s;
+}
+.dp-inline-link:hover {
+  color: var(--ink-2);
+  border-bottom-color: var(--ink-2);
+}
+
+/* ============== FEATURE LIST — 2-col editorial layout ============== */
+.dp-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 56px;
+  row-gap: 0;
+}
+
+.dp-feature-item {
+  display: grid;
+  grid-template-columns: minmax(70px, 100px) 1fr;
+  column-gap: 28px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.dp-feature-item:nth-child(1),
+.dp-feature-item:nth-child(2) {
+  border-top: 1px solid var(--rule);
+}
+
+.dp-feature-num {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(48px, 4.5vw, 76px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--ink-2);
+  align-self: start;
+}
+
+.dp-feature-body {
+  display: flex;
+  flex-direction: column;
+}
+.dp-feature-body h4 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 26px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  margin: 0 0 10px;
+  line-height: 1.05;
+}
+.dp-feature-tagline {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--orange);
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+.dp-feature-body > p:not(.dp-feature-tagline) {
+  font-family: 'Newsreader', serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 540px;
+}
+
+/* Featured — only spans both columns, no extra styling */
+.dp-feature-item.is-featured {
+  grid-column: 1 / -1;
+}
+
+/* Column-first flow — 01-02-03 down the left, 04-05-06 down the right */
+.dp-feature-list--cols {
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, auto);
+}
+.dp-feature-list--cols .dp-feature-item:nth-child(2) {
+  border-top: none;
+}
+.dp-feature-list--cols .dp-feature-item:nth-child(4) {
+  border-top: 1px solid var(--rule);
+}
+
+/* Responsive — tablet: collapse to single col */
+@media (max-width: 900px) {
+  .dp-feature-list {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+  .dp-feature-item:nth-child(2) {
+    border-top: none;
+  }
+  .dp-feature-item.is-featured {
+    grid-column: 1;
+  }
+  /* column-flow back to single-column stack on mobile */
+  .dp-feature-list--cols {
+    grid-auto-flow: row;
+    grid-template-rows: auto;
+  }
+  .dp-feature-list--cols .dp-feature-item:nth-child(4) {
+    border-top: none;
+  }
+}
+
+/* Responsive — mobile */
+@media (max-width: 560px) {
+  .dp-feature-item {
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+    padding: 24px 0;
+  }
+  .dp-feature-num {
+    font-size: 42px;
+    margin-bottom: -4px;
+  }
+}
+
+/* ============== CENTRO PULL-QUOTE ============== */
+.dp-centro-pullquote {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  color: var(--orange);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+/* ============== CONFIG FOOTNOTE ============== */
+.dp-config-note {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.dp-config.is-flagship .dp-config-note { border-top-color: rgba(255, 255, 255, 0.12); }
+.dp-config-note-mark {
+  color: var(--orange);
+  margin-right: 4px;
+  font-weight: 600;
+}
+
+/* 2-col grids (dinamica & lume): reserve a note zone + pin the note so spec
+   rows stay aligned across cards whether or not a card has a note */
+@media (min-width: 1101px) {
+  .dp-config-grid--2col .dp-config { position: relative; }
+  .dp-config-grid--2col .dp-config-specs { margin-bottom: 42px; }
+  .dp-config-grid--2col .dp-config-note {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 24px;
+    margin: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 1100px) {
+  .dp-config-grid--2col { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .dn-series-wordmark {
+    font-size: clamp(40px, 10vw, 64px);
+    right: -2px;
+  }
+}
+@media (max-width: 500px) {
+  .dn-finish {
+    grid-template-columns: 32px 1fr auto;
+    gap: 14px;
+    padding: 12px 0;
+  }
+  .dn-finish-dot {
+    width: 26px;
+    height: 26px;
+  }
+  .dn-finish-name {
+    font-size: 14px;
+  }
+  .dn-finish-cat {
+    font-size: 12px;
+  }
+}
