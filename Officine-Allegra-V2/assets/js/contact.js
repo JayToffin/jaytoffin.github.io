@@ -62,20 +62,21 @@
   // ---------- Map: lazy-load Leaflet + render world markers on click ----------
   const locations = [
     { lat: 45.4364, lng: 9.3500, name: 'Milan', country: 'Italy', primary: true },
-    { lat: -6.2000, lng: 106.8167, name: 'Indonesia' },
-    { lat: 14.0583, lng: 108.2772, name: 'Vietnam' },
+    { lat: 23.6345, lng: -102.5528, name: 'Mexico' },
+    { lat: 40.4637, lng: -3.7492, name: 'Spain' },
+    { lat: 55.3781, lng: -3.4360, name: 'United Kingdom' },
+    { lat: 46.2276, lng: 2.2137, name: 'France' },
+    { lat: 39.0742, lng: 21.8243, name: 'Greece' },
+    { lat: 47.4116, lng: 28.3699, name: 'Moldova' },
+    { lat: 41.3775, lng: 64.5853, name: 'Uzbekistan' },
+    { lat: 45.9432, lng: 24.9668, name: 'Romania' },
+    { lat: 42.7087, lng: 19.3744, name: 'Montenegro' },
+    { lat: 23.8859, lng: 45.0792, name: 'Saudi Arabia' },
     { lat: 28.3949, lng: 84.1240, name: 'Nepal' },
     { lat: -30.5595, lng: 22.9375, name: 'South Africa' },
-    { lat: 39.0742, lng: 21.8243, name: 'Greece' },
-    { lat: 35.1264, lng: 33.4299, name: 'Cyprus' },
-    { lat: 38.9637, lng: 35.2433, name: 'Turkey' },
-    { lat: 48.0196, lng: 66.9237, name: 'Kazakhstan' },
-    { lat: 23.6345, lng: -102.5528, name: 'Mexico' },
-    { lat: -9.1900, lng: -75.0152, name: 'Peru' },
-    { lat: -35.6751, lng: -71.5430, name: 'Chile' },
-    { lat: 55.3781, lng: -3.4360, name: 'United Kingdom' },
-    { lat: 23.8859, lng: 45.0792, name: 'Saudi Arabia' },
-    { lat: 46.8182, lng: 8.2275, name: 'Switzerland' },
+    { lat: 14.0583, lng: 108.2772, name: 'Vietnam' },
+    { lat: 12.8797, lng: 121.7740, name: 'Philippines' },
+    { lat: -2.5489, lng: 118.0149, name: 'Indonesia' },
   ];
 
   const LEAFLET_CSS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';

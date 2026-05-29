@@ -671,6 +671,37 @@
   text-align: right;
 }
 
+/* ============== CONFIG SPEC COLOR SWATCH ============== */
+.dp-config-spec--colors {
+  align-items: center;
+}
+.dp-config-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.dp-config-color {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.dp-config-swatch {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-right: 7px;
+  vertical-align: -1px;
+  border: 1px solid var(--rule);
+}
+.dp-config-swatch--grigio {
+  background: linear-gradient(135deg, #d2d5d9 0%, #9a9ea3 48%, #c2c5c9 100%);
+}
+.dp-config.is-flagship .dp-config-swatch {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
 .dp-shared-features {
   margin-top: 32px;
   padding: 20px 24px;

@@ -135,18 +135,16 @@
   border-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Color spec — label on top, swatch + name flowing in one row */
+/* Color spec — label left, swatch + name right-aligned like other specs */
 .dp-config-spec--colors {
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  gap: 10px;
+  align-items: center;
 }
 .dp-config-colors {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 14px;
   align-items: center;
+  justify-content: flex-end;
 }
 .dp-config-color {
   display: inline-flex;
