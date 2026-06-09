@@ -19,6 +19,30 @@
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Mobile hamburger menu
+    var burger = document.getElementById("navBurger");
+    var menu = document.getElementById("mobileMenu");
+    if (burger && menu) {
+      function setMenu(open) {
+        menu.classList.toggle("open", open);
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+        burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      burger.addEventListener("click", function () {
+        setMenu(!menu.classList.contains("open"));
+      });
+      // close after picking a destination
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          setMenu(false);
+        });
+      });
+      // close on Escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setMenu(false);
+      });
+    }
   }
 
   /* ===================== SCROLL SPY ===================== */

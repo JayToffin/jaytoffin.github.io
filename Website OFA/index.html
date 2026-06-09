@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>OFA Espresso — Excellence through subtraction.</title>
 <meta name="description" content="OFA Espresso. Domestic espresso machine. Design in Milan, made in Italy. Less, but better." />
+<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+<link rel="apple-touch-icon" href="assets/images/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css?v=12" />
-<script defer src="assets/js/app.js"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=17" />
+<script defer src="assets/js/app.js?v=2"></script>
 </head>
 <body>
 
@@ -21,12 +23,25 @@
   <nav class="links" aria-label="Primary">
     <a href="#models">Machines</a>
     <a href="#gallery">Gallery</a>
-    <a href="#features">Design</a>
+    <a href="#features">Features</a>
     <a href="#compare">Compare</a>
     <a href="#contact">Contact</a>
   </nav>
   <a class="mail" href="mailto:info@ofaespresso.com">info@ofaespresso.com</a>
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<!-- Mobile slide-down menu (hidden on desktop) -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="#models">Machines</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#features">Features</a>
+  <a href="#compare">Compare</a>
+  <a href="#contact">Contact</a>
+  <a class="mm-mail" href="mailto:info@ofaespresso.com">info@ofaespresso.com</a>
+</nav>
 
 <main id="top">
 
@@ -54,10 +69,8 @@ Nothing is superfluous. Everything is clear, legible, and designed to enhance th
       </div>
       <div class="philo-body fu">
         <p>A tribute to the timeless design of Dieter Rams for Braun — reinterpreted through a contemporary language while remaining faithful to the essential.</p>
-        <p>Built entirely from steel for lasting durability. Controls kept to the essentials, made iconic by orange — an explicit nod to historic Braun devices. The analog gauge and ribbed orange side panels add character without ever being intrusive.
-
-
-More than a coffee machine: a declaration of design intent. An object made to last, made to simplify the everyday ritual of brewing coffee.</p>
+        <p>Built entirely from steel for lasting durability. Controls kept to the essentials, made iconic by orange — an explicit nod to historic Braun devices. The analog gauge and ribbed orange side panels add character without ever being intrusive.</p>
+        <p class="text-orange">More than a coffee machine: a declaration of design intent. An object made to last, made to simplify the everyday ritual of brewing coffee.</p>
       </div>
     </div>
     <div class="philo-rule"></div>
@@ -109,7 +122,7 @@ More than a coffee machine: a declaration of design intent. An object made to la
         <div class="srow"><dt>Supply</dt><dd>220–240 V / 110 V · 50/60 Hz</dd></div>
         <div class="srow"><dt>Dimensions</dt><dd>450 × 227 × 340 mm</dd></div>
         <div class="srow"><dt>Control</dt><dd>PID temperature · PTC group heating</dd></div>
-        <div class="srow"><dt>Warm-up</dt><dd>8–9 minutes · gicleur precision flow</dd></div>
+        <div class="srow"><dt>Warm-up</dt><dd>Less than 10 minutes · gicleur precision flow</dd></div>
       </dl>
       <div class="mfeat">
         <span class="ml">Signature</span>
@@ -209,7 +222,7 @@ More than a coffee machine: a declaration of design intent. An object made to la
           <tr><td class="rl">Fresh-water flow</td><td class="hi">Direct via service boiler</td><td class="mut">—</td></tr>
           <tr><td class="rl">Hot water tap</td><td class="hi">Dedicated</td><td class="mut">—</td></tr>
           <tr><td class="rl">Thermal control</td><td>1 bar pressure switch</td><td>PID temperature</td></tr>
-          <tr><td class="rl">Warm-up</td><td>Ready boiler</td><td class="hi">less than 10 minutes</td></tr>
+          <tr><td class="rl">Warm-up</td><td>Ready boiler</td><td class="hi">Less than 10 minutes</td></tr>
           <tr><td class="rl">Finishes</td><td>Orange · Copper</td><td>Grigio · Notturno · Argilla</td></tr>
         </tbody>
       </table>
@@ -238,7 +251,7 @@ More than a coffee machine: a declaration of design intent. An object made to la
         <span class="foot-label">Explore</span>
         <a href="#models">Machines</a>
         <a href="#gallery">Gallery</a>
-        <a href="#features">Design</a>
+        <a href="#features">Features</a>
         <a href="#compare">Compare</a>
       </div>
       <div class="foot-col">
