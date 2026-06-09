@@ -174,10 +174,10 @@
     ],
     leggera: [
       ["assets/images/leggera/3q.png", "Notturno · 3/4"],
+      ["assets/images/leggera/front2.png", "Front · corner detail"],
+      ["assets/images/leggera/grigio.png", "Grigio Astrale · profile"],
       ["assets/images/leggera/front.png", "Front · group & controls"],
       ["assets/images/leggera/group.png", "Cool-Touch group · detail"],
-      ["assets/images/leggera/grigio.png", "Grigio Astrale · profile"],
-      ["assets/images/leggera/argilla.png", "Argilla · corner detail"],
     ],
   };
 
