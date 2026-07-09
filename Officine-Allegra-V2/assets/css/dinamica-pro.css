@@ -34,7 +34,7 @@
   margin-top: 16px;
 }
 .dp-hero-headline h1 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -42,14 +42,14 @@
   color: var(--orange);
 }
 .dp-hero-payoff {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 22px;
   color: var(--ink-2);
   margin-top: 16px;
 }
 .dp-hero-meta p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 19px;
   line-height: 1.5;
   color: var(--ink-2);
@@ -80,7 +80,7 @@
 .dp-hero-stage .stage-tag {
   position: absolute;
   top: 50px; left: 50px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--orange);
@@ -126,7 +126,7 @@
   gap: 4px;
 }
 .dp-hero-stats .hero-stat .ix {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--orange);
@@ -140,7 +140,7 @@
 .dp-hero-stats .hero-stat .num small {
   font-size: 18px;
   color: var(--muted);
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   margin-left: 2px;
@@ -169,7 +169,7 @@
   line-height: 1;
 }
 .dp-hero-stats .hero-place .sub {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--ink-2);
@@ -212,7 +212,7 @@
   letter-spacing: -0.005em;
 }
 .dp-detail-head h2 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -220,7 +220,7 @@
   color: var(--orange);
 }
 .dp-detail-head .lead {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 19px;
   color: var(--ink-2);
   margin-top: 16px;
@@ -243,7 +243,7 @@
   gap: 12px;
 }
 .dp-detail-ix {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 24px;
   color: var(--orange);
@@ -258,7 +258,7 @@
   letter-spacing: -0.005em;
 }
 .dp-detail-content h3 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -266,14 +266,14 @@
   color: var(--orange);
 }
 .dp-detail-content .tagline {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 17px;
   color: var(--orange);
   margin-bottom: 8px;
 }
 .dp-detail-content p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 17px;
   line-height: 1.55;
   color: var(--ink-2);
@@ -351,7 +351,7 @@
   font-weight: 600;
 }
 .dp-patent-no {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   color: var(--ink-2);
@@ -417,7 +417,7 @@
 .dp-gauge-label {
   position: absolute;
   bottom: -32px; left: 0;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: var(--orange);
@@ -446,7 +446,7 @@
   color: var(--ink-2);
 }
 .dp-feature-list li span {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   color: var(--orange);
   font-size: 16px;
@@ -470,7 +470,7 @@
   top: 16px;
   left: 24px;
   z-index: 5;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--orange);
@@ -498,7 +498,7 @@
   background: var(--ivory-3, #f1ece4);
 }
 .dp-line-ix {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 16px;
   color: var(--orange);
@@ -551,7 +551,7 @@
   color: var(--orange);
 }
 .dp-line-meta {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: var(--muted);
@@ -597,7 +597,7 @@
 }
 .dp-config.is-flagship header { border-color: rgba(255, 255, 255, 0.18); }
 .dp-config .ix {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   color: var(--orange);
@@ -625,7 +625,7 @@
   text-transform: uppercase;
 }
 .dp-config h4 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -633,7 +633,7 @@
   color: var(--orange);
 }
 .dp-config p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 15px;
   line-height: 1.5;
   flex-grow: 1;
@@ -713,7 +713,7 @@
   align-items: center;
 }
 .dp-shared-eyebrow {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   color: var(--orange);
@@ -840,13 +840,13 @@
   font-family: 'Anton', sans-serif;
   font-size: 20px;
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: 1px;
   color: var(--ivory);
   line-height: 1.05;
   margin: 0;
 }
 .dp-duo-features li p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 15px;
   line-height: 1.5;
   color: var(--ivory-3);
@@ -867,7 +867,7 @@
 }
 .dp-centro-eyebrow {
   display: block;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   color: var(--orange);
   font-size: 14px;
@@ -881,7 +881,7 @@
   text-transform: uppercase;
 }
 .dp-centro-mark h2 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -889,7 +889,7 @@
   color: var(--orange);
 }
 .dp-centro-text p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 19px;
   line-height: 1.55;
   color: var(--ink-2);
@@ -936,7 +936,7 @@
 }
 .dp-cta-eyebrow {
   display: block;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   color: var(--orange);
   font-size: 14px;
@@ -950,7 +950,7 @@
   letter-spacing: -0.005em;
 }
 .dp-cta-text h2 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -959,7 +959,7 @@
 }
 .dp-cta-text p {
   margin-top: 16px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 17px;
   color: var(--ink-2);
 }
@@ -988,7 +988,7 @@
   border-bottom: 1px solid var(--rule);
 }
 .dp-detail-compact-eyebrow {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   color: var(--orange);
@@ -1002,7 +1002,7 @@
   margin: 0;
 }
 .dp-detail-compact-head h3 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -1134,7 +1134,7 @@
   margin: 0;
 }
 .dp-detail-card-body h4 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -1142,14 +1142,14 @@
   color: var(--orange);
 }
 .dp-detail-card-body .tagline {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   color: var(--orange);
   margin: 4px 0 6px;
 }
 .dp-detail-card-body p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 15px;
   line-height: 1.5;
   color: var(--ink-2);
@@ -1197,7 +1197,7 @@
 }
 .dp-projected-eyebrow {
   display: block;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   color: var(--orange);
   font-size: 14px;
@@ -1206,16 +1206,16 @@
 .dp-stacked {
   font-family: 'Anton', sans-serif;
   font-size: clamp(44px, 5.6vw, 88px);
-  line-height: 0.88;
+  line-height: 1;
   text-transform: uppercase;
-  letter-spacing: -0.015em;
+  /* letter-spacing: -0.015em; */
   display: flex;
   flex-direction: column;
   margin: 0;
 }
 .dp-stacked .line { display: block; }
 .dp-stacked .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -1227,7 +1227,7 @@
 }
 .dp-projected-tagline {
   margin-top: 20px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 17px;
   line-height: 1.5;
   color: var(--ink-2);
@@ -1256,7 +1256,7 @@
   color: var(--black);
 }
 .dp-projected-credit .cr-meta {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--muted);
@@ -1309,7 +1309,7 @@
   min-height: 200px;
 }
 .dp-mockup .ph-note {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: var(--muted);
@@ -1372,7 +1372,7 @@
   object-fit: contain;
 }
 .dp-boiler-meta .ix {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 18px;
   color: var(--orange);
@@ -1389,7 +1389,7 @@
   line-height: 1;
 }
 .dp-boiler-meta p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 16px;
   line-height: 1.5;
   color: var(--ivory-3);
@@ -1571,4 +1571,30 @@
     font-size: clamp(80px, 22vw, 140px);
     right: -4px;
   }
+}
+
+/* =================================================================
+   TITLE SPACING — match homepage main style
+   Looser leading on Anton title headlines; tighter on orange italics
+   (covers lume.html, dinamica.html, dinamica-pro.html — shared .dp-* hero)
+   ================================================================= */
+.dp-hero-headline h1 { line-height: 1.06; }
+.dp-detail-head h2 { line-height: 1.04; }
+.dp-detail-content h3 { line-height: 1.02; }
+.dp-centro-mark h2 { line-height: 1.02; }
+.dp-cta-text h2 { line-height: 1.04; }
+.dp-detail-compact-head h3 { line-height: 1.02; }
+
+.dp-hero-headline h1 .it,
+.dp-detail-head h2 .it,
+.dp-detail-content h3 .it,
+.dp-config h4 .it,
+.dp-centro-mark h2 .it,
+.dp-cta-text h2 .it,
+.dp-detail-compact-head h3 .it,
+.dp-detail-card-body h4 .it,
+.dp-stacked .it,
+.dp-duo .section-head h2 .it {
+  line-height: 0.9;
+  display: inline-block;
 }

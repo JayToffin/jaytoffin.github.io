@@ -3,9 +3,59 @@
    Brand-aligned with Brand Guidelines 2025
    ================================================================= */
 
+/* ============== BRAND FONTS ==============
+   Archer (serif / body & italic accents) — local brand files
+   Rubik (UI / labels) — loaded via Google Fonts in <head>
+   Anton (display headlines) — loaded via Google Fonts in <head>
+   NOTE: no Archer Italic file supplied — italic is browser-synthesised. */
+@font-face {
+  font-family: 'Archer';
+  src: url('../fonts/ArcherLightPro.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Archer';
+  src: url('../fonts/ArcherBookPro.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Archer';
+  src: url('../fonts/ArcherMediumPro.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Archer';
+  src: url('../fonts/ArcherSemiboldPro.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Archer';
+  src: url('../fonts/ArcherBoldPro.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* True italic (Archer Medium Italic) — brand italic for the orange accents.
+   Registered across 300–700 so any italic element uses the real face, never a faux slant. */
+@font-face {
+  font-family: 'Archer';
+  src: url('../fonts/ArcherMediumItalic.otf') format('opentype');
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   /* Colors per Brand Guidelines */
-  --orange: #f8501d;
+  --orange: #fe5000; /* Pantone Orange 021 C */
   --orange-soft: #fbe7d8;
   --ivory: #f6f6ee;
   --ivory-2: #ecebe0;
@@ -18,7 +68,7 @@
   --white: #ffffff;
 
   /* Type scale */
-  --display: clamp(72px, 10vw, 168px);
+  --display: clamp(72px, 10vw, 140px);
   --h1: clamp(56px, 7vw, 112px);
   --h2: clamp(40px, 5vw, 72px);
   --h3: clamp(28px, 3vw, 44px);
@@ -48,8 +98,8 @@ html {
 }
 
 body {
-  font-family: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: 'Archer', Georgia, 'Times New Roman', serif;
+  font-weight: 300; /* Archer Light Pro — body copy */
   line-height: 1.55;
   color: var(--black);
   background: var(--ivory);
@@ -95,19 +145,19 @@ textarea {
 }
 
 .t-serif {
-  font-family: 'Newsreader', 'New York', 'Times New Roman', serif;
+  font-family: 'Archer', Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.005em;
 }
 
 .t-italic {
-  font-family: 'Newsreader', 'New York', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
 }
 
 .t-mono-label {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: var(--label);
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -123,7 +173,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: var(--label);
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -139,12 +189,21 @@ textarea {
 }
 
 .eyebrow .num {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   color: var(--black);
   text-transform: none;
   letter-spacing: 0;
   font-size: 13px;
+}
+
+/* Eyebrow section number in Archer Book (matches the big section num-block) */
+.eyebrow .eb-num {
+  font-family: 'Archer', Georgia, serif; /* Archer Book */
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  letter-spacing: 0;
 }
 
 .crosshair-frame {
@@ -197,7 +256,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 0;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: var(--label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -244,7 +303,7 @@ textarea {
   display: flex;
   gap: 60px;
   white-space: nowrap;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: var(--label);
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -327,7 +386,7 @@ textarea {
   align-items: center;
   gap: 6px;
   padding: 10px 18px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -374,7 +433,7 @@ textarea {
 }
 
 .nav-link .badge-soon {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 10px;
   letter-spacing: 0;
@@ -394,7 +453,7 @@ textarea {
 }
 
 .lang-switch {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -416,7 +475,7 @@ textarea {
   background: var(--black);
   color: var(--ivory);
   padding: 12px 22px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -517,7 +576,8 @@ textarea {
   padding: 40px;
   display: grid;
   grid-template-columns: 220px repeat(3, 1fr);
-  gap: 28px;
+  grid-template-rows: auto auto;
+  gap: 20px 28px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -540,10 +600,58 @@ textarea {
   gap: 14px;
   padding-right: 28px;
   border-right: 1px solid var(--rule);
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+/* Family concept heading — above the two Dinamica cards only (Lume stands alone) */
+.mega-family-title {
+  grid-column: 3 / span 2;
+  grid-row: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.mega-family-title h4 {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.mega-family-title .fam-note {
+  font-family: 'Archer', Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.mega-card {
+  grid-row: 2;
+}
+
+/* Explicit columns so the divider pseudo-item doesn't disrupt auto-placement */
+.mega-menu a.mega-card:nth-of-type(1) { grid-column: 2; } /* Lume */
+.mega-menu a.mega-card:nth-of-type(2) { grid-column: 3; } /* Dinamica One */
+.mega-menu a.mega-card:nth-of-type(3) { grid-column: 4; } /* Dinamica Pro */
+
+/* Vertical divider in the gap between Lume (standalone) and the Dinamica family group */
+.mega-menu::before {
+  content: "";
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  justify-self: start;
+  align-self: stretch;
+  width: 1px;
+  margin-left: -14px;
+  background: var(--rule);
 }
 
 .mega-intro .label {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -559,7 +667,7 @@ textarea {
 }
 
 .mega-intro p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 14px;
   color: var(--muted);
   line-height: 1.55;
@@ -567,7 +675,7 @@ textarea {
 
 .mega-intro .compare {
   margin-top: auto;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -644,7 +752,7 @@ textarea {
 }
 
 .mega-card .desc {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 13px;
   color: var(--muted);
   line-height: 1.45;
@@ -652,7 +760,7 @@ textarea {
 }
 
 .mega-card .meta {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -668,7 +776,7 @@ textarea {
 
 .mega-card .meta::after {
   content: "→";
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   color: var(--orange);
   transition: transform 0.25s var(--e-out);
 }
@@ -712,12 +820,12 @@ textarea {
   font-size: var(--display);
   line-height: 1;
   text-transform: uppercase;
-  letter-spacing: -0.025em;
+  
   color: var(--black);
 }
 
 .hero h1 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -734,7 +842,7 @@ textarea {
 }
 
 .hero-payoff {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 20px;
   color: var(--muted);
@@ -750,7 +858,7 @@ textarea {
 }
 
 .hero-meta p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 17px;
   line-height: 1.55;
   color: var(--ink-2);
@@ -758,7 +866,7 @@ textarea {
 }
 
 .hero-meta p:first-of-type::first-letter {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 64px;
   line-height: 0.85;
   float: left;
@@ -781,7 +889,7 @@ textarea {
   background: var(--orange);
   color: var(--ivory);
   padding: 16px 28px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -806,7 +914,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -862,7 +970,7 @@ textarea {
   left: 22px;
   background: var(--ivory);
   padding: 8px 14px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -886,7 +994,7 @@ textarea {
   position: absolute;
   bottom: 22px;
   right: 22px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -903,7 +1011,7 @@ textarea {
 }
 
 .hero-stage .stage-coords b {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   color: var(--black);
@@ -913,7 +1021,7 @@ textarea {
   position: absolute;
   left: 22px;
   bottom: 22px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -955,7 +1063,7 @@ textarea {
 }
 
 .hero-stat .lbl {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -968,7 +1076,7 @@ textarea {
   position: absolute;
   top: 10px;
   right: 14px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: var(--muted);
@@ -985,13 +1093,13 @@ textarea {
 }
 
 .hero-place .ttl {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 18px;
 }
 
 .hero-place .sub {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1047,8 +1155,9 @@ textarea {
 }
 
 .section-head .num-block {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
+  font-family: 'Archer', Georgia, serif; /* Archer Book */
+  font-style: normal;
+  font-weight: 400;
   font-size: 32px;
   color: var(--orange);
   border-top: 2px solid var(--orange);
@@ -1058,13 +1167,13 @@ textarea {
 
 .section-head .num-block small {
   display: block;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-size: 10px;
-  letter-spacing: 0.22em;
+  /* letter-spacing: 0.22em; */
   text-transform: uppercase;
   color: var(--black);
-  font-weight: 500;
+  /* font-weight: 500; */
   margin-top: 12px;
 }
 
@@ -1072,12 +1181,12 @@ textarea {
   font-family: 'Anton', sans-serif;
   font-size: var(--h2);
   line-height: 0.95;
-  letter-spacing: -0.025em;
+  
   text-transform: uppercase;
 }
 
 .section-head h2 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -1086,7 +1195,7 @@ textarea {
 }
 
 .section-head .lead {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 18px;
   color: var(--ink-2);
   margin-top: 18px;
@@ -1121,12 +1230,12 @@ textarea {
   font-family: 'Anton', sans-serif;
   font-size: clamp(48px, 6vw, 88px);
   line-height: 0.92;
-  letter-spacing: -0.025em;
+  
   text-transform: uppercase;
 }
 
 .manifesto-text h2 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -1143,7 +1252,7 @@ textarea {
 }
 
 .manifesto-text .body p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink-2);
@@ -1165,7 +1274,7 @@ textarea {
 }
 
 .pillar .nm {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   color: var(--orange);
@@ -1178,11 +1287,11 @@ textarea {
 .pillar h4 {
   font-family: 'Anton', sans-serif;
   font-size: 20px;
-  letter-spacing: -0.02em;
+  /* letter-spacing: -0.02em; */
 }
 
 .pillar p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 13px;
   color: var(--muted);
   line-height: 1.5;
@@ -1207,7 +1316,7 @@ textarea {
 }
 
 .manifesto-aside .qr {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 14px;
   font-style: italic;
   letter-spacing: 0.005em;
@@ -1225,7 +1334,7 @@ textarea {
 }
 
 .manifesto-aside .qt {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: clamp(22px, 2.4vw, 32px);
   line-height: 1.25;
@@ -1235,7 +1344,7 @@ textarea {
 
 .manifesto-aside .qt::before {
   content: "“";
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 80px;
   line-height: 0.5;
   color: var(--orange);
@@ -1244,7 +1353,7 @@ textarea {
 }
 
 .manifesto-aside .att {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1254,7 +1363,7 @@ textarea {
 
 .manifesto-aside .att b {
   display: block;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 16px;
   letter-spacing: 0.005em;
@@ -1268,7 +1377,7 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 80% 90%, rgba(248, 80, 29, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 90%, rgba(254, 80, 0, 0.18) 0%, transparent 50%),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 80px);
 }
 
@@ -1326,7 +1435,7 @@ textarea {
 }
 
 .product-content .meta {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1348,19 +1457,20 @@ textarea {
   font-family: 'Anton', sans-serif;
   font-size: clamp(56px, 8vw, 128px);
   line-height: 0.88;
-  letter-spacing: -0.03em;
+  
 }
 
 .product-content .tagline {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
+  font-weight: 500; /* Archer Medium Italic */
   font-size: 22px;
   color: var(--orange);
   line-height: 1.3;
 }
 
 .product-content p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 16px;
   line-height: 1.6;
   color: var(--ink-2);
@@ -1400,7 +1510,7 @@ textarea {
 }
 
 .product-spec .l {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1421,7 +1531,7 @@ textarea {
   align-items: center;
   gap: 10px;
   padding: 14px 24px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1478,7 +1588,7 @@ textarea {
   background: var(--ivory);
   border: 1px solid var(--black);
   padding: 7px 12px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1526,7 +1636,7 @@ textarea {
   left: 24px;
   top: 50%;
   transform: translateY(-50%) rotate(-90deg);
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 9px;
   letter-spacing: 0.18em;
   color: var(--orange);
@@ -1568,7 +1678,7 @@ textarea {
   bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 9px;
   letter-spacing: 0.18em;
   color: var(--orange);
@@ -1585,7 +1695,7 @@ textarea {
 }
 
 .product-finishes .lbl {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1637,7 +1747,7 @@ textarea {
 }
 
 .finish-name {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   color: var(--black);
@@ -1670,7 +1780,7 @@ textarea {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 90% 0%, rgba(248, 80, 29, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 90% 0%, rgba(254, 80, 0, 0.12) 0%, transparent 50%),
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 60px);
   pointer-events: none;
 }
@@ -1700,14 +1810,14 @@ textarea {
   font-family: 'Anton', sans-serif;
   font-size: clamp(48px, 5.5vw, 88px);
   line-height: 0.92;
-  letter-spacing: -0.025em;
+  
   text-transform: uppercase;
   margin: 22px 0 28px;
   color: var(--ivory);
 }
 
 .craft h2 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -1716,7 +1826,7 @@ textarea {
 }
 
 .craft p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 17px;
   line-height: 1.6;
   color: rgba(246, 246, 238, 0.78);
@@ -1727,7 +1837,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1776,7 +1886,7 @@ textarea {
 }
 
 .step .ttl {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 18px;
   color: var(--ivory);
@@ -1784,7 +1894,7 @@ textarea {
 
 .step .ttl small {
   display: block;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -1795,7 +1905,7 @@ textarea {
 }
 
 .step .dur {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1877,7 +1987,7 @@ textarea {
 }
 
 .domestic-visual .stamp .sm {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -1891,7 +2001,7 @@ textarea {
   position: absolute;
   bottom: 16px;
   left: 16px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1904,7 +2014,7 @@ textarea {
   position: absolute;
   bottom: 16px;
   right: 16px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: var(--orange);
@@ -1923,12 +2033,12 @@ textarea {
   font-family: 'Anton', sans-serif;
   font-size: clamp(48px, 6vw, 96px);
   line-height: 0.9;
-  letter-spacing: -0.025em;
+  
   text-transform: uppercase;
 }
 
 .domestic-content h2 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   color: var(--orange);
@@ -1937,7 +2047,7 @@ textarea {
 }
 
 .domestic-content .lead {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink-2);
@@ -1956,7 +2066,7 @@ textarea {
   padding: 16px 20px;
   border: none;
   background: transparent;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 16px;
   outline: none;
 }
@@ -1970,7 +2080,7 @@ textarea {
   background: var(--black);
   color: var(--ivory);
   padding: 0 24px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1995,7 +2105,7 @@ textarea {
 }
 
 .notify-note {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--muted);
@@ -2043,7 +2153,7 @@ textarea {
 }
 
 .heritage-pt .ttl {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 18px;
   color: var(--black);
@@ -2052,7 +2162,7 @@ textarea {
 }
 
 .heritage-pt .desc {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 14px;
   color: var(--muted);
   line-height: 1.5;
@@ -2063,7 +2173,7 @@ textarea {
   position: absolute;
   top: 14px;
   right: 16px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -2129,7 +2239,7 @@ textarea {
 
 .footer-note {
   max-width: 320px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 15px;
   line-height: 1.8;
   color: rgba(246, 246, 238, 0.65);
@@ -2169,7 +2279,7 @@ textarea {
 
 .footer-brand h3 small {
   display: block;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   font-size: 16px;
@@ -2180,7 +2290,7 @@ textarea {
 }
 
 .footer-brand p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 14px;
   line-height: 1.6;
   color: rgba(246, 246, 238, 0.6);
@@ -2188,7 +2298,7 @@ textarea {
 }
 
 .footer-col h4 {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -2206,7 +2316,7 @@ textarea {
 }
 
 .footer-col a {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 15px;
   color: rgba(246, 246, 238, 0.78);
   transition: color 0.2s;
@@ -2220,14 +2330,14 @@ textarea {
 }
 
 .footer-col a small {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 9px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--orange);
   font-weight: 600;
   padding: 2px 6px;
-  background: rgba(248, 80, 29, 0.15);
+  background: rgba(254, 80, 0, 0.15);
   border-radius: 999px;
 }
 
@@ -2236,7 +2346,7 @@ textarea {
 }
 
 .footer-newsletter p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 14px;
   line-height: 1.55;
   color: rgba(246, 246, 238, 0.7);
@@ -2256,7 +2366,7 @@ textarea {
   border: none;
   outline: none;
   color: var(--ivory);
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 14px;
 }
 
@@ -2269,7 +2379,7 @@ textarea {
   padding: 0 18px;
   background: var(--orange);
   color: var(--ivory);
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -2289,7 +2399,7 @@ textarea {
 }
 
 .footer-newsletter .badge {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 9px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2305,7 +2415,7 @@ textarea {
   gap: 32px;
   align-items: center;
   padding-top: 36px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -2315,7 +2425,7 @@ textarea {
 
 .footer-bottom .center {
   text-align: center;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 14px;
   letter-spacing: 0;
@@ -2379,7 +2489,7 @@ textarea {
   position: absolute;
   top: 28px;
   left: 24px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -2444,7 +2554,7 @@ textarea {
 }
 
 .mobile-drawer .submenu a {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 17px;
   font-style: italic;
   letter-spacing: 0;
@@ -2462,7 +2572,7 @@ textarea {
   background: var(--orange);
   color: var(--ivory);
   padding: 18px;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -2480,7 +2590,7 @@ textarea {
   margin-top: 36px;
   padding-top: 28px;
   border-top: 1px solid var(--rule);
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 14px;
   color: var(--muted);
   font-style: italic;
@@ -2594,3 +2704,44 @@ textarea {
   .mobile-drawer { padding: 84px 20px 36px; }
   .mobile-drawer .nav-list a { font-size: 26px; padding: 18px 4px; }
 }
+
+/* =================================================================
+   PDF REVISIONS — Stephanie
+   1) Hero: full headline left, copy right (see index.html markup)
+   2) Looser leading on UPPERCASE Anton headlines
+   3) Tighter leading on the orange italic (Archer) sentences
+   ================================================================= */
+
+/* Hero — give the headline more room on the left column */
+.hero-grid {
+  grid-template-columns: 1.3fr 1fr;
+  align-items: end;
+}
+
+/* (2) Increase line spacing for all uppercase black (Anton) headlines */
+.t-anton { line-height: 1.02; }
+.hero h1 { line-height: 1.06; }
+.section-head h2 { line-height: 1.04; }
+.manifesto-text h2 { line-height: 1.02; }
+.product-content h2 { line-height: 1.0; }
+.craft h2 { line-height: 1.02; }
+.domestic-content h2 { line-height: 1.02; }
+.mega-intro h4 { line-height: 1.02; }
+
+/* (3) Reduce line spacing for the orange italic sentences */
+.hero h1 .it,
+.section-head h2 .it,
+.manifesto-text h2 .it,
+.product-content h2 .it,
+.craft h2 .it,
+.domestic-content h2 .it {
+  line-height: 0.73;
+  display: inline-block;
+}
+
+/* (4) Body copy = Archer Book (400, set on `body` above); leads/intro = Archer Light (300) */
+.section-head .lead,
+.domestic-content .lead,
+.hero-meta p { font-weight: 300; }
+
+.text-subhead { font-size: 120px; }

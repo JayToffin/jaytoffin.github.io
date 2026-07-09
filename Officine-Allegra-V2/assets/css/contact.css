@@ -35,7 +35,7 @@
   margin-top: 24px;
 }
 .contact-hero h1 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -43,7 +43,7 @@
   color: var(--orange);
 }
 .contact-hero-right .lead {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 22px;
   line-height: 1.5;
   color: var(--ink-2);
@@ -68,7 +68,7 @@
 .quick-link:last-child { border-right: none; }
 .quick-link:hover { background: var(--ivory-2); }
 .quick-link .ix {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 18px;
   color: var(--orange);
   margin-bottom: 4px;
@@ -107,7 +107,7 @@
 }
 .atelier-tag {
   display: inline-block;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--orange);
@@ -122,7 +122,7 @@
   margin-bottom: 32px;
 }
 .atelier-card h3 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -139,7 +139,7 @@
 }
 .atelier-row:last-child { padding-bottom: 0; }
 .atelier-row .ix {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   color: var(--orange);
   font-size: 16px;
@@ -180,7 +180,7 @@
   display: inline-block;
 }
 .status-text {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: #6ea357;
@@ -201,7 +201,7 @@
 .atelier-hours li:last-child { border-bottom: none; }
 .atelier-note {
   margin-top: 10px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--muted);
@@ -251,7 +251,7 @@
   position: relative;
 }
 .form-intro {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 15px;
   color: var(--muted);
   margin-bottom: 24px;
@@ -264,11 +264,11 @@
 }
 .req-mark {
   color: var(--orange);
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
 }
 .opt {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   color: var(--muted);
   font-weight: 400;
@@ -313,7 +313,7 @@
 .contact-form textarea {
   resize: vertical;
   min-height: 120px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -341,7 +341,7 @@
 .field-error {
   display: none;
   margin-top: 6px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--orange);
@@ -368,7 +368,7 @@
 .field-hint {
   display: block;
   margin-top: 6px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 13px;
   color: var(--muted);
@@ -434,7 +434,7 @@
   40% { opacity: 1; transform: translateY(-2px); }
 }
 .form-privacy {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: var(--muted);
@@ -469,7 +469,7 @@
   margin-bottom: 8px;
 }
 .form-success p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 16px;
   color: var(--ink-2);
   max-width: 400px;
@@ -499,14 +499,14 @@
   margin: 12px 0 16px;
 }
 .map-head h2 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
   color: var(--orange);
 }
 .map-head p {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-size: 18px;
   color: var(--ink-2);
 }
@@ -530,7 +530,7 @@
 }
 
 .map-cta h4 .it {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -635,7 +635,7 @@
 }
 .oa-popup .oa-popup-eyebrow {
   display: block;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: var(--orange);
@@ -651,7 +651,7 @@
   color: var(--black);
 }
 .oa-popup .oa-popup-country {
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -670,7 +670,7 @@
   background: var(--ivory);
   color: var(--black);
   border: 1px solid var(--black);
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
 }
 .leaflet-container-oa .leaflet-control-zoom a:hover {
   background: var(--orange);
@@ -705,7 +705,7 @@
 }
 .map-eyebrow {
   display: block;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   color: var(--orange);
   font-size: 13px;
@@ -721,7 +721,7 @@
 .map-cta button { cursor: pointer; }
 .map-note {
   margin-top: 14px;
-  font-family: 'Newsreader', serif;
+  font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 12px;
   color: var(--muted);
@@ -760,4 +760,19 @@
     padding: 8px 12px;
     font-size: 10px;
   }
+}
+
+/* =================================================================
+   TITLE SPACING — match homepage main style
+   ================================================================= */
+.contact-hero h1 { line-height: 1.06; }
+.map-head h2 { line-height: 1.04; }
+.atelier-card h3 { line-height: 1.02; }
+
+.contact-hero h1 .it,
+.atelier-card h3 .it,
+.map-head h2 .it,
+.map-cta h4 .it {
+  line-height: 0.9;
+  display: inline-block;
 }

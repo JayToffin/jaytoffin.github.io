@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
 	<title>Toffin - Coffee Business Platform</title>
 	<meta charset="utf-8">
@@ -26,10 +25,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
-
-
-
 
 <body class="goto-here">
 
@@ -216,8 +213,7 @@
 							style="margin-bottom: 0;">
 							<span data-toggle="modal" data-target="#contact-modal"
 								style="color: white; cursor: pointer;"><i class="fas fa-map-marker-alt"></i> Dikirim ke
-								<strong>Pluit Permai No 4</strong>&nbsp;<i class="fas fa-caret-down"></i></span>
-
+							<strong>Pluit Permai No 4</strong>&nbsp;<i class="fas fa-caret-down"></i></span>
 						</div>
 					</div>
 				</div>
@@ -225,28 +221,23 @@
 		</div>
 	</div>
 
-
-
 	<section class="ftco-section ftco-no-pb pt-3 bg-light">
 		<div class="container">
 			<div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
 				<div class="row no-gutters slider-text align-items-center justify-content-center">
 					<div class="col-md-9 ftco-animate text-center">
-						<h1 class="mb-0 bread" style="color: white;">Shopping Cart</h1>
+						<h1 class="mb-0 bread" style="color: white;">Product Details</h1>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-
-	<section class="ftco-section pt-3 bg-light pb-5">
+	<section class="ftco-section pt-3 bg-white pb-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 pb-3">
-					<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
-						
-
+					<div class="swiper swiper-product-detail">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide detail-prod">
 								<img src="images/product-2.jpg" />
@@ -269,35 +260,27 @@
 							<div class="swiper-slide detail-prod">
 								<img src="images/product-3.jpg" />
 							</div>
-							
 						</div>
-						<div class="product__list__item--icons">
-							<div id="addtocart">
-								<a href="#"><i id="heart--liked" class="fas fa-heart fa-2x" style="z-index: 1;"></i></a>
+						<div class="product-actions">
+							<a href="#" class="action-btn fav-btn">
+								<i class="far fa-heart"></i>
+							</a>
+
+							<button type="button" class="action-btn video-btn" data-toggle="modal"
+								data-target="#modal1">
+								<i class="fa-solid fa-play"></i>
+							</button>
+
+							<div class="share-wrapper">
+								<button type="button" class="action-btn" data-toggle="modal" data-target="#shareModal">
+									<i class="fas fa-share-alt"></i>
+								</button>
 							</div>
 						</div>
-						<div class="product__list__item--icons-share">
-							<div id="shareproduct">
-								<div class="mainbox">
-									<input type="checkbox" id="check">
-									<label class="share" for="check"><i class="fas fa-share-alt fa-2x"></i></label>
-									<div class="media-icons">
-										<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=large&appId=435373216639752&width=81&height=28" width="76" height="28" style="border-radius:50px; border:none; overflow:hidden;" scrolling="no" frameborder="" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-										<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
-										<a href="" class="btn btn-secondary" style="font-size: 13px; font-weight: 600; color:white; border: none; width: 81px; height: 28px; line-height: 16px;"><span class="fas fa-link"></span> Link</a>
-									</div>
-								  </div>
-							</div>
-						</div>
-						
-						
-						<div class="swiper-button-next"></div>
-						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next swiper-detail-next"></div>
+						<div class="swiper-button-prev swiper-detail-prev"></div>
 					</div>
-					<div class="caption-container">
-						<span id="caption"> caption image</span>
-					</div>
-					<div thumbsSlider="" class="swiper mySwiper">
+					<div class="swiper swiper-product-thumb">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide detail-prod">
 								<img src="images/product-2.jpg" />
@@ -320,21 +303,15 @@
 							<div class="swiper-slide detail-prod">
 								<img src="images/product-3.jpg" />
 							</div>
-
 						</div>
 					</div>
-					<div class="button-learning text-center pt-3">
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1" style="border-radius: 0px;">Vidio Produk</button>
-						<button type="button" class="btn btn-primary" style="border-radius: 0px;">Toffin E-Learning Center</button>
-						
-					</div>	
 				</div>
-				<div class="col-lg-7">
+				<div class="col-lg-7 product-detail-panel">
 					<h5>Nuova Simonelli Appia Life</h5>
 
 					<div class="d-flex">
 						<div class="text-left">
-							<a href="#" class="mr-2" style="color: #000;"><span style="color: #bbb;">Nuova
+							<a href="#" class="mr-2" style="color: #000;"><span style="color: #bbbbbb;">Nuova
 									Simonelli</span></a>
 						</div>
 					</div>
@@ -342,40 +319,40 @@
 					<div class="rating d-flex">
 						<div class="text-left">
 							<a href="#" class="mr-2">5.0</a>
-							<a href="#"><span class="ion-ios-star-outline"></span></a>
-							<a href="#"><span class="ion-ios-star-outline"></span></a>
-							<a href="#"><span class="ion-ios-star-outline"></span></a>
-							<a href="#"><span class="ion-ios-star-outline"></span></a>
-							<a href="#"><span class="ion-ios-star-outline"></span></a>
+							<a href="#"><i class="fas fa-star"></i></a>
+							<a href="#"><i class="fas fa-star"></i></span></a>
+							<a href="#"><i class="fas fa-star"></i></span></a>
+							<a href="#"><i class="fas fa-star"></i></span></a>
+							<a href="#"><i class="fas fa-star"></i></span></a>
 						</div>
 
 					</div>
-					<div class="price">
-						<h4>Rp 32.000.000</h4>
+					<div class="price product-price-card">
+						<div class="product-price-main">Rp 32.000.000</div>
+						<div class="product-price-meta">
+							<span class="product-price-old">Rp 35.000.000</span>
+						</div>
 					</div>
-					<p>Appia Life is created based on the success of the Appia. With its high productivity and high
-						performance, this machine is appreciated by thousands of baristas worldwide.
-						Simple and innovative.
-
-						Appia life stands out, not only for its proven reliability but also for the modern style that
-						makes it unique. It is the perfect coffee machine for large companies, coffee shop chains or
-						wherever there is a need to prepare an abundance of great coffee.
-
-						Appia Life is designed to save energy,
-						sustain the environment, and be cost-effective.</p>
-					<div class="row">
-						<div class="col-md-12">
+					<div class="product-description-card">
+						<p>Appia Life is created based on the success of the Appia. With its high productivity and high
+							performance, this machine is appreciated by thousands of baristas worldwide. Simple and
+							innovative.</p>
+						<p>Appia Life stands out, not only for its proven reliability but also for the modern style that
+							makes it unique. It is the perfect coffee machine for large companies, coffee shop chains,
+							or wherever there is a need to prepare an abundance of great coffee.</p>
+						<p>Appia Life is designed to save energy, sustain the environment, and remain cost-effective for
+							daily operations.</p>
+					</div>
+					<div class="row product-detail-card">
+						<div class="col-md-12 pb-3">
 							<span class="head-detail">Free Product</span>
-							<div>
-								<dl>
-									<dt>- Tamper</dt>
-									<dt>- Powder</dt>
-									<dt>- Coffee</dt>
-
-								</dl>
+							<div class="free-product-tags">
+								<span class="free-product-tag">Tamper</span>
+								<span class="free-product-tag">Powder</span>
+								<span class="free-product-tag">Coffee</span>
 							</div>
 						</div>
-						<div class="col-md-12">
+						<div class="col-md-12 pb-3">
 							<span class="head-detail">Varian Warna</span>
 							<div>
 								<label for="f-option" class="l-radio">
@@ -397,101 +374,94 @@
 								<label for="b-option" class="l-radio">
 									<input type="radio" id="b-option" name="selector" tabindex="5">
 									<span>Putih</span>
+								</label>
 							</div>
 						</div>
 
-						<div class="col-md-12 pt-3">
-							<span class="head-detail">Quantity</span>
-
+						<div class="col-md-12 col-xl-6 pb-3 pr-xl-3 product-purchase-col">
+							<div class="quantity-box product-subcard h-100">
+								<span class="head-detail">Quantity</span>
+								<div class="input-group product-details d-flex pl-0">
+									<span class="input-group-btn mr-2">
+										<button type="button" class="quantity-left-minus btn">
+											<i class="ion-ios-remove"></i>
+										</button>
+									</span>
+									<input type="text" class="form-control input-number quantity-input" value="1" min="1" max="100">
+									<span class="input-group-btn ml-2">
+										<button type="button" class="quantity-right-plus btn">
+											<i class="ion-ios-add"></i>
+										</button>
+									</span>
+								</div>
+							</div>
 						</div>
-						<div class="input-group product-details col-md-6 d-flex mb-3">
-							<span class="input-group-btn mr-2">
-								<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-									<i class="ion-ios-remove"></i>
+
+						<div class="col-md-12 col-xl-6 pb-3 pl-xl-3 product-purchase-col">
+							<div class="branch-stock-box product-subcard h-100">
+								<span class="head-detail">Rekomendasi Cabang</span>
+								<button type="button" class="btn btn-primary btn-rekomendasi-distri branch-stock-trigger" data-toggle="collapse" data-target="#demo">
+									Rekomendasi stok cabang lain <i class="fa fa-caret-down" aria-hidden="true"></i>
 								</button>
-							</span>
-							<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
-								min="1" max="100">
-							<span class="input-group-btn ml-2">
-								<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-									<i class="ion-ios-add"></i>
-								</button>
-							</span>
+							</div>
 						</div>
 
-						<div class="w-100"></div>
-						<div class="col-md-12">
-							<p class="text-left mr-4">
-								Stok yang tersedia : <span style="font-weight: bold;">7</span>
-							</p>
-						</div>
+						<div class="col-md-12 pb-3">
+							<div id="demo" class="collapse mt-2 branch-stock-accordion product-subcard">
 
+								<div class="text-rekomendasi">
+									<p>Rekomendasi stok yang tersedia dicabang lain
+									(dengan tambahan biaya pengiriman dan harga jual mengikuti harga di masing-masing cabang)
+									</p>
+								</div>
 
-						<div class="container">
-
-							<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo"
-								style="border-radius: 0px;">Rekomendasi stok cabang lain <i class="fa fa-caret-down"
-									aria-hidden="true"></i></button>
-							<div id="demo" class="collapse"><br>
-
-								<p class="text-left">
-									<span>Rekomendasi stok yang tersedia dicabang lain</span>
-									(dengan tambahan biaya pengiriman dan harga jual mengikuti harga di masing-masing
-									cabang)
-								</p>
-								<div class="input-group  d-flex">
+								<div class="branch-stock-item">
 									<div class="distri">
 										<span>Stok Toffin Bandung :</span>
-										<span style="font-weight: bold;">80</span>
+										<span style="font-weight: bold;">10 +</span>
 									</div>
-								</div>
-								<div class="input-group product-details d-flex mb-3" style="width: fit-content;">
-									<span class="input-group-btn mr-2">
-										<button type="button" class="quantity-left-minus btn" data-type="minus"
-											data-field="">
-											<i class="ion-ios-remove"></i>
-										</button>
-									</span>
-									<input type="text" id="quantity" name="quantity" class="form-control input-number"
-										value="1" min="1" max="100">
-									<span class="input-group-btn ml-2">
-										<button type="button" class="quantity-right-plus btn" data-type="plus"
-											data-field="">
-											<i class="ion-ios-add"></i>
-										</button>
-									</span>
+
+									<div class="input-group product-details d-flex mb-3" style="width: fit-content;">
+										<span class="input-group-btn mr-2">
+											<button type="button" class="quantity-left-minus btn">
+												<i class="ion-ios-remove"></i>
+											</button>
+										</span>
+										<input type="text" class="form-control input-number quantity-input" value="1" min="1" max="100">
+										<span class="input-group-btn ml-2">
+											<button type="button" class="quantity-right-plus btn">
+												<i class="ion-ios-add"></i>
+											</button>
+										</span>
+									</div>
 								</div>
 
-								<div class="input-group  d-flex">
+								<div class="branch-stock-item">
 									<div class="distri">
 										<span>Stok Toffin Bogor :</span>
-										<span style="font-weight: bold;">44</span>
+										<span style="font-weight: bold;">4</span>
 									</div>
-								</div>
-								<div class="input-group product-details d-flex mb-3" style="width: fit-content;">
-									<span class="input-group-btn mr-2">
-										<button type="button" class="quantity-left-minus btn" data-type="minus"
-											data-field="">
-											<i class="ion-ios-remove"></i>
-										</button>
-									</span>
-									<input type="text" id="quantity" name="quantity" class="form-control input-number"
-										value="1" min="1" max="100">
-									<span class="input-group-btn ml-2">
-										<button type="button" class="quantity-right-plus btn" data-type="plus"
-											data-field="">
-											<i class="ion-ios-add"></i>
-										</button>
-									</span>
+
+									<div class="input-group product-details d-flex mb-3" style="width: fit-content;">
+										<span class="input-group-btn mr-2">
+											<button type="button" class="quantity-left-minus btn">
+												<i class="ion-ios-remove"></i>
+											</button>
+										</span>
+										<input type="text" class="form-control input-number quantity-input" value="1" min="1" max="100">
+										<span class="input-group-btn ml-2">
+											<button type="button" class="quantity-right-plus btn">
+												<i class="ion-ios-add"></i>
+											</button>
+										</span>
+									</div>
 								</div>
 
 							</div>
 						</div>
-
-
 					</div><br>
-					<div class="input-group-btn-detail">
-						<button type="submit" class="btn btn-black py-3 px-5" style="border-radius: 0px !important; margin: 0 auto;">Add to cart</button>
+					<div class="input-group-btn-detail product-cta-wrap">
+						<button type="submit" class="btn btn-black py-3 px-5 product-cta-btn">Add to cart</button>
 					</div>
 				</div>
 			</div>
@@ -509,224 +479,216 @@
 			</div>
 		</div>
 	</section>
-	<section class="swiper-container-nav ftco-section ftco-no-pb ftco-no-pt ">
-		<div class="swiper-container-product">
-		   <div class="swiper-wrapper">
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+	<section class="swiper-container-nav ftco-section ftco-no-pb ftco-no-pt product-slider-section">
+		<div class="swiper swiper-container-product">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide ">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
-					</div>
-					
-				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
-							</div>
-						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
-					</div>
-					
-				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
-							</div>
-						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
 				</div>
 			</div>
-		   </div>
-		 </div>
-		   <div class="swiper-button-next"></div>
-		   <div class="swiper-button-prev"></div>
-   </section>
-	
-		
-   
+		</div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+
+	</section>
+
+
+
 
 	<section class="ftco-section  ftco-no-pb pt-5">
 		<div class="container">
@@ -737,221 +699,213 @@
 			</div>
 		</div>
 	</section>
-	<section class="swiper-container-nav ftco-section ftco-no-pb ftco-no-pt ">
-		<div class="swiper-container-product">
-		   <div class="swiper-wrapper">
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+	<section class="swiper-container-nav ftco-section ftco-no-pb ftco-no-pt product-slider-section">
+		<div class="swiper swiper-container-product">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide ">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
-					
 				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
+				<div class="swiper-slide product-card-slide">
+					<div class="product">
+						<div class="text">
+							<p class="product__list__item--icons">
+								<span><a href=" "><i class="fas fa-heart fa-2x"></i></a></span>
+							</p>
+						</div>
+						<a href="product-single.html" class="img-prod">
+							<img class="img-fluid" src="images/product1.png" alt="Product">
+						</a>
+						<div class="fs-tag">20%</div>
+
+						<div class="fs-body">
+							<h3 class="fs-product-title">
+								<a href="product-single.html">Nuova Simonelli Appia Life 2 group (Red)</a>
+							</h3>
+
+							<div class="fs-price-row">
+								<div class="fs-price">
+									<span class="fs-price-new">Rp 230.000.000</span>
+									<span class="fs-price-old">Rp 250.000.000</span>
+								</div>
+							</div>
+
+
+							<div class="fs-actions">
+								<a class="fs-btn fs-btn-primary" href="#">
+									Add to cart <span class="fs-btn-ico">＋</span>
+								</a>
 							</div>
 						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
-					</div>
-					
-				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
-							</div>
-						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
-					</div>
-					
-				</div>
-			</div>
-			<div class="box-product ftco-animate swiper-slide">
-				<div class="card-product product">
-					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg"></a>
-					<p class="product__list__item--icons" style="margin-bottom: 0px;">
-						<span id="addtocart">
-							<a href="#"><i id="heart--liked" style="float: right;" class="fas fa-heart fa-2x"></i></a>
-						</span>
-					</p>
-					<div class="text pt-2">
-						<h3 class="prod-home-title">Nuova Simonelli Appia Life 2 group (Red) Judul Panjang</h3>
-						<div class="d-flex">
-							<div class="pricing" style="width: 100%;">
-								<p class="price">
-									<p class="price"><span class="mr-2 price-dc" style="font-size: 13px;">Rp
-											250.000.000</span></p>
-									<span class="price-sale"><strong>Rp 230.000.000</strong></span>
-								</p>
-							</div>
-						</div>
-						<p class="bottom-area d-flex">
-							<a href="#" class="add-to-cart text-center"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-						</p>
 					</div>
 				</div>
 			</div>
-		   </div>
-		 </div>
-		   <div class="swiper-button-next"></div>
-		   <div class="swiper-button-prev"></div>
-   </section>
+		</div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+
+	</section>
 
 	<!-- modal -->
 	<div class="container my-4">
@@ -968,7 +922,9 @@
 							<!--Body-->
 							<div class="modal-body mb-0 p-0">
 								<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-									<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1DIci0X6hhs" allowfullscreen playsinline></iframe>
+									<iframe class="embed-responsive-item"
+										src="https://www.youtube.com/embed/1DIci0X6hhs" allowfullscreen
+										playsinline></iframe>
 								</div>
 							</div>
 							<!--Footer-->
@@ -1092,6 +1048,7 @@
 	<script src="js/scrollax.min.js"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/custom.js"></script>
 
 	<script>
 		$(document).ready(function () {
@@ -1132,72 +1089,117 @@
 
 
 	<script>
-		var swiper = new Swiper(".mySwiper", {
-			
+		var swiperThumb = new Swiper(".swiper-product-thumb", {
 			spaceBetween: 10,
 			slidesPerView: 6,
-			freeMode: true,
 			watchSlidesProgress: true,
+			loop: true,
+			breakpoints: {
+				0: { slidesPerView: 4 },
+				768: { slidesPerView: 5 },
+				1024: { slidesPerView: 6 }
+			}
 		});
-		var swiper2 = new Swiper(".mySwiper2", {
+		var detailSwiper = new Swiper(".swiper-product-detail", {
 			loop: true,
 			spaceBetween: 10,
 			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+				nextEl: ".swiper-detail-next",
+				prevEl: ".swiper-detail-prev",
 			},
 			thumbs: {
-				swiper: swiper,
+				swiper: swiperThumb
+			}
+		});
+		const productSliders = document.querySelectorAll('.swiper-container-product');
+
+		productSliders.forEach((slider) => {
+		  const parentSection = slider.closest('section');
+
+		  new Swiper(slider, {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			navigation: {
+			  nextEl: parentSection.querySelector('.swiper-button-next'),
+			  prevEl: parentSection.querySelector('.swiper-button-prev'),
 			},
+			breakpoints: {
+			  300: {
+				slidesPerView: 2,
+				spaceBetween: 5
+			  },
+			  768: {
+				slidesPerView: 3,
+				spaceBetween: 10
+			  },
+			  1024: {
+				slidesPerView: 5,
+				spaceBetween: 10
+			  }
+			}
+		  });
 		});
 	</script>
-	<script>
-		var swiper = new Swiper('.swiper-container-product', {
-	slidesPerView: 1,
-	direction: getDirection(),
-	navigation: {
-	  nextEl: '.swiper-button-next',
-	  prevEl: '.swiper-button-prev',
-	},
-	breakpoints: {
-		300: {
-		slidesPerView: 2,
-		spaceBetween: 5
-	  },
-	  768: {
-		slidesPerView: 3,
-		spaceBetween: 10
-	  },
-	  1024: {
-		slidesPerView: 5,
-		spaceBetween: 10
-	  }
-	},
-	on: {
-	  resize: function () {
-		swiper.changeDirection(getDirection());
-	  },
-	},
-  });
 
+	<!-- Share Popup Modal -->
+	<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Bagikan Produk</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<div class="share-sheet-body">
+					<p class="share-sheet-subtitle">Pilih platform untuk membagikan produk ini.</p>
 
-  function getDirection() {
-	var windowWidth = window.innerWidth;
-	var direction = window.innerWidth <= 0 ? 'vertical' : 'horizontal';
+					<div class="share-grid">
+						<a href="https://twitter.com/intent/tweet?url=https://toffin.id" target="_blank"
+							class="share-card">
+							<span class="share-icon-wrap">
+								<i class="fa-brands fa-x-twitter" style="font-size:22px;color:#111827;"></i>
+							</span>
+							<span class="share-label">Share to X</span>
+						</a>
 
-	return direction;
-  }
-	</script>
+						<a href="https://wa.me/?text=https://toffin.id" target="_blank" class="share-card">
+							<span class="share-icon-wrap">
+								<i class="fa-brands fa-whatsapp share-wa-icon"></i>
+							</span>
+							<span class="share-label">WhatsApp</span>
+						</a>
 
-	
-
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-
-
+						<button type="button" class="share-card copy-link">
+							<span class="share-icon-wrap">
+								<i class="fa-solid fa-link share-link-icon"></i>
+							</span>
+							<span class="share-label">Copy Link</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-
-<!-- Mirrored from preview.colorlib.com/theme/winkel/product-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2020 04:18:36 GMT -->
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const copyBtn = document.querySelector(".copy-link");
+		if (copyBtn) {
+			const defaultHtml = copyBtn.innerHTML;
+			copyBtn.addEventListener("click", function () {
+				navigator.clipboard.writeText(window.location.href);
+				copyBtn.innerHTML = `
+          <span class="share-icon-wrap">
+            <i class="fa-solid fa-check share-link-icon"></i>
+          </span>
+          <span class="share-label">Copied</span>`;
+				setTimeout(() => {
+					copyBtn.innerHTML = defaultHtml;
+				}, 1500);
+			});
+		}
+	});
+</script>
 
 </html>
