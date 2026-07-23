@@ -1,0 +1,281 @@
+.page-hero { background: var(--black); color: var(--white); padding: calc(var(--nav-h) + 5rem) 0 5rem; position: relative; overflow: hidden; }
+    .page-hero::after { content:''; position:absolute; right:-10%; top:50%; transform:translateY(-50%); width:500px; height:500px; background:radial-gradient(circle,rgba(232,133,42,0.1) 0%,transparent 70%); pointer-events:none; }
+    .page-hero .label { margin-bottom:1rem; display:block; }
+    .page-hero h1 { color:var(--white); max-width:700px; }
+    .page-hero p { color:rgba(255,255,255,0.55); max-width:560px; margin-top:var(--space-md); font-size:1.1rem; }
+
+    /* ── Hero variant: split layout (text kiri + image full-bleed kanan)
+       Pattern identik dengan about.css supaya konsisten lintas page ── */
+    .page-hero--split { min-height: 560px; }
+    .page-hero--split .container { position: relative; z-index: 2; }
+    .page-hero--split .hero-text { max-width: 700px; padding-right: var(--space-md); }
+    .page-hero--split h1 { max-width: none; }
+    .page-hero--split .hero-text p { max-width: none; }
+    .page-hero--split .hero-visual {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 56%;
+      overflow: hidden;
+      z-index: 1;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.15) 8%, rgba(0,0,0,0.55) 20%, #000 38%);
+              mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.15) 8%, rgba(0,0,0,0.55) 20%, #000 38%);
+    }
+    .page-hero--split .hero-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      animation: heroFadeZoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes heroFadeZoom {
+      from { transform: scale(1.06); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .page-hero--split .hero-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(13,13,13,0.45) 0px, transparent 160px),
+        radial-gradient(ellipse 85% 75% at 62% 48%, transparent 0%, rgba(13,13,13,0.18) 60%, rgba(13,13,13,0.55) 100%);
+      pointer-events: none;
+    }
+    .page-hero--split::after { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .page-hero--split .hero-visual img { animation: none; }
+    }
+
+    /* Services */
+    .support-services { background: var(--white); }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+    .svc-item { padding: var(--space-xl) var(--space-lg); border: 1px solid var(--gray-200); border-radius: 10px; transition: all 0.25s; }
+    .svc-item:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .svc-item .svc-icon { width:52px; height:52px; background:var(--amber-dim); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:var(--space-md); }
+    .svc-item h4 { margin-bottom:0.5rem; }
+
+    /* PMA Section — Editorial Dark Split */
+    .pma-section {
+      background: var(--black);
+      color: var(--white);
+      padding: var(--space-3xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .pma-section::before {
+      content: '';
+      position: absolute;
+      right: -8%; top: 20%;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(232,133,42,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .pma-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+      position: relative;
+    }
+    .pma-narrative-block .label { margin-bottom: 1rem; display: block; }
+    .pma-narrative-block h2 {
+      color: var(--white);
+      margin-bottom: var(--space-lg);
+      line-height: 1.1;
+    }
+    .pma-narrative-block h2 em { font-style: italic; color: var(--amber); font-size: 0.78em; }
+    .pma-lead {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      line-height: 1.55;
+      color: var(--white);
+      margin-bottom: var(--space-md);
+    }
+    .pma-narrative-block p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: var(--space-md);
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+    .pma-cta-row {
+      display: flex; gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: var(--space-lg);
+    }
+
+    .pma-promises {
+      display: flex; flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .pma-promise {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: var(--space-md);
+      padding: var(--space-lg) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      align-items: start;
+      transition: padding 0.25s;
+    }
+    .pma-promise:hover { padding-left: 0.5rem; }
+    .pma-num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .pma-text h4 {
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.005em;
+    }
+    .pma-text p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Training & Beverage Program — Light Editorial Cards */
+    .training-section { background: var(--white); color: var(--black); padding: var(--space-3xl) 0; }
+    .training-list {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+    .training-feature {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      padding: var(--space-lg);
+      transition: all 0.3s ease;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-md);
+      align-items: start;
+    }
+    .training-feature::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      width: 3px; height: 40%;
+      background: var(--amber);
+      border-radius: 0 3px 3px 0;
+      transform: translateY(-50%) scaleY(0);
+      transform-origin: center;
+      transition: transform 0.35s ease;
+    }
+    .training-feature:hover {
+      border-color: var(--gray-300);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .training-feature:hover::before { transform: translateY(-50%) scaleY(1); }
+    .tf-num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      color: var(--amber);
+      line-height: 0.9;
+      min-width: 56px;
+    }
+    .training-feature h4 {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--black);
+      letter-spacing: -0.005em;
+    }
+    .training-feature p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--gray-500);
+      margin: 0;
+    }
+    .training-cta-row {
+      display: flex; justify-content: center;
+      margin-top: var(--space-xl);
+    }
+
+    /* FAQ */
+    .faq-section { background: var(--gray-100); }
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid var(--gray-200); }
+    .faq-item:first-child { border-top: 1px solid var(--gray-200); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) 0; cursor: pointer; gap: var(--space-md); }
+    .faq-q h4 { font-size: 1rem; font-weight: 600; flex: 1; }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid var(--gray-300);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gray-400);
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.25s;
+    }
+    .faq-icon svg { display: block; }
+    .faq-item.open .faq-icon { background: var(--amber); border-color: var(--amber); color: var(--white); transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a p { padding-bottom: var(--space-md); font-size: 0.95rem; }
+
+    @media (max-width:1024px) {
+      .page-hero { padding: calc(var(--nav-h) + 3.5rem) 0 3.5rem; }
+      .page-hero--split { min-height: 480px; }
+      .page-hero--split .hero-visual {
+        width: 48%;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.55) 18%, #000 35%);
+                mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.55) 18%, #000 35%);
+      }
+      .page-hero--split .hero-text { max-width: 500px; padding-right: var(--space-sm); }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .pma-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .training-list { grid-template-columns: 1fr; max-width: 640px; }
+    }
+    @media (max-width:768px) {
+      /* Padding di-pindah ke .container supaya hero-visual cover FULL section (no bar hitam) */
+      .page-hero { padding: 0; }
+      .page-hero--split { min-height: 380px; }
+      .page-hero--split .container {
+        padding-top: calc(var(--nav-h) + 3rem);
+        padding-bottom: 3rem;
+      }
+      .page-hero--split .hero-visual {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        z-index: 0;
+        -webkit-mask-image: none;
+                mask-image: none;
+      }
+      .page-hero--split .hero-visual::after {
+        background: linear-gradient(180deg, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.78) 50%, rgba(13,13,13,0.7) 100%);
+      }
+      .page-hero--split .hero-text {
+        position: relative;
+        z-index: 2;
+        max-width: none;
+        padding-right: 0;
+      }
+      .page-hero--split .hero-text h1 {
+        font-size: clamp(1.65rem, 7vw, 2.1rem);
+        line-height: 1.2;
+      }
+      .page-hero--split .hero-text p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 1rem;
+      }
+      .svc-grid { grid-template-columns: 1fr; }
+      .pma-promise { grid-template-columns: 60px 1fr; gap: var(--space-sm); padding: var(--space-md) 0; }
+      .pma-num { font-size: 1.8rem; }
+      .pma-cta-row .btn { flex: 1; min-width: 0; justify-content: center; }
+      .training-feature { padding: var(--space-md); }
+    }

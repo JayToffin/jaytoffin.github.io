@@ -1,0 +1,132 @@
+/* ════════════════════════════════════════════════════════════════════
+   PRIVACY PAGE — editorial document layout
+   Typography-focused, clean reading experience
+════════════════════════════════════════════════════════════════════ */
+
+/* Hero — minimal, no image (privacy is text-heavy page) */
+.page-hero {
+  background: var(--black);
+  color: var(--white);
+  padding: calc(var(--nav-h) + 3rem) 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  right: -10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(232, 133, 42, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero .label { margin-bottom: 0.75rem; display: block; }
+.page-hero h1 {
+  color: var(--white);
+  max-width: 700px;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+.page-hero p {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Content — long-form reading layout, tighter spacing */
+.privacy-content {
+  background: var(--white);
+  padding: var(--space-2xl) 0;
+}
+.privacy-prose {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+}
+
+.privacy-lead {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--black);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--gray-200);
+  letter-spacing: -0.005em;
+}
+
+.privacy-section {
+  margin-bottom: var(--space-sm);
+}
+.privacy-section h2 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--black);
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.privacy-section p {
+  margin: 0 0 0.65rem;
+  color: var(--gray-700);
+}
+.privacy-section p strong {
+  color: var(--black);
+  font-weight: 600;
+}
+.privacy-section ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+  list-style: none;
+}
+.privacy-section ul li {
+  position: relative;
+  margin-bottom: 0;
+  padding: 0.05rem 0;
+  line-height: 1.55;
+}
+.privacy-section ul li::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0.6rem;
+  width: 5px;
+  height: 5px;
+  background: var(--amber);
+  border-radius: 50%;
+}
+.privacy-section a {
+  color: var(--amber);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+.privacy-section a:hover {
+  color: var(--black);
+}
+
+/* Contact section — subtle emphasis */
+.privacy-contact {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--gray-200);
+}
+
+@media (max-width: 768px) {
+  .page-hero { padding: calc(var(--nav-h) + 2rem) 0 2rem; }
+  .privacy-content { padding: var(--space-xl) 0; }
+  .privacy-prose {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .privacy-lead { font-size: 1.05rem; }
+  .privacy-section { margin-bottom: var(--space-md); }
+  .privacy-section h2 { font-size: 1.2rem; }
+}

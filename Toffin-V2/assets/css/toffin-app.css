@@ -1,0 +1,146 @@
+/* Page Hero — base (mirror dari support/about supaya konsisten lintas page).
+       Catatan: amber radial glow di-suppress untuk app page biar background fully black. */
+    .page-hero { background: #000000; color: var(--white); padding: calc(var(--nav-h) + 5rem) 0 5rem; position: relative; overflow: hidden; }
+    .page-hero .label { margin-bottom:1rem; display:block; }
+    .page-hero h1 { color:var(--white); max-width:700px; }
+    .page-hero h1 em { color: var(--amber); font-style: italic; }
+    .page-hero p { color:rgba(255,255,255,0.55); max-width:560px; margin-top:var(--space-md); font-size:1.1rem; }
+
+    /* ── Hero variant: split layout (text kiri + image kanan)
+       Pattern identik dengan support.css/about.css ── */
+    .page-hero--split { min-height: 560px; }
+    .page-hero--split .container { position: relative; z-index: 2; }
+    .page-hero--split .hero-text { max-width: 700px; padding-right: var(--space-md); }
+    .page-hero--split h1 { max-width: none; }
+    .page-hero--split .hero-text p { max-width: none; }
+    .page-hero--split .hero-visual {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 56%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .page-hero--split .hero-visual img {
+      animation: heroFadeZoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes heroFadeZoom {
+      from { transform: scale(1.06); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .page-hero--split::after { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .page-hero--split .hero-visual img { animation: none; }
+    }
+
+    /* Silhouette variant — untuk PNG transparan (mis. siluet-app.png).
+       Object-fit contain agar siluet tidak terpotong, no mask/vignette
+       karena background PNG sudah transparan & menyatu dengan hero hitam.
+       Image vertically centered, area lebih kecil dari pattern default
+       supaya tidak overlap dengan text (siluet punya isi tersebar di canvas). */
+    .page-hero--split .hero-visual.hero-visual--silhouette {
+      width: 42%;
+      padding: var(--space-md) var(--space-xl) var(--space-md) 0;
+      display: flex; align-items: center; justify-content: flex-end;
+    }
+    .hero-visual--silhouette img {
+      width: 100%; height: auto;
+      max-height: 100%;
+      object-fit: contain; object-position: center right;
+      display: block;
+    }
+
+    /* Hero CTA row — primary (Download) + secondary (Lihat Fitur anchor) */
+    .app-hero-ctas { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin: var(--space-md) 0 var(--space-md); }
+    .award-badge {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: rgba(232,133,42,0.15); border: 1px solid rgba(232,133,42,0.3);
+      border-radius: 8px; padding: 0.75rem 1.25rem;
+    }
+    .award-badge .aw-icon { color: var(--amber); display: inline-flex; align-items: center; justify-content: center; }
+    .award-badge span { font-size: 0.82rem; color: var(--amber); font-weight: 600; }
+
+    /* Features */
+    .features-section { background: var(--white); }
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+    .feature-item {
+      display: grid; grid-template-columns: 65px 1fr; gap: var(--space-md);
+      padding: var(--space-md); border: 1px solid var(--gray-200); border-radius: 10px;
+      align-items: start; transition: all 0.25s;
+    }
+    .feature-item:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    /* Lingkaran hitam dengan icon putih di tengah */
+    .feat-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .feat-icon img {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      display: block;
+      /* PNG asli (multi-color) → silhouette putih */
+      filter: brightness(0) invert(1);
+    }
+    .feature-item h4 { margin-bottom: 0.4rem; }
+    .feature-item p { font-size: 0.875rem; }
+
+    /* Stats strip */
+    .app-stats-strip { background: var(--gray-100); padding: var(--space-xl) 0; }
+    .app-stats-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+    .app-stat { text-align: center; }
+    .app-stat .num { font-family: var(--font-serif); font-size: 2.8rem; color: var(--black); line-height: 1; }
+    .app-stat .num span { color: var(--amber); }
+    .app-stat .lbl { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-400); margin-top: 0.3rem; }
+
+    /* Testimonial app */
+    .app-testi-section { background: var(--white); }
+    .app-testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+
+    @media (max-width:1024px) {
+      .page-hero { padding: calc(var(--nav-h) + 3.5rem) 0 3.5rem; }
+      .page-hero--split { min-height: 480px; }
+      .page-hero--split .hero-visual.hero-visual--silhouette { width: 38%; padding-right: var(--space-md); }
+      .page-hero--split .hero-text { max-width: 500px; padding-right: var(--space-sm); }
+      .features-grid { grid-template-columns: 1fr; }
+      .app-testi-grid { grid-template-columns: 1fr 1fr; }
+      .app-stats-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width:768px) {
+      .page-hero { padding: calc(var(--nav-h) + 2.5rem) 0 2.5rem; }
+      .page-hero--split { min-height: auto; }
+      /* Container jadi flex column supaya bisa reorder children:
+         hero-text → siluet → badge → CTA (urutan mobile yang diinginkan).
+         HTML order asli: hero-text → siluet → CTA → badge (desktop). */
+      .page-hero--split .container { display: flex; flex-direction: column; }
+      .page-hero--split .hero-text     { order: 1; }
+      .page-hero--split .hero-visual   { order: 2; }
+      .page-hero--split .award-badge   { order: 3; }
+      .page-hero--split .app-hero-ctas { order: 4; }
+      .page-hero--split .hero-text { max-width: none; padding-right: 0; }
+      .page-hero--split .hero-visual.hero-visual--silhouette {
+        position: relative;
+        width: 100%;
+        margin-top: var(--space-lg);
+        height: 280px;
+        padding: 0;
+        justify-content: center;
+      }
+      .hero-visual--silhouette img { object-position: center; }
+      .app-hero-ctas { flex-direction: column; width: 100%; margin-top: var(--space-md); }
+      .app-hero-ctas .btn { width: 100%; justify-content: center; }
+      .award-badge {
+        width: 100%;
+        justify-content: center;
+        /* margin-top: var(--space-md); */
+        text-align: center;
+      }
+      .award-badge span { font-size: 0.78rem; line-height: 1.4; }
+      .app-testi-grid { grid-template-columns: 1fr; }
+      .app-stats-inner { grid-template-columns: 1fr 1fr; }
+    }
