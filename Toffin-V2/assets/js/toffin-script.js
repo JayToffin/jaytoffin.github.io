@@ -798,6 +798,15 @@ window.initToffinMap = initToffinMap;
   if (!grid) return;
 
   const start = () => {
+    // 0. Urutkan card by data-date (YYYY-MM) — terbaru di atas. Card baru
+    //    otomatis tersusun benar cukup dengan set data-date-nya. Ties (tanggal
+    //    sama) mempertahankan urutan asli di HTML (sort stabil).
+    Array.prototype.slice.call(grid.querySelectorAll('.cc-card'))
+      .sort(function (a, b) {
+        return (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || '');
+      })
+      .forEach(function (card) { grid.appendChild(card); });
+
     // 1. Init slider gambar tiap card. Pagination el di-scope per container
     //    (di-pass sebagai node, bukan selector string yang global).
     if (typeof window.Swiper !== 'undefined') {
