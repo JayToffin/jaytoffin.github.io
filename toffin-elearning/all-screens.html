@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toffin E-Learning 2.0 — Semua Screen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1613; --muted:#8A817B; --faint:#B7ADA6;
+    --page:#F3F0ED; --orange:#F8941F; --line:#EDE8E3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Roboto',-apple-system,sans-serif;
+    background:var(--page); color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    padding:40px 28px 70px;
+  }
+  header{max-width:1400px;margin:0 auto 28px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:8px}
+  header p{color:var(--muted);font-size:14px;margin-top:6px;max-width:640px;line-height:1.6}
+  .board{
+    max-width:1400px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:26px;
+  }
+  .frame{display:flex;flex-direction:column;gap:10px}
+  .frame .lbl{display:flex;align-items:center;justify-content:space-between}
+  .frame .name{font-size:13px;font-weight:800}
+  .frame .open{font-size:12px;font-weight:700;color:var(--orange);text-decoration:none}
+  .frame .open:hover{text-decoration:underline}
+  .shot{
+    width:100%;aspect-ratio:402/812;border-radius:22px;overflow:hidden;
+    border:1px solid var(--line);background:#fff;
+    box-shadow:0 10px 30px rgba(27,22,19,.08);
+    position:relative;
+  }
+  .shot iframe{
+    width:434px;height:906px;border:0;
+    transform-origin:top left;
+    position:absolute;top:0;left:0;
+    pointer-events:none; /* board = lihat saja; klik "Buka" untuk interaksi */
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Toffin E-Learning 2.0 · Mockup Aplikasi Mobile</div>
+  <h1>Semua Screen</h1>
+  <p>Papan ringkas seluruh flow: Beranda → Detail Kelas → Bab (video/bacaan, <b>berurutan &amp; tidak bisa dilewati</b>) → Ujian (intro → soal → <b>terkirim</b>).
+     Penilaian tidak instan — jawaban dinilai AI lalu nilai diunggah ke ERP; user menerima <b>notifikasi</b> saat nilai terbit, baru melihat hasil.
+     Klik <b>Buka</b> untuk membuka satu screen secara interaktif — tiap halaman berdiri sendiri, siap di-screenshot untuk Figma.</p>
+</header>
+
+<div class="board" id="board">
+  <div class="frame" data-src="index.html"><div class="lbl"><span class="name">01 · Beranda</span><a class="open" href="index.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="class-detail.html"><div class="lbl"><span class="name">02 · Detail Kelas</span><a class="open" href="class-detail.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="chapter-video.html"><div class="lbl"><span class="name">03 · Bab — Video</span><a class="open" href="chapter-video.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="chapter-reading.html"><div class="lbl"><span class="name">04 · Bab — Bacaan</span><a class="open" href="chapter-reading.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="exam-intro.html"><div class="lbl"><span class="name">05 · Ujian — Intro</span><a class="open" href="exam-intro.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="exam-quiz.html"><div class="lbl"><span class="name">06 · Ujian — Soal</span><a class="open" href="exam-quiz.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="exam-submitted.html"><div class="lbl"><span class="name">07 · Ujian — Terkirim</span><a class="open" href="exam-submitted.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="notifications.html"><div class="lbl"><span class="name">08 · Notifikasi</span><a class="open" href="notifications.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="exam-result.html"><div class="lbl"><span class="name">09 · Hasil — Lulus</span><a class="open" href="exam-result.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="exam-result-fail.html"><div class="lbl"><span class="name">10 · Hasil — Gagal</span><a class="open" href="exam-result-fail.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="leaderboard.html"><div class="lbl"><span class="name">11 · Peringkat</span><a class="open" href="leaderboard.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="profile.html"><div class="lbl"><span class="name">12 · Profil &amp; Badge</span><a class="open" href="profile.html">Buka →</a></div><div class="shot"></div></div>
+  <div class="frame" data-src="my-classes.html"><div class="lbl"><span class="name">13 · Kelas Saya</span><a class="open" href="my-classes.html">Buka →</a></div><div class="shot"></div></div>
+</div>
+
+<script>
+/* Embed tiap screen sebagai iframe yang di-scale agar pas di kartu board.
+   Konten iframe: hanya bagian .phone yang dirender (sembunyikan preview-bar & padding). */
+document.querySelectorAll('.frame').forEach(f=>{
+  const shot=f.querySelector('.shot');
+  const ifr=document.createElement('iframe');
+  ifr.src=f.dataset.src;
+  ifr.setAttribute('tabindex','-1');
+  ifr.addEventListener('load',()=>{
+    try{
+      const doc=ifr.contentDocument;
+      const style=doc.createElement('style');
+      style.textContent='body{padding:16px 16px!important;background:transparent!important}.preview-bar{display:none!important}';
+      doc.head.appendChild(style);
+    }catch(e){/* file:// cross-origin guard — abaikan */}
+    scale();
+  });
+  shot.appendChild(ifr);
+  function scale(){
+    const s=shot.clientWidth/434;
+    ifr.style.transform='scale('+s+')';
+  }
+  new ResizeObserver(scale).observe(shot);
+});
+</script>
+</body>
+</html>

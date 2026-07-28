@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toffin E-Learning 2.0 — 08 Notifikasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOFFIN LEARNING — Mobile App Mockup (multi-page)
+   Shared stylesheet untuk semua screen.
+   Satu halaman = satu screen app, dibungkus frame telepon.
+   ============================================================ */
+
+:root{
+  --ink:#1B1613;
+  --muted:#8A817B;
+  --faint:#B7ADA6;
+  --line:#EDE8E3;
+  --line-2:#F4F0EC;
+  --surface:#FFFFFF;
+  --page:#F3F0ED;
+  --orange:#F8941F;
+  --orange-tint:#FEEDD6;
+  --orange-tint-2:#FFF8EE;
+  --green:#3E8E5A;
+  --green-tint:#EAF3ED;
+  --amber:#C6751A;
+  --red:#D06A4A;
+  --red-deep:#C0492B;
+  --red-tint:#FBEDE7;
+  --radius:18px;
+  --shadow:0 1px 2px rgba(27,22,19,.04), 0 12px 34px rgba(27,22,19,.07);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--page);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:34px 16px 60px;
+  gap:18px;
+  min-height:100%;
+}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+
+/* ---------- Meta bar (di luar frame — label screen + navigasi mockup) ---------- */
+.preview-bar{
+  width:100%;
+  max-width:402px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.preview-bar .eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.preview-bar .screen-name{
+  font-size:12px;
+  font-weight:800;
+  color:var(--muted);
+  background:#E7E1DB;
+  padding:6px 12px;
+  border-radius:10px;
+}
+.preview-bar a.screen-name:hover{color:var(--ink)}
+
+.role-switch{
+  display:inline-flex;
+  background:#E7E1DB;
+  padding:4px;
+  border-radius:12px;
+  gap:2px;
+}
+.role-switch button{
+  font:inherit;
+  font-size:13px;
+  font-weight:600;
+  color:var(--muted);
+  background:transparent;
+  border:0;
+  padding:7px 13px;
+  border-radius:9px;
+  cursor:pointer;
+  transition:.18s ease;
+}
+.role-switch button:hover{color:var(--ink)}
+.role-switch button.active{
+  background:var(--surface);
+  color:var(--orange);
+  box-shadow:0 1px 3px rgba(27,22,19,.12);
+}
+.role-switch button:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+/* ---------- Phone frame ---------- */
+.phone{
+  width:402px;
+  max-width:100%;
+  height:812px;
+  background:var(--surface);
+  border-radius:40px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  flex:none;
+}
+.notch{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:150px;height:26px;background:var(--surface);
+  border-bottom-left-radius:16px;border-bottom-right-radius:16px;
+  z-index:40;display:flex;align-items:flex-start;justify-content:center;padding-top:7px;
+}
+.notch::after{content:"";width:52px;height:5px;border-radius:3px;background:#E2DCD6}
+
+/* ---------- App header ---------- */
+.app-head{
+  padding:38px 20px 14px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--surface);
+  border-bottom:1px solid var(--line-2);
+  z-index:20;
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+/* Wordmark logo TOFFIN E-LEARNING — vector, panjang: kecilkan font + tracking pas */
+.wm-logo{
+  display:flex;align-items:center;
+  font-weight:800;font-size:13.5px;letter-spacing:.13em;
+  color:var(--ink);white-space:nowrap;line-height:1;
+}
+.wm-logo .fl{flex:none;margin:0 .5px 1px}
+.wm-logo .e{color:var(--orange)}
+.wm-logo .gap{width:8px;flex:none}
+.logo{
+  width:30px;height:30px;border-radius:9px;
+  background:var(--orange);
+  display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:16px;
+  box-shadow:0 4px 10px rgba(248,148,31,.32);
+}
+.brand .wm{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.brand .wm small{color:var(--muted);font-weight:600}
+.role-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--orange-tint);
+  color:var(--orange);
+  font-size:12px;font-weight:700;
+  padding:6px 11px;border-radius:20px;
+}
+.role-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
+
+/* ---------- Scroll area ---------- */
+.screen{flex:1;overflow-y:auto;overflow-x:hidden;position:relative}
+.screen::-webkit-scrollbar{width:0}
+
+/* ---------- Home ---------- */
+.hello{padding:18px 20px 6px}
+.hello h1{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.hello p{color:var(--muted);font-size:13.5px;margin-top:3px}
+
+.section{padding:16px 20px 4px}
+.section-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.section-head h2{font-size:13px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
+.count{
+  font-size:11.5px;font-weight:800;min-width:20px;height:20px;padding:0 6px;
+  display:inline-grid;place-items:center;border-radius:7px;
+  background:var(--line);color:var(--muted);
+}
+.count.hot{background:var(--orange-tint);color:var(--orange)}
+
+/* ---------- Class card ---------- */
+.card{
+  position:relative;
+  display:block;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:15px 16px 15px 18px;
+  margin-bottom:11px;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  overflow:hidden;
+}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--line)}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(27,22,19,.08);border-color:#E3DCD5}
+.card:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.card.todo::before{background:var(--orange)}
+.card.retake::before{background:var(--amber)}
+.card.done{background:#FCFBFA}
+.card.done::before{background:var(--green)}
+
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.card h3{font-size:15px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.card .cat{font-size:11.5px;color:var(--faint);font-weight:600;margin-top:3px}
+
+.pill{
+  flex:none;font-size:11px;font-weight:700;padding:5px 9px;border-radius:20px;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:5px;
+}
+.pill.todo{background:var(--orange-tint);color:var(--orange)}
+.pill.retake{background:#FBF0E0;color:var(--amber)}
+.pill.done{background:var(--green-tint);color:var(--green)}
+
+.meta-row{display:flex;align-items:center;gap:8px;margin-top:12px;color:var(--muted);font-size:12px;font-weight:500}
+.meta-row .ico{color:var(--faint)}
+.meta-row.warn{color:var(--amber)}
+.meta-row.warn .ico{color:var(--amber)}
+
+.progress{margin-top:12px}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar span{display:block;height:100%;border-radius:6px;background:var(--orange)}
+.progress .lbl{display:flex;justify-content:space-between;font-size:11.5px;font-weight:600;color:var(--muted);margin-top:7px}
+
+.check{
+  width:20px;height:20px;border-radius:50%;background:var(--green);
+  display:grid;place-items:center;flex:none;
+}
+
+/* ---------- Detail / back header ---------- */
+.detail-head{
+  padding:38px 20px 0;position:sticky;top:0;background:var(--surface);z-index:10;
+}
+.back{
+  display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;
+  font:inherit;font-size:13.5px;font-weight:600;color:var(--muted);padding:8px 0;
+}
+.back:hover{color:var(--ink)}
+.back:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:6px}
+
+.detail-hero{padding:6px 20px 18px;border-bottom:1px solid var(--line-2)}
+.detail-hero .cat{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.detail-hero h1{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-top:8px;line-height:1.25}
+.detail-hero .desc{font-size:14px;color:var(--muted);line-height:1.55;margin-top:9px}
+.facts{display:flex;gap:20px;margin-top:16px}
+.fact{display:flex;flex-direction:column;gap:3px}
+.fact .k{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.fact .v{font-size:13px;font-weight:600}
+.detail-hero .bar{margin-top:16px}
+.detail-hero .plbl{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--muted);margin-top:8px}
+
+.ch-wrap{padding:18px 20px 8px}
+.ch-wrap .title{font-size:13px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin-bottom:4px}
+.ch-wrap .sub{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+
+.chapter{
+  display:flex;align-items:center;gap:13px;padding:13px 4px;
+  border-bottom:1px solid var(--line-2);cursor:pointer;
+}
+.chapter:hover .ch-title{color:var(--orange)}
+.ch-index{
+  width:24px;flex:none;font-size:12px;font-weight:700;color:var(--faint);text-align:center;
+}
+.ch-type{
+  width:40px;height:40px;flex:none;border-radius:11px;
+  display:grid;place-items:center;background:var(--orange-tint-2);color:var(--orange);
+}
+.ch-type.text{background:#F1EFFA;color:#6A5ACD}
+.ch-type.image{background:#E9F4EF;color:var(--green)}
+.ch-type.video{background:var(--orange-tint);color:var(--orange)}
+.ch-body{flex:1;min-width:0}
+.ch-title{font-size:14px;font-weight:600;letter-spacing:-.01em;transition:color .15s ease}
+.ch-kind{font-size:11.5px;color:var(--faint);font-weight:600;margin-top:2px}
+.ch-state{flex:none;color:var(--faint)}
+.ch-state.done{color:var(--green)}
+
+/* ---------- Exam CTA ---------- */
+.exam{
+  margin:14px 20px 22px;
+  background:var(--orange-tint-2);
+  border:1px solid var(--orange-tint);
+  border-radius:16px;
+  padding:16px 16px 16px 18px;
+  display:flex;align-items:center;gap:14px;
+}
+.exam.retake{background:#FCF3E7;border-color:#F4E4CB}
+.exam-ico{
+  width:42px;height:42px;flex:none;border-radius:12px;background:var(--orange);color:#fff;
+  display:grid;place-items:center;box-shadow:0 6px 14px rgba(248,148,31,.3);
+}
+.exam.retake .exam-ico{background:var(--amber);box-shadow:0 6px 14px rgba(198,117,26,.28)}
+.exam-body{flex:1}
+.exam-body .et{font-size:14px;font-weight:700}
+.exam-body .es{font-size:12px;color:var(--muted);margin-top:2px}
+.btn{
+  display:inline-block;
+  font:inherit;font-size:13px;font-weight:700;color:#fff;background:var(--orange);
+  border:0;border-radius:11px;padding:11px 16px;cursor:pointer;white-space:nowrap;
+  transition:.15s ease;
+  text-align:center;
+}
+.btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
+.btn:active{transform:none}
+.btn:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:#DDD5CE;filter:none}
+.btn.green{background:var(--green)}
+.btn.amber{background:var(--amber)}
+.exam.retake .btn{background:var(--amber)}
+
+/* ---------- Bottom tabs ---------- */
+.tabs{
+  display:flex;border-top:1px solid var(--line);background:var(--surface);
+  padding:9px 8px 20px;z-index:20;
+}
+.tab{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
+  background:none;border:0;cursor:pointer;font:inherit;color:var(--faint);
+  font-size:10.5px;font-weight:600;padding:5px 0;
+}
+.tab.active{color:var(--orange)}
+.tab:focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-radius:8px}
+
+.empty{padding:8px 4px 4px;color:var(--faint);font-size:13px}
+
+/* ===== Chapter view — shared hero ===== */
+.chhero{padding:6px 20px 16px;border-bottom:1px solid var(--line-2)}
+.cheye{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.chhero h1{font-size:21px;font-weight:800;letter-spacing:-.02em;margin-top:8px;line-height:1.28}
+.chlead{font-size:14px;color:#4a423d;line-height:1.6;margin-top:10px}
+
+/* ===== Video chapter ===== */
+.vblock{margin:18px 20px 6px}
+.player{
+  position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;
+  display:grid;place-items:center;cursor:pointer;
+  background:linear-gradient(135deg,#2b221c,#4c3a2e);
+}
+.player[data-poster="b"]{background:linear-gradient(135deg,#7c4f28,#c68a4c)}
+.player::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,transparent,rgba(0,0,0,.28))}
+.pplay{
+  position:relative;z-index:2;width:58px;height:58px;border-radius:50%;
+  background:rgba(255,255,255,.94);display:grid;place-items:center;padding-left:2px;
+  box-shadow:0 8px 22px rgba(0,0,0,.28);transition:transform .15s ease;
+}
+.player:hover .pplay{transform:scale(1.06)}
+.player.playing .pplay{padding-left:0}
+.pdur{position:absolute;z-index:2;right:10px;bottom:12px;background:rgba(0,0,0,.62);color:#fff;font-size:11px;font-weight:600;padding:3px 7px;border-radius:6px}
+.pscrub{position:absolute;z-index:2;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.28)}
+.pscrub span{display:block;height:100%;background:var(--orange);width:0;transition:width 7s linear}
+.vcap{font-size:14px;font-weight:700;margin-top:11px;letter-spacing:-.01em}
+.vsub{font-size:12px;color:var(--muted);font-weight:500;margin-top:3px}
+.choutro{font-size:14px;color:#4a423d;line-height:1.62;margin:14px 20px 4px}
+
+/* ===== Reading chapter (text + images) ===== */
+.readbody{padding:6px 20px 4px}
+.readbody h2{font-size:16px;font-weight:800;letter-spacing:-.01em;margin:22px 0 4px}
+.readbody p{font-size:14.5px;line-height:1.64;color:#3c342f;margin:11px 0}
+.figure{margin:18px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.fimg{
+  aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:rgba(255,255,255,.9);background:linear-gradient(135deg,#3c302a,#6d5443);
+}
+.fimg[data-img="2"]{background:linear-gradient(135deg,#b0713a,#e2a869)}
+.fimg .flabel{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.figure figcaption{font-size:12px;color:var(--muted);padding:10px 13px;background:#FBFAF9;line-height:1.45}
+.vollist{list-style:none;margin:14px 0 6px}
+.vollist li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:13.5px;line-height:1.5;color:#3c342f}
+.vollist .lvl{font-weight:800;color:var(--orange);flex:none;width:92px}
+.callout{background:var(--orange-tint-2);border:1px solid var(--orange-tint);border-radius:14px;padding:14px 16px;margin:18px 0}
+.callout .ct{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:6px}
+.callout p{margin:0;font-size:13.5px;line-height:1.55;color:#4a423d}
+
+/* ===== Chapter footer ===== */
+.chfoot{display:flex;gap:10px;padding:14px 20px 26px}
+.chfoot .btn{flex:1;text-align:center;justify-content:center}
+
+/* ===== Exam intro ===== */
+.xintro{padding:22px 20px 24px}
+.xbadge{display:inline-flex;align-items:center;gap:7px;background:var(--orange-tint);color:var(--orange);font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px}
+.xintro h1{font-size:23px;font-weight:800;letter-spacing:-.02em;margin-top:14px;line-height:1.25}
+.xintro .xdesc{font-size:14px;color:var(--muted);line-height:1.55;margin-top:9px}
+.xstats{display:flex;gap:10px;margin:20px 0}
+.xstat{flex:1;background:#FBFAF9;border:1px solid var(--line);border-radius:14px;padding:15px 10px;text-align:center}
+.xnum{font-size:21px;font-weight:800;color:var(--orange)}
+.xcap{font-size:11px;color:var(--muted);font-weight:600;margin-top:4px;line-height:1.3}
+.xnote{display:flex;gap:9px;background:var(--orange-tint-2);border:1px solid var(--orange-tint);border-radius:12px;padding:12px 14px;font-size:12.5px;color:#4a423d;line-height:1.5}
+.xnote b{color:var(--ink)}
+
+/* ===== Countdown timer ujian ===== */
+.timer{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12.5px;font-weight:800;color:var(--ink);
+  background:#FBFAF9;border:1.5px solid var(--line);border-radius:999px;
+  padding:6px 12px;
+  font-variant-numeric:tabular-nums;
+}
+.timer svg{color:var(--muted);flex:none}
+.timer.low{background:#FBF0E0;border-color:#F4E4CB;color:var(--amber)}
+.timer.low svg{color:var(--amber)}
+.timer.crit{
+  background:var(--red-tint);border-color:#F2D6CC;color:var(--red-deep);
+  animation:timerPulse 1s ease infinite;
+}
+.timer.crit svg{color:var(--red-deep)}
+@keyframes timerPulse{50%{transform:scale(1.06)}}
+@media (prefers-reduced-motion: reduce){
+  .timer.crit{animation:none}
+}
+
+/* ===== Popup konfirmasi keluar ujian ===== */
+.xmodal{
+  position:absolute;inset:0;z-index:60;
+  display:none;align-items:center;justify-content:center;
+  padding:24px;
+  background:rgba(27,22,19,.45);
+  backdrop-filter:blur(2px);
+}
+.xmodal.open{display:flex}
+.xmodal-box{
+  background:var(--surface);border-radius:20px;
+  padding:22px 20px 18px;width:100%;max-width:300px;text-align:center;
+  box-shadow:0 24px 60px rgba(27,22,19,.3);
+  animation:modalIn .18s ease;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+.xmodal-ico{
+  width:52px;height:52px;border-radius:50%;margin:0 auto 12px;
+  display:grid;place-items:center;
+  background:var(--red-tint);color:var(--red-deep);
+}
+.xmodal-t{font-size:16.5px;font-weight:800;letter-spacing:-.01em}
+.xmodal-s{font-size:13px;color:var(--muted);line-height:1.55;margin-top:7px}
+.xmodal-actions{display:flex;gap:9px;margin-top:16px}
+.xmodal-actions .btn{flex:1;padding:12px 10px}
+.btn.danger{background:var(--red-deep)}
+@media (prefers-reduced-motion: reduce){
+  .xmodal-box{animation:none}
+}
+
+/* ===== Quiz ===== */
+.qhead{padding:36px 20px 0}
+.qbar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.qbar span{display:block;height:100%;background:var(--orange);border-radius:6px;transition:width .3s ease}
+.qmeta{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:var(--muted);margin-top:11px}
+.qbody{padding:16px 20px 8px}
+.qtext{font-size:18px;font-weight:700;line-height:1.4;letter-spacing:-.01em}
+.opts{margin-top:20px}
+.opt{
+  display:flex;align-items:center;gap:13px;padding:15px 16px;border:1.5px solid var(--line);
+  border-radius:14px;margin-bottom:10px;cursor:pointer;font-size:14px;font-weight:500;line-height:1.4;
+  transition:border-color .14s ease,background .14s ease;
+}
+.opt:hover{border-color:#E0D8D1}
+.opt .mk{width:22px;height:22px;border-radius:50%;border:2px solid var(--faint);flex:none;display:grid;place-items:center;transition:.14s}
+.opt.sel{border-color:var(--orange);background:var(--orange-tint-2)}
+.opt.sel .mk{border-color:var(--orange);background:var(--orange)}
+.qfoot{padding:10px 20px 26px}
+.qfoot .btn{display:block;width:100%;text-align:center;padding:14px}
+.qfoot .btn[disabled],
+.qfoot .btn.disabled{background:var(--line);color:var(--faint);cursor:not-allowed;transform:none;pointer-events:none}
+
+/* ===== Results ===== */
+.result{padding:26px 20px 8px;text-align:center}
+.ring{position:relative;width:150px;height:150px;margin:4px auto 0}
+.rpct{position:absolute;inset:0;display:grid;place-items:center;font-size:34px;font-weight:800;letter-spacing:-.02em}
+.rpill{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;padding:7px 15px;border-radius:20px;margin-top:18px}
+.rpill.pass{background:var(--green-tint);color:var(--green)}
+.rpill.fail{background:var(--red-tint);color:var(--red-deep)}
+.rsub{font-size:13.5px;color:var(--muted);margin-top:10px;font-weight:500}
+.review{padding:12px 20px 6px;text-align:left}
+.review .rtitle{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px}
+.rev{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line-2)}
+.revico{width:22px;height:22px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff}
+.revico.ok{background:var(--green)}
+.revico.no{background:var(--red)}
+.revq{font-size:13.5px;font-weight:600;line-height:1.4}
+.reva{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.45}
+.reva .good{color:var(--green);font-weight:600}
+.reva .bad{color:var(--red-deep);font-weight:600}
+
+/* ===== Status "Being graded" (skor menunggu penilaian AI + upload ERP) ===== */
+:root{--blue:#5B7FA6;--blue-tint:#EDF2F7}
+.pill.grading{background:var(--blue-tint);color:var(--blue)}
+.card.grading::before{background:var(--blue)}
+.meta-row.grading{color:var(--blue)}
+.meta-row.grading .ico{color:var(--blue)}
+
+/* ===== Bell notifikasi di app header ===== */
+.bell{
+  position:relative;width:34px;height:34px;border-radius:11px;
+  display:grid;place-items:center;color:var(--muted);
+  border:1px solid var(--line);background:var(--surface);
+  cursor:pointer;transition:.15s ease;
+}
+.bell:hover{color:var(--ink);border-color:#DDD5CE}
+.bell .bdg{
+  position:absolute;top:-3px;right:-3px;min-width:16px;height:16px;padding:0 4px;
+  background:var(--orange);color:#fff;font-size:9.5px;font-weight:800;
+  border-radius:9px;display:grid;place-items:center;border:2px solid var(--surface);
+}
+.head-actions{display:flex;align-items:center;gap:9px}
+
+/* ===== Screen: Exam Submitted (menunggu penilaian) ===== */
+.submitted{padding:34px 20px 10px;text-align:center}
+.sub-ico{
+  width:74px;height:74px;border-radius:50%;margin:0 auto;
+  background:var(--orange-tint);color:var(--orange);
+  display:grid;place-items:center;
+}
+.submitted h1{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-top:18px}
+.submitted .ssub{font-size:14px;color:var(--muted);line-height:1.6;margin-top:9px;padding:0 8px}
+
+/* Timeline status penilaian */
+.tl{margin:22px 20px 8px;background:#FBFAF9;border:1px solid var(--line);border-radius:16px;padding:18px 18px 10px;text-align:left}
+.tl-title{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+.tl-step{display:flex;gap:13px;position:relative;padding-bottom:20px}
+.tl-step:last-child{padding-bottom:8px}
+.tl-step::before{
+  content:"";position:absolute;left:11px;top:26px;bottom:0;width:2px;background:var(--line);
+}
+.tl-step:last-child::before{display:none}
+.tl-dot{
+  width:24px;height:24px;border-radius:50%;flex:none;z-index:1;
+  display:grid;place-items:center;
+  background:var(--line);color:var(--faint);
+}
+.tl-step.done .tl-dot{background:var(--green);color:#fff}
+.tl-step.active .tl-dot{background:var(--orange);color:#fff;box-shadow:0 0 0 5px var(--orange-tint)}
+.tl-body{flex:1;min-width:0;padding-top:2px}
+.tl-t{font-size:13.5px;font-weight:700}
+.tl-step.active .tl-t{color:var(--orange)}
+.tl-s{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.45}
+.tl-time{font-size:11px;color:var(--faint);font-weight:600;margin-top:3px}
+
+/* ===== Screen: Notifications ===== */
+.notif-wrap{padding:6px 20px 20px}
+.notif-day{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:18px 0 10px}
+.notif{
+  display:flex;gap:12px;align-items:flex-start;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:14px 15px;margin-bottom:10px;cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease;
+  position:relative;
+}
+.notif:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(27,22,19,.07)}
+.notif.unread{background:var(--orange-tint-2);border-color:var(--orange-tint)}
+.notif.unread::after{
+  content:"";position:absolute;top:16px;right:14px;width:8px;height:8px;border-radius:50%;background:var(--orange);
+}
+.notif-ico{
+  width:38px;height:38px;border-radius:11px;flex:none;
+  display:grid;place-items:center;
+  background:var(--orange-tint);color:var(--orange);
+}
+.notif-ico.score{background:var(--green-tint);color:var(--green)}
+.notif-ico.grading{background:var(--blue-tint);color:var(--blue)}
+.notif-ico.deadline{background:#FBF0E0;color:var(--amber)}
+.notif-body{flex:1;min-width:0;padding-right:10px}
+.notif-t{font-size:13.5px;font-weight:700;line-height:1.35}
+.notif-s{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+.notif-s b{color:var(--ink)}
+.notif-time{font-size:11px;color:var(--faint);font-weight:600;margin-top:6px}
+
+/* ===== Anti-skip: bab terkunci, wajib berurutan ===== */
+.chapter.locked{opacity:.45;pointer-events:none;cursor:default}
+.chapter.locked .ch-type{background:var(--line);color:var(--faint)}
+.chapter.locked .ch-kind{color:var(--amber)}
+.exam.locked{background:#FBFAF9;border-color:var(--line)}
+.exam.locked .exam-ico{background:#CFC8C1;box-shadow:none}
+.btn.disabled{background:var(--line)!important;color:var(--faint)!important;pointer-events:none;transform:none;box-shadow:none}
+
+/* Hint kecil di bawah tombol yang masih terkunci */
+.gate-hint{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  font-size:11.5px;font-weight:600;color:var(--faint);
+  margin-top:9px;text-align:center;
+}
+.gate-hint svg{flex:none}
+.gate-hint.ok{color:var(--green)}
+
+/* Badge "selesai ditonton" pada player video */
+.pwatched{
+  position:absolute;z-index:3;left:10px;top:10px;
+  display:none;align-items:center;gap:5px;
+  background:rgba(62,142,90,.94);color:#fff;
+  font-size:11px;font-weight:700;padding:4px 9px;border-radius:8px;
+}
+.player.watched .pwatched{display:inline-flex}
+.player.watched{cursor:default}
+.player.watched .pplay{opacity:0;pointer-events:none}
+
+/* ===== Deadline / tenggat pada card ===== */
+.due{
+  display:flex;align-items:center;gap:7px;margin-top:10px;
+  font-size:11.5px;font-weight:700;color:var(--muted);
+}
+.due svg{flex:none;color:var(--faint)}
+.due.warn{color:var(--amber)}
+.due.warn svg{color:var(--amber)}
+.due.danger{color:var(--red-deep)}
+.due.danger svg{color:var(--red-deep)}
+.due .chip{
+  font-size:10px;font-weight:800;padding:2px 7px;border-radius:8px;
+  background:var(--line);color:var(--muted);
+}
+.due.warn .chip{background:#FBF0E0;color:var(--amber)}
+.due.danger .chip{background:var(--red-tint);color:var(--red-deep)}
+
+/* ===== Leaderboard ===== */
+/* Satu baris, geser horizontal — scrollbar disembunyikan */
+.lb-filter{
+  display:flex;gap:7px;padding:4px 20px 16px;
+  flex-wrap:nowrap;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.lb-filter::-webkit-scrollbar{display:none}
+.lb-chip{
+  font:inherit;font-size:12px;font-weight:700;color:var(--muted);
+  background:var(--surface);border:1.5px solid var(--line);border-radius:999px;
+  padding:7px 14px;cursor:pointer;
+  flex:0 0 auto;white-space:nowrap;
+}
+.lb-chip.active{background:var(--ink);border-color:var(--ink);color:#fff}
+
+.podium{
+  display:flex;align-items:flex-end;justify-content:center;gap:12px;
+  padding:8px 20px 22px;border-bottom:1px solid var(--line-2);
+}
+.pod{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;max-width:104px}
+.pod .av{
+  width:56px;height:56px;border-radius:50%;
+  display:grid;place-items:center;font-weight:800;font-size:17px;color:#fff;
+  background:var(--faint);position:relative;
+}
+.pod.first .av{width:68px;height:68px;font-size:20px;background:var(--orange);box-shadow:0 8px 20px rgba(248,148,31,.35)}
+.pod.second .av{background:#8FA3B8}
+.pod.third .av{background:#C6926B}
+.pod .crown{position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:15px}
+.pod .nm{font-size:12.5px;font-weight:700;text-align:center;line-height:1.25}
+.pod .pt{font-size:11.5px;font-weight:800;color:var(--orange)}
+.pod .step{
+  width:100%;border-radius:10px 10px 0 0;background:var(--line);
+  display:grid;place-items:center;font-weight:800;color:var(--muted);font-size:14px;
+}
+.pod.first .step{height:52px;background:var(--orange-tint);color:var(--orange)}
+.pod.second .step{height:38px}
+.pod.third .step{height:28px}
+
+.lb-list{padding:14px 20px 22px}
+.lb-row{
+  display:flex;align-items:center;gap:12px;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:11px 14px;margin-bottom:9px;
+}
+.lb-row.me{background:var(--orange-tint-2);border-color:var(--orange-tint)}
+.lb-rank{width:24px;flex:none;font-size:13px;font-weight:800;color:var(--faint);text-align:center}
+.lb-row.me .lb-rank{color:var(--orange)}
+.lb-av{
+  width:36px;height:36px;border-radius:50%;flex:none;
+  display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;background:var(--faint);
+}
+.lb-row.me .lb-av{background:var(--orange)}
+.lb-body{flex:1;min-width:0}
+.lb-nm{font-size:13.5px;font-weight:700}
+.lb-sub{font-size:11px;color:var(--faint);font-weight:600;margin-top:1px}
+.lb-pt{font-size:13px;font-weight:800;color:var(--ink);white-space:nowrap}
+.lb-pt small{font-size:10px;color:var(--faint);font-weight:700}
+.lb-delta{font-size:10.5px;font-weight:800;margin-top:2px;text-align:right}
+.lb-delta.up{color:var(--green)}
+.lb-delta.downs{color:var(--red-deep)}
+
+/* ===== Kelas Saya: pencarian ===== */
+.search{
+  margin:4px 20px 12px;
+  display:flex;align-items:center;gap:9px;
+  background:#FBFAF9;border:1.5px solid var(--line);border-radius:13px;
+  padding:11px 14px;
+}
+.search svg{color:var(--faint);flex:none}
+.search input{
+  border:0;background:none;font:inherit;font-size:13.5px;
+  flex:1;outline:none;color:var(--ink);min-width:0;
+}
+.search input::placeholder{color:var(--faint)}
+
+/* ===== Profil & badge sertifikasi ===== */
+.pf-head{display:flex;align-items:center;gap:14px;padding:18px 20px 4px}
+.pf-av{
+  width:62px;height:62px;border-radius:50%;flex:none;
+  display:grid;place-items:center;font-weight:800;font-size:20px;color:#fff;
+  background:var(--orange);box-shadow:0 6px 16px rgba(248,148,31,.3);
+}
+.pf-name{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.pf-role{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px}
+.pf-stats{display:flex;gap:10px;padding:16px 20px 6px}
+.pf-stat{flex:1;background:#FBFAF9;border:1px solid var(--line);border-radius:14px;padding:13px 8px;text-align:center}
+.pf-num{font-size:18px;font-weight:800;color:var(--orange)}
+.pf-cap{font-size:10.5px;color:var(--muted);font-weight:700;margin-top:3px}
+
+.badges-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:4px 20px 6px}
+.badge-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:14px 8px 12px;text-align:center;
+}
+.badge-ico{
+  width:46px;height:46px;border-radius:50%;margin:0 auto 8px;
+  display:grid;place-items:center;font-size:21px;
+  background:var(--orange-tint);
+}
+.badge-card .bn{font-size:11px;font-weight:800;line-height:1.3}
+.badge-card .bd{font-size:9.5px;color:var(--faint);font-weight:600;margin-top:3px;line-height:1.35}
+.badge-card.locked{background:#FBFAF9}
+.badge-card.locked .badge-ico{background:var(--line);filter:grayscale(1);opacity:.55}
+.badge-card.locked .bn{color:var(--faint)}
+
+.cert-list{padding:6px 20px 24px}
+.cert{
+  display:flex;align-items:center;gap:12px;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:13px 14px;margin-bottom:9px;
+}
+.cert-ico{
+  width:38px;height:38px;border-radius:11px;flex:none;
+  display:grid;place-items:center;background:var(--green-tint);color:var(--green);
+}
+.cert-body{flex:1;min-width:0}
+.cert-t{font-size:13px;font-weight:700;line-height:1.3}
+.cert-s{font-size:11px;color:var(--muted);font-weight:600;margin-top:2px}
+.cert-dl{
+  font-size:11.5px;font-weight:800;color:var(--orange);white-space:nowrap;
+  border:1.5px solid var(--orange-tint);background:var(--orange-tint-2);
+  padding:7px 11px;border-radius:10px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .pscrub span,.qbar span{transition:none;animation:none}
+}
+
+</style>
+</head>
+<body>
+
+  <div class="preview-bar">
+    <span class="eyebrow">08 · Notifikasi</span>
+    <a class="screen-name" href="all-screens.html">Semua screen →</a>
+  </div>
+
+  <div class="phone">
+    <div class="notch"></div>
+
+    <div class="app-head">
+      <div class="brand" aria-label="Toffin E-Learning">
+        <div class="wm-logo">
+          <span>TOFF</span><svg class="fl" viewBox="0 0 16 24" width="9" height="15" fill="var(--orange)" aria-hidden="true"><path d="M9.6 0c.7 3.6-.9 5.6-2.5 7.6C5.7 9.4 4.5 11.2 5 13.7c.5 2.6 2.5 4.6 5.1 5-1.2-1.6-1.4-3.4-.5-5.2.6-1.3 1.7-2.3 2.5-3.6C13.9 6.9 12.6 2.7 9.6 0z"/></svg><span>N</span>
+          <span class="gap"></span>
+          <span><span class="e">E</span>-LEARNING</span>
+        </div>
+      </div>
+      <span class="role-badge"><span class="dot"></span>Sales</span>
+    </div>
+
+    <div class="screen">
+      <div class="detail-head" style="padding-top:6px">
+        <a class="back" href="index.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          Beranda
+        </a>
+      </div>
+
+      <div class="hello" style="padding-top:2px">
+        <h1>Notifikasi</h1>
+        <p>Info nilai, tenggat, dan modul baru</p>
+      </div>
+
+      <div class="notif-wrap">
+        <div class="notif-day">Hari Ini</div>
+
+        <!-- Notifikasi utama flow: skor sudah dipublish → tap ke hasil -->
+        <a class="notif unread" href="exam-result.html">
+          <span class="notif-ico score">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13.5V22l4-2 4 2v-8.5"/><circle cx="12" cy="9" r="6"/><path d="M10 9l1.5 1.5L14.5 7.5"/></svg>
+          </span>
+          <div class="notif-body">
+            <div class="notif-t">Nilai kamu sudah keluar 🎉</div>
+            <div class="notif-s"><b>Pengenalan Rangkaian Mesin Espresso</b> — kamu lulus dengan nilai <b>80%</b>. Ketuk untuk melihat rinciannya.</div>
+            <div class="notif-time">Baru saja</div>
+          </div>
+        </a>
+
+        <a class="notif unread" href="profile.html">
+          <span class="notif-ico">
+            <span style="font-size:18px">🏅</span>
+          </span>
+          <div class="notif-body">
+            <div class="notif-t">Badge baru untukmu!</div>
+            <div class="notif-s">Kamu meraih badge <b>Espresso Specialist</b> setelah lulus ujian. Lihat koleksi badge di profilmu.</div>
+            <div class="notif-time">Baru saja</div>
+          </div>
+        </a>
+
+        <a class="notif" href="exam-submitted.html">
+          <span class="notif-ico grading">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <div class="notif-body">
+            <div class="notif-t">Jawaban diterima — sedang dinilai</div>
+            <div class="notif-s">Jawabanmu untuk <b>Pengenalan Rangkaian Mesin Espresso</b> sedang dalam proses penilaian. Kami kabari begitu nilainya keluar.</div>
+            <div class="notif-time">10:42</div>
+          </div>
+        </a>
+
+        <div class="notif-day">Sebelumnya</div>
+
+        <a class="notif" href="index.html">
+          <span class="notif-ico deadline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>
+          </span>
+          <div class="notif-body">
+            <div class="notif-t">Tenggat sudah dekat</div>
+            <div class="notif-s"><b>Consultative Selling untuk HoReCa</b> ditutup <b>15 Agu</b> dan kamu belum memulai modulnya.</div>
+            <div class="notif-time">Kemarin · 09:00</div>
+          </div>
+        </a>
+
+        <a class="notif" href="class-detail.html">
+          <span class="notif-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>
+          </span>
+          <div class="notif-body">
+            <div class="notif-t">Modul baru untukmu</div>
+            <div class="notif-s"><b>Pengenalan Rangkaian Mesin Espresso</b> sudah masuk daftar belajarmu untuk periode Juli.</div>
+            <div class="notif-time">1 Jul · 08:30</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <a class="tab active" href="index.html">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg>
+        Beranda
+      </a>
+      <a class="tab" href="my-classes.html">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>
+        Kelas Saya
+      </a>
+      <a class="tab" href="leaderboard.html">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+        Peringkat
+      </a>
+      <a class="tab" href="profile.html">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        Profil
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
