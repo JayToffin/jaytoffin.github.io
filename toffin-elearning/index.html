@@ -613,15 +613,15 @@ svg{display:block}
   font-size:11.5px;font-weight:700;color:var(--muted);
 }
 .due svg{flex:none;color:var(--faint)}
-.due.warn{color:var(--amber)}
-.due.warn svg{color:var(--amber)}
+.due.warn{color:var(--orange)}
+.due.warn svg{color:var(--orange)}
 .due.danger{color:var(--red-deep)}
 .due.danger svg{color:var(--red-deep)}
 .due .chip{
   font-size:10px;font-weight:800;padding:2px 7px;border-radius:8px;
   background:var(--line);color:var(--muted);
 }
-.due.warn .chip{background:#FBF0E0;color:var(--amber)}
+.due.warn .chip{background:var(--orange-tint);color:var(--orange)}
 .due.danger .chip{background:var(--red-tint);color:var(--red-deep)}
 .card.retake .due.danger .chip{background:#F6D7CB}
 
@@ -853,7 +853,7 @@ const DATA = {
     {id:'s5',cat:'Brand',title:'Kisah Brand: Victoria Arduino & Nuova Simonelli',status:'done',progress:100,nilai:89}
   ],
   trainer:[
-    {id:'t1',cat:'Keterampilan Barista',title:'Dasar-Dasar Barista',status:'todo',progress:60,period:'1 – 26 Jul 2026',due:'Tenggat 26 Jul',left:'sisa 2 hari',urgency:'danger'},
+    {id:'t1',cat:'Keterampilan Barista',title:'Dasar-Dasar Barista',status:'todo',progress:60,period:'1 – 26 Jul 2026',due:'Tenggat 26 Jul',left:'sisa 2 hari',urgency:'warn'},
     {id:'t2',cat:'Coaching',title:'Metode Coaching Latte Art',status:'todo',progress:0,period:'10 Jul – 10 Agu 2026',due:'Tenggat 10 Agu',left:'sisa 17 hari',urgency:''},
     {id:'t5',cat:'Sensory',title:'Dasar Sensory & Cupping',status:'grading',submitted:'Selesai 22 Jul'},
     {id:'t3',cat:'Delivery',title:'Membawakan Demo Produk',status:'retake',progress:100,due:'Tenggat 29 Jul',left:'sisa 1 hari',urgency:'danger'},
@@ -863,7 +863,7 @@ const DATA = {
     {id:'e1',cat:'Perawatan Preventif',title:'Victoria Arduino E1 — Perawatan Preventif',status:'todo',progress:30,period:'1 – 31 Jul 2026',due:'Tenggat 31 Jul',left:'sisa 7 hari',urgency:'warn'},
     {id:'e2',cat:'Kalibrasi',title:'Kalibrasi Grinder Eureka',status:'todo',progress:0,period:'15 Jul – 15 Agu 2026',due:'Tenggat 15 Agu',left:'sisa 22 hari',urgency:''},
     {id:'e5',cat:'Diagnostik',title:'Diagnostik Mesin Espresso Level 1',status:'grading',submitted:'Selesai 23 Jul'},
-    {id:'e3',cat:'Troubleshooting',title:'Troubleshooting Boiler & Sistem Air',status:'retake',progress:100,due:'Tenggat 31 Jul',left:'sisa 3 hari',urgency:'warn'},
+    {id:'e3',cat:'Troubleshooting',title:'Troubleshooting Boiler & Sistem Air',status:'retake',progress:100,due:'Tenggat 31 Jul',left:'sisa 3 hari',urgency:'danger'},
     {id:'e4',cat:'Instalasi',title:'Standar Instalasi Nuova Simonelli',status:'done',progress:100,nilai:85}
   ]
 };
