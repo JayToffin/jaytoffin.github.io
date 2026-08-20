@@ -594,7 +594,7 @@ section { padding: 110px 0; }
 .countdown-label {
     font-family: var(--font-serif);
     font-style: italic;
-    color: var(--cream);
+    color: #fffaf0;
     font-size: clamp(17px, 2vw, 22px);
     margin-bottom: 28px;
 }
@@ -605,11 +605,12 @@ section { padding: 110px 0; }
     flex-wrap: wrap;
 }
 .cd-box {
-    background: rgba(250, 243, 225, .07);
-    border: 1px solid rgba(250, 243, 225, .14);
+    background: rgba(250, 243, 225, .14);
+    border: 1px solid rgba(248, 148, 31, .45);
     border-radius: 18px;
     min-width: 96px;
     padding: 18px 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(250, 243, 225, .18);
 }
 .cd-box span {
     font-family: var(--font-serif);
@@ -618,14 +619,16 @@ section { padding: 110px 0; }
     color: var(--orange);
     line-height: 1;
     display: block;
+    text-shadow: 0 0 26px rgba(248, 148, 31, .55);
 }
 .cd-box small {
     display: block;
     margin-top: 8px;
     font-size: 12px;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: .16em;
-    color: rgba(250, 243, 225, .65);
+    color: #fdf6e3;
 }
 
 .city-grid {
