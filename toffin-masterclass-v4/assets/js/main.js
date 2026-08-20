@@ -91,3 +91,46 @@ const updateCountdown = () => {
 };
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// Beli tiket: mobile view → redirect ke store sesuai device; desktop view → popup QR untuk di-scan
+const qrModal = document.getElementById('qrModal');
+const buyBtn = document.getElementById('buyTicketBtn');
+const STORE_LINKS = {
+    android: 'https://play.google.com/store/apps/details?id=id.toffin.app',
+    ios: 'https://apps.apple.com/id/app/toffin-app/id6449521024',
+    fallback: 'https://qrco.de/bdBvQn' // dynamic link (sama dengan isi QR)
+};
+// Deteksi perangkat mobile ASLI (bukan dari lebar jendela — Mac/PC jendela sempit tetap desktop)
+const getMobileOS = () => {
+    const ua = navigator.userAgent;
+    if (/android/i.test(ua)) return 'android';
+    // iPhone/iPad/iPod; iPadOS 13+ menyamar sebagai "Macintosh" → bedakan lewat layar sentuh
+    if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1))
+        return 'ios';
+    return null;
+};
+
+const openQr = () => {
+    qrModal.hidden = false;
+    requestAnimationFrame(() => qrModal.classList.add('open'));
+    document.body.style.overflow = 'hidden';
+};
+const closeQr = () => {
+    qrModal.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { qrModal.hidden = true; }, 300);
+};
+
+buyBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const os = getMobileOS();
+    if (os) {
+        window.location.href = STORE_LINKS[os]; // Android → Play Store, iOS → App Store
+        return;
+    }
+    openQr(); // desktop (termasuk Mac): tampilkan QR untuk di-scan
+});
+qrModal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeQr));
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !qrModal.hidden) closeQr();
+});

@@ -564,8 +564,8 @@
                         <li>Merchandise eksklusif event</li>
                         <li>Special diskon produk Toffin hingga 25%</li>
                     </ul>
-                    <a class="btn btn-orange btn-block" href="https://toffin.id" target="_blank" rel="noopener">
-                        Beli Tiket di Toffin App</a>
+                    <a class="btn btn-orange btn-block" id="buyTicketBtn" href="https://qrco.de/bdBvQn"
+                        target="_blank" rel="noopener">Beli Tiket di Toffin App</a>
                     <p class="ticket-note">Tiket tersedia di Toffin App</p>
                 </div>
                 <div class="merch-card reveal">
@@ -596,6 +596,19 @@
             <p class="footer-copy">© 2026 Toffin Indonesia · Master in The Making</p>
         </div>
     </footer>
+
+    <!-- ======= QR MODAL ======= -->
+    <div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-label="Beli tiket di Toffin App" hidden>
+        <div class="qr-backdrop" data-close></div>
+        <div class="qr-card">
+            <button class="qr-close" data-close aria-label="Tutup">&times;</button>
+            <h3 class="qr-title">Scan untuk Download</h3>
+            <img class="qr-app-logo" src="assets/img/toffin-app-logo.png" alt="Toffin App">
+            <div class="qr-img-wrap">
+                <img src="assets/img/qr-toffin-app.png" alt="QR code download Toffin App">
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>

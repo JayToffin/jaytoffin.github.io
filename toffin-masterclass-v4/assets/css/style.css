@@ -517,6 +517,7 @@ section { padding: 110px 0; }
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
 }
 .journey-step {
     display: flex;
@@ -1021,6 +1022,81 @@ section { padding: 110px 0; }
     font-size: 16.5px;
 }
 
+/* ================= QR MODAL ================= */
+.qr-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+.qr-modal[hidden] { display: none; }
+.qr-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 4, 4, .75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+.qr-card {
+    position: relative;
+    background: var(--cream);
+    border-radius: 26px;
+    padding: 42px 38px 36px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 40px 90px rgba(0, 0, 0, .5);
+    opacity: 0;
+    transform: translateY(18px) scale(.96);
+    transition: opacity .3s ease, transform .3s ease;
+}
+.qr-modal.open .qr-backdrop { opacity: 1; }
+.qr-modal.open .qr-card { opacity: 1; transform: translateY(0) scale(1); }
+.qr-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: 0;
+    font-size: 30px;
+    line-height: 1;
+    color: rgba(43, 20, 16, .5);
+    cursor: pointer;
+    transition: color .25s;
+}
+.qr-close:hover { color: var(--red); }
+.qr-title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 1.25;
+    color: var(--maroon-deep);
+}
+.qr-title em {
+    font-style: italic;
+    color: var(--orange-deep);
+}
+.qr-app-logo {
+    display: block;
+    height: 20px;
+    width: auto;
+    margin: 14px auto 0;
+}
+.qr-img-wrap {
+    background: #fff;
+    border: 1px solid rgba(158, 20, 16, .15);
+    border-radius: 18px;
+    padding: 16px;
+    width: 216px;
+    margin: 22px auto 4px;
+    box-shadow: 0 14px 34px rgba(66, 8, 6, .12);
+}
+.qr-img-wrap img { width: 100%; display: block; }
+
 /* ================= FOOTER ================= */
 .footer {
     background: var(--black);
@@ -1080,7 +1156,49 @@ section { padding: 110px 0; }
     .welcome-badge { left: 12px; bottom: 16px; padding: 16px 20px; }
     .pair-photos figure { height: 170px; }
     .pair-names { gap: 20px; }
-    .cd-box { min-width: 76px; padding: 14px 8px; }
+    .cd-box { min-width: 70px; padding: 14px 8px; }
     .cd-box span { font-size: 30px; }
-    .g-item { width: 190px; height: 250px; }
+    .g-item { width: 170px; height: 220px; }
+
+    /* Mobile compact: pangkas tinggi halaman */
+    section { padding: 60px 0; }
+    .section-head { margin-bottom: 36px; }
+    .hero { padding-top: 115px; padding-bottom: 56px; }
+    .hero-visual { display: none; }
+    .hero-glow { width: 520px; height: 520px; right: -160px; top: -120px; }
+    .hero-desc { margin-top: 14px; }
+    .hero-meta { margin-top: 22px; }
+    .hero-actions { margin-top: 28px; }
+    .scroll-hint { display: none; }
+    .marquee { padding: 14px 0; }
+    .welcome-grid { gap: 36px; }
+    .welcome-photo img { height: 280px; }
+    .welcome-copy .section-title { margin-bottom: 20px; }
+    .event-types { margin-top: 24px; }
+    .event-type { padding: 18px 20px; }
+    .stats { margin-top: 52px; padding-top: 34px; }
+    .stats-grid { gap: 14px; row-gap: 26px; }
+    .journey-grid { gap: 18px; }
+    .journey-img { height: auto; }
+    .journey-img img { height: auto; aspect-ratio: 16 / 9; }
+    .journey-body { padding: 22px 20px 24px; }
+    .journey-desc { font-size: 14px; }
+    .countdown { padding: 28px 14px; margin-bottom: 36px; }
+    .countdown-grid { gap: 10px; }
+    .countdown-label { margin-bottom: 20px; }
+    .city-grid { gap: 14px; }
+    .city-card { padding: 22px 20px; }
+    .city-name { font-size: 26px; margin: 4px 0 10px; }
+    .city-sessions li { padding: 9px 0; }
+    .pair-grid { gap: 16px; }
+    .pair-card { padding: 18px; }
+    .venue-grid { gap: 16px; }
+    .venue-card { padding: 26px 22px; }
+    .venue-icon { margin-bottom: 16px; }
+    .cocreation .section-head { margin-bottom: 32px; }
+    .gallery-marquee { padding-bottom: 60px; }
+    .ticket-grid { gap: 18px; }
+    .ticket-card, .merch-card { padding: 30px 24px; }
+    .merch-img { width: 68%; }
+    .cta-banner { padding: 64px 0; }
 }
