@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,300..700&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -20,16 +20,20 @@
 
     <!-- ======= NAVBAR ======= -->
     <header class="navbar" id="navbar">
+        <span class="nav-progress" id="navProgress"></span>
         <div class="container nav-inner">
             <a href="#home" class="nav-logo">
                 <img src="assets/img/logo-tm4.png" alt="Toffin Masterclass 4.0">
             </a>
             <nav class="nav-links" id="navLinks">
-                <a href="#konsep">Konsep</a>
-                <a href="#jadwal">Jadwal</a>
-                <a href="#mentor">Mentor</a>
-                <a href="#venue">Venue</a>
-                <a href="#tiket" class="btn btn-orange btn-sm">Dapatkan Tiket</a>
+                <div class="nav-pill" id="navPill">
+                    <span class="nav-indicator" id="navIndicator"></span>
+                    <a href="#konsep" data-i="01">Konsep</a>
+                    <a href="#jadwal" data-i="02">Jadwal</a>
+                    <a href="#mentor" data-i="03">Mentor</a>
+                    <a href="#venue" data-i="04">Venue</a>
+                </div>
+                <a href="#tiket" class="btn btn-orange btn-sm nav-cta">Dapatkan Tiket</a>
             </nav>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span><span></span><span></span>
@@ -41,7 +45,7 @@
     <section class="hero" id="home">
         <div class="hero-glow"></div>
         <div class="container hero-inner">
-            <div class="hero-copy reveal">
+            <div class="hero-copy">
                 <p class="eyebrow"><span class="dot"></span> Toffin Masterclass 4.0</p>
                 <h1 class="hero-title">
                     <em>Master</em> in<br>The <em>Making</em>
@@ -52,16 +56,16 @@
                     ke balik meja bar, hingga ke meja sajian.
                 </p>
                 <div class="hero-meta">
-                    <span class="chip">5 Kota</span>
-                    <span class="chip">September – Oktober 2026</span>
-                    <span class="chip">500+ Peserta Workshop</span>
+                    <span>5 Kota</span>
+                    <span>September – Oktober 2026</span>
+                    <span>500+ Peserta Workshop</span>
                 </div>
                 <div class="hero-actions">
                     <a href="#tiket" class="btn btn-orange">Dapatkan Tiket</a>
                     <a href="#jadwal" class="btn btn-ghost">Lihat Jadwal</a>
                 </div>
             </div>
-            <div class="hero-visual reveal">
+            <div class="hero-visual">
                 <div class="hero-img-wrap">
                     <img src="assets/img/hero-cocktail.png" alt="Sajian co-creation Toffin Masterclass" class="hero-img">
                 </div>
@@ -102,7 +106,7 @@
     <section class="welcome section-cream" id="welcome">
         <div class="container">
             <div class="welcome-grid">
-                <div class="welcome-copy reveal">
+                <div class="welcome-copy reveal reveal-left">
                     <p class="section-label">New Concept — TM 4.0</p>
                     <h2 class="section-title">Welcome Back,<br><em>Fellas</em></h2>
                     <p>
@@ -129,9 +133,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="welcome-visual reveal">
+                <div class="welcome-visual reveal reveal-right" style="--d:.12s">
                     <figure class="welcome-photo">
-                        <img src="assets/img/welcome-crowd.jpg" alt="Suasana Toffin Masterclass" loading="lazy">
+                        <img src="assets/img/welcome-crowd.jpg" alt="Suasana Toffin Masterclass" loading="lazy"
+                            data-parallax="0.1">
                     </figure>
                     <div class="welcome-badge">
                         <p class="badge-num">4.0</p>
@@ -167,61 +172,53 @@
                     Hingga ke <em>Meja Sajian</em></h2>
             </div>
             <div class="journey-grid">
-                <article class="journey-card reveal">
-                    <div class="journey-img">
-                        <img src="assets/img/journey-sharing.jpg" alt="Sesi Sharing" loading="lazy">
+                <article class="journey-card reveal reveal-tilt" style="--d:0s">
+                    <img class="journey-bg" src="assets/img/journey-sharing.jpg" alt="Sesi Sharing" loading="lazy">
+                    <div class="journey-overlay"></div>
+                    <div class="journey-top">
+                        <span class="journey-index">01</span>
+                        <span class="journey-tag">45 Menit · Brand Owner</span>
                     </div>
-                    <div class="journey-body">
-                        <div class="journey-step"><span class="journey-index">01</span><span class="journey-rule"></span></div>
+                    <div class="journey-content">
                         <h3>Sharing</h3>
                         <p class="journey-sub">Brand &amp; Business Journey</p>
                         <p class="journey-desc">
                             Langsung dari yang punya brand! Pemilik bisnis F&amp;B sharing soal tren dan update
-                            industri terkini. Bukan teori — insight dari pengalaman nyata yang bisa langsung
-                            kamu contek buat naikin level bisnismu.
+                            industri terkini — insight nyata yang bisa langsung kamu contek buat naikin
+                            level bisnismu.
                         </p>
-                        <div class="journey-meta">
-                            <span class="chip chip-red">45 Menit</span>
-                            <span class="chip chip-red">Brand Owner</span>
-                        </div>
                     </div>
                 </article>
-                <article class="journey-card reveal">
-                    <div class="journey-img">
-                        <img src="assets/img/journey-crafting.jpg" alt="Sesi Crafting" loading="lazy">
+                <article class="journey-card reveal reveal-tilt" style="--d:.12s">
+                    <img class="journey-bg" src="assets/img/journey-crafting.jpg" alt="Sesi Crafting" loading="lazy">
+                    <div class="journey-overlay"></div>
+                    <div class="journey-top">
+                        <span class="journey-index">02</span>
+                        <span class="journey-tag">45 Menit · Guest Star</span>
                     </div>
-                    <div class="journey-body">
-                        <div class="journey-step"><span class="journey-index">02</span><span class="journey-rule"></span></div>
+                    <div class="journey-content">
                         <h3>Crafting</h3>
-                        <p class="journey-sub">Bar Workflow · Machine &amp; Ingredients Update</p>
+                        <p class="journey-sub">Bar Workflow · Machine &amp; Ingredients</p>
                         <p class="journey-desc">
-                            Waktunya turun ke bar! Saksikan langsung aksi guest star bareng tim barista brand
-                            ternama. Workflow yang efisien, mesin yang bikin rasa selalu konsisten — backstage
-                            pass yang jarang banget kamu dapet.
+                            Waktunya turun ke bar! Saksikan aksi guest star bareng tim barista brand ternama —
+                            backstage pass yang jarang banget kamu dapet.
                         </p>
-                        <div class="journey-meta">
-                            <span class="chip chip-red">45 Menit</span>
-                            <span class="chip chip-red">Guest Star</span>
-                        </div>
                     </div>
                 </article>
-                <article class="journey-card reveal">
-                    <div class="journey-img">
-                        <img src="assets/img/journey-cocreating.jpg" alt="Sesi Co-Creating" loading="lazy">
+                <article class="journey-card reveal reveal-tilt" style="--d:.24s">
+                    <img class="journey-bg" src="assets/img/journey-cocreating.jpg" alt="Sesi Co-Creating" loading="lazy">
+                    <div class="journey-overlay"></div>
+                    <div class="journey-top">
+                        <span class="journey-index">03</span>
+                        <span class="journey-tag">60 Menit · Guest Star × Toffin</span>
                     </div>
-                    <div class="journey-body">
-                        <div class="journey-step"><span class="journey-index">03</span><span class="journey-rule"></span></div>
+                    <div class="journey-content">
                         <h3>Co-Creating</h3>
                         <p class="journey-sub">Beverages &amp; Sweets</p>
                         <p class="journey-desc">
-                            Ini highlight-nya! Nikmati menu eksklusif hasil kolaborasi guest star × Toffin
-                            Flavour Engineer. Bukan cuma soal rasa — perpaduan ide dan kreativitas yang
-                            melahirkan sesuatu yang baru. Kolaborasi level next!
+                            Ini highlight-nya! Nikmati menu eksklusif hasil kolaborasi guest star ×
+                            Toffin Flavour Engineer — kolaborasi level next!
                         </p>
-                        <div class="journey-meta">
-                            <span class="chip chip-red">60 Menit</span>
-                            <span class="chip chip-red">Guest Star × Toffin Team</span>
-                        </div>
                     </div>
                 </article>
             </div>
@@ -236,7 +233,7 @@
                 <h2 class="section-title">Lima Kota, <em>Satu Perjalanan</em></h2>
             </div>
 
-            <div class="countdown reveal" id="countdown">
+            <div class="countdown reveal reveal-scale" id="countdown">
                 <p class="countdown-label" id="countdownLabel">Kota pertama — Semarang, Selasa 22 September 2026</p>
                 <div class="countdown-grid">
                     <div class="cd-box"><span id="cdDays">00</span><small>Hari</small></div>
@@ -246,8 +243,8 @@
                 </div>
             </div>
 
-            <div class="city-grid reveal">
-                <article class="city-card">
+            <div class="city-grid">
+                <article class="city-card reveal reveal-up-lg" style="--d:0s">
                     <div class="city-head">
                         <p class="city-date">Selasa · 22 September 2026</p>
                         <span class="city-seat">20 Seat/Kelas</span>
@@ -269,7 +266,7 @@
                         </li>
                     </ul>
                 </article>
-                <article class="city-card">
+                <article class="city-card reveal reveal-up-lg" style="--d:.08s">
                     <div class="city-head">
                         <p class="city-date">Rabu · 30 September 2026</p>
                         <span class="city-seat">20 Seat/Kelas</span>
@@ -291,7 +288,7 @@
                         </li>
                     </ul>
                 </article>
-                <article class="city-card">
+                <article class="city-card reveal reveal-up-lg" style="--d:.16s">
                     <div class="city-head">
                         <p class="city-date">Senin · 5 Oktober 2026</p>
                         <span class="city-seat">20 Seat/Kelas</span>
@@ -313,7 +310,7 @@
                         </li>
                     </ul>
                 </article>
-                <article class="city-card">
+                <article class="city-card reveal reveal-up-lg" style="--d:.24s">
                     <div class="city-head">
                         <p class="city-date">Kamis · 8 Oktober 2026</p>
                         <span class="city-seat">20 Seat/Kelas</span>
@@ -335,7 +332,7 @@
                         </li>
                     </ul>
                 </article>
-                <article class="city-card">
+                <article class="city-card reveal reveal-up-lg" style="--d:.32s">
                     <div class="city-head">
                         <p class="city-date">Senin · 12 Oktober 2026</p>
                         <span class="city-seat">20 Seat/Kelas</span>
@@ -357,7 +354,7 @@
                         </li>
                     </ul>
                 </article>
-                <article class="city-card city-card-cta">
+                <article class="city-card city-card-cta reveal reveal-up-lg" style="--d:.4s">
                     <p class="city-cta-text">Profil peserta</p>
                     <h3>Owner · Head R&amp;D · Head Bar</h3>
                     <p class="city-cta-note">500 peserta workshop + 4.000 pengunjung commercial area</p>
@@ -376,7 +373,7 @@
                 <h2 class="section-title light">Belajar Langsung dari <em>Para Master</em></h2>
             </div>
             <div class="pair-grid">
-                <article class="pair-card reveal">
+                <article class="pair-card reveal reveal-left" style="--d:0s">
                     <div class="pair-photos">
                         <figure><img src="assets/img/speakers/adi-suhendra.jpg" alt="Adi Suhendra" loading="lazy"></figure>
                         <span class="pair-x">×</span>
@@ -393,7 +390,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="pair-card reveal">
+                <article class="pair-card reveal reveal-right" style="--d:.1s">
                     <div class="pair-photos">
                         <figure><img src="assets/img/speakers/derry-kustiadihardjo.jpg" alt="Derry Kustiadihardjo" loading="lazy"></figure>
                         <span class="pair-x">×</span>
@@ -410,7 +407,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="pair-card reveal">
+                <article class="pair-card reveal reveal-left" style="--d:.15s">
                     <div class="pair-photos">
                         <figure><img src="assets/img/speakers/ronny-gunawan.jpg" alt="Ronny Gunawan" loading="lazy"></figure>
                         <span class="pair-x">×</span>
@@ -427,7 +424,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="pair-card reveal">
+                <article class="pair-card reveal reveal-right" style="--d:.25s">
                     <div class="pair-photos">
                         <figure><img src="assets/img/speakers/rayendra-abiyasa.jpg" alt="Rayendra Abiyasa" loading="lazy"></figure>
                         <span class="pair-x">×</span>
@@ -457,7 +454,7 @@
                 <h2 class="section-title light">Menu Kolaborasi <em>Guest Star × Toffin</em></h2>
             </div>
         </div>
-        <div class="gallery-marquee reveal" aria-hidden="true">
+        <div class="gallery-marquee reveal reveal-right" aria-hidden="true">
             <div class="gallery-track">
                 <figure class="g-item"><img src="assets/img/cocreation/menu-1.jpg" alt="" loading="lazy"></figure>
                 <figure class="g-item"><img src="assets/img/cocreation/menu-2.jpg" alt="" loading="lazy"></figure>
@@ -487,59 +484,70 @@
                 <h2 class="section-title">Tiga Area, <em>Satu Pengalaman</em></h2>
             </div>
             <div class="venue-grid">
-                <article class="venue-card reveal">
-                    <div class="venue-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 3h16l-8 9-8-9Z"/>
-                            <path d="M6.8 6.2h10.4" opacity=".55"/>
-                            <path d="M12 12v7M8 21h8"/>
-                            <path class="ic-accent" d="M19.5 12.2c.2 1.2.9 1.9 2.1 2.1-1.2.2-1.9.9-2.1 2.1-.2-1.2-.9-1.9-2.1-2.1 1.2-.2 1.9-.9 2.1-2.1Z"/>
-                        </svg>
+                <article class="venue-feature reveal reveal-clip">
+                    <img class="venue-bg" src="assets/img/omakase-audience.jpg" alt="Suasana Omakase Area" loading="lazy"
+                        data-parallax="0.08">
+                    <div class="venue-overlay"></div>
+                    <div class="venue-feature-top">
+                        <span class="journey-tag">Main Experience</span>
                     </div>
-                    <h3>Omakase Area</h3>
-                    <ul>
-                        <li>Konsep omakase — intim &amp; eksklusif</li>
-                        <li>2 sesi per hari · 20 audiens per sesi</li>
-                        <li>Ukuran 7m × 11m</li>
-                        <li>Audio partner: <strong>Sennheiser</strong></li>
-                    </ul>
-                </article>
-                <article class="venue-card reveal">
-                    <div class="venue-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4.4 4h15.2l1.4 4.2H3L4.4 4Z"/>
-                            <path class="ic-accent" d="M3 8.2a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/>
-                            <path d="M5 12.5V20h14v-7.5"/>
-                            <path d="M10 20v-4.5h4V20"/>
-                        </svg>
+                    <div class="venue-feature-body">
+                        <h3>Omakase Area</h3>
+                        <p class="venue-sub">Konsep omakase — intim &amp; eksklusif</p>
+                        <ul class="venue-specs">
+                            <li>2 Sesi / Hari</li>
+                            <li>20 Audiens / Sesi</li>
+                            <li>7 × 11 m</li>
+                            <li>Audio by Sennheiser</li>
+                        </ul>
                     </div>
-                    <h3>Commercial Area</h3>
-                    <ul>
-                        <li>Space khusus partner &amp; brand</li>
-                        <li>Free entry untuk pengunjung</li>
-                        <li>Area 10m × 10m · Tenant 3m × 3m</li>
-                        <li>Estimasi 4.000 pengunjung</li>
-                    </ul>
                 </article>
-                <article class="venue-card reveal">
-                    <div class="venue-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path class="ic-accent" d="M12 2.6c.35 2.1 1.55 3.3 3.65 3.65-2.1.35-3.3 1.55-3.65 3.65-.35-2.1-1.55-3.3-3.65-3.65 2.1-.35 3.3-1.55 3.65-3.65Z"/>
-                            <path d="M8.5 13h7l1.3 8H7.2l1.3-8Z"/>
-                            <path d="M5 21h14"/>
-                        </svg>
-                    </div>
-                    <h3>Showcase Area</h3>
-                    <ul>
-                        <li>Display produk Toffin</li>
-                        <li>Ukuran 4m × 4m</li>
-                        <li>Sales point di lokasi</li>
-                        <li>Diskon produk hingga 25%</li>
-                    </ul>
-                </article>
+                <div class="venue-side">
+                    <article class="venue-card reveal reveal-right" style="--d:.18s">
+                        <div class="venue-card-head">
+                            <div class="venue-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4.4 4h15.2l1.4 4.2H3L4.4 4Z"/>
+                                    <path class="ic-accent" d="M3 8.2a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/>
+                                    <path d="M5 12.5V20h14v-7.5"/>
+                                    <path d="M10 20v-4.5h4V20"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Commercial Area</h3>
+                                <p class="venue-sub dark">Space khusus partner &amp; brand</p>
+                            </div>
+                        </div>
+                        <ul class="venue-specs dark">
+                            <li>Free Entry</li>
+                            <li>Area 10 × 10 m</li>
+                            <li>Tenant 3 × 3 m</li>
+                            <li>±4.000 Pengunjung</li>
+                        </ul>
+                    </article>
+                    <article class="venue-card reveal reveal-right" style="--d:.34s">
+                        <div class="venue-card-head">
+                            <div class="venue-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path class="ic-accent" d="M12 2.6c.35 2.1 1.55 3.3 3.65 3.65-2.1.35-3.3 1.55-3.65 3.65-.35-2.1-1.55-3.3-3.65-3.65 2.1-.35 3.3-1.55 3.65-3.65Z"/>
+                                    <path d="M8.5 13h7l1.3 8H7.2l1.3-8Z"/>
+                                    <path d="M5 21h14"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Showcase Area</h3>
+                                <p class="venue-sub dark">Display &amp; sales point produk Toffin</p>
+                            </div>
+                        </div>
+                        <ul class="venue-specs dark">
+                            <li>4 × 4 m</li>
+                            <li>Sales Point</li>
+                            <li>Diskon hingga 25%</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
@@ -554,7 +562,7 @@
                     <strong>Toffin App</strong> — pilih kotamu sebelum kehabisan.</p>
             </div>
             <div class="ticket-grid">
-                <div class="ticket-card reveal">
+                <div class="ticket-card reveal reveal-left">
                     <p class="ticket-tag">1 Class · 1 Orang</p>
                     <p class="ticket-price">Rp450<span>–</span>550K</p>
                     <ul class="ticket-benefits">
@@ -568,7 +576,7 @@
                         target="_blank" rel="noopener">Beli Tiket di Toffin App</a>
                     <p class="ticket-note">Tiket tersedia di Toffin App</p>
                 </div>
-                <div class="merch-card reveal">
+                <div class="merch-card reveal reveal-right" style="--d:.12s">
                     <img src="assets/img/merch-box.png" alt="Merchandise Kits Toffin Masterclass 4.0" class="merch-img">
                     <div class="merch-copy">
                         <p class="section-label light">Merchandise Kits</p>
@@ -583,7 +591,7 @@
 
     <!-- ======= CTA BANNER ======= -->
     <section class="cta-banner">
-        <div class="container reveal">
+        <div class="container reveal reveal-scale">
             <h2>Siap Jadi <em>Master</em> Berikutnya?</h2>
             <p>500 kursi omakase. 5 kota. Satu pengalaman yang mengubah cara kamu melihat bisnis F&amp;B.</p>
             <a href="#tiket" class="btn btn-dark">Dapatkan Tiket Sekarang</a>
@@ -610,6 +618,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
