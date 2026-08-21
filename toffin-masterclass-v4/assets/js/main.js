@@ -319,7 +319,7 @@ if (finePointer && !reducedMotion) {
         bx += (mx - bx) * 0.2;
         by += (my - by) * 0.2;
         scale += (scaleTarget - scale) * 0.14;
-        ball.style.transform = 'translate(' + (bx - 12) + 'px,' + (by - 12) + 'px) scale(' + scale.toFixed(3) + ')';
+        ball.style.transform = 'translate(' + (bx - 9) + 'px,' + (by - 9) + 'px) scale(' + scale.toFixed(3) + ')';
         requestAnimationFrame(ballLoop);
     };
     requestAnimationFrame(ballLoop);
