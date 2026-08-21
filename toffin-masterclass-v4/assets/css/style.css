@@ -83,34 +83,6 @@ img[data-parallax] {
     z-index: 1;
     animation: floatY 9s ease-in-out infinite;
 }
-.doodle-matcha {
-    width: 150px;
-    top: -46px;
-    right: -26px;
-    transform: rotate(8deg);
-    z-index: 3;
-}
-.doodle-apron {
-    width: 180px;
-    left: -34px;
-    bottom: 40px;
-    opacity: .4;
-    transform: rotate(-8deg);
-    animation-duration: 11s;
-}
-.doodle-cake {
-    width: 210px;
-    left: -46px;
-    bottom: -30px;
-    transform: rotate(-6deg);
-}
-.doodle-mocktail {
-    width: 170px;
-    right: -22px;
-    top: -34px;
-    transform: rotate(7deg);
-    animation-duration: 10s;
-}
 @media (max-width: 720px) {
     .kv-doodle { display: none; }
 }
@@ -599,16 +571,12 @@ html.is-gliding .nav-progress {
     letter-spacing: .34em;
     color: var(--orange);
 }
-.mq-dot {
-    width: 12px;
-    height: 12px;
+.mq-icon {
+    width: 34px;
+    height: 34px;
+    object-fit: contain; /* kotak seragam — semua ikon tampil sama besar */
     flex-shrink: 0;
-    fill: rgba(247, 149, 34, .8);
-    animation: sparkleSpin 6s ease-in-out infinite;
-}
-@keyframes sparkleSpin {
-    0%, 100% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(90deg) scale(.82); }
+    opacity: .9;
 }
 @keyframes marquee {
     from { transform: translateX(0); }
@@ -1347,6 +1315,18 @@ html.is-gliding .nav-progress {
     padding: 96px 0;
     overflow: hidden;
 }
+.cta-icons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 26px;
+    margin-bottom: 26px;
+}
+.cta-icons img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
 .cta-banner h2 {
     font-family: var(--font-serif);
     font-weight: 600;
@@ -1442,8 +1422,16 @@ html.is-gliding .nav-progress {
     padding: 56px 0 34px;
 }
 .footer-kv {
-    width: min(440px, 82%);
-    margin: 0 auto 26px;
+    width: min(380px, 74%);
+    margin: 0 auto 24px;
+}
+.footer-copy::before {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 1px;
+    background: rgba(244, 241, 234, .25);
+    margin: 0 auto 18px;
 }
 .footer-inner { text-align: center; }
 .footer-copy {
