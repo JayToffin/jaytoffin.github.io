@@ -75,6 +75,46 @@ img[data-parallax] {
     transform: scale(1.14);
 }
 
+/* ---------- Aset KV: doodle hand-drawn & tekstur ---------- */
+.kv-doodle {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    animation: floatY 9s ease-in-out infinite;
+}
+.doodle-matcha {
+    width: 150px;
+    top: -46px;
+    right: -26px;
+    transform: rotate(8deg);
+    z-index: 3;
+}
+.doodle-apron {
+    width: 180px;
+    left: -34px;
+    bottom: 40px;
+    opacity: .4;
+    transform: rotate(-8deg);
+    animation-duration: 11s;
+}
+.doodle-cake {
+    width: 210px;
+    left: -46px;
+    bottom: -30px;
+    transform: rotate(-6deg);
+}
+.doodle-mocktail {
+    width: 170px;
+    right: -22px;
+    top: -34px;
+    transform: rotate(7deg);
+    animation-duration: 10s;
+}
+@media (max-width: 720px) {
+    .kv-doodle { display: none; }
+}
+
 /* ---------- Reveal on scroll — varian efek per section ---------- */
 .reveal {
     opacity: 0;
@@ -375,7 +415,7 @@ html.is-gliding .nav-progress {
     min-height: 100svh;
     display: flex;
     align-items: center;
-    background: var(--black);
+    background: var(--black) url('../img/kv-tm4/web/texture-dark.jpg') center/cover no-repeat;
     overflow: hidden;
     padding: 165px 0 80px;
 }
@@ -428,7 +468,13 @@ html.is-gliding .nav-progress {
     color: var(--cream);
     letter-spacing: -.01em;
 }
-.hero-title em { font-style: normal; }
+.hero-title em {
+    font-style: normal;
+    display: block;
+    font-size: clamp(28px, 3.4vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
 .hero-tagline {
     margin-top: 26px;
     font-family: var(--font-serif);
@@ -1173,6 +1219,11 @@ html.is-gliding .nav-progress {
 }
 .venue-icon svg { width: 28px; height: 28px; }
 .venue-icon .ic-accent { stroke: var(--orange-deep); }
+.venue-icon img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
 .venue-card h3 {
     font-family: var(--font-serif);
     font-size: 24px;
@@ -1181,6 +1232,10 @@ html.is-gliding .nav-progress {
 }
 
 /* ================= TICKETS ================= */
+.tickets {
+    position: relative;
+    overflow: hidden;
+}
 .ticket-grid {
     display: grid;
     grid-template-columns: .9fr 1.1fr;
@@ -1286,9 +1341,11 @@ html.is-gliding .nav-progress {
 
 /* ================= CTA BANNER ================= */
 .cta-banner {
+    position: relative;
     background: var(--orange);
     text-align: center;
     padding: 96px 0;
+    overflow: hidden;
 }
 .cta-banner h2 {
     font-family: var(--font-serif);
@@ -1381,8 +1438,12 @@ html.is-gliding .nav-progress {
 
 /* ================= FOOTER ================= */
 .footer {
-    background: var(--black);
-    padding: 30px 0;
+    background: var(--black) url('../img/kv-tm4/web/texture-dark.jpg') center/cover no-repeat;
+    padding: 56px 0 34px;
+}
+.footer-kv {
+    width: min(440px, 82%);
+    margin: 0 auto 26px;
 }
 .footer-inner { text-align: center; }
 .footer-copy {
