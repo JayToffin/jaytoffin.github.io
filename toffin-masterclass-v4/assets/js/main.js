@@ -298,33 +298,6 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !qrModal.hidden) closeQr();
 });
 
-// ===== Custom cursor (desktop) — bola kecil reverse warna (mix-blend difference) =====
-if (finePointer && !reducedMotion) {
-    const ball = document.createElement('div');
-    ball.className = 'cursor-ball';
-    document.body.appendChild(ball);
-    document.body.classList.add('custom-cursor');
-    let mx = -100, my = -100, bx = -100, by = -100;
-    let scaleTarget = 1, scale = 1;
-    window.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        ball.style.opacity = '1';
-    }, { passive: true });
-    const HOVER_SEL = 'a, button, .journey-card, .pair-card, .city-card, .venue-feature, .venue-card, .event-type, .gallery-marquee';
-    document.addEventListener('mouseover', e => {
-        scaleTarget = e.target.closest(HOVER_SEL) ? 1.45 : 1; // subtle saja
-    });
-    document.addEventListener('mouseleave', () => { ball.style.opacity = '0'; });
-    const ballLoop = () => {
-        bx += (mx - bx) * 0.2;
-        by += (my - by) * 0.2;
-        scale += (scaleTarget - scale) * 0.14;
-        ball.style.transform = 'translate(' + (bx - 9) + 'px,' + (by - 9) + 'px) scale(' + scale.toFixed(3) + ')';
-        requestAnimationFrame(ballLoop);
-    };
-    requestAnimationFrame(ballLoop);
-}
-
 // ===== Parallax gambar berbasis scroll (ala data-parallax-gallery Umano) =====
 const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
 if (parallaxEls.length && !reducedMotion) {
