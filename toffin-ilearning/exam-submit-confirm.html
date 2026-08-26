@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toffin iLearning — 06 Ujian Soal</title>
+<title>Toffin iLearning — 06B Ujian Konfirmasi Kirim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -441,6 +441,7 @@ svg{display:block}
 .xmodal-actions{display:flex;gap:9px;margin-top:16px}
 .xmodal-actions .btn{flex:1;padding:12px 10px}
 .btn.danger{background:var(--red-deep)}
+.xmodal-ico.send{background:var(--orange-tint);color:var(--orange)}
 @media (prefers-reduced-motion: reduce){
   .xmodal-box{animation:none}
 }
@@ -750,7 +751,7 @@ svg{display:block}
 <body>
 
   <div class="preview-bar">
-    <span class="eyebrow">06 · Ujian — Soal</span>
+    <span class="eyebrow">06B · Ujian — Konfirmasi Kirim</span>
     <a class="screen-name" href="all-screens.html">Semua screen →</a>
   </div>
 
@@ -784,6 +785,21 @@ svg{display:block}
         <div class="gate-hint" id="qHint" style="margin-top:10px">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
           <span id="qHintText">Isi semua jawaban dengan lengkap</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup konfirmasi kirim jawaban -->
+    <div class="xmodal" id="submitModal" role="dialog" aria-modal="true" aria-labelledby="smTitle">
+      <div class="xmodal-box">
+        <div class="xmodal-ico send">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg>
+        </div>
+        <div class="xmodal-t" id="smTitle">Kirim Jawaban?</div>
+        <div class="xmodal-s" id="smSub">Kamu sudah menjawab <b>5 dari 5 soal</b>. Setelah dikirim, jawaban tidak bisa diubah lagi.</div>
+        <div class="xmodal-actions">
+          <button class="btn ghost" id="smCancel">Periksa Lagi</button>
+          <button class="btn" id="smSend">Ya, Kirim</button>
         </div>
       </div>
     </div>
@@ -850,14 +866,29 @@ qList.addEventListener('click',e=>{
   updateGate();
 });
 
+/* ── KONFIRMASI KIRIM ──
+   "Tandai Selesai" tidak langsung mengirim — muncul popup konfirmasi
+   berisi jumlah soal terjawab + sisa waktu. Kirim final dari popup.
+   Timer tetap berjalan selama popup terbuka; waktu habis → tetap
+   terkirim otomatis. */
+const submitModal=document.getElementById('submitModal');
 document.getElementById('submitBtn').addEventListener('click',()=>{
+  const n=answers.filter(a=>a!==null).length;
+  document.getElementById('smSub').innerHTML=
+    `Kamu sudah menjawab <b>${n} dari ${QUESTIONS.length} soal</b>. Sisa waktu <b>${fmt(remain)}</b>. Setelah dikirim, jawaban tidak bisa diubah lagi.`;
+  submitModal.classList.add('open');
+});
+document.getElementById('smCancel').addEventListener('click',()=>{
+  submitModal.classList.remove('open');
+});
+document.getElementById('smSend').addEventListener('click',()=>{
   location.href='exam-submitted.html';
 });
 
 /* ── COUNTDOWN TIMER ──
    Satu timer global; tidak ada pause/stop. Durasi diatur di sini. */
 const DURASI_MENIT = 30;
-let remain = DURASI_MENIT*60;
+let remain = 12*60+47; /* screen ini menampilkan state di tengah ujian */
 const timerEl=document.getElementById('timer');
 const timerVal=document.getElementById('timerVal');
 const fmt=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
@@ -877,6 +908,21 @@ tick();
 const timerInterval=setInterval(tick,1000);
 
 updateGate();
+
+/* ── STATE SCREEN INI ──
+   Semua soal sudah terjawab dan popup konfirmasi kirim terbuka —
+   siap di-screenshot untuk Figma. */
+[1,0,2,0,3].forEach((k,qi)=>{
+  const block=qList.querySelector(`[data-q="${qi}"]`);
+  answers[qi]=k;
+  block.querySelectorAll('.opt').forEach(o=>{
+    const sel=+o.dataset.k===k;
+    o.classList.toggle('sel',sel);
+    o.querySelector('.mk').innerHTML=sel?CHECK:'';
+  });
+});
+updateGate();
+document.getElementById('submitBtn').click();
 </script>
 </body>
 </html>
