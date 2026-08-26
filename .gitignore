@@ -1,0 +1,17 @@
+# Dependensi & tooling MCP (figma-mcp-go dll) — bukan bagian website
+node_modules/
+package.json
+package-lock.json
+.mcp.json
+
+# Data sesi & worktree Claude
+.claude/
+**/.claude/
+
+# File sistem macOS
+.DS_Store
+**/.DS_Store
+
+# Sampah ekstraksi zip macOS
+__MACOSX/
+**/._*
