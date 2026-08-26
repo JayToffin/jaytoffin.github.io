@@ -156,10 +156,12 @@
   align-items: center;
   gap: 8px;
 }
-.atelier-row p {
+.atelier-row p,
+.atelier-row address {
   font-size: 15px;
   line-height: 1.55;
   color: var(--ink-2);
+  font-style: normal;
 }
 .atelier-action {
   display: inline-block;
@@ -439,6 +441,28 @@
   font-size: 12px;
   color: var(--muted);
 }
+/* anti-spam honeypot — kept out of view & out of the tab order */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-error {
+  display: none;
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: #fdecec;
+  border: 1px solid #e05a4b;
+  color: #b23325;
+  font-family: 'Archer', Georgia, serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.form-error.is-visible { display: block; }
+
 .form-success {
   display: none;
   flex-direction: column;

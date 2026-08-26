@@ -9,6 +9,15 @@
   if (form) {
     const submitBtn = form.querySelector('.form-submit');
     const success = form.querySelector('.form-success');
+    const errorBox = form.querySelector('.form-error');
+
+    // ---------- EmailJS config ----------
+    const EMAILJS_PUBLIC_KEY  = 'IKWHQKcHhN3neGtzk';
+    const EMAILJS_SERVICE_ID  = 'service_fp8tmfq';
+    const EMAILJS_TEMPLATE_ID = 'template_c0cmeem';
+    if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    const formLoadTime = Date.now();
 
     const validators = {
       name: v => v.trim().length >= 2,
@@ -37,6 +46,15 @@
 
     form.addEventListener('submit', e => {
       e.preventDefault();
+
+      // Anti-spam: honeypot filled OR submitted suspiciously fast → drop silently
+      const hp = form.querySelector('.hp-field input');
+      if ((hp && hp.value.trim() !== '') || (Date.now() - formLoadTime) < 3000) {
+        form.classList.add('is-submitted');
+        success.classList.add('is-visible');
+        return;
+      }
+
       let allOk = true;
       form.querySelectorAll('[required]').forEach(el => {
         if (!validateField(el)) allOk = false;
@@ -49,13 +67,38 @@
 
       submitBtn.classList.add('is-loading');
       submitBtn.disabled = true;
+      if (errorBox) errorBox.classList.remove('is-visible');
 
-      // simulate request — replace with real fetch() to your endpoint
-      setTimeout(() => {
+      const showSuccess = () => {
+        submitBtn.classList.remove('is-loading');
         form.classList.add('is-submitted');
         success.classList.add('is-visible');
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 1100);
+      };
+      const showError = () => {
+        submitBtn.classList.remove('is-loading');
+        submitBtn.disabled = false;
+        if (errorBox) {
+          errorBox.textContent = 'Sorry — your message could not be sent. Please try again, or email info@officineallegra.com directly.';
+          errorBox.classList.add('is-visible');
+          errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      };
+
+      // Not wired up yet? Fall back to a visual success so the form still behaves
+      // until EMAILJS_TEMPLATE_ID is set.
+      if (!window.emailjs || EMAILJS_TEMPLATE_ID.indexOf('REPLACE') === 0) {
+        console.warn('[contact] EmailJS not configured yet — set EMAILJS_TEMPLATE_ID. Showing success without sending.');
+        setTimeout(showSuccess, 900);
+        return;
+      }
+
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, { publicKey: EMAILJS_PUBLIC_KEY })
+        .then(showSuccess)
+        .catch((err) => {
+          console.error('[contact] EmailJS failed →', 'status:', err && err.status, '| text:', err && err.text, '| raw:', err);
+          showError();
+        });
     });
   }
 

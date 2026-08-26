@@ -71,6 +71,8 @@
       else openDrawer();
     });
   }
+  const drawerClose = document.querySelector('.drawer-close');
+  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
   document.querySelectorAll('.mobile-drawer .nav-list > li > a').forEach((a) => {
     a.addEventListener('click', (e) => {
       const li = a.parentElement;
