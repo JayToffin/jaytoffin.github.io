@@ -825,9 +825,10 @@ html.is-gliding .nav-progress {
     color: #fdf6e3;
 }
 
+.schedule .container { max-width: 1320px; } /* container lebih lebar agar 4 kota muat sebaris */
 .city-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 22px;
 }
 .city-card {
@@ -918,14 +919,20 @@ html.is-gliding .nav-progress {
 }
 .sess-night { padding: 10px 0 0 !important; }
 .city-card-cta {
+    grid-column: 1 / -1; /* banner full-width di bawah barisan kota */
     background: var(--maroon);
     border: 0;
     color: var(--cream);
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px 32px;
+}
+.city-cta-copy {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 12px;
+    gap: 10px;
 }
 .city-cta-text {
     font-size: 13px;
@@ -1416,6 +1423,9 @@ html.is-gliding .nav-progress {
 }
 
 /* ================= RESPONSIVE ================= */
+@media (max-width: 1180px) {
+    .city-grid { grid-template-columns: 1fr 1fr; } /* 4 kolom terlalu sempit di bawah 1180 */
+}
 @media (max-width: 1024px) {
     section { padding: 84px 0; }
     .hero-inner { grid-template-columns: 1fr; text-align: center; }
@@ -1494,6 +1504,7 @@ html.is-gliding .nav-progress {
     .hero-copy { width: 100%; }
     .hero-meta, .hero-actions { justify-content: center; }
     .city-grid { grid-template-columns: 1fr; }
+    .city-card-cta { flex-direction: column; align-items: flex-start; }
     .event-types { grid-template-columns: 1fr; }
     /* Rangkuman statistik: baris inline ringkas di mobile (hemat tinggi) */
     .stats-grid {

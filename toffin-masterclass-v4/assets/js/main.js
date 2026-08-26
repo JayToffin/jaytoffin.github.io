@@ -171,7 +171,6 @@ const cities = [
     { name: 'Semarang', label: 'Selasa, 22 September 2026', start: '2026-09-22T10:00:00+07:00' },
     { name: 'Bali', label: 'Rabu, 30 September 2026', start: '2026-09-30T10:00:00+08:00' },
     { name: 'Surabaya', label: 'Senin, 5 Oktober 2026', start: '2026-10-05T10:00:00+07:00' },
-    { name: 'Palembang', label: 'Kamis, 8 Oktober 2026', start: '2026-10-08T10:00:00+07:00' },
     { name: 'Bogor', label: 'Senin, 12 Oktober 2026', start: '2026-10-12T10:00:00+07:00' }
 ].map(c => ({ ...c, time: new Date(c.start).getTime() }));
 
