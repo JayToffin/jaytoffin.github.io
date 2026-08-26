@@ -1,0 +1,72 @@
+# Toffin Indonesia — robots.txt
+# Default policy: allow all crawlers, including AI/LLM bots
+# Last updated: 2026-05-22
+
+# ── All crawlers (default) ──
+User-agent: *
+Allow: /
+
+
+# ════════════════════════════════════════════════════════════════════
+# AI / LLM crawlers — explicit allow
+# Toffin marketing content publik, OK di-include di AI search & training
+# untuk maksimasi brand visibility (free exposure via ChatGPT/Claude/Gemini/Perplexity)
+# ════════════════════════════════════════════════════════════════════
+
+# OpenAI (ChatGPT training + ChatGPT browsing + AI search)
+User-agent: GPTBot
+Allow: /
+
+
+User-agent: ChatGPT-User
+Allow: /
+
+
+User-agent: OAI-SearchBot
+Allow: /
+
+
+# Anthropic (Claude training + browsing)
+User-agent: ClaudeBot
+Allow: /
+
+
+User-agent: Claude-Web
+Allow: /
+
+
+User-agent: anthropic-ai
+Allow: /
+
+
+# Common Crawl (data feed untuk banyak LLM training)
+User-agent: CCBot
+Allow: /
+
+
+# Perplexity AI (search engine dengan citation)
+User-agent: PerplexityBot
+Allow: /
+
+
+# Google AI (Gemini training, terpisah dari Googlebot regular)
+User-agent: Google-Extended
+Allow: /
+
+
+# Apple (Apple Intelligence training)
+User-agent: Applebot-Extended
+Allow: /
+
+
+# ByteDance (TikTok/Doubao)
+User-agent: Bytespider
+Allow: /
+
+
+# AI/LLM resources (untuk discovery by AI agents):
+# https://www.toffin.id/llms.txt         — structured site index
+# https://www.toffin.id/llms-full.txt    — full content compilation
+
+# Sitemap location
+Sitemap: https://www.toffin.id/sitemap.xml

@@ -36,6 +36,14 @@
   font-size: 1rem;
   line-height: 1.6;
 }
+/* Baris tanggal khusus privacy — lebih kecil dari default .page-meta shared,
+   nempel ke judul (margin-top negatif melawan margin-bottom h1 0.75rem),
+   renggang ke paragraf deskripsi di bawahnya */
+.page-hero .page-meta {
+  font-size: 0.65rem;
+  margin-top: -0.45rem;
+  margin-bottom: 1rem;
+}
 
 /* Content — long-form reading layout, tighter spacing */
 .privacy-content {

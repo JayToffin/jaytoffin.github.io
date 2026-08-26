@@ -397,7 +397,7 @@ const TOFFIN_BRANCHES = [
   { name: 'Toffin Bogor',        address: 'Jl. Villa Duta Raya Jl. Permata No.42, RT.09/RW.14, Baranangsiang, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16143', lat: -6.605390335419985, lng: 106.8177477995421, phone: '+62 811-849-567' },
   { name: 'Toffin Bandung',      address: 'Jl. Pajajaran No.68C, Pamoyanan, Kec. Cicendo, Kota Bandung, Jawa Barat 40173', lat: -6.906186599558803, lng: 107.59635610491048, phone: '+62 891-2260-056' },
   { name: 'Toffin Cirebon',      address: 'Jl. Veteran No. 43, Kejaksan, Cirebon, Jawa Barat 45123', lat: -6.709789543528458, lng: 108.56093497028672, phone: '+62 813-9522-7589' },
-  { name: 'Toffin Semarang',     address: 'Jl. Papandayan No.28, Gajahmungkur, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50232', lat: -7.012752913433678, lng: 110.40540084575913, phone: '+62 812-1551-2097' },
+  { name: 'Toffin Semarang',     address: 'Jl. Papandayan No.28, RT.06/RW.08, Gajahmungkur, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50232', lat: -7.012752913433678, lng: 110.40540084575913, phone: '+62 812-1551-2097' },
   { name: 'Toffin Jogja',        address: 'Jl. Kranji No.16, Wonorejo, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, DI Yogyakarta 55581', lat: -7.732913026323054, lng: 110.3831690702546, phone: '+62 812-4612-3366' },
   { name: 'Toffin Surabaya',     address: 'Jl. Tanjung Anom No.16, Genteng, Kec. Genteng, Surabaya, Jawa Timur 60275', lat: -7.257295006971162, lng: 112.73667129652691, phone: '+62 31 532-3453' },
   { name: 'Toffin Malang',       address: 'Ruko Green Sulfat Residence No 5, Jl. Simpang LA Sucipto, Kel. Pandanwangi, Kec. Blimbing, Kota Malang, Jawa Timur', lat: -7.956293206664148, lng: 112.65673714662576, phone: '+62 851-6102-1600' },
@@ -468,7 +468,7 @@ function initToffinMap() {
       const shortName = branch.name.replace(/^Toffin\s+/, '');
       infoWindow.setContent(`
         <article class="map-popup">
-          <span class="map-popup-eyebrow">Cabang Toffin</span>
+          <img class="map-popup-logo" src="assets/img/root/logo-black.png" alt="Toffin" />
           <h5 class="map-popup-title">${shortName}</h5>
           <p class="map-popup-addr">${branch.address}</p>
           <div class="map-popup-actions">
@@ -798,11 +798,20 @@ window.initToffinMap = initToffinMap;
   if (!grid) return;
 
   const start = () => {
-    // 0. Urutkan card by data-date (YYYY-MM) — terbaru di atas. Card baru
-    //    otomatis tersusun benar cukup dengan set data-date-nya. Ties (tanggal
-    //    sama) mempertahankan urutan asli di HTML (sort stabil).
+    // 0. Urutan card:
+    //    a. Card ber-data-order (1,2,3,…) dipatok di depan sesuai angkanya —
+    //       untuk menonjolkan kolaborasi tertentu tanpa mengubah tanggalnya.
+    //    b. Sisanya otomatis by data-date (YYYY-MM), terbaru di atas; card baru
+    //       cukup di-set data-date-nya.
+    //    Ties (angka/tanggal sama) mempertahankan urutan asli di HTML.
+    const pinOrder = function (el) {
+      const n = parseInt(el.getAttribute('data-order'), 10);
+      return isNaN(n) ? Infinity : n;
+    };
     Array.prototype.slice.call(grid.querySelectorAll('.cc-card'))
       .sort(function (a, b) {
+        const pa = pinOrder(a), pb = pinOrder(b);
+        if (pa !== pb) return pa - pb;
         return (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || '');
       })
       .forEach(function (card) { grid.appendChild(card); });

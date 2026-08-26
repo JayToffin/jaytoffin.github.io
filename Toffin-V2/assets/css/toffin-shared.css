@@ -109,6 +109,19 @@ a {
   color: var(--amber);
 }
 
+/* Baris tanggal pembaruan halaman (sinyal GEO) — skala mengikuti .label.
+   Selector .page-hero .page-meta wajib ikut supaya menang dari
+   .page-hero p yang didefinisikan di CSS per-halaman. */
+.page-meta,
+.page-hero .page-meta {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 0.9rem;
+  max-width: none;
+}
+
 /* ─── Layout ─────────────────────────────────── */
 .container {
   max-width: var(--max-w);
@@ -428,6 +441,9 @@ footer.toffin-footer .footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* 3 item (copyright · tanggal · privasi) — biar turun rapi di layar sempit */
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
 }
 
 footer.toffin-footer .footer-bottom p {
