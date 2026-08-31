@@ -1326,7 +1326,6 @@ html.is-gliding .nav-progress {
 
 /* ================= PARTNERS ================= */
 .partners { padding: 90px 0; }
-.partners .container { max-width: 1440px; } /* container lebih lebar khusus barisan logo */
 .partner-tier {
     text-align: center;
     padding: 34px 0;
@@ -1388,6 +1387,20 @@ html.is-gliding .nav-progress {
 }
 /* logo sisa sendirian di baris terakhir — taruh di kolom tengah */
 .partner-logos-partnered img:last-child:nth-child(3n + 1) { grid-column: 2; }
+/* Sponsored by & Covered by — 6 sel per baris, baris tak penuh tetap rata tengah */
+.partner-logos-wide {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 36px 32px;
+    margin: 0 auto;
+}
+.partner-logos-wide img {
+    width: calc((100% - 165px) / 6);
+    height: 112px;
+    max-width: none;
+}
 .partner-slot {
     display: inline-block;
     font-family: var(--font-accent);
@@ -1584,6 +1597,18 @@ html.is-gliding .nav-progress {
         max-height: 88px;
         width: auto;
         max-width: 100%;
+    }
+    .partner-logos-wide {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px 14px;
+    }
+    .partner-logos-wide img {
+        width: calc((100% - 30px) / 3);
+        height: 76px;
+        max-height: none;
+        max-width: none;
     }
     .venue-gallery {
         grid-template-columns: repeat(2, 1fr);
