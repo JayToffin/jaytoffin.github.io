@@ -189,6 +189,21 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--orange); outline-
 .pills{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
 .pill{ font-family:var(--mono); font-size:9px; letter-spacing:0.08em; border:1px solid var(--ink); border-radius:4px; padding:5px 11px; text-transform:uppercase; white-space:nowrap; }
 .model.lg .pill{ border-color:rgba(255,255,255,0.5); }
+/* label status miring di tengah foto model: teks dengan border rounded (mis. Leggera: Ready early 2027) */
+.model .fig{ overflow:hidden; }
+.model .fig .ribbon{
+  position:absolute; left:50%; top:50%; z-index:2;
+  padding:10px 22px;
+  transform:translate(-50%,-50%) rotate(-14deg);
+  border:1.5px solid var(--orange); border-radius:999px;
+  background:rgba(28,28,30,0.55); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+  color:#fff;
+  font-family:var(--mono); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; font-weight:400;
+  white-space:nowrap; box-shadow:0 12px 28px rgba(0,0,0,0.35);
+  pointer-events:none;
+}
+.model:hover .fig .ribbon{ transform:translate(-50%,-50%) rotate(-14deg); }
+@media (max-width:640px){ .model .fig .ribbon{ font-size:10px; letter-spacing:0.22em; padding:8px 16px; } }
 .colors{ display:flex; gap:26px; margin-top:24px; }
 .swatch{ text-align:center; width:64px; }
 .swatch .dot{ width:24px; height:24px; border-radius:50%; margin:0 auto 8px; border:1px solid rgba(255,255,255,0.18); }
