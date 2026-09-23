@@ -385,10 +385,11 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 18px;
+  padding: 10px 14px;
+  white-space: nowrap;
   font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
   color: var(--black);
@@ -399,8 +400,8 @@ textarea {
 .nav-link::after {
   content: "";
   position: absolute;
-  left: 18px;
-  right: 18px;
+  left: 14px;
+  right: 14px;
   bottom: 4px;
   height: 1px;
   background: var(--orange);
@@ -432,7 +433,8 @@ textarea {
   transform: rotate(-135deg) translate(-2px, -2px);
 }
 
-.nav-link .badge-soon {
+.nav-link .badge-soon,
+.mega-link .badge-soon {
   font-family: 'Archer', Georgia, serif;
   font-style: italic;
   font-size: 10px;
@@ -548,7 +550,8 @@ textarea {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-@media (max-width: 1024px) {
+/* Six nav items fit on one line from 1281px up; below that use the drawer */
+@media (max-width: 1280px) {
 
   .nav,
   .header-actions .lang-switch {
@@ -608,7 +611,7 @@ textarea {
   grid-row: 1 / span 2;
 }
 
-/* Family concept heading — above the two Dinamica cards only (Lume stands alone) */
+/* Family headings — 'Lume' above the Tag card, 'Officine Allegra' above the two Dinamica cards */
 .mega-family-title {
   grid-column: 3 / span 2;
   grid-row: 1;
@@ -637,12 +640,15 @@ textarea {
   grid-row: 2;
 }
 
+.mega-family-title--lume { grid-column: 2; }
+/* judul kelompok berupa logo, tinggi disamakan secara visual */
+.mega-family-title .family-logo { display: block; height: 36px; width: auto; }
+.mega-family-title .family-logo--lume { height: 22px; mix-blend-mode: multiply; }
 /* Explicit columns so the divider pseudo-item doesn't disrupt auto-placement */
-.mega-menu a.mega-card:nth-of-type(1) { grid-column: 2; } /* Lume */
-.mega-menu a.mega-card:nth-of-type(2) { grid-column: 3; } /* Dinamica One */
-.mega-menu a.mega-card:nth-of-type(3) { grid-column: 4; } /* Dinamica Pro */
-
-/* Vertical divider in the gap between Lume (standalone) and the Dinamica family group */
+.mega-menu a.mega-card:nth-of-type(1) { grid-column: 2; } /* Model Tag (Lume) */
+.mega-menu a.mega-card:nth-of-type(2) { grid-column: 3; } /* Model Dinamica One */
+.mega-menu a.mega-card:nth-of-type(3) { grid-column: 4; } /* Model Dinamica Pro */
+/* Vertical divider between the Lume group and the Officine Allegra (Dinamica) group */
 .mega-menu::before {
   content: "";
   grid-column: 3;
@@ -789,7 +795,7 @@ textarea {
   transform: translateX(4px);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .mega-menu {
     display: none;
   }
@@ -2510,7 +2516,7 @@ textarea {
   transition: opacity 0.4s var(--e-out), transform 0.45s var(--e-out), visibility 0s;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .mobile-drawer {
     display: block;
   }
@@ -2536,8 +2542,10 @@ textarea {
 .mobile-drawer.is-open .nav-list > li:nth-child(2) { transition-delay: 0.16s; }
 .mobile-drawer.is-open .nav-list > li:nth-child(3) { transition-delay: 0.22s; }
 .mobile-drawer.is-open .nav-list > li:nth-child(4) { transition-delay: 0.28s; }
-.mobile-drawer.is-open .drawer-cta { transition-delay: 0.34s; }
-.mobile-drawer.is-open .drawer-meta { transition-delay: 0.40s; }
+.mobile-drawer.is-open .nav-list > li:nth-child(5) { transition-delay: 0.34s; }
+.mobile-drawer.is-open .nav-list > li:nth-child(6) { transition-delay: 0.40s; }
+.mobile-drawer.is-open .drawer-cta { transition-delay: 0.46s; }
+.mobile-drawer.is-open .drawer-meta { transition-delay: 0.52s; }
 
 @media (prefers-reduced-motion: reduce) {
   .mobile-drawer,
@@ -2832,4 +2840,48 @@ textarea {
   /* "A note from the workshop": let the black box grow so the quote isn't clipped */
   .manifesto-aside { aspect-ratio: auto; padding: 32px 26px; }
   .manifesto-aside .quote { position: static; justify-content: flex-start; gap: 22px; }
+}
+
+/* ===== Compact dropdown (Terra submenu) — reuses .has-mega open/close logic ===== */
+.mega-menu--compact {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 18px);
+  width: 220px;
+  transform: translateY(-8px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+}
+.nav-item.is-active .mega-menu--compact { transform: translateY(0); }
+.mega-menu--compact::before { display: none; }
+.mega-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+  transition: background 0.2s var(--e-out);
+}
+.mega-link:hover { background: var(--orange-soft); }
+.mega-link .badge-soon { margin-left: auto; }
+
+/* "Model" label above product names */
+.product-content .model-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--orange);
 }

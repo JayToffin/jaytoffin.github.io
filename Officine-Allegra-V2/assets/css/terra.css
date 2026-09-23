@@ -1,0 +1,264 @@
+/* ============================================================
+   TERRA PAGES · Officine Allegra
+   Grinder line · terra-58 / terra-66 / terra-83
+   Loaded after styles.css + dinamica-pro.css + dinamica.css
+   ============================================================ */
+
+/* ============== NAV STATE ============== */
+.mega-link.is-current {
+  background: var(--orange-soft);
+  color: var(--orange);
+}
+.mobile-drawer .submenu a.is-current { color: var(--black); }
+
+/* ============== 02 · DETAIL CARDS ============== */
+.tr-details { padding: 56px 0 64px; }
+.tr-details .section-head { margin-bottom: 36px; }
+
+/* ============== 03 · BURR SET & ENGINE (dark · extends .dp-duo) ============== */
+.tr-burr .dp-duo-image { aspect-ratio: 1 / 1; }
+.tr-burr .dp-duo-image img,
+.tr-burr .dp-boiler-visual img { max-width: 92%; }
+
+.tr-burr-callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 18px 24px;
+  background: #0d0d0c;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: none;
+}
+.tr-burr-dia {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(38px, 4.4vw, 62px);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(--orange);
+}
+.tr-burr-dia small {
+  font-family: 'Archer', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.34em;
+  letter-spacing: 0;
+  color: var(--ivory-3);
+  margin-left: 6px;
+}
+.tr-burr-callout p {
+  font-family: 'Archer', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ivory-3);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ============== 04 · TECHNICAL DATA ============== */
+.tr-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+/* 3:4 portrait frame — a grinder is a tall object */
+.tr-specs-visual {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  padding: 32px;
+  background: var(--ivory);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.tr-specs-visual img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.tr-specs-visual .badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  padding: 6px 12px;
+  background: var(--orange);
+  color: var(--ivory);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+/* spec sheet · a standalone .dp-config card */
+.tr-specs-sheet.dp-config {
+  border: 1px solid var(--black);
+  padding: 26px 26px 28px;
+}
+.tr-specs-sheet .dp-config-specs > div {
+  padding: 10px 0;
+  font-size: 14px;
+}
+.tr-specs-sheet .dp-config-specs dt small {
+  font-family: 'Archer', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+}
+
+/* ============== 05 · THE TERRA LINE ============== */
+.tr-line {
+  padding: 72px 0 64px;
+  background: var(--ivory);
+  border-bottom: 1px solid var(--rule);
+}
+.tr-line .dp-line-showcase { margin: 0; }
+.tr-line .dp-line-item {
+  padding: 24px;
+  gap: 16px;
+  color: inherit;
+}
+.tr-line .dp-line-image-cell {
+  aspect-ratio: 4 / 3;
+  padding: 16px;
+  background: var(--ivory-2);
+}
+.tr-line .dp-line-item.is-flagship .dp-line-image-cell { background: var(--ivory); }
+.tr-line .dp-line-caption {
+  padding-top: 12px;
+  gap: 4px;
+}
+.tr-line .dp-line-label { font-size: 26px; }
+.tr-line .dp-line-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.tr-line .dp-line-cta .arrow { transition: transform 0.25s var(--e-out); }
+.tr-line .dp-line-item:hover .dp-line-cta .arrow { transform: translateX(4px); }
+
+/* ============== 06 · IN THE BOX & DOWNLOADS ============== */
+.tr-box {
+  padding: 72px 0;
+  background: var(--ivory-2);
+  border-bottom: 1px solid var(--rule);
+}
+.tr-box-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.tr-box-col {
+  padding: 26px 26px 28px;
+  background: var(--ivory);
+  border: 1px solid var(--black);
+  display: flex;
+  flex-direction: column;
+}
+.tr-box-eyebrow {
+  font-family: 'Archer', Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+.tr-box-list,
+.tr-dl-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+.tr-box-list li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'Archer', Georgia, serif;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.tr-box-list .qty {
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+}
+.tr-dl-list li { border-bottom: 1px solid var(--rule); }
+.tr-dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 13px 0;
+  transition: color 0.2s, padding-left 0.25s var(--e-out);
+}
+.tr-dl:hover {
+  color: var(--orange);
+  padding-left: 6px;
+}
+.tr-dl-name {
+  font-family: 'Archer', Georgia, serif;
+  font-size: 15px;
+}
+.tr-dl-meta {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.tr-dl:hover .tr-dl-meta { color: var(--orange); }
+.tr-dl.is-pending {
+  pointer-events: none;
+  opacity: 0.55;
+}
+.tr-box-note {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-family: 'Archer', Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.tr-box-note .mark {
+  color: var(--orange);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 900px) {
+  .tr-details,
+  .tr-line,
+  .tr-box { padding: 48px 0; }
+  .tr-burr-callout {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px;
+  }
+  .tr-specs-grid,
+  .tr-box-grid { grid-template-columns: 1fr; }
+  .tr-specs-visual {
+    aspect-ratio: 4 / 3;
+    padding: 24px;
+  }
+  .tr-line .dp-line-image-cell { max-height: none; }
+}

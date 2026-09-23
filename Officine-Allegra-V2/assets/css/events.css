@@ -1,0 +1,300 @@
+/* ============================================================
+   EVENTS PAGE · Officine Allegra
+   Page-specific styles · loaded after styles.css
+
+   One section: header row, then a sticky year-list on the left
+   (built by assets/js/events.js) and the event detail on the right
+   (photo + title + chips + description). Only one .event-detail is
+   visible at a time; the others carry the `hidden` attribute.
+   ============================================================ */
+
+/* ---------- nav current state ---------- */
+.nav-link.is-current { color: var(--orange); }
+.nav-link.is-current::after { transform: scaleX(1); }
+
+/* ============== SECTION ============== */
+.events { padding: 88px 0 120px; }
+
+.events-head {
+  padding-bottom: 48px;
+  margin-bottom: 72px;
+  border-bottom: 1px solid var(--rule);
+}
+.events-head h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: var(--h1);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+.events-head h1 .it {
+  font-family: 'Archer', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: var(--orange);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 88px;
+  align-items: start;
+}
+
+/* ============== LIST (left, sticky) ============== */
+.events-list {
+  position: sticky;
+  top: calc(var(--header-bottom, 84px) + 24px);
+}
+.events-year {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'Anton', sans-serif;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--orange);
+  border-top: 2px solid var(--orange);
+  padding-top: 14px;
+  margin-bottom: 6px;
+}
+.events-year small {
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  font-weight: 500;
+}
+.event-item + .events-year { margin-top: 40px; }
+.events-year--next {
+  color: var(--muted-2);
+  border-top-color: var(--rule);
+}
+
+.event-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  padding: 20px 14px 20px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: padding-left 0.25s var(--e-out), background 0.25s;
+}
+.event-item .ix {
+  font-family: 'Archer', Georgia, serif;
+  font-style: italic;
+  color: var(--orange);
+  font-size: 14px;
+  padding-top: 3px;
+}
+.event-item .ttl {
+  display: block;
+  font-family: 'Archer', Georgia, serif;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.2;
+  color: var(--black);
+  transition: color 0.2s;
+}
+.event-item .sub {
+  display: block;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 7px;
+  font-weight: 500;
+}
+a.event-item:hover { padding-left: 10px; }
+a.event-item:hover .ttl { color: var(--orange); }
+.event-item.is-active {
+  background: var(--ivory-2);
+  padding-left: 14px;
+}
+.event-item.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: -1px;
+  width: 2px;
+  background: var(--orange);
+}
+.event-item--soon { opacity: 0.55; }
+.event-item--soon .ttl { font-style: italic; font-weight: 300; }
+
+/* ============== DETAIL (right) ============== */
+.event-detail[hidden] { display: none; }
+
+.event-photo {
+  position: relative;
+  aspect-ratio: 1600 / 977;
+  overflow: hidden;
+  background: var(--ivory-2);
+}
+.event-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.event-photo .tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--ivory);
+  padding: 8px 12px;
+  font-weight: 500;
+}
+.event-photo .tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.event-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  margin-top: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--black);
+}
+.event-head h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: var(--h2);
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.event-head h2 .it {
+  font-family: 'Archer', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--orange);
+  text-transform: none;
+  letter-spacing: -0.015em;
+}
+.event-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.event-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 7px 12px;
+  border: 1px solid var(--black);
+  color: var(--black);
+  white-space: nowrap;
+}
+.event-chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+.event-chip--soft {
+  border-color: var(--rule);
+  color: var(--muted);
+}
+
+.event-desc {
+  margin-top: 36px;
+  max-width: 720px;
+}
+.event-desc p {
+  font-family: 'Archer', Georgia, serif;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.event-desc p + p { margin-top: 22px; }
+.event-desc p:first-of-type::first-letter {
+  font-family: 'Anton', sans-serif;
+  font-size: 66px;
+  float: left;
+  line-height: 0.82;
+  padding: 6px 12px 0 0;
+  color: var(--orange);
+}
+.event-desc strong {
+  font-weight: 500;
+  color: var(--black);
+}
+
+/* funding / partner logos under the description */
+.event-funding {
+  max-width: 720px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.event-funding-logos {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+.event-funding-logos li {
+  display: block;
+  max-width: 100%;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 16px 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.event-funding-logos li + li { margin-top: 12px; }
+.event-funding-logos img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 1024px) {
+  .events { padding: 64px 0 88px; }
+  .events-head { padding-bottom: 36px; margin-bottom: 48px; }
+  .events-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .events-list { position: static; }
+  .event-head { grid-template-columns: 1fr; align-items: start; }
+  .event-chips { justify-content: flex-start; }
+}
+@media (max-width: 768px) {
+  .events { padding: 56px 0 72px; }
+  .events-year { font-size: 36px; }
+  .event-photo { aspect-ratio: 4 / 3; }
+  .event-photo .tag { top: 12px; left: 12px; }
+  .event-head { margin-top: 28px; padding-bottom: 22px; }
+  .event-desc { margin-top: 28px; }
+  .event-desc p { font-size: 18px; }
+  .event-desc p:first-of-type::first-letter { font-size: 56px; }
+  .event-funding { margin-top: 28px; }
+  .event-funding-logos li { padding: 12px 14px; }
+  /* strip is too wide for phones at 100% width — keep it legible and let it scroll sideways */
+  .event-funding-logos img { width: auto; max-width: none; height: 48px; }
+}

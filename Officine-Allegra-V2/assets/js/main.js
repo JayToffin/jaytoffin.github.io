@@ -37,7 +37,7 @@
       }, 120);
     });
     link.addEventListener('click', (e) => {
-      if (window.matchMedia('(max-width: 1024px)').matches) {
+      if (window.matchMedia('(max-width: 1280px)').matches) {
         e.preventDefault();
         item.classList.toggle('is-active');
       }
@@ -91,7 +91,7 @@
     if (e.key === 'Escape' && drawer && drawer.classList.contains('is-open')) closeDrawer();
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024 && drawer && drawer.classList.contains('is-open')) closeDrawer();
+    if (window.innerWidth > 1280 && drawer && drawer.classList.contains('is-open')) closeDrawer();
   });
 
   // ============ COLOR FINISH PICKER ============

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="assets/css/styles.css?v=20260922" />
 <link rel="canonical" href="https://officineallegra.com/" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <meta name="author" content="Officine Allegra Srl" />
@@ -93,22 +93,25 @@
               <h4>Built for the bar, the hotel, the ritual.</h4>
               <p>Three machines, one philosophy. From single-group entry to flagship dual-boiler — engineered for café professionals.</p>
             </div>
-            <div class="mega-family-title">
-              <h4>Dinamica Family</h4>
+            <div class="mega-family-title mega-family-title--lume">
+              <img class="family-logo family-logo--lume" src="assets/images/lume-logo.png" alt="Lume" />
             </div>
-            <a class="mega-card" href="lume">
-              <div class="preview"><img src="assets/images/lume.png" alt="Lume" /></div>
-              <h5>LUME</h5>
+            <div class="mega-family-title">
+              <img class="family-logo" src="assets/images/officine-allegra.png" alt="Officine Allegra" />
+            </div>
+            <a class="mega-card" href="tag">
+              <div class="preview"><img src="assets/images/lume.png" alt="Tag" /></div>
+              <h5>MODEL TAG</h5>
               <span class="desc">Compact · refined · automatic & semiautomatic</span>
             </a>
             <a class="mega-card" href="dinamica">
               <div class="preview"><img src="assets/images/dinamica.png" alt="Dinamica One" /></div>
-              <h5>DINAMICA ONE</h5>
+              <h5>MODEL DINAMICA ONE</h5>
               <span class="desc">Single-group entry · the precision essential</span>
             </a>
             <a class="mega-card" href="dinamica-pro">
               <div class="preview"><img src="assets/images/dinamica-pro/DINMICA_PRO_2GR_.png" alt="Dinamica Pro" /></div>
-              <h5>DINAMICA PRO</h5>
+              <h5>MODEL DINAMICA PRO</h5>
               <span class="desc">Flagship · dual-boiler · 2GR & 3GR</span>
             </a>
           </div>
@@ -116,9 +119,15 @@
         <div class="nav-item">
           <a class="nav-link">Domestic Machine <span class="badge-soon">soon</span></a>
         </div>
-        <div class="nav-item">
-          <a class="nav-link">Terra <span class="badge-soon">soon</span></a>
+        <div class="nav-item has-mega">
+          <a class="nav-link" href="#">Terra <span class="badge-soon">soon</span> <span class="caret"></span></a>
+          <div class="mega-menu mega-menu--compact" role="menu">
+            <a class="mega-link" href="#">Terra 58 <span class="badge-soon">soon</span></a>
+            <a class="mega-link" href="#">Terra 66 <span class="badge-soon">soon</span></a>
+            <a class="mega-link" href="#">Terra 83 <span class="badge-soon">soon</span></a>
+          </div>
         </div>
+        <div class="nav-item"><a class="nav-link" href="events">Events</a></div>
         <div class="nav-item"><a class="nav-link" href="contact">Contact Us</a></div>
       </nav>
       <div class="header-actions">
@@ -139,13 +148,21 @@
     <li>
       <a href="#">Professional <span style="font-family:Newsreader,serif;font-style:italic;color:var(--orange);font-size:18px;">+</span></a>
       <div class="submenu">
-        <a href="lume">Lume</a>
+        <a href="tag">Tag</a>
         <a href="dinamica">Dinamica One</a>
         <a href="dinamica-pro">Dinamica Pro</a>
       </div>
     </li>
     <li><a href="#">Domestic <small style="font-family:Newsreader,serif;font-style:italic;color:var(--orange);font-size:14px;text-transform:none;letter-spacing:0;">— soon</small></a></li>
-    <li><a href="#">TERRA <small style="font-family:Newsreader,serif;font-style:italic;color:var(--orange);font-size:14px;text-transform:none;letter-spacing:0;">— soon</small></a></li>
+    <li>
+      <a href="#">Terra <small style="font-family:Newsreader,serif;font-style:italic;color:var(--orange);font-size:14px;text-transform:none;letter-spacing:0;">— soon</small> <span style="font-family:Newsreader,serif;font-style:italic;color:var(--orange);font-size:18px;">+</span></a>
+      <div class="submenu">
+        <a href="#">Terra 58 <small style="font-family:Newsreader,serif;font-style:italic;color:var(--orange);font-size:14px;text-transform:none;letter-spacing:0;">— soon</small></a>
+        <a href="#">Terra 66 <small style="font-family:Newsreader,serif;font-style:italic;color:var(--orange);font-size:14px;text-transform:none;letter-spacing:0;">— soon</small></a>
+        <a href="#">Terra 83 <small style="font-family:Newsreader,serif;font-style:italic;color:var(--orange);font-size:14px;text-transform:none;letter-spacing:0;">— soon</small></a>
+      </div>
+    </li>
+    <li><a href="events">Events</a></li>
     <li><a href="contact">Contact Us</a></li>
   </ul>
   <a class="drawer-cta" href="mailto:alex@officineallegra.com?subject=Request%20a%20Quote%20%E2%80%94%20Officine%20Allegra">Request a quote</a>
@@ -240,7 +257,7 @@
   </div>
 </section>
 
-<!-- ============== PRODUCT — LUME ============== -->
+<!-- ============== PRODUCT — TAG (ex Lume) ============== -->
 <section class="product product--lume" id="machines">
   <div class="container">
     <div class="section-head reveal">
@@ -253,9 +270,10 @@
 
     <div class="product-grid">
       <div class="product-content reveal">
-        <h2>LUME</h2>
+        <span class="model-label">Model</span>
+        <h2>TAG</h2>
         <p class="tagline">versatile, refined, built with purpose.</p>
-        <p>Lume is designed around workflow, ergonomics, and tactile interaction — engineered for baristas who demand reliability and control in every extraction. The 6.5L boiler ensures steady power; the quick-opening knob and cool-touch wand provide a safe, efficient workflow. Available in automatic and semiautomatic.</p>
+        <p>Tag is designed around workflow, ergonomics, and tactile interaction — engineered for baristas who demand reliability and control in every extraction. The 6.5L boiler ensures steady power; the quick-opening knob and cool-touch wand provide a safe, efficient workflow. Available in automatic and semiautomatic.</p>
 
         <div class="product-actions">
           <a href="mailto:alex@officineallegra.com?subject=Request%20a%20Quote%20%E2%80%94%20Officine%20Allegra" class="btn-primary">Request Quote <span class="arrow">→</span></a>
@@ -265,7 +283,7 @@
       <div class="product-image crosshair-frame reveal">
         <span class="ch-tl"></span><span class="ch-tr"></span><span class="ch-bl"></span><span class="ch-br"></span>
         <span class="badge">Single Group</span>
-        <img src="assets/images/lume.png" alt="Lume espresso machine" />
+        <img src="assets/images/lume.png" alt="Tag espresso machine" />
       </div>
     </div>
   </div>
@@ -281,6 +299,7 @@
         <img src="assets/images/dinamica.png" alt="Dinamica One espresso machine" />
       </div>
       <div class="product-content reveal">
+        <span class="model-label">Model</span>
         <h2>DINAMICA ONE</h2>
         <p class="tagline">the precision essential.</p>
         <p>The single-group expression of Dinamica — advanced where it matters, intuitive where it should be. Reliability without complexity, engineered for compact specialty cafés that refuse to compromise on thermal stability or tactile control.</p>
@@ -298,6 +317,7 @@
   <div class="container">
     <div class="product-grid">
       <div class="product-content reveal">
+        <span class="model-label">Model</span>
         <h2>DINAMICA PRO</h2>
         <p class="tagline">where engineering meets aesthetics.</p>
         <p>The flagship of the Professional Line. Dual-boiler architecture, available as 2GR or 3GR — built for high-volume operations where consistency, thermal stability, and long-term performance are non-negotiable. Detail-driven construction, because details shape experience.</p>
@@ -392,7 +412,7 @@
       <div class="footer-col">
         <h4>Professional</h4>
         <ul>
-          <li><a href="lume">Lume</a></li>
+          <li><a href="tag">Tag</a></li>
           <li><a href="dinamica">Dinamica One</a></li>
           <li><a href="dinamica-pro">Dinamica Pro</a></li>
         </ul>
@@ -408,6 +428,7 @@
         <h4>About</h4>
         <ul>
           <li><a href="https://clickday.officineallegra.com/" target="_blank">Click Day</a></li>
+          <li><a href="events">Events</a></li>
           <li><a href="contact">Contact Us</a></li>
           <li><a href="https://instagram.com/officineallegra" target="_blank" rel="noopener">Instagram ↗</a></li>
         </ul>
@@ -420,6 +441,6 @@
 </footer>
 
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=20260911"></script>
 </body>
 </html>
