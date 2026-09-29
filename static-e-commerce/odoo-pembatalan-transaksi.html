@@ -1,0 +1,70 @@
+<!--
+  PEMBATALAN TRANSAKSI — versi 100% inline style untuk HTML editor Odoo.
+
+  PENTING: jangan menimpa file ini dengan versi yang memakai <style> + class.
+  Odoo membuang tag <style>, <script>, dan <svg>, tapi TIDAK membuang atribut
+  style="". Karena itu semua aturan ditulis langsung di elemen, ikon memakai
+  <img> ke Iconify API dengan warna dikirim lewat ?color= (SVG sebagai <img>
+  tidak bisa diwarnai dari CSS). CATATAN: ini bergantung pada api.iconify.design
+  — kalau layanan itu mati, ikon tidak tampil (teks tetap utuh). @media tidak
+  dipakai — layout menumpuk sendiri lewat flex-wrap.
+
+  Tema disamakan dengan halaman Informasi Pengiriman.
+
+  Cara pakai: salin SELURUH isi file ini, tempel ke HTML/Code editor Odoo.
+-->
+<div style="color:#31353b;font-size:15px;line-height:1.7">
+
+  <div style="border-bottom:1px solid #e5e7e9;padding:4px 0 30px">
+    <div style="max-width:900px;margin:0 auto;padding:0 20px">
+      <h1 style="font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.02em;color:#212121;margin:0 0 10px">Pembatalan Transaksi</h1>
+      <p style="font-size:15px;color:#6d7588;margin:0;max-width:620px;line-height:1.7">Ketentuan pembatalan pesanan, penukaran barang, serta cara pengajuan klaim di Toffin Shop.</p>
+    </div>
+  </div>
+
+  <div style="border-bottom:1px solid #e5e7e9;background:#fff">
+    <div style="max-width:900px;margin:0 auto;padding:12px 20px 4px">
+      <a href="#pembatalan" style="display:inline-block;padding:8px 16px;border-radius:100px;border:1px solid #e5e7e9;background:#fff;color:#31353b;font-size:13px;font-weight:700;text-decoration:none;margin:0 8px 8px 0">Pembatalan</a><a href="#penukaran" style="display:inline-block;padding:8px 16px;border-radius:100px;border:1px solid #e5e7e9;background:#fff;color:#31353b;font-size:13px;font-weight:700;text-decoration:none;margin:0 8px 8px 0">Penukaran Barang</a><a href="#cara-klaim" style="display:inline-block;padding:8px 16px;border-radius:100px;border:1px solid #e5e7e9;background:#fff;color:#31353b;font-size:13px;font-weight:700;text-decoration:none;margin:0 8px 8px 0">Cara Klaim</a>
+    </div>
+  </div>
+
+  <div style="max-width:900px;margin:0 auto;padding:0 20px 56px">
+
+    <div id="pembatalan" style="padding-top:28px">
+      <h2 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:23px;font-weight:800;line-height:1.25;color:#212121;margin:0 0 18px">
+        <span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:#fff4e7;color:#e07c0c"><img src="https://api.iconify.design/fa6-solid/ban.svg?color=%23e07c0c" alt="" style="width:18px;height:18px;flex:none;display:block"></span>
+        <span>Pembatalan Transaksi</span>
+      </h2>
+      <p style="margin:0 0 14px;font-size:15px;line-height:1.7">Pesanan dengan status <strong>pembayaran telah diterima</strong> tidak dapat dibatalkan maupun dikembalikan dan <strong>dana tidak dapat direfund</strong>.</p>
+      <p style="margin:0 0 14px;font-size:15px;line-height:1.7">Pastikan pesanan yang Anda buat di <strong>Toffin Shop</strong> sudah sesuai sebelum menyelesaikan pembayaran.</p>
+    </div>
+
+    <div id="penukaran" style="padding-top:36px;border-top:1px solid #e5e7e9;margin-top:36px">
+      <h2 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:23px;font-weight:800;line-height:1.25;color:#212121;margin:0 0 18px">
+        <span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:#fff4e7;color:#e07c0c"><img src="https://api.iconify.design/fa6-solid/rotate-left.svg?color=%23e07c0c" alt="" style="width:18px;height:18px;flex:none;display:block"></span>
+        <span>Penukaran Barang</span>
+      </h2>
+      <p style="margin:0 0 14px;font-size:15px;line-height:1.7">Untuk menghindari kendala dalam proses klaim atas pesanan yang diterima — seperti jumlah produk tidak sesuai, produk tidak sesuai pesanan, produk rusak, atau produk telah melewati tanggal kedaluwarsa — pelanggan diwajibkan untuk merekam video saat membuka paket (video unboxing). Di luar alasan tersebut, Toffin tidak dapat memproses klaim penukaran atau pengembalian barang.</p>
+
+      <h3 style="font-size:16px;font-weight:800;color:#212121;margin:30px 0 12px">Ketentuan video unboxing</h3>
+      <div style="margin:0 0 20px"><div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#f8941f;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">1</span><p style="margin:0;font-size:14.5px;line-height:1.7;min-width:0">Video harus direkam secara utuh tanpa jeda (tidak dipotong atau diedit), dimulai dari kondisi paket masih tersegel/belum dibuka hingga seluruh isi paket terlihat jelas.</p></div><div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#f8941f;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">2</span><p style="margin:0;font-size:14.5px;line-height:1.7;min-width:0">Video unboxing akan digunakan sebagai bukti pendukung dalam proses verifikasi dan penanganan keluhan.</p></div><div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#f8941f;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">3</span><p style="margin:0;font-size:14.5px;line-height:1.7;min-width:0">Klaim yang diajukan tanpa disertai video unboxing berpotensi tidak dapat diproses, atau akan melalui proses verifikasi tambahan yang memakan waktu lebih lama.</p></div></div>
+
+      <h3 style="font-size:16px;font-weight:800;color:#212121;margin:30px 0 12px">Batas waktu pengajuan klaim</h3>
+      <p style="margin:0 0 14px;font-size:15px;line-height:1.7">Klaim wajib diajukan maksimal <strong>1x24 jam</strong> setelah paket diterima, disertai video unboxing dan foto/bukti pendukung lainnya (jika diperlukan).</p>
+
+      <h3 style="font-size:16px;font-weight:800;color:#212121;margin:30px 0 12px">Ruang lingkup</h3>
+      <div style="margin:0 0 14px"><div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="flex:none;width:6px;height:6px;border-radius:50%;background:#f8941f;margin-top:9px"></span><p style="margin:0;font-size:14.5px;line-height:1.7;min-width:0">Ketentuan ini berlaku untuk seluruh kategori produk (mesin, grinder, equipment, maupun ingredients/consumables).</p></div><div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="flex:none;width:6px;height:6px;border-radius:50%;background:#f8941f;margin-top:9px"></span><p style="margin:0;font-size:14.5px;line-height:1.7;min-width:0">Khusus untuk produk ingredients/consumables, klaim penukaran hanya berlaku apabila kemasan/segel produk belum dibuka, sesuai dengan ketentuan keamanan pangan (food safety) yang berlaku.</p></div></div>
+
+      <h3 style="font-size:16px;font-weight:800;color:#212121;margin:30px 0 12px">Kondisi barang yang dikembalikan</h3>
+      <p style="margin:0 0 14px;font-size:15px;line-height:1.7">Jika berlaku penukaran fisik, barang yang dikembalikan wajib dalam kondisi lengkap, meliputi kemasan/dus asli, aksesoris, dan kelengkapan lain yang menyertainya saat diterima.</p>
+    </div>
+
+    <div id="cara-klaim" style="padding-top:36px;border-top:1px solid #e5e7e9;margin-top:36px">
+      <h2 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:23px;font-weight:800;line-height:1.25;color:#212121;margin:0 0 18px">
+        <span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:#fff4e7;color:#e07c0c"><img src="https://api.iconify.design/fa6-solid/headset.svg?color=%23e07c0c" alt="" style="width:18px;height:18px;flex:none;display:block"></span>
+        <span>Cara Pengajuan Klaim</span>
+      </h2>
+      <p style="margin:0 0 14px;font-size:15px;line-height:1.7">Pengajuan klaim dapat dilakukan melalui <strong>Contact Customer Service</strong> dengan menyertakan nomor pesanan, video unboxing, dan deskripsi kendala yang dialami.</p>
+    </div>
+  </div>
+</div>
