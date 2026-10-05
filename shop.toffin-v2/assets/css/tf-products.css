@@ -1,0 +1,336 @@
+/* =====================================================================
+   Toffin v2 · tf-products.css — komponen produk GLOBAL
+   - KARTU PRODUK: satu gaya untuk semua kartu (.product + .fs-*), dipakai
+     homepage, daftar produk, paket bundling, tab Favorit my-account, dan
+     halaman yang akan didesain ulang. Halaman TIDAK menulis CSS kartu sendiri;
+     perbedaan per section lewat kelas varian di pembungkus kartu:
+       (tanpa kelas)       standar: slider produk, rekomendasi, bundling, favorit
+       .tf-cards--flash    di dalam bingkai flash sale: tanpa garis
+       .tf-cards--compact  grid padat (daftar produk 5 kolom): nama lebih kecil,
+                           harga lebih kecil, dot galeri lebih kecil
+   - Galeri foto kartu (.tf-pg), ikon favorit, label diskon, panah Swiper,
+     countdown flash sale.
+   Dimuat sesudah tf-layout.css, sebelum stylesheet halaman.
+   ===================================================================== */
+
+:root {
+	--fs-danger: #ef4444;
+	--fs-primary: #f8941f;
+	--fs-primary-dark: #f96d00;
+	--fs-text: #111;
+	--tf-card-radius: 14px;              /* sudut kartu produk */
+	--tf-card-line: rgba(0, 0, 0, .10);  /* garis kartu */
+}
+
+/* ---------- panah Swiper ---------- */
+.swiper-container-nav .swiper-wrapper {
+	align-items: stretch;
+}
+.swiper-button-next, .swiper-button-prev {
+	width: 42px;
+	height: 42px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.94);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	transition: all 0.22s ease;
+	--swiper-navigation-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+	font-size: var(--swiper-navigation-size);
+	font-weight: 700;
+	color: #111827;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover {
+	background: #ffffff;
+	border-color: rgba(248, 148, 31, 0.28);
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+	transform: translateY(-2px);
+}
+.swiper-button-next:hover::after, .swiper-button-prev:hover::after {
+	color: #f8941f;
+}
+.swiper-button-next:focus-visible, .swiper-button-prev:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 4px rgba(248, 148, 31, 0.14), 0 14px 28px rgba(0, 0, 0, 0.14);
+}
+.swiper-button-disabled {
+	opacity: 0.45 !important;
+	cursor: not-allowed;
+	transform: none !important;
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+@media (max-width: 767.98px) {
+	.swiper-button-next, .swiper-button-prev {
+		width: 40px;
+		height: 40px;
+	}
+	.swiper-button-next::after, .swiper-button-prev::after {
+		font-size: 14px;
+	}
+}
+
+/* ---------- section flash sale & countdown ---------- */
+.fs-section {
+	padding: 22px 0;
+	background: #fff;
+}
+.fs-countdown {
+	width:100%;
+	max-width:100%;
+	position:relative;
+	z-index:1;
+	display:flex;
+	align-items:center;
+	gap:10px;
+	padding:10px 12px;
+	border-radius:16px;
+	border:1px solid rgba(0,0,0,.10);
+	background:rgba(255,255,255,.70);
+	backdrop-filter:blur(10px);
+	-webkit-backdrop-filter:blur(10px);
+	flex-wrap:nowrap;
+}
+.fs-count {
+	min-width:54px;
+	flex:0 1 54px;
+	text-align:center;
+}
+.fs-num {
+	display:block;
+	font-weight: 900;
+	font-size: 18px;
+	line-height: 1;
+	color: var(--fs-text);
+}
+.fs-lbl {
+	display:block;
+	margin-top: 4px;
+	font-size: 11px;
+	color: rgba(0,0,0,.60);
+}
+.fs-sep {
+	font-weight: 900;
+	opacity:.5;
+}
+@media (max-width: 992px) {
+	.fs-countdown {
+		width:100%;
+		justify-content:flex-start;
+	}
+}
+@media (max-width: 576px) {
+	.fs-countdown {
+		gap:6px;
+		padding:8px 10px;
+		overflow-x:auto;
+		-webkit-overflow-scrolling:touch;
+		scrollbar-width:none;
+	}
+	.fs-countdown::-webkit-scrollbar {
+		display:none;
+	}
+	.fs-count {
+		min-width:46px;
+		flex:0 0 46px;
+	}
+	.fs-num {
+		font-size:16px;
+	}
+	.fs-lbl {
+		font-size:10px;
+	}
+}
+/* =====================================================================
+   KARTU PRODUK GLOBAL (.product + .fs-body)
+   ===================================================================== */
+.product:has(> .fs-body) {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;                       /* setinggi sel grid / slide: tombol sejajar antar kartu */
+	margin: 0;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid var(--tf-card-line);
+	border-radius: var(--tf-card-radius);
+	box-shadow: none;
+	transition: border-color .18s ease;
+}
+.product:has(> .fs-body):hover { border-color: rgba(248, 148, 31, .35); }
+/* di dalam slider: semua slide setinggi baris, supaya kartu ber-/tanpa harga coret sama tinggi */
+.swiper-wrapper:has(> .swiper-slide > .product > .fs-body) { align-items: stretch; }
+.swiper-slide:has(> .product > .fs-body) { height: auto; }
+/* foto (satu gambar) atau galeri .tf-pg: lebar = kartu, persegi, tanpa zoom */
+.product > .img-prod, .product > .tf-pg { flex: none; width: 100%; min-width: 0; }
+.product > .img-prod { position: relative; display: block; margin: 0; aspect-ratio: 1; overflow: hidden; background: #fff; }
+.product .img-prod img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; transform: none; }
+/* ikon favorit di kanan atas foto */
+.product > .text .product__list__item--icons { position: absolute; top: 11px; right: 11px; z-index: 3; margin: 0; background: transparent; }
+/* label diskon: pil merah di kiri atas foto, hanya angka persen */
+.fs-tag {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	z-index: 3;
+	padding: 2px 8px;   /* tinggi 19 px ≈ tinggi visual hati 18 px; titik tengah keduanya sejajar */
+	border-radius: 50px;
+	font-weight: 500;
+	font-size: 11px;
+	line-height: 1.4;
+	color: #fff;
+	background: var(--fs-danger);
+}
+.fs-body { display: flex; flex-direction: column; flex: 1 1 auto; padding: 12px 12px 14px; }
+/* nama produk SATU baris; judul panjang dipotong dengan "…" (nama lengkap jadi tooltip, diisi tf-nav.js) */
+.fs-product-title {
+	display: block;
+	overflow: hidden;
+	margin: 0 0 6px;
+	font-size: 13.5px;
+	font-weight: 500;
+	line-height: 1.4;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.fs-product-title a { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--fs-text); text-decoration: none; }   /* "…" milik link, jadi ikut berubah warna saat hover */
+.fs-product-title a:hover { color: var(--fs-primary-dark); }
+.fs-price-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.fs-price-new { display: block; font-size: 16px; font-weight: 900; color: var(--fs-text); }
+.fs-price-old { display: block; margin-top: 2px; font-size: 12px; color: rgba(0, 0, 0, .55); text-decoration: line-through; }
+.fs-qty { display: block; margin-top: 2px; font-size: 11.5px; color: var(--tf-muted); }
+/* tombol Add to cart: selalu di dasar kartu, tinggi 36 px, teks 13/600, hover = garis oranye */
+.fs-actions { display: flex; gap: 8px; margin-top: auto; padding-top: 10px; }
+.fs-btn {
+	flex: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	min-height: 36px;
+	padding: 0 12px;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color .16s ease, color .16s ease, border-color .16s ease;
+}
+.fs-btn:hover, .fs-btn:focus { text-decoration: none; }   /* menimpa a:hover reboot Bootstrap */
+.fs-btn-primary { background: var(--fs-primary); color: #fff; }
+.fs-btn-primary:hover { background: #fff; border-color: var(--fs-primary); color: var(--fs-primary-dark); }
+
+/* ---------- varian per section ---------- */
+/* flash sale: kartu putih di bingkai berwarna, tanpa garis sama sekali (border 0, bukan transparan) */
+.tf-cards--flash .product:has(> .fs-body), .tf-cards--flash .product:has(> .fs-body):hover { border: 0; }
+/* grid padat (daftar produk 5 kolom): nama & harga lebih kecil, dot galeri lebih kecil */
+.tf-cards--compact .fs-product-title { margin-bottom: 4px; font-size: 12.5px; }
+.tf-cards--compact .fs-price-new { font-size: 14px; }
+.tf-cards--compact .fs-price-old { font-size: 11px; }
+.tf-cards--compact .tf-pg .tf-pg__dots { bottom: 8px; gap: 4px; padding: 4px 6px; }
+.tf-cards--compact .tf-pg .swiper-pagination-bullet { width: 4px; height: 4px; }
+.tf-cards--compact .tf-pg .swiper-pagination-bullet-active { width: 12px; }
+.flashsale-product-list-section, .product-slider-section {
+	padding:22px;
+}
+@media (max-width: 575.98px) {
+	.flashsale-product-list-section, .product-slider-section {
+		padding:16px;
+		border-radius:16px;
+	}
+}
+
+/* ---------- grid kartu (tab Favorit my-account) ---------- */
+.product-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 20px;
+}
+.product-grid-item {
+	width: 100%;
+}
+@media (max-width:991.98px) {
+	.product-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 18px;
+	}
+}
+@media (max-width:767.98px) {
+	.product-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+	}
+}
+@media (max-width:420px) {
+	.product-grid {
+		gap: 12px;
+	}
+}
+
+/* ---------- ikon favorit: hati berisi abu muda, merah saat .selected (tf-app.js / tf-plp.js), 22 px ---------- */
+.product__list__item--icons a { display: block; color: #d3d3d3; text-decoration: none; transition: color .15s ease; }
+.product__list__item--icons a:hover { color: #b8bdc7; }
+.product__list__item--icons a.selected, .product__list__item--icons a.selected:hover { color: #ff2d55; }
+.product__list__item--icons .tf-i, .product__list__item--icons .tf-i--2x { width: 22px; height: 22px; fill: currentColor; stroke: currentColor; stroke-width: 1; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .12)); }
+
+/* ---------- galeri foto kartu (.tf-pg): geser di foto, dot pagination; init di tf-sliders.js ---------- */
+.tf-pg { position: relative; overflow: hidden; background: #fff; }
+.tf-pg.swiper { z-index: 0; }                       /* jangan menutupi badge diskon & ikon hati */
+.tf-pg .swiper-slide { height: auto; }
+.tf-pg .img-prod {
+	position: relative;
+	display: block;
+	width: 100%;
+	aspect-ratio: 1;
+	overflow: hidden;
+}
+.tf-pg .img-prod img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	-webkit-user-drag: none;
+	user-select: none;
+}
+
+/* dot pagination modern: pil gelap transparan, dot aktif memanjang oranye */
+.tf-pg .tf-pg__dots {
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+	width: auto;
+	transform: translateX(-50%);
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 5px 8px;
+	border-radius: 999px;
+	background: rgba(17, 17, 17, .32);
+	-webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+	line-height: 0;
+	z-index: 3;
+	--swiper-pagination-bullet-horizontal-gap: 0px;
+}
+.tf-pg .swiper-pagination-bullet {
+	width: 6px;
+	height: 6px;
+	margin: 0;
+	border-radius: 999px;
+	background: #fff;
+	opacity: .55;
+	transition: width .25s ease, opacity .25s ease, background .25s ease;
+}
+.tf-pg .swiper-pagination-bullet-active {
+	width: 18px;
+	opacity: 1;
+	background: var(--tf-orange);
+}
+.tf-pg .swiper-pagination-lock { display: none; }

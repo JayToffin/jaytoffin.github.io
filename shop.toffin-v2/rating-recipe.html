@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Rating | Toffin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f7f2eb 0%, #efe7dc 100%);
+      color: #2f2a26;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .rating-page {
+      width: 100%;
+      max-width: 980px;
+      background: #fffdf9;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(47, 42, 38, 0.12);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .rating-page__image {
+      position: relative;
+      background: #f4ede4;
+      aspect-ratio: 1 / 1;
+    }
+
+    .rating-page__image img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rating-page__content {
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .rating-page__title {
+      margin: 0;
+      font-size: 40px;
+      line-height: 46px;
+      color: #756b61;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .rating-page__text {
+      margin: 18px 0 0 0;
+      font-size: 15px;
+      line-height: 28px;
+      color: #6f655c;
+    }
+
+    .rating-page__stars {
+      display: flex;
+      gap: 14px;
+      margin-top: 34px;
+      margin-bottom: 24px;
+    }
+
+    .rating-page__star {
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      border: 1px solid #eadcca;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4c3b0;
+      font-size: 22px;
+      cursor: pointer;
+      transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .rating-page__star:hover,
+    .rating-page__star.is-active {
+      background: #fff3e4;
+      border-color: #f8941f;
+      color: #f8941f;
+      box-shadow: 0 12px 24px rgba(248, 148, 31, 0.18);
+    }
+
+    .rating-page__selected {
+      font-size: 13px;
+      line-height: 22px;
+      color: #8b8178;
+      margin-bottom: 24px;
+      min-height: 22px;
+    }
+
+    .rating-page__submit {
+      margin-top: 24px;
+      width: 100%;
+      border: 0;
+      border-radius: 999px;
+      background: #f8941f;
+      color: #ffffff;
+      padding: 15px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: .3px;
+      cursor: pointer;
+      transition: box-shadow .2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .rating-page__submit:hover {
+      box-shadow: 0 14px 28px rgba(248, 148, 31, 0.22);
+    }
+
+    @media (max-width: 860px) {
+      .rating-page {
+        grid-template-columns: 1fr;
+      }
+
+      .rating-page__image {
+        aspect-ratio: 1 / 1;
+      }
+
+      .rating-page__content {
+        padding: 34px 24px;
+      }
+
+      .rating-page__title {
+        font-size: 32px;
+        line-height: 38px;
+      }
+
+      .rating-page__stars {
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .rating-page__star {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="rating-page">
+    <div class="rating-page__image">
+      <img src="images/recipe.jpg" alt="Peach Lychee Sparkling Mocktail" />
+    </div>
+
+    <div class="rating-page__content">
+      <h1 class="rating-page__title">
+        Peach Lychee Sparkling Mocktail
+      </h1>
+
+      <p class="rating-page__text">
+        Berikan rating untuk membantu kami menghadirkan rekomendasi recipe yang semakin relevan dan sesuai dengan kebutuhan Anda.
+      </p>
+
+      <div class="rating-page__stars" id="rating-stars">
+        <button type="button" class="rating-page__star" data-value="1">
+          <i class="fa-regular fa-star"></i>
+        </button>
+        <button type="button" class="rating-page__star" data-value="2">
+          <i class="fa-regular fa-star"></i>
+        </button>
+        <button type="button" class="rating-page__star" data-value="3">
+          <i class="fa-regular fa-star"></i>
+        </button>
+        <button type="button" class="rating-page__star" data-value="4">
+          <i class="fa-regular fa-star"></i>
+        </button>
+        <button type="button" class="rating-page__star" data-value="5">
+          <i class="fa-regular fa-star"></i>
+        </button>
+      </div>
+
+      <div class="rating-page__selected" id="rating-selected">
+        Belum ada rating dipilih.
+      </div>
+
+      <button type="button" class="rating-page__submit">
+        Submit Rating
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const starButtons = document.querySelectorAll('.rating-page__star');
+    const selectedText = document.getElementById('rating-selected');
+
+    let selectedRating = 0;
+
+    starButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedRating = Number(button.dataset.value);
+
+        starButtons.forEach((star) => {
+          const starValue = Number(star.dataset.value);
+          const icon = star.querySelector('i');
+
+          if (starValue <= selectedRating) {
+            star.classList.add('is-active');
+            icon.className = 'fa-solid fa-star';
+          } else {
+            star.classList.remove('is-active');
+            icon.className = 'fa-regular fa-star';
+          }
+        });
+
+        selectedText.textContent = 'Anda memberikan rating ' + selectedRating + ' dari 5 bintang.';
+      });
+    });
+  </script>
+</body>
+</html>

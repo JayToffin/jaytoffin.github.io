@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Toffin Ecommerce</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap 4.1.3 murni (grid, reboot, utilitas): tiruan bundle Odoo 12 -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+	<!-- Stack v2 -->
+	<link rel="stylesheet" href="assets/css/tf-base.css">
+	<link rel="stylesheet" href="assets/css/tf-layout.css">
+	<link rel="stylesheet" href="assets/css/tf-products.css">
+	<link rel="stylesheet" href="assets/css/my-account.css">
+</head>
+
+<body>
+	<!-- ===== Sprite ikon: Tabler Icons v3.48.0 (MIT), subset 64 simbol. Sumber & daftar: assets/icons/README.md.
+	     Pakai: svg.tf-i > use href=#i-(nama) ===== -->
+	<svg id="tf-icons" xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+		<symbol id="i-adjustments-horizontal" viewBox="0 0 24 24"><path d="M12 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 6l8 0"/> <path d="M16 6l4 0"/> <path d="M6 12a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 12l2 0"/> <path d="M10 12l10 0"/> <path d="M15 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 18l11 0"/> <path d="M19 18l1 0"/></symbol>
+		<symbol id="i-alert-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 8v4"/> <path d="M12 16h.01"/></symbol>
+		<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12l14 0"/> <path d="M13 18l6 -6"/> <path d="M13 6l6 6"/></symbol>
+		<symbol id="i-arrows-horizontal" viewBox="0 0 24 24"><path d="M7 8l-4 4l4 4"/> <path d="M17 8l4 4l-4 4"/> <path d="M3 12l18 0"/></symbol>
+		<symbol id="i-ban" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M5.7 5.7l12.6 12.6"/></symbol>
+		<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></symbol>
+		<symbol id="i-brand-facebook" viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></symbol>
+		<symbol id="i-brand-instagram" viewBox="0 0 24 24"><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"/> <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/> <path d="M16.5 7.5v.01"/></symbol>
+		<symbol id="i-brand-linkedin" viewBox="0 0 24 24"><path d="M8 11v5"/> <path d="M8 8v.01"/> <path d="M12 16v-5"/> <path d="M16 16v-3a2 2 0 1 0 -4 0"/> <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/></symbol>
+		<symbol id="i-brand-whatsapp" viewBox="0 0 24 24"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></symbol>
+		<symbol id="i-brand-youtube" viewBox="0 0 24 24"><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8"/> <path d="M10 9l5 3l-5 3l0 -6"/></symbol>
+		<symbol id="i-building-bank" viewBox="0 0 24 24"><path d="M3 21l18 0"/> <path d="M3 10l18 0"/> <path d="M5 6l7 -3l7 3"/> <path d="M4 10l0 11"/> <path d="M20 10l0 11"/> <path d="M8 14l0 3"/> <path d="M12 14l0 3"/> <path d="M16 14l0 3"/></symbol>
+		<symbol id="i-building-store" viewBox="0 0 24 24"><path d="M3 21l18 0"/> <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/> <path d="M5 21l0 -10.15"/> <path d="M19 21l0 -10.15"/> <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/></symbol>
+		<symbol id="i-calendar" viewBox="0 0 24 24"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12"/> <path d="M16 3v4"/> <path d="M8 3v4"/> <path d="M4 11h16"/> <path d="M11 15h1"/> <path d="M12 15v3"/></symbol>
+		<symbol id="i-camera" viewBox="0 0 24 24"><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/> <path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></symbol>
+		<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5l10 -10"/></symbol>
+		<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6l6 -6"/></symbol>
+		<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 6l-6 6l6 6"/></symbol>
+		<symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6l-6 6"/></symbol>
+		<symbol id="i-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></symbol>
+		<symbol id="i-circle-check" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M9 12l2 2l4 -4"/></symbol>
+		<symbol id="i-clipboard-list" viewBox="0 0 24 24"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/> <path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2"/> <path d="M9 12l.01 0"/> <path d="M13 12l2 0"/> <path d="M9 16l.01 0"/> <path d="M13 16l2 0"/></symbol>
+		<symbol id="i-clock" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 7v5l3 3"/></symbol>
+		<symbol id="i-coins" viewBox="0 0 24 24"><path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3"/> <path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4"/> <path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598"/> <path d="M3 6v10c0 .888 .772 1.45 2 2"/> <path d="M3 11c0 .888 .772 1.45 2 2"/></symbol>
+		<symbol id="i-credit-card" viewBox="0 0 24 24"><path d="M3 8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -8"/> <path d="M3 10l18 0"/> <path d="M7 15l.01 0"/> <path d="M11 15l2 0"/></symbol>
+		<symbol id="i-crown" viewBox="0 0 24 24"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4l4 -6"/></symbol>
+		<symbol id="i-file-invoice" viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/> <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2"/> <path d="M9 7l1 0"/> <path d="M9 13l6 0"/> <path d="M13 17l2 0"/></symbol>
+		<symbol id="i-gift" viewBox="0 0 24 24"><path d="M3 9a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1l0 -2"/> <path d="M12 8l0 13"/> <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7"/> <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5"/></symbol>
+		<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 1 1 16 0v3"/> <path d="M18 19c0 1.657 -2.686 3 -6 3"/> <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3"/> <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3"/></symbol>
+		<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/></symbol>
+		<symbol id="i-home" viewBox="0 0 24 24"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/> <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/> <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></symbol>
+		<symbol id="i-hourglass-high" viewBox="0 0 24 24"><path d="M6.5 7h11"/> <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1"/> <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1"/></symbol>
+		<symbol id="i-id" viewBox="0 0 24 24"><path d="M3 7a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -10"/> <path d="M7 10a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 8l2 0"/> <path d="M15 12l2 0"/> <path d="M7 16l10 0"/></symbol>
+		<symbol id="i-info-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 9h.01"/> <path d="M11 12h1v4h1"/></symbol>
+		<symbol id="i-info-small" viewBox="0 0 24 24"><path d="M12 9h.01"/> <path d="M11 12h1v4h1"/></symbol>
+		<symbol id="i-layout-grid" viewBox="0 0 24 24"><path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M14 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/></symbol>
+		<symbol id="i-login" viewBox="0 0 24 24"><path d="M15 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"/> <path d="M21 12h-13l3 -3"/> <path d="M11 15l-3 -3"/></symbol>
+		<symbol id="i-logout" viewBox="0 0 24 24"><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"/> <path d="M9 12h12l-3 -3"/> <path d="M18 15l3 -3"/></symbol>
+		<symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/> <path d="M3 7l9 6l9 -6"/></symbol>
+		<symbol id="i-map-2" viewBox="0 0 24 24"><path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5"/> <path d="M9 4v13"/> <path d="M15 7v5.5"/> <path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879"/> <path d="M19 18v.01"/></symbol>
+		<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"/></symbol>
+		<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12l14 0"/></symbol>
+		<symbol id="i-package" viewBox="0 0 24 24"><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5"/> <path d="M12 12l8 -4.5"/> <path d="M12 12l0 9"/> <path d="M12 12l-8 -4.5"/> <path d="M16 5.25l-8 4.5"/></symbol>
+		<symbol id="i-percentage" viewBox="0 0 24 24"><path d="M16 17a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M6 7a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M6 18l12 -12"/></symbol>
+		<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></symbol>
+		<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5l0 14"/> <path d="M5 12l14 0"/></symbol>
+		<symbol id="i-rotate" viewBox="0 0 24 24"><path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5"/></symbol>
+		<symbol id="i-search" viewBox="0 0 24 24"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/> <path d="M21 21l-6 -6"/></symbol>
+		<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/></symbol>
+		<symbol id="i-shield-half" viewBox="0 0 24 24"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/> <path d="M12 3v18"/></symbol>
+		<symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304"/> <path d="M9 11v-5a3 3 0 0 1 6 0v5"/></symbol>
+		<symbol id="i-shopping-cart" viewBox="0 0 24 24"><path d="M4 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M17 17h-11v-14h-2"/> <path d="M6 5l14 1l-1 7h-13"/></symbol>
+		<symbol id="i-shopping-cart-x" viewBox="0 0 24 24"><path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/> <path d="M13 17h-7v-14h-2"/> <path d="M6 5l14 1l-1 7h-13"/> <path d="M22 22l-5 -5"/> <path d="M17 22l5 -5"/></symbol>
+		<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245"/></symbol>
+		<symbol id="i-tag" viewBox="0 0 24 24"><path d="M6.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3"/></symbol>
+		<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M15 5l0 2"/> <path d="M15 11l0 2"/> <path d="M15 17l0 2"/> <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"/></symbol>
+		<symbol id="i-tools" viewBox="0 0 24 24"><path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"/> <path d="M14.5 5.5l4 4"/> <path d="M12 8l-5 -5l-4 4l5 5"/> <path d="M7 8l-1.5 1.5"/> <path d="M16 12l5 5l-4 4l-5 -5"/> <path d="M16 17l-1.5 1.5"/></symbol>
+		<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7l16 0"/> <path d="M10 11l0 6"/> <path d="M14 11l0 6"/> <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/> <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/></symbol>
+		<symbol id="i-truck" viewBox="0 0 24 24"><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"/></symbol>
+		<symbol id="i-user" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/> <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></symbol>
+		<symbol id="i-user-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M9 10a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/> <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"/></symbol>
+		<symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/> <path d="M16 19h6"/> <path d="M19 16v6"/> <path d="M6 21v-2a4 4 0 0 1 4 -4h4"/></symbol>
+		<symbol id="i-wallet" viewBox="0 0 24 24"><path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"/> <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"/></symbol>
+		<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6l-12 12"/> <path d="M6 6l12 12"/></symbol>
+	</svg>
+
+
+
+
+
+	<!-- ===== Widget chat: AI assistant + WhatsApp (tf-layout.css / tf-nav.js) ===== -->
+	<div class="tf-chat">
+		<button type="button" class="tf-chat__toggle" id="tf-chat-toggle" data-tf-toggle="chat" aria-controls="tf-chat-panel" aria-expanded="false" aria-label="Buka bantuan">💬</button>
+		<div class="tf-chat__panel" id="tf-chat-panel" hidden>
+			<div class="tf-chat__head">
+				<span>Toffin Smart Assistan</span>
+				<button type="button" class="tf-chat__close" data-tf-close="chat" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+			</div>
+			<div class="tf-chat__list">
+				<a href="chat-ai.html" class="tf-chat__opt">
+					<img src="images/AI-logo.png" alt="" class="tf-chat__ico">
+					<span class="tf-chat__text">
+						<span class="tf-chat__title">Personal Toffin AI Assistant 2.0</span>
+						<span class="tf-chat__desc">AI asisten untuk setiap langkah bisnis F&amp;B Anda</span>
+					</span>
+				</a>
+				<a href="https://wa.me/628119983378" target="_blank" rel="noopener noreferrer" class="tf-chat__opt">
+					<img src="images/whatsapp.png" alt="" class="tf-chat__ico">
+					<span class="tf-chat__text">
+						<span class="tf-chat__title">Contact Customer Service</span>
+						<span class="tf-chat__desc">Layanan pelanggan untuk dukungan Anda</span>
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- ===== Sheet navigasi mobile (isi dirender assets/js/mobile-nav.js; buka/tutup oleh tf-nav.js) ===== -->
+	<div class="tf-backdrop" data-tf-close="sheet" hidden></div>
+	<div class="tf-sheet" id="tf-sheet" aria-hidden="true">
+		<div class="tf-sheet__body">
+			<nav class="tf-mnav" id="mobile-nav-shell" aria-label="Navigasi mobile">
+
+				<div class="tf-mnav__view is-active" id="mobile-nav-main-view">
+					<ul class="tf-mnav__list" id="mobile-nav-menu"></ul>
+				</div>
+
+				<div class="tf-mnav__view" id="mobile-category-browser" hidden>
+					<div class="tf-mnav__head">
+						<button type="button" class="tf-mnav__back" id="mobile-category-back" aria-label="Kembali ke menu"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+						<div class="tf-mnav__title">Category</div>
+					</div>
+					<div class="tf-mnav__chips" id="mobile-category-chips"></div>
+					<div class="tf-mnav__content" id="mobile-category-content"></div>
+				</div>
+
+				<div class="tf-mnav__view" id="mobile-promotion-browser" hidden>
+					<div class="tf-mnav__head">
+						<button type="button" class="tf-mnav__back" id="mobile-promotion-back" aria-label="Kembali ke menu"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+						<div class="tf-mnav__title">Promotion</div>
+					</div>
+					<div class="tf-mnav__chips" id="mobile-promotion-chips"></div>
+					<div class="tf-mnav__content" id="mobile-promotion-content"></div>
+				</div>
+
+				<div class="tf-mnav__view" id="mobile-account-browser" hidden>
+					<div class="tf-mnav__head">
+						<button type="button" class="tf-mnav__back" id="mobile-account-back" aria-label="Kembali ke menu"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+						<div class="tf-mnav__title">My Account</div>
+					</div>
+					<ul class="tf-mnav__acc">
+						<li><a href="login.html"><svg class="tf-i" aria-hidden="true"><use href="#i-login"/></svg> Login</a></li>
+						<li><a href="register.html"><svg class="tf-i" aria-hidden="true"><use href="#i-user-plus"/></svg> Register</a></li>
+						<li><a href="my-account.html"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg> Profile</a></li>
+						<li><a href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Daftar Belanja</a></li>
+						<li><a href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorite</a></li>
+						<li><a href="#" class="tf-mnav__acc-danger"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Logout</a></li>
+					</ul>
+				</div>
+
+				<!-- pencarian ponsel: komponen yang sama (tf-search.js), hasil selalu tampil -->
+				<div class="tf-mnav__view tf-sx tf-sx--sheet" id="mobile-search-browser" data-tf-search data-sx-mode="sheet" role="search" hidden>
+					<div class="tf-mnav__head tf-mnav__head--search">
+						<button type="button" class="tf-mnav__back" id="mobile-search-back" aria-label="Tutup pencarian"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+						<div class="tf-sx__wrap">
+							<div class="tf-sx__bar">
+								<button type="button" class="tf-sx__scope" data-sx-scope aria-haspopup="listbox" aria-expanded="false" aria-label="Cakupan pencarian"><span data-sx-scope-label>Semua</span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+								<svg class="tf-i tf-sx__ico" aria-hidden="true"><use href="#i-search"/></svg>
+								<input type="search" class="tf-sx__input" placeholder="Cari produk, kategori, brand" aria-label="Cari produk, kategori, brand" autocomplete="off" enterkeyhint="search" data-sx-input>
+								<button type="button" class="tf-sx__clear" data-sx-clear aria-label="Hapus teks"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+							</div>
+							<div class="tf-sx__menu" data-sx-menu role="listbox" aria-label="Cakupan pencarian">
+								<button type="button" role="option" aria-selected="true" class="is-on" data-scope="all">Semua</button>
+								<button type="button" role="option" aria-selected="false" data-scope="product">Produk</button>
+								<button type="button" role="option" aria-selected="false" data-scope="category">Kategori</button>
+								<button type="button" role="option" aria-selected="false" data-scope="brand">Brand</button>
+							</div>
+						</div>
+					</div>
+					<div class="tf-sx__res" data-sx-results aria-live="polite"></div>
+				</div>
+
+			</nav>
+		</div>
+	</div>
+
+	<!-- ===== Header: logo · menu · pencarian · keranjang · akun (tf-layout.css / tf-nav.js) ===== -->
+	<header class="tf-header" id="tf-header">
+		<div class="tf-container tf-header__in">
+
+			<a class="tf-brand" href="https://toffin.id/" aria-label="Toffin home">
+				<img src="images/toffin-logo.png" alt="Toffin">
+			</a>
+
+			<!-- baris mobile (< 1200px) -->
+			<div class="tf-header__mobile">
+				<a class="tf-brand tf-brand--mobile" href="index.html" aria-label="Toffin home">
+					<img src="images/toffin-logo.png" alt="Toffin">
+				</a>
+				<button type="button" class="tf-search tf-search--trigger" id="btn-open-mobile-search" aria-label="Cari produk, kategori, brand">
+					<span class="tf-search__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg></span>
+					<span class="tf-search__placeholder">Cari produk, kategori, brand</span>
+				</button>
+				<a href="cart.html" class="tf-util" aria-label="Keranjang">
+					<svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg>
+					<span class="tf-util__badge">0</span>
+				</a>
+			</div>
+
+			<!-- nav desktop (>= 1200px) -->
+			<nav class="tf-header__desk" aria-label="Navigasi utama">
+				<ul class="tf-menu">
+					<li class="tf-menu__item tf-dd tf-dd--mega">
+						<button type="button" class="tf-menu__link tf-menu__link--dd" data-tf-toggle="dropdown" aria-expanded="false" aria-controls="tf-mega-category">Category</button>
+						<div class="tf-dd__panel tf-mega" id="tf-mega-category" aria-label="Kategori produk">
+								<div class="tf-mega__side" role="tablist" aria-label="Category groups">
+									<button class="tf-mega__tab is-active" type="button"
+										data-tf-mega="mega-beverage-maker">Beverage Maker</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-coffee-machine">Coffee Machine</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-ingredients">Ingredients</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-coffee-grinder">Coffee Grinder</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-water-treatment">Water Treatment</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-manual-brew">Manual Brew</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-gelato-soft-ice">Gelato &amp; Soft Ice</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-hot-kitchen">Hot Kitchen Equipment</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-cold-kitchen">Cold Kitchen Equipment</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-other-equipment">Other Equipment</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-cleaner">Cleaner</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-smeg">SMEG</button>
+								</div>
+
+								<div class="tf-mega__body">
+									<div class="tf-mega__panel is-active" id="mega-beverage-maker">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Blender"></span>
+												<span class="tf-mega__label">Blender</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Juicer"></span>
+												<span class="tf-mega__label">Juicer</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Slush Machine"></span>
+												<span class="tf-mega__label">Slush Machine</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-coffee-machine">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="product-list.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Home Espresso Machine"></span>
+												<span class="tf-mega__label">Home Espresso Machine</span>
+											</a>
+											<a class="tf-mega__card"
+												href="category/coffee-machine/commercial-espresso-machine.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Commercial Espresso Machine"></span>
+												<span class="tf-mega__label">Commercial Espresso Machine</span>
+											</a>
+											<a class="tf-mega__card"
+												href="category/coffee-machine/fully-automatic-machine.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Fully Automatic Machine"></span>
+												<span class="tf-mega__label">Fully Automatic Machine</span>
+											</a>
+											<a class="tf-mega__card"
+												href="category/coffee-machine/automatic-coffee-brewers.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Automatic Coffee Brewers"></span>
+												<span class="tf-mega__label">Automatic Coffee Brewers</span>
+											</a>
+											<a class="tf-mega__card"
+												href="category/coffee-machine/accessories.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Accessories"></span>
+												<span class="tf-mega__label">Accessories</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-ingredients">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="category/ingredients/sauce.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Sauce"></span>
+												<span class="tf-mega__label">Sauce</span>
+											</a>
+											<a class="tf-mega__card" href="category/ingredients/syrup.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Syrup"></span>
+												<span class="tf-mega__label">Syrup</span>
+											</a>
+											<a class="tf-mega__card"
+												href="category/ingredients/pure-extract.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Pure Extract"></span>
+												<span class="tf-mega__label">Pure Extract</span>
+											</a>
+											<a class="tf-mega__card"
+												href="category/ingredients/concentrate.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Concentrate"></span>
+												<span class="tf-mega__label">Concentrate</span>
+											</a>
+											<a class="tf-mega__card" href="category/ingredients/powder.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Powder"></span>
+												<span class="tf-mega__label">Powder</span>
+											</a>
+											<a class="tf-mega__card"
+												href="category/ingredients/ancillary.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Ancillary"></span>
+												<span class="tf-mega__label">Ancillary</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-coffee-grinder">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Espresso Grinder"></span>
+												<span class="tf-mega__label">Espresso Grinder</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Retail Grinder"></span>
+												<span class="tf-mega__label">Retail Grinder</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-water-treatment">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Water Filter"></span>
+												<span class="tf-mega__label">Water Filter</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Softener"></span>
+												<span class="tf-mega__label">Softener</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-manual-brew">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Dripper"></span>
+												<span class="tf-mega__label">Dripper</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Server"></span>
+												<span class="tf-mega__label">Server</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Kettle"></span>
+												<span class="tf-mega__label">Kettle</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-gelato-soft-ice">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Gelato Machine"></span>
+												<span class="tf-mega__label">Gelato Machine</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Soft Ice Machine"></span>
+												<span class="tf-mega__label">Soft Ice Machine</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-hot-kitchen">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Oven"></span>
+												<span class="tf-mega__label">Oven</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Stove"></span>
+												<span class="tf-mega__label">Stove</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-cold-kitchen">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Chiller"></span>
+												<span class="tf-mega__label">Chiller</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Freezer"></span>
+												<span class="tf-mega__label">Freezer</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-other-equipment">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="POS Equipment"></span>
+												<span class="tf-mega__label">POS Equipment</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Display"></span>
+												<span class="tf-mega__label">Display</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-cleaner">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Machine Cleaner"></span>
+												<span class="tf-mega__label">Machine Cleaner</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Milk Cleaner"></span>
+												<span class="tf-mega__label">Milk Cleaner</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-smeg">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toaster"></span>
+												<span class="tf-mega__label">Toaster</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Kettle"></span>
+												<span class="tf-mega__label">Kettle</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Stand Mixer"></span>
+												<span class="tf-mega__label">Stand Mixer</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							
+						</div>
+					</li>
+					<li class="tf-menu__item"><a href="brand.html" class="tf-menu__link">Brand</a></li>
+					<li class="tf-menu__item tf-dd tf-dd--mega">
+						<button type="button" class="tf-menu__link tf-menu__link--dd" data-tf-toggle="dropdown" aria-expanded="false" aria-controls="tf-mega-promotion">Promotion</button>
+						<div class="tf-dd__panel tf-mega" id="tf-mega-promotion" aria-label="Promosi">
+								<div class="tf-mega__side" role="tablist" aria-label="Promotion groups">
+									<button class="tf-mega__tab is-active" type="button"
+										data-tf-mega="mega-promo-bundle">Promo Bulan Ini</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-promo-program">Promotion Program</button>
+								</div>
+
+								<div class="tf-mega__body">
+									<div class="tf-mega__panel is-active" id="mega-promo-bundle">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Home"></span>
+												<span class="tf-mega__label">Toffin for Home</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Cafe"></span>
+												<span class="tf-mega__label">Toffin for Cafe</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Office"></span>
+												<span class="tf-mega__label">Toffin for Office</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Ingredients"></span>
+												<span class="tf-mega__label">Toffin for Ingredients</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Kitchen"></span>
+												<span class="tf-mega__label">Toffin for Kitchen</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Gelateria"></span>
+												<span class="tf-mega__label">Toffin for Gelateria</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-promo-program">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="promotion.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Promotion"></span>
+												<span class="tf-mega__label">Promotion</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							
+						</div>
+					</li>
+				</ul>
+
+				<!-- pencarian lanjutan (tf-search.js): cakupan Semua/Produk/Kategori/Brand, panel hasil, pintasan "/" -->
+				<div class="tf-sx" data-tf-search role="search">
+					<div class="tf-sx__bar">
+						<button type="button" class="tf-sx__scope" data-sx-scope aria-haspopup="listbox" aria-expanded="false" aria-label="Cakupan pencarian"><span data-sx-scope-label>Semua</span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+						<svg class="tf-i tf-sx__ico" aria-hidden="true"><use href="#i-search"/></svg>
+						<input type="search" class="tf-sx__input" placeholder="Cari produk, kategori, brand" aria-label="Cari produk, kategori, brand" autocomplete="off" enterkeyhint="search" data-sx-input>
+						<button type="button" class="tf-sx__clear" data-sx-clear aria-label="Hapus teks"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+						<kbd class="tf-sx__kbd" aria-hidden="true">/</kbd>
+					</div>
+					<div class="tf-sx__menu" data-sx-menu role="listbox" aria-label="Cakupan pencarian">
+						<button type="button" role="option" aria-selected="true" class="is-on" data-scope="all">Semua</button>
+						<button type="button" role="option" aria-selected="false" data-scope="product">Produk</button>
+						<button type="button" role="option" aria-selected="false" data-scope="category">Kategori</button>
+						<button type="button" role="option" aria-selected="false" data-scope="brand">Brand</button>
+					</div>
+					<div class="tf-sx__panel"><div class="tf-sx__res" data-sx-results aria-live="polite"></div></div>
+				</div>
+
+				<div class="tf-utils">
+					<a href="cart.html" class="tf-util" aria-label="Keranjang">
+						<svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg>
+						<span class="tf-util__badge">0</span>
+					</a>
+					<div class="tf-dd tf-dd--right">
+						<button type="button" class="tf-util" data-tf-toggle="dropdown" aria-expanded="false" aria-controls="tf-acc-menu" aria-label="Menu akun"><svg class="tf-i" aria-hidden="true"><use href="#i-user"/></svg></button>
+						<div class="tf-dd__panel tf-acc" id="tf-acc-menu">
+							<a class="tf-acc__item" href="login.html">Login</a>
+							<a class="tf-acc__item" href="register.html">Register</a>
+							<a class="tf-acc__item" href="my-account.html">My Account</a>
+							<a class="tf-acc__item" href="#">Daftar Belanja</a>
+							<a class="tf-acc__item" href="#">Favorite</a>
+							<div class="tf-acc__divider"></div>
+							<a class="tf-acc__item tf-acc__item--danger" href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Logout</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+		</div>
+	</header>
+  <!-- END nav -->
+
+  <section class="ta-section ta-section--hero bg-light">
+    <div class="container">
+      <div class="ta-hero" style="background-image: url('images/bg_6.jpg');">
+        <div class="row no-gutters align-items-center justify-content-center">
+          <div class="col-md-9 text-center">
+            <h1 class="mb-0 ta-hero__title">My Account</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ta-section bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="ta">
+            <aside class="ta-side">
+              <div class="ta-profile">
+                <div class="ta-avatar">RB</div>
+                <div class="ta-profile-info">
+                  <div class="ta-hi">Halo,</div>
+                  <div class="ta-name">Rendi Bagus</div>
+                  <span class="ta-badge"><svg class="tf-i" aria-hidden="true"><use href="#i-crown"/></svg> Member Toffin</span>
+                </div>
+              </div>
+              <div class="ta-wallet">
+                <a href="#toffin-points" data-toggle="tab" class="ta-wallet__item">
+                  <span class="ta-wallet__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-coins"/></svg></span>
+                  <span class="ta-wallet__meta"><span class="ta-wallet__label">Toffin Points</span><span class="ta-wallet__val">10.000.000</span></span>
+                  <svg class="tf-i ta-wallet__arr" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+                </a>
+                <a href="#service-credit" data-toggle="tab" class="ta-wallet__item">
+                  <span class="ta-wallet__ico ta-wallet__ico--sc"><svg class="tf-i" aria-hidden="true"><use href="#i-tools"/></svg></span>
+                  <span class="ta-wallet__meta"><span class="ta-wallet__label">Service Credit</span><span class="ta-wallet__val">Rp 10.000.000</span></span>
+                  <svg class="tf-i ta-wallet__arr" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+                </a>
+              </div>
+              <ul class="nav nav-pills navtab-bg tab-myaccount ta-menu">
+              <li class="nav-item">
+                <a href="#settings" data-toggle="tab" aria-expanded="false" class="nav-link ml-0 active"
+                  style="border-radius: 10px !important;">
+                  <svg class="tf-i ta-menu__ico" aria-hidden="true"><use href="#i-user"/></svg>Profil
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#daftar-alamat" data-toggle="tab" aria-expanded="false" class="nav-link"
+                  style="border-radius: 10px !important;">
+                  <svg class="tf-i ta-menu__ico" aria-hidden="true"><use href="#i-map-pin"/></svg>Daftar Alamat
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#metode-pembayaran" data-toggle="tab" aria-expanded="true" class="nav-link"
+                  style="border-radius: 10px !important;">
+                  <svg class="tf-i ta-menu__ico" aria-hidden="true"><use href="#i-credit-card"/></svg>Metode Pembayaran
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#toffin-points" data-toggle="tab" aria-expanded="true" class="nav-link"
+                  style="border-radius: 10px !important;">
+                  <svg class="tf-i ta-menu__ico" aria-hidden="true"><use href="#i-coins"/></svg>Toffin Points
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#service-credit" data-toggle="tab" aria-expanded="true" class="nav-link"
+                  style="border-radius: 10px !important;">
+                  <svg class="tf-i ta-menu__ico" aria-hidden="true"><use href="#i-tools"/></svg>Service Credit
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#daftar-belanja" data-toggle="tab" aria-expanded="true" class="nav-link"
+                  style="border-radius: 10px !important;">
+                  <svg class="tf-i ta-menu__ico" aria-hidden="true"><use href="#i-clipboard-list"/></svg>Daftar Belanja
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#favorite" data-toggle="tab" aria-expanded="true" class="nav-link"
+                  style="border-radius: 10px !important;">
+                  <svg class="tf-i ta-menu__ico" aria-hidden="true"><use href="#i-heart"/></svg>Favorite
+                </a>
+              </li>
+              </ul>
+              <a href="login.html" class="ta-logout"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Keluar</a>
+            </aside>
+            <main class="ta-main">
+              <div class="tab-content">
+              <!-- start content daftar alamat -->
+              <!-- Daftar Alamat -->
+              <div class="tab-pane" id="daftar-alamat">
+                <div class="acc-head">
+                  <div><h3 class="acc-title">Daftar Alamat</h3><p class="acc-sub">Kelola alamat pengiriman Anda</p></div>
+                  <div class="acc-head__actions">
+                    <div class="acc-search"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg><input type="text" placeholder="Cari alamat atau penerima"></div>
+                    <a href="#" class="acc-btn" data-toggle="modal" data-target="#tambah-alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg> Tambah Alamat</a>
+                  </div>
+                </div>
+                <div class="addr-grid">
+                  <div class="addr-card addr-card--main">
+                    <div class="addr-card__top"><span class="chip chip--main"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg> Utama</span><span class="chip">Kantor</span></div>
+                    <div class="addr-card__name">Rendi Bagus</div>
+                    <div class="addr-card__body">Jl. Pluit Permai No.4, RT.9/RW.4, Pluit, Kec. Penjaringan, Kota Jkt Utara, DKI Jakarta 14450.<div class="addr-card__phone">081111222333444</div></div>
+                    <div class="addr-card__pin addr-card__pin--ok"><svg class="tf-i" aria-hidden="true"><use href="#i-circle-check"/></svg> Sudah pinpoint</div>
+                    <div class="addr-card__foot"><a href="#" data-toggle="modal" data-target="#tambah-alamat">Ubah</a><a href="#" class="del">Hapus</a><span class="spacer"></span><span class="chip chip--main">Alamat terpilih</span></div>
+                  </div>
+                  <div class="addr-card">
+                    <div class="addr-card__top"><span class="chip">Gudang</span></div>
+                    <div class="addr-card__name">Toffin Indonesia</div>
+                    <div class="addr-card__body">Jl. Pluit Permai No.4, RT.9/RW.4, Pluit, Kec. Penjaringan, Kota Jkt Utara, DKI Jakarta 14450.<div class="addr-card__phone">081111222333444</div></div>
+                    <div class="addr-card__pin addr-card__pin--no"><svg class="tf-i" aria-hidden="true"><use href="#i-circle"/></svg> Belum pinpoint</div>
+                    <div class="addr-card__foot"><a href="#" data-toggle="modal" data-target="#tambah-alamat">Ubah</a><a href="#" class="del">Hapus</a><span class="spacer"></span><a href="#" class="acc-btn acc-btn--sm">Pilih</a></div>
+                  </div>
+                  <div class="addr-card">
+                    <div class="addr-card__top"><span class="chip">Toko</span></div>
+                    <div class="addr-card__name">Toffin Store Kemang</div>
+                    <div class="addr-card__body">Jl. Kemang Raya No.12, Bangka, Kec. Mampang Prpt, Kota Jkt Selatan, DKI Jakarta 12730.<div class="addr-card__phone">082198765432</div></div>
+                    <div class="addr-card__pin addr-card__pin--ok"><svg class="tf-i" aria-hidden="true"><use href="#i-circle-check"/></svg> Sudah pinpoint</div>
+                    <div class="addr-card__foot"><a href="#" data-toggle="modal" data-target="#tambah-alamat">Ubah</a><a href="#" class="del">Hapus</a><span class="spacer"></span><a href="#" class="acc-btn acc-btn--sm">Pilih</a></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Toffin Points -->
+              <div class="tab-pane" id="toffin-points">
+                <div class="acc-head"><div><h3 class="acc-title">Toffin Points</h3><p class="acc-sub">Kumpulkan &amp; tukar poin dari setiap transaksi</p></div></div>
+                <div class="bal-card bal-card--points">
+                  <a href="#" class="bal-card__info" data-toggle="modal" data-target="#info-point"><svg class="tf-i" aria-hidden="true"><use href="#i-info-small"/></svg></a>
+                  <div class="bal-card__label"><svg class="tf-i" aria-hidden="true"><use href="#i-coins"/></svg> Total Toffin Points</div>
+                  <div class="bal-card__val">10.000.000</div>
+                  <div class="bal-card__note">Point akan kedaluwarsa pada 15 Desember 2025</div>
+                </div>
+                <div class="pill-tabs">
+                  <span class="pill-tab active">Riwayat</span>
+                  <span class="pill-tab">Akan Kedaluwarsa</span>
+                  <a href="#" class="hist-filter acc-btn acc-btn--ghost acc-btn--sm" data-toggle="modal" data-target="#filter-points"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg> Filter</a>
+                </div>
+                <div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">30 Nov 2025 · 13:00</div><div class="hist-row__ref">SO/1234/56/78/90</div></div><div class="hist-row__amt plus">+ 19.100.000</div></div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">28 Nov 2025 · 10:24</div><div class="hist-row__ref">SO1234567890</div></div><div class="hist-row__amt minus">- 500.000</div></div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">25 Nov 2025 · 16:40</div><div class="hist-row__ref">SO1234567891</div></div><div class="hist-row__amt plus">+ 1.100.000</div></div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">21 Nov 2025 · 09:12</div><div class="hist-row__ref">SO1234567892</div></div><div class="hist-row__amt minus">- 500.000</div></div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">18 Nov 2025 · 14:05</div><div class="hist-row__ref">SO1234567893</div></div><div class="hist-row__amt plus">+ 1.100.000</div></div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">15 Nov 2025 · 11:30</div><div class="hist-row__ref">SO1234567894</div></div><div class="hist-row__amt minus">- 500.000</div></div>
+                </div>
+              </div>
+              <!-- Favorite -->
+                                          <div class="tab-pane" id="favorite">
+                <div class="acc-head"><div><h3 class="acc-title">Favorite</h3><p class="acc-sub">Produk yang Anda simpan</p></div></div>
+                <div class="product-grid">
+                  <div class="product-grid-item">
+                    <div class="product">
+                    	<div class="text"><p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+                    	<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product1.png" alt="Nuova Simonelli Appia Life 2 group" loading="lazy"></a>
+                    	<div class="fs-body">
+                    		<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
+                    		<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span><span class="fs-price-old">Rp 250.000.000</span></div></div>
+                    		<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>
+                    	</div>
+                    </div>
+                  </div>
+                  <div class="product-grid-item">
+                    <div class="product">
+                    	<div class="text"><p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+                    	<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product1.png" alt="Nuova Simonelli Appia Life 2 group" loading="lazy"></a>
+                    	<div class="fs-body">
+                    		<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
+                    		<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span></div></div>
+                    		<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>
+                    	</div>
+                    </div>
+                  </div>
+                  <div class="product-grid-item">
+                    <div class="product">
+                    	<div class="text"><p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+                    	<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product1.png" alt="Nuova Simonelli Appia Life 2 group" loading="lazy"></a>
+                    	<div class="fs-body">
+                    		<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
+                    		<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span></div></div>
+                    		<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>
+                    	</div>
+                    </div>
+                  </div>
+                  <div class="product-grid-item">
+                    <div class="product">
+                    	<div class="text"><p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+                    	<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product1.png" alt="Nuova Simonelli Appia Life 2 group" loading="lazy"></a>
+                    	<div class="fs-body">
+                    		<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
+                    		<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span><span class="fs-price-old">Rp 250.000.000</span></div></div>
+                    		<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>
+                    	</div>
+                    </div>
+                  </div>
+                  <div class="product-grid-item">
+                    <div class="product">
+                    	<div class="text"><p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+                    	<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product1.png" alt="Nuova Simonelli Appia Life 2 group" loading="lazy"></a>
+                    	<div class="fs-body">
+                    		<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
+                    		<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span><span class="fs-price-old">Rp 250.000.000</span></div></div>
+                    		<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>
+                    	</div>
+                    </div>
+                  </div>
+                  <div class="product-grid-item">
+                    <div class="product">
+                    	<div class="text"><p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+                    	<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product1.png" alt="Nuova Simonelli Appia Life 2 group" loading="lazy"></a>
+                    	<div class="fs-body">
+                    		<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
+                    		<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span></div></div>
+                    		<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>
+                    	</div>
+                    </div>
+                  </div>
+                  <div class="product-grid-item">
+                    <div class="product">
+                    	<div class="text"><p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+                    	<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product1.png" alt="Nuova Simonelli Appia Life 2 group" loading="lazy"></a>
+                    	<div class="fs-body">
+                    		<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
+                    		<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span></div></div>
+                    		<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>
+                    	</div>
+                    </div>
+                  </div>
+                  <div class="product-grid-item">
+                    <div class="product">
+                    	<div class="text"><p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+                    	<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product1.png" alt="Nuova Simonelli Appia Life 2 group" loading="lazy"></a>
+                    	<div class="fs-body">
+                    		<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
+                    		<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span><span class="fs-price-old">Rp 250.000.000</span></div></div>
+                    		<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>
+                    	</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end settings content-->
+
+              <!-- Daftar Belanja -->
+                            <div class="tab-pane" id="daftar-belanja">
+                <div class="acc-head">
+                  <div><h3 class="acc-title">Daftar Belanja</h3><p class="acc-sub">Riwayat transaksi belanja Anda</p></div>
+                  <div class="acc-head__actions">
+                    <div class="acc-search"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg><input type="text" placeholder="Cari transaksi"></div>
+                    <a href="#" class="acc-btn acc-btn--ghost acc-btn--sm" data-toggle="modal" data-target="#filter-daftarbelanja"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg> Filter</a>
+                  </div>
+                </div>
+                <div class="acc-order">
+                  <div class="acc-order__top">
+                    <div class="acc-order__meta"><img src="images/shopping-bag.png" class="order-ico" alt=""><div><span class="order-date">30 Nov 2025</span> <span class="order-no">· SO/2023/10/0422</span></div></div>
+                    <span class="order-badge">Pesanan Diterima</span>
+                  </div>
+                  <div class="acc-order__dist">Distributor: <strong>Toffin Jakarta</strong></div>
+                  <div class="acc-order__prod"><img src="images/product-1.jpg" alt="">
+                    <div><div class="order-prod-name">Nuova Simonelli Grinder MDXS On Demand D65 (Titan Grey)</div><div class="order-prod-qty">Qty: 2 · Rp20.500.000</div><div class="order-prod-more">+ Produk lainnya</div></div>
+                  </div>
+                  <div class="acc-order__foot"><div class="order-total">Total Belanja <strong>Rp41.000.000</strong></div><a href="#" class="acc-btn acc-btn--ghost acc-btn--sm">Detail Transaksi</a></div>
+                </div>
+                <div class="acc-order">
+                  <div class="acc-order__top">
+                    <div class="acc-order__meta"><img src="images/shopping-bag.png" class="order-ico" alt=""><div><span class="order-date">18 Nov 2025</span> <span class="order-no">· SO/2023/10/0391</span></div></div>
+                    <span class="order-badge">Pesanan Diterima</span>
+                  </div>
+                  <div class="acc-order__dist">Distributor: <strong>Toffin Bandung</strong></div>
+                  <div class="acc-order__prod"><img src="images/product-1.jpg" alt="">
+                    <div><div class="order-prod-name">Nuova Simonelli Appia Life 2 Group (Red)</div><div class="order-prod-qty">Qty: 1 · Rp230.000.000</div><div class="order-prod-more">+ Produk lainnya</div></div>
+                  </div>
+                  <div class="acc-order__foot"><div class="order-total">Total Belanja <strong>Rp230.000.000</strong></div><a href="#" class="acc-btn acc-btn--ghost acc-btn--sm">Detail Transaksi</a></div>
+                </div>
+                <div class="acc-order">
+                  <div class="acc-order__top">
+                    <div class="acc-order__meta"><img src="images/shopping-bag.png" class="order-ico" alt=""><div><span class="order-date">05 Nov 2025</span> <span class="order-no">· SO/2023/10/0355</span></div></div>
+                    <span class="order-badge">Pesanan Diterima</span>
+                  </div>
+                  <div class="acc-order__dist">Distributor: <strong>Toffin Surabaya</strong></div>
+                  <div class="acc-order__prod"><img src="images/product-1.jpg" alt="">
+                    <div><div class="order-prod-name">BWT Water Filter Bestmax Premium</div><div class="order-prod-qty">Qty: 3 · Rp4.200.000</div><div class="order-prod-more">+ Produk lainnya</div></div>
+                  </div>
+                  <div class="acc-order__foot"><div class="order-total">Total Belanja <strong>Rp12.600.000</strong></div><a href="#" class="acc-btn acc-btn--ghost acc-btn--sm">Detail Transaksi</a></div>
+                </div>
+              </div>
+              <!-- Service Credit -->
+              <div class="tab-pane" id="service-credit">
+                <div class="acc-head"><div><h3 class="acc-title">Service Credit</h3><p class="acc-sub">Saldo kredit untuk layanan servis</p></div></div>
+                <div class="bal-card bal-card--service">
+                  <a href="#" class="bal-card__info" data-toggle="modal" data-target="#info-service-credit"><svg class="tf-i" aria-hidden="true"><use href="#i-info-small"/></svg></a>
+                  <div class="bal-card__label"><svg class="tf-i" aria-hidden="true"><use href="#i-tools"/></svg> Saldo Service Credit</div>
+                  <div class="bal-card__val">Rp 10.000.000</div>
+                  <div class="bal-card__note">Berlaku untuk seluruh layanan servis Toffin</div>
+                </div>
+                <div class="pill-tabs"><span class="pill-tab active">Mutasi</span></div>
+                <div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">30 Nov 2025 · 13:00</div><div class="hist-row__ref">Servis mesin espresso</div></div><div class="hist-row__amt minus">- 500.000</div></div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">22 Nov 2025 · 09:15</div><div class="hist-row__ref">Top up service credit</div></div><div class="hist-row__amt plus">+ 2.000.000</div></div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">14 Nov 2025 · 15:40</div><div class="hist-row__ref">Ganti sparepart grinder</div></div><div class="hist-row__amt minus">- 750.000</div></div>
+          <div class="hist-row"><div class="hist-row__l"><div class="hist-row__date">02 Nov 2025 · 10:00</div><div class="hist-row__ref">Top up service credit</div></div><div class="hist-row__amt plus">+ 5.000.000</div></div>
+                </div>
+              </div>
+              <!-- end settings content-->
+
+              <!-- start modal tambah alamat-->
+              <div id="tambah-alamat" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5>Tambah Alamat</h5>
+                      <a class="close" data-dismiss="modal">×</a>
+                    </div>
+                    <form id="contactForm" name="contact" role="form">
+                      <div class="modal-body">
+
+                        <div class="row align-items-end">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="nama">Nama Penerima</label>
+                              <input type="text" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                          <div class="w-100"></div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="email" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="nohp">No Handphone</label>
+                              <input type="text" class="form-control" placeholder="">
+                            </div>
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="label">Label Alamat</label>
+                              <input type="text" class="form-control" placeholder="Contoh: Kantor, Rumah">
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="alamat">Alamat Lengkap</label>
+                              <textarea name="text" class="form-control"></textarea>
+                            </div>
+                          </div>
+                          <div class="w-100"></div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="kota">Kota</label>
+                              <input type="text" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="kabupaten">Kabupaten</label>
+                              <input type="text" class="form-control" placeholder="">
+                            </div>
+                          </div>
+
+                          <div class="w-100"></div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="emailaddress">Kode Pos</label>
+                              <input type="text" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="negara">Country</label>
+                              <input type="text" class="form-control" placeholder="Indonesia">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="kabupaten">Pin Lokasi alamat</label>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pin-map"
+                                style="border-radius: 0px;" data-dismiss="modal fade">Open map</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+
+                        <input class="btn btn-primary py-3 px-4" style="border-radius: 0px !important;" type="submit"
+                          class="btn btn-primary py-1 px-2" id="submit">
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- start modal edit alamat-->
+              <div id="edit-alamat" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5>Edit Alamat</h5>
+                      <a class="close" data-dismiss="modal">×</a>
+                    </div>
+
+                    <form>
+                      <div class="modal-body">
+                        <div class="row">
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="firstname">Alamat</label>
+                            </div>
+                          </div>
+                          <div class="col-md-9">
+                            <div class="form-group">
+                              <textarea name="text" class="form-control" rows="3"
+                                placeholder="Tshirtbar, Jl. Abdul Majid Raya, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta, 12150 Kebayoran Baru, Jakarta Selatan, 12150"></textarea>
+                            </div>
+                          </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="firstname">Kota</label>
+                            </div>
+                          </div>
+                          <div class="col-md-9">
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="lastname" placeholder="Jakarta Selatan">
+                            </div>
+                          </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="firstname">Kabupaten</label>
+                            </div>
+                          </div>
+                          <div class="col-md-9">
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="lastname" placeholder="kabupaten">
+                            </div>
+                          </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="firstname">Kode Pos</label>
+                            </div>
+                          </div>
+                          <div class="col-md-9">
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="lastname" placeholder="12150">
+                            </div>
+                          </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="firstname">Negara</label>
+                            </div>
+                          </div>
+                          <div class="col-md-9">
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="lastname" placeholder="Indonesia">
+                            </div>
+
+                          </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="firstname">Note</label>
+                            </div>
+                          </div>
+                          <div class="col-md-9">
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="lastname" placeholder="Opsional">
+                            </div>
+                          </div> <!-- end col -->
+                        </div> <!-- end row -->
+                      </div>
+                      <div class="modal-footer">
+                        <div class="btnact" style="float:right;">
+                          <button class="btn btn-primary py-3 px-4 add-to-cart text-center py-2 mr-1"
+                            style="border-radius: 0px;">Ubah</button>
+                          <button class="btn btn-primary py-3 px-4 buy-now text-center py-2"
+                            style="border-radius: 0px;">Hapus</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Profil -->
+              <div class="tab-pane show active" id="settings">
+                <div class="acc-head"><div><h3 class="acc-title">Biodata Diri</h3><p class="acc-sub">Kelola informasi profil Anda</p></div></div>
+                <div class="pf-top">
+                  <div class="pf-photo"><div class="av">RB</div><label class="cam" title="Ubah foto"><svg class="tf-i" aria-hidden="true"><use href="#i-camera"/></svg></label></div>
+                  <div class="pf-top__info"><h4>Rendi Bagus</h4><p>Member Toffin · Bergabung sejak 2024</p></div>
+                </div>
+                <div class="pf-form">
+                  <div class="frow"><label>Nama Lengkap</label><input type="text" value="Rendi Bagus"></div>
+                  <div class="frow"><label>Email</label><input type="email" value="rendi@toffin.com"></div>
+                  <div class="frow"><label>No Handphone</label><input type="text" value="081222000XXX"></div>
+                </div>
+                <div class="pf-actions">
+                  <button class="acc-btn">Simpan Perubahan</button>
+                  <button class="acc-btn acc-btn--ghost" data-toggle="modal" data-target="#resetpass1">Ubah Sandi</button>
+                </div>
+                <hr class="acc-divider">
+                <div class="acc-card">
+                  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+                    <h4 class="acc-card__title" style="margin:0">Verifikasi ID</h4>
+                    <span class="verif-badge verif-badge--pending"><svg class="tf-i" aria-hidden="true"><use href="#i-clock"/></svg> Belum Terverifikasi</span>
+                  </div>
+                  <p class="acc-card__desc">Lengkapi data KTP atau NPWP untuk menerbitkan faktur pajak dari kami.</p>
+                  <div class="addr-grid">
+                    <label class="upload-box"><svg class="tf-i" aria-hidden="true"><use href="#i-id"/></svg>Upload KTP<br><small>JPG/PNG maks 2MB</small><input type="file" hidden></label>
+                    <label class="upload-box"><svg class="tf-i" aria-hidden="true"><use href="#i-file-invoice"/></svg>Upload NPWP<br><small>JPG/PNG maks 2MB</small><input type="file" hidden></label>
+                  </div>
+                  <div style="margin-top:16px"><button class="acc-btn">Simpan Dokumen</button></div>
+                </div>
+                <div class="pf-danger" style="margin-top:16px">
+                  <p><strong>Hapus Akun</strong> — tindakan ini permanen dan tidak dapat dibatalkan.</p>
+                  <a href="#" data-toggle="modal" data-target="#hapus-akun">Hapus Akun</a>
+                </div>
+              </div>
+              <!-- Metode Pembayaran -->
+              <div class="tab-pane" id="metode-pembayaran">
+                <div class="acc-head"><div><h3 class="acc-title">Metode Pembayaran</h3><p class="acc-sub">Kelola metode pembayaran tersimpan</p></div><a href="#" class="acc-btn"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg> Tambah Metode</a></div>
+                <div class="pay-list">
+                  <div class="pay-row"><div class="pay-row__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-building-bank"/></svg></div><div class="pay-row__info"><div class="pay-row__name">Transfer Bank — BCA</div><div class="pay-row__desc">Virtual Account · 8808 1234 5678 90</div></div><span class="chip chip--main">Utama</span></div>
+                  <div class="pay-row"><div class="pay-row__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg></div><div class="pay-row__info"><div class="pay-row__name">Kartu Kredit / Debit</div><div class="pay-row__desc">**** **** **** 4421 · Visa</div></div><a href="#" class="acc-btn acc-btn--ghost acc-btn--sm">Kelola</a></div>
+                  <div class="pay-row"><div class="pay-row__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-wallet"/></svg></div><div class="pay-row__info"><div class="pay-row__name">Credit Limit Toffin</div><div class="pay-row__desc">Sisa limit Rp 10.000.000</div></div><a href="#" class="acc-btn acc-btn--ghost acc-btn--sm">Detail</a></div>
+                </div>
+              </div>
+              </div> <!-- end tab-content -->
+            </main>
+          </div> <!-- end .ta -->
+        </div> <!-- end col -->
+      </div>
+    </div>
+  </section> <!-- .section -->
+
+  
+
+	<footer class="tf-footer">
+
+		<!-- main columns -->
+		<div class="tf-container tf-fmain">
+			<div class="tf-fbrand">
+				<a href="index.html" class="tf-fbrand__logo"><img src="images/toffin-logo.png" alt="Toffin Indonesia"></a>
+				<p class="tf-fbrand__text">Solusi bisnis kopi terintegrasi yang menawarkan kebutuhan untuk kafe,
+					restoran, rumah, kantor, bisnis gelato, hingga perlengkapan dapur, dari merek kelas dunia.</p>
+				<ul class="tf-fsocial">
+					<li><a href="https://www.instagram.com/toffin.id/" target="_blank" rel="noopener noreferrer"
+							aria-label="Instagram"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-instagram"/></svg></a></li>
+					<li><a href="https://www.youtube.com/channel/UC3WrqEgq-vKYiKHuourGU5w" target="_blank"
+							rel="noopener noreferrer" aria-label="YouTube"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-youtube"/></svg></a></li>
+					<li><a href="https://www.facebook.com/ToffinIndonesia/" target="_blank" rel="noopener noreferrer"
+							aria-label="Facebook"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-facebook"/></svg></a></li>
+					<li><a href="https://www.linkedin.com/company/toffinindonesia" target="_blank"
+							rel="noopener noreferrer" aria-label="LinkedIn"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-linkedin"/></svg></a></li>
+				</ul>
+			</div>
+
+			<div class="tf-fcol">
+				<h3 class="tf-fcol__title">Informasi</h3>
+				<ul class="tf-flinks">
+					<li><a href="about.html">Tentang Kami</a></li>
+					<li><a href="syarat-dan-ketentuan.html">Syarat &amp; Ketentuan</a></li>
+					<li><a href="kebijakan-privasi.html">Kebijakan &amp; Privasi</a></li>
+				</ul>
+			</div>
+
+			<div class="tf-fcol">
+				<h3 class="tf-fcol__title">Bantuan</h3>
+				<ul class="tf-flinks">
+					<li><a href="pengiriman.html">Informasi Pengiriman</a></li>
+					<li><a href="pembatalan-transaksi.html">Pembatalan Transaksi</a></li>
+					<li><a href="faq.html">FAQ</a></li>
+				</ul>
+			</div>
+
+			<div class="tf-fcol tf-fcol--contact">
+				<h3 class="tf-fcol__title">Hubungi Kami</h3>
+				<ul class="tf-fcontact">
+					<li>
+						<svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg>
+						<span>Jl. Pluit Permai No.4, RT.1/RW.7, Pluit, Kec. Penjaringan,<br>Jakarta Utara, DKI Jakarta
+							14450</span>
+					</li>
+					<li><svg class="tf-i" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+62216669538">(+62) 2166695381</a></li>
+					<li><svg class="tf-i" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg><a href="https://wa.me/6281199833780" target="_blank"
+							rel="noopener noreferrer">+62 811-9983-378</a></li>
+					<li><svg class="tf-i" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:info@toffin.com">info@toffin.com</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- trust row.
+		     Text chips rather than brand logos: there are no licensed Visa/BCA/JNE
+		     assets in images/, and inventing them would claim partnerships we
+		     cannot back. Swap each .tf-fchip for an <img> once real logos land. -->
+		<div class="tf-container">
+			<div class="tf-ftrust">
+				<div class="tf-ftrust__grp">
+					<span class="tf-ftrust__lbl">Metode Pembayaran</span>
+					<div class="tf-fchips">
+						<span class="tf-fchip">Transfer Bank</span>
+						<span class="tf-fchip">Virtual Account</span>
+						<span class="tf-fchip">Kartu Kredit</span>
+						<span class="tf-fchip">e-Wallet</span>
+					</div>
+				</div>
+				<div class="tf-ftrust__grp">
+					<span class="tf-ftrust__lbl">Layanan</span>
+					<div class="tf-fchips">
+						<span class="tf-fchip"><svg class="tf-i" aria-hidden="true"><use href="#i-shield"/></svg> Garansi Nasional</span>
+						<span class="tf-fchip"><svg class="tf-i" aria-hidden="true"><use href="#i-truck"/></svg> Kirim Seluruh Indonesia</span>
+						<span class="tf-fchip"><svg class="tf-i" aria-hidden="true"><use href="#i-headset"/></svg> Konsultasi Gratis</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- bottom bar -->
+		<div class="tf-fbottom">
+			<div class="tf-container tf-fbottom__in">
+				<p class="tf-fcopy">&copy; <script>document.write(new Date().getFullYear());</script> <a
+						href="https://toffin.id" target="_blank" rel="noopener noreferrer">Toffin Indonesia</a>. All
+					rights reserved.</p>
+				<ul class="tf-fmini">
+					<li><a href="syarat-dan-ketentuan.html">Syarat</a></li>
+					<li><a href="kebijakan-privasi.html">Privasi</a></li>
+					<li><a href="faq.html">FAQ</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+
+  
+<!-- start modal ubah kata sandi-->
+  <div id="resetpass1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Ubah Kata Sandi</h5>
+          <a class="close" data-dismiss="modal">×</a>
+        </div>
+        <form id="contactForm" name="contact" role="form">
+          <div class="modal-body">
+            <div class="row align-items-end">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="nama">Masukan Alamat Email Anda</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" data-toggle="modal" data-target="#resetpass"
+              data-dismiss="modal" type="submit"
+              style="border-radius: 0% !important; margin: 0 auto; width: fit-content;">Kirim</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- start modal hapus akun-->
+  <div id="hapus-akun" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Hapus Akun</h5>
+          <a class="close" data-dismiss="modal">×</a>
+        </div>
+        <div class="modal-body">
+          <p>Apakah Anda yakin untuk menghapus Akun Anda?</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-lg btn-secondary " type="submit"
+            style="border-radius: 0% !important;  width: fit-content;">Batal</button>
+          <button class="btn btn-lg btn-primary " type="submit"
+            style="border-radius: 0% !important;  width: fit-content;">Konfirmasi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- start modal informasi point-->
+  <div id="info-point" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content p-3">
+        <div class="modal-header justify-content-center position-relative">
+          <h5 class="text-center w-100 m-0 font-weight-bold">Syarat & Ketentuan Toffin Points</h5>
+          <a class="close position-absolute" data-dismiss="modal" style="right: 0px; top: 0px;">×</a>
+        </div>
+          <div class="modal-body">
+          <p><span class="text-orange">Toffin Points</span> adalah program loyalitas digital dari Toffin yang memberikan nilai tambah untuk setiap pembelian produk Anda di Toffin App.</p>
+          <p>Setiap transaksi produk yang berhasil dan terverifikasi akan menghasilkan poin yang dapat dikumpulkan dan digunakan kembali untuk menghemat pembelian berikutnya. Semakin sering Anda berbelanja, semakin besar keuntungan yang Anda dapatkan.</p>
+          <h6 class="font-weight-bold">Mendapatkan Toffin Points</h6>
+          <ul>
+            <li>Toffin Points diperoleh dari setiap pembelian <span class="text-orange">produk</span> di Toffin App.</li>
+            <li>Toffin Points <span class="text-red">tidak diberikan</span> untuk transaksi layanan seperti:
+              <ul class="show">
+                <li>Service fee (biaya servis mesin)</li>
+                <li>Training fee (biaya pelatihan)</li>
+                <li>Service Credit</li>
+                <li>Pembelian Event & Recipe</li>
+              </ul>
+            </li>
+            <li>Jumlah Toffin Points yang diterima dapat <span class="text-orange">berbeda</span> sesuai kategori dan varian produk.</li>
+            <li>Toffin Points <span class="text-red">tidak diberikan</span> untuk transaksi yang dibayar menggunakan Toffin Points (poin hanya diberikan untuk pembayaran penuh).</li>
+            <li>Toffin Points akan <span class="text-orange">aktif</span> setelah transaksi berhasil dan pembayaran terverifikasi.</li>
+            <li>Masa berlaku Toffin Points adalah  <span class="text-orange">1 tahun</span> sejak tanggal poin diterima.</li>
+            <li>Poin yang tidak digunakan hingga masa berlaku berakhir akan <span class="text-red">hangus otomatis</span> dan tidak dapat diklaim kembali.</li>
+            <li>Toffin Points <span class="text-orange">tidak dapat ditukar dengan uang tunai</span> atau bentuk nilai lainnya.</li>
+            <li>Jika pesanan dibatalkan atau direfund, Toffin Points yang telah diberikan akan <span class="text-orange">ditarik kembali</span>.</li>
+            <li>Toffin berhak mengubah skema earn rate, kategori reward, atau kebijakan program kapan saja.</li>
+          </ul>
+          <h6 class="font-weight-bold">Menggunakan Toffin Points</h6>
+          <ul>
+            <li>Toffin Points hanya dapat digunakan untuk membayar <span class="text-orange">produk</span> (tidak dapat digunakan untuk biaya pengiriman & biaya admin).</li>
+            <li><span class="text-orange">1 Point = Rp1</span>.</li>
+            <li>Toffin Points dapat digunakan saat checkout untuk mengurangi total belanja produk.</li>
+            <li><span class="text-orange">Minimal pembayaran setelah penggunaan poin adalah Rp10.000</span>.</li>
+            <li>Jika total pembayaran setelah penggunaan poin kurang dari Rp10.000, sistem akan <span class="text-orange">menyesuaikan jumlah poin secara otomatis</span>.</li>
+            <li>Sisa poin yang belum terpakai akan tetap tersimpan di akun Anda.</li>
+          </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal informasi point-->
+
+  
+  <!-- start modal service credit-->
+  <div id="info-service-credit" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content p-3">
+        <div class="modal-header justify-content-center position-relative">
+          <h5 class="text-center w-100 m-0 font-weight-bold">Syarat & Ketentuan Service Credit</h5>
+          <a class="close position-absolute" data-dismiss="modal" style="right: 0px; top: 0px;">×</a>
+        </div>
+          <div class="modal-body">
+            <p><span class="text-orange">Service Credits</span> adalah saldo digital dalam bentuk Rupiah yang dapat digunakan untuk membayar layanan purna jual Toffin, seperti biaya servis mesin dan biaya pelatihan. <br>Service Credits memberikan solusi pembayaran yang lebih hemat dan fleksibel untuk kebutuhan perawatan dan operasional bisnis Anda.</p>
+            <h6 class="font-weight-bold">Pembelian Service Credits</h6>
+            <ul>
+              <li>Service Credits dijual dalam nominal Rupiah.</li>
+              <li>Anda akan mendapatkan <span class="text-orange">nilai lebih besar</span> dibandingkan harga pembelian.<br>Contoh: Service Credit Rp1.000.000 dapat dibeli dengan harga Rp900.000.</li>
+              <li>Masa berlaku Service Credits adalah <span class="text-orange">12 bulan</span> sejak tanggal pembelian.</li>
+              <li>Service Credits yang tidak digunakan sampai masa berlaku berakhir akan <span class="text-red">hangus otomatis</span> dan tidak dapat dikembalikan atau diklaim.</li>
+            </ul>
+
+            <h6 class="font-weight-bold">Penggunaan Service Credits</h6>
+            <ul>
+              <li>Service Credits hanya dapat digunakan untuk membayar:
+                <ul class="show">
+                  <li><span class="text-orange">Service Fee</span> (biaya servis mesin)</li>
+                  <li><span class="text-orange">Training Fee</span> (biaya pelatihan)</li>
+                </ul>
+              </li>
+              <li>Service Credits <span class="text-red">tidak dapat</span> digunakan untuk membeli produk, event, recipe, ongkir, atau biaya admin pembayaran.</li>
+              <li>Nilai Service Credits dihitung dalam <span class="text-orange">Rupiah (IDR): 1 Service Credit = Rp1</span>.</li>
+              <li>Service Credits dapat digunakan sebagian atau seluruhnya sesuai kebutuhan transaksi.</li>
+              <li>Sisa saldo Service Credits akan tetap tersimpan di akun Anda hingga masa berlaku habis.</li>
+            </ul>
+            <h6 class="font-weight-bold">Kebijakan & Ketentuan Tambahan</h6>
+            <ul>
+              <li>Service Credits <span class="text-red">tidak dapat diuangkan kembali</span>, ditukar, atau dipindah ke akun lain.</li>
+              <li>Toffin berhak mengubah harga, ketentuan penggunaan, atau kebijakan program Service Credits kapan saja.</li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal informasi service credit-->
+
+  <!-- start modal credit limit-->
+  <div id="info-credit-limit" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content p-3">
+        <div class="modal-header justify-content-center position-relative">
+          <h5 class="text-center w-100 m-0 font-weight-bold">Syarat & Ketentuan Credit Limit</h5>
+          <a class="close position-absolute" data-dismiss="modal" style="right: 0px; top: 0px;">×</a>
+        </div>
+          <div class="modal-body">
+            <p><span class="text-orange">Credit Limit</span> adalah fasilitas bayar tempo yang memungkinkan Anda berbelanja produk Toffin <span class="text-orange">tanpa membayar langsung</span>. Anda dapat melunasi transaksi sebelum tanggal jatuh tempo yang sudah ditentukan.</p>
+
+            <h6>Penggunaan Credit Limit</h6>
+            <ul>
+              <li>Credit Limit dapat digunakan untuk membeli produk melalui Toffin App.</li>
+              <li>Credit Limit hanya dapat digunakan jika:
+                <ul class="show">
+                  <li>Saldo kredit mencukupi, dan</li>
+                  <li>Belum melewati batas pembayaran (due date).</li>
+                </ul>
+              </li>
+              <li>Jika saldo kurang atau sudah melewati tanggal jatuh tempo, metode pembayaran Credit Limit <span class="text-red">tidak dapat digunakan</span>.</li>
+              <li><span class="text-orange">Credit Limit</span> <span class="text-orange">hanya berlaku</span> di lokasi Toffin tertentu sesuai pengaturan akun Anda. Jika Anda berbelanja di kota lain, metode pembayaran Credit Limit mungkin tidak muncul.</li>
+              <li>Anda bisa melihat histori pemakaian Credit Limit pada menu Mutasi di Toffin App.</li>
+            </ul>
+
+            <h6>Pembayaran Transaksi Credit Limit</h6>
+            <ul>
+              <li>Semua transaksi yang menggunakan Credit Limit akan muncul di menu Transaksi Belum Terbayarkan.</li>
+              <li>Anda <span class="text-red">wajib</span> melakukan pembayaran transaksi tersebut melalui Toffin App untuk memulihkan saldo Credit Limit.</li>
+              <li>Pembayaran di luar Toffin App (misalnya transfer manual ke Toffin) <span class="text-red">tidak akan memperbarui</span> saldo Credit Limit Anda.</li>
+            </ul>
+
+            <h6>Ketentuan Tambahan</h6>
+            <ul>
+              <li><span class="text-red">Credit Limit tidak bisa</span> diuangkan, dipindahtangankan, atau digunakan untuk membayar ongkir maupun biaya admin.</li>
+              <li>Jika Anda melewati tanggal jatuh tempo dan belum melakukan pembayaran, Credit Limit <span class="text-red">tidak dapat digunakan</span> untuk transaksi berikutnya.</li>
+              <li>Toffin berhak mengubah ketentuan Credit Limit kapan saja sesuai kebijakan.</li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal informasi credit limit-->
+
+<!-- start modal filter point-->
+<div id="filter-points" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Filter</h5>
+        <a class="close" data-dismiss="modal">×</a>
+      </div>
+      <form id="filterForm" role="form">
+        <div class="modal-body">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-12">
+                <div class=" pb-4">
+                    <span class="head-detail">Point</span>
+                    <div>
+                      <label for="b-option" class="l-radio">
+                        <input type="radio" id="b-option" name="selector">
+                        <span>Poin Diperoleh</span>
+                      </label>
+                      <label for="a-option" class="l-radio">
+                        <input type="radio" id="a-option" name="selector" tabindex="2">
+                        <span>Poin Ditukarkan</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class=" pb-4">
+                    <span class="head-detail">Tanggal</span>
+                    <div>
+                      <label for="b-option" class="l-radio">
+                        <input type="radio" id="b-option" name="selector">
+                        <span>Hari Ini</span>
+                      </label>
+                      <label for="a-option" class="l-radio">
+                        <input type="radio" id="a-option" name="selector" tabindex="2">
+                        <span>Bulan Ini</span>
+                      </label>
+                      <label for="a-option" class="l-radio">
+                        <input type="radio" id="a-option" name="selector" tabindex="2">
+                        <span>Tahun Ini</span>
+                      </label>
+                    </div>
+                  </div>
+                      <div class=" pb-4">
+                        <span class="head-detail">Pilih Tanggal Sendiri</span>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div id="date-start" class="form-group">
+                              <label for="point-date">Mulai</label>
+                              <div class="input-group">
+                                <input id="point-date" type="text" class="form-control point-datepicker"
+                                  placeholder="dd/mm/yyyy" value="">
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><svg class="tf-i" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div id="date-end" class="form-group">
+                              <label for="point-date">Akhir</label>
+                              <div class="input-group">
+                                <input id="point-date" type="text" class="form-control point-datepicker"
+                                  placeholder="dd/mm/yyyy" value="">
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><svg class="tf-i" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <button type="reset" class="reset-fil btn btn-secondary w-100">Reset</button>
+          <button type="submit" class="reset-fil btn btn-primary w-100">Apply Filter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end modal filter point -->
+
+<!-- start modal pin map-->
+              <div id="pin-map" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5>Edit Alamat</h5>
+                      <a class="close" data-dismiss="modal">×</a>
+                    </div>
+                    <div class="modal-body">
+                      <!--Google map-->
+                      <div id="map-container-google-2" class="z-depth-1-half map-container">
+                        <iframe width="100%" height="485px"
+                          src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                          frameborder="0" style="border:0" allowfullscreen></iframe>
+                      </div><br />
+                      <!--Google Maps-->
+                      <div class="blog-entry align-self-stretch d-md-flex"
+                        style="border: 1px solid rgba(201, 201, 201, 0.432);">
+                        <div class="col-md-12 sidebar-box">
+                          <div class="text d-block" style="padding: 10px;">
+                            <!-- <h3 class="heading">Toffin Indonesia</h3> -->
+                            <div class="row" style="display: flex;">
+                              <div class="col-md-12">
+                                <div>Jl. Pluit Permai No.4, RT.9/RW.4, Pluit, Kec. Penjaringan, Kota Jkt Utara, Daerah
+                                  Khusus Ibukota Jakarta 14450.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="btnact" style="float:right;">
+                        <button class="btn btn-primary py-3 px-4 add-to-cart text-center py-2 mr-1" data-dismiss="modal"
+                          style="border-radius: 0px;">Pin lokasi ini</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end modal pin map-->
+              <!-- start modal reset password-->
+              <div id="resetpass" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h6>Berhasil mengirim tautan ke Email Anda, silahkan cek email anda.</h6>
+                      <a class="close" data-dismiss="modal">×</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end modal reset password-->
+
+<!-- start modal filter point-->
+<div id="filter-daftarbelanja" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Filter</h5>
+        <a class="close" data-dismiss="modal">×</a>
+      </div>
+      <form id="filterForm" role="form">
+        <div class="modal-body">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-12">
+                <div class=" pb-4">
+                    <span class="head-detail">Status</span>
+                    <div>
+                      <label for="b-option" class="l-radio">
+                        <input type="radio" id="b-option" name="selector">
+                        <span>Pesanan diterima</span>
+                      </label>
+                      <label for="a-option" class="l-radio">
+                        <input type="radio" id="a-option" name="selector" tabindex="2">
+                        <span>Pesanan terkonfirmasi</span>
+                      </label>
+                      <label for="a-option" class="l-radio">
+                        <input type="radio" id="a-option" name="selector" tabindex="2">
+                        <span>Pembayaran diterima</span>
+                      </label>
+                      <label for="a-option" class="l-radio">
+                        <input type="radio" id="a-option" name="selector" tabindex="2">
+                        <span>Pesanan diproses</span>
+                      </label>
+                      <label for="a-option" class="l-radio">
+                        <input type="radio" id="a-option" name="selector" tabindex="2">
+                        <span>Proses pengiriman</span>
+                      </label>
+                      <label for="a-option" class="l-radio">
+                        <input type="radio" id="a-option" name="selector" tabindex="2">
+                        <span>Expired</span>
+                      </label>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <button type="reset" class="reset-fil btn btn-secondary w-100">Reset</button>
+          <button type="submit" class="reset-fil btn btn-primary w-100">Apply Filter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end modal filter point -->
+
+  <!-- loader -->
+
+  
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+
+	<!-- Stack v2 -->
+	<script src="assets/js/tf-nav.js"></script>
+	<script src="assets/js/tf-search.js"></script>
+	<script src="assets/js/mobile-nav.js"></script>
+	<script src="assets/js/tf-app.js"></script>
+
+
+	<!-- ===== Bottom nav mobile (tf-layout.css) ===== -->
+	<nav class="tf-bottomnav" aria-label="Navigasi bawah">
+		<a href="index.html" class="tf-bottomnav__item">
+			<svg class="tf-i" width="20" height="20"><use href="#i-home"/></svg>
+			<span>Home</span>
+		</a>
+		<a href="#" class="tf-bottomnav__item" id="btn-bottom-nav-category">
+			<svg class="tf-i" width="20" height="20"><use href="#i-layout-grid"/></svg>
+			<span>Category</span>
+		</a>
+		<a href="#" class="tf-bottomnav__item" id="btn-bottom-nav-promo">
+			<svg class="tf-i" width="20" height="20"><use href="#i-percentage"/></svg>
+			<span>Promo</span>
+		</a>
+		<a href="my-account.html" class="tf-bottomnav__item is-active">
+			<svg class="tf-i" width="20" height="20"><use href="#i-clipboard-list"/></svg>
+			<span>Daftar Belanja</span>
+		</a>
+		<a href="#" class="tf-bottomnav__item" id="btn-bottom-nav-account">
+			<svg class="tf-i" width="20" height="20"><use href="#i-user"/></svg>
+			<span>Account</span>
+		</a>
+	</nav>
+</body>
+
+</html>

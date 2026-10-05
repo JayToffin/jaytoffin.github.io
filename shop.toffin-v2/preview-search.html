@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pratinjau Pencarian - Toffin v2</title>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/tf-base.css">
+	<!-- Halaman PRATINJAU (bukan halaman toko): dua opsi pencarian lanjutan untuk dipilih. CSS & JS sengaja inline. -->
+	<style>
+		kbd { color: var(--tf-muted); box-shadow: none; }   /* timpa kbd Bootstrap (teks putih, latar gelap) */
+		body { margin: 0; background: #f4f5f7; font-family: var(--tf-font); color: var(--tf-body); }
+		.pv-wrap { max-width: 1240px; margin: 0 auto; padding: 28px 20px 80px; }
+		.pv-title { margin: 0 0 4px; color: var(--tf-ink); font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+		.pv-sub { margin: 0 0 24px; color: var(--tf-muted); font-size: 14px; }
+		.pv-opt { margin-bottom: 40px; }
+		.pv-opt__head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+		.pv-opt__badge { padding: 3px 10px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 12px; font-weight: 800; }
+		.pv-opt__name { margin: 0; color: var(--tf-ink); font-size: 17px; font-weight: 800; }
+		.pv-opt__note { margin: 0 0 12px; color: var(--tf-muted); font-size: 13px; }
+		.pv-stage { position: relative; min-height: 560px; border: 1px solid var(--tf-line); border-radius: 18px; background: #fff; overflow: hidden; }
+		.pv-page { padding: 24px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; opacity: .55; }
+		.pv-page span { aspect-ratio: 3 / 4; border-radius: 14px; background: #f1f2f4; }
+
+		/* ---------- header tiruan (sama dengan header v2) ---------- */
+		.pv-hd { position: relative; z-index: 5; display: flex; align-items: center; gap: 18px; height: 68px; padding: 0 22px; background: #fff; border-bottom: 1px solid var(--tf-line); }
+		.pv-hd__logo img { height: 22px; display: block; }
+		.pv-hd__nav { display: flex; gap: 20px; font-size: 14px; font-weight: 700; color: var(--tf-ink); }
+		.pv-hd__icons { display: flex; gap: 10px; margin-left: auto; }
+		.pv-hd__icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--tf-line); border-radius: 50%; color: var(--tf-ink); }
+		.pv-hd__icon .tf-i { width: 19px; height: 19px; }
+
+		/* ---------- OPSI 1: kolom + panel lebar ---------- */
+		.s1 { position: relative; flex: 0 1 560px; margin-left: auto; }
+		.s1__bar { display: flex; align-items: center; height: 44px; border: 1.5px solid var(--tf-line); border-radius: 999px; background: #f7f8fa; transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease; }
+		.s1.is-open .s1__bar { border-color: var(--tf-orange); background: #fff; box-shadow: 0 0 0 4px rgba(248, 148, 31, .14); }
+		.s1__scope { position: relative; display: inline-flex; align-items: center; gap: 4px; height: 100%; padding: 0 12px 0 16px; border: 0; border-right: 1px solid var(--tf-line); background: transparent; color: var(--tf-ink); font: inherit; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+		.s1__scope .tf-i { width: 15px; height: 15px; color: var(--tf-muted); }
+		.s1__ico { flex: none; width: 18px; height: 18px; margin: 0 8px 0 12px; color: var(--tf-muted); }
+		.s1__input { flex: 1 1 auto; min-width: 0; height: 100%; border: 0; background: transparent; font: inherit; font-size: 14px; color: var(--tf-ink); outline: 0; }
+		.s1__clear { display: none; margin-right: 6px; width: 28px; height: 28px; border: 0; border-radius: 50%; background: transparent; color: var(--tf-muted); cursor: pointer; }
+		.s1.has-q .s1__clear { display: inline-flex; align-items: center; justify-content: center; }
+		.s1__clear:hover { background: #eef0f3; }
+		.s1__kbd { margin-right: 14px; padding: 1px 7px; border: 1px solid var(--tf-line); border-radius: 6px; background: #fff; color: var(--tf-muted); font-size: 11px; font-weight: 700; }
+		.s1.has-q .s1__kbd, .s1.is-open .s1__kbd { display: none; }
+		.s1__menu { position: absolute; top: calc(100% + 6px); left: 0; z-index: 3; display: none; min-width: 170px; padding: 6px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fff; box-shadow: 0 12px 30px rgba(20, 23, 40, .12); }
+		.s1__menu.is-open { display: block; }
+		.s1__menu button { display: flex; align-items: center; gap: 8px; width: 100%; padding: 8px 10px; border: 0; border-radius: 8px; background: transparent; color: var(--tf-body); font: inherit; font-size: 13px; font-weight: 600; text-align: left; cursor: pointer; }
+		.s1__menu button:hover, .s1__menu button.is-on { background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+		.s1__panel { position: absolute; top: calc(100% + 10px); left: 50%; z-index: 2; display: none; width: min(760px, calc(100vw - 40px)); transform: translateX(-50%); border: 1px solid var(--tf-line); border-radius: 18px; background: #fff; box-shadow: 0 24px 60px rgba(20, 23, 40, .16); overflow: hidden; }
+		.s1.is-open .s1__panel { display: block; }
+		.pv-shade { position: absolute; inset: 68px 0 0; z-index: 1; background: rgba(0, 0, 0, .18); opacity: 0; pointer-events: none; transition: opacity .15s ease; }
+		.pv-stage.is-shaded .pv-shade { opacity: 1; }
+
+		/* ---------- OPSI 2: spotlight ---------- */
+		.s2-trigger { display: inline-flex; align-items: center; gap: 10px; flex: 0 1 380px; height: 44px; margin-left: auto; padding: 0 8px 0 16px; border: 1.5px solid var(--tf-line); border-radius: 999px; background: #f7f8fa; color: var(--tf-muted); font: inherit; font-size: 14px; text-align: left; cursor: pointer; transition: border-color .15s ease; }
+		.s2-trigger:hover { border-color: #f3c48f; }
+		.s2-trigger .tf-i { width: 18px; height: 18px; }
+		.s2-trigger span { flex: 1 1 auto; }
+		.s2-trigger kbd { padding: 2px 8px; border: 1px solid var(--tf-line); border-radius: 6px; background: #fff; color: var(--tf-muted); font: inherit; font-size: 11px; font-weight: 700; }
+		.s2 { position: absolute; inset: 0; z-index: 10; display: none; align-items: flex-start; justify-content: center; padding: 64px 16px 16px; background: rgba(0, 0, 0, .35); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+		.s2.is-open { display: flex; }
+		.s2__box { display: flex; flex-direction: column; width: min(680px, 100%); max-height: calc(100% - 20px); border-radius: 26px; background: rgba(255, 251, 247, .96); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); box-shadow: 0 30px 80px rgba(0, 0, 0, .25); overflow: hidden; }
+		.s2__field { display: flex; align-items: center; gap: 12px; padding: 18px 20px 12px; }
+		.s2__field .tf-i { flex: none; width: 22px; height: 22px; color: var(--tf-orange-dark); }
+		.s2__input { flex: 1 1 auto; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 19px; font-weight: 700; color: var(--tf-ink); outline: 0; }
+		.s2__input::placeholder { color: #b0b5bf; font-weight: 600; }
+		.s2__close { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%; background: rgba(0, 0, 0, .06); color: var(--tf-muted); cursor: pointer; transition: background-color .15s ease, color .15s ease; }
+		.s2__close:hover { background: rgba(0, 0, 0, .1); color: var(--tf-ink); }
+		.s2__close .tf-i { width: 16px; height: 16px; }
+		.s2__field .s2__close .tf-i { color: inherit; }
+		/* klik di luar saat sudah ada ketikan: kotak bergoyang, tidak menutup */
+		@keyframes s2Nudge { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+		.s2__box.is-nudge { animation: s2Nudge .28s ease; }
+		.s2__keep { margin-left: auto; color: var(--tf-muted); }
+		.s2__tabs { display: flex; gap: 6px; padding: 0 20px 12px; border-bottom: 1px solid rgba(0, 0, 0, .06); }
+		.s2__tab { padding: 6px 14px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+		.s2__tab.is-on { border-color: var(--tf-orange); background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+		.s2__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+		.s2 .sx { max-height: none; }
+		.s2__foot { display: flex; gap: 16px; padding: 10px 20px; border-top: 1px solid rgba(0, 0, 0, .06); color: var(--tf-muted); font-size: 12px; }
+		.s2__foot kbd { margin-right: 4px; padding: 1px 6px; border: 1px solid var(--tf-line); border-radius: 5px; background: #fff; font: inherit; font-size: 11px; font-weight: 700; }
+
+		/* ---------- isi bersama (dipakai kedua opsi) ---------- */
+		.sx { padding: 14px 20px 18px; max-height: 470px; overflow-y: auto; }
+		.sx__sec + .sx__sec { margin-top: 16px; }
+		.sx__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+		.sx__h { margin: 0; color: var(--tf-muted); font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+		.sx__link { border: 0; background: none; padding: 0; color: var(--tf-orange-dark); font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+		.sx__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+		.sx__chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; }
+		.sx__chip:hover { border-color: #f3c48f; color: var(--tf-ink); text-decoration: none; }
+		.sx__chip .tf-i { width: 14px; height: 14px; color: var(--tf-muted); }
+		.sx__chip img { width: 22px; height: 22px; margin-left: -6px; border-radius: 50%; object-fit: cover; }
+		.sx__chip .sx__x { margin: 0 -4px 0 2px; color: #b0b5bf; }
+		.sx__rank { color: var(--tf-orange-dark); font-weight: 800; }
+		.sx__grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 0 24px; }
+		.sx__row { display: flex; align-items: center; gap: 12px; padding: 8px 10px; margin: 0 -10px; border-radius: 12px; color: var(--tf-body); text-decoration: none; cursor: pointer; }
+		.sx__row:hover, .sx__row.is-active { background: var(--tf-orange-soft); text-decoration: none; color: var(--tf-body); }
+		.sx__thumb { flex: none; width: 44px; height: 44px; border: 1px solid var(--tf-line); border-radius: 10px; background: #fff; object-fit: cover; }
+		.sx__mono { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--tf-line); border-radius: 50%; background: #fff; color: var(--tf-ink); font-size: 13px; font-weight: 800; }
+		.sx__cico { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: #f3f4f6; color: var(--tf-muted); }
+		.sx__cico .tf-i { width: 18px; height: 18px; }
+		.sx__txt { flex: 1 1 auto; min-width: 0; }
+		.sx__name { display: block; overflow: hidden; color: var(--tf-ink); font-size: 13.5px; font-weight: 600; white-space: nowrap; text-overflow: ellipsis; }
+		.sx__name mark { padding: 0; background: none; color: var(--tf-orange-dark); font-weight: 800; }
+		.sx__meta { display: block; color: var(--tf-muted); font-size: 12px; }
+		.sx__price { flex: none; color: var(--tf-ink); font-size: 13px; font-weight: 800; }
+		.sx__all { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; padding: 11px 14px; border-radius: 12px; background: #f7f8fa; color: var(--tf-ink); font-size: 13.5px; font-weight: 700; text-decoration: none; cursor: pointer; }
+		.sx__all.is-active, .sx__all:hover { background: var(--tf-orange-soft); color: var(--tf-orange-dark); text-decoration: none; }
+		.sx__all .tf-i { width: 16px; height: 16px; }
+		.sx__empty { padding: 30px 10px; color: var(--tf-muted); font-size: 14px; text-align: center; }
+		.sx__empty strong { display: block; margin-bottom: 4px; color: var(--tf-ink); }
+		.pv-toast { position: fixed; left: 50%; bottom: 24px; z-index: 50; padding: 10px 16px; border-radius: 999px; background: var(--tf-ink); color: #fff; font-size: 13px; font-weight: 600; transform: translateX(-50%) translateY(20px); opacity: 0; transition: all .2s ease; pointer-events: none; }
+		.pv-toast.is-on { opacity: 1; transform: translateX(-50%); }
+
+		/* ---------- ponsel: opsi 1 jadi layar penuh ---------- */
+		@media (max-width: 767.98px) {
+			.pv-hd__nav, .pv-hd__icons .pv-hd__icon:last-child { display: none; }
+			.pv-hd { gap: 10px; padding: 0 12px; }
+			.pv-hd { position: static; }   /* panel layar penuh mengacu ke panggung, bukan ke header */
+			.s1 { flex: 1 1 auto; position: static; }
+			.s1__scope span { display: none; }
+			.s1__kbd { display: none; }
+			.s1.is-open .s1__bar { position: absolute; top: 12px; left: 12px; right: 12px; z-index: 4; }
+			.s1__panel { top: 68px; left: 0; right: 0; bottom: 0; z-index: 4; width: auto; transform: none; border: 0; border-top: 1px solid var(--tf-line); border-radius: 0; box-shadow: none; }
+			.sx { max-height: none; height: 100%; }
+			.sx__grid { grid-template-columns: 1fr; }
+			.s2 { padding: 0; }
+			.s2__box { width: 100%; max-height: 100%; height: 100%; border-radius: 0; }
+			.s2-trigger kbd, .s2__foot { display: none; }
+			.pv-page { grid-template-columns: repeat(2, 1fr); }
+		}
+	</style>
+</head>
+<body>
+	<!-- ===== Sprite ikon: Tabler Icons v3.48.0 (MIT), subset 64 simbol. Sumber & daftar: assets/icons/README.md.
+	     Pakai: svg.tf-i > use href=#i-(nama) ===== -->
+	<svg id="tf-icons" xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+		<symbol id="i-adjustments-horizontal" viewBox="0 0 24 24"><path d="M12 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 6l8 0"/> <path d="M16 6l4 0"/> <path d="M6 12a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 12l2 0"/> <path d="M10 12l10 0"/> <path d="M15 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 18l11 0"/> <path d="M19 18l1 0"/></symbol>
+		<symbol id="i-alert-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 8v4"/> <path d="M12 16h.01"/></symbol>
+		<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12l14 0"/> <path d="M13 18l6 -6"/> <path d="M13 6l6 6"/></symbol>
+		<symbol id="i-arrows-horizontal" viewBox="0 0 24 24"><path d="M7 8l-4 4l4 4"/> <path d="M17 8l4 4l-4 4"/> <path d="M3 12l18 0"/></symbol>
+		<symbol id="i-ban" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M5.7 5.7l12.6 12.6"/></symbol>
+		<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></symbol>
+		<symbol id="i-brand-facebook" viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></symbol>
+		<symbol id="i-brand-instagram" viewBox="0 0 24 24"><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"/> <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/> <path d="M16.5 7.5v.01"/></symbol>
+		<symbol id="i-brand-linkedin" viewBox="0 0 24 24"><path d="M8 11v5"/> <path d="M8 8v.01"/> <path d="M12 16v-5"/> <path d="M16 16v-3a2 2 0 1 0 -4 0"/> <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/></symbol>
+		<symbol id="i-brand-whatsapp" viewBox="0 0 24 24"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></symbol>
+		<symbol id="i-brand-youtube" viewBox="0 0 24 24"><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8"/> <path d="M10 9l5 3l-5 3l0 -6"/></symbol>
+		<symbol id="i-building-bank" viewBox="0 0 24 24"><path d="M3 21l18 0"/> <path d="M3 10l18 0"/> <path d="M5 6l7 -3l7 3"/> <path d="M4 10l0 11"/> <path d="M20 10l0 11"/> <path d="M8 14l0 3"/> <path d="M12 14l0 3"/> <path d="M16 14l0 3"/></symbol>
+		<symbol id="i-building-store" viewBox="0 0 24 24"><path d="M3 21l18 0"/> <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/> <path d="M5 21l0 -10.15"/> <path d="M19 21l0 -10.15"/> <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/></symbol>
+		<symbol id="i-calendar" viewBox="0 0 24 24"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12"/> <path d="M16 3v4"/> <path d="M8 3v4"/> <path d="M4 11h16"/> <path d="M11 15h1"/> <path d="M12 15v3"/></symbol>
+		<symbol id="i-camera" viewBox="0 0 24 24"><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/> <path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></symbol>
+		<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5l10 -10"/></symbol>
+		<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6l6 -6"/></symbol>
+		<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 6l-6 6l6 6"/></symbol>
+		<symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6l-6 6"/></symbol>
+		<symbol id="i-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></symbol>
+		<symbol id="i-circle-check" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M9 12l2 2l4 -4"/></symbol>
+		<symbol id="i-clipboard-list" viewBox="0 0 24 24"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/> <path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2"/> <path d="M9 12l.01 0"/> <path d="M13 12l2 0"/> <path d="M9 16l.01 0"/> <path d="M13 16l2 0"/></symbol>
+		<symbol id="i-clock" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 7v5l3 3"/></symbol>
+		<symbol id="i-coins" viewBox="0 0 24 24"><path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3"/> <path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4"/> <path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598"/> <path d="M3 6v10c0 .888 .772 1.45 2 2"/> <path d="M3 11c0 .888 .772 1.45 2 2"/></symbol>
+		<symbol id="i-credit-card" viewBox="0 0 24 24"><path d="M3 8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -8"/> <path d="M3 10l18 0"/> <path d="M7 15l.01 0"/> <path d="M11 15l2 0"/></symbol>
+		<symbol id="i-crown" viewBox="0 0 24 24"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4l4 -6"/></symbol>
+		<symbol id="i-file-invoice" viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/> <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2"/> <path d="M9 7l1 0"/> <path d="M9 13l6 0"/> <path d="M13 17l2 0"/></symbol>
+		<symbol id="i-gift" viewBox="0 0 24 24"><path d="M3 9a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1l0 -2"/> <path d="M12 8l0 13"/> <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7"/> <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5"/></symbol>
+		<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 1 1 16 0v3"/> <path d="M18 19c0 1.657 -2.686 3 -6 3"/> <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3"/> <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3"/></symbol>
+		<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/></symbol>
+		<symbol id="i-home" viewBox="0 0 24 24"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/> <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/> <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></symbol>
+		<symbol id="i-hourglass-high" viewBox="0 0 24 24"><path d="M6.5 7h11"/> <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1"/> <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1"/></symbol>
+		<symbol id="i-id" viewBox="0 0 24 24"><path d="M3 7a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -10"/> <path d="M7 10a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 8l2 0"/> <path d="M15 12l2 0"/> <path d="M7 16l10 0"/></symbol>
+		<symbol id="i-info-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 9h.01"/> <path d="M11 12h1v4h1"/></symbol>
+		<symbol id="i-info-small" viewBox="0 0 24 24"><path d="M12 9h.01"/> <path d="M11 12h1v4h1"/></symbol>
+		<symbol id="i-layout-grid" viewBox="0 0 24 24"><path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M14 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/></symbol>
+		<symbol id="i-login" viewBox="0 0 24 24"><path d="M15 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"/> <path d="M21 12h-13l3 -3"/> <path d="M11 15l-3 -3"/></symbol>
+		<symbol id="i-logout" viewBox="0 0 24 24"><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"/> <path d="M9 12h12l-3 -3"/> <path d="M18 15l3 -3"/></symbol>
+		<symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/> <path d="M3 7l9 6l9 -6"/></symbol>
+		<symbol id="i-map-2" viewBox="0 0 24 24"><path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5"/> <path d="M9 4v13"/> <path d="M15 7v5.5"/> <path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879"/> <path d="M19 18v.01"/></symbol>
+		<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"/></symbol>
+		<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12l14 0"/></symbol>
+		<symbol id="i-package" viewBox="0 0 24 24"><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5"/> <path d="M12 12l8 -4.5"/> <path d="M12 12l0 9"/> <path d="M12 12l-8 -4.5"/> <path d="M16 5.25l-8 4.5"/></symbol>
+		<symbol id="i-percentage" viewBox="0 0 24 24"><path d="M16 17a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M6 7a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M6 18l12 -12"/></symbol>
+		<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></symbol>
+		<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5l0 14"/> <path d="M5 12l14 0"/></symbol>
+		<symbol id="i-rotate" viewBox="0 0 24 24"><path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5"/></symbol>
+		<symbol id="i-search" viewBox="0 0 24 24"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/> <path d="M21 21l-6 -6"/></symbol>
+		<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/></symbol>
+		<symbol id="i-shield-half" viewBox="0 0 24 24"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/> <path d="M12 3v18"/></symbol>
+		<symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304"/> <path d="M9 11v-5a3 3 0 0 1 6 0v5"/></symbol>
+		<symbol id="i-shopping-cart" viewBox="0 0 24 24"><path d="M4 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M17 17h-11v-14h-2"/> <path d="M6 5l14 1l-1 7h-13"/></symbol>
+		<symbol id="i-shopping-cart-x" viewBox="0 0 24 24"><path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/> <path d="M13 17h-7v-14h-2"/> <path d="M6 5l14 1l-1 7h-13"/> <path d="M22 22l-5 -5"/> <path d="M17 22l5 -5"/></symbol>
+		<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245"/></symbol>
+		<symbol id="i-tag" viewBox="0 0 24 24"><path d="M6.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3"/></symbol>
+		<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M15 5l0 2"/> <path d="M15 11l0 2"/> <path d="M15 17l0 2"/> <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"/></symbol>
+		<symbol id="i-tools" viewBox="0 0 24 24"><path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"/> <path d="M14.5 5.5l4 4"/> <path d="M12 8l-5 -5l-4 4l5 5"/> <path d="M7 8l-1.5 1.5"/> <path d="M16 12l5 5l-4 4l-5 -5"/> <path d="M16 17l-1.5 1.5"/></symbol>
+		<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7l16 0"/> <path d="M10 11l0 6"/> <path d="M14 11l0 6"/> <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/> <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/></symbol>
+		<symbol id="i-truck" viewBox="0 0 24 24"><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"/></symbol>
+		<symbol id="i-user" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/> <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></symbol>
+		<symbol id="i-user-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M9 10a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/> <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"/></symbol>
+		<symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/> <path d="M16 19h6"/> <path d="M19 16v6"/> <path d="M6 21v-2a4 4 0 0 1 4 -4h4"/></symbol>
+		<symbol id="i-wallet" viewBox="0 0 24 24"><path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"/> <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"/></symbol>
+		<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6l-12 12"/> <path d="M6 6l12 12"/></symbol>
+	</svg>
+
+	<div class="pv-wrap">
+		<h1 class="pv-title">Pratinjau pencarian lanjutan</h1>
+		<p class="pv-sub">Klik kolom pencarian lalu coba ketik "simonelli", "grinder", "eureka", atau "kopi". Panah ↑ ↓ memilih, Enter membuka, Esc menutup. Persempit lebar jendela untuk melihat versi ponsel.</p>
+
+		<section class="pv-opt">
+			<div class="pv-opt__head"><span class="pv-opt__badge">Opsi 1</span><h2 class="pv-opt__name">Kolom + panel lebar (gaya Tokopedia/Amazon)</h2></div>
+			<p class="pv-opt__note"><strong>Dipilih.</strong> Kolom tetap di header dengan pilihan cakupan di kiri. Brand &amp; kategori diturunkan dari produk yang cocok: ketik "grinder" lalu pilih cakupan Brand → "Semua brand" + brand yang punya grinder. Saat diklik muncul panel: riwayat, populer, kategori. Saat mengetik: hasil dikelompokkan Produk / Kategori / Brand. Tekan "/" untuk fokus.</p>
+			<div class="pv-stage" id="stage1">
+				<div class="pv-hd">
+					<a class="pv-hd__logo"><img src="images/toffin-logo.png" alt="Toffin"></a>
+					<nav class="pv-hd__nav"><span>Category</span><span>Brand</span><span>Promotion</span></nav>
+					<div class="s1" data-s1>
+						<div class="s1__bar">
+							<button type="button" class="s1__scope" data-s1-scope aria-haspopup="listbox"><span data-s1-scope-label>Semua</span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+							<svg class="tf-i s1__ico" aria-hidden="true"><use href="#i-search"/></svg>
+							<input class="s1__input" type="search" placeholder="Cari produk, kategori, brand" aria-label="Cari" data-input autocomplete="off">
+							<button type="button" class="s1__clear" data-clear aria-label="Hapus teks"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+							<kbd class="s1__kbd">/</kbd>
+						</div>
+						<div class="s1__menu" data-s1-menu role="listbox">
+							<button type="button" data-scope="all" class="is-on">Semua</button>
+							<button type="button" data-scope="product">Produk</button>
+							<button type="button" data-scope="category">Kategori</button>
+							<button type="button" data-scope="brand">Brand</button>
+						</div>
+						<div class="s1__panel"><div class="sx" data-results></div></div>
+					</div>
+					<div class="pv-hd__icons"><span class="pv-hd__icon"><svg class="tf-i"><use href="#i-shopping-cart"/></svg></span><span class="pv-hd__icon"><svg class="tf-i"><use href="#i-user"/></svg></span></div>
+				</div>
+				<div class="pv-shade"></div>
+				<div class="pv-page"><span></span><span></span><span></span><span></span><span></span></div>
+			</div>
+		</section>
+
+		<section class="pv-opt">
+			<div class="pv-opt__head"><span class="pv-opt__badge">Opsi 2</span><h2 class="pv-opt__name">Spotlight (gaya Apple / command palette)</h2></div>
+			<p class="pv-opt__note">Header hanya berisi tombol pencarian. Klik (atau ⌘K / Ctrl+K) membuka kotak besar di tengah dengan latar blur, gaya modal Fusion. Cakupan berupa tab di bawah kolom. Pengaman: klik di luar hanya menutup bila kolom kosong (bila sudah diketik, kotak bergoyang), tutup lewat ✕ atau Esc, dan kata kunci + tab tetap ada saat dibuka lagi.</p>
+			<div class="pv-stage" id="stage2" style="min-height:720px">
+				<div class="pv-hd">
+					<a class="pv-hd__logo"><img src="images/toffin-logo.png" alt="Toffin"></a>
+					<nav class="pv-hd__nav"><span>Category</span><span>Brand</span><span>Promotion</span></nav>
+					<button type="button" class="s2-trigger" data-s2-open><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg><span>Cari produk, kategori, brand</span><kbd>⌘K</kbd></button>
+					<div class="pv-hd__icons" style="margin-left:0"><span class="pv-hd__icon"><svg class="tf-i"><use href="#i-shopping-cart"/></svg></span><span class="pv-hd__icon"><svg class="tf-i"><use href="#i-user"/></svg></span></div>
+				</div>
+				<div class="pv-page"><span></span><span></span><span></span><span></span><span></span></div>
+				<div class="s2" data-s2 role="dialog" aria-modal="true" aria-label="Pencarian">
+					<div class="s2__box">
+						<div class="s2__field"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg><input class="s2__input" type="search" placeholder="Cari produk, kategori, brand" aria-label="Cari" data-input autocomplete="off"><button type="button" class="s2__close" data-s2-close aria-label="Tutup pencarian"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+						<div class="s2__tabs" role="tablist">
+							<button type="button" class="s2__tab is-on" data-scope="all">Semua</button>
+							<button type="button" class="s2__tab" data-scope="product">Produk</button>
+							<button type="button" class="s2__tab" data-scope="category">Kategori</button>
+							<button type="button" class="s2__tab" data-scope="brand">Brand</button>
+						</div>
+						<div class="s2__body"><div class="sx" data-results></div></div>
+						<div class="s2__foot"><span><kbd>↑</kbd><kbd>↓</kbd>pilih</span><span><kbd>↵</kbd>buka</span><span><kbd>esc</kbd>tutup</span><span class="s2__keep">Pencarian tetap tersimpan saat ditutup</span></div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="pv-toast" data-toast></div>
+
+	<script>
+	(function () {
+		'use strict';
+		/* ---------- data contoh (di backend: endpoint saran pencarian) ---------- */
+		var PRODUCTS = [
+			['Nuova Simonelli Appia Life 2 Group', 'Nuova Simonelli', 'Coffee Machine', 230000000, 'product-1.jpg'],
+			['Nuova Simonelli Oscar Mood', 'Nuova Simonelli', 'Coffee Machine', 24900000, 'product-3.jpg'],
+			['Nuova Simonelli Aurelia Wave 3 Group', 'Nuova Simonelli', 'Coffee Machine', 315000000, 'product-6.jpg'],
+			['Nuova Simonelli Prontobar Silent', 'Nuova Simonelli', 'Coffee Machine', 189000000, 'product-1.1.jpg'],
+			['Victoria Arduino Eagle One Prima', 'Victoria Arduino', 'Coffee Machine', 118500000, 'product-2.jpg'],
+			['Victoria Arduino Mythos MY75', 'Victoria Arduino', 'Coffee Grinder', 62000000, 'product-8.jpg'],
+			['VBM Domobar Junior HX', 'VBM', 'Coffee Machine', 32800000, 'product-4.jpg'],
+			['Eureka Mignon Specialita 55 mm', 'Eureka', 'Coffee Grinder', 9950000, 'grinder.jpg'],
+			['Eureka Zeus 65 mm', 'Eureka', 'Coffee Grinder', 38500000, 'grinder.jpg'],
+			['Bravo Water Treatment Pro 1200', 'Bravo', 'Water Treatment', 7850000, 'product-1.2.jpg'],
+			['Bravo Filter Cartridge C500', 'Bravo', 'Water Treatment', 1250000, 'product-1.3.png'],
+			['TFN Milk Pitcher 600 ml Stainless', 'TFN', 'Accessories', 285000, 'product-1.4.jpg'],
+			['TFN Tamper 58 mm Walnut', 'TFN', 'Accessories', 425000, 'product-1.5.jpg'],
+			['Toffin Espresso Blend 1 kg', 'Toffin', 'Ingredients', 245000, 'product-2.jpg'],
+			['Toffin Kopi Arabika Gayo 500 g', 'Toffin', 'Ingredients', 165000, 'product-3.jpg'],
+			['Toffin Chocolate Powder 1 kg', 'Toffin', 'Ingredients', 168000, 'product-5.jpg'],
+			['Manual Brew Starter Kit V60', 'Toffin', 'Manual Brew', 385000, 'product-5.jpg']
+		].map(function (r) { return { name: r[0], brand: r[1], cat: r[2], price: r[3], img: 'images/' + r[4] }; });
+		var CATS = [['Coffee Machine', 'product-1.jpg'], ['Coffee Grinder', 'grinder.jpg'], ['Ingredients', 'product-2.jpg'], ['Water Treatment', 'product-1.2.jpg'], ['Manual Brew', 'product-5.jpg'], ['Accessories', 'product-1.4.jpg'], ['Gelato & Soft Ice', 'product-6.jpg'], ['Kopi Bubuk & Biji', 'product-3.jpg']]
+			.map(function (c) { return { name: c[0], img: 'images/' + c[1], count: PRODUCTS.filter(function (p) { return p.cat === c[0]; }).length || 6 }; });
+		var BRANDS = ['Nuova Simonelli', 'Victoria Arduino', 'Eureka', 'VBM', 'Bravo', 'TFN', 'Toffin']
+			.map(function (b) { return { name: b, count: PRODUCTS.filter(function (p) { return p.brand === b; }).length }; });
+		var POPULAR = ['mesin espresso', 'grinder', 'nuova simonelli', 'kopi arabika', 'milk pitcher', 'water filter'];
+		var KEY = 'tf-search-recent';
+
+		function recent() { try { return JSON.parse(localStorage.getItem(KEY)) || ['appia life', 'eureka mignon']; } catch (e) { return ['appia life', 'eureka mignon']; } }
+		function saveRecent(q) { var r = recent().filter(function (x) { return x !== q; }); r.unshift(q); try { localStorage.setItem(KEY, JSON.stringify(r.slice(0, 6))); } catch (e) {} }
+		function clearRecent(q) { var r = q ? recent().filter(function (x) { return x !== q; }) : []; try { localStorage.setItem(KEY, JSON.stringify(r)); } catch (e) {} }
+		function rupiah(n) { return 'Rp ' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+		function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+		function hl(s, q) { var i = s.toLowerCase().indexOf(q.toLowerCase()); return i < 0 ? esc(s) : esc(s.slice(0, i)) + '<mark>' + esc(s.slice(i, i + q.length)) + '</mark>' + esc(s.slice(i + q.length)); }
+		function icon(n) { return '<svg class="tf-i" aria-hidden="true"><use href="#i-' + n + '"/></svg>'; }
+		var toastEl = document.querySelector('[data-toast]'), toastT;
+		function toast(t) { toastEl.textContent = t; toastEl.classList.add('is-on'); clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove('is-on'); }, 1800); }
+
+		/* ---------- isi panel (bersama) ---------- */
+		function render(box, q, scope) {
+			q = q.trim();
+			var h = '';
+			if (!q) {
+				var r = recent();
+				if (r.length) h += '<div class="sx__sec"><div class="sx__head"><h3 class="sx__h">Terakhir dicari</h3><button type="button" class="sx__link" data-clear-recent>Hapus semua</button></div><div class="sx__chips">'
+					+ r.map(function (x) { return '<span class="sx__chip" data-go="' + esc(x) + '">' + icon('clock') + esc(x) + '<span class="sx__x" data-del="' + esc(x) + '" aria-label="Hapus">✕</span></span>'; }).join('') + '</div></div>';
+				h += '<div class="sx__sec"><div class="sx__head"><h3 class="sx__h">Populer</h3></div><div class="sx__chips">'
+					+ POPULAR.map(function (x, i) { return '<span class="sx__chip" data-go="' + x + '"><span class="sx__rank">' + (i + 1) + '</span>' + x + '</span>'; }).join('') + '</div></div>';
+				h += '<div class="sx__sec"><div class="sx__head"><h3 class="sx__h">Kategori populer</h3></div><div class="sx__chips">'
+					+ CATS.slice(0, 6).map(function (c) { return '<a class="sx__chip" data-nav="Kategori: ' + c.name + '"><img src="' + c.img + '" alt="">' + c.name + '</a>'; }).join('') + '</div></div>';
+				box.innerHTML = h; return;
+			}
+			var ql = q.toLowerCase();
+			function m(s) { return s.toLowerCase().indexOf(ql) >= 0; }
+			/* produk yang cocok dengan kata kunci (nama, brand, atau kategori) */
+			var hits = PRODUCTS.filter(function (p) { return m(p.name) || m(p.brand) || m(p.cat); });
+			/* brand & kategori diturunkan dari produk yang cocok: "grinder" → Eureka, Victoria Arduino */
+			function groupBy(key, list, names) {
+				var out = names.map(function (n) { return { name: n, count: hits.filter(function (p) { return p[key] === n; }).length, direct: m(n) }; })
+					.filter(function (g) { return g.count || g.direct; });
+				out.forEach(function (g) { if (!g.count) g.count = PRODUCTS.filter(function (p) { return p[key] === g.name; }).length; });
+				return out.sort(function (x, y) { return y.count - x.count; });
+			}
+			var bs = groupBy('brand', hits, BRANDS.map(function (b) { return b.name; }));
+			var cs = groupBy('cat', hits, CATS.map(function (c) { return c.name; }));
+			var ps = (scope === 'all' || scope === 'product') ? hits : [];
+			if (scope === 'product') { bs = []; cs = []; }
+			if (scope === 'category') { bs = []; }
+			if (scope === 'brand') { cs = []; }
+			if (!ps.length && !cs.length && !bs.length) {
+				box.innerHTML = '<div class="sx__empty"><strong>Tidak ada hasil untuk "' + esc(q) + '"</strong>Coba kata lain, atau ganti cakupan ke "Semua".</div>'; return;
+			}
+			function brandRows(list, max) {
+				return list.slice(0, max).map(function (b) { return '<a class="sx__row" data-nav="Brand ' + esc(b.name) + ' · ' + esc(q) + '"><span class="sx__mono">' + esc(b.name.charAt(0)) + '</span><span class="sx__txt"><span class="sx__name">' + hl(b.name, q) + '</span><span class="sx__meta">' + b.count + ' produk "' + esc(q) + '"</span></span></a>'; }).join('');
+			}
+			function catRows(list, max) {
+				return list.slice(0, max).map(function (c) { return '<a class="sx__row" data-nav="Kategori ' + esc(c.name) + ' · ' + esc(q) + '"><span class="sx__cico">' + icon('layout-grid') + '</span><span class="sx__txt"><span class="sx__name">' + hl(c.name, q) + '</span><span class="sx__meta">' + c.count + ' produk</span></span></a>'; }).join('');
+			}
+			/* cakupan Brand / Kategori: daftar penuh + baris "Semua …" di atas */
+			if (scope === 'brand' || scope === 'category') {
+				var isB = scope === 'brand', list = isB ? bs : cs;
+				h = '<div class="sx__sec"><div class="sx__head"><h3 class="sx__h">' + (isB ? 'Brand' : 'Kategori') + ' yang punya "' + esc(q) + '"</h3><span class="sx__meta">' + list.length + ' ' + (isB ? 'brand' : 'kategori') + '</span></div>'
+					+ '<a class="sx__row" data-nav="Semua ' + (isB ? 'brand' : 'kategori') + ' · ' + esc(q) + '" data-save="' + esc(q) + '"><span class="sx__cico">' + icon(isB ? 'tag' : 'layout-grid') + '</span><span class="sx__txt"><span class="sx__name">Semua ' + (isB ? 'brand' : 'kategori') + '</span><span class="sx__meta">' + hits.length + ' produk "' + esc(q) + '"</span></span></a>'
+					+ (isB ? brandRows(list, 20) : catRows(list, 20)) + '</div>';
+				box.innerHTML = h; return;
+			}
+			var limit = scope === 'product' ? 8 : 5;
+			var left = ps.length ? '<div class="sx__sec"><div class="sx__head"><h3 class="sx__h">Produk</h3><span class="sx__meta">' + ps.length + ' hasil</span></div>'
+				+ ps.slice(0, limit).map(function (p) { return '<a class="sx__row" data-nav="Produk: ' + esc(p.name) + '"><img class="sx__thumb" src="' + p.img + '" alt=""><span class="sx__txt"><span class="sx__name">' + hl(p.name, q) + '</span><span class="sx__meta">' + esc(p.brand) + ' · ' + esc(p.cat) + '</span></span><span class="sx__price">' + rupiah(p.price) + '</span></a>'; }).join('') + '</div>' : '';
+			var right = '';
+			if (cs.length) right += '<div class="sx__sec"><div class="sx__head"><h3 class="sx__h">Kategori</h3></div>' + catRows(cs, 3) + '</div>';
+			if (bs.length) right += '<div class="sx__sec"><div class="sx__head"><h3 class="sx__h">Brand</h3>' + (bs.length > 3 ? '<button type="button" class="sx__link" data-scope-to="brand">Semua ' + bs.length + ' brand</button>' : '') + '</div>' + brandRows(bs, 3) + '</div>';
+			h = (left && right) ? '<div class="sx__grid"><div>' + left + '</div><div>' + right + '</div></div>' : (left || right);
+			h += '<a class="sx__all" data-nav="Semua hasil: ' + esc(q) + '" data-save="' + esc(q) + '"><span>Lihat semua hasil untuk "<strong>' + esc(q) + '</strong>"</span>' + icon('arrow-right') + '</a>';
+			box.innerHTML = h;
+		}
+
+		/* ---------- perilaku bersama: navigasi keyboard + klik ---------- */
+		function wire(root, input, box, getScope, onClose) {
+			var active = -1;
+			function items() { return [].slice.call(box.querySelectorAll('.sx__row, .sx__all')); }
+			function setActive(i) { var it = items(); active = Math.max(-1, Math.min(i, it.length - 1)); it.forEach(function (el, n) { el.classList.toggle('is-active', n === active); }); if (it[active]) it[active].scrollIntoView({ block: 'nearest' }); }
+			function refresh() { render(box, input.value, getScope()); active = -1; root.classList.toggle('has-q', !!input.value); }
+			input.addEventListener('input', refresh);
+			input.addEventListener('keydown', function (e) {
+				if (e.key === 'ArrowDown') { e.preventDefault(); setActive(active + 1); }
+				else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(active - 1); }
+				else if (e.key === 'Enter') { e.preventDefault(); var it = items()[active]; if (it) it.click(); else if (input.value.trim()) { saveRecent(input.value.trim()); toast('Membuka hasil untuk "' + input.value.trim() + '"'); } }
+				else if (e.key === 'Escape') { e.preventDefault(); onClose(); }   /* preventDefault: input type=search mengosongkan isinya saat Esc */
+			});
+			box.addEventListener('mousedown', function (e) { e.preventDefault(); });   /* fokus tetap di kolom */
+			box.addEventListener('click', function (e) {
+				var t;
+				if ((t = e.target.closest('[data-del]'))) { e.stopPropagation(); clearRecent(t.getAttribute('data-del')); refresh(); return; }
+				if ((t = e.target.closest('[data-clear-recent]'))) { clearRecent(); refresh(); return; }
+				if ((t = e.target.closest('[data-scope-to]'))) { root.dispatchEvent(new CustomEvent('tf:scope', { detail: t.getAttribute('data-scope-to') })); return; }
+				if ((t = e.target.closest('[data-go]'))) { input.value = t.getAttribute('data-go'); refresh(); input.focus(); return; }
+				if ((t = e.target.closest('[data-nav]'))) { if (t.hasAttribute('data-save')) saveRecent(t.getAttribute('data-save')); else if (input.value.trim()) saveRecent(input.value.trim()); toast('Membuka ' + t.getAttribute('data-nav')); }
+			});
+			return refresh;
+		}
+
+		/* ---------- OPSI 1 ---------- */
+		var s1 = document.querySelector('[data-s1]'), stage1 = document.getElementById('stage1');
+		var in1 = s1.querySelector('[data-input]'), menu = s1.querySelector('[data-s1-menu]'), scope1 = 'all';
+		var refresh1 = wire(s1, in1, s1.querySelector('[data-results]'), function () { return scope1; }, close1);
+		function open1() { s1.classList.add('is-open'); stage1.classList.add('is-shaded'); refresh1(); }
+		function close1() { s1.classList.remove('is-open'); stage1.classList.remove('is-shaded'); menu.classList.remove('is-open'); in1.blur(); }
+		in1.addEventListener('focus', open1);
+		s1.querySelector('[data-clear]').addEventListener('click', function () { in1.value = ''; refresh1(); in1.focus(); });
+		s1.querySelector('[data-s1-scope]').addEventListener('click', function () { menu.classList.toggle('is-open'); });
+		s1.addEventListener('tf:scope', function (e) { setScope1(menu.querySelector('[data-scope="' + e.detail + '"]')); });
+		menu.addEventListener('click', function (e) {
+			var b = e.target.closest('[data-scope]'); if (!b) return; setScope1(b);
+		});
+		function setScope1(b) {
+			scope1 = b.getAttribute('data-scope');
+			menu.querySelectorAll('button').forEach(function (x) { x.classList.toggle('is-on', x === b); });
+			s1.querySelector('[data-s1-scope-label]').textContent = b.textContent;
+			in1.placeholder = scope1 === 'all' ? 'Cari produk, kategori, brand' : 'Cari ' + b.textContent.toLowerCase();
+			menu.classList.remove('is-open'); in1.focus(); refresh1();
+		}
+		document.addEventListener('mousedown', function (e) { if (!s1.contains(e.target)) close1(); });
+
+		/* ---------- OPSI 2 ---------- */
+		var s2 = document.querySelector('[data-s2]'), in2 = s2.querySelector('[data-input]'), scope2 = 'all';
+		var refresh2 = wire(s2, in2, s2.querySelector('[data-results]'), function () { return scope2; }, close2);
+		function open2() { s2.classList.add('is-open'); refresh2(); setTimeout(function () { in2.focus(); }, 0); }
+		function close2() { s2.classList.remove('is-open'); }
+		document.querySelector('[data-s2-open]').addEventListener('click', open2);
+		s2.querySelector('[data-s2-close]').addEventListener('click', close2);
+		/* klik di luar kotak: tutup hanya bila kolom kosong; bila sudah ada ketikan, kotak bergoyang (tutup lewat ✕ / Esc) */
+		var box2 = s2.querySelector('.s2__box');
+		s2.addEventListener('mousedown', function (e) {
+			if (e.target !== s2) return;
+			e.preventDefault();
+			if (!in2.value.trim()) { close2(); return; }
+			box2.classList.remove('is-nudge'); void box2.offsetWidth; box2.classList.add('is-nudge'); in2.focus();
+		});
+		box2.addEventListener('animationend', function () { box2.classList.remove('is-nudge'); });
+		s2.querySelectorAll('.s2__tab').forEach(function (t) { t.addEventListener('click', function () { scope2 = t.getAttribute('data-scope'); s2.querySelectorAll('.s2__tab').forEach(function (x) { x.classList.toggle('is-on', x === t); }); in2.focus(); refresh2(); }); });
+
+		/* pintasan: "/" fokus opsi 1, Ctrl/⌘+K buka opsi 2 */
+		document.addEventListener('keydown', function (e) {
+			var typing = /INPUT|TEXTAREA/.test(document.activeElement.tagName);
+			if (e.key === '/' && !typing) { e.preventDefault(); in1.focus(); }
+			if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); open2(); }
+		});
+	})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,759 @@
+/* =====================================================================
+   Toffin v2 · home-modern.css — homepage (index.html)
+   Dimuat sesudah tf-base, tf-layout, tf-products. Semua aturan dibatasi
+   ke homepage lewat .tf-home atau kelas section homepage (.tf-hero-*,
+   .tf-flash*, .tf-bcard, .tf-pg, ...). Slider diatur tf-sliders.js.
+   ===================================================================== */
+.tf-home {
+	font-family: var(--tf-font);
+	color: var(--tf-body);
+	background: var(--tf-bg);
+	overflow-x: hidden;
+}
+.tf-home *,
+.tf-home *::before,
+.tf-home *::after { box-sizing: border-box; }
+.tf-home img { max-width: 100%; }
+
+/* ---------- Section shell + headers ---------- */
+.tf-section { padding: 30px 0; }
+.tf-section--tight { padding: 16px 0; }
+.tf-head {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 24px;
+}
+.tf-head--center { justify-content: center; text-align: center; margin-bottom: 30px; }
+.tf-head--center .tf-head__titles { max-width: 620px; }
+.tf-head__titles { min-width: 0; }
+.tf-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	font-size: 11.5px;
+	font-weight: 800;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--tf-orange-dark);
+	margin-bottom: 9px;
+}
+.tf-eyebrow::before {
+	content: "";
+	width: 18px; height: 2px; border-radius: 2px;
+	background: var(--tf-orange);
+}
+.tf-head--center .tf-eyebrow { justify-content: center; }
+.tf-title {
+	font-size: clamp(21px, 3vw, 29px);
+	line-height: 1.12;
+	font-weight: 800;
+	color: var(--tf-ink);
+	margin: 0;
+	letter-spacing: -.02em;
+}
+.tf-title span { color: var(--tf-orange); }
+.tf-subtitle { margin: 6px 0 0; font-size: 14px; color: var(--tf-muted); }
+.tf-viewall {
+	flex: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 800;
+	color: var(--tf-orange-dark);
+	background: var(--tf-orange-soft);
+	padding: 8px 16px;
+	border-radius: 100px;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background .2s ease, color .2s ease, gap .2s ease;
+}
+.tf-viewall:hover { background: var(--tf-orange); color: #fff; gap: 9px; text-decoration: none; }
+
+/* ---------- HERO (Tokopedia: single full-width banner carousel) ---------- */
+.tf-hero { padding: 10px 0 6px; }
+.tf-hero-swiper {
+	position: relative;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: var(--tf-shadow);
+	height: clamp(150px, 30vw, 384px);
+}
+.tf-hero-swiper .swiper-wrapper,
+.tf-hero-swiper .swiper-slide { height: 100%; }
+
+/* ---------- Widgets block (Kategori Populer + Toffin Rewards) ---------- */
+.tf-widgets {
+	display: grid;
+	grid-template-columns: 1.35fr 1fr;
+	gap: 20px;
+	background: #fff;
+	border: 1px solid var(--tf-line);
+	border-radius: 12px;
+	padding: 18px 20px 20px;
+}
+.tf-wcol { min-width: 0; display: flex; flex-direction: column; }
+.tf-wtitle { font-size: 18px; font-weight: 800; line-height: 1.5; color: var(--tf-ink); margin: 0 0 12px; }
+.tf-wtitle-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.tf-wtitle-row .tf-wtitle { margin-bottom: 12px; }
+.tf-wlink { font-size: 13px; font-weight: 800; color: var(--tf-orange-dark); text-decoration: none; }
+.tf-wlink:hover { color: var(--tf-orange); text-decoration: none; }
+/* left promo card */
+.tf-catpromo {
+	position: relative;
+	flex: 1;
+	display: flex; align-items: center;
+	gap: 12px;
+	background: linear-gradient(120deg, #f8941f 0%, #ff5f2e 100%);
+	border-radius: 10px;
+	padding: 22px 24px;
+	overflow: hidden;
+	text-decoration: none;
+	min-height: 150px;
+}
+.tf-catpromo__c { position: relative; z-index: 2; max-width: 62%; }
+.tf-catpromo__t { font-size: clamp(18px, 2vw, 22px); font-weight: 800; color: #fff; line-height: 1.15; }
+.tf-catpromo__s { font-size: 13px; color: rgba(255,255,255,.9); margin: 6px 0 16px; }
+.tf-catpromo__btn {
+	display: inline-block; background: #fff; color: var(--tf-orange-dark);
+	font-weight: 800; font-size: 13px; padding: 9px 18px; border-radius: 8px;
+}
+.tf-catpromo:hover .tf-catpromo__btn { background: #fff7ef; }
+.tf-catpromo__img {
+	position: absolute; right: 14px; bottom: 10px; z-index: 1;
+	width: 150px; max-width: 42%; object-fit: contain;
+	filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+}
+/* right rewards widget */
+.tf-reward { border: 1px solid var(--tf-line); border-radius: 10px; padding: 6px 14px 14px; display: flex; flex-direction: column; flex: 1; }
+.tf-rtabs { display: flex; gap: 4px; border-bottom: 1px solid var(--tf-line); margin: 0 -14px 14px; padding: 0 8px; }
+.tf-rtab {
+	appearance: none; border: none; background: none; cursor: pointer; font-family: inherit;
+	display: inline-flex; align-items: center; gap: 6px;
+	font-size: 12.5px; font-weight: 700; color: var(--tf-muted);
+	padding: 12px 8px; position: relative; white-space: nowrap;
+}
+.tf-rtab .tf-i { font-size: 12px; }
+.tf-rtab:hover { color: var(--tf-ink); }
+.tf-rtab.is-active { color: var(--tf-orange-dark); }
+.tf-rtab.is-active::after { content: ""; position: absolute; left: 6px; right: 6px; bottom: -1px; height: 3px; background: var(--tf-orange); border-radius: 3px 3px 0 0; }
+.tf-reward__body { display: flex; align-items: flex-end; gap: 10px; }
+.tf-rfields { display: flex; gap: 10px; flex: 1; min-width: 0; }
+.tf-rfield { flex: 1; min-width: 0; border: 1px solid var(--tf-line); border-radius: 8px; padding: 8px 10px; }
+.tf-rfield__l { display: block; font-size: 11px; color: var(--tf-muted); margin-bottom: 3px; }
+.tf-rfield__v { display: block; font-size: 15px; font-weight: 800; color: var(--tf-ink); white-space: nowrap; }
+.tf-rfield__v small { font-size: 11px; font-weight: 700; color: var(--tf-muted); }
+.tf-reward__btn {
+	flex: none; appearance: none; border: none; cursor: pointer; font-family: inherit;
+	background: var(--tf-orange); color: #fff; font-weight: 800; font-size: 13px;
+	padding: 0 14px; border-radius: 8px;
+	/* sit at the bottom edge of the fields at a normal button height
+	   instead of stretching to the full 2-line field height */
+	align-self: flex-end; height: 34px;
+	font-size: 12px;
+	/* fixed width so the fields don't shift when switching tabs
+	   (labels Tukar/Pakai/Bayar have slightly different text widths) */
+	width: 82px; min-width: 82px;
+	transition: background .2s ease;
+}
+.tf-reward__btn:hover { background: var(--tf-orange-dark); }
+.tf-reward__note { font-size: 11.5px; color: var(--tf-muted); margin-top: 12px; line-height: 1.4; }
+/* Rewards: tombol berupa link (Gunakan → keranjang, Pakai → my-account) */
+a.tf-reward__btn { display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; }
+a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
+[data-auth][hidden] { display: none !important; }
+/* Rewards belum login: kartu ajakan masuk */
+.tf-rguest { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 18px; border: 1px dashed #f3c48f; border-radius: 10px; background: #fffaf4; }
+.tf-rguest__ico { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+.tf-rguest__ico .tf-i { width: 20px; height: 20px; }
+.tf-rguest__txt strong { display: block; margin-bottom: 3px; color: var(--tf-ink); font-size: 15px; font-weight: 800; }
+.tf-rguest__txt span { color: var(--tf-muted); font-size: 13px; line-height: 1.45; }
+.tf-rguest__act { display: flex; align-items: center; gap: 14px; }
+.tf-rguest__in { min-height: 38px; padding: 0 22px; font-size: 13.5px; }
+.tf-rguest__reg { color: var(--tf-orange-dark); font-size: 13.5px; font-weight: 800; text-decoration: none; }
+.tf-rguest__reg:hover { color: var(--tf-orange); text-decoration: none; }
+/* baris Kategori di bawah widget */
+.tf-cats__title { margin: 20px 0 10px; }
+.tf-cats__title + .tf-catpills { margin-top: 0; }
+/* category pills row */
+.tf-catpills {
+	display: flex; gap: 10px; margin-top: 16px;
+	overflow-x: auto; padding-bottom: 4px;
+	scrollbar-width: none;
+}
+.tf-catpills::-webkit-scrollbar { display: none; }
+.tf-pill {
+	flex: none; display: inline-flex; align-items: center; gap: 8px;
+	background: #fff; border: 1px solid var(--tf-line); border-radius: 100px;
+	padding: 8px 16px 8px 8px; font-size: 13px; font-weight: 700; color: var(--tf-ink);
+	text-decoration: none; white-space: nowrap;
+	transition: border-color .18s ease, box-shadow .18s ease;
+}
+.tf-pill:hover { border-color: var(--tf-orange); box-shadow: 0 2px 8px rgba(248,148,31,.15); color: var(--tf-ink); text-decoration: none; }
+.tf-pill img { width: 32px; height: 32px; border-radius: 0; object-fit: contain; background: transparent; padding: 0; }
+.tf-pill__ico { width: 26px; height: 26px; border-radius: 50%; background: var(--tf-orange-soft); color: var(--tf-orange); display: grid; place-items: center; font-size: 12px; }
+.tf-pill--all { background: var(--tf-orange-soft); border-color: #ffddb8; color: var(--tf-orange-dark); }
+/* Hero swiper pagination + arrows */
+.tf-hero-swiper .swiper-pagination { bottom: 14px !important; text-align: left; padding-left: 18px; }
+.tf-hero-swiper .swiper-pagination-bullet { background: #fff; opacity: .5; width: 8px; height: 8px; transition: all .3s ease; }
+.tf-hero-swiper .swiper-pagination-bullet-active { opacity: 1; width: 26px; border-radius: 6px; }
+/* arrow look/colour is shared with the product carousels — see "Slider nav" below */
+.tf-hero-swiper .swiper-button-prev { left: 14px; right: auto; }
+.tf-hero-swiper .swiper-button-next { right: 14px; left: auto; }
+
+/* ---------- Category tiles (uses .swiper-container) ---------- */
+.tf-home .swiper-container { padding: 2px; }
+
+/* ---------- Recommendation grid (Tokopedia "Untukmu") ---------- */
+.tf-grid {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 12px;
+}
+.tf-grid-more { text-align: center; margin-top: 24px; }
+.tf-grid { transition: opacity .2s ease; }
+.tf-grid.is-switching { opacity: 0; transition: none; }   /* ganti tab: isi baru muncul halus (tf-reco.js) */
+
+/* ---------- Flash compact card (Tokopedia-style) ---------- */
+.tf-home .swiper-container-product { padding: 4px 3px 8px; }
+
+/* ---------- Feed tabs (Tokopedia "Untuk Kamu") ---------- */
+.tf-reco-head { text-align: center; margin-bottom: 14px; }
+.tf-reco-head .tf-title { font-size: clamp(20px, 2.6vw, 26px); }
+.tf-tabs {
+	display: flex; justify-content: center; flex-wrap: wrap; gap: 6px;
+	border-bottom: 1px solid var(--tf-line);
+	margin-bottom: 20px;
+}
+.tf-tab {
+	appearance: none; border: none; background: none; cursor: pointer;
+	font-family: inherit; font-size: 14px; font-weight: 700; color: var(--tf-muted);
+	padding: 10px 18px; position: relative;
+	transition: color .18s ease;
+}
+.tf-tab:hover { color: var(--tf-ink); }
+.tf-tab.is-active { color: var(--tf-orange-dark); }
+.tf-tab.is-active::after {
+	content: ""; position: absolute; left: 12px; right: 12px; bottom: -1px; height: 3px;
+	background: var(--tf-orange); border-radius: 3px 3px 0 0;
+}
+
+/* ---------- Benefits zone ---------- */
+.tf-zone {
+	background: #ffffff;
+	border-top: 1px solid var(--tf-line);
+	border-bottom: 1px solid var(--tf-line);
+}
+.tf-benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.tf-benefit {
+	background: #fff;
+	border: 1px solid var(--tf-line);
+	border-radius: 8px;
+	padding: 20px;
+	display: flex; gap: 14px; align-items: flex-start;
+	transition: box-shadow .2s ease, border-color .2s ease;
+}
+.tf-benefit:hover { box-shadow: var(--tf-shadow-hover); border-color: #dcdfe3; }
+.tf-benefit > div { min-width: 0; }
+.tf-benefit__ico {
+	flex: none; width: 50px; height: 50px;
+	display: grid; place-items: center; border-radius: 14px;
+	background: linear-gradient(135deg, #ff8a3d, #ff5f2e); color: #fff; font-size: 21px;
+	box-shadow: 0 8px 18px rgba(255,95,46,.32);
+}
+.tf-benefit__h { font-size: 15.5px; font-weight: 800; color: var(--tf-ink); margin-bottom: 5px; }
+.tf-benefit__t { font-size: 13.5px; line-height: 1.5; color: var(--tf-body); }
+
+/* ---------- Slider nav (hero + every product carousel) ---------- */
+.tf-home .tf-carousel { position: relative; }
+.tf-home .tf-carousel .swiper-button-next,
+.tf-home .tf-carousel .swiper-button-prev,
+.tf-home .tf-hero-swiper .swiper-button-next,
+.tf-home .tf-hero-swiper .swiper-button-prev {
+	--nav-ease: cubic-bezier(.32, .72, 0, 1);
+
+	top: 50%;
+	margin-top: 0 !important;
+	transform: translateY(-50%) scale(1);
+	width: 40px !important;
+	height: 40px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+
+	/* vibrancy: saturate what's behind so the glass reads as glass, not haze */
+	background: rgba(255, 255, 255, .62);
+	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	backdrop-filter: blur(20px) saturate(180%);
+
+	color: var(--tf-ink);
+	border: .5px solid rgba(255, 255, 255, .75);
+	/* contact shadow + ambient shadow + inner top highlight */
+	box-shadow:
+		0 1px 2px rgba(20, 23, 40, .10),
+		0 8px 24px rgba(20, 23, 40, .14),
+		inset 0 1px 0 rgba(255, 255, 255, .65);
+
+	opacity: 0 !important;
+	transition:
+		opacity .3s var(--nav-ease),
+		transform .3s var(--nav-ease),
+		background .25s var(--nav-ease),
+		color .25s var(--nav-ease),
+		box-shadow .25s var(--nav-ease);
+}
+/* chevrons drawn from borders — replaces Swiper's icon-font glyph */
+.tf-home .tf-carousel .swiper-button-next::after,
+.tf-home .tf-carousel .swiper-button-prev::after,
+.tf-home .tf-hero-swiper .swiper-button-next::after,
+.tf-home .tf-hero-swiper .swiper-button-prev::after {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-top: 2px solid var(--tf-ink);
+	border-right: 2px solid var(--tf-ink);
+	border-radius: 0 1.5px 0 0;
+	font-size: 0;
+	transition: border-color .25s var(--nav-ease);
+}
+.tf-home .tf-carousel .swiper-button-next::after,
+.tf-home .tf-hero-swiper .swiper-button-next::after { transform: rotate(45deg) translate(-1px, 1px); }
+.tf-home .tf-carousel .swiper-button-prev::after,
+.tf-home .tf-hero-swiper .swiper-button-prev::after { transform: rotate(-135deg) translate(-1px, 1px); }
+/* reveal on hover of the slider */
+.tf-home .tf-carousel:hover .swiper-button-next,
+.tf-home .tf-carousel:hover .swiper-button-prev,
+.tf-home .tf-hero-swiper:hover .swiper-button-next,
+.tf-home .tf-hero-swiper:hover .swiper-button-prev {
+	opacity: 1 !important;
+}
+/* hovering the arrow lifts the glass and tints the chevron — no colour block */
+.tf-home .tf-carousel .swiper-button-next:hover,
+.tf-home .tf-carousel .swiper-button-prev:hover,
+.tf-home .tf-hero-swiper .swiper-button-next:hover,
+.tf-home .tf-hero-swiper .swiper-button-prev:hover {
+	background: rgba(255, 255, 255, .86);
+	transform: translateY(-50%) scale(1.08);
+	box-shadow:
+		0 2px 4px rgba(20, 23, 40, .12),
+		0 12px 32px rgba(20, 23, 40, .20),
+		inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+.tf-home .tf-carousel .swiper-button-next:hover::after,
+.tf-home .tf-carousel .swiper-button-prev:hover::after,
+.tf-home .tf-hero-swiper .swiper-button-next:hover::after,
+.tf-home .tf-hero-swiper .swiper-button-prev:hover::after {
+	border-top-color: var(--tf-orange);
+	border-right-color: var(--tf-orange);
+}
+/* press: settle back down, like a macOS control */
+.tf-home .tf-carousel .swiper-button-next:active,
+.tf-home .tf-carousel .swiper-button-prev:active,
+.tf-home .tf-hero-swiper .swiper-button-next:active,
+.tf-home .tf-hero-swiper .swiper-button-prev:active {
+	transform: translateY(-50%) scale(.94);
+	transition-duration: .09s;
+}
+.tf-home .tf-carousel .swiper-button-prev { left: 8px; right: auto; }
+.tf-home .tf-carousel .swiper-button-next { right: 8px; left: auto; }
+/* at the ends the arrow is dead — keep it hidden even on hover */
+.tf-home .tf-carousel:hover .swiper-button-disabled,
+.tf-home .tf-hero-swiper:hover .swiper-button-disabled { opacity: 0 !important; pointer-events: none; }
+/* touch devices: always show since there is no hover */
+@media (hover: none) {
+	.tf-home .tf-carousel .swiper-button-next,
+	.tf-home .tf-carousel .swiper-button-prev,
+	.tf-home .tf-hero-swiper .swiper-button-next,
+	.tf-home .tf-hero-swiper .swiper-button-prev { opacity: 1 !important; }
+	.tf-home .tf-carousel .swiper-button-disabled,
+	.tf-home .tf-hero-swiper .swiper-button-disabled { opacity: 0 !important; }
+}
+/* no backdrop-filter (older Firefox): fall back to a solid pill */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+	.tf-home .tf-carousel .swiper-button-next,
+	.tf-home .tf-carousel .swiper-button-prev,
+	.tf-home .tf-hero-swiper .swiper-button-next,
+	.tf-home .tf-hero-swiper .swiper-button-prev {
+		background: #fff;
+		border-color: var(--tf-line);
+	}
+}
+
+/* ---------- App CTA band ---------- */
+.tf-appband {
+	/* white, because the phone mockup ships on a white background and any tint
+	   here shows up as a rectangle behind it */
+	background: #fff;
+	border: 1px solid var(--tf-line);
+	border-radius: 12px;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1.4fr 1fr;
+	align-items: center;
+	color: var(--tf-ink);
+}
+.tf-appband__c { padding: 36px clamp(24px,4vw,48px); }
+.tf-appband__title { font-size: clamp(22px,3vw,30px); font-weight: 800; line-height: 1.15; margin: 0 0 10px; color: var(--tf-ink); }
+.tf-appband__title span { color: var(--tf-orange-dark); }
+.tf-appband__text { color: var(--tf-body); font-size: 14.5px; margin: 0 0 20px; max-width: 420px; }
+.tf-appband__stores { display: flex; gap: 12px; flex-wrap: wrap; }
+.tf-appband__stores img { height: 44px; width: auto; }
+.tf-appband__media { position: relative; align-self: end; text-align: center; padding-top: 24px; }
+.tf-appband__media img { max-height: 240px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1080px) {
+	.tf-appband { grid-template-columns: 1fr; }
+	.tf-appband__media { display: none; }
+}
+@media (max-width: 860px) {
+	.tf-widgets { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+	.tf-benefits { grid-template-columns: 1fr; }
+	.tf-section { padding: 24px 0; }
+}
+@media (max-width: 560px) {
+	.tf-reward__body { flex-direction: column; align-items: stretch; }
+	.tf-reward__btn { align-self: stretch; }
+	.tf-catpromo__img { display: none; }
+	.tf-catpromo__c { max-width: 100%; }
+}
+/* recommendation grid responsive columns */
+@media (max-width: 992px) {
+	.tf-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+	.tf-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+	.tf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+}
+
+/* ---------- Flash Sale — harmonised with the new homepage character ---------- */
+/* soften the very-round product cards to match the page's rounding */
+.tf-home .fs-section { padding: 26px 0 0; background: transparent; }
+/* product row sits directly under the header, aligned to the page container */
+.tf-home .flashsale-product-list-section { padding-top: 14px; }
+.tf-home .flashsale-product-list-section .swiper-container-product { padding: 4px 3px 8px; }
+
+/* ---------- Toffin Rewards: switchable tab panels ---------- */
+.tf-rpanel { display: none; }
+.tf-rpanel.is-active { display: block; }
+.tf-home .swiper-container-product,
+.tf-home .swiper-container {
+	max-width: none;
+	margin: 0;
+}
+.tf-home section.swiper-container-nav {
+	max-width: none;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+.tf-home section.flashsale-product-list-section { padding-top: 18px !important; }
+/* ---------- Produk Bundle: kartu = KARTU PRODUK GLOBAL (.product + .fs-body); di sini hanya bagian khas bundle ---------- */
+.tf-home .tf-bundle-swiper { padding: 4px 3px 8px; }
+.tf-bcard > .img-prod { aspect-ratio: 4 / 5; }   /* banner promo dari backend, tampil utuh tanpa label */
+/* foto mini produk: ≤4 tampil semua, lebih dari itu 3 foto + "+N" (99+ bila sisa > 99) */
+.tf-bcard__avatars { display: flex; gap: 4px; margin-bottom: 8px; }
+.tf-bcard__avatars img, .tf-bcard__more { flex: none; width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--tf-line); background: #fff; object-fit: cover; }
+.tf-bcard__more { display: inline-flex; align-items: center; justify-content: center; border-color: transparent; background: #f3f4f6; color: #4b5260; font-size: 11.5px; font-weight: 700; letter-spacing: -.02em; }   /* datar tanpa garis: tidak terbaca sebagai tombol */
+/* harga: baris label "Mulai dari" + pil hemat terbesar, lalu harga paket termurah */
+.tf-bcard__label { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 2px; color: var(--tf-muted); font-size: 11.5px; line-height: 1.3; }
+.tf-bcard__save { flex: none; padding: 1px 7px; border-radius: 999px; background: #e8f7ee; color: #15803d; font-size: 11px; font-weight: 700; }
+.tf-home .tf-carousel .swiper-container-product { padding: 4px 3px; }
+
+/* ---------- FLASH SALE FRAME (.tf-flash) ---------- */
+.tf-flash-section { padding: 14px 0; }
+.tf-flash-section--next { padding-top: 0; }
+.tf-flash.fs-section {
+	display: block;	width: 100%;
+	position: relative;
+	padding: 22px 22px 24px;
+	border-radius: 24px;
+	overflow: hidden;
+	isolation: isolate;
+}
+.tf-flash--live.fs-section {
+	background: linear-gradient(120deg, #ff6a00 0%, #ff8a1f 48%, #ffb547 100%);
+	box-shadow: 0 18px 44px rgba(255, 122, 26, .28);
+	color: #fff;
+}
+.tf-flash--soft.fs-section {
+	background: var(--tf-orange-soft);
+	border: 1px solid #ffdcb8;
+	box-shadow: none;
+	color: var(--tf-ink);
+}
+/* cahaya lembut di pojok + pola titik halus, hanya dekorasi */
+.tf-flash__glow {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background:
+		radial-gradient(520px 260px at 0% 0%, rgba(255, 255, 255, .34), transparent 70%),
+		radial-gradient(420px 220px at 100% 100%, rgba(255, 255, 255, .16), transparent 70%),
+		radial-gradient(rgba(255, 255, 255, .22) 1px, transparent 1.5px) 0 0 / 22px 22px;
+}
+.tf-flash--soft .tf-flash__glow {
+	background:
+		radial-gradient(520px 260px at 0% 0%, rgba(255, 255, 255, .9), transparent 70%),
+		radial-gradient(rgba(248, 148, 31, .18) 1px, transparent 1.5px) 0 0 / 22px 22px;
+}
+
+/* ---------- header ---------- */
+.tf-flash__head {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 18px;
+	flex-wrap: wrap;
+	margin-bottom: 18px;
+}
+.tf-flash__titles { min-width: 0; }
+.tf-flash__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 5px 11px;
+	border-radius: 999px;
+	font-size: 11.5px;
+	font-weight: 800;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	background: rgba(255, 255, 255, .18);
+	border: 1px solid rgba(255, 255, 255, .35);
+	color: #fff;
+	margin-bottom: 8px;
+}
+.tf-flash--soft .tf-flash__eyebrow {
+	background: #fff;
+	border-color: #ffdcb8;
+	color: var(--tf-orange-dark);
+}
+.tf-flash__title {
+	margin: 0;
+	font-size: clamp(24px, 3.2vw, 32px);
+	line-height: 1.1;
+	font-weight: 800;
+	letter-spacing: -.02em;
+	color: inherit;
+}
+.tf-flash__title span { color: var(--tf-orange); }
+.tf-flash__terms {
+	display: inline-block;
+	margin-top: 6px;
+	font-size: 12.5px;
+	font-weight: 600;
+	color: inherit;
+	opacity: .85;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.tf-flash__terms:hover { opacity: 1; color: inherit; }
+.tf-flash--soft .tf-flash__terms { color: var(--tf-orange-dark); opacity: 1; }
+.tf-flash__right {
+	display: flex;
+	align-items: flex-end;
+	gap: 14px;
+	flex-wrap: wrap;
+}
+.tf-flash__timer { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+.tf-flash__timer-label {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	opacity: .85;
+	padding-right: 2px;
+}
+.tf-flash--soft .tf-flash__timer-label { color: var(--tf-muted); opacity: 1; }
+.tf-home .tf-flash .fs-countdown {
+	width: auto;
+	max-width: none;
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+	flex-wrap: nowrap;
+	overflow: visible;
+}
+.tf-home .tf-flash .fs-count {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+	flex: 0 0 auto;
+	min-width: 0;
+	padding: 0;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	color: inherit;
+	overflow: visible;
+}
+.tf-home .tf-flash .fs-num {
+	position: relative;
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	border-radius: 10px;
+	background: #1c1c1e;
+	color: #fff;
+	font-size: 17px;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -.01em;
+	font-variant-numeric: tabular-nums;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .10), 0 6px 14px rgba(0, 0, 0, .20);
+	overflow: hidden;
+}
+.tf-home .tf-flash .fs-lbl {
+	margin: 0;
+	font-size: 9.5px;
+	font-weight: 700;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	color: #fff;
+	opacity: .92;
+}
+.tf-home .tf-flash--soft .fs-lbl { color: var(--tf-muted); opacity: 1; }
+.tf-home .tf-flash .fs-sep {
+	display: grid;
+	place-items: center;
+	width: 6px;
+	height: 40px;
+	margin: 0;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 800;
+	opacity: 1;
+	animation: tfBlink 1s steps(1, end) infinite;
+}
+.tf-home .tf-flash--soft .fs-sep { color: var(--tf-ink); }
+@keyframes tfBlink { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) {
+	.tf-home .tf-flash .fs-sep { animation: none; }
+}
+/* custom.js menyembunyikan kotak "Hari" saat 0; titik dua setelahnya ikut hilang */
+.tf-home .tf-flash .fs-count[style*="none"] + .fs-sep { display: none; }
+
+/* ---------- carousel di dalam frame ---------- */
+.tf-flash__carousel { position: relative; z-index: 1; width: 100%; min-width: 0; }
+.tf-flash .fs-slide { height: auto; }
+/* kartu "Lihat Semua" di ujung carousel, ukuran sama dengan kartu produk */
+.tf-flash .swiper-wrapper { align-items: stretch; }
+.tf-flash__more-slide { display: flex; height: auto; }
+.tf-flash__more {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 20px 12px;
+	border-radius: var(--tf-card-radius);
+	background: rgba(255, 255, 255, .16);
+	border: 1.5px dashed rgba(255, 255, 255, .6);
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	transition: background .2s ease, border-color .2s ease;
+}
+.tf-flash__more:hover {
+	background: rgba(255, 255, 255, .28);
+	border-color: #fff;
+	color: #fff;
+	text-decoration: none;
+}
+.tf-flash__more-ico {
+	width: 54px;
+	height: 54px;
+	margin-bottom: 10px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	font-size: 18px;
+	background: #fff;
+	color: var(--tf-orange-dark);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, .14);
+	transition: transform .2s ease, box-shadow .2s ease;
+}
+/* hanya tombol panahnya yang bereaksi saat hover, kartunya diam */
+.tf-flash__more:hover .tf-flash__more-ico {
+	transform: translateX(4px);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+}
+.tf-flash__more-txt { font-size: 15px; font-weight: 800; line-height: 1.2; }
+.tf-flash__more-sub { font-size: 12px; font-weight: 600; opacity: .85; }
+/* varian lembut */
+.tf-flash--soft .tf-flash__more { background: #fff; border-color: #ffc98a; color: var(--tf-ink); }
+.tf-flash--soft .tf-flash__more:hover { background: #fff; border-color: var(--tf-orange); color: var(--tf-ink); }
+.tf-flash--soft .tf-flash__more-ico { background: var(--tf-orange); color: #fff; box-shadow: 0 8px 20px rgba(248, 148, 31, .28); }
+.tf-flash--soft .tf-flash__more-sub { color: var(--tf-muted); opacity: 1; }
+
+/* ---------- responsif ---------- */
+@media (max-width: 992px) {
+	.tf-flash.fs-section { padding: 18px 16px 20px; border-radius: 20px; }
+	.tf-flash__right { width: 100%; justify-content: space-between; }
+}
+@media (max-width: 576px) {
+	.tf-flash.fs-section { padding: 16px 12px 18px; border-radius: 18px; }
+	.tf-flash__head { gap: 12px; margin-bottom: 14px; }
+	.tf-flash__timer { width: 100%; align-items: flex-start; gap: 6px; }
+	.tf-flash__timer-label { padding-right: 0; padding-left: 2px; }
+	.tf-home .tf-flash .fs-countdown { width: auto; gap: 5px; }
+	.tf-home .tf-flash .fs-num { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
+	.tf-home .tf-flash .fs-sep { height: 38px; }
+}
+:where(.tf-home) a { color: var(--tf-orange); }
+:where(.tf-home) a:hover { color: #ff933b; }
+
+/* ---------- HERO GAMBAR SAJA, rasio poster 5:6 (mengikuti foto slider shop.toffin.id) ---------- */
+.tf-hero-swiper--poster {
+	height: auto;
+	border-radius: 18px;
+	box-shadow: none;
+	overflow: hidden;
+	background: #1c1c1e;
+}
+.tf-hero-swiper--poster .swiper-slide { height: auto; }
+.tf-hero-poster { display: block; aspect-ratio: 5 / 6; overflow: hidden; background: #1c1c1e; }
+.tf-hero-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tf-hero-swiper--poster .swiper-pagination-bullet { width: 7px; height: 7px; background: #fff; opacity: .55; transition: all .3s ease; }
+.tf-hero-swiper--poster .swiper-pagination-bullet-active { opacity: 1; width: 22px; border-radius: 6px; background: var(--tf-orange); }
+
+/* ---------- triple: 3 poster berjejer, bisa digeser (dipakai) ---------- */
+.tf-hero-swiper--triple { background: transparent; border-radius: 0; }
+.tf-hero-swiper--triple .tf-hero-poster { border-radius: 18px; box-shadow: none; }
+.tf-hero-wrap { position: relative; }
+
+/* ---------- opsi ambient ---------- */
+@media (max-width: 768px) {
+	.tf-hero-swiper--poster { max-width: 340px; margin: 0 auto; width: 100%; }
+	.tf-hero-swiper--triple .tf-hero-poster { border-radius: 14px; }
+}
+@media (max-width: 768px) {
+	.tf-tabs {
+		flex-wrap: nowrap; justify-content: flex-start; gap: 0;
+		overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+	}
+	.tf-tabs::-webkit-scrollbar { display: none; }
+	.tf-tab { flex: none; white-space: nowrap; padding: 10px 14px; }
+}

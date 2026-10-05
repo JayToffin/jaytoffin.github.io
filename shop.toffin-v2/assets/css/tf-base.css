@@ -1,0 +1,89 @@
+/* =====================================================================
+   Toffin v2 · tf-base.css
+   Token desain + primitif layout yang dipakai SEMUA halaman.
+   Muat paling awal, sebelum tf-layout.css dan stylesheet halaman.
+   Tidak bergantung pada style.css / custom.css / Bootstrap.
+   ===================================================================== */
+
+:root {
+	--tf-orange: #f8941f;
+	--tf-orange-2: #ff7a1a;
+	--tf-orange-dark: #e07c0c;
+	--tf-orange-soft: #fff4e7;
+	--tf-ink: #212121;
+	--tf-body: #31353b;
+	--tf-muted: #6d7588;
+	--tf-line: #e5e7e9;
+	--tf-bg: #ffffff;
+	--tf-card: #ffffff;
+	--tf-radius: 8px;
+	--tf-radius-sm: 6px;
+	--tf-shadow: 0 1px 5px rgba(0, 0, 0, .05);
+	--tf-shadow-hover: 0 4px 16px rgba(0, 0, 0, .12);
+	--tf-font: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Lebar konten. Header, delivery bar, konten, dan footer memakai wrapper
+   yang sama supaya tepi kirinya sejajar. */
+.tf-container {
+	width: 100%;
+	max-width: 1240px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* Dipasang ke <body> saat sheet mobile terbuka, mencegah halaman ikut scroll. */
+.tf-lock { overflow: hidden !important; }
+
+/* Tombol utama, dipakai konten dan modal. Dipindah dari home-modern.css tanpa perubahan nilai. */
+.tf-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	background: var(--tf-orange);
+	color: #fff;
+	font-weight: 700;
+	font-size: 15px;
+	padding: 13px 26px;
+	border-radius: 100px;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 10px 24px rgba(248, 148, 31, .38);
+	transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.tf-btn:hover {
+	background: var(--tf-orange-dark);
+	color: #fff;
+	transform: translateY(-2px);
+	box-shadow: 0 14px 30px rgba(248, 148, 31, .45);
+	text-decoration: none;
+}
+.tf-btn--ghost {
+	background: #fff;
+	color: var(--tf-ink);
+	box-shadow: 0 8px 22px rgba(20,23,40,.12);
+}
+.tf-btn--ghost:hover { background: #fff; color: var(--tf-orange-dark); }
+
+/* Dari custom.css lama (langkah 6): cegah gulir mendatar dari elemen yang meluap. */
+html, body { overflow-x: clip; width: 100%; }
+
+/* Ikon: sprite Tabler (assets/icons/README.md). Ukuran ikut font-size seperti ikon-font yang digantikannya;
+   gaya stroke di sini supaya <symbol> cukup berisi path. */
+/* Glyph Tabler hanya mengisi ±16–20 dari 24 unit kotaknya, sedangkan glyph Font Awesome memenuhi 1em penuh;
+   kotak 1.25em membuat ukuran tampak sama dengan ikon-font yang digantikan. */
+.tf-i { display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -.25em; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.tf-i--2x { width: 2.5em; height: 2.5em; }
+
+/* Fokus. Bootstrap 4.1 murni memberi button:focus cincin biru bawaan browser (tampil juga saat diklik mouse)
+   serta glow biru pada .btn:focus dan .form-control:focus; tema lama tidak punya ketiganya. Cincin hanya untuk
+   navigasi keyboard (:focus-visible), warnanya Toffin. Dimuat sesudah bootstrap.min.css sehingga menang. */
+/* klik mouse: tidak ada penanda sama sekali. Kolom isian pun tanpa outline (status aktifnya sudah dari border/glow). */
+:focus { outline: 0; }
+/* keyboard (Tab): cincin oranye, hanya pada tombol, tautan, dan elemen ber-tabindex; Chrome menganggap kolom teks
+   selalu focus-visible sehingga kolom isian sengaja tidak diberi cincin. */
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--tf-orange); outline-offset: 2px; }
+.btn:focus, .btn.focus { box-shadow: none; }
+.btn:focus-visible { box-shadow: 0 0 0 3px rgba(248, 148, 31, .30); }
+.form-control:focus { border-color: rgba(248, 148, 31, .6); box-shadow: 0 0 0 3px rgba(248, 148, 31, .18); }

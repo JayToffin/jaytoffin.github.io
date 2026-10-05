@@ -1,0 +1,1153 @@
+/* =====================================================================
+   Toffin v2 · tf-layout.css
+   Chrome bersama semua halaman: header desktop + mobile, mega menu,
+   pencarian, menu akun, sheet navigasi mobile, bottom nav, widget chat,
+   delivery bar, dan footer.
+
+   Mandiri: tidak bergantung pada style.css, custom.css, Bootstrap,
+   ikon-font lama, maupun jQuery. Perilakunya ada di assets/js/tf-nav.js.
+   Muat setelah tf-base.css.
+   ===================================================================== */
+
+/* ---------- reset lokal di tiap akar komponen ---------- */
+.tf-header, .tf-header *, .tf-header *::before, .tf-header *::after,
+.tf-sheet, .tf-sheet *, .tf-sheet *::before, .tf-sheet *::after,
+.tf-bottomnav, .tf-bottomnav *,
+.tf-chat, .tf-chat *,
+.tf-deliverbar, .tf-deliverbar *,
+.tf-footer, .tf-footer *, .tf-footer *::before, .tf-footer *::after { box-sizing: border-box; }
+
+.tf-header, .tf-sheet, .tf-bottomnav, .tf-chat, .tf-deliverbar, .tf-footer {
+	font-family: var(--tf-font);
+	color: var(--tf-body);
+}
+/* Reset dibungkus :where() supaya spesifisitasnya nol dan tidak pernah mengalahkan
+   kelas komponen sendiri seperti .tf-sx__scope atau .tf-mega__tab. Karena dimuat setelah
+   style.css, reset ini tetap menang atas aturan elemen bawaan Bootstrap 4. */
+:where(.tf-header, .tf-sheet, .tf-footer) ul { list-style: none; margin: 0; padding: 0; }
+:where(.tf-header, .tf-sheet, .tf-bottomnav, .tf-chat, .tf-footer) a { color: inherit; text-decoration: none; }
+:where(.tf-header, .tf-sheet, .tf-bottomnav, .tf-chat, .tf-footer) a:hover { color: inherit; text-decoration: none; }
+:where(.tf-header, .tf-sheet, .tf-chat) button {
+	font: inherit; color: inherit; background: none; border: 0; border-radius: 0;
+	padding: 0; margin: 0; cursor: pointer; -webkit-appearance: none; appearance: none;
+}
+:where(.tf-header, .tf-sheet, .tf-chat, .tf-footer) img { max-width: 100%; display: block; }
+:where(.tf-header, .tf-sheet, .tf-bottomnav, .tf-chat) svg { display: block; }
+
+/* =====================================================================
+   HEADER
+   ===================================================================== */
+.tf-header {
+	position: sticky;
+	top: 0;
+	z-index: 1025;
+	background: rgba(255, 255, 255, .73);
+	-webkit-backdrop-filter: blur(16px);
+	backdrop-filter: blur(16px);
+	border-bottom: 1px solid rgba(15, 23, 42, .06);
+	box-shadow: 0 10px 34px rgba(15, 23, 42, .06);
+}
+.tf-header__in {
+	display: flex;
+	align-items: center;
+	min-height: 66px;   /* + border-bottom 1px = 67px, sama persis dengan header lama */
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.tf-brand { display: inline-flex; align-items: center; flex: none; margin-right: 22px; }
+/* CSS lama meminta 164px, tetapi flex Bootstrap menyusutkannya sehingga yang tampil
+   selama ini 130px. Nilai 130 dipertahankan supaya rupa tidak berubah; naikkan ke
+   164 bila ingin logo sebesar niat desain awal. */
+.tf-brand img { width: 130px; height: auto; }
+.tf-brand--mobile { margin-right: 12px; }
+.tf-brand--mobile img { width: auto; height: 22px; }
+
+/* baris mobile: logo · pemicu pencarian · keranjang (tampil < 1200px) */
+.tf-header__mobile {
+	display: none;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	width: 100%;
+}
+/* nav desktop: menu · pencarian · utilitas (tampil >= 1200px) */
+.tf-header__desk {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex: 1 1 auto;
+	margin-left: auto;
+}
+
+/* ---------- menu utama ---------- */
+.tf-menu { display: flex; align-items: center; gap: 6px; }
+.tf-menu__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	border-radius: 999px;
+	color: #0f172a;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: -.01em;
+	white-space: nowrap;
+	transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.tf-menu__link:hover,
+.tf-menu__item.is-active > .tf-menu__link,
+.tf-dd.is-open > .tf-menu__link {
+	background: rgba(248, 147, 31, .164);
+	color: #111827;
+	box-shadow: inset 0 0 0 1px rgba(248, 148, 31, .12);
+}
+/* caret kecil pada item yang punya panel */
+.tf-menu__link--dd::after {
+	content: "";
+	width: 0; height: 0;
+	opacity: .7;
+	border-top: .3em solid;
+	border-right: .3em solid transparent;
+	border-left: .3em solid transparent;
+}
+
+/* ---------- dropdown generik (dibuka/ditutup tf-nav.js lewat .is-open) ---------- */
+.tf-dd { position: relative; }
+.tf-dd--mega { position: static; }          /* panel mega diposisikan relatif ke header */
+.tf-dd--right .tf-dd__panel { left: auto; right: 0; }
+.tf-dd__panel {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1200;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transform: translateY(6px);
+	transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+}
+.tf-dd__panel.is-open {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transform: translateY(0);
+	transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* ---------- mega menu (Category, Promotion) ---------- */
+.tf-mega {
+	left: 50%;
+	width: min(1080px, calc(100vw - 32px));
+	transform: translate(-50%, 6px);
+	display: grid;
+	grid-template-columns: 220px minmax(0, 1fr);
+	min-height: 420px;
+	margin: 0;
+	background: #fff;
+	border-radius: 0 0 20px 20px;
+	box-shadow: 0 18px 44px rgba(15, 23, 42, .12);
+	overflow: hidden;
+}
+.tf-mega.is-open { transform: translate(-50%, 0); }
+.tf-mega__side {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 18px;
+	background: #fff;
+	border-right: 1px solid rgba(15, 23, 42, .06);
+}
+.tf-mega__tab {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 5px 14px;
+	border-radius: 12px;
+	color: #3f3f46;
+	font-size: 13px;
+	font-weight: 700;
+	text-align: left;
+	transition: background-color .18s ease, color .18s ease;
+}
+.tf-mega__tab.is-active, .tf-mega__tab:hover { background: #f5f4ef; color: var(--tf-orange); }
+.tf-mega__body { padding: 22px 28px; background: #fff; }
+.tf-mega__panel { display: none; }
+.tf-mega__panel.is-active { display: block; }
+.tf-mega__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.tf-mega__card {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	border: 1px solid rgba(15, 23, 42, .08);
+	border-radius: 14px;
+	background: rgba(255, 255, 255, .53);
+	transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.tf-mega__card:hover {
+	border-color: rgba(111, 132, 80, .24);
+	box-shadow: 0 10px 24px rgba(15, 23, 42, .07);
+	transform: translateY(-1px);
+}
+.tf-mega__thumb { flex: 0 0 54px; width: 54px; height: 54px; display: inline-flex; align-items: center; justify-content: center; }
+.tf-mega__thumb img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 14px 0 0 14px; }
+.tf-mega__label { color: #2f2f2f; font-size: 12px; font-weight: 700; line-height: 1.35; }
+
+/* ---------- pencarian ---------- */
+.tf-search {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 44px;
+	margin: 0;
+	padding: 0 16px;
+	border: 1px solid rgba(15, 23, 42, .08);
+	border-radius: 999px;
+	background: #fff;
+	box-shadow: 0 8px 20px rgba(15, 23, 42, .05);
+	transition: border-color .18s ease, box-shadow .18s ease;
+}
+.tf-search:focus-within { border-color: rgba(248, 148, 31, .24); box-shadow: 0 10px 24px rgba(248, 148, 31, .10); }
+.tf-header__desk .tf-search { flex: 1 1 360px; max-width: 320px; margin-left: 16px; }
+.tf-search__ico { flex: none; width: 16px; height: 16px; color: #6b7280; }
+.tf-search__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	height: 44px;
+	margin: 0;
+	padding: 0 0 0 12px;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	box-shadow: none;
+	color: #111827;
+	font: inherit;
+	font-size: 14px;
+	line-height: 44px;
+}
+.tf-search__input::placeholder,
+.tf-search__placeholder {
+	color: #6c757d;
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+/* pemicu pencarian di mobile: rupa sama dengan kolom cari, tapi berupa tombol */
+.tf-search--trigger { width: 100%; flex: 1 1 360px; max-width: 320px; min-width: 0; text-align: left; }
+.tf-search__placeholder { flex: 1 1 auto; min-width: 0; padding-left: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* =====================================================================
+   PENCARIAN LANJUTAN (.tf-sx, tf-search.js)
+   Desktop: kolom di header (cakupan · ikon · input · hapus · "/") + panel
+   lebar di bawahnya. Ponsel: .tf-sx--sheet di sheet mobile, hasil selalu tampil.
+   ===================================================================== */
+.tf-sx { position: relative; }
+.tf-header__desk .tf-sx { flex: 1 1 420px; max-width: 420px; margin-left: 16px; }
+.tf-sx__bar { display: flex; align-items: center; height: 44px; border: 1px solid rgba(15, 23, 42, .08); border-radius: 999px; background: #fff; box-shadow: 0 8px 20px rgba(15, 23, 42, .05); transition: border-color .15s ease, box-shadow .15s ease; }
+.tf-sx.is-open .tf-sx__bar, .tf-sx__bar:focus-within { border-color: var(--tf-orange); box-shadow: 0 0 0 4px rgba(248, 148, 31, .14); }
+.tf-sx__scope { flex: none; display: inline-flex; align-items: center; gap: 4px; height: 100%; padding: 0 10px 0 16px; border: 0; border-right: 1px solid var(--tf-line); background: transparent; color: var(--tf-ink); font: inherit; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+.tf-sx__scope .tf-i { width: 15px; height: 15px; color: var(--tf-muted); }
+.tf-sx__ico { flex: none; width: 17px; height: 17px; margin: 0 8px 0 12px; color: var(--tf-muted); }
+.tf-sx__input { flex: 1 1 auto; min-width: 0; height: 100%; padding: 0; border: 0; background: transparent; color: var(--tf-ink); font: inherit; font-size: 14px; outline: 0; -webkit-appearance: none; appearance: none; }
+.tf-sx__input::placeholder { color: #8a909b; }
+.tf-sx__input::-webkit-search-cancel-button { display: none; }
+.tf-sx__clear { display: none; flex: none; align-items: center; justify-content: center; width: 28px; height: 28px; margin-right: 8px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--tf-muted); cursor: pointer; }
+.tf-sx__clear:hover { background: #eef0f3; color: var(--tf-ink); }
+.tf-sx__clear .tf-i { width: 16px; height: 16px; }
+.tf-sx.has-q .tf-sx__clear { display: inline-flex; }
+.tf-sx__kbd { flex: none; margin-right: 14px; padding: 1px 7px; border: 1px solid var(--tf-line); border-radius: 6px; background: #fff; box-shadow: none; color: var(--tf-muted); font: inherit; font-size: 11px; font-weight: 700; }
+.tf-sx.has-q .tf-sx__kbd, .tf-sx.is-open .tf-sx__kbd { display: none; }
+/* menu cakupan */
+.tf-sx__menu { position: absolute; top: calc(100% + 6px); left: 0; z-index: 1302; display: none; min-width: 170px; padding: 6px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fff; box-shadow: 0 12px 30px rgba(20, 23, 40, .12); }
+.tf-sx__menu.is-open { display: block; }
+.tf-sx__menu button { display: block; width: 100%; padding: 8px 10px; border: 0; border-radius: 8px; background: transparent; color: var(--tf-body); font: inherit; font-size: 13px; font-weight: 600; text-align: left; cursor: pointer; }
+.tf-sx__menu button:hover, .tf-sx__menu button.is-on { background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+/* panel hasil (desktop) */
+.tf-sx__panel { position: absolute; top: calc(100% + 10px); right: 0; z-index: 1301; display: none; width: min(720px, calc(100vw - 40px)); border: 1px solid var(--tf-line); border-radius: 18px; background: #fff; box-shadow: 0 24px 60px rgba(20, 23, 40, .16); overflow: hidden; }
+.tf-sx.is-open .tf-sx__panel { display: block; }
+.tf-sx__res { max-height: min(70vh, 520px); padding: 14px 20px 18px; overflow-y: auto; text-align: left; }
+/* isi hasil (desktop & ponsel) */
+.tf-sx__sec + .tf-sx__sec { margin-top: 16px; }
+.tf-sx__head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.tf-sx__h { margin: 0; color: var(--tf-muted); font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.tf-sx__link { padding: 0; border: 0; background: none; color: var(--tf-orange-dark); font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+.tf-sx__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.tf-sx__chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.tf-sx__chip:hover { border-color: #f3c48f; color: var(--tf-ink); text-decoration: none; }
+.tf-sx__chip > .tf-i { width: 14px; height: 14px; color: var(--tf-muted); }
+.tf-sx__chip img { width: 22px; height: 22px; margin-left: -6px; border-radius: 50%; object-fit: cover; }
+.tf-sx__x { display: inline-flex; margin: 0 -4px 0 2px; padding: 0; border: 0; background: none; color: #b0b5bf; cursor: pointer; }
+.tf-sx__x .tf-i { width: 13px; height: 13px; }
+.tf-sx__x:hover { color: #d6453d; }
+.tf-sx__grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 0 24px; }
+.tf-sx__row { display: flex; align-items: center; gap: 12px; margin: 0 -10px; padding: 8px 10px; border-radius: 12px; color: var(--tf-body); text-decoration: none; }
+.tf-sx__row:hover, .tf-sx__row.is-active { background: var(--tf-orange-soft); color: var(--tf-body); text-decoration: none; }
+.tf-sx__thumb { flex: none; width: 44px; height: 44px; border: 1px solid var(--tf-line); border-radius: 10px; background: #fff; object-fit: cover; }
+.tf-sx__mono { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--tf-line); border-radius: 50%; background: #fff; color: var(--tf-ink); font-size: 13px; font-weight: 800; }
+.tf-sx__cico { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: #f3f4f6; color: var(--tf-muted); }
+.tf-sx__cico .tf-i { width: 18px; height: 18px; }
+.tf-sx__txt { flex: 1 1 auto; min-width: 0; }
+.tf-sx__name { display: block; overflow: hidden; color: var(--tf-ink); font-size: 13.5px; font-weight: 600; white-space: nowrap; text-overflow: ellipsis; }
+.tf-sx__name mark { padding: 0; background: none; color: var(--tf-orange-dark); font-weight: 800; }
+.tf-sx__meta { display: block; color: var(--tf-muted); font-size: 12px; }
+.tf-sx__price { flex: none; color: var(--tf-ink); font-size: 13px; font-weight: 800; }
+.tf-sx__all { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; padding: 11px 14px; border-radius: 12px; background: #f7f8fa; color: var(--tf-ink); font-size: 13.5px; font-weight: 700; text-decoration: none; }
+.tf-sx__all:hover, .tf-sx__all.is-active { background: var(--tf-orange-soft); color: var(--tf-orange-dark); text-decoration: none; }
+.tf-sx__all .tf-i { width: 16px; height: 16px; }
+.tf-sx__empty { padding: 30px 10px; color: var(--tf-muted); font-size: 14px; text-align: center; }
+.tf-sx__empty strong { display: block; margin-bottom: 4px; color: var(--tf-ink); }
+.tf-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+	min-width: 78px;
+	padding: 6px 10px;
+	border: 1px solid rgba(15, 23, 42, .08);
+	border-radius: 999px;
+	background: rgba(248, 250, 252, .95);
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: .01em;
+	white-space: nowrap;
+}
+
+/* ---------- utilitas: keranjang & akun ---------- */
+.tf-utils { display: flex; align-items: center; gap: 10px; margin-left: 18px; }
+.tf-util {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+	width: 44px;
+	height: 44px;
+	border: 1px solid rgba(15, 23, 42, .08);
+	border-radius: 999px;
+	background: #fff;
+	box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
+	color: #374151;
+	transition: background-color .18s ease, color .18s ease;
+}
+.tf-util:hover { color: #111827; background: #f8fafc; }
+.tf-util svg { width: 18px; height: 18px; }
+.tf-util__badge {
+	position: absolute;
+	top: -4px;
+	right: -2px;
+	min-width: 18px;
+	height: 18px;
+	padding: 0 5px;
+	border-radius: 999px;
+	background: var(--tf-orange);
+	color: #fff;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 18px;
+	text-align: center;
+}
+.tf-header__mobile .tf-util { margin-left: 8px; }
+
+/* menu akun */
+.tf-acc {
+	min-width: 10rem;
+	margin-top: 14px;
+	padding: 12px;
+	border: 1px solid rgba(15, 23, 42, .08);
+	border-radius: 20px;
+	background: rgba(255, 255, 255, .98);
+	box-shadow: 0 20px 52px rgba(15, 23, 42, .12);
+}
+.tf-acc__item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 42px;
+	padding: 10px 14px;
+	border-radius: 12px;
+	color: #111827;
+	font-size: 14px;
+	font-weight: 500;
+	white-space: nowrap;
+	transition: background-color .18s ease, color .18s ease, transform .18s ease;
+}
+.tf-acc__item:hover { background: rgba(248, 148, 31, .10); color: var(--tf-orange); transform: translateX(2px); }
+.tf-acc__divider { height: 0; margin: 8px 0; border-top: 1px solid #e9ecef; }
+.tf-acc__item--danger { color: #dc2626; font-weight: 600; }
+.tf-acc__item--danger:hover { background: rgba(220, 38, 38, .10); color: #b91c1c; }
+
+/* ---------- breakpoint header ---------- */
+@media (max-width: 1199.98px) {
+	.tf-header__in { min-height: 94px; }   /* + border 1px = 95px, sama persis dengan header lama */
+	.tf-brand:not(.tf-brand--mobile), .tf-header__desk { display: none; }
+	.tf-header__mobile { display: flex; }
+}
+
+/* =====================================================================
+   SHEET NAVIGASI MOBILE (isi dirender assets/js/mobile-nav.js)
+   ===================================================================== */
+.tf-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 1600;
+	background: rgba(0, 0, 0, .5);
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity .2s ease;
+}
+.tf-backdrop.is-open { opacity: 1; }
+.tf-backdrop[hidden] { display: none; }
+
+.tf-sheet {
+	position: fixed;
+	inset: 0;
+	z-index: 1610;
+	width: 100%;
+	height: 100dvh;
+	max-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	box-shadow: -4px 0 24px rgba(0, 0, 0, .15);
+	transform: translateX(100%);
+	visibility: hidden;
+	transition: transform .35s cubic-bezier(.25, .46, .45, .94), visibility .35s;
+}
+.tf-sheet.is-open { transform: translateX(0); visibility: visible; }
+.tf-sheet__body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 0 20px 85px;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+}
+.tf-sheet__body::-webkit-scrollbar { display: none; }
+
+.tf-mnav { position: relative; width: 100%; }
+.tf-mnav__view { display: none; }
+.tf-mnav__view.is-active { display: block; animation: tfViewFadeIn .3s ease forwards; }
+.tf-mnav__view[hidden] { display: none !important; }
+@keyframes tfViewFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* daftar menu utama */
+.tf-mnav__list .tf-mnav__item { border-bottom: 1px solid #ececec; }
+.tf-mnav__list > .tf-mnav__item:last-child { border-bottom: 0; }
+.tf-mnav__toggle, .tf-mnav__link {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 18px 0;
+	color: #171717;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.35;
+	text-align: left;
+	transition: color .18s ease;
+}
+.tf-mnav__toggle .tf-i { flex: none; font-size: 14px; color: #171717; transition: transform .2s ease; }
+.tf-mnav__item.is-open > .tf-mnav__toggle .tf-i { transform: rotate(180deg); }
+.tf-mnav__panel { display: none; width: 100%; margin: 0 0 14px; padding: 14px; background: #f5f5f5; }
+.tf-mnav__item.is-open > .tf-mnav__panel { display: block; }
+.tf-mnav__sublist > .tf-mnav__item { border-bottom: 1px solid #ddd; }
+.tf-mnav__sublist > .tf-mnav__item:last-child { border-bottom: 0; }
+.tf-mnav__sublist .tf-mnav__toggle,
+.tf-mnav__sublist .tf-mnav__link { padding: 14px 0; color: #1f1f1f; font-size: 14px; font-weight: 600; }
+.tf-mnav__sublist .tf-mnav__link { justify-content: flex-start; }
+.tf-mnav__link--danger, .tf-mnav__link--danger .tf-i { color: #dc2626; font-weight: 600; }
+.tf-mnav__link--danger:hover { background: rgba(220, 38, 38, .05); }
+
+/* kepala tampilan: tombol kembali + judul */
+.tf-mnav__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 18px 0;
+	border-bottom: 1px solid #ededed;
+}
+.tf-mnav__head--search { gap: 15px; }
+.tf-mnav__back {
+	flex: 0 0 40px;
+	width: 40px;
+	height: 40px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-start;
+	color: #7b7b7b;
+	font-size: 18px;
+}
+.tf-mnav__title { flex: 1 1 auto; color: #2a2a2a; font-size: 18px; font-weight: 700; line-height: 1.3; }
+
+/* chip, section, dan kartu kategori */
+.tf-mnav__chips { display: flex; gap: 10px; overflow-x: auto; padding: 16px 0 18px; scrollbar-width: none; }
+.tf-mnav__chips::-webkit-scrollbar { display: none; }
+.tf-mnav__chip {
+	flex: 0 0 auto;
+	padding: 12px 18px;
+	border: 1px solid #e6e6e6;
+	border-radius: 14px;
+	background: #fff;
+	color: var(--tf-orange);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.2;
+	transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.tf-mnav__chip.is-active { background: var(--tf-orange); border-color: var(--tf-orange); color: #fff; }
+.tf-mnav__section { margin-top: 28px; }
+.tf-mnav__section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.tf-mnav__section-title { margin: 0; color: #2f2f2f; font-size: 16px; font-weight: 700; line-height: 1.35; }
+.tf-mnav__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.tf-mnav__card { display: flex; align-items: center; gap: 12px; border-radius: 14px; background: #f3f3f0; }
+.tf-mnav__card-img { flex: 0 0 64px; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }
+.tf-mnav__card-img img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 14px 0 0 14px; }
+.tf-mnav__card-label { color: #343434; font-size: 14px; font-weight: 700; line-height: 1.35; }
+
+/* daftar akun */
+.tf-mnav__acc { margin-top: 10px; }
+.tf-mnav__acc li { border-bottom: 1px solid #f5f5f5; }
+.tf-mnav__acc li:last-child { border-bottom: 0; }
+.tf-mnav__acc a { display: flex; align-items: center; padding: 5px 0; color: #334155; font-size: 15px; font-weight: 600; transition: color .2s ease; }
+.tf-mnav__acc a .tf-i { width: 24px; margin-right: 12px; color: #64748b; font-size: 18px; text-align: center; }
+.tf-mnav__acc a.tf-mnav__acc-danger, .tf-mnav__acc a.tf-mnav__acc-danger .tf-i { color: #dc2626; }
+
+/* pencarian ponsel (.tf-sx--sheet di #mobile-search-browser) */
+.tf-sx--sheet .tf-sx__wrap { position: relative; flex: 1 1 auto; min-width: 0; }
+.tf-sx--sheet .tf-sx__bar { height: 42px; box-shadow: none; }
+.tf-sx--sheet .tf-sx__scope { padding-left: 12px; }
+.tf-sx--sheet .tf-sx__res { max-height: none; padding: 14px 2px 24px; overflow: visible; }
+.tf-sx--sheet .tf-sx__grid { grid-template-columns: 1fr; }
+.tf-sx--sheet .tf-sx__row { margin: 0 -8px; padding: 8px; }
+
+/* =====================================================================
+   BOTTOM NAV (mobile, < 1200px)
+   ===================================================================== */
+.tf-bottomnav {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1620;
+	height: 65px;
+	padding: 0 10px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: #fff;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, .05);
+}
+.tf-bottomnav__item {
+	flex: 1;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #8c8c8c;
+	font-size: 11px;
+	font-weight: 600;
+}
+.tf-bottomnav__item svg { width: 20px; height: 20px; margin-bottom: 4px; transition: transform .2s ease, color .2s ease; }
+.tf-bottomnav__item:hover, .tf-bottomnav__item:focus-visible, .tf-bottomnav__item.is-active { color: var(--tf-orange); }
+.tf-bottomnav__item.is-active svg { transform: scale(1.1); }
+@media (min-width: 1200px) { .tf-bottomnav { display: none; } }
+/* ruang di bawah halaman supaya bottom nav tidak menutup konten (dari custom.css lama, langkah 6) */
+@media (max-width: 1199.98px) { body { padding-bottom: 70px; } }
+/* modal ikut menyisakan ruang bottom nav: kotak modal berhenti 65px di atas tepi bawah, backdrop tetap penuh */
+@media (max-width: 1199.98px) {
+	.modal { bottom: 65px; }
+	.modal .modal-content { max-height: calc(100vh - 3.5rem - 65px); max-height: calc(100dvh - 3.5rem - 65px); }
+}
+
+/* =====================================================================
+   WIDGET CHAT (AI + WhatsApp)
+   ===================================================================== */
+.tf-chat__toggle {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 999;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: #ffa45c;
+	color: #fff;
+	font-size: 28px;
+	line-height: 1;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+}
+.tf-chat__panel {
+	position: fixed;
+	right: 24px;
+	bottom: 100px;
+	z-index: 998;
+	width: 380px;
+	max-width: calc(100vw - 48px);
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, .25);
+}
+.tf-chat__panel[hidden] { display: none; }
+.tf-chat__head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+	border-bottom: 1px solid #e6e6e6;
+	color: #121111;
+	font-weight: 700;
+}
+.tf-chat__close { display: inline-flex; color: #ff0000; }
+.tf-chat__close svg { width: 16px; height: 16px; }
+.tf-chat__list { display: flex; flex-direction: column; gap: 16px; padding: 16px 15px; }
+.tf-chat__opt {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border: 1px solid #e9e9e9;
+	border-radius: 15px;
+	transition: background-color .2s ease;
+}
+.tf-chat__opt:hover { background: #ffebda; }
+.tf-chat__ico { flex: none; width: 35px; height: 35px; margin-right: 12px; object-fit: contain; }
+.tf-chat__text { flex: 1; display: flex; flex-direction: column; }
+.tf-chat__title { color: #333; font-size: 13px; font-weight: 700; }
+.tf-chat__desc { color: #666; font-size: 10px; }
+@media (max-width: 991.98px) {
+	/* bottom nav setinggi 65px: tombol chat dan panelnya diangkat supaya tidak tertutup */
+	.tf-chat__toggle { bottom: calc(65px + 14px); width: 52px; height: 52px; font-size: 24px; }
+	.tf-chat__panel { bottom: calc(65px + 80px); }
+}
+
+/* =====================================================================
+   DELIVERY BAR: alamat kirim + keunggulan singkat
+   (dipindah dari home-modern.css, tanpa perubahan nilai)
+   ===================================================================== */
+.tf-deliverbar {
+	background: #fafafa;
+	border-bottom: 1px solid var(--tf-line);
+}
+.tf-deliverbar .tf-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	min-height: 48px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.tf-deliverbar__addr {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 5px 12px 5px 6px;
+	border: 1px solid var(--tf-line);
+	border-radius: 999px;
+	background: #fff;
+	font: inherit;
+	color: var(--tf-ink);
+	cursor: pointer;
+	max-width: 100%;
+	transition: border-color .2s ease, box-shadow .2s ease;
+}
+.tf-deliverbar__addr:hover { border-color: var(--tf-orange); box-shadow: 0 2px 10px rgba(248, 148, 31, .16); }
+.tf-deliverbar__ico {
+	width: 28px; height: 28px; border-radius: 50%; flex: none;
+	display: grid; place-items: center;
+	background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 12px;
+}
+.tf-deliverbar__txt { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; text-align: left; }
+.tf-deliverbar__lbl { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--tf-muted); }
+.tf-deliverbar__val { font-size: 13.5px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tf-deliverbar__val .tf-i { font-size: 10px; color: var(--tf-muted); margin-left: 4px; }
+.tf-deliverbar__change { font-size: 12.5px; font-weight: 800; color: var(--tf-orange-dark); padding-left: 10px; border-left: 1px solid var(--tf-line); }
+.tf-deliverbar__perks {
+	list-style: none; margin: 0; padding: 0;
+	display: flex; align-items: center; gap: 22px;
+	font-size: 12.5px; font-weight: 600; color: var(--tf-body); white-space: nowrap;
+}
+.tf-deliverbar__perks li { display: inline-flex; align-items: center; gap: 7px; }
+.tf-deliverbar__perks .tf-i { color: var(--tf-orange); font-size: 12px; }
+@media (max-width: 992px) { .tf-deliverbar__perks { display: none; } }
+@media (max-width: 576px) {
+	.tf-deliverbar .tf-container { min-height: 44px; }
+	.tf-deliverbar__addr { width: 100%; justify-content: space-between; }
+	.tf-deliverbar__change { margin-left: auto; }
+}
+
+/* =====================================================================
+   FOOTER — light marketplace layout
+   (dipindah dari home-modern.css, tanpa perubahan nilai)
+   ===================================================================== */
+.tf-footer {
+	/* Tanpa pita newsletter, garis 1px saja tidak cukup memisahkan footer dari
+	   halaman yang serba putih, jadi footer diberi zona berwarna sendiri.
+	   Chip tetap putih supaya tetap terangkat dari latar ini. */
+	background: #f7f8fa;
+	border-top: 1px solid var(--tf-line);
+	font-size: 14px;
+}
+
+/* kolom utama */
+.tf-fmain {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1.5fr;
+	gap: 32px;
+	padding-top: 44px;
+	padding-bottom: 36px;
+	align-items: start;
+}
+.tf-fbrand__logo img { height: 30px; width: auto; }
+.tf-fbrand__text {
+	margin: 16px 0 18px;
+	font-size: 13.5px; line-height: 1.65; color: var(--tf-muted);
+	max-width: 340px;
+}
+.tf-fapps { display: flex; gap: 10px; margin-bottom: 20px; }
+.tf-fapps img { height: 38px; width: auto; }
+
+.tf-fsocial { display: flex; gap: 10px; }
+.tf-fsocial a {
+	display: flex; align-items: center; justify-content: center;
+	width: 36px; height: 36px; border-radius: 50%;
+	border: 1px solid var(--tf-line);
+	color: var(--tf-body); font-size: 15px;
+	transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.tf-fsocial a:hover {
+	background: var(--tf-orange); border-color: var(--tf-orange);
+	color: #fff; transform: translateY(-2px);
+}
+
+.tf-fcol__title {
+	font-size: 14px; font-weight: 800; line-height: 1.5; color: var(--tf-ink);
+	margin: 0 0 14px; letter-spacing: .01em;
+}
+.tf-flinks li + li { margin-top: 10px; }
+.tf-flinks a { font-size: 13.5px; color: var(--tf-muted); }
+.tf-footer a:hover { color: var(--tf-orange-dark); }
+
+.tf-fcontact li {
+	display: flex; gap: 10px;
+	font-size: 13.5px; line-height: 1.6; color: var(--tf-muted);
+}
+.tf-fcontact li + li { margin-top: 12px; }
+.tf-fcontact .tf-i {
+	flex: none; width: 15px; margin-top: 3px;
+	color: var(--tf-orange); font-size: 13px; text-align: center;
+}
+
+/* baris kepercayaan: metode pembayaran & layanan */
+.tf-ftrust {
+	display: flex; flex-wrap: wrap; gap: 20px 48px;
+	padding: 20px 0;
+	border-top: 1px solid var(--tf-line);
+}
+.tf-ftrust__grp { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.tf-ftrust__lbl {
+	font-size: 11px; font-weight: 800; letter-spacing: .1em;
+	text-transform: uppercase; color: var(--tf-muted);
+	/* lebar tetap supaya chip di kedua baris mulai di x yang sama */
+	flex: none; width: 148px;
+}
+.tf-fchips { display: flex; flex-wrap: wrap; gap: 8px; }
+.tf-fchip {
+	display: inline-flex; align-items: center; gap: 6px;
+	padding: 7px 13px; border-radius: 8px;
+	border: 1px solid var(--tf-line); background: #fff;
+	font-size: 12.5px; font-weight: 700; color: var(--tf-body);
+	white-space: nowrap;
+}
+.tf-fchip .tf-i { color: var(--tf-orange); font-size: 12px; }
+
+/* bilah bawah */
+.tf-fbottom { border-top: 1px solid #e2e5e9; background: #eef0f3; }
+.tf-fbottom__in {
+	display: flex; align-items: center; justify-content: space-between;
+	gap: 16px; flex-wrap: wrap;
+	padding-top: 16px; padding-bottom: 16px;
+}
+.tf-fcopy { margin: 0; font-size: 13px; color: var(--tf-muted); }
+.tf-fcopy a { font-weight: 700; color: var(--tf-orange-dark); }
+.tf-fmini { display: flex; gap: 20px; font-size: 13px; }
+.tf-fmini a { color: var(--tf-muted); }
+
+@media (max-width: 1080px) {
+	.tf-fmain { grid-template-columns: 1.6fr 1fr 1fr; }
+	.tf-fcol--contact { grid-column: 1 / -1; }
+}
+@media (max-width: 767px) {
+	.tf-fmain { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+	.tf-fbrand { grid-column: 1 / -1; }
+	.tf-fcol--contact { grid-column: 1 / -1; }
+	.tf-ftrust { gap: 16px; }
+	.tf-ftrust__grp { align-items: flex-start; flex-direction: column; gap: 8px; }
+	.tf-ftrust__lbl { width: auto; }
+	.tf-fbottom__in { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+@media (max-width: 479px) {
+	.tf-fmain { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   MODAL · desain default untuk SEMUA .modal Bootstrap 4  (tema "Fusion")
+   Dipilih Rendi 2026-09-29 dari sembilan arah yang dibandingkan di
+   demo/modal.html: kerangka alert & sheet Apple HIG (kaca hangat berblur,
+   sudut 26 px, judul terpusat, tombol tutup bulat abu, label kapital kecil)
+   dengan aksi Material 3 (rata kanan: tombol teks + pil oranye 40 px).
+   Berlaku otomatis pada markup Bootstrap 4 apa adanya, termasuk halaman
+   lama yang masih memakai <a class="close">×</a> dan .btn-primary.
+   Di layar sempit modal tetap kartu di tengah layar, bukan bottom sheet.
+   Varian opsional: .tf-modal--dialog (konfirmasi terpusat + ikon, tanpa ×;
+   Esc, klik backdrop, dan tombol aksi tetap menutup).
+   Selektor diawali .modal supaya menang atas aturan Bootstrap.
+   ===================================================================== */
+.modal { font-family: var(--tf-font); color: var(--tf-body); }
+.modal-backdrop {
+	background: #000;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+}
+.modal-backdrop.show { opacity: .35; }
+/* di atas chrome v2 (backdrop sheet 1600, sheet 1610, bottom nav 1620, chat 999); bawaan Bootstrap 1040/1050 kalah dari bottom nav */
+.modal-backdrop { z-index: 1700; }
+.modal { z-index: 1710; }
+/* ukuran */
+.modal .modal-dialog { max-width: 440px; margin: 1.75rem auto; }
+.modal .modal-dialog.modal-sm { max-width: 380px; }
+.modal .modal-dialog.modal-lg { max-width: 800px; }
+.modal .modal-dialog.modal-xl { max-width: 1100px; }
+/* permukaan: kaca hangat; blur baru terasa bila ada isi berwarna di belakangnya */
+.modal .modal-content {
+	max-height: calc(100vh - 3.5rem);   /* fallback browser lama */
+	max-height: calc(100dvh - 3.5rem);
+	border: 0;
+	border-radius: 26px;
+	background: rgba(255, 251, 247, .92);
+	-webkit-backdrop-filter: blur(24px) saturate(1.4);
+	backdrop-filter: blur(24px) saturate(1.4);
+	box-shadow: 0 20px 60px rgba(0, 0, 0, .28);
+	overflow: hidden;
+}
+/* masuk: mengecil dari 110 % sambil memudar seperti alert iOS, menggantikan geser turun 50px bawaan Bootstrap */
+.modal.fade .modal-dialog { transform: scale(1.1); transition: transform .25s ease-out; }
+.modal.show .modal-dialog { transform: none; }
+/* kepala: judul di tengah, tombol tutup menempel di sudut kanan atas */
+.modal .modal-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	padding: 20px 56px 14px;
+	border-bottom: 0;
+	border-radius: 0;
+}
+.modal .modal-header h1, .modal .modal-header h2, .modal .modal-header h3,
+.modal .modal-header h4, .modal .modal-header h5, .modal .modal-header h6,
+.modal .modal-title {
+	margin: 0;
+	color: var(--tf-ink);
+	font-size: 18px;
+	font-weight: 800;
+	line-height: 1.3;
+	letter-spacing: -.01em;
+	text-align: center;
+}
+/* tombol tutup bulat abu ala iOS: bekerja untuk <a class="close">×</a>, <button class="close">, maupun isi SVG */
+.modal .modal-header .close,
+.modal .close {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	float: none;
+	width: 30px;
+	height: 30px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: rgba(120, 120, 128, .16);
+	color: #636366;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1;
+	text-shadow: none;
+	opacity: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background-color .18s ease, color .18s ease;
+}
+.modal .close:hover, .modal .close:focus-visible {
+	background: rgba(120, 120, 128, .28);
+	color: #1c1c1e;
+	opacity: 1;
+	outline: 0;
+	text-decoration: none;
+}
+.modal .close:focus-visible { box-shadow: 0 0 0 3px rgba(248, 148, 31, .35); }
+.modal .close svg { width: 14px; height: 14px; display: block; }
+/* markup Bootstrap sering membungkus badan + kaki dalam <form>; form harus ikut jadi kolom flex yang bisa
+   menyusut, kalau tidak badan tidak pernah menggulir dan kaki terpotong */
+.modal .modal-content > form { display: flex; flex-direction: column; min-height: 0; flex: 1 1 auto; }
+/* badan: menggulir sendiri bila isinya panjang, kepala & kaki tetap */
+.modal .modal-body {
+	min-height: 0;
+	padding: 16px 24px 18px;
+	font-size: 15px;
+	line-height: 1.6;
+	color: #4a4540;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.modal .modal-body > :last-child { margin-bottom: 0; }
+/* kaki: aksi rata kanan, tanpa garis */
+.modal .modal-footer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 8px 24px 24px;
+	border-top: 0;
+	background: transparent;
+}
+.modal .modal-footer > * { margin: 0; }
+/* tombol: pil 40 px; .btn Bootstrap dan .tf-btn sama-sama ikut, tanpa ubah markup */
+.modal .btn, .modal .tf-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 40px;
+	padding: 8px 22px;
+	border-radius: 999px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.2;
+	box-shadow: none;
+	transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.modal .tf-btn:hover { transform: none; box-shadow: none; }
+.modal .btn-primary { background: var(--tf-orange); border-color: var(--tf-orange); color: #fff; }
+.modal .btn-primary:hover, .modal .btn-primary:focus-visible, .modal .btn-primary:not(:disabled):active {
+	background: var(--tf-orange-dark);
+	border-color: var(--tf-orange-dark);
+	color: #fff;
+	box-shadow: none;
+}
+/* tombol sekunder = tombol teks. !important di bawah hanya untuk mengalahkan tema lama
+   style.css, yang memberi .btn-secondary warna merah #ff0019 dengan !important. Boleh
+   dilepas setelah langkah 5 mengganti style.css dengan Bootstrap 4.1 murni. */
+.modal .btn-secondary, .modal .btn-light, .modal .btn-outline-secondary, .modal .btn-outline-primary, .modal .btn-link, .modal .tf-btn--ghost {
+	padding: 8px 14px;
+	background: transparent !important;
+	border: 0 !important;
+	color: var(--tf-orange-dark) !important;
+	text-decoration: none;
+}
+.modal .btn-secondary:hover, .modal .btn-light:hover, .modal .btn-outline-secondary:hover, .modal .btn-outline-primary:hover, .modal .btn-link:hover, .modal .tf-btn--ghost:hover,
+.modal .btn-secondary:focus-visible, .modal .btn-secondary:not(:disabled):active {
+	background: rgba(248, 148, 31, .1) !important;
+	color: var(--tf-orange-dark) !important;
+}
+.modal .btn:focus, .modal .btn:focus-visible { box-shadow: 0 0 0 3px rgba(248, 148, 31, .30); }
+.modal .btn-danger { background: #dc2626; border-color: #dc2626; color: #fff; }
+.modal .btn-danger:hover, .modal .btn-danger:focus-visible { background: #b91c1c; border-color: #b91c1c; color: #fff; }
+/* formulir: label kapital kecil dan kolom isian bergaris dalam, ala iOS */
+.modal .form-group { margin-bottom: 14px; }
+.modal .form-group label, .modal .form-check-label {
+	margin-bottom: 6px;
+	color: #6d6d72;
+	font-size: 12.5px;
+	font-weight: 600;
+	letter-spacing: .04em;
+	text-transform: uppercase;
+}
+.modal .form-control {
+	min-height: 48px;
+	padding: 10px 14px;
+	border: 0;
+	border-radius: 12px;
+	background: #fff;
+	color: var(--tf-ink);
+	font-size: 16px;
+	box-shadow: inset 0 0 0 1px rgba(60, 60, 67, .14);
+}
+.modal .form-control:focus { box-shadow: inset 0 0 0 2px var(--tf-orange); }
+.modal .form-control::placeholder { color: #9aa0ad; }
+.modal textarea.form-control { min-height: 96px; }
+.modal input[type="radio"], .modal input[type="checkbox"] { accent-color: var(--tf-orange); }
+/* --- varian dialog: konfirmasi terpusat dengan ikon di atas, tanpa tombol tutup --- */
+.tf-modal--dialog .modal-dialog { max-width: 340px; }
+.tf-modal--dialog .modal-header { display: none; }
+.tf-modal--dialog .modal-body { padding: 26px 24px 8px; text-align: center; }
+.tf-modal--dialog .modal-footer { justify-content: flex-end; padding: 8px 20px 20px; }
+.tf-modal__icon {
+	width: 48px;
+	height: 48px;
+	margin: 0 auto 16px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: var(--tf-orange-soft);
+	color: var(--tf-orange-dark);
+}
+.tf-modal__icon svg { width: 24px; height: 24px; display: block; }
+.tf-modal__icon--danger { background: #fdecec; color: #dc2626; }
+.tf-modal__icon--success { background: #e8f7ee; color: #15803d; }
+.tf-modal__heading { margin: 0 0 8px; color: var(--tf-ink); font-size: 22px; font-weight: 700; }
+.tf-modal__text { margin: 0; color: #4a4540; font-size: 14.5px; }
+/* --- kartu alamat (komponen bersama): tab Daftar Alamat di my-account.html dan modal pilih alamat di homepage.
+       Struktur: .addr-card__top (chip) > __name > __body (+__phone) > __pin > __foot. Elemen boleh <div> atau <span>. --- */
+.addr-card { display: flex; flex-direction: column; padding: 18px; border: 1px solid var(--tf-line); border-radius: 12px; }
+.addr-card--main { border-color: var(--tf-orange); background: #fffdf9; }
+.addr-card__top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 6px; background: #eef0f2; color: #5a6070; font-size: 11px; font-weight: 800; }
+.chip--main { background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+.addr-card__name { display: block; margin: 0 0 6px; color: var(--tf-ink); font-size: 15px; font-weight: 800; }
+.addr-card__body { display: block; color: var(--body, var(--tf-body)); font-size: 13px; line-height: 1.55; }   /* --body hanya ada di .ta (my-account) */
+.addr-card__phone { display: block; margin-top: 4px; color: var(--tf-ink); font-weight: 600; }
+.addr-card__pin { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12px; }
+.addr-card__pin--ok { color: #1a8a44; }
+.addr-card__pin--no { color: #9aa0ab; }
+.addr-card__foot { display: flex; align-items: center; gap: 14px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--tf-line); }
+.addr-card__foot a { color: var(--tf-orange-dark); font-size: 13px; font-weight: 700; text-decoration: none; }
+/* versi <button> untuk dipakai di dalam <label> (modal): reset tampilan tombol, sisanya sama dengan tautan di atas */
+.addr-card__foot .addr-card__link { padding: 0; border: 0; background: transparent; color: var(--tf-orange-dark); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.addr-card__foot .addr-card__link:hover { text-decoration: underline; }
+.addr-card__foot a.del, .addr-card__foot .addr-card__link.del { color: #e0300f; }
+.addr-card__foot .spacer { flex: 1; }
+
+/* --- modal pilih alamat, pola marketplace (Tokopedia/Shopee): pencarian dipin di atas, kartu menggulir, tombol dipin di bawah --- */
+.tf-modal--addr .modal-dialog { max-width: 520px; }
+.tf-modal--addr .modal-body { height: min(58vh, 520px); max-height: none; padding: 14px 24px 8px; }   /* tinggi tetap: hasil pencarian tidak mengecilkan modal */
+.tf-modal--addr .modal-footer { flex-wrap: nowrap; gap: 10px; border-top: 1px solid var(--tf-line); padding-top: 14px; }
+.tf-modal--addr .modal-footer .tf-btn, .tf-modal--addr .modal-footer .tf-addr-add { flex: 1 1 0; justify-content: center; min-height: 46px; font-size: 15px; }
+.tf-addr-tools { display: flex; gap: 10px; padding: 4px 24px 14px; border-bottom: 1px solid var(--tf-line); }
+.tf-addr-search {
+	flex: 1 1 auto;
+	min-width: 0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 42px;
+	margin: 0;
+	padding: 0 14px;
+	border: 1px solid var(--tf-line);
+	border-radius: 12px;
+	background: #fff;
+	color: var(--tf-muted);
+	transition: border-color .18s ease, box-shadow .18s ease;
+}
+.tf-addr-search:focus-within { border-color: rgba(248, 148, 31, .6); box-shadow: 0 0 0 3px rgba(248, 148, 31, .18); }
+.tf-addr-search .tf-i { flex: none; width: 18px; height: 18px; }
+.tf-addr-search__input { flex: 1 1 auto; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 14px; color: var(--tf-ink); }
+.tf-addr-search__input::placeholder { color: #9aa0ad; }
+.tf-addr-search__input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.tf-addr-add {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 16px 8px 12px;
+	border: 1.5px solid var(--tf-orange);
+	border-radius: 999px;
+	background: #fff;
+	color: var(--tf-orange-dark);
+	font: inherit;
+	font-size: 14px;
+	font-weight: 800;
+	cursor: pointer;
+	transition: background-color .18s ease;
+}
+.tf-addr-add:hover { background: var(--tf-orange-soft); }
+.tf-addr-add .tf-i { width: 18px; height: 18px; }
+/* kartu di modal: <label> + radio tersembunyi; penanda terpilih = bingkai oranye + centang di sudut kanan atas */
+.tf-addr {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	margin: 0 0 12px;
+	padding: 14px 48px 12px 16px;
+	border: 1px solid var(--tf-line);
+	border-radius: 12px;
+	background: #fff;
+	cursor: pointer;
+	transition: border-color .18s ease, background-color .18s ease;
+}
+.tf-addr[hidden] { display: none; }
+.tf-addr:last-child { margin-bottom: 4px; }
+.tf-addr:hover { border-color: #f3c48f; }
+.tf-addr:has(.tf-addr__radio:checked) { border-color: var(--tf-orange); background: #fff8f0; }
+.tf-addr__radio { position: absolute; width: 1px; height: 1px; margin: -1px; opacity: 0; overflow: hidden; clip: rect(0 0 0 0); }
+.tf-addr__radio:focus-visible ~ .tf-addr__check { outline: 2px solid var(--tf-orange); outline-offset: 2px; }
+.tf-addr__check {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: var(--tf-orange);
+	color: #fff;
+	opacity: 0;
+	transform: scale(.6);
+	transition: opacity .18s ease, transform .18s ease;
+}
+.tf-addr__check .tf-i { width: 14px; height: 14px; stroke-width: 3; }
+.tf-addr__radio:checked ~ .tf-addr__check { opacity: 1; transform: none; }
+.tf-addr__tag { color: var(--tf-muted); font-size: 12px; font-weight: 800; letter-spacing: .02em; }
+.tf-addr__name { color: var(--tf-ink); font-size: 15px; font-weight: 800; }
+.tf-addr__phone { color: var(--tf-body); font-size: 13.5px; }
+.tf-addr__line { color: var(--tf-body); font-size: 13.5px; line-height: 1.5; }
+/* status pinpoint: keterangan saja; mengatur pinpoint hanya lewat Ubah Alamat */
+.tf-addr__foot { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+.tf-addr__pin { display: inline-flex; align-items: center; gap: 5px; margin-right: auto; font-size: 12px; font-weight: 600; }   /* kiri; Ubah/Hapus di kanan */
+.tf-addr__pin .tf-i { width: 15px; height: 15px; }
+.tf-addr__pin--ok { color: #1a8a44; }
+.tf-addr__pin--no { color: #9aa0ab; }
+.tf-addr__act { padding: 0; border: 0; background: transparent; color: var(--tf-orange-dark); font: inherit; font-size: 13px; font-weight: 800; line-height: 1.2; cursor: pointer; }
+.tf-addr__act:hover { text-decoration: underline; }
+.tf-addr__act--muted { color: var(--tf-muted); }
+.tf-addr-empty { margin: 8px 0 12px; color: var(--tf-muted); font-size: 14px; text-align: center; }
+@media (max-width: 575.98px) {
+	.tf-modal--addr .modal-content { height: calc(100vh - 3rem - 65px); height: calc(100dvh - 3rem - 65px); }
+	.tf-modal--addr .modal-body { height: auto; padding: 12px 16px 8px; }
+	.tf-addr-tools { padding: 2px 16px 12px; }
+	.tf-addr { padding: 12px 44px 12px 14px; }
+}
+/* --- teks syarat & ketentuan --- */
+.tf-terms p { margin: 0 0 12px; }
+.tf-terms h6 { margin: 16px 0 6px; color: var(--tf-ink); font-size: 13.5px; font-weight: 800; }
+.tf-terms ul { margin: 0 0 12px; padding-left: 18px; }
+.tf-terms li { margin-bottom: 4px; }
+.tf-terms > :last-child { margin-bottom: 0; }
+/* --- layar sempit: tetap kartu di tengah layar, berjarak 20 px dari tepi --- */
+@media (max-width: 575.98px) {
+	.modal .modal-dialog, .modal .modal-dialog-centered {
+		display: flex;
+		align-items: center;
+		width: auto;
+		max-width: 440px;
+		min-height: calc(100% - 3rem);
+		margin: 1.5rem 20px;
+	}
+	.modal .modal-dialog-centered::before { display: none; }
+	.tf-modal--dialog .modal-dialog { width: calc(100% - 40px); max-width: 340px; margin: 1.5rem auto; }
+	.modal .modal-content { max-height: calc(100vh - 3rem - 65px); max-height: calc(100dvh - 3rem - 65px); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.modal.fade .modal-dialog { transition: none; transform: none; }
+}

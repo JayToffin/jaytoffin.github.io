@@ -1,0 +1,369 @@
+/* =====================================================================
+   My Account — sidebar rebuild (Toffin orange #F8941F)
+   Scoped under .ta so it doesn't affect other pages.
+   Keeps the existing Bootstrap tab panes/JS; only relayouts + restyles.
+   ===================================================================== */
+.ta {
+  --oj: #F8941F;
+  --oj-d: #e07c0c;
+  --oj-soft: #fff4e7;
+  --ink: #212121;
+  --body: #3f4351;
+  --muted: #8a90a0;
+  --line: #e5e7e9;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+.ta * { box-sizing: border-box; }
+
+/* ---------- Sidebar ---------- */
+.ta-side {
+  flex: 0 0 262px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  align-self: flex-start;
+  position: sticky;
+  top: 90px;
+}
+.ta-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px;
+  border-bottom: 1px solid #eef0f2;
+}
+.ta-avatar {
+  flex: none;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F8941F, #ff6a3d);
+  color: #fff;
+  display: grid; place-items: center;
+  font-weight: 800; font-size: 18px;
+  letter-spacing: .02em;
+}
+.ta-profile-info { min-width: 0; }
+.ta-hi { font-size: 12px; color: var(--muted); line-height: 1; }
+.ta-name { font-size: 15.5px; font-weight: 800; color: var(--ink); line-height: 1.25; margin: 2px 0 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ta-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10.5px; font-weight: 700; color: var(--oj-d);
+  background: var(--oj-soft); padding: 2px 9px; border-radius: 100px;
+}
+.ta-badge .tf-i { font-size: 9px; }
+
+/* ---------- Vertical menu (reuses .tab-myaccount .nav-link) ---------- */
+.ta-menu.tab-myaccount {
+  display: block;
+  margin: 0;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+}
+.ta-menu .nav-item { display: block; margin: 0; }
+.ta-menu .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 12px;
+  margin: 1px 0;
+  color: var(--body);
+  font-size: 13.5px;
+  font-weight: 600;
+  border: 0;
+  background: transparent;
+  transition: background .15s ease, color .15s ease;
+}
+/* ikon menu: <svg class="tf-i ta-menu__ico"> di markup (sprite Tabler, langkah 8); dulu ::before dengan glyph ikon-font */
+.ta-menu .nav-link .ta-menu__ico { width: 20px; height: 20px; color: #9aa0ab; flex: none; }
+.ta-menu .nav-link:hover { background: #f6f7f9; color: var(--ink); text-decoration: none; }
+.ta-menu .nav-link.active { background: var(--oj-soft); color: var(--oj-d); font-weight: 800; }
+.ta-menu .nav-link.active .ta-menu__ico { color: var(--oj); }
+
+.ta-logout {
+  display: flex; align-items: center; gap: 11px;
+  padding: 14px 20px;
+  border-top: 1px solid #eef0f2;
+  color: #e0300f; font-size: 13.5px; font-weight: 700;
+  text-decoration: none;
+}
+.ta-logout .tf-i { width: 18px; text-align: center; font-size: 14px; }
+.ta-logout:hover { background: #fff5f3; color: #e0300f; text-decoration: none; }
+
+/* ---------- Content panel ---------- */
+.ta-main {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.ta-main .tab-content { padding: 0; }
+
+/* soften nested white "box-point" cards so they read as clean sub-sections */
+.ta-main .box-point,
+.ta-main .card-box {
+  background: #fff !important;
+  border: 1px solid #eef0f2;
+  border-radius: 10px;
+  box-shadow: none !important;
+}
+.ta-main .bg-light { background: #f7f8fa !important; }
+
+/* headings inside the panel */
+.ta-main h4, .ta-main h5, .ta-main h6 { color: var(--ink); font-weight: 800; }
+.ta-main label { color: var(--body); font-weight: 600; font-size: 13.5px; }
+.ta-main .form-control {
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-size: 14px;
+}
+.ta-main .form-control:focus {
+  border-color: var(--oj);
+  box-shadow: 0 0 0 3px rgba(248,148,31,.15);
+}
+
+/* primary buttons → Toffin orange */
+.ta-main .btn-primary,
+.ta-main .btn.btn-primary {
+  background: var(--oj) !important;
+  border-color: var(--oj) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  font-weight: 700;
+  box-shadow: none;
+}
+.ta-main .btn-primary:hover { background: var(--oj-d) !important; border-color: var(--oj-d) !important; }
+.ta-main .btn-outline-primary {
+  color: var(--oj-d) !important;
+  border-color: var(--oj) !important;
+  border-radius: 8px !important;
+  font-weight: 700;
+  background: #fff !important;
+}
+.ta-main .btn-outline-primary:hover { background: var(--oj) !important; color: #fff !important; }
+
+/* orange accents for theme-colored text — scoped so it never touches the
+   product-list card used in Favorite (keeps that card identical to product-list) */
+.ta-main .text-primary { color: var(--oj-d) !important; }
+
+/* ---------- Responsive: sidebar collapses to a scrollable top bar ---------- */
+@media (max-width: 991px) {
+  .ta { flex-direction: column; gap: 14px; }
+  .ta-side { position: static; flex: none; width: 100%; }
+  .ta-menu.tab-myaccount {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 6px;
+    padding: 8px 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ta-menu.tab-myaccount::-webkit-scrollbar { display: none; }
+  .ta-menu .nav-item { flex: none; }
+  .ta-menu .nav-link { white-space: nowrap; margin: 0; }
+  .ta-logout { justify-content: flex-start; }
+  .ta-main { padding: 18px 16px; }
+}
+
+/* =====================================================================
+   Section content components (modern redesign of each pane)
+   ===================================================================== */
+.ta-main .tab-pane { color: var(--body); }
+
+/* ---- Section header ---- */
+.acc-head { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:18px; }
+.acc-title { font-size:19px; font-weight:800; color:var(--ink); margin:0; }
+.acc-sub { font-size:13px; color:var(--muted); margin:3px 0 0; }
+.acc-head__actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.acc-divider { height:1px; background:var(--line); margin:18px 0; border:0; }
+
+/* generic pills / buttons */
+.acc-btn { display:inline-flex; align-items:center; gap:8px; background:var(--oj); color:#fff; font-weight:700; font-size:13.5px; padding:10px 18px; border-radius:9px; border:0; cursor:pointer; text-decoration:none; transition:background .18s ease; }
+.acc-btn:hover { background:var(--oj-d); color:#fff; text-decoration:none; }
+.acc-btn--ghost { background:#fff; color:var(--oj-d); border:1px solid var(--oj); }
+.acc-btn--ghost:hover { background:var(--oj-soft); color:var(--oj-d); }
+.acc-btn--sm { padding:7px 14px; font-size:12.5px; }
+.acc-search { position:relative; }
+.acc-search input { width:100%; min-width:230px; border:1px solid var(--line); border-radius:9px; padding:10px 14px 10px 38px; font-size:13.5px; outline:none; }
+.acc-search input:focus { border-color:var(--oj); box-shadow:0 0 0 3px rgba(248,148,31,.15); }
+.acc-search .tf-i { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#9aa0ab; font-size:13px; }
+
+/* ---- Cards ---- */
+.acc-card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:20px; }
+.acc-card + .acc-card { margin-top:16px; }
+.acc-card__title { font-size:15px; font-weight:800; color:var(--ink); margin:0 0 4px; }
+.acc-card__desc { font-size:13px; color:var(--muted); margin:0 0 16px; line-height:1.5; }
+
+/* ---- Profil ---- */
+.pf-top { display:flex; align-items:center; gap:18px; padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:20px; }
+.pf-photo { position:relative; flex:none; }
+.pf-photo .av { width:84px; height:84px; border-radius:50%; background:linear-gradient(135deg,#F8941F,#ff6a3d); color:#fff; display:grid; place-items:center; font-size:30px; font-weight:800; }
+.pf-photo .cam { position:absolute; right:-2px; bottom:-2px; width:30px; height:30px; border-radius:50%; background:#fff; border:1px solid var(--line); display:grid; place-items:center; color:var(--oj-d); cursor:pointer; }
+.pf-top__info h4 { font-size:18px; font-weight:800; color:var(--ink); margin:0 0 4px; }
+.pf-top__info p { font-size:13px; color:var(--muted); margin:0; }
+.pf-form .frow { display:grid; grid-template-columns:170px 1fr; gap:14px; align-items:center; padding:9px 0; }
+.pf-form .frow > label { font-size:13.5px; color:var(--muted); font-weight:600; margin:0; }
+.pf-form .frow .val { font-size:14px; color:var(--ink); font-weight:600; }
+.pf-form .frow input { border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:14px; width:100%; }
+.pf-form .frow input:focus { border-color:var(--oj); box-shadow:0 0 0 3px rgba(248,148,31,.15); outline:none; }
+.pf-actions { display:flex; gap:10px; margin-top:18px; }
+.verif-badge { display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; padding:3px 10px; border-radius:100px; }
+.verif-badge--pending { background:#fff4e7; color:var(--oj-d); }
+.verif-badge--ok { background:#e7f6ec; color:#1a8a44; }
+.upload-box { border:1.5px dashed #cfd3da; border-radius:10px; padding:22px; text-align:center; color:var(--muted); font-size:13px; cursor:pointer; transition:border-color .18s,background .18s; }
+.upload-box:hover { border-color:var(--oj); background:var(--oj-soft); }
+.upload-box .tf-i { font-size:24px; color:var(--oj); display:block; margin-bottom:8px; }
+.pf-danger { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:8px; padding:14px 16px; border:1px solid #ffdcdc; background:#fff7f7; border-radius:10px; }
+.pf-danger p { margin:0; font-size:13px; color:var(--body); }
+.pf-danger a { color:#e0300f; font-weight:700; font-size:13px; }
+
+/* ---- Address cards ---- */
+.addr-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+/* .addr-card dan .chip kini komponen bersama di tf-layout.css (dipakai juga modal pilih alamat di homepage) */
+
+/* ---- Balance / wallet hero cards ---- */
+.bal-card { border-radius:14px; padding:22px 24px; color:#fff; position:relative; overflow:hidden; }
+.bal-card--points { background:linear-gradient(120deg,#F8941F,#ff5f2e); }
+.bal-card--credit { background:linear-gradient(120deg,#2b2f45,#494f74); }
+.bal-card--service { background:linear-gradient(120deg,#0f9d8f,#12b3a3); }
+.bal-card::after { content:""; position:absolute; right:-30px; top:-30px; width:150px; height:150px; border-radius:50%; background:rgba(255,255,255,.12); }
+.bal-card__label { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700; opacity:.95; }
+.bal-card__val { font-size:32px; font-weight:800; letter-spacing:-.02em; margin:6px 0 4px; position:relative; z-index:2; }
+.bal-card__note { font-size:12.5px; opacity:.9; position:relative; z-index:2; }
+.bal-card__info { position:absolute; right:18px; top:18px; z-index:3; width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,.22); color:#fff; display:grid; place-items:center; font-size:12px; text-decoration:none; }
+.bal-card__info:hover { background:rgba(255,255,255,.35); color:#fff; }
+.bal-progress { height:8px; border-radius:100px; background:rgba(255,255,255,.28); overflow:hidden; margin:14px 0 8px; position:relative; z-index:2; }
+.bal-progress span { display:block; height:100%; background:#fff; border-radius:100px; }
+.bal-meta { display:flex; gap:22px; margin-top:14px; position:relative; z-index:2; }
+.bal-meta div { font-size:12px; opacity:.9; }
+.bal-meta strong { display:block; font-size:14px; font-weight:800; opacity:1; margin-top:2px; }
+
+/* ---- History / mutation list ---- */
+.pill-tabs { display:flex; gap:8px; margin:20px 0 14px; flex-wrap:wrap; }
+.pill-tabs .nav-link, .pill-tab { border:1px solid var(--line); background:#fff; color:var(--body); font-size:13px; font-weight:700; padding:8px 16px; border-radius:100px; cursor:pointer; }
+.pill-tabs .nav-link.active, .pill-tab.active { background:var(--oj-soft); border-color:var(--oj); color:var(--oj-d); }
+.hist-filter { margin-left:auto; }
+.hist-row { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 4px; border-bottom:1px solid #f0f1f3; }
+.hist-row:last-child { border-bottom:0; }
+.hist-row__l { min-width:0; }
+.hist-row__date { font-size:12px; color:var(--muted); }
+.hist-row__ref { font-size:13.5px; color:var(--ink); font-weight:600; margin-top:2px; }
+.hist-row__amt { font-size:14px; font-weight:800; white-space:nowrap; }
+.hist-row__amt.plus { color:#1a8a44; }
+.hist-row__amt.minus { color:#e0300f; }
+
+/* ---- Product grid (favorite) ---- */
+.prod-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.prod-card { border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#fff; display:flex; flex-direction:column; transition:box-shadow .18s,border-color .18s; position:relative; }
+.prod-card:hover { box-shadow:0 6px 18px rgba(0,0,0,.08); border-color:#dcdfe3; }
+.prod-card__media { aspect-ratio:1; background:#fff; border-bottom:1px solid #f2f3f5; }
+.prod-card__media img { width:100%; height:100%; object-fit:contain; padding:10px; }
+.prod-card__wish { position:absolute; top:8px; right:8px; width:30px; height:30px; border-radius:50%; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,.14); display:grid; place-items:center; color:#e0300f; font-size:13px; cursor:pointer; }
+.prod-card__body { padding:10px 11px 12px; display:flex; flex-direction:column; gap:5px; flex:1; }
+.prod-card__name { font-size:13px; color:#31353b; line-height:1.35; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:35px; }
+.prod-card__price { font-size:15px; font-weight:800; color:var(--ink); }
+.prod-card__cart { margin-top:auto; padding-top:8px; }
+.prod-card__cart .acc-btn { width:100%; justify-content:center; padding:8px; font-size:12.5px; }
+
+/* ---- Shopping lists (daftar belanja) ---- */
+.list-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.list-card { border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.list-card__head { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--line); }
+.list-card__name { font-size:14.5px; font-weight:800; color:var(--ink); }
+.list-card__count { font-size:12px; color:var(--muted); }
+.list-card__thumbs { display:flex; gap:8px; padding:14px 16px; }
+.list-card__thumbs img { width:52px; height:52px; border-radius:8px; border:1px solid var(--line); object-fit:contain; background:#fff; padding:4px; }
+.list-card__foot { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-top:1px solid var(--line); background:#fafbfc; }
+.list-card__total { font-size:14px; font-weight:800; color:var(--ink); }
+
+/* ---- Payment methods ---- */
+.pay-list { display:flex; flex-direction:column; gap:12px; }
+.pay-row { display:flex; align-items:center; gap:14px; border:1px solid var(--line); border-radius:12px; padding:16px; }
+.pay-row__ico { width:46px; height:46px; border-radius:10px; background:var(--oj-soft); color:var(--oj-d); display:grid; place-items:center; font-size:19px; flex:none; }
+.pay-row__info { flex:1; min-width:0; }
+.pay-row__name { font-size:14.5px; font-weight:800; color:var(--ink); }
+.pay-row__desc { font-size:12.5px; color:var(--muted); margin-top:2px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 767px) {
+  .addr-grid, .list-grid { grid-template-columns:1fr; }
+  .prod-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .pf-form .frow { grid-template-columns:1fr; gap:6px; }
+  .pf-top { flex-direction:column; align-items:flex-start; text-align:left; }
+  .bal-card__val { font-size:27px; }
+}
+
+/* ---- Daftar Belanja (order history) — tidied ---- */
+.ta-main .acc-order { border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:16px; background:#fff; box-shadow:none; }
+.ta-main .acc-order:last-child { margin-bottom:0; }
+.acc-order__top { display:flex; align-items:center; justify-content:space-between; gap:10px; padding-bottom:12px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+.acc-order__meta { display:flex; align-items:center; gap:10px; }
+.order-ico { width:24px; height:24px; object-fit:contain; }
+.order-date { font-weight:700; color:var(--ink); font-size:13.5px; }
+.order-no { color:var(--muted); font-size:13px; }
+.order-badge { font-size:11px; font-weight:700; color:#1a8a44; background:#e7f6ec; padding:3px 11px; border-radius:100px; white-space:nowrap; }
+.acc-order__dist { font-size:13px; color:var(--body); margin:12px 0; }
+.acc-order__dist strong { color:var(--ink); }
+.acc-order__prod { display:flex; gap:12px; align-items:flex-start; }
+.acc-order__prod img { width:56px; height:56px; border-radius:8px; border:1px solid var(--line); object-fit:contain; background:#fff; padding:4px; flex:none; }
+.order-prod-name { font-size:13.5px; font-weight:600; color:var(--ink); line-height:1.4; }
+.order-prod-qty { font-size:12.5px; color:var(--body); margin-top:3px; }
+.order-prod-more { font-size:12px; color:var(--muted); margin-top:2px; }
+.acc-order__foot { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; padding-top:14px; border-top:1px solid var(--line); flex-wrap:wrap; }
+.order-total { font-size:13.5px; color:var(--body); }
+.order-total strong { color:var(--oj-d); font-size:15px; margin-left:4px; }
+
+
+/* ---- Sidebar wallet highlight (Toffin Points + Service Credit) ---- */
+.ta-wallet { padding:12px; display:flex; flex-direction:column; gap:8px; border-bottom:1px solid #eef0f2; }
+.ta-wallet__item { display:flex; align-items:center; gap:10px; padding:9px 10px; border:1px solid var(--line); border-radius:10px; text-decoration:none; transition:background .15s ease, border-color .15s ease; }
+.ta-wallet__item:hover { background:#faf7f2; border-color:#ffd9ad; text-decoration:none; }
+.ta-wallet__ico { flex:none; width:32px; height:32px; border-radius:8px; background:var(--oj-soft); color:var(--oj-d); display:grid; place-items:center; font-size:14px; }
+.ta-wallet__ico--sc { background:#e6f7f4; color:#0f9d8f; }
+.ta-wallet__meta { flex:1; min-width:0; }
+.ta-wallet__label { display:block; font-size:11px; color:var(--muted); line-height:1.2; }
+.ta-wallet__val { display:block; font-size:14px; font-weight:800; color:var(--ink); line-height:1.25; }
+.ta-wallet__arr { color:#c4c8d0; font-size:11px; flex:none; }
+@media (max-width: 991px) {
+  .ta-wallet { flex-direction:row; }
+  .ta-wallet__item { flex:1; }
+}
+@media (max-width: 480px) {
+  .ta-wallet { flex-direction:column; }
+}
+
+/* =====================================================================
+   Langkah 7 (2026-09-30): halaman ini tidak lagi memuat style.css / custom.css.
+   Di bawah ini pengganti kelas tema lama yang masih dipakai markup, nilainya
+   disalin dari style.css (.ftco-section, .hero-wrap.hero-bread, .bread) dan
+   custom.css (.tab-myaccount, .point-datepicker, .text-orange, .text-red, .reset-fil).
+   ===================================================================== */
+.ta-section { padding: 1rem 0 9em; position: relative; }          /* .ftco-section.pt-3 */
+@media (max-width: 767.98px) { .ta-section { padding-bottom: 2em; } }
+.ta-section--hero { padding-bottom: 0; }                             /* .ftco-no-pb */
+.ta-hero { width: 100%; position: relative; padding: 10em 0; background-size: cover; background-position: center; }   /* .hero-wrap.hero-bread */
+.ta-hero .row { color: #fff; }                                        /* .slider-text */
+.ta-hero__title { margin: 0; color: #fff; font-family: "Open Sans", Arial, sans-serif; font-size: 30px; font-weight: 800; line-height: 1.5; letter-spacing: 3px; text-transform: uppercase; }
+@media only screen and (max-width: 767px) { .ta-hero { padding: 6em 0; } }
+@media only screen and (max-width: 600px) { .ta-hero { padding: 3em 0; } }
+/* tema lama memberi semua heading line-height 1.5 (Bootstrap: 1.2); spesifisitas nol-kelas agar aturan .ta-* tetap menang */
+:where(.ta) :is(h1, h2, h3, h4, h5, h6) { line-height: 1.5; }
+/* tautan tema lama oranye (a { color }); Bootstrap murni memberi biru. Spesifisitas nol-kelas seperti aslinya. */
+:where(.ta) a { color: var(--oj); }
+:where(.ta) a:hover { color: #ff933b; }
+.tab-myaccount { flex-wrap: nowrap; white-space: nowrap; overflow: auto; background: white; border-radius: 15px; border: solid 1px #e9e9e9; padding: 10px; }
+.point-datepicker { height: 44px !important; border-radius: 5px; }
+.text-orange { color: #FFA500; font-weight: bold; }
+.text-red { color: #FF0000; font-weight: bold; }
+@media only screen and (max-width: 767px) { .reset-fil { width: 100%; } }

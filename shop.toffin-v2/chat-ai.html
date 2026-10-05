@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <title>Toffin - Coffee Business Platform</title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.3.41/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
+    integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+  <!-- Swiper CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <style>
+    /* Chat AI & WA Styling */
+    .ai-container {
+      margin-left: 300px;
+      transition: margin-left 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* supaya header tetap di atas */
+      gap: 12px;
+    }
+
+
+    .page-ai {
+      max-width: 720px;
+      width: 100%;
+      height: 90dvh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header-ai button {
+      background: none;
+      border: none;
+      color: #ff0000;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .content-ai {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      color: #121111;
+    }
+
+    .footer-ai {
+      padding: 15px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+      border-top: 1px solid #e2e2e2;
+    }
+
+    @media (max-width: 768px) {
+      .footer-ai {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background: #fff;
+        display: flex;
+        gap: 10px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .page-ai {
+        padding-bottom: 80px;
+        /* beri ruang buat chat input */
+        height: 100%;
+      }
+
+      .content-ai {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        padding: 15px;
+      }
+    }
+
+
+    .search-sidebar {
+      padding: 15px;
+      border-top: 1px solid #e2e2e2;
+    }
+
+    #chat-messages {
+      flex: 1;
+      padding: 12px;
+      overflow-y: auto;
+      font-size: 13px;
+    }
+
+    .msg {
+      margin-bottom: 12px;
+      max-width: 100%;
+      opacity: 0;
+      animation: fadeIn 300ms forwards;
+    }
+
+    .user-ai {
+      text-align: left;
+      margin-left: auto;
+      color: #121111;
+      padding: 10px;
+      background: #f7f7f7;
+      width: fit-content;
+      max-width: 80%;
+      border-radius: 10px;
+    }
+
+    .ai {
+      text-align: left;
+      /* margin-right: auto; */
+      color: #111111;
+    }
+
+    .text-ai {
+      white-space: pre-wrap;
+    }
+
+    #chat-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+
+    #search-input {
+      width: 100%;
+    }
+
+
+    #chat-input input,
+    #search-input input,
+    #chat-input-field {
+      flex: 1;
+      background: #f2f2f2;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #dadada;
+      font-size: 13px;
+      color: #797979;
+      width: 100%;
+    }
+
+    #chat-input button {
+      background: #000000;
+      width: 58px;
+      height: 58px;
+      color: white;
+      border: none;
+      /* padding: 0 16px; */
+
+      cursor: pointer;
+      border-radius: 50px;
+    }
+
+    #chat-suggestions ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px;
+    }
+
+    #chat-suggestions li {
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 10px;
+      color: #121111;
+      background: #f2f2f2;
+      cursor: pointer;
+      transition: background .2s;
+      font-size: 13px;
+    }
+
+    #chat-suggestions li:hover {
+      background: #fff2e0;
+    }
+
+    #history-list p {
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 13px;
+      background: #f2f2f2;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #history-list p:hover {
+      background: #fff2e0;
+    }
+
+    .history-title {
+      font-weight: 700;
+      margin-top: 10px;
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    button.full {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-align: left;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      background: none;
+      border: 1px solid #e6e6e6;
+    }
+
+    button.full:hover {
+      background: #fff2e0;
+    }
+
+    button.full img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .btn-title {
+      font-weight: bold;
+      font-size: 15px;
+      color: #121111;
+    }
+
+    .btn-subtitle {
+      font-size: 11px;
+      color: #5d5d5d;
+      opacity: 0.9;
+    }
+
+    #chat-messages {
+      scroll-behavior: smooth;
+    }
+
+    .selected-machine {
+      background: #fff3ea !important;
+    }
+
+
+
+    .sidebar a,
+    .sidebar ul li {
+      width: 100%;
+      padding: 12px 24px;
+      color: #333;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .sidebar a:hover,
+    .sidebar ul li:hover {
+      background: #f2f2f2;
+    }
+
+    .sidebar a.active {
+      background: #e0e0e0;
+      font-weight: 600;
+    }
+
+    .sidebar ul {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .sidebar ul#sidebar-history {
+      list-style: none;
+      padding: 0 16px;
+      margin: 10px 0 0;
+      width: 100%;
+    }
+
+    #sidebar-history div {
+      padding: 8px 10px;
+      /*margin-bottom: 8px;
+  background: #f2f2f2;*/
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 11px;
+      color: #333;
+      transition: background 0.2s;
+
+      /* Batasi 1 baris dan tambahkan ellipsis */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #sidebar-history div:hover {
+      background: #ffe9d6;
+    }
+
+    .sidebar .logo img {
+      width: 30px;
+      height: auto;
+    }
+
+    .sidebar .toggle-icon {
+      height: 20px;
+      width: auto;
+    }
+
+    #sidebar-toggle img {
+      height: 20px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar.collapsed #sidebar-toggle img {
+      transform: rotate(180deg);
+      /* opsional */
+    }
+
+    .sidebar.collapsed #sidebar-history,
+    .sidebar.collapsed #sidebar-history::before {
+      display: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100vh;
+      background: #fff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+      transition: width 0.5s ease, transform 0.5s ease;
+      z-index: 100;
+
+    }
+
+    /* Sembunyikan sidebar di mobile secara default */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+      }
+
+      .sidebar.show {
+        transform: translateX(0);
+      }
+
+      .ai-container,
+      .header-ai {
+        margin-left: 0 !important;
+      }
+    }
+
+
+    .logo-wrapper {
+      width: 100%;
+      padding: 8px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-img {
+      width: 30px;
+      height: auto;
+    }
+
+    .toggle-icon {
+      width: 20px;
+      height: auto;
+    }
+
+    /* Gabungan .sidebar.collapsed */
+    .sidebar.collapsed {
+      width: 60px;
+    }
+
+    .sidebar.collapsed .link-text,
+    .sidebar.collapsed .search-sidebar,
+    .sidebar.collapsed .logo-img,
+    .sidebar.collapsed .logo img {
+      display: none;
+    }
+
+    .sidebar.collapsed~.ai-container {
+      margin-left: 60px;
+    }
+
+    .sidebar.collapsed~.header-ai {
+      margin-left: 60px;
+    }
+
+    /* Custom classes */
+    .close-modal-btn {
+      position: absolute;
+      color: red;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .machine-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background: #fafafa;
+      cursor: pointer;
+    }
+
+    .booking-btn {
+      display: none;
+      background: #000000;
+    }
+
+    #sidebar-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .sidebar.collapsed .toggle-icon {
+      display: inline-block !important;
+      transform: rotate(180deg);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Header Style */
+    .header-ai {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      z-index: 10;
+      color: #121111;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      margin-left: 300px;
+      transition: margin-left 0.3s ease;
+    }
+
+    #chat-input-field {
+      resize: none;
+      overflow-y: hidden;
+      min-height: 40px;
+      max-height: 100px;
+      line-height: 1.4em;
+    }
+
+    /* Tombol toggle sidebar khusus mobile */
+    .mobile-sidebar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #cccccc;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-sidebar-toggle {
+        display: inline-block;
+      }
+
+      .header-ai span {
+        flex: 1;
+      }
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    .modal.hidden {
+      display: none;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      width: 90%;
+      max-width: 380px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-content h5 {
+      margin-bottom: 16px;
+      font-size: 15px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .modal-content label {
+      margin-top: 12px;
+      font-weight: 400;
+      font-size: 13px;
+      display: block;
+    }
+
+    .modal-content select,
+    .modal-content textarea,
+    .modal-content input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #d1d1d1;
+      border-radius: 8px;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+
+    .modal-content textarea {
+      resize: vertical;
+    }
+
+    .modal-content .btn-primary {
+      margin-top: 40px;
+      width: 100%;
+      background: #ffa45c;
+      border: none;
+      color: #fff;
+      padding: 10px 0;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .modal-content .btn-secondary {
+      margin-top: 8px;
+      background: none;
+      border: none;
+      color: #555;
+      font-size: 14px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    #daftar-mesin-list {
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    #loading-spinner {
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      color: #666;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="logo-wrapper">
+      <img src="images/AI-logo.png" alt="Toffin AI" class="logo-img" />
+      <button onclick="toggleSidebarExpand(); toggleSidebarMobile()" id="sidebar-toggle">
+        <img src="images/sidebar.png" alt="Toggle Sidebar" class="toggle-icon" />
+      </button>
+    </div>
+    <div class="search-sidebar" id="search-input">
+      <input type="text" placeholder="Search here..." />
+    </div>
+    <a href="#" onclick="startNewChat()"><i class="fas fa-plus-circle"></i> <span class="link-text">New Chat</span></a>
+    <div style="width: 100%; padding: 0 16px; margin-top: 10px; overflow: auto">
+      <div id="sidebar-history"></div>
+    </div>
+  </div>
+  <div class="header-ai">
+    <button class="mobile-sidebar-toggle" onclick="toggleSidebarMobile()">
+      <i class="fas fa-bars" style="color: #121111;"></i>
+    </button>
+    <span class="text-center">Toffin AI Assistant 2.0</span>
+    <div>
+      <a href="index.html" style="color: red;"><span class="icon-close"></span></a>
+    </div>
+  </div>
+  <div class="ai-container">
+    <div class="page-ai">
+      <div class="content-ai">
+        <div id="chat-suggestions">
+          <div class="text-center">
+            <p style="font-weight:700; padding-bottom: 10px;">F&B Consultant at Your Fingertips</p>
+            <p style="font-size:13px;">Temukan semua jawaban serta solusi secara instan. Tingkatkan bisnis dan
+              pengetahuan melalui fitur yang dirancang serasa memiliki konsultan F&B pribadi.</p>
+            <i class="icon-search"></i> <span style="font-weight:600;"> Contoh</span>
+          </div>
+          <ul>
+            <li onclick="suggest('Apa resep untuk membuat coffee late?')">“Apa resep untuk membuat coffee late?”</li>
+            <li onclick="suggest('Kenapa mesin kopi saya keluar uap?')">"Kenapa mesin kopi saya keluar uap?"</li>
+            <li onclick="suggest('Rekomendasikan mesin kopi untuk cafe kapasitas 100 orang')">"Rekomendasikan mesin kopi
+              untuk cafe kapasitas 100 orang"</li>
+            <li onclick="suggest('Fitur utama Allegra Speed Oven Pro')">"Fitur utama Allegra Speed Oven Pro"</li>
+            <li onclick="suggest('Trend gelato 2025')">"Trend gelato 2025"</li>
+            <li onclick="suggest('Rekomendasi mesin kopi yang bagus')">Rekomendasi mesin kopi yang bagus</li>
+            <li onclick="suggest('List mesin tersedia')">"Pilih daftar mesin"</li>
+            <li onclick="suggest('List mesin banyak')">"Daftar mesin banyak"</li>
+          </ul>
+        </div>
+        <div id="chat-messages"></div>
+      </div>
+      <div class="footer-ai" id="chat-input">
+        <textarea id="chat-input-field" type="text" placeholder="Tulis pertanyaan..." rows="2"
+          style="resize: none;"></textarea>
+        <button id="booking-btn" onclick="handleBooking()" class="booking-btn">
+          <img src="images/booking-icon.png" width="35" alt="Booking" />
+        </button>
+        <!-- <button onclick="sendMessage()"><span class="ion-ios-arrow-up"></span></button> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Booking Form -->
+  <div id="booking-modal" class="modal hidden">
+    <div class="modal-content">
+      <h5>Form Booking Service</h5>
+      <form id="booking-form">
+        <label>Lokasi:</label>
+        <select name="lokasi" required>
+          <option value="">Pilih lokasi</option>
+          <option>Jakarta</option>
+          <option>Bandung</option>
+          <option>Surabaya</option>
+        </select>
+        <label>Mesin:</label>
+        <select name="mesin" required>
+          <option value="">Pilih mesin</option>
+          <option>Appia Life Compact</option>
+          <option>Black Eagle VA388</option>
+          <option>Linea Mini</option>
+        </select>
+        <label>Tipe Servis:</label>
+        <select name="tipe" required>
+          <option value="">Pilih tipe servis</option>
+          <option>Perawatan Rutin</option>
+          <option>Perbaikan</option>
+          <option>Instalasi</option>
+        </select>
+        <label>Kendala Mesin:</label>
+        <textarea id="chat-input-field" placeholder="Tulis pertanyaan..." rows="2" style="resize: none;">
+      </textarea>
+        <label>Unggah Foto (opsional):</label>
+        <input type="file" name="foto" accept="image/*" />
+        <button type="submit" class="btn btn-primary">Checkout</button>
+      </form>
+      <a class="close-modal-btn" onclick="toggleBookingModal()">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- modal list mesin banyak-->
+  <div id="daftar-mesin" class="modal hidden">
+    <div class="modal-content">
+      <h5>Daftar Mesin</h5>
+      <div class="sidebar-box p-0 pb-4">
+        <form action="#" class="search-form">
+          <div class="form-group">
+            <span class="icon ion-ios-search"></span>
+            <input type="text" class="form-control" placeholder="Cari mesin...">
+          </div>
+        </form>
+      </div>
+      <div id="daftar-mesin-list"></div>
+      <div id="loading-spinner">Loading...</div>
+      <a class="close-modal-btn" onclick="toggleDaftarMesinModal()">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+  </div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false">
+  </script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    // Chat Widget AI & WA
+    let selectedMachine = null;
+
+    const chatPage = document.querySelector('.page-ai');
+    historyPage = document.getElementById('history-page'),
+      chatMessages = document.getElementById('chat-messages'),
+      chatInput = document.getElementById('chat-input-field'),
+      historyList = document.getElementById('history-list'),
+      chatSuggestions = document.getElementById('chat-suggestions');
+
+    let history = JSON.parse(localStorage.getItem('chatHistory') || '[]');
+
+    function save() {
+      localStorage.setItem('chatHistory', JSON.stringify(history));
+    }
+
+    function formatTime(t) {
+      const d = new Date(t);
+      return d.toLocaleDateString('id') + ' ' + d.toLocaleTimeString('id', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    // Data mesin global
+    const allMachines = [{
+        img: 'images/product-1.jpg',
+        title: 'Appia Life Compact',
+        serial: 'SN-A12345',
+        location: 'Jakarta'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Black Eagle VA388',
+        serial: 'SN-B67890',
+        location: 'Bandung'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Linea Mini',
+        serial: 'SN-C54321',
+        location: 'Bali'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-D98765',
+        location: 'Surabaya'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One',
+        serial: 'SN-E11111',
+        location: 'Medan'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-F22222',
+        location: 'Semarang'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Nuova Simonelli Aurelia',
+        serial: 'SN-G33333',
+        location: 'Makassar'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-H44444',
+        location: 'Yogyakarta'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-I55555',
+        location: 'Bali'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-J66666',
+        location: 'Jakarta'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Black Eagle VA388',
+        serial: 'SN-B67890',
+        location: 'Bandung'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Linea Mini',
+        serial: 'SN-C54321',
+        location: 'Bali'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-D98765',
+        location: 'Surabaya'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One',
+        serial: 'SN-E11111',
+        location: 'Medan'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-F22222',
+        location: 'Semarang'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Nuova Simonelli Aurelia',
+        serial: 'SN-G33333',
+        location: 'Makassar'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-H44444',
+        location: 'Yogyakarta'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-I55555',
+        location: 'Bali'
+      },
+      {
+        img: 'images/product-1.jpg',
+        title: 'Victoria Arduino Eagle One Prima',
+        serial: 'SN-J66666',
+        location: 'Jakarta'
+      }
+    ];
+    let loadedCount = 0;
+
+
+
+    chatInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault(); // cegah newline
+        sendMessage();
+      }
+      // Shift+Enter tetap jalan (buat newline)
+    });
+
+    chatInput.addEventListener('input', function () {
+      this.style.height = 'auto';
+      this.style.height = this.scrollHeight + 'px';
+    });
+
+    function toggleSidebarMobile() {
+      const sidebar = document.getElementById('sidebar');
+      // Hanya tangani class "show" (bukan collapsed/expanded)
+      sidebar.classList.toggle('show');
+    }
+
+    function showChat() {
+      chatPage.style.display = 'flex';
+      choice.style.display = 'none';
+      historyPage.style.display = 'none';
+      chatMessages.innerHTML = '';
+      chatSuggestions.style.display = 'block';
+    }
+
+    function showHistory() {
+      historyPage.style.display = 'flex';
+      chatPage.style.display = 'none';
+      renderHistory();
+    }
+
+    function toggleSidebarHistory() {
+      const list = document.getElementById('sidebar-history');
+      if (list.style.display === 'none') {
+        renderSidebarHistory();
+        list.style.display = 'block';
+      } else {
+        list.style.display = 'none';
+      }
+    }
+
+    function toggleSidebarExpand() {
+      // Cegah toggle di mobile
+      if (window.innerWidth <= 768) return;
+
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('collapsed');
+    }
+
+
+    function toggleBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      modal.classList.toggle('hidden');
+    }
+
+    function toggleDaftarMesinModal() {
+      const modal = document.getElementById('daftar-mesin');
+      modal.classList.toggle('hidden');
+    }
+
+    function openDaftarMesinModal() {
+      const container = document.getElementById('daftar-mesin-list');
+      container.innerHTML = '';
+      loadedCount = 0;
+      loadMoreMachines(5); // tampilkan 5 mesin pertama
+      toggleDaftarMesinModal();
+    }
+
+    function handleBooking() {
+      if (!selectedMachine) {
+        alert('Pilih mesin terlebih dahulu');
+        return;
+      }
+
+      // Optional: Pre-fill form jika mau
+      document.querySelector('#booking-form select[name="mesin"]').value = selectedMachine.title;
+
+      // Tampilkan modal form
+      toggleBookingModal();
+    }
+
+
+    function renderSidebarHistory() {
+      const list = document.getElementById('sidebar-history');
+      list.innerHTML = '';
+
+      const userMessages = history
+        .filter(h => h.sender === 'user-ai')
+        .map(h => h.text);
+
+      const uniqueTexts = [...new Set(userMessages)].reverse();
+
+      uniqueTexts.slice(0, 10).forEach(text => {
+        const item = document.createElement('div');
+        item.textContent = text.length > 60 ? text.slice(0, 57) + '…' : text;
+        item.onclick = () => {
+          showChat();
+          suggest(text);
+        };
+        list.appendChild(item);
+      });
+    }
+
+
+
+    function sendMessage() {
+      const txt = chatInput.value.trim();
+      if (!txt) return;
+      chatSuggestions.style.display = 'none';
+      addMessage('user-ai', txt);
+      chatInput.value = '';
+
+      chatInput.blur(); //  Tutup keyboard
+      autoScroll(); //  Scroll ke bawah
+
+      setTimeout(() => smoothAIResponse(txt), 300);
+    }
+
+    function addMessage(sender, text, time = null) {
+      const timestamp = time || new Date().toISOString();
+      if (!time) {
+        history.push({
+          sender,
+          text,
+          time: timestamp
+        });
+        save();
+      }
+      const div = document.createElement('div');
+      div.className = 'msg ' + sender;
+
+      const textDiv = document.createElement('div');
+      textDiv.className = 'text-ai';
+      textDiv.textContent = text;
+
+      div.appendChild(textDiv);
+      chatMessages.appendChild(div);
+      autoScroll();
+
+      chatInput.focus();
+    }
+
+    function smoothAIResponse(userText) {
+      const placeholderDiv = document.createElement('div');
+      placeholderDiv.className = 'msg ai';
+      const typingText = document.createElement('div');
+      typingText.className = 'text-ai typing-loader';
+      typingText.textContent = 'AI sedang mengetik';
+      placeholderDiv.appendChild(typingText);
+      chatMessages.appendChild(placeholderDiv);
+      autoScroll();
+
+      const response = 'Respon AI: ' + userText;
+      const lower = userText.toLowerCase();
+
+      typeWriter(typingText, response, 0, () => {
+        typingText.classList.remove('typing-loader');
+        typingText.textContent = response;
+        autoScroll();
+
+        const timeNow = new Date().toISOString();
+        history.push({
+          sender: 'ai',
+          text: response,
+          time: timeNow
+        });
+        save();
+
+        if (lower.includes('mesin kopi') || lower.includes('rekomendasi mesin')) {
+          renderProductCarousel([{
+              img: 'images/product-1.jpg',
+              title: 'Nuova Simonelli Appia Life V (2 Groups)',
+              price: 'Rp112.000.000'
+            },
+            {
+              img: 'images/product-2.jpg',
+              title: 'Victoria Arduino VA388 Black Eagle T3 2 Group',
+              price: 'Rp81.500.000'
+            },
+            {
+              img: 'images/product-3.jpg',
+              title: 'Victoria Arduino VA388 Black Eagle T3 2 Group',
+              price: 'Rp61.750.000'
+            },
+            {
+              img: 'images/product-1.jpg',
+              title: 'Nuova Simonelli Appia Life V (2 Groups)',
+              price: 'Rp112.000.000'
+            },
+            {
+              img: 'images/product-2.jpg',
+              title: 'Victoria Arduino VA388 Black Eagle T3 2 Group',
+              price: 'Rp81.500.000'
+            },
+            {
+              img: 'images/product-3.jpg',
+              title: 'Victoria Arduino VA388 Black Eagle T3 2 Group',
+              price: 'Rp61.750.000'
+            }
+          ]);
+        } else if (lower.includes('list mesin banyak') || lower.includes('daftar mesin banyak')) {
+          openDaftarMesinModal();
+        } else if (lower.includes('list mesin') || lower.includes('daftar mesin')) {
+          const machines = [{
+              img: 'images/product-1.jpg',
+              title: 'Appia Life Compact',
+              serial: 'SN-A12345',
+              location: 'Jakarta'
+            },
+            {
+              img: 'images/product-1.jpg',
+              title: 'Black Eagle VA388',
+              serial: 'SN-B67890',
+              location: 'Bandung'
+            },
+            {
+              img: 'images/product-1.jpg',
+              title: 'Linea Mini',
+              serial: 'SN-C54321',
+              location: 'Bali'
+            },
+            {
+              img: 'images/product-1.jpg',
+              title: 'Appia Life Compact',
+              serial: 'SN-A12345',
+              location: 'Jakarta'
+            },
+            {
+              img: 'images/product-1.jpg',
+              title: 'Black Eagle VA388',
+              serial: 'SN-B67890',
+              location: 'Bandung'
+            },
+            {
+              img: 'images/product-1.jpg',
+              title: 'Linea Mini',
+              serial: 'SN-C54321',
+              location: 'Bali'
+            }
+          ];
+          renderMachineSwiper(machines);
+        }
+
+
+      });
+    }
+
+    function loadMoreMachines(batch = 5) {
+      const container = document.getElementById('daftar-mesin-list');
+      const slice = allMachines.slice(loadedCount, loadedCount + batch);
+
+      slice.forEach((m, index) => {
+        const div = document.createElement('div');
+        div.classList.add('machine-item');
+        div.innerHTML = `
+      <img src="${m.img}" alt="${m.title}" style="width:50px; height:50px; border-radius:8px; object-fit:cover"/>
+      <div style="flex:1">
+        <div style="font-weight:600; font-size:12px; margin-bottom:2px;">${m.title}</div>
+        <div style="font-size:10px; color:#333;">SN : ${m.serial}</div>
+        <div style="font-size:10px; color:#333;">Lokasi : ${m.location}</div>
+      </div>
+    `;
+
+        // 👉 Klik untuk memilih mesin
+        div.addEventListener('click', () => {
+          document.querySelectorAll('#daftar-mesin-list .machine-item')
+            .forEach(el => el.classList.remove('selected-machine'));
+          div.classList.add('selected-machine');
+          selectedMachine = m;
+          console.log("📦 Mesin terpilih dari modal:", selectedMachine);
+
+          // Munculkan tombol booking
+          document.getElementById('booking-btn').style.display = 'inline-block';
+        });
+
+        container.appendChild(div);
+      });
+
+      loadedCount += slice.length;
+    }
+
+    // Event listener scroll untuk daftar-mesin-list (infinite scroll)
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById('daftar-mesin-list');
+      container.addEventListener('scroll', () => {
+        if (container.scrollTop + container.clientHeight >= container.scrollHeight - 10) {
+          loadMoreMachines(5);
+        }
+      });
+    });
+
+    function renderMachineSwiper(machines) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'swiper msg ai';
+      wrapper.style.marginTop = '12px';
+      wrapper.style.width = '100%';
+
+      const swiperId = 'swiper-' + Math.random().toString(36).slice(2, 8);
+
+      wrapper.innerHTML = `
+    <div class="swiper-wrapper" id="${swiperId}">
+      ${machines.map((m, i) => `
+        <div class="swiper-slide machine-slide" data-index="${i}" style="
+          display: flex;
+          gap: 12px;
+          background: #f9f9f9;
+          border-radius: 12px;
+          padding: 8px;
+          flex-shrink: 0;
+          width: auto;
+          min-width: 260px;
+          box-sizing: border-box;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        ">
+          <img src="${m.img}" alt="${m.title}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" loading="lazy"/>
+          <div style="flex: 1; overflow: hidden;">
+            <div style="font-weight: bold; font-size: 12px; margin-bottom: 2px;">${m.title}</div>
+            <div style="font-size: 10px; color: #333;">SN : ${m.serial}</div>
+            <div style="font-size: 10px; color: #333;">Lokasi : ${m.location}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+      chatMessages.appendChild(wrapper);
+
+      const swiper = new Swiper(wrapper, {
+        slidesPerView: 'auto',
+        spaceBetween: 12,
+        freeMode: false,
+        slidesOffsetAfter: 16,
+        pagination: {
+          el: wrapper.querySelector('.swiper-pagination'),
+          clickable: true,
+          dynamicBullets: true
+        }
+      });
+
+      // 🔥 SELECT FEATURE
+      const slideEls = wrapper.querySelectorAll('.machine-slide');
+      slideEls.forEach((el, index) => {
+        el.addEventListener('click', () => {
+          slideEls.forEach(e => e.classList.remove('selected-machine'));
+          el.classList.add('selected-machine');
+
+          selectedMachine = machines[index];
+          console.log('📦 Mesin terpilih:', selectedMachine);
+
+          // Munculkan tombol booking
+          document.getElementById('booking-btn').style.display = 'inline-block';
+        });
+
+      });
+
+      autoScroll();
+    }
+
+    function typeWriter(el, text, i = 0, callback) {
+      if (i <= text.length) {
+        el.textContent = text.slice(0, i);
+        autoScroll(); // update tiap karakter
+        setTimeout(() => typeWriter(el, text, i + 1, callback), 10);
+      } else {
+        callback && callback();
+        autoScroll(); // pastikan scroll terakhir juga dilakukan
+      }
+    }
+
+
+    function suggest(txt) {
+      chatSuggestions.style.display = 'none';
+      addMessage('user-ai', txt);
+      setTimeout(() => smoothAIResponse(txt), 300);
+    }
+
+    function clearHistory() {
+      history = [];
+      save();
+      historyList.innerHTML = '';
+    }
+
+    function contactCS() {
+      window.open('https://wa.me/+628119983378', '_blank');
+    }
+
+    function autoScroll() {
+      const messages = document.getElementById('chat-messages');
+      const lastMsg = messages.lastElementChild;
+
+      if (lastMsg) {
+        lastMsg.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end'
+        });
+      }
+    }
+
+
+    function renderProductCarousel(products) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'swiper msg ai';
+      wrapper.style.marginTop = '8px';
+
+      wrapper.innerHTML = `
+    <div class="swiper-wrapper">
+      ${products.map(p => `
+        <div class="swiper-slide" style="width:150px !important; background:#f9f9f9; border-radius:12px; padding:10px;">
+          <img src="${p.img}" style="width:100%; border-radius:8px;" loading="lazy"/>
+          <div style="margin-top:8px; font-weight:bold; font-size:10px;">${p.title}</div>
+          <div style="color:#555; font-size:10px;"><span style=" text-decoration: line-through; color: #b3b3b3; font-size: 9px;">${p.price}</span></div>
+          <div style="color:#555; font-size:10px;"><span class="mr-2 price-dc" style="font-size: 9px;">${p.price}</span></div>
+          <button style="margin-top:8px; background:#ffa45c; border:none; color:#fff; padding: 5px 0px; width:100%; border-radius:6px; font-size:9px; cursor:pointer;">Add to cart +</button>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+      chatMessages.appendChild(wrapper);
+
+      const swiper = new Swiper(wrapper, {
+        slidesPerView: 'auto',
+        spaceBetween: 12,
+        freeMode: false,
+        slidesOffsetAfter: 16,
+      });
+
+      autoScroll();
+    }
+
+    function startNewChat() {
+      history = [];
+      save();
+      chatMessages.innerHTML = '';
+      chatSuggestions.style.display = 'block';
+      chatInput.value = '';
+      selectedMachine = null;
+      document.getElementById('booking-btn').style.display = 'none';
+      autoScroll();
+    }
+
+    function showSearchChat() {
+      alert("Fitur pencarian chat sedang dalam pengembangan 🔍");
+      // Atau nanti bisa tampilkan input dan filter historyList
+    }
+
+    window.addEventListener('resize', function () {
+      const sidebar = document.getElementById('sidebar');
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('collapsed', 'expanded', 'show');
+      }
+      renderSidebarHistory(); // panggil untuk menampilkan daftar riwayat
+    });
+  </script>
+
+  <script>
+    if (window.innerWidth <= 768) {
+      let lastHeight = window.innerHeight;
+
+      window.addEventListener("resize", () => {
+        const newHeight = window.innerHeight;
+        const isKeyboardVisible = newHeight < lastHeight;
+        const chatInput = document.getElementById('chat-input');
+        if (window.innerWidth <= 768) {
+          chatInput.style.position = isKeyboardVisible ? 'absolute' : 'fixed';
+        } else {
+          chatInput.style.position = '';
+        }
+        lastHeight = newHeight;
+      });
+    }
+  </script>
+</body>
+
+</html>

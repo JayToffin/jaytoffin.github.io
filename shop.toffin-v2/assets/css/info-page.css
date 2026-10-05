@@ -1,0 +1,532 @@
+/* =====================================================================
+   Info / policy pages (Informasi Pengiriman, dst)
+   Scoped under .ip so it never touches the shared nav, footer, or product CSS.
+   ===================================================================== */
+
+.ip {
+	--ip-orange: #f8941f;
+	--ip-orange-dark: #e07c0c;
+	--ip-orange-soft: #fff4e7;
+	--ip-ink: #212121;
+	--ip-body: #31353b;
+	--ip-muted: #6d7588;
+	--ip-line: #e5e7e9;
+
+	display: block;
+	color: var(--ip-body);
+	background: #fff;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 15px;
+	line-height: 1.7;
+}
+
+.ip *,
+.ip *::before,
+.ip *::after { box-sizing: border-box; }
+/* Tema lama style.css memberi semua heading line-height 1.5 (Bootstrap: 1.2). Dipertahankan dengan
+   spesifisitas nol-kelas supaya .ip-h1/.ip-h2/... yang punya line-height sendiri tetap menang (langkah 7). */
+:where(.ip) :is(h1, h2, h3, h4, h5, h6) { line-height: 1.5; }
+
+.ip-wrap {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* ---------- hero ---------- */
+.ip-hero {
+	/* tanpa tint oranye — pemisah dari konten cukup dari garis bawah */
+	border-bottom: 1px solid var(--ip-line);
+	padding: 32px 0 30px;
+}
+.ip-crumb { font-size: 13px; color: var(--ip-muted); margin-bottom: 14px; }
+.ip-crumb a { color: var(--ip-muted); text-decoration: none; }
+.ip-crumb a:hover { color: var(--ip-orange-dark); }
+.ip-crumb span { margin: 0 4px; }
+.ip-h1 {
+	font-size: clamp(26px, 5vw, 38px);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -.02em;
+	color: var(--ip-ink);
+	margin: 0 0 10px;
+}
+.ip-lead { font-size: 15px; color: var(--ip-muted); margin: 0; max-width: 620px; }
+
+/* ---------- sticky quick nav ---------- */
+.ip-nav {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	background: rgba(255, 255, 255, .92);
+	-webkit-backdrop-filter: blur(12px) saturate(180%);
+	backdrop-filter: blur(12px) saturate(180%);
+	border-bottom: 1px solid var(--ip-line);
+}
+.ip-nav__in {
+	display: flex;
+	gap: 8px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	/* horizontal scroll instead of wrapping keeps this one row tall on phones */
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+}
+.ip-nav__in::-webkit-scrollbar { display: none; }
+.ip-chip {
+	flex: none;
+	padding: 8px 16px;
+	border-radius: 100px;
+	border: 1px solid var(--ip-line);
+	background: #fff;
+	color: var(--ip-body);
+	font-size: 13px;
+	font-weight: 700;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.ip-chip:hover { border-color: var(--ip-orange); color: var(--ip-orange-dark); text-decoration: none; }
+.ip-chip.is-active {
+	background: var(--ip-orange);
+	border-color: var(--ip-orange);
+	color: #fff;
+}
+
+/* ---------- body / sections ---------- */
+.ip-body { padding-top: 8px; padding-bottom: 56px; }
+
+.ip-sec {
+	padding-top: 36px;
+	/* offset so the sticky nav never covers a heading when jumping to it */
+	scroll-margin-top: 76px;
+}
+.ip-sec + .ip-sec { border-top: 1px solid var(--ip-line); }
+
+.ip-h2 {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: clamp(19px, 3.4vw, 24px);
+	font-weight: 800;
+	line-height: 1.25;
+	color: var(--ip-ink);
+	margin: 0 0 18px;
+	letter-spacing: -.01em;
+}
+.ip-h2__ico {
+	flex: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	border-radius: 10px;
+	background: var(--ip-orange-soft);
+	color: var(--ip-orange-dark);
+	font-size: 16px;
+}
+.ip-h3 {
+	font-size: 16px;
+	font-weight: 800;
+	color: var(--ip-ink);
+	margin: 30px 0 12px;
+}
+.ip-p { margin: 0 0 14px; }
+.ip-p:last-child { margin-bottom: 0; }
+.ip-note { font-size: 13.5px; color: var(--ip-muted); margin: 12px 0 0; }
+
+/* ---------- callouts ---------- */
+.ip-callout {
+	display: flex;
+	gap: 13px;
+	padding: 16px 18px;
+	border-radius: 12px;
+	border: 1px solid var(--ip-line);
+	background: #fafbfc;
+	margin: 0 0 8px;
+}
+.ip-callout p { margin: 0; font-size: 14.5px; }
+.ip-callout .tf-i { flex: none; margin-top: 3px; font-size: 15px; color: var(--ip-muted); }
+.ip-callout--time { background: var(--ip-orange-soft); border-color: #f7e2cb; }
+.ip-callout--time .tf-i { color: var(--ip-orange-dark); }
+.ip-callout--warn { background: #f6f8fb; border-color: #dfe5ee; }
+.ip-callout--warn .tf-i { color: #5b6b86; }
+
+/* ---------- tables ---------- */
+.ip-tablewrap {
+	border: 1px solid var(--ip-line);
+	border-radius: 12px;
+	overflow: hidden;
+}
+.ip-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.ip-table th {
+	text-align: left;
+	/* header di-highlight dengan tint oranye, ukuran font disamakan dengan isi */
+	background: var(--ip-orange-soft);
+	color: var(--ip-ink);
+	font-weight: 800;
+	font-size: 14.5px;
+	padding: 13px 18px;
+	border-bottom: 1px solid #f0dcc4;
+}
+.ip-table td { padding: 14px 18px; border-bottom: 1px solid var(--ip-line); vertical-align: top; }
+.ip-table tbody tr:last-child td { border-bottom: none; }
+.ip-table tbody tr:hover td { background: #fcfcfd; }
+.ip-table td:first-child { font-weight: 700; color: var(--ip-ink); }
+.ip-table--price td:last-child { font-weight: 800; color: var(--ip-orange-dark); white-space: nowrap; }
+
+/* ---------- Bali special schedule ---------- */
+.ip-schedule { display: grid; gap: 12px; }
+.ip-schedule__item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	flex-wrap: wrap;
+	padding: 15px 18px;
+	border: 1px solid var(--ip-line);
+	border-radius: 12px;
+}
+.ip-schedule__area { font-weight: 700; color: var(--ip-ink); font-size: 14.5px; }
+.ip-schedule__area .tf-i { color: var(--ip-orange); margin-right: 8px; }
+.ip-days { display: flex; gap: 6px; flex-wrap: wrap; }
+.ip-day {
+	padding: 5px 12px;
+	border-radius: 100px;
+	background: var(--ip-orange-soft);
+	color: var(--ip-orange-dark);
+	font-size: 12.5px;
+	font-weight: 800;
+	white-space: nowrap;
+}
+
+/* ---------- minimum-spend tiers ---------- */
+.ip-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ip-tier {
+	border: 1px solid var(--ip-line);
+	border-radius: 12px;
+	padding: 18px;
+	background: #fff;
+	transition: border-color .2s ease, box-shadow .2s ease;
+}
+.ip-tier:hover { border-color: #f0d3b4; box-shadow: 0 4px 16px rgba(20, 23, 40, .07); }
+.ip-tier--wide { grid-column: 1 / -1; }
+.ip-tier__price { font-size: 21px; font-weight: 800; color: var(--ip-orange-dark); line-height: 1.2; }
+.ip-tier__lbl {
+	font-size: 10.5px;
+	font-weight: 800;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	color: var(--ip-muted);
+	margin: 4px 0 10px;
+}
+.ip-tier__areas { font-size: 14px; color: var(--ip-body); }
+
+/* ---------- QC steps ---------- */
+.ip-steps { list-style: none; counter-reset: ip-step; margin: 0 0 20px; padding: 0; }
+.ip-steps li {
+	position: relative;
+	counter-increment: ip-step;
+	padding: 0 0 0 46px;
+	margin-bottom: 20px;
+}
+.ip-steps li:last-child { margin-bottom: 0; }
+.ip-steps li::before {
+	content: counter(ip-step);
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: var(--ip-orange);
+	color: #fff;
+	font-size: 13px;
+	font-weight: 800;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.ip-steps h4 { font-size: 15px; font-weight: 800; color: var(--ip-ink); margin: 3px 0 4px; }
+.ip-steps p { margin: 0; font-size: 14.5px; }
+
+/* ---------- help footer card ---------- */
+.ip-help {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: wrap;
+	margin-top: 44px;
+	padding: 24px 26px;
+	border-radius: 14px;
+	background: var(--ip-orange-soft);
+	border: 1px solid #f7e2cb;
+}
+.ip-help h3 { font-size: 17px; font-weight: 800; color: var(--ip-ink); margin: 0 0 4px; }
+.ip-help p { margin: 0; font-size: 14px; color: var(--ip-body); }
+.ip-help__btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.ip-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 11px 20px;
+	border-radius: 10px;
+	background: var(--ip-orange);
+	color: #fff;
+	font-size: 14px;
+	font-weight: 800;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background .2s ease, transform .2s ease;
+}
+.ip-btn:hover { background: var(--ip-orange-dark); color: #fff; text-decoration: none; transform: translateY(-1px); }
+.ip-btn--ghost { background: #fff; color: var(--ip-ink); border: 1px solid var(--ip-line); }
+.ip-btn--ghost:hover { background: #fff; color: var(--ip-orange-dark); border-color: var(--ip-orange); }
+
+/* =====================================================================
+   Mobile
+   ===================================================================== */
+@media (max-width: 767px) {
+	.ip-tiers { grid-template-columns: 1fr; }
+
+	/* Tables become stacked cards. A 2-column table cannot shrink below its
+	   longest cell, so on a phone it would either overflow or squeeze the text
+	   into a column a few characters wide — the label moves above the value
+	   instead. */
+	.ip-tablewrap { border: none; border-radius: 0; overflow: visible; }
+	.ip-table, .ip-table tbody, .ip-table tr, .ip-table td { display: block; width: 100%; }
+	.ip-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+	.ip-table tr {
+		border: 1px solid var(--ip-line);
+		border-radius: 12px;
+		padding: 4px 0;
+		margin-bottom: 10px;
+	}
+	.ip-table tr:last-child { margin-bottom: 0; }
+	.ip-table td { border-bottom: none; padding: 8px 16px; }
+	.ip-table td::before {
+		content: attr(data-label);
+		display: block;
+		font-size: 10.5px;
+		font-weight: 800;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+		color: var(--ip-muted);
+		margin-bottom: 3px;
+	}
+	.ip-table tbody tr:hover td { background: transparent; }
+	.ip-table--price td:last-child { font-size: 16px; }
+
+	.ip-schedule__item { flex-direction: column; align-items: flex-start; gap: 10px; }
+	.ip-help { flex-direction: column; align-items: flex-start; }
+	.ip-help__btns { width: 100%; }
+	.ip-btn { flex: 1; justify-content: center; }
+}
+
+@media (max-width: 479px) {
+	.ip-h2 { gap: 10px; }
+	.ip-h2__ico { width: 32px; height: 32px; font-size: 14px; }
+}
+
+/* ---------- bullet list (dipakai di Pembatalan Transaksi) ---------- */
+.ip-list { list-style: none; margin: 0 0 14px; padding: 0; }
+.ip-list li {
+	position: relative;
+	padding-left: 22px;
+	margin-bottom: 10px;
+	font-size: 14.5px;
+	line-height: 1.7;
+}
+.ip-list li:last-child { margin-bottom: 0; }
+.ip-list li::before {
+	content: "";
+	position: absolute;
+	left: 4px;
+	top: 10px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--ip-orange);
+}
+
+/* callout varian merah untuk aturan yang mengikat/tidak bisa dibatalkan */
+.ip-callout--stop { background: #fef4f4; border-color: #f6dada; }
+.ip-callout--stop .tf-i { color: #c0392b; }
+
+/* =====================================================================
+   Komponen halaman Syarat & Ketentuan
+   ===================================================================== */
+
+/* daftar isi — dipakai menggantikan chip karena section-nya ada 12 */
+.ip-toc {
+	margin-top: 28px;
+	padding: 22px 24px;
+	border: 1px solid var(--ip-line);
+	border-radius: 14px;
+	background: #fafbfc;
+}
+.ip-toc__title { font-size: 15px; font-weight: 800; color: var(--ip-ink); margin: 0 0 14px; }
+/* multi-kolom, bukan grid: kolom CSS mengisi ke BAWAH dulu (1-6 kiri, 7-12
+   kanan), sedangkan grid mengisi menyamping (1-2, 3-4, ...).
+   column-width (bukan column-count) membuat jumlah kolomnya menyesuaikan lebar
+   sendiri — 2 kolom di desktop, 1 kolom di layar sempit. */
+.ip-toc__grid { columns: 260px 2; column-gap: 24px; }
+.ip-toc__item {
+	display: flex;
+	break-inside: avoid;
+	-webkit-column-break-inside: avoid;
+	align-items: baseline;
+	gap: 10px;
+	padding: 7px 0;
+	font-size: 14px;
+	color: var(--ip-body);
+	text-decoration: none;
+	transition: color .18s ease;
+}
+.ip-toc__item:hover { color: var(--ip-orange-dark); text-decoration: none; }
+.ip-toc__n {
+	flex: none;
+	min-width: 20px;
+	font-size: 12px;
+	font-weight: 800;
+	color: var(--ip-orange-dark);
+}
+
+/* nomor bagian menggantikan badge ikon */
+.ip-h2__num {
+	flex: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	border-radius: 10px;
+	background: var(--ip-orange-soft);
+	color: var(--ip-orange-dark);
+	font-size: 15px;
+	font-weight: 800;
+}
+
+/* chip metode pembayaran */
+.ip-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.ip-fchip {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 15px;
+	border-radius: 8px;
+	border: 1px solid var(--ip-line);
+	background: #fff;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--ip-body);
+}
+
+/* tautan lanjutan ke halaman kebijakan lain */
+.ip-inline {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: 800;
+	color: var(--ip-orange-dark);
+	text-decoration: none;
+	white-space: nowrap;
+}
+.ip-inline:hover { color: var(--ip-orange); text-decoration: none; }
+.ip-inline .tf-i { font-size: 11px; }
+
+/* blok kontak */
+.ip-contact { display: grid; gap: 12px; }
+.ip-contact__item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 6px 16px;
+	padding: 15px 18px;
+	border: 1px solid var(--ip-line);
+	border-radius: 12px;
+	font-size: 14.5px;
+}
+.ip-contact__lbl {
+	flex: none;
+	width: 90px;
+	font-size: 10.5px;
+	font-weight: 800;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	color: var(--ip-muted);
+}
+.ip-contact__item a { color: var(--ip-orange-dark); font-weight: 700; text-decoration: none; }
+.ip-contact__item a:hover { text-decoration: underline; }
+
+@media (max-width: 767px) {
+	.ip-toc { padding: 18px 18px; }
+}
+
+/* ---------- daftar bernomor (Kebijakan Privasi) ---------- */
+.ip-ol { list-style: none; counter-reset: ip-n; margin: 0 0 14px; padding: 0; }
+.ip-ol li {
+	position: relative;
+	counter-increment: ip-n;
+	padding-left: 30px;
+	margin-bottom: 9px;
+	font-size: 14.5px;
+	line-height: 1.7;
+}
+.ip-ol li:last-child { margin-bottom: 0; }
+.ip-ol li::before {
+	content: counter(ip-n) ".";
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 13px;
+	font-weight: 800;
+	color: var(--ip-orange-dark);
+}
+
+/* ---------- blok identitas perusahaan ---------- */
+.ip-company {
+	margin-top: 28px;
+	padding: 22px 24px;
+	border: 1px solid var(--ip-line);
+	border-radius: 14px;
+	background: #fafbfc;
+	text-align: center;
+}
+.ip-company p { margin: 0; font-size: 14px; line-height: 1.7; }
+.ip-company__name { font-size: 15px; font-weight: 800; color: var(--ip-ink); margin-bottom: 4px !important; }
+.ip-company a { color: var(--ip-orange-dark); font-weight: 700; text-decoration: none; }
+.ip-company a:hover { text-decoration: underline; }
+
+/* ---------- kartu tanya-jawab (FAQ) ---------- */
+/* tanpa kotak bergaris — tiap tanya-jawab hanya dipisah garis tipis */
+.ip-qa {
+	padding-bottom: 18px;
+	margin-bottom: 18px;
+	border-bottom: 1px solid var(--ip-line);
+}
+.ip-qa:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
+.ip-qa__q {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+	margin: 0 0 6px;
+	font-size: 15px;
+	font-weight: 800;
+	color: var(--ip-ink);
+	line-height: 1.5;
+}
+.ip-qa__n { flex: none; min-width: 22px; font-size: 13px; color: var(--ip-orange-dark); }
+.ip-qa__a { padding-left: 34px; }
+.ip-qa__a p { margin: 0 0 10px; font-size: 14.5px; line-height: 1.7; }
+.ip-qa__a p:last-child { margin-bottom: 0; }
+.ip-qa__a .ip-chips { margin-bottom: 0; }
+.ip-toc__c { color: var(--ip-muted); font-weight: 400; }
+
+@media (max-width: 479px) {
+	/* di layar sempit indentasi jawaban dilepas agar teks tidak terlalu sempit */
+	.ip-qa__a { padding-left: 0; }
+}
