@@ -1,0 +1,492 @@
+/* ============================================
+   TOFFIN.ID — Co-Creation Page
+   Showcase kolaborasi & recipe co-creation antara
+   Toffin dan brand-brand F&B partner.
+   Reuse design system dari toffin-shared.css.
+   ============================================ */
+
+/* ─── Page hero (dark) — konsisten dgn subpage lain ─ */
+.page-hero {
+  background: var(--black);
+  color: var(--white);
+  padding: calc(var(--nav-h) + 5rem) 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  right: -10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(232, 133, 42, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+}
+.page-hero .label {
+  margin-bottom: 1rem;
+  display: block;
+}
+.page-hero h1 {
+  color: var(--white);
+  max-width: 760px;
+}
+.page-hero p {
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 600px;
+  margin-top: var(--space-md);
+  font-size: 1.1rem;
+}
+/* Hero headline emphasis (match #hero-b treatment) */
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: calc(var(--nav-h) + 3rem) 0 3rem;
+  }
+}
+
+/* ─── Hero variant: split (text kiri + image feathered kanan) ── */
+.page-hero--split {
+  min-height: 560px;
+}
+.page-hero--split .container {
+  position: relative;
+  z-index: 2;
+}
+.page-hero--split .hero-text {
+  max-width: 580px;
+  padding-right: var(--space-md);
+}
+.page-hero--split h1 {
+  max-width: none;
+}
+.page-hero--split .hero-text p {
+  max-width: none;
+}
+.page-hero--split .hero-visual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 56%;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.15) 8%, rgba(0, 0, 0, 0.55) 20%, #000 38%);
+          mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.15) 8%, rgba(0, 0, 0, 0.55) 20%, #000 38%);
+}
+.page-hero--split .hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: heroFadeZoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes heroFadeZoom {
+  from { transform: scale(1.06); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+.page-hero--split .hero-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(13, 13, 13, 0.45) 0px, transparent 160px),
+    radial-gradient(ellipse 85% 75% at 62% 48%, transparent 0%, rgba(13, 13, 13, 0.18) 60%, rgba(13, 13, 13, 0.55) 100%);
+  pointer-events: none;
+}
+/* Suppress base .page-hero::after glow (konflik dgn image di kanan) */
+.page-hero--split::after {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .page-hero--split {
+    min-height: 480px;
+  }
+  .page-hero--split .hero-visual {
+    width: 48%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 35%);
+            mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 35%);
+  }
+  .page-hero--split .hero-text {
+    max-width: 500px;
+    padding-right: var(--space-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Padding pindah ke .container supaya image full-cover section tanpa bar hitam */
+  .page-hero--split {
+    padding: 0;
+    min-height: 420px;
+  }
+  .page-hero--split .container {
+    padding-top: calc(var(--nav-h) + 3rem);
+    padding-bottom: 3rem;
+  }
+  .page-hero--split .hero-visual {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    z-index: 0;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .page-hero--split .hero-visual::after {
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.85) 0%, rgba(13, 13, 13, 0.78) 50%, rgba(13, 13, 13, 0.72) 100%);
+  }
+  .page-hero--split .hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: none;
+    padding-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hero--split .hero-visual img {
+    animation: none;
+  }
+}
+
+/* ─── Hero stats (di dalam .page-hero) ───────── */
+.cc-hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+.cc-hero-stat {
+  display: flex;
+  flex-direction: column;
+}
+.cc-hero-stat strong {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1;
+  color: var(--white);
+}
+.cc-hero-stat strong sup {
+  color: var(--amber);
+  font-size: 0.55em;
+}
+.cc-hero-stat span {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+.cc-hero-stat + .cc-hero-stat {
+  padding-left: var(--space-lg);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ─── Showcase section ───────────────────────── */
+.cocreation-section {
+  background: var(--white);
+}
+
+/* ─── Filter bar ─────────────────────────────── */
+.cc-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: var(--space-xl);
+}
+.cc-filter-btn {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--gray-500);
+  background: transparent;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 999px;
+  padding: 0.55rem 1.15rem;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.cc-filter-btn:hover {
+  border-color: var(--gray-400);
+  color: var(--black);
+}
+.cc-filter-btn.active {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+/* ─── Grid ───────────────────────────────────── */
+.cc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* ─── Card ───────────────────────────────────── */
+.cc-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease, opacity 0.4s ease;
+}
+.cc-card:hover {
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.10);
+  transform: translateY(-4px);
+}
+/* Scroll reveal */
+.cc-card.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.cc-card.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Filtered out */
+.cc-card.is-hidden {
+  display: none;
+}
+
+/* ─── Card media (image slider) ──────────────── */
+.cc-media {
+  position: relative;
+  aspect-ratio: 4 / 5; /* foto sosial 1080×1350 tampil tanpa crop berlebih */
+  background: var(--gray-100);
+}
+.cc-media .cc-swiper,
+.cc-media .swiper-wrapper,
+.cc-media .swiper-slide {
+  height: 100%;
+}
+.cc-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Swiper pagination dots scoped to card */
+.cc-media .swiper-pagination {
+  bottom: 10px !important;
+}
+.cc-media .swiper-pagination-bullet {
+  background: var(--white);
+  opacity: 0.55;
+  width: 6px;
+  height: 6px;
+}
+.cc-media .swiper-pagination-bullet-active {
+  background: var(--amber);
+  opacity: 1;
+  width: 18px;
+  border-radius: 3px;
+}
+
+/* ─── Card body ──────────────────────────────── */
+.cc-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.6rem 1.5rem 1.4rem;
+}
+.cc-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+.cc-eyebrow .cc-type {
+  color: var(--amber);
+}
+.cc-eyebrow .cc-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gray-300);
+}
+.cc-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  color: var(--black);
+  margin-bottom: 0.7rem;
+}
+.cc-title em {
+  font-style: italic;
+  color: var(--amber);
+}
+.cc-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--gray-500);
+  margin-bottom: 1.15rem;
+}
+
+/* Menu tags */
+.cc-menus-label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 0.55rem;
+}
+.cc-menus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.3rem;
+}
+.cc-menu-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+}
+
+/* Card footer */
+.cc-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--gray-200);
+}
+.cc-ing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--amber);
+  background: var(--amber-dim);
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+}
+.cc-ing svg {
+  width: 13px;
+  height: 13px;
+}
+.cc-loc {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  text-align: right;
+  line-height: 1.3;
+}
+
+/* ─── Empty state (semua di-filter) ──────────── */
+.cc-empty {
+  display: none;
+  text-align: center;
+  color: var(--gray-400);
+  padding: var(--space-2xl) 0;
+  font-size: 1rem;
+}
+.cc-empty.show {
+  display: block;
+}
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 768px) {
+  /* Cegah horizontal-scroll dari off-canvas nav drawer (position:fixed,
+     tidak ter-clip oleh body{overflow-x:hidden}). Scoped ke halaman ini. */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .cc-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  /* Hero stats — rapikan jadi 3 kolom sejajar */
+  .cc-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .cc-hero-stat {
+    padding: 0 0.75rem;
+  }
+  .cc-hero-stat:first-child {
+    padding-left: 0;
+  }
+  .cc-hero-stat + .cc-hero-stat {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .cc-hero-stat strong {
+    font-size: 1.7rem;
+  }
+  .cc-hero-stat span {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+
+  .cc-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    margin-left: calc(-1 * var(--space-sm));
+    margin-right: calc(-1 * var(--space-sm));
+    padding: 0 var(--space-sm) 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cc-filter::-webkit-scrollbar {
+    display: none;
+  }
+  .cc-filter-btn {
+    flex: 0 0 auto;
+  }
+}
+
+/* Layar sangat kecil — hero heading & body dikecilkan sedikit */
+@media (max-width: 400px) {
+  .cc-hero-stat strong {
+    font-size: 1.45rem;
+  }
+  .cc-hero-stat span {
+    font-size: 0.55rem;
+  }
+  .cc-body {
+    padding: 1.4rem 1.25rem 1.25rem;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cc-card.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

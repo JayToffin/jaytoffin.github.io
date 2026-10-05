@@ -1,0 +1,280 @@
+.page-hero {
+      background: var(--black);
+      color: var(--white);
+      padding: calc(var(--nav-h) + 5rem) 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232,133,42,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .label { margin-bottom: 1rem; display: block; }
+    .page-hero h1 { color: var(--white); max-width: 700px; }
+    .page-hero p { color: rgba(255,255,255,0.55); max-width: 560px; margin-top: var(--space-md); font-size: 1.1rem; }
+
+    /* ── Hero variant: split layout (text kiri + image full-bleed kanan) ── */
+    .page-hero--split {
+      min-height: 560px;
+    }
+    .page-hero--split .container {
+      position: relative;
+      z-index: 2;
+    }
+    .page-hero--split .hero-text {
+      max-width: 580px;
+      padding-right: var(--space-md);
+    }
+    /* Override max-widths shared agar text natural di kolom kiri */
+    .page-hero--split h1 { max-width: none; }
+    .page-hero--split .hero-text p { max-width: none; }
+
+    /* Image full-bleed kanan dengan feathered edge — image fade ke bg hitam
+       lewat mask-image (bukan overlay), jadi blend natural tanpa hard edge. */
+    .page-hero--split .hero-visual {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 56%;
+      overflow: hidden;
+      z-index: 1;
+      -webkit-mask-image: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.15) 8%,
+        rgba(0, 0, 0, 0.55) 20%,
+        #000 38%);
+              mask-image: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.15) 8%,
+        rgba(0, 0, 0, 0.55) 20%,
+        #000 38%);
+    }
+    .page-hero--split .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      animation: heroFadeZoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes heroFadeZoom {
+      from { transform: scale(1.06); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    /* Inner vignette (sudut sedikit gelap, fokus ke gedung) + top dim halus
+       untuk readability nav. Pakai radial ellipse, bukan circle. */
+    .page-hero--split .hero-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(13, 13, 13, 0.45) 0px, transparent 160px),
+        radial-gradient(ellipse 85% 75% at 62% 48%,
+          transparent 0%,
+          rgba(13, 13, 13, 0.18) 60%,
+          rgba(13, 13, 13, 0.55) 100%);
+      pointer-events: none;
+    }
+    /* Suppress shared .page-hero::after radial glow (would konflik di kanan dengan image) */
+    .page-hero--split::after { display: none; }
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .page-hero--split .hero-visual img { animation: none; }
+    }
+
+    /* Values */
+    .values-section { background: var(--gray-100); }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    .value-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: var(--space-xl) var(--space-lg);
+      border: 1px solid var(--gray-200);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .value-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-color: var(--gray-300);
+      transform: translateY(-2px);
+    }
+    /* Header row: icon kiri (square amber-dim), number kanan (serif ghosted) */
+    .value-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-md);
+    }
+    .value-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--amber-dim);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber);
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .value-icon svg { width: 28px; height: 28px; display: block; }
+    .value-card:hover .value-icon {
+      background: var(--amber);
+      color: var(--white);
+    }
+    .value-number {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      color: var(--gray-300);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .value-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+    /* Awards */
+    .awards-section { background: var(--white); }
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+    .award-card {
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+    }
+    .award-icon {
+      width: 56px; height: 56px;
+      background: var(--amber-dim);
+      border-radius: 12px;
+      margin: 0 auto var(--space-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .award-card h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .award-card p { font-size: 0.82rem; }
+
+    /* Coverage Map */
+    .coverage-section { background: var(--black); color: var(--white); padding: var(--space-3xl) 0; }
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: var(--space-2xl);
+      align-items: center;
+    }
+    .coverage-grid h2 { color: var(--white); }
+    .coverage-grid .label { margin-bottom: 1rem; display: block; }
+    .coverage-grid p { color: rgba(255,255,255,0.55); margin-top: var(--space-sm); }
+    .cities-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    .city-tag {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    @media (max-width: 1024px) {
+      .page-hero { padding: calc(var(--nav-h) + 3.5rem) 0 3.5rem; }
+      /* Image shrink ke ~48% supaya text tetap dapat ruang baca; mask feather lebih cepat */
+      .page-hero--split { min-height: 480px; }
+      .page-hero--split .hero-visual {
+        width: 48%;
+        -webkit-mask-image: linear-gradient(90deg,
+          transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 35%);
+                mask-image: linear-gradient(90deg,
+          transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 35%);
+      }
+      .page-hero--split .hero-text { max-width: 500px; padding-right: var(--space-sm); }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .awards-grid { grid-template-columns: 1fr 1fr; }
+      .coverage-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .cities-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      /* Padding di-pindah ke .container supaya hero-visual (absolute inset:0)
+         bisa cover FULL section tanpa bar hitam di atas/bawah. */
+      .page-hero { padding: 0; }
+      .page-hero--split { min-height: 380px; }
+      .page-hero--split .container {
+        padding-top: calc(var(--nav-h) + 3rem);
+        padding-bottom: 3rem;
+      }
+      .page-hero--split .hero-visual {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        z-index: 0; /* di belakang text */
+        -webkit-mask-image: none;
+                mask-image: none;
+      }
+      .page-hero--split .hero-visual::after {
+        background:
+          linear-gradient(180deg, rgba(13, 13, 13, 0.85) 0%, rgba(13, 13, 13, 0.78) 50%, rgba(13, 13, 13, 0.7) 100%);
+      }
+      /* Hero text: explicit z-index biar di ATAS hero-visual yang full-bg */
+      .page-hero--split .hero-text {
+        position: relative;
+        z-index: 2;
+        max-width: none;
+        padding-right: 0;
+      }
+      .page-hero--split .hero-text h1 {
+        font-size: clamp(1.65rem, 7vw, 2.1rem);
+        line-height: 1.2;
+      }
+      .page-hero--split .hero-text p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 1rem;
+      }
+
+      .values-grid { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
+
+      /* Cities list — 2 kolom di mobile supaya tidak panjang ke bawah.
+         19 kota × 1 col = 19 baris; 2 col = ~10 baris (-47% scroll). */
+      .cities-list { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* FAQ */
+    .faq-section { background: var(--gray-100); }
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid var(--gray-200); }
+    .faq-item:first-child { border-top: 1px solid var(--gray-200); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) 0; cursor: pointer; gap: var(--space-md); }
+    .faq-q h4 { font-size: 1rem; font-weight: 600; flex: 1; }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid var(--gray-300);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gray-400);
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.25s;
+    }
+    .faq-icon svg { display: block; }
+    .faq-item.open .faq-icon { background: var(--amber); border-color: var(--amber); color: var(--white); transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a p { padding-bottom: var(--space-md); font-size: 0.95rem; }
