@@ -176,6 +176,13 @@
     .coverage-grid h2 { color: var(--white); }
     .coverage-grid .label { margin-bottom: 1rem; display: block; }
     .coverage-grid p { color: rgba(255,255,255,0.55); margin-top: var(--space-sm); }
+    .coverage-office { align-self: center; padding: var(--space-xl); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; background: rgba(255,255,255,0.04); }
+    .coverage-office h3 { margin: 0.25rem 0 0; color: var(--white); }
+    .coverage-office__list { list-style: none; margin: var(--space-lg) 0 0; padding: var(--space-md) 0 0; border-top: 1px solid rgba(255,255,255,0.12); display: grid; gap: 0.75rem; }
+    .coverage-office__list li { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; }
+    .coverage-office__list span { color: rgba(255,255,255,0.45); }
+    .coverage-office__list a { color: var(--white); text-decoration: none; }
+    .coverage-office__list a:hover { color: var(--amber, #f8941f); }
     .cities-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);

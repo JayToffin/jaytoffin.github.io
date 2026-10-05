@@ -1,36 +1,28 @@
 # Toffin Pakistan
 
-> Toffin Pakistan is a B2B distributor of premium coffee machines and a provider of integrated solutions for the HORECA (Hotel, Restaurant, Café) industry in Indonesia since 2007. It serves 15,000+ cafés, restaurants, and hotels in 19 cities through a nationwide branch network.
+> Toffin Pakistan is a B2B supplier of premium coffee machines and integrated solutions for the HORECA (Hotel, Restaurant, Café) industry. Based in Islamabad, it serves cafés, restaurants, and hotels across Pakistan, under the Toffin HORECA partner brand established in 2007.
 
-Toffin is an official partner of world-class brands such as Victoria Arduino, Nuova Simonelli, and SMEG. Beyond coffee machine distribution, Toffin supplies F&B ingredients, after-sales services (installation, calibration, servicing), barista training, and a B2B digital platform (Toffin App — Product of the Year 2024 winner).
+Toffin is an official distributor of world-class coffee brands. Beyond coffee machines and grinders, Toffin supplies F&B ingredients, after-sales service (installation, calibration, servicing) by trained technicians, genuine spare parts, barista training, and a B2B digital platform (Toffin App).
 
-Head office: Plot #34, Puran Arcade, SCHS, Sector E-11/2, Islamabad.
-Contact: +92 309 1115951 · toffinpakistan@gmail.com
+Office: Plot #34, Puran Arcade, SCHS, Sector E-11/2, Islamabad.
+Contact: +92 309 1115951 (phone & WhatsApp) · toffinpakistan@gmail.com
+Opening hours: Monday–Friday 08:30–17:30 PKT (to be confirmed)
 
 ## Main pages
 
-- [Home](https://www.toffin.pk/): Overview of Toffin's services — coffee machine distribution, HORECA ingredients, a 19-city network, global brand partners.
-- [About Toffin](https://www.toffin.pk/about): Company profile, nearly two decades of history, values (quality, partnership, certified expertise), and its position as a global top-5 distributor.
-- [Support & After-Sales Service](https://www.toffin.pk/support): Coffee machine installation, calibration, and servicing by a team of certified technicians. Official warranty, original spare parts, fast response in 19 cities. Includes a technical FAQ and the list of branch cities.
-- [Toffin App](https://www.toffin.pk/toffin-app): Product of the Year 2024 B2B digital platform — ingredient ordering, machine monitoring, and café operations management via smartphone. 5,000+ active users, 4.8 rating.
-- [Co-Creation](https://www.toffin.pk/co-creation): Gallery of flavour & recipe collaborations between Toffin and leading Indonesian F&B brands (Gigi Susu, Makmur Jaya, Tous Les Jours, Union, Kibo, Braci, etc.). Signature menus made with premium ingredients: Fabbri Amarena, Fabbri Pistachio, FO Syrup, and Premium Matcha by Toffin.
-- [Contact](https://www.toffin.pk/contact): Contact form, head office address, branch map, business hours (Monday–Friday 08:30–17:30 WIB).
-
-## External products & services
-
-- [Toffin Online Store](https://shop.toffin.id): Full catalogue of coffee machines, grinders, and F&B ingredients for online purchase.
-- [Espresso Machines](https://shop.toffin.id/category/coffee-machine/383): Commercial espresso machines from premium global brands.
-- [Coffee Grinders](https://shop.toffin.id/category/coffee-grinder/385): Commercial grinders for cafés and roasteries.
-- [Ingredients](https://shop.toffin.id/category/ingredients/384): F&B ingredients — syrups, beverage powders, sachets, and consumable supplies.
-- [Toffin Insight](https://insight.toffin.id): Educational blog on the coffee industry, F&B trends, and HORECA technical know-how.
-
-## Social media
-
-- [Instagram](https://www.instagram.com/toffin.id)
-- [TikTok](https://www.tiktok.com/@toffin.id)
-- [YouTube](https://www.youtube.com/@toffinindonesiaofficial)
-- [LinkedIn](https://www.linkedin.com/company/toffinindonesia)
+- [Home](https://www.toffin.pk/): Overview of Toffin Pakistan — coffee machines, grinders, F&B ingredients, after-sales service, and the world-class coffee brands Toffin distributes.
+- [About Toffin](https://www.toffin.pk/about): Company profile, history of the Toffin brand since 2007, and values (quality, partnership, expertise).
+- [Support & After-Sales Service](https://www.toffin.pk/support): Coffee machine installation, calibration, and servicing by trained technicians, genuine spare parts, and a technical FAQ.
+- [Toffin App](https://www.toffin.pk/toffin-app): B2B digital platform for HORECA businesses — ingredient and equipment ordering, service requests, order tracking, and expert consultation via smartphone.
+- [Contact](https://www.toffin.pk/contact): Contact form, office address in Islamabad, phone/WhatsApp, and email.
 
 ## Legal
 
-- [Privacy Policy](https://www.toffin.pk/privacy): How Toffin collects, uses, stores, and protects visitors' personal data in accordance with Law No. 27 of 2022 (Personal Data Protection).
+- [Privacy Policy](https://www.toffin.pk/privacy): How Toffin Pakistan collects, uses, stores, and protects visitors' personal data in accordance with applicable data protection laws and regulations in Pakistan.
+
+## Site facts
+
+- Language: English (en)
+- Currency: PKR
+- Time zone: PKT (UTC+5)
+- Target market: Pakistan (B2B HORECA — hotels, restaurants, cafés)

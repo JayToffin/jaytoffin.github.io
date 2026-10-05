@@ -1,5 +1,5 @@
 /* ============================================
-   TOFFIN.ID — Main Vanilla JS Script
+   TOFFIN.PK — Main Vanilla JS Script
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -395,7 +395,7 @@ function initToffinMap() {
   if (!mapEl || !window.google || !window.google.maps) return;
 
   const map = new google.maps.Map(mapEl, {
-    center: { lat: -2.5, lng: 117.5 },  // Pusat geografis Indonesia
+    center: { lat: 33.6992, lng: 72.9766 },  // Islamabad (toffin.pk)
     zoom: 5,
     mapTypeControl: false,
     streetViewControl: false,
@@ -635,93 +635,4 @@ window.initToffinMap = initToffinMap;
   }
 })();
 
-/* ════════════════════════════════════════════════════════════════════
-   ══ CO-CREATION PAGE — image slider per card + filter + reveal      ══
-   Hanya jalan di co-creation.html (guard: cek .cc-grid). Butuh Swiper
-   (di-load via CDN di page). Tiap card punya slider gambar sendiri,
-   filter chip menyaring card by data-category, dan card muncul dengan
-   reveal saat masuk viewport.
-════════════════════════════════════════════════════════════════════ */
-(function initCoCreation() {
-  const grid = document.querySelector('.cc-grid');
-  if (!grid) return;
-
-  const start = () => {
-    // 0. Urutan card:
-    //    a. Card ber-data-order (1,2,3,…) dipatok di depan sesuai angkanya —
-    //       untuk menonjolkan kolaborasi tertentu tanpa mengubah tanggalnya.
-    //    b. Sisanya otomatis by data-date (YYYY-MM), terbaru di atas; card baru
-    //       cukup di-set data-date-nya.
-    //    Ties (angka/tanggal sama) mempertahankan urutan asli di HTML.
-    const pinOrder = function (el) {
-      const n = parseInt(el.getAttribute('data-order'), 10);
-      return isNaN(n) ? Infinity : n;
-    };
-    Array.prototype.slice.call(grid.querySelectorAll('.cc-card'))
-      .sort(function (a, b) {
-        const pa = pinOrder(a), pb = pinOrder(b);
-        if (pa !== pb) return pa - pb;
-        return (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || '');
-      })
-      .forEach(function (card) { grid.appendChild(card); });
-
-    // 1. Init slider gambar tiap card. Pagination el di-scope per container
-    //    (di-pass sebagai node, bukan selector string yang global).
-    if (typeof window.Swiper !== 'undefined') {
-      document.querySelectorAll('.cc-swiper').forEach((el) => {
-        new Swiper(el, {
-          loop: true,
-          slidesPerView: 1,
-          grabCursor: true,
-          pagination: {
-            el: el.querySelector('.swiper-pagination'),
-            clickable: true,
-          },
-        });
-      });
-    }
-
-    // 2. Filter by ingredient category
-    const buttons = document.querySelectorAll('.cc-filter-btn');
-    const cards = Array.from(grid.querySelectorAll('.cc-card'));
-    const emptyEl = document.getElementById('ccEmpty');
-
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.getAttribute('data-filter');
-        let visible = 0;
-        cards.forEach((card) => {
-          const match = filter === 'all' || card.getAttribute('data-category') === filter;
-          card.classList.toggle('is-hidden', !match);
-          if (match) visible++;
-        });
-        if (emptyEl) emptyEl.classList.toggle('show', visible === 0);
-      });
-    });
-
-    // 3. Scroll reveal (progressive enhancement — fallback: langsung tampil)
-    const revealCards = document.querySelectorAll('.cc-card.reveal');
-    if ('IntersectionObserver' in window && revealCards.length) {
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      revealCards.forEach((c) => io.observe(c));
-    } else {
-      revealCards.forEach((c) => c.classList.add('is-visible'));
-    }
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start, { once: true });
-  } else {
-    start();
-  }
-})();
+/* Galeri Co-Creation dihapus untuk toffin.pk. */
