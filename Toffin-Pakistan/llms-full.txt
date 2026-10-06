@@ -176,7 +176,7 @@ Toffin Pakistan handles personal data in accordance with applicable data protect
 
 ---
 
-## Language & Localisation
+## Language & Localization
 
 **Language**: English (en)
 **Currency**: Pakistani Rupee (PKR)
