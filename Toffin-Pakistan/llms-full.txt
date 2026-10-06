@@ -1,8 +1,8 @@
 # Toffin Pakistan — Full Site Content
 
-> Toffin Pakistan is a B2B supplier of premium coffee machines and integrated solutions for the HORECA (Hotel, Restaurant, Café) industry. Based in Islamabad, it serves cafés, restaurants, and hotels across Pakistan, under the Toffin HORECA partner brand established in 2007.
+> Toffin Pakistan is a B2B supplier of premium coffee machines and integrated solutions for the HORECA (Hotel, Restaurant, Café) industry. Based in Islamabad, it serves cafés, restaurants, and hotels across Pakistan, as part of Toffin Group, a HORECA partner since 2007.
 
-Last updated: 2026-10-05
+Last updated: 2026-10-06
 
 ---
 
@@ -10,8 +10,8 @@ Last updated: 2026-10-05
 
 **Legal name**: Toffin Pakistan
 **Brand name**: Toffin
-**Brand established**: 2007
-**Industry**: B2B distribution of coffee machines, HORECA equipment, and F&B ingredients
+**Group**: Part of Toffin Group (HORECA partner since 2007)
+**Industry**: B2B distribution of coffee machines, HORECA equipment, and halal-certified F&B ingredients
 **Market served**: Cafés, restaurants, and hotels across Pakistan
 
 **Office**:
@@ -56,6 +56,7 @@ Toffin's technicians and baristas are trained on the equipment and brands it dis
 - **Other machines**: Brewing machines, milk frothers, and supporting F&B equipment
 
 ### F&B Ingredients
+- Halal-certified ingredients
 - Syrups, beverage powders, sachets, premixes
 - Consumable supplies for the café & restaurant industry
 - A strictly curated collection of premium ingredients
@@ -63,8 +64,9 @@ Toffin's technicians and baristas are trained on the equipment and brands it dis
 ### Services
 - Barista training
 - Machine installation and calibration by trained technicians
-- Regular servicing & maintenance
-- After-sales support and warranty handling
+- Regular servicing & maintenance through the Preventive Maintenance Agreement (PMA)
+- Water filter installation and cartridge replacement
+- After-sales support and warranty handling (official manufacturer warranty on every unit Toffin imports)
 - Genuine spare parts
 
 ---
@@ -77,11 +79,11 @@ Toffin's technicians and baristas are trained on the equipment and brands it dis
 
 ### Key Features of Toffin App
 
-1. **Personalized Order** — A personalized shopping feature with pre-agreed competitive prices on equipment and ingredients.
+1. **Personalized Order** — Personalized shopping with the best prices. The discount agreed with the Toffin sales team appears automatically in Toffin App, so every reorder is at your price.
 
 2. **AI Product Recommendations** — Product recommendations tailored to your business needs using AI technology.
 
-3. **Service Credit** — Easily purchase services such as barista training, or call a technician for machine maintenance or repair. A deposit-style balance that can be topped up to buy products and services more economically.
+3. **Service Credit** — Easily purchase services such as barista training, or call a technician for machine maintenance or repair. A prepaid credit balance that can be topped up to buy services more economically.
 
 4. **Interactive Consultation** — Choose an expert or sales representative to talk to via live chat. Ask about products and specifications, or get a free consultation via chat or video call.
 
@@ -97,7 +99,7 @@ Toffin's technicians and baristas are trained on the equipment and brands it dis
 
 ## Support & After-Sales
 
-Toffin's after-sales service covers coffee machine installation, calibration, and servicing by a team of trained technicians, with genuine spare parts and warranty support.
+Toffin's after-sales service covers coffee machine installation, calibration, and servicing by a team of trained technicians, with genuine spare parts, warranty support, water filter installation, and the Preventive Maintenance Agreement (PMA).
 
 ### FAQ — After-Sales Service
 
@@ -111,9 +113,15 @@ A: Yes, Toffin supplies genuine spare parts for the brands it distributes.
 A: For machines still under warranty, technician visits incur no additional charge. For machines out of warranty, a visit and diagnosis fee applies and will be communicated before the technician arrives.
 
 **Q: Does Toffin service machines from brands it does not distribute?**
-A: For the best service, we focus on officially distributed brands. However, for some brands common in the industry, consultation and referral to the right technician are available. Contact us to discuss further.
+A: Toffin's support services focus on products purchased through Toffin's official network, so that service quality, the availability of genuine spare parts and the manufacturer's warranty can be fully guaranteed.
 
-**Q: How do I sign up for a maintenance package?**
+**Q: How do I make a warranty claim?**
+A: Contact Toffin's support team on WhatsApp at +92 309 1115951, including your proof of purchase and unit details (machine model and the issue). The team will verify warranty coverage and schedule an inspection or service by a technician. Claims apply to products purchased through Toffin's official network.
+
+**Q: Do I need a voltage stabilizer and water filter?**
+A: Both are strongly recommended. Load-shedding and voltage swings can damage electronic boards and heating elements, and hard water causes scale build-up that reduces taste quality and machine life. A Toffin technician will assess your site and recommend the right solution, such as Brita filtration and a suitable stabilizer or UPS.
+
+**Q: How do I sign up for a Preventive Maintenance Agreement (PMA)?**
 A: Contact the sales team by phone, email, or the contact form. An account manager will review the condition of your machines and recommend the package best suited to the scale and needs of your business.
 
 ---

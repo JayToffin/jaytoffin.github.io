@@ -1,8 +1,8 @@
 # Toffin Pakistan
 
-> Toffin Pakistan is a B2B supplier of premium coffee machines and integrated solutions for the HORECA (Hotel, Restaurant, Café) industry. Based in Islamabad, it serves cafés, restaurants, and hotels across Pakistan, under the Toffin HORECA partner brand established in 2007.
+> Toffin Pakistan is a B2B supplier of premium coffee machines and integrated solutions for the HORECA (Hotel, Restaurant, Café) industry. Based in Islamabad, it serves cafés, restaurants, and hotels across Pakistan, as part of Toffin Group, a HORECA partner since 2007.
 
-Toffin is an official distributor of world-class coffee brands. Beyond coffee machines and grinders, Toffin supplies F&B ingredients, after-sales service (installation, calibration, servicing) by trained technicians, genuine spare parts, barista training, and a B2B digital platform (Toffin App).
+Toffin is an official distributor of world-class coffee brands. Beyond coffee machines and grinders, Toffin supplies halal-certified F&B ingredients, after-sales service (installation, calibration, servicing, water filter installation) by trained technicians, a Preventive Maintenance Agreement (PMA), genuine spare parts, barista training, and a B2B digital platform (Toffin App).
 
 Office: Plot #34, Puran Arcade, SCHS, Sector E-11/2, Islamabad.
 Contact: +92 309 1115951 (phone & WhatsApp) · toffinpakistan@gmail.com
@@ -10,9 +10,9 @@ Opening hours: Monday–Friday 08:30–17:30 PKT (to be confirmed)
 
 ## Main pages
 
-- [Home](https://www.toffin.pk/): Overview of Toffin Pakistan — coffee machines, grinders, F&B ingredients, after-sales service, and the world-class coffee brands Toffin distributes.
-- [About Toffin](https://www.toffin.pk/about): Company profile, history of the Toffin brand since 2007, and values (quality, partnership, expertise).
-- [Support & After-Sales Service](https://www.toffin.pk/support): Coffee machine installation, calibration, and servicing by trained technicians, genuine spare parts, and a technical FAQ.
+- [Home](https://www.toffin.pk/): Overview of Toffin Pakistan — coffee machines, grinders, halal-certified F&B ingredients, after-sales service, and the world-class coffee brands Toffin distributes in Pakistan.
+- [About Toffin](https://www.toffin.pk/about): Company profile, history of Toffin Group since 2007, and values (quality, partnership, expertise).
+- [Support & After-Sales Service](https://www.toffin.pk/support): Coffee machine installation, calibration, and servicing by trained technicians, the Preventive Maintenance Agreement (PMA), warranty claims, genuine spare parts, and a technical FAQ (including voltage stabilizer and water filter advice).
 - [Toffin App](https://www.toffin.pk/toffin-app): B2B digital platform for HORECA businesses — ingredient and equipment ordering, service requests, order tracking, and expert consultation via smartphone.
 - [Contact](https://www.toffin.pk/contact): Contact form, office address in Islamabad, phone/WhatsApp, and email.
 
