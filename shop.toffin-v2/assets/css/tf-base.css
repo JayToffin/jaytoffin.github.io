@@ -80,7 +80,8 @@ html, body { overflow-x: clip; width: 100%; }
    serta glow biru pada .btn:focus dan .form-control:focus; tema lama tidak punya ketiganya. Cincin hanya untuk
    navigasi keyboard (:focus-visible), warnanya Toffin. Dimuat sesudah bootstrap.min.css sehingga menang. */
 /* klik mouse: tidak ada penanda sama sekali. Kolom isian pun tanpa outline (status aktifnya sudah dari border/glow). */
-:focus { outline: 0; }
+:focus, button:focus { outline: 0; }   /* button:focus disebut eksplisit: aturan reboot Bootstrap button:focus (cincin biru) lebih spesifik dari :focus */
+html { -webkit-tap-highlight-color: transparent; }   /* ponsel: tanpa sorotan biru/abu saat elemen diketuk */
 /* keyboard (Tab): cincin oranye, hanya pada tombol, tautan, dan elemen ber-tabindex; Chrome menganggap kolom teks
    selalu focus-visible sehingga kolom isian sengaja tidak diberi cincin. */
 button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--tf-orange); outline-offset: 2px; }

@@ -187,18 +187,17 @@
 	background: var(--fs-danger);
 }
 .fs-body { display: flex; flex-direction: column; flex: 1 1 auto; padding: 12px 12px 14px; }
-/* nama produk SATU baris; judul panjang dipotong dengan "…" (nama lengkap jadi tooltip, diisi tf-nav.js) */
+/* nama produk maks. 2 baris; lebih panjang dipotong "…" (nama lengkap jadi tooltip, diisi tf-nav.js).
+   Tinggi selalu 2 baris supaya harga & tombol sejajar antar kartu walau judulnya pendek. */
 .fs-product-title {
-	display: block;
-	overflow: hidden;
+	--tf-title-size: 13.5px;
+	min-height: calc(var(--tf-title-size) * 1.4 * 2);
 	margin: 0 0 6px;
-	font-size: 13.5px;
+	font-size: var(--tf-title-size);
 	font-weight: 500;
 	line-height: 1.4;
-	white-space: nowrap;
-	text-overflow: ellipsis;
 }
-.fs-product-title a { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--fs-text); text-decoration: none; }   /* "…" milik link, jadi ikut berubah warna saat hover */
+.fs-product-title a { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; color: var(--fs-text); text-decoration: none; }   /* "…" milik link, jadi ikut berubah warna saat hover */
 .fs-product-title a:hover { color: var(--fs-primary-dark); }
 .fs-price-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
 .fs-price-new { display: block; font-size: 16px; font-weight: 900; color: var(--fs-text); }
@@ -231,7 +230,7 @@
 /* flash sale: kartu putih di bingkai berwarna, tanpa garis sama sekali (border 0, bukan transparan) */
 .tf-cards--flash .product:has(> .fs-body), .tf-cards--flash .product:has(> .fs-body):hover { border: 0; }
 /* grid padat (daftar produk 5 kolom): nama & harga lebih kecil, dot galeri lebih kecil */
-.tf-cards--compact .fs-product-title { margin-bottom: 4px; font-size: 12.5px; }
+.tf-cards--compact .fs-product-title { --tf-title-size: 12.5px; margin-bottom: 4px; }
 .tf-cards--compact .fs-price-new { font-size: 14px; }
 .tf-cards--compact .fs-price-old { font-size: 11px; }
 .tf-cards--compact .tf-pg .tf-pg__dots { bottom: 8px; gap: 4px; padding: 4px 6px; }

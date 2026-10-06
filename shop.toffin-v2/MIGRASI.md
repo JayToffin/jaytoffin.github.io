@@ -232,7 +232,7 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
 16. **Kartu produk global** (2026-10-05). Satu blok "KARTU PRODUK GLOBAL" di tf-products.css (selektor
     `.product:has(> .fs-body)` + `.fs-*`) menentukan seluruh tampilan kartu: radius `--tf-card-radius` 14 px,
     garis `--tf-card-line`, latar putih, foto/galeri persegi tanpa zoom, label diskon, hati kanan atas,
-    nama 1 baris 13,5 px + "…" (nama lengkap jadi tooltip lewat tf-nav.js), harga 16/900, harga coret 12, tombol 36 px di dasar kartu. Perbedaan per section
+    nama maks. 2 baris 13,5 px + "…" dengan tinggi tetap 2 baris (nama lengkap jadi tooltip lewat tf-nav.js), harga 16/900, harga coret 12, tombol 36 px di dasar kartu. Perbedaan per section
     hanya lewat kelas varian di pembungkus: `.tf-cards--flash` (bingkai flash sale, border 0) dan
     `.tf-cards--compact` (grid daftar produk: nama 12,5 px, harga 14/11, dot galeri kecil). Aturan
     kartu di home-modern.css, product-list.css, product-bundle.css dihapus; CSS kartu lama `pl-*` /
