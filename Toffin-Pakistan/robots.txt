@@ -10,7 +10,7 @@ Allow: /
 # ════════════════════════════════════════════════════════════════════
 # AI / LLM crawlers — explicit allow
 # Toffin marketing content is public and may be included in AI search & training
-# to maximise brand visibility (free exposure via ChatGPT/Claude/Gemini/Perplexity)
+# to maximize brand visibility (free exposure via ChatGPT/Claude/Gemini/Perplexity)
 # ════════════════════════════════════════════════════════════════════
 
 # OpenAI (ChatGPT training + ChatGPT browsing + AI search)
