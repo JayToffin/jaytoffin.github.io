@@ -112,7 +112,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Drop by our Islamabad office for a consultation, or reach us on WhatsApp — we support businesses across Pakistan.</p>
     </div>
   </div>
-  <div id="toffinMap" class="map-block" data-toffin-map></div>
+  <!-- Peta embed Google Maps (tanpa API key & tanpa billing). Alamat: Plot #34, Puran Arcade, SCHS, Sector E-11/2, Islamabad -->
+  <div id="toffinMap" class="map-block">
+    <iframe
+      src="https://www.google.com/maps?q=Puran+Arcade,+Sector+E-11%2F2,+Islamabad,+Pakistan&z=16&output=embed"
+      title="Toffin Pakistan office location — Plot #34, Puran Arcade, SCHS, Sector E-11/2, Islamabad"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen></iframe>
+  </div>
 </section>
 
 <!-- CONTACT SECTION -->
@@ -392,8 +400,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- EmailJS SDK — for contact form submission -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="assets/js/toffin-script.js"></script>
-<!-- Google Maps loaded async; callback initToffinMap di toffin-script.js -->
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIRn-Px3dCuziYhi7kwyBgsNfaQAKobO4&callback=initToffinMap"></script>
 </body>
 </html>
