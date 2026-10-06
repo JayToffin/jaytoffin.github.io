@@ -385,8 +385,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //  Dipakai di contact.html; dipanggil oleh callback Google Maps script
 // ════════════════════════════════════════════════════════════════
 const TOFFIN_BRANCHES = [
-  /* koordinat perkiraan Sector E-11/2 — cek ulang pin di Google Maps */
-  { name: 'Toffin Pakistan', address: 'Plot #34, Puran Arcade, SCHS, Sector E-11/2, Islamabad', lat: 33.6992, lng: 72.9766, phone: '+92 309 1115951' }
+  /* koordinat kantor dari Rendi (2026-10-06) */
+  { name: 'Toffin Pakistan', address: 'Plot #34, Puran Arcade, SCHS, Sector E-11/2, Islamabad', lat: 33.69952801069896, lng: 72.97300739536384, phone: '+92 309 1115951' }
 ];
 
 // Dipanggil otomatis oleh script tag callback=initToffinMap
@@ -395,7 +395,7 @@ function initToffinMap() {
   if (!mapEl || !window.google || !window.google.maps) return;
 
   const map = new google.maps.Map(mapEl, {
-    center: { lat: 33.6992, lng: 72.9766 },  // Islamabad (toffin.pk)
+    center: { lat: 33.69952801069896, lng: 72.97300739536384 },  // Islamabad (toffin.pk)
     zoom: 5,
     mapTypeControl: false,
     streetViewControl: false,

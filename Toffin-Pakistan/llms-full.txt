@@ -20,7 +20,7 @@ Last updated: 2026-10-05
 - Email: toffinpakistan@gmail.com
 - WhatsApp: +92 309 1115951
 - Opening hours: Monday–Friday 08:30–17:30 PKT (to be confirmed)
-- Coordinates: 33.6992, 72.9766
+- Coordinates: 33.69952801069896, 72.97300739536384
 
 **Web domain**:
 - Main website: https://www.toffin.pk
