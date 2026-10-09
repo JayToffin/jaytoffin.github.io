@@ -44,23 +44,46 @@
 		root.querySelectorAll('[data-pd-local]').forEach(function (el) { el.setAttribute('data-n', ok ? '8' : '0'); el.querySelector('b').textContent = ok ? '8' : '0'; });
 		root.querySelectorAll('[data-pd-qty] input').forEach(function (i) { i.dispatchEvent(new Event('change')); });
 	}); });
-	/* lightbox foto besar: klik foto utama; panah, thumbnail, Esc, ←/→ */
-	var lb = document.querySelector('[data-pd-lb]'), lbImg = lb.querySelector('[data-pd-lb-img]'), lbCap = lb.querySelector('[data-pd-lb-cap]'), lbTh = lb.querySelector('[data-pd-lb-thumbs]'), lbList = [], lbI = 0;
-	function lbShow(i) { lbI = (i + lbList.length) % lbList.length; lbImg.src = lbList[lbI].src; lbImg.alt = lbList[lbI].alt; lbCap.textContent = (lbI + 1) + ' / ' + lbList.length + (lbList[lbI].alt ? ' · ' + lbList[lbI].alt : ''); lbTh.querySelectorAll('button').forEach(function (b, n) { b.classList.toggle('is-on', n === lbI); }); }
+	/* lightbox foto besar: klik foto utama; panah, thumbnail, zoom 2× (klik foto / tombol, geser saat zoom), Esc, ←/→, swipe */
+	var lb = document.querySelector('[data-pd-lb]'), lbImg = lb.querySelector('[data-pd-lb-img]'), lbCap = lb.querySelector('[data-pd-lb-cap]'), lbTh = lb.querySelector('[data-pd-lb-thumbs]'), lbZoom = lb.querySelector('[data-pd-lb-zoom]'), lbList = [], lbI = 0, lbRoot = null;
+	function lbSetZoom(on) { lb.classList.toggle('is-zoom', on); lbZoom.setAttribute('aria-pressed', on); lbImg.style.transform = ''; lbPan = { x: 0, y: 0 }; }
+	function lbShow(i) {
+		lbI = (i + lbList.length) % lbList.length; lbSetZoom(false);
+		lbImg.src = lbList[lbI].src; lbImg.alt = lbList[lbI].alt; lbCap.textContent = (lbI + 1) + ' / ' + lbList.length;
+		lbTh.querySelectorAll('button').forEach(function (b, n) { b.classList.toggle('is-on', n === lbI); if (n === lbI && b.scrollIntoView) b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); });
+	}
 	function lbOpen(root, i) {
+		lbRoot = root;
 		lbList = [].slice.call(root.querySelectorAll('[data-pd-main] .swiper-slide img')).map(function (im) { return { src: im.getAttribute('src'), alt: im.getAttribute('alt') || '' }; });
-		lbTh.innerHTML = lbList.map(function (im, n) { return '<button type="button" data-n="' + n + '"><img src="' + im.src + '" alt=""></button>'; }).join('');
+		lbTh.innerHTML = lbList.map(function (im, n) { return '<button type="button" data-n="' + n + '" aria-label="Foto ' + (n + 1) + '"><img src="' + im.src + '" alt=""></button>'; }).join('');
 		lb.hidden = false; document.body.classList.add('tf-lock'); lbShow(i);
 	}
-	function lbClose() { lb.hidden = true; document.body.classList.remove('tf-lock'); var main = root.querySelector('[data-pd-main]'); if (main && main.swiper) main.swiper.slideTo(lbI); }
+	function lbClose() { lb.hidden = true; lbSetZoom(false); document.body.classList.remove('tf-lock'); var main = lbRoot && lbRoot.querySelector('[data-pd-main]'); if (main && main.swiper) main.swiper.slideTo(lbI); }
 	document.addEventListener('click', function (e) {
-		var z = e.target.closest('[data-pd-zoom]'); if (z) { lbOpen(root, +z.getAttribute('data-pd-zoom')); return; }
-		if (e.target.closest('[data-pd-lb-close]') || e.target === lb) { lbClose(); return; }
-		if (e.target.closest('[data-pd-lb-prev]')) lbShow(lbI - 1);
-		if (e.target.closest('[data-pd-lb-next]')) lbShow(lbI + 1);
-		var t = e.target.closest('[data-pd-lb-thumbs] button'); if (t) lbShow(+t.getAttribute('data-n'));
+		var z = e.target.closest('[data-pd-zoom]'); if (z) { lbOpen(z.closest('.pd') || document, +z.getAttribute('data-pd-zoom')); return; }
+		if (lb.hidden) return;
+		if (e.target.closest('[data-pd-lb-close]')) { lbClose(); return; }
+		if (e.target.closest('[data-pd-lb-zoom]')) { lbSetZoom(!lb.classList.contains('is-zoom')); return; }
+		if (e.target.closest('[data-pd-lb-prev]')) { lbShow(lbI - 1); return; }
+		if (e.target.closest('[data-pd-lb-next]')) { lbShow(lbI + 1); return; }
+		var t = e.target.closest('[data-pd-lb-thumbs] button'); if (t) { lbShow(+t.getAttribute('data-n')); return; }
+		if (e.target === lbImg) { if (!lbDragged) lbSetZoom(!lb.classList.contains('is-zoom')); return; }
+		if (e.target.closest('[data-pd-lb-stage]') && !e.target.closest('.pd-lb__fig img')) lbClose();   /* klik area kosong panggung = tutup */
 	});
 	document.addEventListener('keydown', function (e) { if (lb.hidden) return; if (e.key === 'Escape') lbClose(); if (e.key === 'ArrowLeft') lbShow(lbI - 1); if (e.key === 'ArrowRight') lbShow(lbI + 1); });
+	/* geser: saat zoom = pan foto; tanpa zoom = swipe ganti foto */
+	var lbDown = null, lbDragged = false, lbPan = { x: 0, y: 0 };
+	lbImg.addEventListener('pointerdown', function (e) { lbDown = { x: e.clientX, y: e.clientY, px: lbPan.x, py: lbPan.y }; lbDragged = false; lbImg.setPointerCapture(e.pointerId); if (lb.classList.contains('is-zoom')) lb.classList.add('is-drag'); });
+	lbImg.addEventListener('pointermove', function (e) {
+		if (!lbDown) return; var dx = e.clientX - lbDown.x, dy = e.clientY - lbDown.y;
+		if (Math.abs(dx) > 4 || Math.abs(dy) > 4) lbDragged = true;
+		if (lb.classList.contains('is-zoom')) { lbPan.x = lbDown.px + dx; lbPan.y = lbDown.py + dy; lbImg.style.transform = 'scale(2) translate(' + (lbPan.x / 2) + 'px,' + (lbPan.y / 2) + 'px)'; }
+	});
+	lbImg.addEventListener('pointerup', function (e) {
+		if (!lbDown) return; var dx = e.clientX - lbDown.x; lb.classList.remove('is-drag');
+		if (!lb.classList.contains('is-zoom') && Math.abs(dx) > 50) { lbShow(lbI + (dx < 0 ? 1 : -1)); lbDragged = true; }
+		lbDown = null; if (!lb.classList.contains('is-zoom')) lbPan = { x: 0, y: 0 };
+	});
 	/* qty + subtotal */
 	document.querySelectorAll('[data-pd-qty]').forEach(function (q) {
 		var inp = q.querySelector('input'), sub = root.querySelector('[data-pd-subtotal]');

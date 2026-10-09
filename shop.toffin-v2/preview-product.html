@@ -178,23 +178,49 @@
 	.pd-chip.is-off span { color: #9aa0ad; border-style: dashed; text-decoration: line-through; }
 	.pd-chip.is-off input:checked + span { background: #f6f7f9; border-color: #c9ced8; color: #6d7588; }
 	.tf-btn[disabled] { opacity: .45; cursor: not-allowed; }
-	/* lightbox foto besar */
-	.pd-lb { position: fixed; inset: 0; z-index: 2000; display: grid; grid-template-rows: minmax(0, 1fr) auto; background: rgba(17, 24, 39, .94); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+	/* ---- lightbox foto besar ---- */
+	.pd-lb { position: fixed; inset: 0; z-index: 2000; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; background: rgba(17, 20, 28, .72); -webkit-backdrop-filter: blur(22px) saturate(140%); backdrop-filter: blur(22px) saturate(140%); color: #fff; animation: pd-lb-in .18s ease; }   /* kaca gelap tembus pandang: halaman di belakang tetap terlihat samar */
+	@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .pd-lb { background: rgba(12, 14, 20, .96); } }
 	.pd-lb[hidden] { display: none; }
-	.pd-lb__fig { display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; align-items: center; margin: 0; padding: 56px 72px 12px; min-height: 0; }
-	.pd-lb__fig img { max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 12px; background: #fff; object-fit: contain; }
-	.pd-lb__fig figcaption { margin-top: 10px; color: rgba(255,255,255,.75); font-size: 13px; }
-	.pd-lb__close, .pd-lb__nav { position: absolute; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; transition: background .15s ease; }
-	.pd-lb__close:hover, .pd-lb__nav:hover { background: rgba(255,255,255,.22); }
-	.pd-lb__close { top: 16px; right: 16px; }
-	.pd-lb__nav { top: 50%; transform: translateY(-50%); }
+	@keyframes pd-lb-in { from { opacity: 0; } to { opacity: 1; } }
+	.pd-lb__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; }
+	.pd-lb__title { display: flex; align-items: center; gap: 12px; min-width: 0; }
+	.pd-lb__title img { height: 18px; width: auto; padding: 6px 8px; border-radius: 8px; background: #fff; box-sizing: content-box; }
+	.pd-lb__title strong { display: block; font-size: 14px; font-weight: 800; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+	.pd-lb__title span { color: rgba(255,255,255,.6); font-size: 12px; font-variant-numeric: tabular-nums; }
+	.pd-lb__tools { display: flex; gap: 8px; flex: none; }
+	.pd-lb__tool { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; background: rgba(255,255,255,.08); color: #fff; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: background .15s ease; }
+	.pd-lb__tool:hover { background: rgba(255,255,255,.18); }
+	.pd-lb__tool .tf-i { width: 18px; height: 18px; }
+	.pd-lb__tool[aria-pressed="true"] { background: var(--tf-orange); border-color: var(--tf-orange); }
+	.pd-lb__tool--x { width: 40px; padding: 0; justify-content: center; }
+	.pd-lb__stage { position: relative; display: grid; place-items: center; min-height: 0; padding: 0 72px; }
+	.pd-lb__fig { display: grid; place-items: center; width: 100%; height: 100%; margin: 0; overflow: hidden; }
+	/* foto selalu kotak (persegi) selebar/setinggi panggung; foto non-persegi dipotong rapat (cover) */
+	.pd-lb__fig img { width: min(100%, 100vh - 230px, 760px); aspect-ratio: 1; height: auto; max-height: 100%; border-radius: 14px; background: #fff; object-fit: cover; transition: transform .25s ease; transform-origin: center; cursor: zoom-in; user-select: none; }
+	.pd-lb.is-zoom .pd-lb__fig img { cursor: grab; transform: scale(2); }
+	.pd-lb.is-zoom.is-drag .pd-lb__fig img { cursor: grabbing; transition: none; }
+	.pd-lb__nav { position: absolute; top: 50%; display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; cursor: pointer; transform: translateY(-50%); transition: background .15s ease, transform .15s ease; }
+	.pd-lb__nav:hover { background: rgba(255,255,255,.2); transform: translateY(-50%) scale(1.06); }
+	.pd-lb__nav .tf-i { width: 24px; height: 24px; }
 	.pd-lb__nav--prev { left: 16px; } .pd-lb__nav--next { right: 16px; }
-	.pd-lb__nav .tf-i, .pd-lb__close .tf-i { width: 22px; height: 22px; }
-	.pd-lb__thumbs { display: flex; justify-content: center; gap: 8px; padding: 0 16px 18px; overflow-x: auto; scrollbar-width: none; }
-	.pd-lb__thumbs button { flex: none; width: 56px; height: 56px; padding: 0; border: 2px solid transparent; border-radius: 8px; background: #fff; overflow: hidden; cursor: pointer; opacity: .55; }
-	.pd-lb__thumbs button img { width: 100%; height: 100%; object-fit: cover; }
-	.pd-lb__thumbs button.is-on { border-color: var(--tf-orange); opacity: 1; }
-	@media (max-width: 767.98px) { .pd-lb__fig { padding: 56px 12px 8px; } .pd-lb__nav { width: 38px; height: 38px; } .pd-lb__nav--prev { left: 6px; } .pd-lb__nav--next { right: 6px; } }
+	.pd-lb__thumbs { display: flex; justify-content: center; gap: 8px; padding: 14px 16px 18px; overflow-x: auto; scrollbar-width: none; }
+	.pd-lb__thumbs::-webkit-scrollbar { display: none; }
+	.pd-lb__thumbs button { flex: none; width: 64px; height: 64px; padding: 0; border: 2px solid transparent; border-radius: 10px; background: #fff; overflow: hidden; cursor: pointer; opacity: .45; transition: opacity .15s ease, border-color .15s ease, transform .15s ease; }
+	.pd-lb__thumbs button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+	.pd-lb__thumbs button:hover { opacity: .8; }
+	.pd-lb__thumbs button.is-on { border-color: var(--tf-orange); opacity: 1; transform: translateY(-2px); }
+	@media (max-width: 767.98px) {
+		.pd-lb__top { padding: 10px 12px; }
+		.pd-lb__title strong { font-size: 13px; } .pd-lb__title img { display: none; }
+		.pd-lb__tool span { display: none; } .pd-lb__tool { width: 40px; padding: 0; justify-content: center; }
+		.pd-lb__stage { padding: 0 8px; }
+		.pd-lb__fig img { width: min(100%, 100vh - 200px); border-radius: 10px; }
+		.pd-lb__nav { width: 38px; height: 38px; background: rgba(0,0,0,.35); }
+		.pd-lb__nav--prev { left: 6px; } .pd-lb__nav--next { right: 6px; }
+		.pd-lb__thumbs { justify-content: flex-start; padding: 10px 12px 14px; }
+		.pd-lb__thumbs button { width: 52px; height: 52px; }
+	}
 	/* kotak beli: satu urutan tetap di semua keadaan — jumlah → rekomendasi cabang → total/subtotal → Add to cart → tanya */
 	.pd-buybox { display: flex; flex-direction: column; }
 	.pd-buybox > .pd-buybox__h { order: 1; } .pd-buybox > .pd-buybox__prod { order: 2; } .pd-buybox > .pd-qty { order: 3; }
@@ -1198,11 +1224,21 @@
 		</div>
 	</div></div></div>
 
+	<!-- Lightbox foto besar: bar atas (brand · judul · hitung · zoom · tutup), panggung foto dengan panah kaca,
+	     strip thumbnail di bawah; klik foto = zoom 2× (geser dengan drag), Esc / ← → ; ditutup → slider ikut -->
 	<div class="pd-lb" data-pd-lb hidden role="dialog" aria-modal="true" aria-label="Foto produk">
-		<button type="button" class="pd-lb__close" data-pd-lb-close aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
-		<button type="button" class="pd-lb__nav pd-lb__nav--prev" data-pd-lb-prev aria-label="Foto sebelumnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
-		<figure class="pd-lb__fig"><img src="" alt="" data-pd-lb-img><figcaption data-pd-lb-cap></figcaption></figure>
-		<button type="button" class="pd-lb__nav pd-lb__nav--next" data-pd-lb-next aria-label="Foto berikutnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+		<div class="pd-lb__top">
+			<div class="pd-lb__title"><img src="images/brand/trim/4.png" alt=""><div><strong>Nuova Simonelli Appia Life 2 Group</strong><span data-pd-lb-cap>1 / 6</span></div></div>
+			<div class="pd-lb__tools">
+				<button type="button" class="pd-lb__tool" data-pd-lb-zoom aria-label="Perbesar" aria-pressed="false"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg><span>Zoom</span></button>
+				<button type="button" class="pd-lb__tool pd-lb__tool--x" data-pd-lb-close aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+			</div>
+		</div>
+		<div class="pd-lb__stage" data-pd-lb-stage>
+			<button type="button" class="pd-lb__nav pd-lb__nav--prev" data-pd-lb-prev aria-label="Foto sebelumnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+			<figure class="pd-lb__fig"><img src="" alt="" data-pd-lb-img draggable="false"></figure>
+			<button type="button" class="pd-lb__nav pd-lb__nav--next" data-pd-lb-next aria-label="Foto berikutnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+		</div>
 		<div class="pd-lb__thumbs" data-pd-lb-thumbs></div>
 	</div>
 
@@ -1270,23 +1306,46 @@
 			root.querySelectorAll('[data-pd-local]').forEach(function (el) { el.setAttribute('data-n', ok ? '8' : '0'); el.querySelector('b').textContent = ok ? '8' : '0'; });
 			root.querySelectorAll('[data-pd-qty] input').forEach(function (i) { i.dispatchEvent(new Event('change')); });
 		}); });
-		/* lightbox foto besar: klik foto utama; panah, thumbnail, Esc, ←/→ */
-		var lb = document.querySelector('[data-pd-lb]'), lbImg = lb.querySelector('[data-pd-lb-img]'), lbCap = lb.querySelector('[data-pd-lb-cap]'), lbTh = lb.querySelector('[data-pd-lb-thumbs]'), lbList = [], lbI = 0;
-		function lbShow(i) { lbI = (i + lbList.length) % lbList.length; lbImg.src = lbList[lbI].src; lbImg.alt = lbList[lbI].alt; lbCap.textContent = (lbI + 1) + ' / ' + lbList.length + (lbList[lbI].alt ? ' · ' + lbList[lbI].alt : ''); lbTh.querySelectorAll('button').forEach(function (b, n) { b.classList.toggle('is-on', n === lbI); }); }
+		/* lightbox foto besar: klik foto utama; panah, thumbnail, zoom 2× (klik foto / tombol, geser saat zoom), Esc, ←/→, swipe */
+		var lb = document.querySelector('[data-pd-lb]'), lbImg = lb.querySelector('[data-pd-lb-img]'), lbCap = lb.querySelector('[data-pd-lb-cap]'), lbTh = lb.querySelector('[data-pd-lb-thumbs]'), lbZoom = lb.querySelector('[data-pd-lb-zoom]'), lbList = [], lbI = 0, lbRoot = null;
+		function lbSetZoom(on) { lb.classList.toggle('is-zoom', on); lbZoom.setAttribute('aria-pressed', on); lbImg.style.transform = ''; lbPan = { x: 0, y: 0 }; }
+		function lbShow(i) {
+			lbI = (i + lbList.length) % lbList.length; lbSetZoom(false);
+			lbImg.src = lbList[lbI].src; lbImg.alt = lbList[lbI].alt; lbCap.textContent = (lbI + 1) + ' / ' + lbList.length;
+			lbTh.querySelectorAll('button').forEach(function (b, n) { b.classList.toggle('is-on', n === lbI); if (n === lbI && b.scrollIntoView) b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); });
+		}
 		function lbOpen(root, i) {
+			lbRoot = root;
 			lbList = [].slice.call(root.querySelectorAll('[data-pd-main] .swiper-slide img')).map(function (im) { return { src: im.getAttribute('src'), alt: im.getAttribute('alt') || '' }; });
-			lbTh.innerHTML = lbList.map(function (im, n) { return '<button type="button" data-n="' + n + '"><img src="' + im.src + '" alt=""></button>'; }).join('');
+			lbTh.innerHTML = lbList.map(function (im, n) { return '<button type="button" data-n="' + n + '" aria-label="Foto ' + (n + 1) + '"><img src="' + im.src + '" alt=""></button>'; }).join('');
 			lb.hidden = false; document.body.classList.add('tf-lock'); lbShow(i);
 		}
-		function lbClose() { lb.hidden = true; document.body.classList.remove('tf-lock'); var main = document.querySelector('[data-pv-opt]:not([hidden]) [data-pd-main]'); if (main && main.swiper) main.swiper.slideTo(lbI); }
+		function lbClose() { lb.hidden = true; lbSetZoom(false); document.body.classList.remove('tf-lock'); var main = lbRoot && lbRoot.querySelector('[data-pd-main]'); if (main && main.swiper) main.swiper.slideTo(lbI); }
 		document.addEventListener('click', function (e) {
-			var z = e.target.closest('[data-pd-zoom]'); if (z) { lbOpen(z.closest('[data-pv-opt]'), +z.getAttribute('data-pd-zoom')); return; }
-			if (e.target.closest('[data-pd-lb-close]') || e.target === lb) { lbClose(); return; }
-			if (e.target.closest('[data-pd-lb-prev]')) lbShow(lbI - 1);
-			if (e.target.closest('[data-pd-lb-next]')) lbShow(lbI + 1);
-			var t = e.target.closest('[data-pd-lb-thumbs] button'); if (t) lbShow(+t.getAttribute('data-n'));
+			var z = e.target.closest('[data-pd-zoom]'); if (z) { lbOpen(z.closest('.pd') || document, +z.getAttribute('data-pd-zoom')); return; }
+			if (lb.hidden) return;
+			if (e.target.closest('[data-pd-lb-close]')) { lbClose(); return; }
+			if (e.target.closest('[data-pd-lb-zoom]')) { lbSetZoom(!lb.classList.contains('is-zoom')); return; }
+			if (e.target.closest('[data-pd-lb-prev]')) { lbShow(lbI - 1); return; }
+			if (e.target.closest('[data-pd-lb-next]')) { lbShow(lbI + 1); return; }
+			var t = e.target.closest('[data-pd-lb-thumbs] button'); if (t) { lbShow(+t.getAttribute('data-n')); return; }
+			if (e.target === lbImg) { if (!lbDragged) lbSetZoom(!lb.classList.contains('is-zoom')); return; }
+			if (e.target.closest('[data-pd-lb-stage]') && !e.target.closest('.pd-lb__fig img')) lbClose();   /* klik area kosong panggung = tutup */
 		});
 		document.addEventListener('keydown', function (e) { if (lb.hidden) return; if (e.key === 'Escape') lbClose(); if (e.key === 'ArrowLeft') lbShow(lbI - 1); if (e.key === 'ArrowRight') lbShow(lbI + 1); });
+		/* geser: saat zoom = pan foto; tanpa zoom = swipe ganti foto */
+		var lbDown = null, lbDragged = false, lbPan = { x: 0, y: 0 };
+		lbImg.addEventListener('pointerdown', function (e) { lbDown = { x: e.clientX, y: e.clientY, px: lbPan.x, py: lbPan.y }; lbDragged = false; lbImg.setPointerCapture(e.pointerId); if (lb.classList.contains('is-zoom')) lb.classList.add('is-drag'); });
+		lbImg.addEventListener('pointermove', function (e) {
+			if (!lbDown) return; var dx = e.clientX - lbDown.x, dy = e.clientY - lbDown.y;
+			if (Math.abs(dx) > 4 || Math.abs(dy) > 4) lbDragged = true;
+			if (lb.classList.contains('is-zoom')) { lbPan.x = lbDown.px + dx; lbPan.y = lbDown.py + dy; lbImg.style.transform = 'scale(2) translate(' + (lbPan.x / 2) + 'px,' + (lbPan.y / 2) + 'px)'; }
+		});
+		lbImg.addEventListener('pointerup', function (e) {
+			if (!lbDown) return; var dx = e.clientX - lbDown.x; lb.classList.remove('is-drag');
+			if (!lb.classList.contains('is-zoom') && Math.abs(dx) > 50) { lbShow(lbI + (dx < 0 ? 1 : -1)); lbDragged = true; }
+			lbDown = null; if (!lb.classList.contains('is-zoom')) lbPan = { x: 0, y: 0 };
+		});
 		/* qty + subtotal */
 		document.querySelectorAll('[data-pd-qty]').forEach(function (q) {
 			var inp = q.querySelector('input'), root = q.closest('[data-pv-opt]'), sub = root.querySelector('[data-pd-subtotal]');

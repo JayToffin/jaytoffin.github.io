@@ -460,6 +460,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     dengan autoplay dan dikosongkan saat `hidden` supaya suara berhenti; backdrop lebih gelap); **bagikan** = pratinjau
     produk (foto, nama, harga), kotak tautan + tombol Salin (hijau "Tersalin" 1,6 dtk, fallback execCommand), empat kanal
     bulat berwarna merek (WhatsApp, X, Facebook, Email). Diuji 1440/500 px.
+    Lightbox foto besar didesain ulang (Rendi): bar atas (logo brand · judul · "n / N" · tombol Zoom · tutup), panggung
+    foto **kotak** (persegi, lebar min(100%, 100vh − 230 px, 760 px), cover) **tanpa bayangan**, latar **kaca gelap tembus
+    pandang** (rgba 17/20/28 .72 + blur 22 px saturate 140 %, fallback pekat tanpa backdrop-filter), panah kaca 48 px,
+    strip thumbnail 64 px (aktif oranye + terangkat, digulir ke tengah). Zoom 2× lewat tombol atau klik foto, geser saat
+    zoom; tanpa zoom swipe ganti foto; klik area kosong / Esc tutup; slider ikut saat ditutup.
 
 ## Bobot aset lokal `index.html`
 

@@ -811,11 +811,21 @@
 		</div>
 	</div></div></div>
 
+	<!-- Lightbox foto besar: bar atas (brand · judul · hitung · zoom · tutup), panggung foto dengan panah kaca,
+	     strip thumbnail di bawah; klik foto = zoom 2× (geser dengan drag), Esc / ← → ; ditutup → slider ikut -->
 	<div class="pd-lb" data-pd-lb hidden role="dialog" aria-modal="true" aria-label="Foto produk">
-		<button type="button" class="pd-lb__close" data-pd-lb-close aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
-		<button type="button" class="pd-lb__nav pd-lb__nav--prev" data-pd-lb-prev aria-label="Foto sebelumnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
-		<figure class="pd-lb__fig"><img src="" alt="" data-pd-lb-img><figcaption data-pd-lb-cap></figcaption></figure>
-		<button type="button" class="pd-lb__nav pd-lb__nav--next" data-pd-lb-next aria-label="Foto berikutnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+		<div class="pd-lb__top">
+			<div class="pd-lb__title"><img src="images/brand/trim/4.png" alt=""><div><strong>Nuova Simonelli Appia Life 2 Group</strong><span data-pd-lb-cap>1 / 6</span></div></div>
+			<div class="pd-lb__tools">
+				<button type="button" class="pd-lb__tool" data-pd-lb-zoom aria-label="Perbesar" aria-pressed="false"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg><span>Zoom</span></button>
+				<button type="button" class="pd-lb__tool pd-lb__tool--x" data-pd-lb-close aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+			</div>
+		</div>
+		<div class="pd-lb__stage" data-pd-lb-stage>
+			<button type="button" class="pd-lb__nav pd-lb__nav--prev" data-pd-lb-prev aria-label="Foto sebelumnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+			<figure class="pd-lb__fig"><img src="" alt="" data-pd-lb-img draggable="false"></figure>
+			<button type="button" class="pd-lb__nav pd-lb__nav--next" data-pd-lb-next aria-label="Foto berikutnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+		</div>
 		<div class="pd-lb__thumbs" data-pd-lb-thumbs></div>
 	</div>
 
