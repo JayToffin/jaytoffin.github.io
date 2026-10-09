@@ -47,10 +47,6 @@
 .tf-brands-hero__eyebrow::before { content: ""; width: 18px; height: 2px; border-radius: 2px; background: var(--tf-orange); }
 .tf-brands-hero__copy h1 { margin: 0 0 12px; color: #fff; font-size: clamp(30px, 3.4vw, 42px); font-weight: 900; letter-spacing: -.025em; line-height: 1.04; }
 .tf-brands-hero__lead { max-width: 480px; margin: 0 0 18px; color: rgba(255, 255, 255, .72); font-size: 14.5px; line-height: 1.55; }
-.tf-brands-hero__stats { display: flex; gap: 26px; margin: 20px 0 0; padding: 0; list-style: none; }
-.tf-brands-hero__stats li { display: grid; gap: 1px; }
-.tf-brands-hero__stats strong { color: #fff; font-size: 22px; font-weight: 900; line-height: 1.1; }
-.tf-brands-hero__stats span { color: rgba(255, 255, 255, .6); font-size: 12px; font-weight: 600; }
 
 /* marquee logo dua baris: track berisi urutan logo dua kali, digeser -50% lalu diulang */
 .tf-brands-mq { position: relative; z-index: 1; display: grid; gap: 12px; min-width: 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 84%, transparent); mask-image: linear-gradient(90deg, transparent, #000 18%, #000 84%, transparent); }
@@ -109,9 +105,7 @@
 	.tf-brands-hero__copy h1 { font-size: 28px; }
 	.tf-brands-hero__lead { font-size: 13.5px; }
 	.tf-brands-search { max-width: none; }
-	.tf-brands-hero__stats { gap: 18px; margin-top: 16px; }
-	.tf-brands-hero__stats strong { font-size: 18px; }
-	.tf-brands-mq { margin: 4px -20px -4px; }
+			.tf-brands-mq { margin: 4px -20px -4px; }
 	.tf-brands-mq__tile { width: 104px; height: 58px; }
 	.tf-brands-mq__tile img { max-width: 68px; max-height: 32px; }
 	.tf-brands-chips { position: static; margin: 14px 0 16px; padding: 0; background: none; }

@@ -316,7 +316,7 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     **Keputusan Rendi 2026-10-09: hero usulan B + grid "Semua brand" usulan A, tanpa "Brand unggulan".**
     Diterapkan hari itu juga: `brand.html` ditulis ulang di atas chrome v2 (memuat hanya `bootstrap.min.css`,
     `tf-base`, `tf-layout`, `brand-modern.css`; skrip `tf-nav`, `tf-search`, `mobile-nav`, `tf-brand.js`; tanpa
-    jQuery, tanpa Swiper). Susunan: hero gelap (remah roti, eyebrow, H1, lead, kolom cari, 3 statistik, marquee
+    jQuery, tanpa Swiper). Susunan: hero gelap (remah roti, eyebrow, H1, lead, kolom cari, marquee
     logo) → chip kategori sticky → "Semua brand" (judul + jumlah tampil + "Urut A–Z", grid 6/4/3/2) → keadaan
     kosong dengan tombol Reset. `assets/css/brand-modern.css` diganti seluruhnya (isi Codex dibuang), semua kelas
     berprefix **`tf-brands`** (bukan `tf-brand`: itu kelas link logo di header, `.tf-brand { display:inline-flex }`
@@ -324,7 +324,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     hilang di ponsel), 10 KB, mandiri dari home-modern/tf-products. `assets/js/tf-brands.js` (2 KB): cari + filter
     kategori di klien, angka total & tampil dihitung dari DOM, membaca `?q=` dan `?cat=mesin|brew|bahan|dapur|air`.
     Diuji 1440/500 px + `?q=ta&cat=dapur` (hasil: Ta Chung Ho & Vitamix), nol error JS. `preview-brand.html`
-    dibiarkan sebagai arsip seperti preview lain.
+    dibiarkan sebagai arsip seperti preview lain. Tiga statistik hero (brand resmi, negara asal, garansi resmi) dihapus
+    atas permintaan Rendi (setelah push pertama).
 
 22. **Paket Bundling: tiga usulan desain ulang** (2026-10-09, `preview-bundle.html`). Versi product-bundle.html yang
     ada (hero + panel statistik, chip, baris ringkasan gelap + slider 4 kartu Appia yang sama) dinilai kurang; di ponsel
