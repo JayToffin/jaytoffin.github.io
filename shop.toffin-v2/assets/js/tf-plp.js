@@ -245,7 +245,19 @@
 	state.q = (params.get('q') || '').trim();
 	if (state.q && titleEl) titleEl.textContent = 'Hasil untuk "' + state.q + '"';
 	var urlBrand = params.get('brand'), urlCat = params.get('cat');
-	if (urlBrand) filter.querySelectorAll('input[data-brand]').forEach(function (i) { if (i.value === urlBrand) i.checked = true; });
+	if (urlBrand) {
+		var hit = null;
+		filter.querySelectorAll('input[data-brand]').forEach(function (i) { if (i.value === urlBrand) { i.checked = true; hit = i; } });
+		/* brand dari halaman Brand yang belum ada di daftar filter (katalog contoh): tambahkan opsinya supaya filter
+		   tetap aktif dan daftar menampilkan keadaan kosong, bukan diam-diam semua produk */
+		if (!hit) {
+			var more = filter.querySelector('[data-tf-filter-more]'), lab = document.createElement('label');
+			lab.className = 'tf-filter__opt';
+			lab.innerHTML = '<input type="checkbox" data-brand value="' + urlBrand.replace(/"/g, '&quot;') + '" checked> ' + urlBrand.replace(/</g, '&lt;') + '<span class="tf-filter__n">0</span>';
+			if (more) more.parentNode.insertBefore(lab, more); else filter.appendChild(lab);
+		}
+		if (titleEl && !state.q) titleEl.textContent = 'Produk ' + urlBrand;
+	}
 	if (urlCat) { filter.querySelectorAll('input[data-cat]').forEach(function (i) { if (i.getAttribute('data-cat') === urlCat) i.checked = true; }); syncSubs(); }
 
 	/* ---------- mulai ---------- */

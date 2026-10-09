@@ -325,7 +325,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     kategori di klien, angka total & tampil dihitung dari DOM, membaca `?q=` dan `?cat=mesin|brew|bahan|dapur|air`.
     Diuji 1440/500 px + `?q=ta&cat=dapur` (hasil: Ta Chung Ho & Vitamix), nol error JS. `preview-brand.html`
     dibiarkan sebagai arsip seperti preview lain. Tiga statistik hero (brand resmi, negara asal, garansi resmi) dihapus
-    atas permintaan Rendi (setelah push pertama).
+    atas permintaan Rendi (setelah push pertama). Semua kartu brand kini → `product-list.html?brand=<nama>` (daftar produk
+    tersaring), bukan lagi halaman `brand/*.html` lama (keputusan Rendi 2026-10-09).
 
 22. **Paket Bundling: tiga usulan desain ulang** (2026-10-09, `preview-bundle.html`). Versi product-bundle.html yang
     ada (hero + panel statistik, chip, baris ringkasan gelap + slider 4 kartu Appia yang sama) dinilai kurang; di ponsel
