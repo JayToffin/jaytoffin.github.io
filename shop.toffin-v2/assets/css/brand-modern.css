@@ -1,0 +1,124 @@
+/* =====================================================================
+   Toffin v2 · brand-modern.css
+   Halaman Brand (brand.html): hero gelap + marquee logo (usulan B) dan
+   direktori kartu logo (usulan A), dipilih Rendi 2026-10-09 dari
+   preview-brand.html. Muat setelah tf-base.css + tf-layout.css.
+   Tanpa ketergantungan pada home-modern.css / tf-products.css.
+   ===================================================================== */
+.tf-brands { font-family: var(--tf-font); color: var(--tf-body); background: #fafafa; padding: 12px 0 48px; }
+.tf-brands *, .tf-brands *::before, .tf-brands *::after { box-sizing: border-box; }
+.tf-brands img { max-width: 100%; }
+
+/* ---------- remah roti ---------- */
+.tf-brands__crumb { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; color: var(--tf-muted); font-size: 13px; }
+.tf-brands__crumb a { color: var(--tf-muted); text-decoration: none; }
+.tf-brands__crumb a:hover { color: var(--tf-orange-dark); }
+.tf-brands__crumb span::before { content: "\203A"; margin-right: 6px; }
+.tf-brands__crumb--light, .tf-brands__crumb--light a { color: rgba(255, 255, 255, .62); }
+.tf-brands__crumb--light a:hover { color: #fff; }
+
+/* ---------- kolom cari (di hero) ---------- */
+.tf-brands-search { position: relative; display: flex; align-items: center; width: 100%; max-width: 420px; margin: 0; }
+.tf-brands-search__ico { position: absolute; left: 14px; display: inline-flex; color: var(--tf-muted); pointer-events: none; }
+.tf-brands-search__ico .tf-i { width: 18px; height: 18px; }
+.tf-brands-search input { width: 100%; height: 48px; padding: 0 16px 0 42px; border: 1px solid transparent; border-radius: 999px; background: #fff; color: var(--tf-ink); font: inherit; font-size: 14px; outline: 0; transition: border-color .15s ease, box-shadow .15s ease; }
+.tf-brands-search input::placeholder { color: #9aa0ad; }
+.tf-brands-search input:focus { border-color: rgba(248, 148, 31, .6); box-shadow: 0 0 0 3px rgba(248, 148, 31, .18); }
+.tf-brands-search input::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+/* ---------- hero gelap ---------- */
+.tf-brands-hero__panel {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+	gap: 28px;
+	align-items: center;
+	padding: 34px 40px;
+	border-radius: 20px;
+	overflow: hidden;
+	color: #fff;
+	background:
+		radial-gradient(900px 300px at 85% 0%, rgba(248, 148, 31, .28), rgba(248, 148, 31, 0) 60%),
+		linear-gradient(118deg, #15171c 0%, #23201d 55%, #2d2117 100%);
+}
+.tf-brands-hero__panel::after { content: ""; position: absolute; inset: auto -120px -160px auto; width: 380px; height: 380px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .08); pointer-events: none; }
+.tf-brands-hero__copy { position: relative; z-index: 2; min-width: 0; }
+.tf-brands-hero__eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; color: #ffb866; font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.tf-brands-hero__eyebrow::before { content: ""; width: 18px; height: 2px; border-radius: 2px; background: var(--tf-orange); }
+.tf-brands-hero__copy h1 { margin: 0 0 12px; color: #fff; font-size: clamp(30px, 3.4vw, 42px); font-weight: 900; letter-spacing: -.025em; line-height: 1.04; }
+.tf-brands-hero__lead { max-width: 480px; margin: 0 0 18px; color: rgba(255, 255, 255, .72); font-size: 14.5px; line-height: 1.55; }
+.tf-brands-hero__stats { display: flex; gap: 26px; margin: 20px 0 0; padding: 0; list-style: none; }
+.tf-brands-hero__stats li { display: grid; gap: 1px; }
+.tf-brands-hero__stats strong { color: #fff; font-size: 22px; font-weight: 900; line-height: 1.1; }
+.tf-brands-hero__stats span { color: rgba(255, 255, 255, .6); font-size: 12px; font-weight: 600; }
+
+/* marquee logo dua baris: track berisi urutan logo dua kali, digeser -50% lalu diulang */
+.tf-brands-mq { position: relative; z-index: 1; display: grid; gap: 12px; min-width: 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 84%, transparent); mask-image: linear-gradient(90deg, transparent, #000 18%, #000 84%, transparent); }
+.tf-brands-mq__row { overflow: hidden; }
+.tf-brands-mq__track { display: flex; gap: 12px; width: max-content; animation: tf-brands-slide 44s linear infinite; }
+.tf-brands-mq__row--rev .tf-brands-mq__track { animation-direction: reverse; animation-duration: 52s; }
+.tf-brands-mq:hover .tf-brands-mq__track { animation-play-state: paused; }
+.tf-brands-mq__tile { flex: none; display: grid; place-items: center; width: 132px; height: 72px; border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .25); }
+.tf-brands-mq__tile img { max-width: 88px; max-height: 36px; object-fit: contain; }
+@keyframes tf-brands-slide { to { transform: translateX(calc(-50% - 6px)); } }
+@media (prefers-reduced-motion: reduce) { .tf-brands-mq__track { animation: none; } }
+
+/* ---------- chip kategori (sticky di bawah header) ---------- */
+.tf-brands-chips { position: sticky; top: 67px; z-index: 20; display: flex; gap: 8px; margin: 10px -20px 22px; padding: 10px 20px; overflow-x: auto; scrollbar-width: none; background: linear-gradient(180deg, #fafafa 78%, rgba(250, 250, 250, 0)); }
+.tf-brands-chips::-webkit-scrollbar { display: none; }
+.tf-brands-chip { flex: none; display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: border-color .15s ease, background .15s ease, color .15s ease; }
+.tf-brands-chip b { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #f1f2f4; color: var(--tf-muted); font-size: 11px; font-weight: 800; }
+.tf-brands-chip:hover { border-color: rgba(248, 148, 31, .5); color: var(--tf-ink); }
+.tf-brands-chip.is-active { border-color: var(--tf-orange); background: var(--tf-orange); color: #fff; }
+.tf-brands-chip.is-active b { background: rgba(255, 255, 255, .25); color: #fff; }
+
+/* ---------- judul section ---------- */
+.tf-brands-shead { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin: 0 0 14px; }
+.tf-brands-shead h2 { margin: 0; color: var(--tf-ink); font-size: 20px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+.tf-brands-shead h2 span { margin-left: 4px; color: var(--tf-muted); font-size: 14px; font-weight: 700; }
+.tf-brands-shead__note { color: var(--tf-muted); font-size: 13px; }
+
+/* ---------- grid semua brand ---------- */
+.tf-brands-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.tf-brands-card { display: flex; flex-direction: column; padding: 14px 14px 13px; border: 1px solid rgba(0, 0, 0, .10); border-radius: 14px; background: #fff; color: var(--tf-ink); text-decoration: none; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.tf-brands-card[hidden] { display: none; }
+.tf-brands-card:hover { border-color: rgba(248, 148, 31, .55); box-shadow: 0 12px 26px rgba(17, 24, 39, .08); transform: translateY(-2px); color: var(--tf-ink); text-decoration: none; }
+.tf-brands-card__logo { display: grid; place-items: center; height: 82px; margin-bottom: 10px; border-radius: 10px; background: #f6f7f9; }
+.tf-brands-card__logo img { max-width: 70%; max-height: 44px; object-fit: contain; mix-blend-mode: multiply; transition: transform .2s ease; }   /* multiply: logo berlatar putih menyatu dengan kotak abu */
+.tf-brands-card:hover .tf-brands-card__logo img { transform: scale(1.06); }
+.tf-brands-card__name { color: var(--tf-ink); font-size: 14px; font-weight: 800; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tf-brands-card__meta { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 4px; color: var(--tf-muted); font-size: 11.5px; line-height: 1.3; }
+.tf-brands-card__meta span { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.tf-brands-card__meta em { flex: none; color: var(--tf-orange-dark); font-style: normal; font-weight: 700; }
+
+/* ---------- keadaan kosong ---------- */
+.tf-brands-empty { display: grid; justify-items: center; gap: 6px; padding: 40px 20px; border: 1px dashed var(--tf-line); border-radius: 14px; background: #fff; text-align: center; }
+.tf-brands-empty[hidden] { display: none; }
+.tf-brands-empty strong { color: var(--tf-ink); font-size: 16px; font-weight: 800; }
+.tf-brands-empty span { color: var(--tf-muted); font-size: 13.5px; }
+.tf-brands-empty .tf-btn { margin-top: 8px; padding: 9px 20px; font-size: 13.5px; }
+
+/* ---------- responsif ---------- */
+@media (max-width: 1199.98px) {
+	.tf-brands-hero__panel { grid-template-columns: 1fr; padding: 28px 28px 24px; }
+	.tf-brands-chips { top: 95px; }   /* tinggi header mobile */
+	.tf-brands-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 767.98px) {
+	.tf-brands-hero__panel { padding: 22px 20px 20px; border-radius: 16px; }
+	.tf-brands-hero__copy h1 { font-size: 28px; }
+	.tf-brands-hero__lead { font-size: 13.5px; }
+	.tf-brands-search { max-width: none; }
+	.tf-brands-hero__stats { gap: 18px; margin-top: 16px; }
+	.tf-brands-hero__stats strong { font-size: 18px; }
+	.tf-brands-mq { margin: 4px -20px -4px; }
+	.tf-brands-mq__tile { width: 104px; height: 58px; }
+	.tf-brands-mq__tile img { max-width: 68px; max-height: 32px; }
+	.tf-brands-chips { position: static; margin: 14px 0 16px; padding: 0; background: none; }
+	.tf-brands-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+	.tf-brands-card { padding: 10px; }
+	.tf-brands-card__logo { height: 66px; }
+	.tf-brands-card__name { font-size: 12.5px; }
+	.tf-brands-card__meta { flex-direction: column; align-items: flex-start; gap: 1px; font-size: 11px; }
+}
+@media (max-width: 419.98px) { .tf-brands-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
