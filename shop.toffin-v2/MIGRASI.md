@@ -446,6 +446,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     keadaan: Jumlah → Rekomendasi Cabang (tertutup) → Total/Subtotal → Add to cart → Tanya produk (input di atas tombol
     utama, tombol tidak melompat saat varian berganti). Varian habis: stepper utama redup, tombol cabang diberi cincin
     oranye tipis sebagai petunjuk.
+    Foto pertama galeri = `images/product1.png` (uji kontras tombol aksi di foto gelap). **Bonus produk** (di Odoo =
+    produk berfoto + qty): dari tiga opsi (a chip berfoto, b daftar seperti keranjang, c kartu mini berharga coret) Rendi
+    memilih **b**: `<details open>` berjudul "Bonus produk" + badge jumlah item + ikon info bertooltip "Bonus produk
+    akan diberikan jika item masih tersedia" + chevron lipat; baris foto 44 px · nama · Qty · badge Gratis; 2 item
+    contoh (Knock Box, Milk Pitcher). Pratinjau tetap punya pengalih a/b/c.
 
 ## Bobot aset lokal `index.html`
 

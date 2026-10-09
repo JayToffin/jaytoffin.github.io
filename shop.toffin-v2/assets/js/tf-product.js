@@ -96,7 +96,7 @@
 	/* rekomendasi cabang: buka/tutup; stepper per cabang */
 	document.querySelectorAll('[data-pd-branch]').forEach(function (b) { b.addEventListener('click', function () { var pnl = b.nextElementSibling, open = pnl.hidden; pnl.hidden = !open; b.setAttribute('aria-expanded', open); }); });
 	/* tooltip info: ketuk untuk buka/tutup (ponsel), klik di luar menutup */
-	document.querySelectorAll('.pd-tip__btn').forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); var t = b.parentElement, open = !t.classList.contains('is-open'); document.querySelectorAll('.pd-tip.is-open').forEach(function (x) { x.classList.remove('is-open'); }); t.classList.toggle('is-open', open); b.setAttribute('aria-expanded', open); }); });
+	document.querySelectorAll('.pd-tip__btn').forEach(function (b) { b.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); var t = b.parentElement, open = !t.classList.contains('is-open'); document.querySelectorAll('.pd-tip.is-open').forEach(function (x) { x.classList.remove('is-open'); }); t.classList.toggle('is-open', open); b.setAttribute('aria-expanded', open); }); });
 	document.addEventListener('click', function () { document.querySelectorAll('.pd-tip.is-open').forEach(function (x) { x.classList.remove('is-open'); x.querySelector('.pd-tip__btn').setAttribute('aria-expanded', 'false'); }); });
 	/* tab (usulan A) */
 	document.querySelectorAll('[data-pd-tabs]').forEach(function (t) {
