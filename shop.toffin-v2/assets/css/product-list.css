@@ -25,7 +25,8 @@
 /* ---------- sidebar filter (ukuran mengikuti Tokopedia: judul "Filter" 14/800 di luar kotak; kotak bergaris radius 8,
    padding 0 12; judul grup 14/800 lh 18 dengan padding 16 atas; opsi 12/400 lh 1.5, tinggi baris 31 (padding 8);
    kotak centang 20×20 garis 2 radius 4, jarak ke teks 6; kolom harga 38 px dengan prefiks "Rp" 43 px) ---------- */
-.tf-filter { position: sticky; top: 82px; max-height: calc(100vh - 100px); overflow-y: auto; font-size: 12px; }
+.tf-filter { position: sticky; top: 82px; max-height: calc(100vh - 100px); overflow-y: auto; font-size: 12px; scrollbar-width: none; }   /* scrollbar disembunyikan (Firefox); tetap bisa digulir */
+.tf-filter::-webkit-scrollbar { display: none; }   /* Chrome/Safari/Edge */
 .tf-filter__head { display: flex; align-items: center; justify-content: space-between; padding: 0 0 8px; }
 .tf-filter__title { margin: 0; color: #080808; font-size: 14px; font-weight: 800; line-height: 18px; }
 .tf-filter__reset { border: 0; background: transparent; padding: 0; color: var(--tf-orange-dark); font: inherit; font-size: 12px; font-weight: 700; line-height: 18px; cursor: pointer; }
@@ -39,28 +40,31 @@
 .tf-filter__body { display: none; padding: 12px 0 6px; }
 .tf-filter__group.is-open .tf-filter__body { display: block; }
 .tf-filter__group:not(.is-open) .tf-filter__toggle { padding-bottom: 16px; }
-.tf-filter__opt { display: flex; align-items: center; gap: 6px; padding: 5.5px 0; margin: 0; color: var(--tf-muted); font-size: 12px; font-weight: 400; line-height: 1.5; cursor: pointer; }
+.tf-filter__opt { display: flex; align-items: center; gap: 9px; padding: 5px 0; margin: 0; color: var(--tf-body); font-size: 12.5px; font-weight: 400; line-height: 1.5; cursor: pointer; transition: color .15s ease; }
 .tf-filter__opt:hover { color: var(--tf-ink); }
+/* kotak centang: 16 px, garis tipis abu, sudut 5 px; hover garis oranye; tercentang isi oranye + centang putih (pola Tokopedia/Material) */
 .tf-filter__opt input {
 	flex: none;
-	width: 20px;
-	height: 20px;
+	width: 16px;
+	height: 16px;
 	margin: 0;
-	border: 2px solid #1e2025;
-	border-radius: 4px;
+	border: 1.5px solid #c9ced8;
+	border-radius: 5px;
 	background: #fff;
 	-webkit-appearance: none;
 	appearance: none;
 	cursor: pointer;
-	transition: background-color .15s ease, border-color .15s ease;
+	transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
+.tf-filter__opt:hover input { border-color: var(--tf-orange); }
 .tf-filter__opt input:checked {
 	border-color: var(--tf-orange);
-	background: var(--tf-orange) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12l5 5l9-9'/></svg>") center / 14px no-repeat;
+	background: var(--tf-orange) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12l5 5l9-9'/></svg>") center / 11px no-repeat;
 }
-.tf-filter__opt input:focus-visible { outline: 2px solid var(--tf-orange); outline-offset: 2px; }
+.tf-filter__opt:has(input:checked) { color: var(--tf-ink); font-weight: 600; }   /* label tercentang lebih tegas */
+.tf-filter__opt input:focus-visible { outline: 0; box-shadow: 0 0 0 3px rgba(248, 148, 31, .25); }
 .tf-filter__n { margin-left: auto; padding-left: 6px; color: #9aa0ad; font-size: 11px; }
-.tf-filter__sub { padding-left: 20px; }
+.tf-filter__sub { padding-left: 16px; }   /* indent sub-kategori sedikit lebih rapat supaya label panjang lebih jarang terlipat */
 .tf-filter__sub[hidden] { display: none; }   /* sub-kategori tampil hanya bila kategori induknya dicentang (tf-plp.js) */
 .tf-filter__more { display: block; border: 0; background: transparent; padding: 4px 0 6px; color: var(--tf-orange-dark); font: inherit; font-size: 12px; font-weight: 400; line-height: 18px; cursor: pointer; }
 .tf-filter__more:hover { text-decoration: underline; }
