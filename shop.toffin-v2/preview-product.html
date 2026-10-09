@@ -160,12 +160,6 @@
 	.pd-rel { margin-top: 40px; }
 	.pd-rel .tf-head { margin-bottom: 14px; }
 	.pd-rel .tf-carousel { position: relative; }
-	/* share */
-	.pd-share { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-	.pd-share a, .pd-share button { display: grid; justify-items: center; gap: 8px; padding: 14px 8px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fff; color: var(--tf-ink); font: inherit; font-size: 12.5px; font-weight: 700; text-decoration: none; cursor: pointer; }
-	.pd-share a:hover, .pd-share button:hover { border-color: var(--tf-orange); color: var(--tf-ink); text-decoration: none; }
-	.pd-share i { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
-	.pd-share i .tf-i { width: 20px; height: 20px; }
 
 	/* bar beli menempel di bawah (ponsel/tablet): tampil saat kotak beli / tombol utama tidak terlihat (JS) */
 	.pd-stickybar { position: fixed; left: 0; right: 0; bottom: 65px; z-index: 1500; display: none; align-items: center; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--tf-line); background: rgba(255,255,255,.96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 -8px 24px rgba(17,24,39,.08); }
@@ -262,6 +256,45 @@
 	.pd-gifts__n { font-size: 12.5px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 	.pd-gifts__q { color: var(--tf-muted); font-size: 11.5px; }
 	.pd-gifts__q s { margin-right: 3px; }
+	/* ---- modal video: gelap, 16:9 radius 16, tombol tutup di luar kanan atas, keterangan di bawah ---- */
+	.pd-vmodal .modal-dialog { max-width: 880px; }
+	.pd-vmodal .modal-content { position: relative; padding: 0; border: 0; border-radius: 16px; background: transparent; box-shadow: none; overflow: visible; }
+	.pd-vmodal__frame { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+	.pd-vmodal__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+	.pd-vmodal__close { position: absolute; top: -48px; right: 0; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; transition: background .15s ease; }
+	.pd-vmodal__close:hover { background: rgba(255,255,255,.22); }
+	.pd-vmodal__close .tf-i { width: 20px; height: 20px; }
+	.pd-vmodal__cap { display: flex; align-items: center; gap: 12px; margin-top: 14px; color: #fff; }
+	.pd-vmodal__cap img { height: 20px; width: auto; padding: 6px 8px; border-radius: 8px; background: #fff; box-sizing: content-box; }
+	.pd-vmodal__cap strong { display: block; font-size: 14.5px; font-weight: 800; line-height: 1.2; }
+	.pd-vmodal__cap span { color: rgba(255,255,255,.65); font-size: 12px; }
+	.pd-vmodal__yt { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; padding: 8px 12px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: #fff; font-size: 12.5px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+	.pd-vmodal__yt:hover { background: rgba(255,255,255,.12); color: #fff; text-decoration: none; }
+	.pd-vmodal__yt .tf-i { width: 16px; height: 16px; color: #ff4e45; }
+	.modal-backdrop.pd-vmodal-bg.show, body.pd-video-open .modal-backdrop.show { opacity: .88; }
+	@media (max-width: 767.98px) { .pd-vmodal .modal-dialog { margin: 0 12px; max-width: none; } .pd-vmodal__close { top: -46px; } .pd-vmodal__cap { flex-wrap: wrap; } .pd-vmodal__yt { margin-left: 0; } }
+	/* ---- modal bagikan: pratinjau produk, kotak link + Salin, kanal berwarna merek ---- */
+	.pd-smodal .modal-dialog { max-width: 460px; }
+	.pd-smodal__prod { display: flex; align-items: center; gap: 12px; padding: 10px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fafafa; }
+	.pd-smodal__prod img { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; background: #fff; border: 1px solid var(--tf-line); }
+	.pd-smodal__prod strong { display: block; color: var(--tf-ink); font-size: 13.5px; font-weight: 800; line-height: 1.25; }
+	.pd-smodal__prod span { color: var(--tf-muted); font-size: 12px; }
+	.pd-smodal__link { display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 6px 6px 6px 12px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fff; }
+	.pd-smodal__link > span { display: inline-flex; color: var(--tf-muted); }
+	.pd-smodal__link .tf-i { width: 16px; height: 16px; }
+	.pd-smodal__link input { flex: 1 1 auto; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--tf-body); font: inherit; font-size: 13px; text-overflow: ellipsis; }
+	.pd-smodal__link .tf-btn { flex: none; min-height: 36px; padding: 0 16px; border-radius: 8px; font-size: 13px; box-shadow: none; }
+	.pd-smodal__link .tf-btn:hover { transform: none; box-shadow: none; }
+	.pd-smodal__link .tf-btn.is-done { background: #16a34a; }
+	.pd-smodal__chs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+	.pd-smodal__ch { display: grid; justify-items: center; gap: 8px; padding: 12px 6px; border-radius: 12px; color: var(--tf-ink); font-size: 12px; font-weight: 700; text-decoration: none; transition: background .15s ease; }
+	.pd-smodal__ch:hover { background: #f6f7f9; color: var(--tf-ink); text-decoration: none; }
+	.pd-smodal__ch i { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: #fff; box-shadow: 0 6px 16px rgba(17,24,39,.12); }
+	.pd-smodal__ch i .tf-i { width: 22px; height: 22px; }
+	.pd-smodal__ch--wa i { background: #25d366; }
+	.pd-smodal__ch--x i { background: #111; }
+	.pd-smodal__ch--fb i { background: #1877f2; }
+	.pd-smodal__ch--mail i { background: var(--tf-orange); }
 	/* ===== A · 3 kolom ===== */
 	.pda-grid { display: grid; grid-template-columns: 420px minmax(0, 1fr) 320px; gap: 28px; align-items: stretch; }   /* stretch: kolom galeri & kotak beli setinggi baris, sticky di dalamnya bisa menempel */
 	/* penempatan eksplisit: galeri · info · kotak beli (menutupi dua baris) ; baris 2 = Aksesoris/Alternatif di bawah galeri + info */
@@ -1144,13 +1177,25 @@
 					<li><a href="faq.html">FAQ</a></li>
 				</ul>
 
-	<div id="pd-video" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content">
-		<div class="modal-header"><h5 class="modal-title">Video produk</h5><button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
-		<div class="modal-body p-0"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1DIci0X6hhs" allowfullscreen loading="lazy" title="Video produk"></iframe></div></div>
+	<!-- Modal video: gelap sinematik, iframe diisi saat dibuka (autoplay) dan dikosongkan saat ditutup (tf-product.js) -->
+	<div id="pd-video" class="modal fade pd-vmodal" tabindex="-1" role="dialog" aria-label="Video produk" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
+		<button type="button" class="pd-vmodal__close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+		<div class="pd-vmodal__frame"><iframe data-pd-video-src="https://www.youtube.com/embed/1DIci0X6hhs?autoplay=1&rel=0&modestbranding=1" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Video produk"></iframe></div>
+		<div class="pd-vmodal__cap"><img src="images/brand/trim/4.png" alt=""><div><strong>Nuova Simonelli Appia Life 2 Group</strong><span>Video produk · 2:14</span></div><a href="https://www.youtube.com/watch?v=1DIci0X6hhs" target="_blank" rel="noopener noreferrer" class="pd-vmodal__yt"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-youtube"/></svg> Buka di YouTube</a></div>
 	</div></div></div>
-	<div id="pd-share" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-sm" role="document"><div class="modal-content">
-		<div class="modal-header"><h5 class="modal-title">Bagikan produk</h5><button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
-		<div class="modal-body"><div class="pd-share"><a href="https://wa.me/?text=https://toffin.id" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg></i>WhatsApp</a><a href="https://twitter.com/intent/tweet?url=https://toffin.id" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-x"/></svg></i>X</a><button type="button" data-pd-copy><i><svg class="tf-i" aria-hidden="true"><use href="#i-link"/></svg></i><span>Salin link</span></button></div></div>
+	<!-- Modal bagikan: pratinjau produk, kotak link + Salin, tombol kanal berwarna merek -->
+	<div id="pd-share" class="modal fade pd-smodal" tabindex="-1" role="dialog" aria-labelledby="pd-share-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
+		<div class="modal-header"><h5 class="modal-title" id="pd-share-title">Bagikan produk</h5><button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+		<div class="modal-body">
+			<div class="pd-smodal__prod"><img src="images/product1.png" alt=""><div><strong>Nuova Simonelli Appia Life 2 Group</strong><span>Rp 32.000.000 · Nuova Simonelli</span></div></div>
+			<div class="pd-smodal__link"><span><svg class="tf-i" aria-hidden="true"><use href="#i-link"/></svg></span><input type="text" readonly value="https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046" aria-label="Tautan produk" data-pd-share-url><button type="button" class="tf-btn" data-pd-copy><span>Salin</span></button></div>
+			<div class="pd-smodal__chs">
+				<a class="pd-smodal__ch pd-smodal__ch--wa" href="https://wa.me/?text=https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg></i>WhatsApp</a>
+				<a class="pd-smodal__ch pd-smodal__ch--x" href="https://twitter.com/intent/tweet?url=https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-x"/></svg></i>X</a>
+				<a class="pd-smodal__ch pd-smodal__ch--fb" href="https://www.facebook.com/sharer/sharer.php?u=https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-facebook"/></svg></i>Facebook</a>
+				<a class="pd-smodal__ch pd-smodal__ch--mail" href="mailto:?subject=Nuova%20Simonelli%20Appia%20Life%202%20Group&body=https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046"><i><svg class="tf-i" aria-hidden="true"><use href="#i-mail"/></svg></i>Email</a>
+			</div>
+		</div>
 	</div></div></div>
 
 	<div class="pd-lb" data-pd-lb hidden role="dialog" aria-modal="true" aria-label="Foto produk">
@@ -1309,7 +1354,16 @@
 		/* favorit: tandai terpilih (seperti ikon hati kartu produk) */
 		document.querySelectorAll('[data-pd-fav]').forEach(function (b) { b.addEventListener('click', function () { var on = !b.classList.contains('is-on'); b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on); }); });
 		/* salin link */
-		document.querySelectorAll('[data-pd-copy]').forEach(function (b) { b.addEventListener('click', function () { var s = b.querySelector('span'); try { navigator.clipboard.writeText(location.href); } catch (e) {} s.textContent = 'Tersalin'; setTimeout(function () { s.textContent = 'Salin link'; }, 1500); }); });
+		document.querySelectorAll('[data-pd-copy]').forEach(function (b) { b.addEventListener('click', function () {
+			var s = b.querySelector('span'), inp = document.querySelector('[data-pd-share-url]'), url = inp ? inp.value : location.href;
+			try { navigator.clipboard.writeText(url); } catch (e) { if (inp) { inp.select(); document.execCommand('copy'); } }
+			b.classList.add('is-done'); s.textContent = 'Tersalin'; setTimeout(function () { b.classList.remove('is-done'); s.textContent = 'Salin'; }, 1600);
+		}); });
+		/* video: iframe diisi saat modal dibuka (autoplay), dikosongkan saat ditutup supaya suara berhenti */
+		if (window.jQuery) {
+			jQuery('#pd-video').on('show.bs.modal', function () { var f = this.querySelector('iframe'); f.src = f.getAttribute('data-pd-video-src'); document.body.classList.add('pd-video-open'); })
+				.on('hidden.bs.modal', function () { this.querySelector('iframe').src = 'about:blank'; document.body.classList.remove('pd-video-open'); });
+		}
 		sync();
 		var g0 = '1'; try { g0 = localStorage.getItem('pv-gal') || '1'; } catch (e) {} setGal(g0);
 	}());

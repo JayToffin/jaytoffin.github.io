@@ -135,12 +135,6 @@ body.is-fs .pd-price { background: linear-gradient(100deg, #fff1f1 0%, #fff7ed 1
 .pd-rel { margin-top: 40px; }
 .pd-rel .tf-head { margin-bottom: 14px; }
 .pd-rel .tf-carousel { position: relative; }
-/* share */
-.pd-share { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.pd-share a, .pd-share button { display: grid; justify-items: center; gap: 8px; padding: 14px 8px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fff; color: var(--tf-ink); font: inherit; font-size: 12.5px; font-weight: 700; text-decoration: none; cursor: pointer; }
-.pd-share a:hover, .pd-share button:hover { border-color: var(--tf-orange); color: var(--tf-ink); text-decoration: none; }
-.pd-share i { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
-.pd-share i .tf-i { width: 20px; height: 20px; }
 
 /* bar beli menempel di bawah (ponsel/tablet): tampil saat kotak beli / tombol utama tidak terlihat (JS) */
 .pd-stickybar { position: fixed; left: 0; right: 0; bottom: 65px; z-index: 1500; display: none; align-items: center; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--tf-line); background: rgba(255,255,255,.96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 -8px 24px rgba(17,24,39,.08); }
@@ -221,6 +215,45 @@ body.is-fs .pd-price { background: linear-gradient(100deg, #fff1f1 0%, #fff7ed 1
 .pd-gifts--b strong { display: block; color: var(--tf-ink); font-size: 13px; font-weight: 700; line-height: 1.3; }
 .pd-gifts--b em { color: var(--tf-muted); font-size: 12px; font-style: normal; }
 .pd-gifts--b i { padding: 3px 9px; border-radius: 999px; background: #e8f7ee; color: #15803d; font-size: 11.5px; font-style: normal; font-weight: 800; }
+/* ---- modal video: gelap, 16:9 radius 16, tombol tutup di luar kanan atas, keterangan di bawah ---- */
+.pd-vmodal .modal-dialog { max-width: 880px; }
+.pd-vmodal .modal-content { position: relative; padding: 0; border: 0; border-radius: 16px; background: transparent; box-shadow: none; overflow: visible; }
+.pd-vmodal__frame { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+.pd-vmodal__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pd-vmodal__close { position: absolute; top: -48px; right: 0; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; transition: background .15s ease; }
+.pd-vmodal__close:hover { background: rgba(255,255,255,.22); }
+.pd-vmodal__close .tf-i { width: 20px; height: 20px; }
+.pd-vmodal__cap { display: flex; align-items: center; gap: 12px; margin-top: 14px; color: #fff; }
+.pd-vmodal__cap img { height: 20px; width: auto; padding: 6px 8px; border-radius: 8px; background: #fff; box-sizing: content-box; }
+.pd-vmodal__cap strong { display: block; font-size: 14.5px; font-weight: 800; line-height: 1.2; }
+.pd-vmodal__cap span { color: rgba(255,255,255,.65); font-size: 12px; }
+.pd-vmodal__yt { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; padding: 8px 12px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: #fff; font-size: 12.5px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.pd-vmodal__yt:hover { background: rgba(255,255,255,.12); color: #fff; text-decoration: none; }
+.pd-vmodal__yt .tf-i { width: 16px; height: 16px; color: #ff4e45; }
+.modal-backdrop.pd-vmodal-bg.show, body.pd-video-open .modal-backdrop.show { opacity: .88; }
+@media (max-width: 767.98px) { .pd-vmodal .modal-dialog { margin: 0 12px; max-width: none; } .pd-vmodal__close { top: -46px; } .pd-vmodal__cap { flex-wrap: wrap; } .pd-vmodal__yt { margin-left: 0; } }
+/* ---- modal bagikan: pratinjau produk, kotak link + Salin, kanal berwarna merek ---- */
+.pd-smodal .modal-dialog { max-width: 460px; }
+.pd-smodal__prod { display: flex; align-items: center; gap: 12px; padding: 10px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fafafa; }
+.pd-smodal__prod img { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; background: #fff; border: 1px solid var(--tf-line); }
+.pd-smodal__prod strong { display: block; color: var(--tf-ink); font-size: 13.5px; font-weight: 800; line-height: 1.25; }
+.pd-smodal__prod span { color: var(--tf-muted); font-size: 12px; }
+.pd-smodal__link { display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 6px 6px 6px 12px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fff; }
+.pd-smodal__link > span { display: inline-flex; color: var(--tf-muted); }
+.pd-smodal__link .tf-i { width: 16px; height: 16px; }
+.pd-smodal__link input { flex: 1 1 auto; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--tf-body); font: inherit; font-size: 13px; text-overflow: ellipsis; }
+.pd-smodal__link .tf-btn { flex: none; min-height: 36px; padding: 0 16px; border-radius: 8px; font-size: 13px; box-shadow: none; }
+.pd-smodal__link .tf-btn:hover { transform: none; box-shadow: none; }
+.pd-smodal__link .tf-btn.is-done { background: #16a34a; }
+.pd-smodal__chs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+.pd-smodal__ch { display: grid; justify-items: center; gap: 8px; padding: 12px 6px; border-radius: 12px; color: var(--tf-ink); font-size: 12px; font-weight: 700; text-decoration: none; transition: background .15s ease; }
+.pd-smodal__ch:hover { background: #f6f7f9; color: var(--tf-ink); text-decoration: none; }
+.pd-smodal__ch i { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: #fff; box-shadow: 0 6px 16px rgba(17,24,39,.12); }
+.pd-smodal__ch i .tf-i { width: 22px; height: 22px; }
+.pd-smodal__ch--wa i { background: #25d366; }
+.pd-smodal__ch--x i { background: #111; }
+.pd-smodal__ch--fb i { background: #1877f2; }
+.pd-smodal__ch--mail i { background: var(--tf-orange); }
 /* ===== A · 3 kolom ===== */
 .pda-grid { display: grid; grid-template-columns: 420px minmax(0, 1fr) 320px; gap: 28px; align-items: stretch; }   /* stretch: kolom galeri & kotak beli setinggi baris, sticky di dalamnya bisa menempel */
 /* penempatan eksplisit: galeri · info · kotak beli (menutupi dua baris) ; baris 2 = Aksesoris/Alternatif di bawah galeri + info */

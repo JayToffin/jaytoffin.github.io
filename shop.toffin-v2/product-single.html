@@ -790,13 +790,25 @@
 					<li><a href="faq.html">FAQ</a></li>
 				</ul>
 
-	<div id="pd-video" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content">
-		<div class="modal-header"><h5 class="modal-title">Video produk</h5><button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
-		<div class="modal-body p-0"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1DIci0X6hhs" allowfullscreen loading="lazy" title="Video produk"></iframe></div></div>
+	<!-- Modal video: gelap sinematik, iframe diisi saat dibuka (autoplay) dan dikosongkan saat ditutup (tf-product.js) -->
+	<div id="pd-video" class="modal fade pd-vmodal" tabindex="-1" role="dialog" aria-label="Video produk" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
+		<button type="button" class="pd-vmodal__close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+		<div class="pd-vmodal__frame"><iframe data-pd-video-src="https://www.youtube.com/embed/1DIci0X6hhs?autoplay=1&rel=0&modestbranding=1" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Video produk"></iframe></div>
+		<div class="pd-vmodal__cap"><img src="images/brand/trim/4.png" alt=""><div><strong>Nuova Simonelli Appia Life 2 Group</strong><span>Video produk · 2:14</span></div><a href="https://www.youtube.com/watch?v=1DIci0X6hhs" target="_blank" rel="noopener noreferrer" class="pd-vmodal__yt"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-youtube"/></svg> Buka di YouTube</a></div>
 	</div></div></div>
-	<div id="pd-share" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-sm" role="document"><div class="modal-content">
-		<div class="modal-header"><h5 class="modal-title">Bagikan produk</h5><button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
-		<div class="modal-body"><div class="pd-share"><a href="https://wa.me/?text=https://toffin.id" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg></i>WhatsApp</a><a href="https://twitter.com/intent/tweet?url=https://toffin.id" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-x"/></svg></i>X</a><button type="button" data-pd-copy><i><svg class="tf-i" aria-hidden="true"><use href="#i-link"/></svg></i><span>Salin link</span></button></div></div>
+	<!-- Modal bagikan: pratinjau produk, kotak link + Salin, tombol kanal berwarna merek -->
+	<div id="pd-share" class="modal fade pd-smodal" tabindex="-1" role="dialog" aria-labelledby="pd-share-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
+		<div class="modal-header"><h5 class="modal-title" id="pd-share-title">Bagikan produk</h5><button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+		<div class="modal-body">
+			<div class="pd-smodal__prod"><img src="images/product1.png" alt=""><div><strong>Nuova Simonelli Appia Life 2 Group</strong><span>Rp 32.000.000 · Nuova Simonelli</span></div></div>
+			<div class="pd-smodal__link"><span><svg class="tf-i" aria-hidden="true"><use href="#i-link"/></svg></span><input type="text" readonly value="https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046" aria-label="Tautan produk" data-pd-share-url><button type="button" class="tf-btn" data-pd-copy><span>Salin</span></button></div>
+			<div class="pd-smodal__chs">
+				<a class="pd-smodal__ch pd-smodal__ch--wa" href="https://wa.me/?text=https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg></i>WhatsApp</a>
+				<a class="pd-smodal__ch pd-smodal__ch--x" href="https://twitter.com/intent/tweet?url=https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-x"/></svg></i>X</a>
+				<a class="pd-smodal__ch pd-smodal__ch--fb" href="https://www.facebook.com/sharer/sharer.php?u=https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046" target="_blank" rel="noopener noreferrer"><i><svg class="tf-i" aria-hidden="true"><use href="#i-brand-facebook"/></svg></i>Facebook</a>
+				<a class="pd-smodal__ch pd-smodal__ch--mail" href="mailto:?subject=Nuova%20Simonelli%20Appia%20Life%202%20Group&body=https://shop.toffin.id/product/nuova-simonelli-appia-life-2-group/41046"><i><svg class="tf-i" aria-hidden="true"><use href="#i-mail"/></svg></i>Email</a>
+			</div>
+		</div>
 	</div></div></div>
 
 	<div class="pd-lb" data-pd-lb hidden role="dialog" aria-modal="true" aria-label="Foto produk">

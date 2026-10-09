@@ -455,6 +455,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     (`.pd-gallery__lens`); tombol aksi galeri sempat disamakan dengan ikon kartu lalu **dikembalikan ke lingkaran putih 38 px** (permintaan
     Rendi), **favorit berfungsi** (`data-pd-fav` → `.is-on` merah #ff2d55 terisi,
     `aria-pressed`).
+    Modal video & bagikan didesain ulang: **video** gelap sinematik (dialog 880 px transparan, bingkai 16:9 radius 16,
+    tombol tutup di luar kanan atas, keterangan logo brand + judul + "Buka di YouTube"; iframe diisi saat `show.bs.modal`
+    dengan autoplay dan dikosongkan saat `hidden` supaya suara berhenti; backdrop lebih gelap); **bagikan** = pratinjau
+    produk (foto, nama, harga), kotak tautan + tombol Salin (hijau "Tersalin" 1,6 dtk, fallback execCommand), empat kanal
+    bulat berwarna merek (WhatsApp, X, Facebook, Email). Diuji 1440/500 px.
 
 ## Bobot aset lokal `index.html`
 

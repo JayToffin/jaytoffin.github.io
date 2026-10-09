@@ -125,7 +125,16 @@
 	/* favorit: tandai terpilih (seperti ikon hati kartu produk) */
 	document.querySelectorAll('[data-pd-fav]').forEach(function (b) { b.addEventListener('click', function () { var on = !b.classList.contains('is-on'); b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on); }); });
 	/* salin link */
-	document.querySelectorAll('[data-pd-copy]').forEach(function (b) { b.addEventListener('click', function () { var s = b.querySelector('span'); try { navigator.clipboard.writeText(location.href); } catch (e) {} s.textContent = 'Tersalin'; setTimeout(function () { s.textContent = 'Salin link'; }, 1500); }); });
+	document.querySelectorAll('[data-pd-copy]').forEach(function (b) { b.addEventListener('click', function () {
+		var s = b.querySelector('span'), inp = document.querySelector('[data-pd-share-url]'), url = inp ? inp.value : location.href;
+		try { navigator.clipboard.writeText(url); } catch (e) { if (inp) { inp.select(); document.execCommand('copy'); } }
+		b.classList.add('is-done'); s.textContent = 'Tersalin'; setTimeout(function () { b.classList.remove('is-done'); s.textContent = 'Salin'; }, 1600);
+	}); });
+	/* video: iframe diisi saat modal dibuka (autoplay), dikosongkan saat ditutup supaya suara berhenti */
+	if (window.jQuery) {
+		jQuery('#pd-video').on('show.bs.modal', function () { var f = this.querySelector('iframe'); f.src = f.getAttribute('data-pd-video-src'); document.body.classList.add('pd-video-open'); })
+			.on('hidden.bs.modal', function () { this.querySelector('iframe').src = 'about:blank'; document.body.classList.remove('pd-video-open'); });
+	}
 	initGallery();
 	var v0 = root.querySelector('input[name=variant_id]:checked'); if (v0) document.body.classList.toggle('is-fs', v0.getAttribute('data-fs') === '1');
 }());
