@@ -122,6 +122,8 @@
 		bar.classList.toggle('is-on', r.bottom < 0 || r.top > window.innerHeight);
 	}
 	window.addEventListener('scroll', stickyBar, { passive: true }); window.addEventListener('resize', stickyBar); stickyBar();
+	/* favorit: tandai terpilih (seperti ikon hati kartu produk) */
+	document.querySelectorAll('[data-pd-fav]').forEach(function (b) { b.addEventListener('click', function () { var on = !b.classList.contains('is-on'); b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on); }); });
 	/* salin link */
 	document.querySelectorAll('[data-pd-copy]').forEach(function (b) { b.addEventListener('click', function () { var s = b.querySelector('span'); try { navigator.clipboard.writeText(location.href); } catch (e) {} s.textContent = 'Tersalin'; setTimeout(function () { s.textContent = 'Salin link'; }, 1500); }); });
 	initGallery();
