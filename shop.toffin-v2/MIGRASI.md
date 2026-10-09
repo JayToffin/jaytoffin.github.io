@@ -271,6 +271,180 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     coffee-grinder, water-treatment, manual-brew, gelato-soft-ice, hot-kitchen, cold-kitchen,
     other-equipment .png): dipotong rapat ke objek (bayangan & ruang kosong dibuang), persegi dengan
     margin tipis, 128×128 px. File asli di `images/` tidak diubah karena sebagian dipakai di tempat lain.
+20. **Toffin Rewards → tab Voucher berisi daftar voucher** (2026-10-06). Gaya tiket seperti coupon.html
+    (gambar kiri, judul + syarat singkat + link "Syarat & Ketentuan" → coupon.html, tanggal berakhir merah di
+    kanan dengan garis putus-putus dan lekukan), 5 contoh voucher, bisa digeser: preset `vouchers` di
+    tf-sliders.js (1,12 kartu per layar, `observer`/`observeParents` karena panel tersembunyi sampai tab
+    dibuka); panah kecil di bawah lewat pembungkus `[data-tf-slider-wrap]` + `[data-tf-prev]`/`[data-tf-next]`
+    (dukungan baru di `navFor`). Gambar voucher `images/voucher/voucher-default.jpg` (240 px, 8 KB) dibuat
+    dari images/coupon.png (2,4 MB, tidak diubah). CSS `.tf-voucher*`/`.tf-vslider*` di home-modern.css.
+    Revisi: tiket dipadatkan (gambar 36 px, judul + syarat + "S&K" sebaris, tanggal kanan) supaya tab Voucher
+    setinggi tab Poin & Service Credit; ketiga panel ditumpuk dalam `.tf-rpanels` (grid satu sel,
+    `minmax(0,1fr)`, panel nonaktif `visibility:hidden`) sehingga kotak Rewards tidak melompat saat ganti tab.
+    Opsi desain voucher lain (stub nilai, kartu gradien, minimal) ada di `preview-voucher.html`.
+    Revisi 2: kartu lebih lebar (1,05 per layar), teks lebih kecil (judul 12,5 px, syarat 11 px), kolom kanan
+    berisi "s/d <tanggal>" + tombol "Gunakan" → cart.html (voucher dipakai saat checkout).
+    Revisi 3: kartu setinggi kotak "Poin Kamu" (60 px); kiri 3 baris (judul / syarat / "s/d <tanggal> · S&K"),
+    kanan hanya tombol "Gunakan" (`.tf-voucher__act`, menggantikan `.tf-voucher__exp`).
+    Revisi 4 (opsi F di preview-voucher.html, gabungan "stub nilai" + "kartu gradien"): gambar diganti stub
+    nilai `.tf-voucher__stub` (gradien oranye, tepi berlubang, mis. "25% / OFF", "500rb / POTONGAN" — butuh
+    field nilai & satuan dari Odoo), badan rona oranye tipis, tombol "Gunakan" gaya tombol tema (oranye solid,
+    sudut 8 px). `.tf-vslider__foot` margin 4 px supaya tab Voucher tetap 88 px = tab Poin.
+    `images/voucher/voucher-default.jpg` tidak dipakai lagi.
+
+21. **Halaman Brand: tiga usulan desain** (2026-10-09, `preview-brand.html`). Draf `brand.html` +
+    `assets/css/brand-modern.css` dari Codex (header/footer sendiri `.brand-header`, hero kotak + panel statistik,
+    grid 4 kolom berhuruf) **tidak dipakai**: keputusan Rendi, header & footer harus tema utama dan desainnya tidak
+    disukai. Ketiga usulan berdiri di atas chrome v2 asli (sprite, chat, sheet, header, footer, bottom nav disalin
+    dari `index.html`; menu "Brand" diberi `is-active`), tanpa jQuery; cari + filter kategori berfungsi di tiap
+    usulan; pengalih A/B/C di atas dan mengambang (hash `#a` / `#b` / `#c`).
+    **A Direktori**: judul + kolom cari, chip kategori sticky di bawah header (67 / 95 px), baris "Brand unggulan"
+    (4 kartu logo + tagline + foto produk; geser di ponsel), grid kartu logo 6/4/3/2 kolom (nama, kategori, jumlah
+    produk). **B Spotlight**: panel hero gelap radius 20 (judul, cari, statistik, marquee logo dua baris murni CSS,
+    berhenti saat hover / `prefers-reduced-motion`), chip kategori, bento 4 kartu spotlight berfoto produk
+    (Victoria Arduino, Nuova Simonelli, Eversys, Moccamaster), brand dikelompokkan per kategori (tile logo; baris
+    geser di ponsel), pita CTA WhatsApp. **C Katalog A–Z**: tata letak daftar produk (sidebar 215 px sticky:
+    kategori + abjad, jadi chip di < 992 px), baris brand dikelompokkan per huruf (logo · nama + tagline · pil
+    kategori · jumlah produk · chevron), 2 kolom hanya ≥ 1200 px.
+    Data = contoh dan perlu field backend: 24 brand (22 dari brand.html + DaVinci Gourmet & Unox yang logonya
+    sudah ada, `images/brand/32.png` & `33.png`; `31.png` Simonelli Group tidak dipakai karena grup induk, bukan
+    brand), negara asal, tagline, jumlah produk. Tautan kartu → `brand/*.html` (22 halaman lama) atau
+    `product-list.html?brand=…`. Grup kategori: Mesin Kopi & Grinder 6 · Brewer & Manual Brew 3 · Ingredients 6 ·
+    Kitchen & Gelato Equipment 8 · Water Treatment 1. Logo dipotong rapat ke `images/brand/trim/` (bbox alpha
+    > 16 + margin 3 %, sisi terpanjang 400 px, total 688 KB; file asli tidak diubah) supaya ukuran tampak seragam
+    di kartu; PNG asli 500×500 menyisakan logo kecil di tengah kotak. Diuji 1440/1024/500 px, nol error JS.
+    **Keputusan Rendi 2026-10-09: hero usulan B + grid "Semua brand" usulan A, tanpa "Brand unggulan".**
+    Diterapkan hari itu juga: `brand.html` ditulis ulang di atas chrome v2 (memuat hanya `bootstrap.min.css`,
+    `tf-base`, `tf-layout`, `brand-modern.css`; skrip `tf-nav`, `tf-search`, `mobile-nav`, `tf-brand.js`; tanpa
+    jQuery, tanpa Swiper). Susunan: hero gelap (remah roti, eyebrow, H1, lead, kolom cari, 3 statistik, marquee
+    logo) → chip kategori sticky → "Semua brand" (judul + jumlah tampil + "Urut A–Z", grid 6/4/3/2) → keadaan
+    kosong dengan tombol Reset. `assets/css/brand-modern.css` diganti seluruhnya (isi Codex dibuang), semua kelas
+    berprefix **`tf-brands`** (bukan `tf-brand`: itu kelas link logo di header, `.tf-brand { display:inline-flex }`
+    + disembunyikan < 1200 px di tf-layout.css, sehingga percobaan pertama membuat hero & grid berjajar dan konten
+    hilang di ponsel), 10 KB, mandiri dari home-modern/tf-products. `assets/js/tf-brands.js` (2 KB): cari + filter
+    kategori di klien, angka total & tampil dihitung dari DOM, membaca `?q=` dan `?cat=mesin|brew|bahan|dapur|air`.
+    Diuji 1440/500 px + `?q=ta&cat=dapur` (hasil: Ta Chung Ho & Vitamix), nol error JS. `preview-brand.html`
+    dibiarkan sebagai arsip seperti preview lain.
+
+22. **Paket Bundling: tiga usulan desain ulang** (2026-10-09, `preview-bundle.html`). Versi product-bundle.html yang
+    ada (hero + panel statistik, chip, baris ringkasan gelap + slider 4 kartu Appia yang sama) dinilai kurang; di ponsel
+    ringkasannya malah menimpa kartu. Usulan baru di atas chrome v2, kartu produk = kartu global (tanpa tombol & hati;
+    baris "1 unit · pilih varian"), tanpa Swiper (scroll-snap), data paket realistis dihitung dari isi: Home 5 produk
+    satuan 35,9 jt → paket 32,9 jt (hemat 8 %), Cafe 6 produk 300,8 jt → 279 jt (7 %), Office 4 produk 196,7 jt →
+    182,5 jt (7 %); ikon paket memakai `images/tfn-for-home|cafe|office.png`. **A Pilih paket**: tiga kartu paket
+    berdampingan gaya pricing table (ikon, untuk siapa, tagline, kotak harga + satuan dicoret + pil Hemat hijau, CTA
+    penuh, daftar isi paket berfoto kecil; Cafe ditandai "Paling laris" dengan bingkai oranye & tombol gelap), strip
+    3 keunggulan (instalasi & training, garansi, cicilan). **B Tab per paket**: tab kartu sticky (ikon, nama, harga),
+    satu paket tampil: ringkasan (fakta, kotak harga + CTA) lalu grid kartu produk 4/3/2 kolom, ditutup tabel
+    "Bandingkan paket" (produk, satuan, paket, hemat, tombol Lihat). **C Baris paket**: semua paket terlihat, tiap
+    paket satu kartu: header (ikon, nama, tagline, harga + hemat + CTA) dan baris produk yang digeser (5/4/3/2 kartu),
+    chip lompat Home/Cafe/Office mengikuti scroll. Diuji 1440/500 px.
+    Umpan balik Rendi: A & C oke tapi mau yang lebih menarik; halaman harus langsung belanja (tanpa deskripsi ala
+    company profile) dan bisa memuat 10+ paket. Pratinjau ke-2 `preview-bundle-2.html` (12 paket contoh, 5 kategori
+    Home/Cafe/Office/Gelato/Kitchen, chip filter + urutkan Harga/Hemat berfungsi, mosaik foto 2×2 + "+N" per paket,
+    kartu produk global tanpa tombol): **D Grid katalog** (4/3/2 kolom; kartu = mosaik, label Terlaris/Baru, nama,
+    harga, pil Hemat %, satuan dicoret, tombol Tambah paket + "Isi paket" lipat), **E Daftar + detail** (daftar paket
+    sticky 340 px di kiri, kanan = bar beli + grid produk paket terpilih; di < 992 daftar jadi kartu geser), **F Baris
+    lipat** (satu baris per paket: 4 foto mini, nama, harga, Hemat, tombol, chevron; klik membuka baris produk).
+    Rendi: D–F terlalu ramai. Pratinjau ke-3 `preview-bundle-3.html` versi tenang (satu foto, satu harga, satu tombol;
+    tab teks): **G Grid tenang**, **H Daftar bersih**, **I Kartu lebar**.
+    **Keputusan Rendi 2026-10-09: tetap model baris + slider yang sudah ada (ringkasan kiri, isi paket digeser kanan),
+    dirapikan.** Diterapkan di `product-bundle.html` + `product-bundle.css` (bagian halaman ditulis ulang, blok modal
+    varian `.bv-*` dipertahankan) + `tf-bundle.js`: hero/statistik/chip dibuang → judul + tab kategori sticky (teks
+    bergaris bawah, Semua/Home/Cafe/Office/Gelato/Kitchen, menyaring baris, `data-tf-bundle-cat`); baris paket radius
+    16 dengan ringkasan 260 px (kategori · N produk, nama, "Harga paket", harga 22/900, "Satuan … · hemat N%", tombol
+    Tambah paket → modal varian yang lama) dan slider Swiper preset `bundle-items` berisi kartu produk global tanpa
+    tombol & hati ("1 unit · pilih varian"); panah kaca saat hover. < 992 px ringkasan jadi grid di atas slider
+    (nama kiri, harga + tombol kanan; di < 768 harga kiri, tombol kanan) sehingga bug ringkasan menimpa kartu hilang.
+    12 paket contoh. Diuji 1440/900/500 px.
+    Lanjutan: `preview-bundle-2.html` dan `preview-bundle-3.html` dihapus; `preview-bundle.html` ditulis ulang sebagai
+    **pembanding** tiga tata letak dengan data & gaya tenang yang sama: "Kini" (versi terpasang, ringkasan kiri + slider
+    Swiper), **C** (ringkasan di atas: nama kiri, harga + tombol kanan; produk digeser scroll-snap), **F** (baris lipat:
+    4 foto mini, nama, harga, tombol; chevron membuka baris produk). Pengalih `#now` / `#c` / `#f`.
+    **Keputusan akhir Rendi: versi "Kini".** Revisi terakhir di product-bundle.html: (a) header halaman ter-highlight
+    sebagai penanda bundling (`.tf-bundle-head`: pita gradien oranye lembut radius 16, ikon paket di kotak oranye 52 px,
+    judul + jumlah paket, satu kalimat, tiga pil poin: hemat sampai 27 %, instalasi & training, garansi resmi);
+    (b) ringkasan tiap baris diberi aksen: latar hangat tipis + garis oranye 3 px di kiri (di atas saat < 992 px), label
+    kategori oranye kapital; (c) **tab kategori dibuang** (Rendi: tidak perlu); (d) kasus paket > 10 produk: slide
+    ke-11 dst. `hidden`, ubin putus-putus "+N produk lainnya · Lihat semua N produk" di posisi ke-11 membukanya
+    (`data-bundle-more`, tf-bundle.js: tampilkan slide, hapus ubin, `swiper.update()` + `slideNext()`); contoh
+    "Cafe Premium 3 Group" diisi 14 produk. Diuji 1440/500 px.
+    Revisi Rendi: pita (ikon + pil) terlalu ramai → header jadi **blok berlatar lembut saja** (judul + jumlah + satu
+    kalimat, gradien #fff4e7 → #fffcf8, radius 16, tanpa ikon/pil); slider isi paket **5 kartu per baris** di ≥ 1200 px
+    (preset `bundle-items` di tf-sliders.js: 992 → 4, 1200 → 5), sisanya digeser. `preview-bundle.html` kini hanya
+    membandingkan dua varian header: A latar blok (terpasang) vs B latar penuh lebar di belakang remah roti + judul
+    (`.tf-bundle-page--band`). **Rendi memilih A**; CSS varian B dan `preview-bundle.html` dihapus. Halaman selesai.
+
+23. **Detail produk: dua usulan** (2026-10-09, `preview-product.html`). `product-single.html` dan
+    `product-single-flashsale.html` masih tema Winkel penuh (style.css, main.js, FA 6, owl, jQuery). Isi yang dibawa:
+    galeri + thumbnail (Swiper utama + thumbs), brand, judul, rating/terjual, harga + coret + Hemat %, varian warna,
+    produk gratis, jumlah, stok cabang lain (details), Tambah ke keranjang / Beli sekarang, tanya via WhatsApp,
+    deskripsi / spesifikasi / pengiriman & garansi, modal video & bagikan (WhatsApp, X, salin link), slider Aksesoris
+    & Alternatif (kartu produk global, preset `products`). Flash Sale = keadaan `body.is-fs` yang menampilkan
+    `[data-fs]`: badge merah di galeri, kotak harga rona merah, countdown + bar sisa stok, pil kedaluwarsa; selebihnya
+    identik dengan reguler (satu template, dua keadaan). **A 3 kolom + kotak beli**: galeri sticky 420 px · info
+    (judul, harga, varian, gratis, tab) · kotak beli sticky 320 px (ringkasan produk, jumlah, subtotal, dua tombol,
+    stok cabang); < 1200 kotak beli turun ke bawah. **B 2 kolom + akordeon**: galeri sticky setengah lebar · info +
+    kotak jumlah & tombol + akordeon. Ikon baru hanya di halaman ini (share, link, player-play, brand-x) ditambahkan ke
+    sprite halaman. Hash `#a` `#a-fs` `#b` `#b-fs`. Diuji 1440/500 px.
+    **Rendi memilih A** dan minta kotak beli tetap menempel. Perbaikan: (1) kolom grid harus `align-items: stretch`
+    (bukan start) supaya `position: sticky` di dalamnya punya ruang; (2) kolom kanan direntang dua baris
+    (`grid-row: 1 / 3`, kolom eksplisit; Aksesoris & Alternatif masuk grid sebagai baris 2 kolom 1–2, lebar 852 px =
+    4 kartu) sehingga kotak beli menempel sepanjang halaman, diukur: top 84 px pada scroll 1400; (3) < 1200 px kotak
+    beli turun ke bawah dan muncul **bar beli menempel di bawah** (`.pd-stickybar`: harga, varian, ikon keranjang,
+    Beli sekarang; tampil hanya saat tombol Beli utama tidak terlihat; di atas bottom nav). Pelajaran: `grid-row`
+    tanpa `grid-column` membuat item dilempar ke kolom pertama yang kosong.
+    Revisi Rendi: foto penuh tanpa padding (object-fit cover), panah galeri = panah global tf-products, spesifikasi satu
+    kolom, Aksesoris/Alternatif 4 kartu (preset baru `related` di tf-sliders.js: 2/3/4/4), "Beli sekarang" dihapus →
+    satu tombol "Add to cart" (mengikuti kartu), bar bawah ponsel juga.
+    **Disamakan dengan produksi** (shop.toffin.id/product/…/41046, diambil 2026-10-09): galeri = foto per varian
+    (`data-pid`), ganti varian → foto utama, harga, dan ketersediaan ikut (`data-avail=false` → chip coret "habis",
+    tombol nonaktif + pesan); wishlist & share (X, WhatsApp, salin link); deskripsi = paragraf + daftar fitur,
+    spesifikasi = baris "Kunci : Nilai" (Brand, Dimensions, Boiler, Power, Voltage, Frequency, Net Weight, Group
+    Height; di backend dipecah dari deskripsi); Quantity; Aksesoris Produk & Alternatif Produk. Rating/ulasan dan tab
+    pengiriman dibuang karena tidak ada di produksi. Ditambah **lightbox foto besar** (klik foto utama: overlay gelap,
+    foto maksimal, panah, strip thumbnail, Esc / ← →, posisi slider ikut saat ditutup).
+    Revisi Rendi: (a) **Rekomendasi cabang disamakan dengan fitur lama** (produksi tanpa login tidak menampilkannya;
+    acuan = mockup v1): judul "Rekomendasi Cabang", tombol "Rekomendasi stok cabang lain" membuka catatan (tambahan
+    ongkir, harga ikut cabang) + baris "Stok Toffin Bandung : 10+" / "Stok Toffin Bogor : 4" masing-masing dengan
+    stepper jumlah sendiri; ditaruh di kotak beli. (b) **Panah slider = homepage**: blok panah kaca `.tf-home
+    .tf-carousel` (muncul saat hover, chevron dari border, sembunyi di ujung) dipindah dari home-modern.css ke
+    tf-products.css sebagai `.tf-carousel` global tanpa perubahan nilai; home-modern hanya menyisakan versi hero.
+    Galeri detail (`.pd-gallery__main.tf-carousel`) dan baris Aksesoris/Alternatif memakainya. Homepage dicek tetap sama.
+    Revisi lanjutan: varian habis hanya dicoret (tanpa teks); baris cabang hanya nama (Toffin Bandung/Surabaya/Bogor) +
+    stepper; saat varian habis blok Rekomendasi Cabang naik ke atas tombol Add to cart (stepper utama nonaktif, "Stok
+    Jakarta: 0", pesan singkat) tapi **tetap tertutup**, pengguna membukanya sendiri.
+    Logika jumlah = produksi (screenshot + penjelasan Rendi 2026-10-09): angka stok **tidak ditampilkan** (aturan
+    internal), kecuali saat permintaan melebihi stok lokal → tampil "Stok yang tersedia: N", jumlah utama dipangkas ke N,
+    **sisanya otomatis dialokasikan** ke stepper cabang terdekat berurutan (Bandung → Surabaya → Bogor, masing-masing
+    sampai batasnya), panel Rekomendasi Cabang terbuka, hint oranye "Sebagian pesanan dipenuhi dari cabang lain", dan
+    baris "Total quantity: N (Jakarta a + cabang lain b)"; subtotal dari total; pengguna masih bisa mengubah stepper
+    cabang manual. Varian habis: stok lokal 0, panel tetap tertutup. Stok cabang ditampilkan untuk awam (pilihan dari
+    tiga opsi: "10+", "Lebih dari 10", "Stok tersedia/Sisa N"): **"Lebih dari 10"** bila > 10 (redup) dan **"Sisa N"**
+    bila ≤ 10 (oranye), di bawah nama cabang.
+    Revisi Rendi: jumlah utama **bebas** melebihi stok lokal (tidak dipangkas); kelebihannya otomatis diisi ke stepper
+    cabang terdekat, total = min(jumlah, stok lokal) + cabang, dan bila semua cabang pun kurang muncul "N unit belum
+    terpenuhi". Catatan panjang di panel dihapus; diganti **ikon info di sebelah judul "Rekomendasi Cabang" dengan
+    tooltip** (hover/fokus di desktop, ketuk di ponsel; klik di luar menutup). Tooltip dipilih atas modal karena teksnya
+    satu kalimat dan tidak boleh memutus alur mengisi jumlah.
+    Opsi galeri foto (pengalih 1–4 di pratinjau, tersimpan di localStorage): **1 Thumb bawah** (sekarang), **2 Thumb
+    kiri** (strip vertikal 64 px, foto utama lebih lebar; di ponsel kembali horizontal), **3 Grid foto** (1 besar +
+    4 kecil, ubin ke-5 "+N foto", klik → lightbox; tanpa slider), **4 Hover zoom** (lensa 2,2× mengikuti kursor di
+    desktop, thumbnail tetap). **Rendi memilih 1 + hover zoom.**
+    **Diterapkan 2026-10-09**: `product-single.html` dan `product-single-flashsale.html` ditulis ulang di atas chrome v2
+    (memuat Swiper CDN, bootstrap.min.css, tf-base, tf-layout, tf-products, `product-detail.css`; skrip jQuery/Popper/
+    Bootstrap untuk modal video & bagikan, tf-nav, tf-search, mobile-nav, Swiper, tf-sliders, `tf-product.js`). Satu
+    template: **flash sale berlaku per varian** lewat `data-fs="1"` pada radio varian (mengikuti produksi) → `body.is-fs`
+    menyalakan badge, kotak harga merah, countdown, bar sisa stok, pil kedaluwarsa; di halaman flash sale varian Hitam
+    ber-flash, Stainless/Merah reguler (ganti varian → flash padam, diuji). Hover zoom: lensa 2,2× di desktop, dimatikan
+    pada perangkat `(hover: none)`. Kepala section Aksesoris/Alternatif (.tf-head/.tf-title/.tf-viewall) disalin ke
+    product-detail.css karena home-modern.css tidak dimuat. 4 ikon baru masuk sprite sumber `assets/icons/tf-icons.svg`
+    (68 simbol) dan inline di kedua halaman. Diuji 1440/500 px, nol error JS. `preview-product.html` dibiarkan sebagai
+    arsip (pengalih A/B, Reguler/Flash, galeri 1–4).
+    Revisi Rendi: teks "Varian ini dipenuhi dari cabang lain…" dibuang; kotak beli memakai **satu urutan tetap** di semua
+    keadaan: Jumlah → Rekomendasi Cabang (tertutup) → Total/Subtotal → Add to cart → Tanya produk (input di atas tombol
+    utama, tombol tidak melompat saat varian berganti). Varian habis: stepper utama redup, tombol cabang diberi cincin
+    oranye tipis sebagai petunjuk.
 
 ## Bobot aset lokal `index.html`
 
