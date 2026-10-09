@@ -3,7 +3,7 @@
 Satu library: **Tabler Icons** v3.48.0 (MIT, https://tabler.io/icons), gaya outline 24 px stroke 2 px,
 dipakai sebagai SVG sprite, tanpa webfont dan tanpa Font Awesome (FA 5/6 bentrok dengan FA 4.7 bawaan Odoo 12).
 
-- `tf-icons.svg` = sprite lengkap (64 simbol). Blok yang sama disisipkan inline tepat setelah `<body>` di tiap halaman
+- `tf-icons.svg` = sprite lengkap (68 simbol; +share, link, player-play, brand-x untuk detail produk 2026-10-09). Blok yang sama disisipkan inline tepat setelah `<body>` di tiap halaman
   (blok `<svg id="tf-icons">`), karena `<use href="file.svg#id">` diblokir Chrome pada file://. Di Odoo, sisipkan sekali di
   `website.layout` lewat `t-call`.
 - Pakai: `<svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg>`; ukuran ikut `font-size` (1em), `tf-i--2x` = 2em.

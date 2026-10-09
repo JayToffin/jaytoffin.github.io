@@ -1,27 +1,258 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-	<title>Flash Sale: Nuova Simonelli Appia Life 2 Group - Toffin Indonesia</title>
+	<title>Pratinjau Detail Produk - Toffin v2</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-	<!-- Swiper 11 (CDN, sama dengan index.html): CSS-nya dimuat SEBELUM stack v2 supaya aturan .tf-* menang -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
-	<!-- Bootstrap 4.1.3 murni (grid, reboot, utilitas): tiruan bundle Odoo 12 -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-
-	<!-- Stack v2 -->
 	<link rel="stylesheet" href="assets/css/tf-base.css">
 	<link rel="stylesheet" href="assets/css/tf-layout.css">
 	<link rel="stylesheet" href="assets/css/tf-products.css">
-	<link rel="stylesheet" href="assets/css/product-detail.css">
-</head>
+	<link rel="stylesheet" href="assets/css/home-modern.css">
+	<!-- Halaman PRATINJAU detail produk: usulan A (galeri · info · kotak beli sticky) dan B (galeri · info + akordeon),
+	     tiap usulan punya keadaan Reguler / Flash Sale (body.is-fs menampilkan [data-fs]: badge, countdown, sisa stok,
+	     kedaluwarsa). Isi = halaman lama: galeri + thumb, varian, gratis, qty, stok cabang, video, share, Aksesoris,
+	     Alternatif. Hash: #a, #a-fs, #b, #b-fs. Data contoh. -->
+	<style>
+	[data-pv-opt][hidden] { display: none !important; }
+	.pv-top { max-width: 1240px; margin: 0 auto; padding: 14px 20px 0; }
+	.pv-top__box { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding: 10px 14px; border: 1px dashed #f3c48f; border-radius: 10px; background: #fffaf4; }
+	.pv-top__box p { margin: 0; color: var(--tf-body); font-size: 13px; }
+	.pv-top__box p b { color: var(--tf-ink); }
+	.pv-sw { display: flex; gap: 8px; flex-wrap: wrap; }
+	.pv-switch { display: inline-flex; padding: 3px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; }
+	.pv-switch button { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px; border: 0; border-radius: 999px; background: transparent; color: var(--tf-body); font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+	.pv-switch button i { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: #f1f2f4; color: var(--tf-ink); font-size: 10.5px; font-style: normal; font-weight: 900; }
+	.pv-switch button.is-on { background: var(--tf-orange); color: #fff; }
+	.pv-switch button.is-on i { background: rgba(255,255,255,.25); color: #fff; }
+	.pv-float { position: fixed; left: 50%; bottom: 18px; z-index: 1600; transform: translateX(-50%); box-shadow: 0 10px 30px rgba(17,24,39,.16); }
+	@media (max-width: 1199.98px) { .pv-float { bottom: 76px; } }
+	@media (max-width: 767.98px) { .pv-float { left: 12px; transform: none; } .pv-float button { padding: 6px 9px; font-size: 12px; } .pv-float button:not(.is-on) span { display: none; } }
+	body:not(.is-fs) [data-fs] { display: none !important; }
 
-<body class="is-fs">
+	/* ===== bersama ===== */
+	.pd { font-family: var(--tf-font); color: var(--tf-body); background: #fff; padding: 14px 0 56px; }
+	.pd *, .pd *::before, .pd *::after { box-sizing: border-box; }
+	.pd img { max-width: 100%; }
+	.pd-crumb { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; color: var(--tf-muted); font-size: 13px; }
+	.pd-crumb a { color: var(--tf-muted); text-decoration: none; }
+	.pd-crumb a:hover { color: var(--tf-orange-dark); }
+	.pd-crumb a + a::before, .pd-crumb span::before { content: "\203A"; margin-right: 6px; color: var(--tf-muted); }
+	.pd-crumb span { color: var(--tf-ink); font-weight: 600; }
+	/* galeri */
+	.pd-gallery { position: sticky; top: 84px; min-width: 0; max-width: 100%; }   /* min-width 0: kolom 1fr tidak ikut membesar oleh lebar slide */
+	.pda-col, .pdb-col { min-width: 0; }
+	.pd-gallery__main, .pd-gallery__swiper, .pd-gallery__thumbs { min-width: 0; max-width: 100%; }
+	.pd-gallery__main { position: relative; border: 1px solid var(--tf-line); border-radius: 16px; overflow: hidden; background: #fff; }
+	.pd-gallery__swiper { aspect-ratio: 1; width: 100%; }
+	.pd-gallery__swiper .swiper-slide { position: relative; height: 100%; }
+	.pd-gallery__swiper img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+	.pd-gallery__acts { position: absolute; top: 12px; right: 12px; z-index: 5; display: flex; flex-direction: column; gap: 8px; }
+	.pd-iconbtn { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--tf-line); border-radius: 50%; background: rgba(255,255,255,.95); color: var(--tf-ink); cursor: pointer; transition: color .15s ease, border-color .15s ease; }
+	.pd-iconbtn .tf-i { width: 18px; height: 18px; }
+	.pd-iconbtn:hover { color: var(--tf-orange-dark); border-color: var(--tf-orange); }
+	.pd-flag { position: absolute; top: 12px; left: 12px; z-index: 5; display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 999px; background: #ef4444; color: #fff; font-size: 12px; font-weight: 800; }
+	.pd-flag .tf-i { width: 14px; height: 14px; }
+	.pd-gallery__thumbs { margin-top: 10px; }
+	.pd-gallery__thumbs .swiper-slide { position: relative; aspect-ratio: 1; border: 1px solid var(--tf-line); border-radius: 10px; overflow: hidden; background: #fff; opacity: .55; cursor: pointer; transition: opacity .15s ease, border-color .15s ease; }
+	.pd-gallery__thumbs .swiper-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+	.pd-gallery__thumbs .swiper-slide-thumb-active { opacity: 1; border-color: var(--tf-orange); }
+	/* judul & harga */
+	.pd-brand { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; color: var(--tf-muted); font-size: 12.5px; font-weight: 700; text-decoration: none; }
+	.pd-brand img { height: 16px; width: auto; }
+	.pd-brand:hover { color: var(--tf-orange-dark); text-decoration: none; }
+	.pd-title h1 { margin: 0 0 8px; color: var(--tf-ink); font-size: 24px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+	.pd-meta { display: flex; align-items: center; gap: 6px; color: var(--tf-muted); font-size: 13px; }
+	.pd-meta b { color: var(--tf-ink); }
+	.pd-stars { display: inline-flex; color: #f59e0b; }
+	.pd-stars .tf-i { width: 15px; height: 15px; fill: currentColor; stroke: none; }
+	.pd-price { margin: 16px 0; padding: 14px 16px; border-radius: 14px; background: #f7f8fa; }
+	.pd-price__row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+	.pd-price__now { color: var(--tf-ink); font-size: 28px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
+	.pd-price__old { color: var(--tf-muted); font-size: 14px; }
+	.pd-save { padding: 3px 9px; border-radius: 999px; background: #e8f7ee; color: #15803d; font-size: 12px; font-weight: 800; }
+	body.is-fs .pd-price { background: linear-gradient(100deg, #fff1f1 0%, #fff7ed 100%); border: 1px solid #fecaca; }
+	.pd-fsbar { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 12px; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #fecaca; }
+	.pd-fsbar__l { display: inline-flex; align-items: center; gap: 6px; color: #b91c1c; font-size: 12.5px; font-weight: 800; }
+	.pd-fsbar__l .tf-i { width: 15px; height: 15px; }
+	.pd-fsbar__t { display: inline-flex; align-items: center; gap: 3px; color: #b91c1c; font-size: 13px; font-weight: 900; }
+	.pd-fsbar__t b { display: inline-grid; place-items: center; min-width: 26px; height: 24px; padding: 0 5px; border-radius: 6px; background: #ef4444; color: #fff; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+	.pd-fsbar__stock { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: center; }
+	.pd-fsbar__stock em { color: #b91c1c; font-size: 11.5px; font-style: normal; font-weight: 700; white-space: nowrap; }
+	.pd-fsbar__stock em b { font-weight: 900; }
+	.pd-fsbar__stock > i { display: block; height: 8px; border-radius: 999px; background: #ffe4e6; overflow: hidden; }
+	.pd-fsbar__stock > i > i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #f97316, #ef4444); }
+	.pd-perks { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 12px 0 0; padding: 0; list-style: none; }
+	.pd-perks li { display: inline-flex; align-items: center; gap: 6px; color: var(--tf-body); font-size: 12.5px; font-weight: 600; }
+	.pd-perks .tf-i { width: 15px; height: 15px; color: var(--tf-orange-dark); }
+	.pd-perks__exp { color: #b91c1c !important; }
+	.pd-perks__exp .tf-i { color: #b91c1c !important; }
+	/* varian, gratis, qty */
+	.pd-field { margin: 0 0 14px; }
+	.pd-field__l { display: block; margin-bottom: 8px; color: var(--tf-ink); font-size: 13.5px; font-weight: 800; }
+	.pd-field__l b { margin-left: 4px; color: var(--tf-muted); font-weight: 600; }
+	.pd-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+	.pd-chip input { position: absolute; opacity: 0; pointer-events: none; }
+	.pd-chip span { display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font-size: 13px; font-weight: 700; cursor: pointer; transition: border-color .15s ease, background .15s ease, color .15s ease; }
+	.pd-chip:hover span { border-color: rgba(248,148,31,.5); }
+	.pd-chip input:checked + span { border-color: var(--tf-orange); background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+	.pd-chip input:focus-visible + span { box-shadow: 0 0 0 3px rgba(248,148,31,.25); }
+	.pd-gifts { display: flex; flex-wrap: wrap; gap: 8px; }
+	.pd-gifts span { display: inline-flex; align-items: center; gap: 6px; padding: 6px 11px; border-radius: 999px; background: #e8f7ee; color: #15803d; font-size: 12.5px; font-weight: 700; }
+	.pd-gifts .tf-i { width: 14px; height: 14px; }
+	.pd-qty { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; }
+	.pd-qty .pd-field__l { margin: 0; }
+	.pd-stepper { display: inline-flex; align-items: center; height: 40px; border: 1px solid var(--tf-line); border-radius: 10px; overflow: hidden; }
+	.pd-stepper button { display: grid; place-items: center; width: 38px; height: 100%; border: 0; background: #fff; color: var(--tf-ink); cursor: pointer; }
+	.pd-stepper button:hover { color: var(--tf-orange-dark); background: #fafafa; }
+	.pd-stepper .tf-i { width: 16px; height: 16px; }
+	.pd-stepper input { width: 48px; height: 100%; border: 0; border-left: 1px solid var(--tf-line); border-right: 1px solid var(--tf-line); text-align: center; font: inherit; font-size: 14px; font-weight: 800; color: var(--tf-ink); outline: 0; }
+	.pd-stock { color: var(--tf-muted); font-size: 12.5px; }
+	.pd-stock b { color: var(--tf-ink); }
+	.pd-cta { display: grid; margin-top: 14px; }
+	.pd-cta .tf-btn { justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 10px; font-size: 14px; box-shadow: none; }
+	.pd-cta .tf-btn:hover { transform: none; box-shadow: none; }
+	.pd-cta .tf-btn--ghost { border: 1px solid var(--tf-orange); color: var(--tf-orange-dark); }
+	.pd-cta .tf-i { width: 18px; height: 18px; }
+	.pd-ask { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; color: var(--tf-body); font-size: 13px; font-weight: 700; text-decoration: none; }
+	.pd-ask .tf-i { width: 16px; height: 16px; color: #16a34a; }
+	.pd-ask:hover { color: var(--tf-orange-dark); text-decoration: none; }
+	/* rekomendasi cabang (fitur mockup v1): tombol membuka catatan + stok per cabang dengan jumlah sendiri */
+	.pd-branch { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--tf-line); }
+	.pd-branch .pd-field__l { margin-bottom: 8px; }
+	.pd-branch__btn { display: inline-flex; align-items: center; gap: 8px; width: 100%; min-height: 40px; padding: 0 14px; border: 1px solid var(--tf-orange); border-radius: 10px; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; transition: background .15s ease; }
+	.pd-branch__btn:hover { background: #ffe9d1; }
+	.pd-branch__btn .tf-i { width: 16px; height: 16px; margin-left: auto; transition: transform .2s ease; }
+	.pd-branch__btn[aria-expanded="true"] .tf-i { transform: rotate(180deg); }
+	.pd-branch__panel { margin-top: 10px; padding: 12px 14px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fafafa; }
+	.pd-branch__panel[hidden] { display: none; }
+	.pd-branch__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--tf-line); }
+	.pd-branch__row:first-child { border-top: 0; padding-top: 2px; }
+	.pd-branch__stock { color: var(--tf-ink); font-size: 13.5px; font-weight: 700; }
+	.pd-branch__stock small { display: block; margin-top: 1px; color: var(--tf-muted); font-size: 11.5px; font-weight: 600; }
+	.pd-branch__stock small.is-low { color: var(--tf-orange-dark); }
+	.pd-branch__stock b { color: var(--tf-ink); font-weight: 800; }
+	.pd-stepper--sm { height: 34px; }
+	.pd-stepper--sm button { width: 32px; }
+	.pd-stepper--sm input { width: 40px; font-size: 13px; }
+	/* tab / akordeon / spesifikasi */
+	.pd-tabs { display: flex; gap: 20px; margin: 22px 0 14px; border-bottom: 1px solid var(--tf-line); overflow-x: auto; scrollbar-width: none; }
+	.pd-tabs button { flex: none; padding: 10px 2px 12px; margin-bottom: -1px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--tf-muted); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+	.pd-tabs button.is-active { color: var(--tf-ink); border-color: var(--tf-orange); }
+	.pd-tabpanel { color: var(--tf-body); font-size: 14px; line-height: 1.65; }
+	.pd-tabpanel[hidden] { display: none; }
+	.pd-tabpanel p { margin: 0 0 10px; }
+	.pd-specs { display: grid; grid-template-columns: 1fr; margin: 0; }
+	.pd-spec { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--tf-line); font-size: 13.5px; }
+	.pd-spec dt { color: var(--tf-muted); font-weight: 600; }
+	.pd-spec dd { margin: 0; color: var(--tf-ink); font-weight: 700; }
+	.pd-acc { margin-top: 18px; border-top: 1px solid var(--tf-line); }
+	.pd-acc details { border-bottom: 1px solid var(--tf-line); }
+	.pd-acc summary { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; color: var(--tf-ink); font-size: 15px; font-weight: 800; cursor: pointer; list-style: none; }
+	.pd-acc summary::-webkit-details-marker { display: none; }
+	.pd-acc summary .tf-i { width: 18px; height: 18px; color: var(--tf-muted); transition: transform .2s ease; }
+	.pd-acc details[open] summary .tf-i { transform: rotate(180deg); }
+	.pd-acc__b { padding: 0 0 16px; color: var(--tf-body); font-size: 14px; line-height: 1.65; }
+	.pd-acc__b p { margin: 0 0 10px; }
+	/* produk terkait */
+	.pd-rel { margin-top: 40px; }
+	.pd-rel .tf-head { margin-bottom: 14px; }
+	.pd-rel .tf-carousel { position: relative; }
+	/* share */
+	.pd-share { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+	.pd-share a, .pd-share button { display: grid; justify-items: center; gap: 8px; padding: 14px 8px; border: 1px solid var(--tf-line); border-radius: 12px; background: #fff; color: var(--tf-ink); font: inherit; font-size: 12.5px; font-weight: 700; text-decoration: none; cursor: pointer; }
+	.pd-share a:hover, .pd-share button:hover { border-color: var(--tf-orange); color: var(--tf-ink); text-decoration: none; }
+	.pd-share i { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+	.pd-share i .tf-i { width: 20px; height: 20px; }
+
+	/* bar beli menempel di bawah (ponsel/tablet): tampil saat kotak beli / tombol utama tidak terlihat (JS) */
+	.pd-stickybar { position: fixed; left: 0; right: 0; bottom: 65px; z-index: 1500; display: none; align-items: center; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--tf-line); background: rgba(255,255,255,.96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 -8px 24px rgba(17,24,39,.08); }
+	.pd-stickybar__p { display: grid; min-width: 0; margin-right: auto; }
+	.pd-stickybar__p strong { color: var(--tf-ink); font-size: 16px; font-weight: 900; line-height: 1.1; white-space: nowrap; }
+	.pd-stickybar__p span { color: var(--tf-muted); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+	.pd-stickybar .tf-btn { justify-content: center; min-height: 40px; padding: 0 14px; border-radius: 10px; font-size: 13px; box-shadow: none; }
+	.pd-stickybar .tf-btn--ghost { border: 1px solid var(--tf-orange); color: var(--tf-orange-dark); }
+	.pd-stickybar .tf-i { width: 18px; height: 18px; }
+	@media (max-width: 1199.98px) { .pd-stickybar.is-on { display: flex; } }
+	@media (min-width: 1200px) { .pd-stickybar { display: none !important; } }
+	.pd-gallery__zoom { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+	.pd-chip.is-off span { color: #9aa0ad; border-style: dashed; text-decoration: line-through; }
+	.pd-chip.is-off input:checked + span { background: #f6f7f9; border-color: #c9ced8; color: #6d7588; }
+	.tf-btn[disabled] { opacity: .45; cursor: not-allowed; }
+	/* lightbox foto besar */
+	.pd-lb { position: fixed; inset: 0; z-index: 2000; display: grid; grid-template-rows: minmax(0, 1fr) auto; background: rgba(17, 24, 39, .94); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+	.pd-lb[hidden] { display: none; }
+	.pd-lb__fig { display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; align-items: center; margin: 0; padding: 56px 72px 12px; min-height: 0; }
+	.pd-lb__fig img { max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 12px; background: #fff; object-fit: contain; }
+	.pd-lb__fig figcaption { margin-top: 10px; color: rgba(255,255,255,.75); font-size: 13px; }
+	.pd-lb__close, .pd-lb__nav { position: absolute; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; transition: background .15s ease; }
+	.pd-lb__close:hover, .pd-lb__nav:hover { background: rgba(255,255,255,.22); }
+	.pd-lb__close { top: 16px; right: 16px; }
+	.pd-lb__nav { top: 50%; transform: translateY(-50%); }
+	.pd-lb__nav--prev { left: 16px; } .pd-lb__nav--next { right: 16px; }
+	.pd-lb__nav .tf-i, .pd-lb__close .tf-i { width: 22px; height: 22px; }
+	.pd-lb__thumbs { display: flex; justify-content: center; gap: 8px; padding: 0 16px 18px; overflow-x: auto; scrollbar-width: none; }
+	.pd-lb__thumbs button { flex: none; width: 56px; height: 56px; padding: 0; border: 2px solid transparent; border-radius: 8px; background: #fff; overflow: hidden; cursor: pointer; opacity: .55; }
+	.pd-lb__thumbs button img { width: 100%; height: 100%; object-fit: cover; }
+	.pd-lb__thumbs button.is-on { border-color: var(--tf-orange); opacity: 1; }
+	@media (max-width: 767.98px) { .pd-lb__fig { padding: 56px 12px 8px; } .pd-lb__nav { width: 38px; height: 38px; } .pd-lb__nav--prev { left: 6px; } .pd-lb__nav--next { right: 6px; } }
+	/* kotak beli: satu urutan tetap di semua keadaan — jumlah → rekomendasi cabang → total/subtotal → Add to cart → tanya */
+	.pd-buybox { display: flex; flex-direction: column; }
+	.pd-buybox > .pd-buybox__h { order: 1; } .pd-buybox > .pd-buybox__prod { order: 2; } .pd-buybox > .pd-qty { order: 3; }
+	.pd-buybox > .pd-branch { order: 4; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--tf-line); }
+	.pd-buybox > .pd-total { order: 5; } .pd-buybox > .pd-subtotal { order: 6; } .pd-buybox > .pd-cta { order: 7; } .pd-buybox > .pd-ask { order: 8; }
+	.pd-buybox.is-soldout > .pd-qty .pd-stepper { opacity: .4; pointer-events: none; }
+	.pd-buybox.is-soldout > .pd-qty .pd-stock b { color: #b91c1c; }
+	.pd-buybox.is-soldout > .pd-branch .pd-branch__btn { box-shadow: 0 0 0 3px rgba(248,148,31,.18); }   /* varian habis: tombol cabang ditonjolkan */
+	.pd-total { margin-top: 10px; color: var(--tf-body); font-size: 13px; }
+	.pd-total b { color: var(--tf-ink); }
+	.pd-total small { color: var(--tf-muted); font-size: 11.5px; }
+	.pd-total[hidden] { display: none; }
+	.pd-stock[hidden] { display: none; }
+	.pd-qty__hint { flex-basis: 100%; color: var(--tf-orange-dark); font-size: 12px; font-weight: 600; }
+	.pd-qty__hint[hidden] { display: none; }
+	/* ikon info + tooltip (hover/fokus di desktop, ketuk di ponsel) */
+	.pd-branch__h { display: flex; align-items: center; gap: 6px; }
+	.pd-tip { position: relative; display: inline-flex; }
+	.pd-tip__btn { display: grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--tf-muted); cursor: pointer; }
+	.pd-tip__btn .tf-i { width: 17px; height: 17px; }
+	.pd-tip__btn:hover, .pd-tip.is-open .pd-tip__btn { color: var(--tf-orange-dark); }
+	.pd-tip__box { position: absolute; left: 50%; bottom: calc(100% + 8px); z-index: 30; width: 250px; padding: 10px 12px; border-radius: 10px; background: var(--tf-ink); color: #fff; font-size: 12px; font-weight: 500; line-height: 1.45; transform: translateX(-50%); box-shadow: 0 10px 26px rgba(17,24,39,.22); opacity: 0; visibility: hidden; transition: opacity .15s ease, visibility .15s ease; }
+	.pd-tip__box::after { content: ""; position: absolute; left: 50%; top: 100%; border: 6px solid transparent; border-top-color: var(--tf-ink); transform: translateX(-50%); }
+	.pd-tip:hover .pd-tip__box, .pd-tip:focus-within .pd-tip__box, .pd-tip.is-open .pd-tip__box { opacity: 1; visibility: visible; }
+	@media (max-width: 767.98px) { .pd-tip__box { left: auto; right: -8px; transform: none; width: min(260px, 80vw); } .pd-tip__box::after { left: auto; right: 12px; transform: none; } }
+	.pd-short { margin-top: 6px; color: #b91c1c; font-size: 12px; font-weight: 700; }
+	.pd-short[hidden] { display: none; }
+	/* ===== A · 3 kolom ===== */
+	.pda-grid { display: grid; grid-template-columns: 420px minmax(0, 1fr) 320px; gap: 28px; align-items: stretch; }   /* stretch: kolom galeri & kotak beli setinggi baris, sticky di dalamnya bisa menempel */
+	/* penempatan eksplisit: galeri · info · kotak beli (menutupi dua baris) ; baris 2 = Aksesoris/Alternatif di bawah galeri + info */
+	.pda-col--gal { grid-column: 1; grid-row: 1; }
+	.pda-col--info { grid-column: 2; grid-row: 1; }
+	.pda-col--buy { grid-column: 3; grid-row: 1 / 3; }
+	.pda-col--rel { grid-column: 1 / 3; grid-row: 2; min-width: 0; }
+	.pda-col--rel .pd-rel:first-child { margin-top: 28px; }
+	.pd-buybox { position: sticky; top: 84px; padding: 16px; border: 1px solid var(--tf-line); border-radius: 16px; background: #fff; box-shadow: 0 10px 30px rgba(17,24,39,.06); }
+	.pd-buybox__h { margin-bottom: 12px; color: var(--tf-ink); font-size: 15px; font-weight: 800; }
+	.pd-buybox__prod { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: var(--tf-body); font-size: 13px; }
+	.pd-buybox__prod img { width: 48px; height: 48px; border: 1px solid var(--tf-line); border-radius: 8px; object-fit: contain; padding: 4px; }
+	.pd-buybox__prod b { color: var(--tf-ink); }
+	.pd-subtotal { display: flex; align-items: baseline; justify-content: space-between; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--tf-line); color: var(--tf-muted); font-size: 13px; }
+	.pd-subtotal b { color: var(--tf-ink); font-size: 18px; font-weight: 900; }
+	@media (max-width: 1199.98px) { .pda-grid { grid-template-columns: 380px minmax(0, 1fr); } .pda-col--gal { grid-column: 1; grid-row: 1; } .pda-col--info { grid-column: 2; grid-row: 1; } .pda-col--buy { grid-column: 1 / -1; grid-row: 2; } .pda-col--rel { grid-column: 1 / -1; grid-row: 3; } .pd-buybox { position: static; box-shadow: none; } }
+	@media (max-width: 767.98px) { .pda-grid { grid-template-columns: 1fr; gap: 18px; } .pda-col--gal, .pda-col--info, .pda-col--buy, .pda-col--rel { grid-column: 1; } .pda-col--gal { grid-row: 1; } .pda-col--info { grid-row: 2; } .pda-col--buy { grid-row: 3; } .pda-col--rel { grid-row: 4; } .pd-gallery { position: static; } .pd-title h1 { font-size: 20px; } .pd-price__now { font-size: 24px; } .pd-fsbar { grid-template-columns: 1fr; } }
+
+	/* ===== B · 2 kolom ===== */
+	.pdb-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: stretch; }
+	.pdb-buy { margin-top: 6px; padding: 16px; border: 1px solid var(--tf-line); border-radius: 14px; background: #fff; }
+	.pdb-buy .pd-cta { margin-top: 12px; }
+	.pdb-buy .pd-cta .tf-btn { max-width: 320px; }
+	@media (max-width: 991.98px) { .pdb-grid { grid-template-columns: 1fr; gap: 18px; } .pd-gallery { position: static; } }
+	@media (max-width: 767.98px) { .pd-title h1 { font-size: 20px; } .pd-price__now { font-size: 24px; } .pd-fsbar { grid-template-columns: 1fr; } }
+	</style>
+</head>
+<body>
 	<svg id="tf-icons" xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
 		<symbol id="i-adjustments-horizontal" viewBox="0 0 24 24"><path d="M12 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 6l8 0"/> <path d="M16 6l4 0"/> <path d="M6 12a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 12l2 0"/> <path d="M10 12l10 0"/> <path d="M15 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 18l11 0"/> <path d="M19 18l1 0"/></symbol>
 		<symbol id="i-alert-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 8v4"/> <path d="M12 16h.01"/></symbol>
@@ -595,11 +826,8 @@
 		</div>
 	</header>
 
-	<!-- ===== Detail produk (MIGRASI.md langkah 23). Satu template untuk reguler & flash sale: varian ber-data-fs="1"
-	     menyalakan body.is-fs (badge, kotak harga merah, countdown + sisa stok, kedaluwarsa). Galeri: Swiper utama +
-	     thumbnail, hover zoom (lensa) di desktop, klik → lightbox. Jumlah bebas; kelebihan di atas stok lokal otomatis
-	     dialokasikan ke cabang (tf-product.js). Data produk, stok, cabang = contoh; di backend dari Odoo. ===== -->
-<main class="pd pda" data-pd-page>
+	<div class="pv-top"><div class="pv-top__box"><p><b>Pratinjau detail produk.</b> Fitur = produksi shop.toffin.id: foto per varian, varian habis, wishlist, share, deskripsi + spesifikasi, Aksesoris, Alternatif; ditambah foto besar (klik foto). Reguler / Flash Sale satu template.</p><div class="pv-sw"><div class="pv-switch" role="group" aria-label="Galeri"><button type="button" data-pv-gal="1"><i>1</i><span>Thumb bawah</span></button><button type="button" data-pv-gal="2"><i>2</i><span>Thumb kiri</span></button><button type="button" data-pv-gal="3"><i>3</i><span>Grid foto</span></button><button type="button" data-pv-gal="4"><i>4</i><span>Hover zoom</span></button></div><div class="pv-switch" role="group" aria-label="Pilih usulan"><button type="button" data-pv-opt-go="a"><i>A</i><span>3 kolom + kotak beli</span></button><button type="button" data-pv-opt-go="b"><i>B</i><span>2 kolom + akordeon</span></button></div><div class="pv-switch" role="group" aria-label="Jenis produk"><button type="button" data-pv-fs-go="reg"><span>Reguler</span></button><button type="button" data-pv-fs-go="fs"><span>Flash Sale</span></button></div></div></div></div>
+<main class="pd pda" data-pv-opt="a" data-gal="1">
 	<div class="tf-container">
 		<nav class="pd-crumb" aria-label="Breadcrumb"><a href="index.html">Beranda</a><a href="product-list.html?cat=Coffee%20Machine">Coffee Machine</a><a href="product-list.html?cat=Commercial%20Espresso%20Machine">Commercial Espresso Machine</a><span>Appia Life 2 Group</span></nav>
 		<div class="pda-grid">
@@ -630,7 +858,7 @@
 	</div>
 	<ul class="pd-perks"><li><svg class="tf-i" aria-hidden="true"><use href="#i-truck"/></svg> Gratis ongkir min. Rp 500rb</li><li><svg class="tf-i" aria-hidden="true"><use href="#i-shield"/></svg> Garansi resmi</li><li class="pd-perks__exp" data-fs><svg class="tf-i" aria-hidden="true"><use href="#i-clock"/></svg> Kedaluwarsa 3–6 bulan</li></ul>
 </div>
-				<div class="pd-field"><span class="pd-field__l">Varian warna <b data-pd-varname>Hitam</b></span><div class="pd-chips" data-pd-variant><label class="pd-chip"><input type="radio" name="variant_id" data-fs="1" value="46934" data-name="Hitam" data-avail="true" data-price-text="Rp 32.000.000" data-price="32000000" checked><span>Hitam</span></label><label class="pd-chip"><input type="radio" name="variant_id" data-fs="0" value="46936" data-name="Stainless" data-avail="true" data-price-text="Rp 32.000.000" data-price="32000000"><span>Stainless</span></label><label class="pd-chip is-off"><input type="radio" name="variant_id" data-fs="0" value="46935" data-name="Merah" data-avail="false" data-price-text="Rp 32.500.000" data-price="32500000"><span>Merah</span></label></div></div>
+				<div class="pd-field"><span class="pd-field__l">Varian warna <b data-pd-varname>Hitam</b></span><div class="pd-chips" data-pd-variant><label class="pd-chip"><input type="radio" name="variant_id" value="46934" data-name="Hitam" data-avail="true" data-price-text="Rp 32.000.000" data-price="32000000" checked><span>Hitam</span></label><label class="pd-chip"><input type="radio" name="variant_id" value="46936" data-name="Stainless" data-avail="true" data-price-text="Rp 32.000.000" data-price="32000000"><span>Stainless</span></label><label class="pd-chip is-off"><input type="radio" name="variant_id" value="46935" data-name="Merah" data-avail="false" data-price-text="Rp 32.500.000" data-price="32500000"><span>Merah</span></label></div></div>
 <div class="pd-field"><span class="pd-field__l">Gratis</span><div class="pd-gifts"><span><svg class="tf-i" aria-hidden="true"><use href="#i-gift"/></svg> Tamper</span><span><svg class="tf-i" aria-hidden="true"><use href="#i-gift"/></svg> Powder 1 kg</span><span><svg class="tf-i" aria-hidden="true"><use href="#i-gift"/></svg> Coffee beans 1 kg</span></div></div>
 				<div class="pd-tabs" data-pd-tabs><button type="button" class="is-active" data-tab="desc">Deskripsi</button><button type="button" data-tab="spec">Spesifikasi</button></div>
 				<div class="pd-tabpanel" data-panel="desc"><p>Appia Life dikembangkan dari kesuksesan Appia. Dengan produktivitas dan performa tinggi, mesin ini diandalkan ribuan barista di seluruh dunia. Sederhana dan inovatif.</p>
@@ -684,6 +912,88 @@
 <a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-6.jpg" alt="" loading="lazy"></a>
 <div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">Eversys Cameo C2</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 265.000.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div></div></div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div></section></div>
 		</div>
+	</div>
+	<div class="pd-stickybar" data-pd-sticky><div class="pd-stickybar__p"><strong>Rp 32.000.000</strong><span>Appia Life 2 Group · <b data-pd-varname>Hitam</b></span></div><button type="button" class="tf-btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Add to cart</button></div>
+</main>
+<main class="pd pdb" data-pv-opt="b" hidden>
+	<div class="tf-container">
+		<nav class="pd-crumb" aria-label="Breadcrumb"><a href="index.html">Beranda</a><a href="product-list.html?cat=Coffee%20Machine">Coffee Machine</a><a href="product-list.html?cat=Commercial%20Espresso%20Machine">Commercial Espresso Machine</a><span>Appia Life 2 Group</span></nav>
+		<div class="pdb-grid">
+			<div class="pdb-col pdb-col--gal"><div class="pd-gallery" data-pd-gallery>
+	<div class="pd-gallery__main tf-carousel">
+		<div class="swiper pd-gallery__swiper" data-pd-main><div class="swiper-wrapper"><div class="swiper-slide" data-pid="46934"><button type="button" class="pd-gallery__zoom" data-pd-zoom="0" aria-label="Perbesar foto"><img src="images/product-2.jpg" alt="Appia Life 2 Group - Hitam" ></button></div><div class="swiper-slide" data-pid="46934"><button type="button" class="pd-gallery__zoom" data-pd-zoom="1" aria-label="Perbesar foto"><img src="images/product-1.1.jpg" alt="Appia Life 2 Group - Hitam" loading=lazy></button></div><div class="swiper-slide" data-pid="46934"><button type="button" class="pd-gallery__zoom" data-pd-zoom="2" aria-label="Perbesar foto"><img src="images/product-4.jpg" alt="Appia Life 2 Group - Hitam" loading=lazy></button></div><div class="swiper-slide" data-pid="46936"><button type="button" class="pd-gallery__zoom" data-pd-zoom="3" aria-label="Perbesar foto"><img src="images/product-3.jpg" alt="Appia Life 2 Group - Stainless" loading=lazy></button></div><div class="swiper-slide" data-pid="46936"><button type="button" class="pd-gallery__zoom" data-pd-zoom="4" aria-label="Perbesar foto"><img src="images/product-1.jpg" alt="Appia Life 2 Group - Stainless" loading=lazy></button></div><div class="swiper-slide" data-pid="46935"><button type="button" class="pd-gallery__zoom" data-pd-zoom="5" aria-label="Perbesar foto"><img src="images/product-1.2.jpg" alt="Appia Life 2 Group - Merah" loading=lazy></button></div></div></div>
+		<div class="pd-gallery__lens" data-pd-lens hidden></div><span class="pd-flag" data-fs><svg class="tf-i" aria-hidden="true"><use href="#i-bolt"/></svg> Flash Sale</span>
+		<div class="pd-gallery__acts">
+			<button type="button" class="pd-iconbtn" aria-label="Simpan ke favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></button>
+			<button type="button" class="pd-iconbtn" aria-label="Lihat video" data-toggle="modal" data-target="#pd-video"><svg class="tf-i" aria-hidden="true"><use href="#i-player-play"/></svg></button>
+			<button type="button" class="pd-iconbtn" aria-label="Bagikan" data-toggle="modal" data-target="#pd-share"><svg class="tf-i" aria-hidden="true"><use href="#i-share"/></svg></button>
+		</div>
+		<div class="swiper-button-prev" aria-label="Foto sebelumnya"></div><div class="swiper-button-next" aria-label="Foto berikutnya"></div>
+	</div>
+	<div class="swiper pd-gallery__thumbs" data-pd-thumbs><div class="swiper-wrapper"><div class="swiper-slide" data-pid="46934"><img src="images/product-2.jpg" alt="" loading="lazy"></div><div class="swiper-slide" data-pid="46934"><img src="images/product-1.1.jpg" alt="" loading="lazy"></div><div class="swiper-slide" data-pid="46934"><img src="images/product-4.jpg" alt="" loading="lazy"></div><div class="swiper-slide" data-pid="46936"><img src="images/product-3.jpg" alt="" loading="lazy"></div><div class="swiper-slide" data-pid="46936"><img src="images/product-1.jpg" alt="" loading="lazy"></div><div class="swiper-slide" data-pid="46935"><img src="images/product-1.2.jpg" alt="" loading="lazy"></div></div></div>
+</div></div>
+			<div class="pdb-col pdb-col--info">
+				<div class="pd-title">
+	<a href="brand/nouva-simonelli.html" class="pd-brand"><img src="images/brand/trim/4.png" alt="">Nuova Simonelli</a>
+	<h1>Nuova Simonelli Appia Life 2 Group</h1>
+</div>
+				<div class="pd-price">
+	<div class="pd-price__row"><strong class="pd-price__now" data-pd-price>Rp 32.000.000</strong><s class="pd-price__old">Rp 35.000.000</s><span class="pd-save">Hemat 8%</span></div>
+	<div class="pd-fsbar" data-fs>
+		<span class="pd-fsbar__l"><svg class="tf-i" aria-hidden="true"><use href="#i-bolt"/></svg> Flash Sale berakhir dalam</span>
+		<span class="pd-fsbar__t" data-pd-count data-end="2026-10-12T23:59:59+07:00"><b>02</b>:<b>14</b>:<b>36</b>:<b>09</b></span>
+		<span class="pd-fsbar__stock"><em>Tersisa <b>4</b> dari 12</em><i><i style="width:68%"></i></i></span>
+	</div>
+	<ul class="pd-perks"><li><svg class="tf-i" aria-hidden="true"><use href="#i-truck"/></svg> Gratis ongkir min. Rp 500rb</li><li><svg class="tf-i" aria-hidden="true"><use href="#i-shield"/></svg> Garansi resmi</li><li class="pd-perks__exp" data-fs><svg class="tf-i" aria-hidden="true"><use href="#i-clock"/></svg> Kedaluwarsa 3–6 bulan</li></ul>
+</div>
+				<div class="pd-field"><span class="pd-field__l">Varian warna <b data-pd-varname>Hitam</b></span><div class="pd-chips" data-pd-variant><label class="pd-chip"><input type="radio" name="variant_id" value="46934" data-name="Hitam" data-avail="true" data-price-text="Rp 32.000.000" data-price="32000000" checked><span>Hitam</span></label><label class="pd-chip"><input type="radio" name="variant_id" value="46936" data-name="Stainless" data-avail="true" data-price-text="Rp 32.000.000" data-price="32000000"><span>Stainless</span></label><label class="pd-chip is-off"><input type="radio" name="variant_id" value="46935" data-name="Merah" data-avail="false" data-price-text="Rp 32.500.000" data-price="32500000"><span>Merah</span></label></div></div>
+<div class="pd-field"><span class="pd-field__l">Gratis</span><div class="pd-gifts"><span><svg class="tf-i" aria-hidden="true"><use href="#i-gift"/></svg> Tamper</span><span><svg class="tf-i" aria-hidden="true"><use href="#i-gift"/></svg> Powder 1 kg</span><span><svg class="tf-i" aria-hidden="true"><use href="#i-gift"/></svg> Coffee beans 1 kg</span></div></div>
+				<div class="pdb-buy"><div class="pd-qty"><span class="pd-field__l">Jumlah</span><div class="pd-stepper" data-pd-qty><button type="button" data-q="-1" aria-label="Kurangi"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></button><input type="text" inputmode="numeric" value="1" aria-label="Jumlah"><button type="button" data-q="1" aria-label="Tambah"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></button></div><span class="pd-stock" data-pd-local data-n="8" hidden>Stok yang tersedia: <b>8</b></span><span class="pd-qty__hint" data-pd-hint hidden>Melebihi stok Jakarta; sisanya otomatis diambil dari cabang lain.</span></div><div class="pd-cta"><button type="button" class="tf-btn pd-cta__cart" data-pd-cta><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Add to cart</button></div>
+<a href="https://wa.me/628119983378" target="_blank" rel="noopener noreferrer" class="pd-ask"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg> Tanya produk ini</a></div>
+				<div class="pd-branch">
+	<span class="pd-field__l pd-branch__h">Rekomendasi Cabang
+		<span class="pd-tip" data-pd-tip><button type="button" class="pd-tip__btn" aria-label="Info rekomendasi cabang" aria-expanded="false"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg></button><span class="pd-tip__box" role="tooltip">Jika stok Jakarta kurang, sisanya diambil dari cabang lain. Ada tambahan biaya pengiriman dan harga mengikuti harga di cabang masing-masing.</span></span>
+	</span>
+	<button type="button" class="pd-branch__btn" data-pd-branch aria-expanded="false">Rekomendasi stok cabang lain <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+	<div class="pd-branch__panel" hidden>
+		<div class="pd-branch__row"><span class="pd-branch__stock">Toffin Bandung <small class="">Lebih dari 10</small></span><div class="pd-stepper pd-stepper--sm" data-pd-qty-branch data-max="40"><button type="button" data-q="-1" aria-label="Kurangi"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></button><input type="text" inputmode="numeric" value="0" aria-label="Jumlah dari Toffin Bandung"><button type="button" data-q="1" aria-label="Tambah"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></button></div></div><div class="pd-branch__row"><span class="pd-branch__stock">Toffin Surabaya <small class="is-low">Sisa 6</small></span><div class="pd-stepper pd-stepper--sm" data-pd-qty-branch data-max="6"><button type="button" data-q="-1" aria-label="Kurangi"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></button><input type="text" inputmode="numeric" value="0" aria-label="Jumlah dari Toffin Surabaya"><button type="button" data-q="1" aria-label="Tambah"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></button></div></div><div class="pd-branch__row"><span class="pd-branch__stock">Toffin Bogor <small class="is-low">Sisa 4</small></span><div class="pd-stepper pd-stepper--sm" data-pd-qty-branch data-max="4"><button type="button" data-q="-1" aria-label="Kurangi"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></button><input type="text" inputmode="numeric" value="0" aria-label="Jumlah dari Toffin Bogor"><button type="button" data-q="1" aria-label="Tambah"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></button></div></div>
+	</div>
+</div>
+				<div class="pd-acc">
+					<details open><summary>Deskripsi <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="pd-acc__b"><p>Appia Life dikembangkan dari kesuksesan Appia. Dengan produktivitas dan performa tinggi, mesin ini diandalkan ribuan barista di seluruh dunia. Sederhana dan inovatif.</p>
+<p>Fitur unggulan:</p>
+<ul><li><b>Soft Infusion System (SIS):</b> pra-infusi lembut untuk ekstraksi yang konsisten walau dosis dan gilingan belum sempurna.</li><li><b>Hemat energi:</b> insulasi boiler dan mode eco mengurangi konsumsi daya.</li><li><b>Reverse mirror &amp; cool touch wand:</b> nyaman dan aman untuk barista.</li><li><b>Mudah dirawat:</b> komponen mudah diakses oleh teknisi.</li></ul></div></details>
+					<details><summary>Spesifikasi <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="pd-acc__b"><dl class="pd-specs"><div class="pd-spec"><dt>Brand</dt><dd>Nuova Simonelli</dd></div><div class="pd-spec"><dt>Dimensions (cm)</dt><dd>78.4 × 54.5 × 53</dd></div><div class="pd-spec"><dt>Boiler</dt><dd>11 Lt</dd></div><div class="pd-spec"><dt>Power</dt><dd>3000 watt</dd></div><div class="pd-spec"><dt>Voltage</dt><dd>220 V</dd></div><div class="pd-spec"><dt>Frequency</dt><dd>50/60 Hz</dd></div><div class="pd-spec"><dt>Net Weight</dt><dd>62 kg</dd></div><div class="pd-spec"><dt>Group Height</dt><dd>10 cm</dd></div></dl></div></details>
+				</div>
+			</div>
+		</div>
+		<section class="pd-rel product-slider-section"><div class="tf-head"><div class="tf-head__titles"><h2 class="tf-title" style="font-size:20px">Aksesoris untuk produk ini</h2></div><a href="product-list.html" class="tf-viewall">Lihat semua <svg class="tf-i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
+<div class="tf-carousel"><div class="swiper" data-tf-slider="related"><div class="swiper-wrapper"><div class="swiper-slide fs-slide"><div class="product"><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm Walnut</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="fs-tag">19%</div><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-price-old">Rp 350.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory2.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">TFN Bottomless Portafilter 58 mm</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.150.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory4.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">TFN Knock Box Stainless</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 650.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="fs-tag">12%</div><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-price-old">Rp 8.900.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="fs-tag">11%</div><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/grinder.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">Eureka Mignon Specialita</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 9.950.000</span><span class="fs-price-old">Rp 11.200.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div></div></div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div></section><section class="pd-rel product-slider-section"><div class="tf-head"><div class="tf-head__titles"><h2 class="tf-title" style="font-size:20px">Alternatif produk</h2></div><a href="product-list.html" class="tf-viewall">Lihat semua <svg class="tf-i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
+<div class="tf-carousel"><div class="swiper" data-tf-slider="related"><div class="swiper-wrapper"><div class="swiper-slide fs-slide"><div class="product"><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.1.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Eagle One Prima</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 118.500.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="fs-tag">7%</div><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Aurelia Wave 3 Group</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 315.000.000</span><span class="fs-price-old">Rp 340.000.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="fs-tag">9%</div><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.2.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Oscar Mood</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 24.900.000</span><span class="fs-price-old">Rp 27.500.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">VBM Domobar Junior HX</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 32.800.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.5.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 1 Group</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 165.000.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div><div class="swiper-slide fs-slide"><div class="product"><div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>
+<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-6.jpg" alt="" loading="lazy"></a>
+<div class="fs-body"><h3 class="fs-product-title"><a href="product-single.html">Eversys Cameo C2</a></h3><div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 265.000.000</span></div></div><div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div></div></div></div></div></div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div></section>
 	</div>
 	<div class="pd-stickybar" data-pd-sticky><div class="pd-stickybar__p"><strong>Rp 32.000.000</strong><span>Appia Life 2 Group · <b data-pd-varname>Hitam</b></span></div><button type="button" class="tf-btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Add to cart</button></div>
 </main>
@@ -800,18 +1110,154 @@
 		<div class="pd-lb__thumbs" data-pd-lb-thumbs></div>
 	</div>
 
-	<!-- jQuery + Popper + Bootstrap 4: tiruan bundle web.assets_frontend Odoo 12, untuk modal video & bagikan -->
+	<div class="pv-sw pv-float"><div class="pv-switch" role="group" aria-label="Galeri"><button type="button" data-pv-gal="1"><i>1</i><span>Thumb bawah</span></button><button type="button" data-pv-gal="2"><i>2</i><span>Thumb kiri</span></button><button type="button" data-pv-gal="3"><i>3</i><span>Grid foto</span></button><button type="button" data-pv-gal="4"><i>4</i><span>Hover zoom</span></button></div><div class="pv-switch" role="group" aria-label="Pilih usulan"><button type="button" data-pv-opt-go="a"><i>A</i><span>3 kolom + kotak beli</span></button><button type="button" data-pv-opt-go="b"><i>B</i><span>2 kolom + akordeon</span></button></div><div class="pv-switch" role="group" aria-label="Jenis produk"><button type="button" data-pv-fs-go="reg"><span>Reguler</span></button><button type="button" data-pv-fs-go="fs"><span>Flash Sale</span></button></div></div>
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
-	<!-- Stack v2 -->
 	<script src="assets/js/tf-nav.js"></script>
 	<script src="assets/js/tf-search.js"></script>
 	<script src="assets/js/mobile-nav.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src="assets/js/tf-sliders.js"></script>
-	<script src="assets/js/tf-product.js"></script>
+	<script>
+	(function () {
+		'use strict';
+		var mains = [].slice.call(document.querySelectorAll('[data-pv-opt]'));
+		function sync() {
+			var h = (location.hash || '#a').slice(1).toLowerCase(), opt = h.indexOf('b') === 0 ? 'b' : 'a', fs = h.indexOf('fs') !== -1;
+			mains.forEach(function (m) { m.hidden = m.getAttribute('data-pv-opt') !== opt; });
+			document.body.classList.toggle('is-fs', fs);
+			document.querySelectorAll('[data-pv-opt-go]').forEach(function (b) { b.classList.toggle('is-on', b.getAttribute('data-pv-opt-go') === opt); });
+			document.querySelectorAll('[data-pv-fs-go]').forEach(function (b) { b.classList.toggle('is-on', (b.getAttribute('data-pv-fs-go') === 'fs') === fs); });
+			if (window.tfSliders) window.tfSliders.init();
+			initGallery();
+		}
+		function go(opt, fs) { if (history.replaceState) history.replaceState(null, '', '#' + opt + (fs ? '-fs' : '')); sync(); }
+		document.querySelectorAll('[data-pv-opt-go]').forEach(function (b) { b.addEventListener('click', function () { go(b.getAttribute('data-pv-opt-go'), document.body.classList.contains('is-fs')); window.scrollTo({ top: 0, behavior: 'smooth' }); }); });
+		document.querySelectorAll('[data-pv-fs-go]').forEach(function (b) { b.addEventListener('click', function () { var opt = document.querySelector('[data-pv-opt]:not([hidden])').getAttribute('data-pv-opt'); go(opt, b.getAttribute('data-pv-fs-go') === 'fs'); }); });
+
+		/* pengalih varian galeri (pratinjau) */
+		function setGal(k) { document.querySelectorAll('[data-pv-opt]').forEach(function (m) { m.setAttribute('data-gal', k); }); document.querySelectorAll('[data-pv-gal]').forEach(function (b) { b.classList.toggle('is-on', b.getAttribute('data-pv-gal') === k); }); try { localStorage.setItem('pv-gal', k); } catch (e) {} document.querySelectorAll('[data-pd-gallery]').forEach(function (g) { var m = g.querySelector('[data-pd-main]'), t = g.querySelector('[data-pd-thumbs]'); if (m && m.swiper) { m.swiper.changeDirection && 0; m.swiper.update(); } if (t && t.swiper) { t.swiper.changeDirection(k === '2' && window.innerWidth > 767 ? 'vertical' : 'horizontal'); t.swiper.update(); } }); }
+		document.querySelectorAll('[data-pv-gal]').forEach(function (b) { b.addEventListener('click', function () { setGal(b.getAttribute('data-pv-gal')); }); });
+		/* hover zoom (varian 4): lensa menampilkan foto 2,2× mengikuti kursor */
+		document.addEventListener('mousemove', function (e) {
+			var root = document.querySelector('[data-pv-opt]:not([hidden])'); if (!root || root.getAttribute('data-gal') !== '4') return;
+			var main = root.querySelector('[data-pd-main]'), lens = root.querySelector('[data-pd-lens]'); if (!main || !lens) return;
+			var r = main.getBoundingClientRect(), inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+			lens.hidden = !inside; if (!inside) return;
+			var img = main.querySelector('.swiper-slide-active img') || main.querySelector('img');
+			lens.style.backgroundImage = 'url("' + img.getAttribute('src') + '")';
+			lens.style.backgroundPosition = ((e.clientX - r.left) / r.width * 100) + '% ' + ((e.clientY - r.top) / r.height * 100) + '%';
+		});
+		/* galeri: Swiper utama + thumbnail */
+		function initGallery() {
+			document.querySelectorAll('[data-pv-opt]:not([hidden]) [data-pd-gallery]').forEach(function (g) {
+				var main = g.querySelector('[data-pd-main]'), th = g.querySelector('[data-pd-thumbs]');
+				if (main.swiper) { main.swiper.update(); th.swiper.update(); return; }
+				var ts = new Swiper(th, { slidesPerView: 5, spaceBetween: 8, watchSlidesProgress: true, breakpoints: { 576: { slidesPerView: 6 } } });
+				new Swiper(main, { spaceBetween: 10, navigation: { nextEl: g.querySelector('.swiper-button-next'), prevEl: g.querySelector('.swiper-button-prev') }, thumbs: { swiper: ts } });
+			});
+		}
+		/* varian (seperti produksi: data-pid): ganti nama, harga, foto utama, dan ketersediaan */
+		document.querySelectorAll('[data-pd-variant]').forEach(function (v) { v.addEventListener('change', function (e) {
+			var root = v.closest('[data-pv-opt]'), inp = e.target, pid = inp.value, ok = inp.getAttribute('data-avail') === 'true';
+			root.querySelectorAll('[data-pd-varname]').forEach(function (el) { el.textContent = inp.getAttribute('data-name'); });
+			root.querySelectorAll('[data-pd-price]').forEach(function (el) { el.textContent = inp.getAttribute('data-price-text'); });
+			var main = root.querySelector('[data-pd-main]');
+			if (main && main.swiper) { var slides = [].slice.call(main.querySelectorAll('.swiper-slide')); var i = slides.findIndex(function (sl) { return sl.getAttribute('data-pid') === pid; }); if (i >= 0) main.swiper.slideTo(i); }
+			var first = root.querySelector('[data-pd-main] .swiper-slide[data-pid="' + pid + '"] img'); if (first) root.querySelectorAll('[data-pd-thumb]').forEach(function (im) { im.src = first.getAttribute('src'); });
+			root.querySelectorAll('[data-pd-buybox], .pdb-buy').forEach(function (box) { box.classList.toggle('is-soldout', !ok); });
+			root.querySelectorAll('[data-pd-local]').forEach(function (el) { el.setAttribute('data-n', ok ? '8' : '0'); el.querySelector('b').textContent = ok ? '8' : '0'; });
+			root.querySelectorAll('[data-pd-qty] input').forEach(function (i) { i.dispatchEvent(new Event('change')); });
+		}); });
+		/* lightbox foto besar: klik foto utama; panah, thumbnail, Esc, ←/→ */
+		var lb = document.querySelector('[data-pd-lb]'), lbImg = lb.querySelector('[data-pd-lb-img]'), lbCap = lb.querySelector('[data-pd-lb-cap]'), lbTh = lb.querySelector('[data-pd-lb-thumbs]'), lbList = [], lbI = 0;
+		function lbShow(i) { lbI = (i + lbList.length) % lbList.length; lbImg.src = lbList[lbI].src; lbImg.alt = lbList[lbI].alt; lbCap.textContent = (lbI + 1) + ' / ' + lbList.length + (lbList[lbI].alt ? ' · ' + lbList[lbI].alt : ''); lbTh.querySelectorAll('button').forEach(function (b, n) { b.classList.toggle('is-on', n === lbI); }); }
+		function lbOpen(root, i) {
+			lbList = [].slice.call(root.querySelectorAll('[data-pd-main] .swiper-slide img')).map(function (im) { return { src: im.getAttribute('src'), alt: im.getAttribute('alt') || '' }; });
+			lbTh.innerHTML = lbList.map(function (im, n) { return '<button type="button" data-n="' + n + '"><img src="' + im.src + '" alt=""></button>'; }).join('');
+			lb.hidden = false; document.body.classList.add('tf-lock'); lbShow(i);
+		}
+		function lbClose() { lb.hidden = true; document.body.classList.remove('tf-lock'); var main = document.querySelector('[data-pv-opt]:not([hidden]) [data-pd-main]'); if (main && main.swiper) main.swiper.slideTo(lbI); }
+		document.addEventListener('click', function (e) {
+			var z = e.target.closest('[data-pd-zoom]'); if (z) { lbOpen(z.closest('[data-pv-opt]'), +z.getAttribute('data-pd-zoom')); return; }
+			if (e.target.closest('[data-pd-lb-close]') || e.target === lb) { lbClose(); return; }
+			if (e.target.closest('[data-pd-lb-prev]')) lbShow(lbI - 1);
+			if (e.target.closest('[data-pd-lb-next]')) lbShow(lbI + 1);
+			var t = e.target.closest('[data-pd-lb-thumbs] button'); if (t) lbShow(+t.getAttribute('data-n'));
+		});
+		document.addEventListener('keydown', function (e) { if (lb.hidden) return; if (e.key === 'Escape') lbClose(); if (e.key === 'ArrowLeft') lbShow(lbI - 1); if (e.key === 'ArrowRight') lbShow(lbI + 1); });
+		/* qty + subtotal */
+		document.querySelectorAll('[data-pd-qty]').forEach(function (q) {
+			var inp = q.querySelector('input'), root = q.closest('[data-pv-opt]'), sub = root.querySelector('[data-pd-subtotal]');
+			function price() { var r = root.querySelector('input[name=variant_id]:checked'); return r ? +r.getAttribute('data-price') : 32000000; }
+			var hint = root.querySelector('[data-pd-hint]'), tot = root.querySelector('[data-pd-total]');
+			function local() { var el = root.querySelector('[data-pd-local]'); return el ? +el.getAttribute('data-n') : 99; }
+			function branchQty() { var n = 0; root.querySelectorAll('[data-pd-qty-branch] input').forEach(function (i) { n += parseInt(i.value, 10) || 0; }); return n; }
+			var short = root.querySelector('[data-pd-short]');
+			function refresh() {
+				var want = parseInt(inp.value, 10) || 0, max = local(), l = Math.min(want, max), b = branchQty(), n = l + b;
+				if (sub) sub.textContent = 'Rp ' + (price() * n).toLocaleString('id-ID');
+				if (tot) { tot.hidden = b === 0; tot.querySelector('[data-pd-total-n]').textContent = n; tot.querySelector('[data-pd-total-local]').textContent = l; tot.querySelector('[data-pd-total-branch]').textContent = b; }
+				if (short) { var miss = want - n; short.hidden = miss <= 0; if (miss > 0) short.textContent = miss + ' unit belum terpenuhi dari cabang mana pun. Kurangi jumlah atau tanya tim Toffin.'; }
+			}
+			function set(n) {
+				var max = local(), want = Math.max(max > 0 ? 1 : 0, Math.min(999, n || 0));
+				if (max === 0) {   /* varian habis: jumlah lokal 0, tanpa hint & alokasi otomatis; cabang dibuka manual */
+					inp.value = 0; if (hint) hint.hidden = true; root.querySelectorAll('[data-pd-local]').forEach(function (el) { el.hidden = true; }); refresh(); return;
+				}
+				inp.value = want;   /* bebas melebihi stok lokal: sisanya ditutup cabang */
+				var over = Math.max(0, want - max);
+				root.querySelectorAll('[data-pd-qty-branch]').forEach(function (q) { var bi = q.querySelector('input'), mx = +q.getAttribute('data-max') || 99, take = Math.min(over, mx); bi.value = take; over -= take; });
+				if (want > max) root.querySelectorAll('[data-pd-branch]').forEach(function (b) { b.nextElementSibling.hidden = false; b.setAttribute('aria-expanded', 'true'); });
+				if (hint) hint.hidden = !(want > max);
+				root.querySelectorAll('[data-pd-local]').forEach(function (el) { el.hidden = !(want > max); });   /* angka stok lokal hanya tampil saat permintaan melebihi stok */
+				refresh();
+			}
+			root.querySelectorAll('[data-pd-qty-branch]').forEach(function (q) { var bi = q.querySelector('input'), mx = +q.getAttribute('data-max') || 99; q.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { bi.value = Math.max(0, Math.min(mx, (parseInt(bi.value, 10) || 0) + parseInt(b.getAttribute('data-q'), 10))); refresh(); }); }); bi.addEventListener('change', function () { bi.value = Math.max(0, Math.min(mx, parseInt(bi.value, 10) || 0)); refresh(); }); });
+			root.addEventListener('change', function (e) { if (e.target.name === 'variant_id') set(parseInt(inp.value, 10)); });
+			q.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { set(parseInt(inp.value, 10) + parseInt(b.getAttribute('data-q'), 10)); }); });
+			inp.addEventListener('change', function () { set(parseInt(inp.value, 10)); });
+		});
+		/* rekomendasi cabang: buka/tutup; stepper per cabang */
+		document.querySelectorAll('[data-pd-branch]').forEach(function (b) { b.addEventListener('click', function () { var pnl = b.nextElementSibling, open = pnl.hidden; pnl.hidden = !open; b.setAttribute('aria-expanded', open); }); });
+		/* tooltip info: ketuk untuk buka/tutup (ponsel), klik di luar menutup */
+		document.querySelectorAll('.pd-tip__btn').forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); var t = b.parentElement, open = !t.classList.contains('is-open'); document.querySelectorAll('.pd-tip.is-open').forEach(function (x) { x.classList.remove('is-open'); }); t.classList.toggle('is-open', open); b.setAttribute('aria-expanded', open); }); });
+		document.addEventListener('click', function () { document.querySelectorAll('.pd-tip.is-open').forEach(function (x) { x.classList.remove('is-open'); x.querySelector('.pd-tip__btn').setAttribute('aria-expanded', 'false'); }); });
+		/* tab (usulan A) */
+		document.querySelectorAll('[data-pd-tabs]').forEach(function (t) {
+			var root = t.closest('[data-pv-opt]');
+			t.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () {
+				t.querySelectorAll('button').forEach(function (x) { x.classList.toggle('is-active', x === b); });
+				root.querySelectorAll('[data-panel]').forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== b.getAttribute('data-tab'); });
+			}); });
+		});
+		/* countdown flash sale */
+		function tick() {
+			document.querySelectorAll('[data-pd-count]').forEach(function (c) {
+				var d = Math.max(0, (new Date(c.getAttribute('data-end')) - Date.now()) / 1000 | 0), b = c.querySelectorAll('b');
+				var v = [d / 86400 | 0, d / 3600 % 24 | 0, d / 60 % 60 | 0, d % 60];
+				b.forEach(function (el, i) { el.textContent = String(v[i]).padStart(2, '0'); });
+			});
+		}
+		tick(); setInterval(tick, 1000);
+		/* bar beli bawah: tampil bila tombol Beli utama sudah tidak terlihat */
+		function stickyBar() {
+			document.querySelectorAll('[data-pv-opt]').forEach(function (root) {
+				var bar = root.querySelector('[data-pd-sticky]'), cta = root.querySelector('.pd-cta__cart');
+				if (!bar || !cta || root.hidden) return;
+				var r = cta.getBoundingClientRect();
+				bar.classList.toggle('is-on', r.bottom < 0 || r.top > window.innerHeight);
+			});
+		}
+		window.addEventListener('scroll', stickyBar, { passive: true }); window.addEventListener('resize', stickyBar); stickyBar();
+		/* salin link */
+		document.querySelectorAll('[data-pd-copy]').forEach(function (b) { b.addEventListener('click', function () { var s = b.querySelector('span'); try { navigator.clipboard.writeText(location.href); } catch (e) {} s.textContent = 'Tersalin'; setTimeout(function () { s.textContent = 'Salin link'; }, 1500); }); });
+		sync();
+		var g0 = '1'; try { g0 = localStorage.getItem('pv-gal') || '1'; } catch (e) {} setGal(g0);
+	}());
+	</script>
 
 	<script src="assets/js/tf-app.js"></script>
 	<script src="assets/js/tf-reco.js"></script>
@@ -840,5 +1286,4 @@
 		</a>
 
 </body>
-
 </html>

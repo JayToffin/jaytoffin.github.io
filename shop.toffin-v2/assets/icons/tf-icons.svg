@@ -63,4 +63,8 @@
 	<symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/> <path d="M16 19h6"/> <path d="M19 16v6"/> <path d="M6 21v-2a4 4 0 0 1 4 -4h4"/></symbol>
 	<symbol id="i-wallet" viewBox="0 0 24 24"><path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"/> <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"/></symbol>
 	<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6l-12 12"/> <path d="M6 6l12 12"/></symbol>
+	<symbol id="i-share" viewBox="0 0 24 24"><path d="M3 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/> <path d="M15 6a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/> <path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/> <path d="M8.7 10.7l6.6 -3.4"/> <path d="M8.7 13.3l6.6 3.4"/></symbol>
+	<symbol id="i-link" viewBox="0 0 24 24"><path d="M9 15l6 -6"/> <path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"/> <path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"/></symbol>
+	<symbol id="i-player-play" viewBox="0 0 24 24"><path d="M7 4v16l13 -8z"/></symbol>
+	<symbol id="i-brand-x" viewBox="0 0 24 24"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/> <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></symbol>
 </svg>
