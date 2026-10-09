@@ -452,8 +452,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     akan diberikan jika item masih tersedia" + chevron lipat; baris foto 44 px · nama · Qty · badge Gratis; 2 item
     contoh (Knock Box, Milk Pitcher). Pratinjau tetap punya pengalih a/b/c.
     Revisi Rendi: bonus produk **tertutup** secara default; CSS lensa hover zoom yang hilang saat merapikan dikembalikan
-    (`.pd-gallery__lens`); tombol aksi galeri disamakan dengan ikon hati kartu produk (ikon 22 px abu #d3d3d3 berbayang
-    tanpa lingkaran, garis 2 px, play terisi), **favorit berfungsi** (`data-pd-fav` → `.is-on` merah #ff2d55 terisi,
+    (`.pd-gallery__lens`); tombol aksi galeri sempat disamakan dengan ikon kartu lalu **dikembalikan ke lingkaran putih 38 px** (permintaan
+    Rendi), **favorit berfungsi** (`data-pd-fav` → `.is-on` merah #ff2d55 terisi,
     `aria-pressed`).
 
 ## Bobot aset lokal `index.html`
