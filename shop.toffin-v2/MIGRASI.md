@@ -466,6 +466,14 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     strip thumbnail 64 px (aktif oranye + terangkat, digulir ke tengah). Zoom 2× lewat tombol atau klik foto, geser saat
     zoom; tanpa zoom swipe ganti foto; klik area kosong / Esc tutup; slider ikut saat ditutup.
 
+24. **Dua tingkat footer** (2026-10-09, keputusan Rendi atas saran). Halaman jelajah (homepage, daftar produk, brand,
+    bundling, detail produk, promo, info) tetap memakai footer penuh. Halaman transaksi memakai **footer ringkas**
+    `.tf-footer.tf-footer--slim` (CSS di tf-layout.css): satu baris logo 96 px + hak cipta · tautan S&K, Privasi,
+    Pengiriman, Pembatalan, Bantuan (WhatsApp) · chip metode bayar; tanpa kolom navigasi supaya pembeli tidak keluar
+    dari alur (pola Amazon/Tokopedia). Dipasang di `cart.html`; `checkout`, `login`, `register`, `reset-password`,
+    `tracking-order`, `success-checkout` menyusul saat dimigrasi ke chrome v2 (sekarang masih tema lama). Halaman webview
+    mobile tanpa footer.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

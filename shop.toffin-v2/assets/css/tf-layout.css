@@ -795,6 +795,36 @@
 	.tf-fmain { grid-template-columns: 1fr; }
 }
 
+/* ---------- FOOTER RINGKAS (.tf-footer--slim) untuk halaman transaksi: keranjang, checkout, login/daftar,
+   reset sandi, lacak pesanan, sukses checkout. Satu baris: logo · hak cipta · tautan legal/bantuan · metode bayar.
+   Tanpa kolom navigasi supaya pembeli tidak keluar dari alur (pola Amazon/Tokopedia di checkout). ---------- */
+.tf-footer--slim { font-size: 13px; }
+.tf-fslim { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px 20px; align-items: center; padding-top: 18px; padding-bottom: 18px; }
+.tf-fslim__brand { display: flex; align-items: center; gap: 12px; }
+.tf-fslim__brand img { width: 96px; height: auto; }
+.tf-fslim__copy { margin: 0; color: var(--tf-muted); white-space: nowrap; }
+.tf-fslim__copy a { font-weight: 700; color: var(--tf-orange-dark); }
+.tf-fslim__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 0; padding: 0; list-style: none; }
+.tf-fslim__links li { white-space: nowrap; }
+.tf-fslim__links a { display: inline-flex; align-items: center; gap: 6px; color: var(--tf-body); font-weight: 600; text-decoration: none; }
+.tf-fslim__links a:hover { color: var(--tf-orange-dark); text-decoration: none; }
+.tf-fslim__links .tf-i { width: 15px; height: 15px; color: var(--tf-muted); }
+.tf-fslim__links a:hover .tf-i { color: var(--tf-orange-dark); }
+.tf-fslim__pay { position: relative; display: flex; align-items: center; gap: 6px; }
+.tf-fslim__pay .tf-ftrust__lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }   /* label hanya untuk pembaca layar; chip sudah jelas */
+.tf-fslim__pay .tf-fchip { padding: 4px 9px; font-size: 11.5px; }
+@media (max-width: 991.98px) {
+	.tf-fslim { grid-template-columns: 1fr 1fr; }
+	.tf-fslim__links { grid-column: 1 / -1; justify-content: flex-start; order: 3; }
+	.tf-fslim__pay { justify-content: flex-end; }
+}
+@media (max-width: 575.98px) {
+	.tf-fslim { grid-template-columns: 1fr; gap: 12px; }
+	.tf-fslim__brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+	.tf-fslim__copy { white-space: normal; }
+	.tf-fslim__pay { justify-content: flex-start; flex-wrap: wrap; }
+}
+
 /* =====================================================================
    MODAL · desain default untuk SEMUA .modal Bootstrap 4  (tema "Fusion")
    Dipilih Rendi 2026-09-29 dari sembilan arah yang dibandingkan di
