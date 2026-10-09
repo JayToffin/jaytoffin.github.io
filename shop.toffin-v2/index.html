@@ -196,7 +196,7 @@
 	<header class="tf-header" id="tf-header">
 		<div class="tf-container tf-header__in">
 
-			<a class="tf-brand" href="https://toffin.id/" aria-label="Toffin home">
+			<a class="tf-brand" href="index.html" aria-label="Toffin home">
 				<img src="images/toffin-logo.png" alt="Toffin">
 			</a>
 
@@ -650,6 +650,8 @@
 					</div>
 					<div class="tf-wcol">
 						<div class="tf-wtitle-row"><h3 class="tf-wtitle">Toffin Rewards</h3><a href="my-account.html" class="tf-wlink" data-auth="in" hidden>Lihat Semua</a></div>
+						<!-- dua keadaan ditumpuk di satu sel grid (.tf-rstates): tinggi kotak = keadaan tertinggi, jadi tidak melompat saat login -->
+						<div class="tf-rstates">
 						<!-- belum login -->
 						<div class="tf-rguest" data-auth="out">
 							<span class="tf-rguest__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-crown"/></svg></span>
@@ -663,19 +665,90 @@
 								<button type="button" class="tf-rtab js-tab" data-panel="voucher"><svg class="tf-i" aria-hidden="true"><use href="#i-ticket"/></svg> Voucher</button>
 								<button type="button" class="tf-rtab js-tab" data-panel="service"><svg class="tf-i" aria-hidden="true"><use href="#i-tools"/></svg> Service Credit</button>
 							</div>
-							<div class="tf-rpanel is-active" data-panel="poin">
-								<div class="tf-reward__body"><div class="tf-rfields"><div class="tf-rfield"><span class="tf-rfield__l">Poin Kamu</span><span class="tf-rfield__v">1.250 <small>Poin</small></span></div><div class="tf-rfield"><span class="tf-rfield__l">Setara</span><span class="tf-rfield__v">Rp125.000</span></div></div><a href="cart.html" class="tf-reward__btn">Gunakan</a></div>
-								<div class="tf-reward__note">Kumpulkan poin dari setiap transaksi &amp; pakai sebagai potongan saat checkout.</div>
-							</div>
-							<div class="tf-rpanel" data-panel="voucher">
-								<div class="tf-reward__body"><div class="tf-rfields"><div class="tf-rfield"><span class="tf-rfield__l">Voucher Aktif</span><span class="tf-rfield__v">3 <small>Voucher</small></span></div><div class="tf-rfield"><span class="tf-rfield__l">Segera Berakhir</span><span class="tf-rfield__v">2 <small>Hari</small></span></div></div><a href="cart.html" class="tf-reward__btn">Gunakan</a></div>
-								<div class="tf-reward__note">Voucher potongan belanja siap dipakai saat checkout.</div>
-							</div>
-							<div class="tf-rpanel" data-panel="service">
-								<div class="tf-reward__body"><div class="tf-rfields"><div class="tf-rfield"><span class="tf-rfield__l">Saldo Kredit</span><span class="tf-rfield__v">Rp10.000.000</span></div><div class="tf-rfield"><span class="tf-rfield__l">Servis Terakhir</span><span class="tf-rfield__v">30 <small>Nov 2025</small></span></div></div><a href="my-account.html" class="tf-reward__btn">Gunakan</a></div>
-								<div class="tf-reward__note">Saldo kredit untuk seluruh layanan servis mesin &amp; sparepart Toffin.</div>
+							<!-- panel ditumpuk dalam satu grid: tinggi kotak = panel tertinggi, tidak melompat saat ganti tab -->
+							<div class="tf-rpanels">
+								<div class="tf-rpanel is-active" data-panel="poin">
+									<div class="tf-reward__body"><div class="tf-rfields"><div class="tf-rfield"><span class="tf-rfield__l">Poin Kamu</span><span class="tf-rfield__v">1.250 <small>Poin</small></span></div><div class="tf-rfield"><span class="tf-rfield__l">Setara</span><span class="tf-rfield__v">Rp125.000</span></div></div><a href="cart.html" class="tf-reward__btn">Gunakan</a></div>
+									<div class="tf-reward__note">Kumpulkan poin dari setiap transaksi &amp; pakai sebagai potongan saat checkout.</div>
+								</div>
+								<div class="tf-rpanel" data-panel="voucher">
+									<!-- daftar voucher (gaya coupon.html), bisa digeser: preset "vouchers" di tf-sliders.js -->
+									<div class="tf-vslider" data-tf-slider-wrap>
+										<div class="swiper tf-vslider__swiper" data-tf-slider="vouchers">
+											<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<article class="tf-voucher">
+													<div class="tf-voucher__stub"><strong>25%</strong><span>OFF</span></div>
+													<div class="tf-voucher__body">
+														<h4 class="tf-voucher__title">Diskon 25%</h4>
+														<p class="tf-voucher__desc">Min. belanja Rp10 jt untuk mesin kopi</p>
+														<p class="tf-voucher__meta"><span class="tf-voucher__date">s/d 12 Des 2026</span><a href="coupon.html" class="tf-voucher__tnc">S&amp;K</a></p>
+													</div>
+													<div class="tf-voucher__act"><a href="cart.html" class="tf-voucher__use">Gunakan</a></div>
+												</article>
+											</div>
+											<div class="swiper-slide">
+												<article class="tf-voucher">
+													<div class="tf-voucher__stub"><strong>500rb</strong><span>POTONGAN</span></div>
+													<div class="tf-voucher__body">
+														<h4 class="tf-voucher__title">Potongan Rp500.000</h4>
+														<p class="tf-voucher__desc">Min. belanja Rp5 jt semua kategori</p>
+														<p class="tf-voucher__meta"><span class="tf-voucher__date">s/d 30 Nov 2026</span><a href="coupon.html" class="tf-voucher__tnc">S&amp;K</a></p>
+													</div>
+													<div class="tf-voucher__act"><a href="cart.html" class="tf-voucher__use">Gunakan</a></div>
+												</article>
+											</div>
+											<div class="swiper-slide">
+												<article class="tf-voucher">
+													<div class="tf-voucher__stub"><strong>Gratis</strong><span>ONGKIR</span></div>
+													<div class="tf-voucher__body">
+														<h4 class="tf-voucher__title">Gratis Ongkir</h4>
+														<p class="tf-voucher__desc">Min. belanja Rp2 jt ke seluruh Indonesia</p>
+														<p class="tf-voucher__meta"><span class="tf-voucher__date">s/d 15 Nov 2026</span><a href="coupon.html" class="tf-voucher__tnc">S&amp;K</a></p>
+													</div>
+													<div class="tf-voucher__act"><a href="cart.html" class="tf-voucher__use">Gunakan</a></div>
+												</article>
+											</div>
+											<div class="swiper-slide">
+												<article class="tf-voucher">
+													<div class="tf-voucher__stub"><strong>10%</strong><span>OFF</span></div>
+													<div class="tf-voucher__body">
+														<h4 class="tf-voucher__title">Diskon 10% Ingredients</h4>
+														<p class="tf-voucher__desc">Berlaku untuk sirup, powder & kopi</p>
+														<p class="tf-voucher__meta"><span class="tf-voucher__date">s/d 31 Okt 2026</span><a href="coupon.html" class="tf-voucher__tnc">S&amp;K</a></p>
+													</div>
+													<div class="tf-voucher__act"><a href="cart.html" class="tf-voucher__use">Gunakan</a></div>
+												</article>
+											</div>
+											<div class="swiper-slide">
+												<article class="tf-voucher">
+													<div class="tf-voucher__stub"><strong>5%</strong><span>CASHBACK</span></div>
+													<div class="tf-voucher__body">
+														<h4 class="tf-voucher__title">Cashback 5%</h4>
+														<p class="tf-voucher__desc">Maks. cashback Rp1 jt, jadi Toffin Poin</p>
+														<p class="tf-voucher__meta"><span class="tf-voucher__date">s/d 20 Okt 2026</span><a href="coupon.html" class="tf-voucher__tnc">S&amp;K</a></p>
+													</div>
+													<div class="tf-voucher__act"><a href="cart.html" class="tf-voucher__use">Gunakan</a></div>
+												</article>
+											</div>
+											</div>
+										</div>
+										<div class="tf-vslider__foot">
+											<span class="tf-reward__note">5 voucher aktif · siap dipakai saat checkout</span>
+											<div class="tf-vslider__nav">
+												<button type="button" class="tf-vslider__btn" data-tf-prev aria-label="Voucher sebelumnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+												<button type="button" class="tf-vslider__btn" data-tf-next aria-label="Voucher berikutnya"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tf-rpanel" data-panel="service">
+									<div class="tf-reward__body"><div class="tf-rfields"><div class="tf-rfield"><span class="tf-rfield__l">Saldo Kredit</span><span class="tf-rfield__v">Rp10.000.000</span></div><div class="tf-rfield"><span class="tf-rfield__l">Servis Terakhir</span><span class="tf-rfield__v">30 <small>Nov 2025</small></span></div></div><a href="my-account.html" class="tf-reward__btn">Gunakan</a></div>
+									<div class="tf-reward__note">Saldo kredit untuk seluruh layanan servis mesin &amp; sparepart Toffin.</div>
+								</div>
 							</div>
 						</div>
+						</div><!-- /.tf-rstates -->
 					</div>
 				</div>
 				<h3 class="tf-wtitle tf-cats__title">Kategori</h3>

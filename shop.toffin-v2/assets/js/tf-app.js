@@ -120,7 +120,7 @@
 			t.classList.add('is-active');
 			var key = t.getAttribute('data-panel');
 			if (!key) return;
-			group.parentElement.querySelectorAll(':scope > .tf-rpanel').forEach(function (p) {
+			group.parentElement.querySelectorAll('.tf-rpanel').forEach(function (p) {
 				p.classList.toggle('is-active', p.getAttribute('data-panel') === key);
 			});
 		});

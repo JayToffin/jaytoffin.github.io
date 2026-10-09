@@ -333,3 +333,75 @@
 	background: var(--tf-orange);
 }
 .tf-pg .swiper-pagination-lock { display: none; }
+
+/* =====================================================================
+   PANAH KACA .tf-carousel — semua carousel produk (homepage, detail produk, dst.).
+   Dipindah dari home-modern.css 2026-10-09 tanpa perubahan nilai: muncul saat
+   hover, chevron digambar dari border, sembunyi di ujung. Hero tetap di home-modern.
+   ===================================================================== */
+.tf-carousel { position: relative; }
+.tf-carousel .swiper-button-next,
+.tf-carousel .swiper-button-prev {
+	--nav-ease: cubic-bezier(.32, .72, 0, 1);
+	top: 50%;
+	margin-top: 0 !important;
+	transform: translateY(-50%) scale(1);
+	width: 40px !important;
+	height: 40px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, .62);
+	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	backdrop-filter: blur(20px) saturate(180%);
+	color: var(--tf-ink);
+	border: .5px solid rgba(255, 255, 255, .75);
+	box-shadow: 0 1px 2px rgba(20, 23, 40, .10), 0 8px 24px rgba(20, 23, 40, .14), inset 0 1px 0 rgba(255, 255, 255, .65);
+	opacity: 0 !important;
+	transition: opacity .3s var(--nav-ease), transform .3s var(--nav-ease), background .25s var(--nav-ease), color .25s var(--nav-ease), box-shadow .25s var(--nav-ease);
+}
+/* chevron digambar dari border, menggantikan glyph ikon-font Swiper */
+.tf-carousel .swiper-button-next::after,
+.tf-carousel .swiper-button-prev::after {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-top: 2px solid var(--tf-ink);
+	border-right: 2px solid var(--tf-ink);
+	border-radius: 0 1.5px 0 0;
+	font-size: 0;
+	transition: border-color .25s var(--nav-ease);
+}
+.tf-carousel .swiper-button-next::after { transform: rotate(45deg) translate(-1px, 1px); }
+.tf-carousel .swiper-button-prev::after { transform: rotate(-135deg) translate(-1px, 1px); }
+/* muncul saat slider di-hover */
+.tf-carousel:hover .swiper-button-next,
+.tf-carousel:hover .swiper-button-prev { opacity: 1 !important; }
+/* hover panah: kaca terangkat, chevron oranye */
+.tf-carousel .swiper-button-next:hover,
+.tf-carousel .swiper-button-prev:hover {
+	background: rgba(255, 255, 255, .86);
+	transform: translateY(-50%) scale(1.08);
+	box-shadow: 0 2px 4px rgba(20, 23, 40, .12), 0 12px 32px rgba(20, 23, 40, .20), inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+.tf-carousel .swiper-button-next:hover::after,
+.tf-carousel .swiper-button-prev:hover::after { border-top-color: var(--tf-orange); border-right-color: var(--tf-orange); }
+/* tekan: turun sedikit */
+.tf-carousel .swiper-button-next:active,
+.tf-carousel .swiper-button-prev:active { transform: translateY(-50%) scale(.94); transition-duration: .09s; }
+.tf-carousel .swiper-button-prev { left: 8px; right: auto; }
+.tf-carousel .swiper-button-next { right: 8px; left: auto; }
+/* di ujung panah mati: tetap sembunyi walau di-hover */
+.tf-carousel:hover .swiper-button-disabled { opacity: 0 !important; pointer-events: none; }
+/* perangkat sentuh: selalu tampil karena tidak ada hover */
+@media (hover: none) {
+	.tf-carousel .swiper-button-next,
+	.tf-carousel .swiper-button-prev { opacity: 1 !important; }
+	.tf-carousel .swiper-button-disabled { opacity: 0 !important; }
+}
+/* tanpa backdrop-filter (Firefox lama): pil putih solid */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+	.tf-carousel .swiper-button-next,
+	.tf-carousel .swiper-button-prev { background: #fff; border-color: var(--tf-line); }
+}

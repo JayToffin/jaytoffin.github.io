@@ -120,6 +120,7 @@
 	display: inline-block; background: #fff; color: var(--tf-orange-dark);
 	font-weight: 800; font-size: 13px; padding: 9px 18px; border-radius: 8px;
 }
+.tf-catpromo:hover { text-decoration: none; }   /* tanpa garis bawah dari a:hover Bootstrap pada judul & teks kartu */
 .tf-catpromo:hover .tf-catpromo__btn { background: #fff7ef; }
 .tf-catpromo__img {
 	position: absolute; right: 14px; bottom: 10px; z-index: 1;
@@ -164,14 +165,56 @@
 a.tf-reward__btn { display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; }
 a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 [data-auth][hidden] { display: none !important; }
+/* Rewards: keadaan belum/sudah login ditumpuk di satu sel grid; yang nonaktif tetap dirender (visibility) supaya
+   kotak kanan selalu setinggi keadaan tertinggi dan tidak melompat saat tombol Masuk ditekan */
+.tf-rstates { display: grid; grid-template-columns: minmax(0, 1fr); flex: 1 1 auto; min-width: 0; }
+.tf-rstates > [data-auth] { grid-area: 1 / 1; min-width: 0; }
+.tf-rstates > [data-auth][hidden] { display: flex !important; visibility: hidden; pointer-events: none; }
+.tf-rstates > [data-auth][hidden] * { visibility: hidden !important; }   /* turunan ikut sembunyi: .tf-rpanel.is-active menyetel visible sendiri */
+/* Rewards → tab Voucher: daftar tiket voucher (gaya coupon.html) yang bisa digeser */
+.tf-vslider { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }   /* catatan & panah selalu di dasar panel */
+.tf-vslider__swiper { width: 100%; min-width: 0; overflow: hidden; }   /* lebar = pembungkus, bukan lebar isi slider */
+.tf-vslider__swiper .swiper-slide { width: calc(100% - 20px); height: auto; }   /* 20px = intipan voucher berikutnya; pasangan slidesOffsetAfter di preset "vouchers" */
+.tf-voucher { display: flex; align-items: center; height: 100%; min-height: 60px; border: 1px solid #f6d3b0; border-radius: 8px; background: linear-gradient(90deg, #fff6ee 0%, #fff 70%); overflow: hidden; }   /* setinggi kotak "Poin Kamu" (60 px) */
+/* stub nilai kiri: gradien oranye, lingkaran dekoratif, tepi kanan berlubang */
+.tf-voucher__stub { position: relative; flex: none; align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 66px; overflow: hidden; background: linear-gradient(135deg, var(--tf-orange) 0%, #ff5f2e 100%); color: #fff; line-height: 1.05; }
+.tf-voucher__stub::before { content: ""; position: absolute; left: -22px; top: -26px; width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,.16); }
+.tf-voucher__stub::after { content: ""; position: absolute; top: 0; right: -4px; bottom: 0; width: 8px; background: radial-gradient(circle at 4px 5px, #fff6ee 2.6px, transparent 3px) 0 0 / 8px 10px repeat-y; }
+.tf-voucher__stub strong { position: relative; font-size: 16px; font-weight: 900; letter-spacing: -.02em; }
+.tf-voucher__stub span { position: relative; margin-top: 2px; font-size: 8.5px; font-weight: 800; letter-spacing: .08em; opacity: .92; }
+.tf-voucher__body { flex: 1 1 auto; min-width: 0; padding: 0 10px 0 12px; }
+.tf-voucher__title { margin: 0; overflow: hidden; color: var(--tf-ink); font-size: 12.5px; font-weight: 800; line-height: 1.25; white-space: nowrap; text-overflow: ellipsis; }
+.tf-voucher__desc { margin: 0; overflow: hidden; color: var(--tf-muted); font-size: 11px; line-height: 1.3; white-space: nowrap; text-overflow: ellipsis; }
+.tf-voucher__meta { display: flex; align-items: baseline; gap: 6px; margin: 0; font-size: 10.5px; line-height: 1.3; white-space: nowrap; }
+.tf-voucher__date { color: #dc2626; font-weight: 700; }
+.tf-voucher__tnc { color: var(--tf-orange-dark); font-weight: 700; text-decoration: none; }
+.tf-voucher__tnc::before { content: "·"; margin-right: 6px; color: var(--tf-muted); font-weight: 400; }
+.tf-voucher__tnc:hover { color: var(--tf-orange); text-decoration: underline; }
+/* sisi kanan: hanya tombol, gaya tombol tema (= .tf-reward__btn versi kecil) */
+.tf-voucher__act { flex: none; align-self: stretch; display: flex; align-items: center; padding: 0 10px; border-left: 1px dashed #f6c99a; }
+.tf-voucher__use { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 8px; background: var(--tf-orange); color: #fff; font-size: 12px; font-weight: 800; text-decoration: none; transition: background .2s ease; }
+.tf-voucher__use:hover { background: var(--tf-orange-dark); color: #fff; text-decoration: none; }
+.tf-vslider__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 4px; }
+.tf-vslider__foot .tf-reward__note { margin: 0; }
+.tf-vslider__nav { display: flex; gap: 6px; }
+.tf-vslider__btn { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; padding: 0; border: 1px solid var(--tf-line); border-radius: 50%; background: #fff; color: var(--tf-ink); cursor: pointer; transition: border-color .15s ease, color .15s ease; }
+.tf-vslider__btn:hover { border-color: var(--tf-orange); color: var(--tf-orange-dark); }
+.tf-vslider__btn .tf-i { width: 14px; height: 14px; }
+.tf-vslider__btn.swiper-button-disabled { opacity: .35; cursor: default; }
+.tf-vslider__btn.swiper-button-lock { display: none; }
 /* Rewards belum login: kartu ajakan masuk */
-.tf-rguest { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 18px; border: 1px dashed #f3c48f; border-radius: 10px; background: #fffaf4; }
+/* kartu tamu dibuat ringkas (ikon & teks sebaris, tombol di bawah) supaya lebih pendek dari versi login;
+   tinggi kotak Rewards lalu ditentukan versi login (lihat .tf-rstates), tanpa ruang kosong berlebih */
+.tf-rguest { flex: 1; display: grid; grid-template-columns: 40px minmax(0, 1fr); grid-template-areas: "ico txt" "act act"; align-items: center; align-content: center; column-gap: 12px; row-gap: 12px; padding: 14px 16px; border: 1px dashed #f3c48f; border-radius: 10px; background: #fffaf4; }
+.tf-rguest__ico { grid-area: ico; }
+.tf-rguest__txt { grid-area: txt; }
+.tf-rguest__act { grid-area: act; }
 .tf-rguest__ico { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
 .tf-rguest__ico .tf-i { width: 20px; height: 20px; }
-.tf-rguest__txt strong { display: block; margin-bottom: 3px; color: var(--tf-ink); font-size: 15px; font-weight: 800; }
-.tf-rguest__txt span { color: var(--tf-muted); font-size: 13px; line-height: 1.45; }
+.tf-rguest__txt strong { display: block; margin-bottom: 2px; color: var(--tf-ink); font-size: 14.5px; font-weight: 800; line-height: 1.3; }
+.tf-rguest__txt span { display: block; color: var(--tf-muted); font-size: 12.5px; line-height: 1.4; }
 .tf-rguest__act { display: flex; align-items: center; gap: 14px; }
-.tf-rguest__in { min-height: 38px; padding: 0 22px; font-size: 13.5px; }
+.tf-rguest__in { min-height: 36px; padding: 0 20px; font-size: 13px; box-shadow: none; }
 .tf-rguest__reg { color: var(--tf-orange-dark); font-size: 13.5px; font-weight: 800; text-decoration: none; }
 .tf-rguest__reg:hover { color: var(--tf-orange); text-decoration: none; }
 /* baris Kategori di bawah widget */
@@ -266,120 +309,31 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 .tf-benefit__h { font-size: 15.5px; font-weight: 800; color: var(--tf-ink); margin-bottom: 5px; }
 .tf-benefit__t { font-size: 13.5px; line-height: 1.5; color: var(--tf-body); }
 
-/* ---------- Slider nav (hero + every product carousel) ---------- */
-.tf-home .tf-carousel { position: relative; }
-.tf-home .tf-carousel .swiper-button-next,
-.tf-home .tf-carousel .swiper-button-prev,
+/* ---------- Slider nav: hero. Panah kaca untuk .tf-carousel (semua carousel produk) kini global di tf-products.css;
+   hero memakai gaya yang sama lewat selektor di bawah ---------- */
 .tf-home .tf-hero-swiper .swiper-button-next,
-.tf-home .tf-hero-swiper .swiper-button-prev {
-	--nav-ease: cubic-bezier(.32, .72, 0, 1);
-
-	top: 50%;
-	margin-top: 0 !important;
-	transform: translateY(-50%) scale(1);
-	width: 40px !important;
-	height: 40px !important;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-
-	/* vibrancy: saturate what's behind so the glass reads as glass, not haze */
-	background: rgba(255, 255, 255, .62);
-	-webkit-backdrop-filter: blur(20px) saturate(180%);
-	backdrop-filter: blur(20px) saturate(180%);
-
-	color: var(--tf-ink);
-	border: .5px solid rgba(255, 255, 255, .75);
-	/* contact shadow + ambient shadow + inner top highlight */
-	box-shadow:
-		0 1px 2px rgba(20, 23, 40, .10),
-		0 8px 24px rgba(20, 23, 40, .14),
-		inset 0 1px 0 rgba(255, 255, 255, .65);
-
-	opacity: 0 !important;
-	transition:
-		opacity .3s var(--nav-ease),
-		transform .3s var(--nav-ease),
-		background .25s var(--nav-ease),
-		color .25s var(--nav-ease),
-		box-shadow .25s var(--nav-ease);
-}
-/* chevrons drawn from borders — replaces Swiper's icon-font glyph */
-.tf-home .tf-carousel .swiper-button-next::after,
-.tf-home .tf-carousel .swiper-button-prev::after,
+.tf-home .tf-hero-swiper .swiper-button-prev { --nav-ease: cubic-bezier(.32, .72, 0, 1); top: 50%; margin-top: 0 !important; transform: translateY(-50%) scale(1); width: 40px !important; height: 40px !important; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255, 255, 255, .62); -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%); color: var(--tf-ink); border: .5px solid rgba(255, 255, 255, .75); box-shadow: 0 1px 2px rgba(20, 23, 40, .10), 0 8px 24px rgba(20, 23, 40, .14), inset 0 1px 0 rgba(255, 255, 255, .65); opacity: 0 !important; transition: opacity .3s var(--nav-ease), transform .3s var(--nav-ease), background .25s var(--nav-ease), color .25s var(--nav-ease), box-shadow .25s var(--nav-ease); }
 .tf-home .tf-hero-swiper .swiper-button-next::after,
-.tf-home .tf-hero-swiper .swiper-button-prev::after {
-	content: "";
-	width: 8px;
-	height: 8px;
-	border-top: 2px solid var(--tf-ink);
-	border-right: 2px solid var(--tf-ink);
-	border-radius: 0 1.5px 0 0;
-	font-size: 0;
-	transition: border-color .25s var(--nav-ease);
-}
-.tf-home .tf-carousel .swiper-button-next::after,
+.tf-home .tf-hero-swiper .swiper-button-prev::after { content: ""; width: 8px; height: 8px; border-top: 2px solid var(--tf-ink); border-right: 2px solid var(--tf-ink); border-radius: 0 1.5px 0 0; font-size: 0; transition: border-color .25s var(--nav-ease); }
 .tf-home .tf-hero-swiper .swiper-button-next::after { transform: rotate(45deg) translate(-1px, 1px); }
-.tf-home .tf-carousel .swiper-button-prev::after,
 .tf-home .tf-hero-swiper .swiper-button-prev::after { transform: rotate(-135deg) translate(-1px, 1px); }
-/* reveal on hover of the slider */
-.tf-home .tf-carousel:hover .swiper-button-next,
-.tf-home .tf-carousel:hover .swiper-button-prev,
 .tf-home .tf-hero-swiper:hover .swiper-button-next,
-.tf-home .tf-hero-swiper:hover .swiper-button-prev {
-	opacity: 1 !important;
-}
-/* hovering the arrow lifts the glass and tints the chevron — no colour block */
-.tf-home .tf-carousel .swiper-button-next:hover,
-.tf-home .tf-carousel .swiper-button-prev:hover,
+.tf-home .tf-hero-swiper:hover .swiper-button-prev { opacity: 1 !important; }
 .tf-home .tf-hero-swiper .swiper-button-next:hover,
-.tf-home .tf-hero-swiper .swiper-button-prev:hover {
-	background: rgba(255, 255, 255, .86);
-	transform: translateY(-50%) scale(1.08);
-	box-shadow:
-		0 2px 4px rgba(20, 23, 40, .12),
-		0 12px 32px rgba(20, 23, 40, .20),
-		inset 0 1px 0 rgba(255, 255, 255, .8);
-}
-.tf-home .tf-carousel .swiper-button-next:hover::after,
-.tf-home .tf-carousel .swiper-button-prev:hover::after,
+.tf-home .tf-hero-swiper .swiper-button-prev:hover { background: rgba(255, 255, 255, .86); transform: translateY(-50%) scale(1.08); box-shadow: 0 2px 4px rgba(20, 23, 40, .12), 0 12px 32px rgba(20, 23, 40, .20), inset 0 1px 0 rgba(255, 255, 255, .8); }
 .tf-home .tf-hero-swiper .swiper-button-next:hover::after,
-.tf-home .tf-hero-swiper .swiper-button-prev:hover::after {
-	border-top-color: var(--tf-orange);
-	border-right-color: var(--tf-orange);
-}
-/* press: settle back down, like a macOS control */
-.tf-home .tf-carousel .swiper-button-next:active,
-.tf-home .tf-carousel .swiper-button-prev:active,
+.tf-home .tf-hero-swiper .swiper-button-prev:hover::after { border-top-color: var(--tf-orange); border-right-color: var(--tf-orange); }
 .tf-home .tf-hero-swiper .swiper-button-next:active,
-.tf-home .tf-hero-swiper .swiper-button-prev:active {
-	transform: translateY(-50%) scale(.94);
-	transition-duration: .09s;
-}
-.tf-home .tf-carousel .swiper-button-prev { left: 8px; right: auto; }
-.tf-home .tf-carousel .swiper-button-next { right: 8px; left: auto; }
-/* at the ends the arrow is dead — keep it hidden even on hover */
-.tf-home .tf-carousel:hover .swiper-button-disabled,
+.tf-home .tf-hero-swiper .swiper-button-prev:active { transform: translateY(-50%) scale(.94); transition-duration: .09s; }
 .tf-home .tf-hero-swiper:hover .swiper-button-disabled { opacity: 0 !important; pointer-events: none; }
-/* touch devices: always show since there is no hover */
 @media (hover: none) {
-	.tf-home .tf-carousel .swiper-button-next,
-	.tf-home .tf-carousel .swiper-button-prev,
 	.tf-home .tf-hero-swiper .swiper-button-next,
 	.tf-home .tf-hero-swiper .swiper-button-prev { opacity: 1 !important; }
-	.tf-home .tf-carousel .swiper-button-disabled,
 	.tf-home .tf-hero-swiper .swiper-button-disabled { opacity: 0 !important; }
 }
-/* no backdrop-filter (older Firefox): fall back to a solid pill */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-	.tf-home .tf-carousel .swiper-button-next,
-	.tf-home .tf-carousel .swiper-button-prev,
 	.tf-home .tf-hero-swiper .swiper-button-next,
-	.tf-home .tf-hero-swiper .swiper-button-prev {
-		background: #fff;
-		border-color: var(--tf-line);
-	}
+	.tf-home .tf-hero-swiper .swiper-button-prev { background: #fff; border-color: var(--tf-line); }
 }
 
 /* ---------- App CTA band ---------- */
@@ -441,8 +395,11 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 .tf-home .flashsale-product-list-section .swiper-container-product { padding: 4px 3px 8px; }
 
 /* ---------- Toffin Rewards: switchable tab panels ---------- */
-.tf-rpanel { display: none; }
-.tf-rpanel.is-active { display: block; }
+/* panel tab Rewards ditumpuk di satu sel grid: kotak setinggi panel tertinggi (Voucher), tidak melompat
+   saat ganti tab; panel nonaktif hanya disembunyikan (visibility) supaya slider voucher tetap terukur */
+.tf-rpanels { display: grid; grid-template-columns: minmax(0, 1fr); flex: 1 1 auto; min-width: 0; }   /* minmax(0,1fr): kolom tidak ikut memanjang mengikuti isi slider */
+.tf-rpanel { grid-area: 1 / 1; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; visibility: hidden; pointer-events: none; }
+.tf-rpanel.is-active { visibility: visible; pointer-events: auto; }
 .tf-home .swiper-container-product,
 .tf-home .swiper-container {
 	max-width: none;
