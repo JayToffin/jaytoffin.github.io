@@ -3,7 +3,7 @@
    - Slider isi paket: preset "bundle-items" di tf-sliders.js.
    - Tombol "Add to cart" mengisi modal #bundle-variant dengan produk paket
      yang diklik (dibaca dari markup: data-name / data-img / data-variants).
-   - Chip navigasi menandai paket yang sedang terlihat.
+   - Paket > 10 produk: ubin "+N produk lainnya" membuka sisa slide.
    Vanilla JS; modalnya sendiri dibuka Bootstrap 4 lewat data-toggle.
    ===================================================================== */
 (function () {
@@ -32,17 +32,13 @@
 		});
 	});
 
-	/* chip navigasi: tandai paket yang sedang di layar */
-	var chips = [].slice.call(document.querySelectorAll('.tf-bundle-nav__chip'));
-	var secs = chips.map(function (c) { return document.querySelector(c.getAttribute('href')); });
-	if (chips.length && 'IntersectionObserver' in window) {
-		var io = new IntersectionObserver(function (entries) {
-			entries.forEach(function (e) {
-				if (!e.isIntersecting) return;
-				var i = secs.indexOf(e.target);
-				if (i >= 0) chips.forEach(function (c, n) { c.classList.toggle('is-active', n === i); });
-			});
-		}, { rootMargin: '-140px 0px -60% 0px' });
-		secs.forEach(function (s) { if (s) io.observe(s); });
-	}
+	/* paket > 10 produk: klik ubin "+N produk lainnya" menampilkan slide yang tersembunyi lalu Swiper diukur ulang */
+	document.querySelectorAll('[data-bundle-more]').forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			var el = btn.closest('.swiper'), tile = btn.closest('[data-bundle-more-slide]');
+			el.querySelectorAll('.swiper-slide[hidden]').forEach(function (s) { s.hidden = false; });
+			if (tile) tile.parentNode.removeChild(tile);
+			if (el.swiper) { el.swiper.update(); el.swiper.slideNext(); }
+		});
+	});
 })();

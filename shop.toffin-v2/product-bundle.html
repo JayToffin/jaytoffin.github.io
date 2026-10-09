@@ -195,7 +195,7 @@
 	<header class="tf-header" id="tf-header">
 		<div class="tf-container tf-header__in">
 
-			<a class="tf-brand" href="https://toffin.id/" aria-label="Toffin home">
+			<a class="tf-brand" href="index.html" aria-label="Toffin home">
 				<img src="images/toffin-logo.png" alt="Toffin">
 			</a>
 
@@ -591,131 +591,75 @@
 		</div>
 	</header>
 
+	<!-- ===== Paket Bundling (MIGRASI.md langkah 22): header berlatar lembut sebagai penanda bundling; satu baris per paket =
+	     ringkasan kiri + isi paket digeser (Swiper preset "bundle-items");
+	     Paket > 10 produk: slide ke-11 dst. tersembunyi, ubin "+N produk lainnya" membukanya (data-bundle-more).
+	     Kartu produk = kartu global tanpa tombol/hati. Data 12 paket contoh. ===== -->
 	<main class="tf-bundle-page">
 		<div class="tf-container">
 			<nav class="tf-bundle-page__crumb" aria-label="Breadcrumb"><a href="index.html">Beranda</a><span>Paket Bundling</span></nav>
-			<div class="tf-bundle-hero">
-				<h1 class="tf-bundle-hero__title">Paket Bundling</h1>
-			</div>
-			<!-- chip navigasi antar paket; yang sedang terlihat ditandai tf-bundle.js -->
-			<nav class="tf-bundle-nav" aria-label="Pilih paket">
-				<div class="tf-bundle-nav__in">
-					<a href="#bundle-home" class="tf-bundle-nav__chip is-active">Bundle Toffin for Home</a>
-					<a href="#bundle-cafe" class="tf-bundle-nav__chip">Bundle Toffin for Cafe</a>
-					<a href="#bundle-office" class="tf-bundle-nav__chip">Bundle Toffin for Office</a>
-				</div>
-			</nav>
+			<header class="tf-bundle-head">
+				<h1>Paket Bundling <span data-tf-bundle-count>12</span></h1>
+				<p>Beli satu paket lebih hemat daripada satuan. Harga sudah termasuk instalasi &amp; training.</p>
+			</header>
 
-			<!-- konten paket = halaman lama (static-e-commerce/product-bundle.html): judul, harga, label, produk contoh -->
-			<article class="tf-bundle" id="bundle-home">
+			<article class="tf-bundle" id="bundle-home-starter" data-tf-bundle>
 				<aside class="tf-bundle__sum">
-					<div class="tf-bundle__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-package"/></svg></div>
-					<span class="tf-bundle__eyebrow">Promo Bundling</span>
-					<h2 class="tf-bundle__title">Bundle Toffin for Home</h2>
+					<span class="tf-bundle__cat">5 produk</span>
+					<h2 class="tf-bundle__title">Home Barista Starter</h2>
 					<div class="tf-bundle__price">
-						<div class="tf-bundle__label">Harga paket</div>
-						<div class="tf-bundle__now">Rp 150.000.000</div>
-						<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Add to cart</button>
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 32.900.000</strong>
+						<span class="tf-bundle__save">Hemat 8%</span>
 					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
 				</aside>
 				<div class="tf-bundle__items product-slider-section">
-					<p class="tf-bundle__hint"><svg class="tf-i" aria-hidden="true"><use href="#i-arrows-horizontal"/></svg> Geser untuk lihat semua produk dalam paket</p>
-					<!-- isi paket: Swiper seperti slider produk homepage; kartu = kartu produk homepage apa adanya (.product + .fs-*, hati, judul, harga, Add to cart) -->
 					<div class="tf-bundle__carousel">
 						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
 							<div class="swiper-wrapper">
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Nuova Simonelli Oscar Mood" data-img="images/product-1.2.jpg" data-variants="Merah|Hitam|Putih">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.2.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Oscar Mood</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 24.900.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Eureka Mignon Specialita 55 mm" data-img="images/grinder.jpg" data-variants="Hitam|Putih|Chrome">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/grinder.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Eureka Mignon Specialita 55 mm</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 9.950.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Hario V60 Starter Kit" data-img="images/manual-brew.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/manual-brew.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Hario V60 Starter Kit</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 385.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
@@ -726,134 +670,72 @@
 					</div>
 				</div>
 			</article>
-			<article class="tf-bundle" id="bundle-cafe">
+			<article class="tf-bundle" id="bundle-home-pro" data-tf-bundle>
 				<aside class="tf-bundle__sum">
-					<div class="tf-bundle__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-package"/></svg></div>
-					<span class="tf-bundle__eyebrow">Promo Bundling</span>
-					<h2 class="tf-bundle__title">Bundle Toffin for Cafe</h2>
+					<span class="tf-bundle__cat">6 produk</span>
+					<h2 class="tf-bundle__title">Home Barista Pro</h2>
 					<div class="tf-bundle__price">
-						<div class="tf-bundle__label">Harga paket</div>
-						<div class="tf-bundle__now">Rp 320.000.000</div>
-						<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Add to cart</button>
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 139.000.000</strong>
+						<span class="tf-bundle__save">Hemat 27%</span>
 					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
 				</aside>
 				<div class="tf-bundle__items product-slider-section">
-					<p class="tf-bundle__hint"><svg class="tf-i" aria-hidden="true"><use href="#i-arrows-horizontal"/></svg> Geser untuk lihat semua produk dalam paket</p>
-					<!-- isi paket: Swiper seperti slider produk homepage; kartu = kartu produk homepage apa adanya (.product + .fs-*, hati, judul, harga, Add to cart) -->
 					<div class="tf-bundle__carousel">
 						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
 							<div class="swiper-wrapper">
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Victoria Arduino Eagle One Prima" data-img="images/product-1.1.jpg" data-variants="Hitam|Putih">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.1.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Eagle One Prima</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 118.500.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Victoria Arduino Mythos MY75" data-img="images/homebundle.jpg" data-variants="Hitam|Putih">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Mythos MY75</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 62.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="TFN Knock Box Stainless" data-img="images/accessory4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory4.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Knock Box Stainless</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 650.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
@@ -864,96 +746,669 @@
 					</div>
 				</div>
 			</article>
-			<article class="tf-bundle" id="bundle-office">
+			<article class="tf-bundle" id="bundle-manual-bar" data-tf-bundle>
 				<aside class="tf-bundle__sum">
-					<div class="tf-bundle__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-package"/></svg></div>
-					<span class="tf-bundle__eyebrow">Promo Bundling</span>
-					<h2 class="tf-bundle__title">Bundle Toffin for Office</h2>
+					<span class="tf-bundle__cat">4 produk</span>
+					<h2 class="tf-bundle__title">Manual Brew Bar</h2>
 					<div class="tf-bundle__price">
-						<div class="tf-bundle__label">Harga paket</div>
-						<div class="tf-bundle__now">Rp 120.000.000</div>
-						<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Add to cart</button>
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 2.350.000</strong>
+						<span class="tf-bundle__save">Hemat 1%</span>
 					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
 				</aside>
 				<div class="tf-bundle__items product-slider-section">
-					<p class="tf-bundle__hint"><svg class="tf-i" aria-hidden="true"><use href="#i-arrows-horizontal"/></svg> Geser untuk lihat semua produk dalam paket</p>
-					<!-- isi paket: Swiper seperti slider produk homepage; kartu = kartu produk homepage apa adanya (.product + .fs-*, hati, judul, harga, Add to cart) -->
 					<div class="tf-bundle__carousel">
 						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
 							<div class="swiper-wrapper">
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Hario V60 Starter Kit" data-img="images/manual-brew.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/manual-brew.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Hario V60 Starter Kit</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 385.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Hario Syphon Technica 3 Cup" data-img="images/product-8.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-8.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Hario Syphon Technica 3 Cup</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.650.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Zicaffè Linea Espresso 1 kg" data-img="images/homebundle3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle3.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Zicaffè Linea Espresso 1 kg</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 245.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 group (Red)" data-img="images/product-1.jpg" data-variants="Merah|Hitam|Putih|Hijau|Silver">
-							<div class="text">
-								<p class="product__list__item--icons"><span><a href="#" class="selected" aria-label="Hapus dari favorit"><svg class="tf-i tf-i--2x" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p>
-							</div>
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Product" loading="lazy"></a>
+						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
 							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 group</a></h3>
-								<div class="fs-price-row">
-									<div class="fs-price">
-										<span class="fs-price-new">Rp 230.000.000</span>
-									</div>
-								</div>
-								<div class="fs-actions">
-									<a class="fs-btn fs-btn-primary" href="#">Add to cart</a>
-								</div>
+								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-cafe-start" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">6 produk</span>
+					<h2 class="tf-bundle__title">Cafe Starter 1 Group</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 185.000.000</strong>
+						<span class="tf-bundle__save">Hemat 4%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Nuova Simonelli Appia Life 1 Group" data-img="images/product-1.5.jpg" data-variants="Hitam|Putih">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.5.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 1 Group</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 165.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Compak E5 OD Grinder" data-img="images/compak.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/compak.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Compak E5 OD Grinder</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 18.500.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Knock Box Stainless" data-img="images/accessory4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory4.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Knock Box Stainless</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 650.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-cafe-2g" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">6 produk</span>
+					<h2 class="tf-bundle__title">Cafe Essential 2 Group</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 279.000.000</strong>
+						<span class="tf-bundle__save">Hemat 7%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Nuova Simonelli Appia Life 2 Group" data-img="images/product-1.4.jpg" data-variants="Hitam|Merah|Putih">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.4.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 Group</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Victoria Arduino Mythos MY75" data-img="images/homebundle.jpg" data-variants="Hitam|Putih">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Mythos MY75</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 62.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Zicaffè Linea Espresso 1 kg" data-img="images/homebundle3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle3.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Zicaffè Linea Espresso 1 kg</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 245.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-cafe-premium" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">14 produk</span>
+					<h2 class="tf-bundle__title">Cafe Premium 3 Group</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 389.000.000</strong>
+						<span class="tf-bundle__save">Hemat 7%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Nuova Simonelli Aurelia Wave 3 Group" data-img="images/product-2.jpg" data-variants="Hitam|Putih">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Aurelia Wave 3 Group</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 315.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Victoria Arduino Mythos MY75" data-img="images/homebundle.jpg" data-variants="Hitam|Putih">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Mythos MY75</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 62.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Compak E5 OD Grinder" data-img="images/compak.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/compak.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Compak E5 OD Grinder</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 18.500.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Bottomless Portafilter 58 mm" data-img="images/accessory2.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory2.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Bottomless Portafilter 58 mm</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.150.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Knock Box Stainless" data-img="images/accessory4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory4.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Knock Box Stainless</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 650.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Hario Syphon Technica 3 Cup" data-img="images/product-8.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-8.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Hario Syphon Technica 3 Cup</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.650.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Hario V60 Starter Kit" data-img="images/manual-brew.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/manual-brew.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Hario V60 Starter Kit</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 385.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide tf-bundle__more-slide" data-bundle-more-slide>
+						<button type="button" class="tf-bundle__more" data-bundle-more><span class="tf-bundle__more-n">+4</span><span>produk lainnya</span><em>Lihat semua 14 produk</em></button>
+					</div>
+					<div class="swiper-slide fs-slide" hidden>
+						<div class="product" data-name="Zicaffè Linea Espresso 1 kg" data-img="images/homebundle3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle3.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Zicaffè Linea Espresso 1 kg</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 245.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide" hidden>
+						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide" hidden>
+						<div class="product" data-name="Bravo Filter Cartridge C500" data-img="images/product-1.3.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.3.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Bravo Filter Cartridge C500</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.250.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide" hidden>
+						<div class="product" data-name="Allegra Commercial Blender 2 L" data-img="images/allegra blender.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra blender.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Allegra Commercial Blender 2 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.900.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-cafe-cold" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">4 produk</span>
+					<h2 class="tf-bundle__title">Cafe Cold Bar</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 34.900.000</strong>
+						<span class="tf-bundle__save">Hemat 5%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Osion HB-40U Ice Maker" data-img="images/osion ice maker.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/osion ice maker.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Osion HB-40U Ice Maker</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 16.200.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Allegra Commercial Blender 2 L" data-img="images/allegra blender.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra blender.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Allegra Commercial Blender 2 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.900.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Allegra Carbonator" data-img="images/allegra carbonator.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra carbonator.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Allegra Carbonator</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 12.500.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-office-s" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">3 produk</span>
+					<h2 class="tf-bundle__title">Office Pantry S</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 7.250.000</strong>
+						<span class="tf-bundle__save">Hemat 6%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Automatic Coffee Brewer 5 L" data-img="images/product-7.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-7.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Automatic Coffee Brewer 5 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 6.400.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Bravo Filter Cartridge C500" data-img="images/product-1.3.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.3.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Bravo Filter Cartridge C500</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.250.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-office-l" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">4 produk</span>
+					<h2 class="tf-bundle__title">Office Pantry L</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 182.500.000</strong>
+						<span class="tf-bundle__save">Hemat 7%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Nuova Simonelli Prontobar Silent" data-img="images/product-5.jpg" data-variants="Hitam|Silver">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-5.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Prontobar Silent</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 189.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Automatic Coffee Brewer 5 L" data-img="images/product-7.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-7.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Automatic Coffee Brewer 5 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 6.400.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Bravo Filter Cartridge C500" data-img="images/product-1.3.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.3.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Bravo Filter Cartridge C500</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.250.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-office-xl" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">3 produk</span>
+					<h2 class="tf-bundle__title">Office Fully Automatic XL</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 259.000.000</strong>
+						<span class="tf-bundle__save">Hemat 5%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Eversys Cameo C2" data-img="images/product-6.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-6.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Eversys Cameo C2</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 265.000.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Zicaffè Linea Espresso 1 kg" data-img="images/homebundle3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle3.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Zicaffè Linea Espresso 1 kg</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 245.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-gelato-shop" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">3 produk</span>
+					<h2 class="tf-bundle__title">Gelato Shop Complete</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 425.000.000</strong>
+						<span class="tf-bundle__save">Hemat 6%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Bravo Trittico 305 Gelato Machine" data-img="images/product-3.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-3.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Bravo Trittico 305 Gelato Machine</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 385.000.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="TFN Gelato Display 12 Pan" data-img="images/product-4.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">TFN Gelato Display 12 Pan</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 58.000.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Allegra Commercial Blender 2 L" data-img="images/allegra blender.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra blender.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Allegra Commercial Blender 2 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.900.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+							</div>
+						</div>
+						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+					</div>
+				</div>
+			</article>
+			<article class="tf-bundle" id="bundle-kitchen-cafe" data-tf-bundle>
+				<aside class="tf-bundle__sum">
+					<span class="tf-bundle__cat">3 produk</span>
+					<h2 class="tf-bundle__title">Cafe Kitchen Set</h2>
+					<div class="tf-bundle__price">
+						<span class="tf-bundle__label">Harga paket</span>
+						<strong class="tf-bundle__now">Rp 59.900.000</strong>
+						<span class="tf-bundle__save">Hemat 7%</span>
+					</div>
+					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
+				</aside>
+				<div class="tf-bundle__items product-slider-section">
+					<div class="tf-bundle__carousel">
+						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
+							<div class="swiper-wrapper">
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Allegra Mini Speed Oven Pro" data-img="images/Allegra oven.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/Allegra oven.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Allegra Mini Speed Oven Pro</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 40.500.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Osion HB-40U Ice Maker" data-img="images/osion ice maker.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/osion ice maker.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Osion HB-40U Ice Maker</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 16.200.000</span><span class="fs-qty">1 unit</span></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide fs-slide">
+						<div class="product" data-name="Allegra Commercial Blender 2 L" data-img="images/allegra blender.jpg" data-variants="">
+							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra blender.jpg" alt="" loading="lazy" draggable="false"></a>
+							<div class="fs-body">
+								<h3 class="fs-product-title"><a href="product-single.html">Allegra Commercial Blender 2 L</a></h3>
+								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.900.000</span><span class="fs-qty">1 unit</span></div></div>
 							</div>
 						</div>
 					</div>
@@ -1092,6 +1547,7 @@
 	<script src="assets/js/tf-nav.js"></script>
 	<script src="assets/js/tf-search.js"></script>
 	<script src="assets/js/mobile-nav.js"></script>
+	<script src="assets/js/tf-app.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src="assets/js/tf-sliders.js"></script>
 	<script src="assets/js/tf-bundle.js"></script>
