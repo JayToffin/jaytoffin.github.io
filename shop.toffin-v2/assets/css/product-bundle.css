@@ -1,7 +1,7 @@
 /* =====================================================================
    Toffin v2 · product-bundle.css
-   Halaman Paket Bundling (product-bundle.html), MIGRASI.md langkah 11 & 22.
-   Satu baris per paket: ringkasan kiri (nama, harga paket, tombol) + isi paket
+   Halaman Paket Bundling (product-bundle.html), MIGRASI.md langkah 11, 22, 28, 29.
+   Satu baris per paket: ringkasan kiri (jumlah isi, nama, harga paket, harga satuan dicoret + hemat, tombol) + isi paket
    digeser di kanan (Swiper "bundle-items", kartu produk global).
    Muat setelah tf-base, tf-layout, tf-products. Blok modal varian di bawah.
    ===================================================================== */
@@ -11,31 +11,29 @@
 .tf-bundle-page__crumb a { color: var(--tf-muted); text-decoration: none; }
 .tf-bundle-page__crumb a:hover { color: var(--tf-orange-dark); }
 .tf-bundle-page__crumb span::before { content: "\203A"; margin-right: 6px; }
-/* header halaman: blok berlatar lembut (judul + jumlah + satu kalimat) */
-.tf-bundle-head { margin: 0 0 16px; padding: 20px 22px; border-radius: 16px; background: linear-gradient(100deg, #fff4e7 0%, #fff9f2 60%, #fffcf8 100%); }
-.tf-bundle-head h1 { margin: 0 0 4px; color: var(--tf-ink); font-size: 26px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
-.tf-bundle-head h1 span { margin-left: 6px; color: var(--tf-orange-dark); font-size: 15px; font-weight: 800; }
-.tf-bundle-head p { margin: 0; color: var(--tf-body); font-size: 13.5px; }
 
-/* baris paket */
-.tf-bundle { display: grid; grid-template-columns: 260px minmax(0, 1fr); margin: 0 0 14px; border: 1px solid var(--tf-line); border-radius: 16px; background: #fff; scroll-margin-top: 84px; transition: border-color .15s ease; }
-.tf-bundle:hover { border-color: rgba(248, 148, 31, .45); }
+/* baris paket (dirapikan 13 Okt): satu bingkai, ringkasan berlatar lembut rata, isi paket di atas abu muda
+   dengan kartu putih tanpa garis, jadi tidak ada lagi kotak di dalam kotak */
+.tf-bundle { display: grid; grid-template-columns: 250px minmax(0, 1fr); margin: 0 0 16px; border: 1px solid var(--tf-line); border-radius: 16px; background: #fff; overflow: hidden; scroll-margin-top: 84px; transition: border-color .15s ease, box-shadow .15s ease; }
+.tf-bundle:hover { border-color: rgba(248, 148, 31, .45); box-shadow: 0 10px 28px rgba(17, 24, 39, .06); }
 .tf-bundle[hidden] { display: none; }
-.tf-bundle__sum { position: relative; display: flex; flex-direction: column; min-width: 0; padding: 20px 20px 20px 22px; border-right: 1px solid #f9d6ad; border-radius: 15px 0 0 15px; background: linear-gradient(160deg, #ffe4c2 0%, #fff0dc 55%, #fff7ec 100%); overflow: hidden; }   /* panel paket ter-highlight: pembeda bundling */
-.tf-bundle__sum::after { content: ""; position: absolute; left: -50px; bottom: -70px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(248, 148, 31, .22), rgba(248, 148, 31, 0) 68%); pointer-events: none; }
-.tf-bundle__sum > * { position: relative; z-index: 1; }
-.tf-bundle__cat { align-self: flex-start; margin-bottom: 10px; padding: 4px 10px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
-.tf-bundle__title { margin: 0 0 14px; color: var(--tf-ink); font-size: 19px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
-.tf-bundle__price { display: grid; gap: 2px; margin-top: auto; }
-.tf-bundle__label { color: #8a5a22; font-size: 11.5px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
-.tf-bundle__now { color: var(--tf-ink); font-size: 22px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
+/* ringkasan: isi dikelompokkan dan dipusatkan vertikal, bukan nama di atas & harga di dasar dengan celah kosong */
+.tf-bundle__sum { display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 22px 20px; border-right: 1px solid #fde3c4; background: #fff8f0; }
+.tf-bundle__cat { color: var(--tf-orange-dark); font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.tf-bundle__title { margin: 4px 0 0; color: var(--tf-ink); font-size: 18px; font-weight: 800; line-height: 1.25; letter-spacing: -.01em; }
+.tf-bundle__price { display: grid; gap: 2px; margin-top: 16px; padding-top: 14px; border-top: 1px dashed #f6cfa0; }
+.tf-bundle__label { color: var(--tf-muted); font-size: 11.5px; font-weight: 700; }
+.tf-bundle__now { color: var(--tf-ink); font-size: 22px; font-weight: 900; letter-spacing: -.02em; line-height: 1.15; }
+.tf-bundle__was { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 2px; }
+.tf-bundle__was s { color: var(--tf-muted); font-size: 12.5px; font-weight: 600; }
 /* pil hemat hijau = .tf-bcard__save homepage */
-.tf-bundle__save { justify-self: start; margin-top: 4px; padding: 2px 9px; border-radius: 999px; background: #e8f7ee; color: #15803d; font-size: 11.5px; font-weight: 800; }
-.tf-bundle__cta { justify-content: center; margin-top: 14px; min-height: 40px; padding: 0 18px; border-radius: 10px; font-size: 13.5px; box-shadow: none; }
+.tf-bundle__save { padding: 2px 9px; border-radius: 999px; background: #e8f7ee; color: #15803d; font-size: 11.5px; font-weight: 800; }
+.tf-bundle__cta { justify-content: center; margin-top: 16px; min-height: 42px; padding: 0 18px; border-radius: 10px; font-size: 14px; box-shadow: none; }
 .tf-bundle__cta:hover { transform: none; box-shadow: none; }
 
 /* isi paket: slider kartu produk global, tanpa tombol & hati */
-.tf-bundle__items { min-width: 0; padding: 14px 14px 14px 16px; }
+.tf-bundle__items { min-width: 0; padding: 16px; background: #f7f8fa; }
+.tf-bundle__items .product, .tf-bundle__items .product:hover { border: 0; }   /* kartu putih di atas abu: tanpa garis */
 .tf-bundle__items .product .fs-body { padding: 10px 12px 12px; }
 .tf-bundle__items .product .fs-price-new { font-size: 14px; }
 .tf-bundle__items .product .fs-product-title { --tf-title-size: 12.5px; }
@@ -60,59 +58,195 @@
 .tf-bundle__more em { margin-top: 10px; color: var(--tf-orange-dark); font-size: 12.5px; font-style: normal; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 1199.98px) {
-	.tf-bundle { grid-template-columns: 240px minmax(0, 1fr); }
+	.tf-bundle { grid-template-columns: 230px minmax(0, 1fr); }
 }
 @media (max-width: 991.98px) {
-	/* ringkasan di atas isi paket: nama kiri, harga + tombol kanan; tidak pernah menimpa kartu */
+	/* ringkasan di atas isi paket: kategori + nama kiri, harga + tombol kanan */
 	.tf-bundle { grid-template-columns: 1fr; }
-	.tf-bundle__sum { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "cat cat" "title price" "title cta"; column-gap: 16px; row-gap: 4px; align-items: center; padding: 16px; border-right: 0; border-bottom: 1px solid #f9d6ad; border-radius: 15px 15px 0 0; background: linear-gradient(100deg, #ffe4c2 0%, #fff0dc 55%, #fff7ec 100%); }
-	.tf-bundle__cat { grid-area: cat; justify-self: start; margin: 0 0 4px; }
-	.tf-bundle__title { grid-area: title; margin: 0; font-size: 17px; }
-	.tf-bundle__price { grid-area: price; justify-items: end; text-align: right; margin: 0; }
+	.tf-bundle__sum { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "best best" "cat price" "title price" "title cta"; column-gap: 16px; row-gap: 2px; align-items: center; padding: 16px; border-right: 0; border-bottom: 1px solid #fde3c4; }
+	.tf-bundle__cat { grid-area: cat; }
+	.tf-bundle__title { grid-area: title; align-self: start; margin: 0; font-size: 17px; }
+	.tf-bundle__price { grid-area: price; justify-items: end; text-align: right; margin: 0; padding: 0; border: 0; }
+	.tf-bundle__was { justify-content: flex-end; }
 	.tf-bundle__label { display: none; }
-	.tf-bundle__now { font-size: 18px; }
-	.tf-bundle__cta { grid-area: cta; justify-self: end; margin: 4px 0 0; min-height: 36px; padding: 0 14px; font-size: 13px; }
+	.tf-bundle__now { font-size: 19px; }
+	.tf-bundle__cta { grid-area: cta; justify-self: end; margin: 8px 0 0; min-height: 38px; padding: 0 16px; font-size: 13.5px; }
 	.tf-bundle__items { padding: 12px; }
 }
 @media (max-width: 767.98px) {
 	.tf-bundle-page { padding-top: 12px; }
-	.tf-bundle-head { padding: 14px 16px; border-radius: 14px; }
-	.tf-bundle-head h1 { font-size: 22px; }
-	.tf-bundle-head p { font-size: 12.5px; }
-	.tf-bundle__more { min-height: 220px; }
+	.tf-bundle__more { min-height: 200px; }
 	.tf-bundle { border-radius: 14px; }
-	.tf-bundle__sum { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "cat cat" "title title" "price cta"; padding: 14px; }
-	.tf-bundle__price { justify-items: start; text-align: left; }
+	/* ponsel: nama penuh di atas, lalu harga kiri + tombol kanan sebaris */
+	.tf-bundle__sum { grid-template-areas: "best best" "cat cat" "title title" "price cta"; align-items: end; padding: 14px; row-gap: 4px; }
+	.tf-bundle__price { justify-items: start; text-align: left; margin-top: 6px; }
+	.tf-bundle__was { justify-content: flex-start; }
+	.tf-bundle__now { font-size: 18px; }
 	.tf-bundle__cta { margin: 0; }
-	.tf-bundle__items { padding: 10px 0 10px 12px; }
+	.tf-bundle__items { padding: 10px 0 12px 12px; }
+}
+
+/* =====================================================================
+   HALAMAN PROMO BUNDLING (MIGRASI.md langkah 29): header promo, baris
+   unggulan (memakai .tf-bundle di atas), grid kartu paket .tf-pk
+   ===================================================================== */
+.tf-promo-page { background: #fafafa; }
+.tf-bundle-page__crumb span a { color: inherit; text-decoration: none; }
+.tf-bundle-page__crumb span a:hover { color: var(--tf-orange-dark); }
+
+/* header promo: blok gelap espresso + garis trikolor Italia, eyebrow, judul utama, kolase mesin */
+.tf-promo { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 24px; align-items: center; margin: 0 0 26px; padding: 34px 36px; border-radius: 20px; overflow: hidden; color: #fff;
+	background: radial-gradient(600px 300px at 85% 30%, rgba(248, 148, 31, .35), transparent 70%), linear-gradient(120deg, #1d1410 0%, #2c1d14 55%, #3b2617 100%); }
+.tf-promo__flag { position: absolute; left: 36px; top: 0; width: 96px; height: 6px; border-radius: 0 0 4px 4px; background: linear-gradient(90deg, #009246 0 33.3%, #f4f5f0 33.3% 66.6%, #ce2b37 66.6%); }   /* trikolor kecil di dalam blok gelap (di tepi atas halaman bagian putihnya hilang) */
+.tf-promo__eyebrow { display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px; border: 1px solid rgba(255, 255, 255, .22); border-radius: 999px; background: rgba(255, 255, 255, .08); color: #ffd3a1; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.tf-promo__eyebrow .tf-i { width: 15px; height: 15px; }
+.tf-promo h1 { margin: 14px 0 10px; color: #fff; font-size: clamp(28px, 3.4vw, 42px); font-weight: 900; letter-spacing: -.025em; line-height: 1.05; }
+.tf-promo h1 span { display: block; color: var(--tf-orange); }
+.tf-promo p { max-width: 520px; margin: 0; color: rgba(255, 255, 255, .78); font-size: 14px; line-height: 1.55; }
+.tf-promo__art { position: relative; height: 230px; }
+.tf-promo__art span { position: absolute; display: grid; place-items: center; width: 190px; height: 190px; padding: 12px; border-radius: 22px; background: #fff; box-shadow: 0 24px 50px rgba(0, 0, 0, .35); }
+.tf-promo__art img { width: 100%; height: 100%; object-fit: contain; }
+.tf-promo__art span:nth-child(1) { left: 0; top: 30px; transform: rotate(-7deg); }
+.tf-promo__art span:nth-child(2) { left: 50%; top: 0; z-index: 2; transform: translateX(-50%); width: 210px; height: 210px; }
+.tf-promo__art span:nth-child(3) { right: 0; top: 34px; transform: rotate(7deg); }
+
+/* judul bagian */
+.tf-promo-sec { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; color: var(--tf-ink); font-size: 18px; font-weight: 800; letter-spacing: -.01em; }
+.tf-promo-sec .tf-i { width: 20px; height: 20px; color: var(--tf-orange); }
+.tf-promo-sec span { color: var(--tf-muted); font-size: 14px; font-weight: 700; }
+
+/* bar semua paket: judul + urutkan, lalu chip brand */
+.tf-promo-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.tf-promo-bar .tf-promo-sec { margin: 0; }
+.tf-promo-sort { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--tf-muted); font-size: 13.5px; white-space: nowrap; }
+.tf-promo-sort select { min-height: 40px; padding: 8px 36px 8px 12px; border: 1px solid var(--tf-line); border-radius: 10px; background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236d7588' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6l6-6'/></svg>") no-repeat right 12px center; color: var(--tf-ink); font: inherit; font-size: 13.5px; font-weight: 700; -webkit-appearance: none; appearance: none; cursor: pointer; }
+.tf-promo-chips { display: flex; gap: 8px; margin: 12px 0 16px; overflow-x: auto; scrollbar-width: none; }
+.tf-promo-chips::-webkit-scrollbar { display: none; }
+.tf-promo-chip { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: border-color .15s ease, background .15s ease, color .15s ease; }
+.tf-promo-chip span { color: #9aa0ad; font-size: 11.5px; }
+.tf-promo-chip:hover { border-color: rgba(248, 148, 31, .6); }
+.tf-promo-chip.is-on { border-color: var(--tf-orange); background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+.tf-promo-chip.is-on span { color: var(--tf-orange-dark); }
+
+/* grid kartu paket: kartu = KARTU PRODUK GLOBAL (.product + .fs-*, tf-products.css); 4/3/2 kolom (≥992 / 768 / di bawahnya); di ≥768 px isi kartu diperbesar (lihat blok "skala kartu paket").
+   Di sini hanya tambahan khas paket: jumlah produk, foto mini isi, isi lipat, label varian. */
+.tf-pk-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.tf-pk[hidden] { display: none; }
+/* foto & judul kartu = pemicu panel "Lihat semua produk" (tombol, bukan tautan ke detail; kartu mewakili paket) */
+.tf-pk__open { width: 100%; padding: 0; border: 0; cursor: pointer; }
+.tf-pk__open:focus-visible, .tf-pk__name:focus-visible { outline: 2px solid var(--tf-orange); outline-offset: -2px; }
+.tf-pk__name { display: -webkit-box; width: 100%; padding: 0; border: 0; background: none; color: var(--fs-text); font: inherit; text-align: left; cursor: pointer; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }   /* = .fs-product-title a */
+.tf-pk__name:hover { color: var(--fs-primary-dark); }
+.tf-pk .fs-product-title { margin-bottom: 4px; }   /* tinggi 2 baris tetap (kartu global): harga & tombol sejajar antar kartu */
+.tf-pk__thumbs { display: flex; align-items: center; gap: 4px; margin: 0 0 6px; min-height: 28px; }
+.tf-pk__thumbs > span { display: grid; place-items: center; flex: none; width: 28px; height: 28px; padding: 2px; border: 1px solid var(--tf-line); border-radius: 7px; background: #fff; }
+.tf-pk__thumbs img { width: 100%; height: 100%; object-fit: contain; }
+.tf-pk__thumbs .tf-pk__more { background: #f6f7f9; color: var(--tf-muted); font-size: 11px; font-weight: 800; }
+/* isi paket: panel menutupi area foto di dalam kartu (bukan memanjangkan kartu), supaya kartu lain di baris yang sama
+   tidak ikut memanjang dan tombolnya tidak melompat. Batas bawah panel (--isi-bottom) diatur tf-bundle.js tepat di atas
+   tautan "Lihat isi paket", jadi tautan (untuk menutup), harga, dan tombol tetap terlihat. */
+.tf-pk__isi { margin: 4px 0 0; }
+.tf-pk__isi summary { display: inline-flex; align-items: center; gap: 4px; color: var(--tf-orange-dark); font-size: 12px; font-weight: 800; cursor: pointer; list-style: none; }
+.tf-pk__isi summary::-webkit-details-marker { display: none; }
+.tf-pk__isi summary .tf-i { width: 14px; height: 14px; transition: transform .2s ease; }
+.tf-pk__isi[open] summary .tf-i { transform: rotate(180deg); }
+.tf-pk__panel { position: absolute; left: 0; right: 0; top: 0; bottom: var(--isi-bottom, 96px); z-index: 4; overflow-y: auto; padding: 12px 14px; border-bottom: 1px solid var(--tf-line); background: #fff; animation: tfIsi .16s ease; scrollbar-width: thin; }
+@keyframes tfIsi { from { opacity: 0; transform: translateY(-6px); } }
+.tf-pk__panel-h { margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px dashed var(--tf-line); color: var(--tf-ink); font-size: 12.5px; font-weight: 800; }
+.tf-pk__isi ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.tf-pk__isi li { display: block; }
+.tf-pk__item { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; align-items: center; margin: -4px; padding: 4px; border-radius: 8px; text-decoration: none; transition: background .15s ease; }   /* tiap produk menaut ke detail produk */
+.tf-pk__item:hover { background: #fff7ee; text-decoration: none; }
+.tf-pk__item:hover span { color: var(--tf-orange-dark); }
+.tf-pk__isi li img { width: 28px; height: 28px; padding: 2px; border: 1px solid var(--tf-line); border-radius: 6px; object-fit: contain; }
+.tf-pk__isi li span { color: var(--tf-body); font-size: 11.5px; line-height: 1.3; }
+.tf-pk__isi li span { min-width: 0; }
+.tf-pk__isi li em { display: block; overflow: hidden; font-style: normal; white-space: nowrap; text-overflow: ellipsis; }   /* nama satu baris, terpotong "…" sesuai lebar kartu; nama lengkap di title */
+.tf-pk__isi li b { display: block; margin-top: 1px; color: var(--tf-ink); font-weight: 800; }
+/* skala kartu paket (≥ 768 px): kartu global dirancang untuk grid 5 kolom yang padat; di grid paket 4 kolom elemennya
+   terlihat kecil, jadi skalanya dinaikkan HANYA untuk .tf-pk. Struktur & gaya tetap kartu global; ponsel tidak berubah. */
+@media (min-width: 768px) {
+	.tf-pk .fs-tag { top: 14px; left: 14px; padding: 3px 10px; font-size: 12px; }
+	.tf-pk__var { top: 12px; right: 12px; padding: 4px 9px; font-size: 11.5px; }
+	.tf-pk .fs-body { padding: 12px 14px 14px; }   /* dirapatkan 13 Okt: 16/16/18 → 12/14/14 */
+	.tf-pk .fs-product-title { --tf-title-size: 15px; margin-bottom: 6px; }
+	.tf-pk__thumbs { gap: 5px; margin-bottom: 8px; min-height: 30px; }
+	.tf-pk__thumbs > span { width: 30px; height: 30px; padding: 3px; border-radius: 7px; }
+	.tf-pk__thumbs .tf-pk__more { font-size: 12px; }
+	.tf-pk .fs-price-new { font-size: 19px; }
+	.tf-pk .fs-price-old { font-size: 13px; }
+	.tf-pk__isi { margin-top: 6px; }
+	.tf-pk__isi summary { font-size: 13px; }
+	.tf-pk__isi summary .tf-i { width: 15px; height: 15px; }
+	.tf-pk .fs-actions { padding-top: 10px; }
+	.tf-pk .fs-btn { min-height: 40px; font-size: 14px; }
+	.tf-pk__panel { padding: 16px; }
+	.tf-pk__panel-h { margin-bottom: 12px; font-size: 13px; }
+	.tf-pk__isi ul { gap: 10px; }
+	.tf-pk__item { grid-template-columns: 34px minmax(0, 1fr); gap: 10px; }
+	.tf-pk__isi li img { width: 34px; height: 34px; }
+	.tf-pk__isi li span { font-size: 12.5px; }
+}
+.tf-pk-empty { grid-column: 1 / -1; padding: 40px 16px; color: var(--tf-muted); text-align: center; }
+/* penanda paket bervarian di kartu */
+.tf-pk__var { position: absolute; right: 10px; top: 10px; z-index: 3; display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font-size: 10.5px; font-weight: 800; line-height: 1.4; }   /* label di foto (posisi hati kartu global): tinggi kartu tetap sama */
+.tf-pk__var .tf-i { flex: none; width: 12px; height: 12px; color: var(--tf-orange-dark); }
+/* tombol Add to cart (kartu global): keadaan "Masuk keranjang" sesaat */
+.tf-pk .fs-btn .tf-i { width: 16px; height: 16px; }
+.tf-pk .fs-btn.is-added { background: #16a34a; border-color: #16a34a; color: #fff; opacity: 1; }
+/* angka keranjang di header berdenyut saat bertambah */
+.tf-util__badge.is-bump { animation: tfBump .45s ease; }
+@keyframes tfBump { 40% { transform: scale(1.45); } }
+/* notifikasi masuk keranjang */
+.tf-toast { position: fixed; left: 50%; bottom: 24px; z-index: 1700; display: flex; align-items: center; gap: 10px; max-width: calc(100vw - 32px); padding: 12px 14px 12px 16px; border-radius: 14px; background: var(--tf-ink); color: #fff; font-family: var(--tf-font); font-size: 13.5px; line-height: 1.4; box-shadow: 0 18px 40px rgba(0, 0, 0, .25); opacity: 0; pointer-events: none; transform: translate(-50%, 16px); transition: opacity .2s ease, transform .2s ease; }
+.tf-toast.is-on { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+.tf-toast > .tf-i { flex: none; width: 20px; height: 20px; color: #4ade80; }
+.tf-toast b { font-weight: 800; }
+.tf-toast a { flex: none; margin-left: 6px; color: #ffb866; font-weight: 800; white-space: nowrap; text-decoration: none; }
+.tf-toast a:hover { text-decoration: underline; }
+@media (max-width: 991.98px) { .tf-toast { bottom: 84px; } }   /* di atas navigasi bawah ponsel */
+
+@media (max-width: 1199.98px) { .tf-promo { grid-template-columns: minmax(0, 1fr) 360px; } .tf-promo__art span { width: 150px; height: 150px; } .tf-promo__art span:nth-child(2) { width: 170px; height: 170px; } .tf-promo__art { height: 190px; } }
+@media (max-width: 991.98px) {
+	.tf-promo { grid-template-columns: 1fr; padding: 28px 24px; }
+	.tf-promo__art { display: none; }
+	.tf-pk-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+}
+@media (max-width: 767.98px) { .tf-pk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
+@media (max-width: 575.98px) {
+	.tf-promo { padding: 24px 18px 20px; border-radius: 16px; margin-bottom: 20px; }
+	.tf-promo__flag { left: 18px; width: 72px; }
+	.tf-promo p { font-size: 13px; }
+	.tf-promo-sort span { display: none; }
+	.tf-pk__var { right: 8px; top: 8px; padding: 2px 6px; font-size: 10px; }
 }
 
 /* =====================================================================
    MODAL PILIH VARIAN (#bundle-variant), diisi tf-bundle.js
    ===================================================================== */
 .tf-modal--bv .modal-dialog { max-width: 520px; }
-.tf-modal--bv .modal-body { max-height: min(60vh, 560px); overflow-y: auto; }
+.tf-modal--bv .modal-body { max-height: min(66vh, 560px); overflow-y: auto; }
 .bv-sub {
-	margin: -4px 0 12px;
+	margin: -4px 0 6px;
 	color: var(--tf-muted);
-	font-size: 13px;
+	font-size: 12.5px;
 	line-height: 1.5;
 }
 .bv-item {
 	display: flex;
 	align-items: center;
-	gap: 12px;
-	padding: 12px 0;
+	gap: 10px;
+	padding: 7px 0;   /* dirapatkan 13 Okt: 12 → 7 */
 	border-top: 1px solid var(--tf-line);
 }
 .bv-item:first-of-type {
 	border-top: 0;
-	padding-top: 4px;
+	padding-top: 2px;
 }
 .bv-thumb {
 	flex: none;
-	width: 54px;
-	height: 54px;
+	width: 40px;
+	height: 40px;
 	border: 1px solid var(--tf-line);
 	border-radius: 8px;
 	overflow: hidden;
@@ -129,9 +263,9 @@
 	min-width: 0;
 }
 .bv-name {
-	margin: 0 0 6px;
+	margin: 0 0 4px;
 	color: var(--tf-ink);
-	font-size: 13.5px;
+	font-size: 13px;
 	font-weight: 800;
 	line-height: 1.35;
 }
@@ -144,12 +278,12 @@
 }
 .bv-label > span {
 	display: block;
-	margin-bottom: 4px;
+	margin-bottom: 3px;
 }
 .bv-select {
 	width: 100%;
-	min-height: 38px;
-	padding: 6px 32px 6px 10px;
+	min-height: 34px;
+	padding: 5px 30px 5px 10px;
 	border: 1px solid var(--tf-line);
 	border-radius: 8px;
 	background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236d7588' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6l6-6'/></svg>") no-repeat right 10px center;
@@ -160,6 +294,16 @@
 	-webkit-appearance: none;
 	appearance: none;
 }
+/* popup varian: info paket, item yang wajib dipilih, kesalahan */
+.bv-pkg { margin: 0 0 4px; color: var(--tf-body); font-size: 12.5px; }
+.bv-pkg b { color: var(--tf-ink); }
+.bv-item:not(.bv-item--need) .bv-name { margin: 0; }   /* tanpa varian: hanya nama, rata tengah dengan foto */
+.bv-item--need .bv-name::after { content: "Wajib pilih"; margin-left: 8px; padding: 1px 7px; border-radius: 999px; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 10.5px; font-weight: 800; vertical-align: 1px; }
+.bv-err { display: none; margin-top: 5px; color: #b91c1c; font-size: 12px; font-weight: 700; }
+.bv-item.is-invalid .bv-select { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239, 68, 68, .14); }
+.bv-item.is-invalid .bv-err { display: block; }
+.tf-modal--bv .modal-footer { gap: 8px; }
+.tf-modal--bv .modal-footer .tf-btn .tf-i { width: 17px; height: 17px; }
 .bv-select:focus {
 	border-color: rgba(248, 148, 31, .6);
 	box-shadow: 0 0 0 3px rgba(248, 148, 31, .18);

@@ -1,326 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
-  
-<!-- Mirrored from preview.colorlib.com/theme/winkel/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2020 04:18:35 GMT -->
+<html lang="id">
+
 <head>
-    <title>Toffin - Coffee Business Platform</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+	<title>Daftar - Toffin Indonesia</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+	<!-- Bootstrap 4.1.3 murni: tiruan bundle Odoo 12 (modal lupa sandi) -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Stack v2 -->
+	<link rel="stylesheet" href="assets/css/tf-base.css">
+	<link rel="stylesheet" href="assets/css/tf-layout.css">
+	<!-- Leaflet 1.9 (OpenStreetMap) untuk modal Tandai Lokasi: peta interaktif, pusat peta terbaca saat digeser -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+	<link rel="stylesheet" href="assets/css/auth.css">
+</head>
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+<body class="au-body">
+	<svg id="tf-icons" xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+		<symbol id="i-adjustments-horizontal" viewBox="0 0 24 24"><path d="M12 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 6l8 0"/> <path d="M16 6l4 0"/> <path d="M6 12a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 12l2 0"/> <path d="M10 12l10 0"/> <path d="M15 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M4 18l11 0"/> <path d="M19 18l1 0"/></symbol>
+		<symbol id="i-alert-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 8v4"/> <path d="M12 16h.01"/></symbol>
+		<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12l14 0"/> <path d="M13 18l6 -6"/> <path d="M13 6l6 6"/></symbol>
+		<symbol id="i-arrows-horizontal" viewBox="0 0 24 24"><path d="M7 8l-4 4l4 4"/> <path d="M17 8l4 4l-4 4"/> <path d="M3 12l18 0"/></symbol>
+		<symbol id="i-ban" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M5.7 5.7l12.6 12.6"/></symbol>
+		<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></symbol>
+		<symbol id="i-brand-facebook" viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></symbol>
+		<symbol id="i-brand-instagram" viewBox="0 0 24 24"><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"/> <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/> <path d="M16.5 7.5v.01"/></symbol>
+		<symbol id="i-brand-linkedin" viewBox="0 0 24 24"><path d="M8 11v5"/> <path d="M8 8v.01"/> <path d="M12 16v-5"/> <path d="M16 16v-3a2 2 0 1 0 -4 0"/> <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/></symbol>
+		<symbol id="i-brand-whatsapp" viewBox="0 0 24 24"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/> <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></symbol>
+		<symbol id="i-brand-youtube" viewBox="0 0 24 24"><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8"/> <path d="M10 9l5 3l-5 3l0 -6"/></symbol>
+		<symbol id="i-building-bank" viewBox="0 0 24 24"><path d="M3 21l18 0"/> <path d="M3 10l18 0"/> <path d="M5 6l7 -3l7 3"/> <path d="M4 10l0 11"/> <path d="M20 10l0 11"/> <path d="M8 14l0 3"/> <path d="M12 14l0 3"/> <path d="M16 14l0 3"/></symbol>
+		<symbol id="i-building-store" viewBox="0 0 24 24"><path d="M3 21l18 0"/> <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/> <path d="M5 21l0 -10.15"/> <path d="M19 21l0 -10.15"/> <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/></symbol>
+		<symbol id="i-calendar" viewBox="0 0 24 24"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12"/> <path d="M16 3v4"/> <path d="M8 3v4"/> <path d="M4 11h16"/> <path d="M11 15h1"/> <path d="M12 15v3"/></symbol>
+		<symbol id="i-camera" viewBox="0 0 24 24"><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/> <path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></symbol>
+		<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5l10 -10"/></symbol>
+		<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6l6 -6"/></symbol>
+		<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 6l-6 6l6 6"/></symbol>
+		<symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6l-6 6"/></symbol>
+		<symbol id="i-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></symbol>
+		<symbol id="i-circle-check" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M9 12l2 2l4 -4"/></symbol>
+		<symbol id="i-clipboard-list" viewBox="0 0 24 24"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/> <path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2"/> <path d="M9 12l.01 0"/> <path d="M13 12l2 0"/> <path d="M9 16l.01 0"/> <path d="M13 16l2 0"/></symbol>
+		<symbol id="i-clock" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 7v5l3 3"/></symbol>
+		<symbol id="i-coins" viewBox="0 0 24 24"><path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3"/> <path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4"/> <path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598"/> <path d="M3 6v10c0 .888 .772 1.45 2 2"/> <path d="M3 11c0 .888 .772 1.45 2 2"/></symbol>
+		<symbol id="i-credit-card" viewBox="0 0 24 24"><path d="M3 8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -8"/> <path d="M3 10l18 0"/> <path d="M7 15l.01 0"/> <path d="M11 15l2 0"/></symbol>
+		<symbol id="i-crown" viewBox="0 0 24 24"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4l4 -6"/></symbol>
+		<symbol id="i-file-invoice" viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/> <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2"/> <path d="M9 7l1 0"/> <path d="M9 13l6 0"/> <path d="M13 17l2 0"/></symbol>
+		<symbol id="i-gift" viewBox="0 0 24 24"><path d="M3 9a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1l0 -2"/> <path d="M12 8l0 13"/> <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7"/> <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5"/></symbol>
+		<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 1 1 16 0v3"/> <path d="M18 19c0 1.657 -2.686 3 -6 3"/> <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3"/> <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3"/></symbol>
+		<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/></symbol>
+		<symbol id="i-home" viewBox="0 0 24 24"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/> <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/> <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></symbol>
+		<symbol id="i-hourglass-high" viewBox="0 0 24 24"><path d="M6.5 7h11"/> <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1"/> <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1"/></symbol>
+		<symbol id="i-id" viewBox="0 0 24 24"><path d="M3 7a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -10"/> <path d="M7 10a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 8l2 0"/> <path d="M15 12l2 0"/> <path d="M7 16l10 0"/></symbol>
+		<symbol id="i-info-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/> <path d="M12 9h.01"/> <path d="M11 12h1v4h1"/></symbol>
+		<symbol id="i-info-small" viewBox="0 0 24 24"><path d="M12 9h.01"/> <path d="M11 12h1v4h1"/></symbol>
+		<symbol id="i-layout-grid" viewBox="0 0 24 24"><path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/> <path d="M14 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4"/></symbol>
+		<symbol id="i-login" viewBox="0 0 24 24"><path d="M15 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"/> <path d="M21 12h-13l3 -3"/> <path d="M11 15l-3 -3"/></symbol>
+		<symbol id="i-logout" viewBox="0 0 24 24"><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"/> <path d="M9 12h12l-3 -3"/> <path d="M18 15l3 -3"/></symbol>
+		<symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/> <path d="M3 7l9 6l9 -6"/></symbol>
+		<symbol id="i-map-2" viewBox="0 0 24 24"><path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5"/> <path d="M9 4v13"/> <path d="M15 7v5.5"/> <path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879"/> <path d="M19 18v.01"/></symbol>
+		<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/> <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"/></symbol>
+		<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12l14 0"/></symbol>
+		<symbol id="i-package" viewBox="0 0 24 24"><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5"/> <path d="M12 12l8 -4.5"/> <path d="M12 12l0 9"/> <path d="M12 12l-8 -4.5"/> <path d="M16 5.25l-8 4.5"/></symbol>
+		<symbol id="i-percentage" viewBox="0 0 24 24"><path d="M16 17a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M6 7a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M6 18l12 -12"/></symbol>
+		<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></symbol>
+		<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5l0 14"/> <path d="M5 12l14 0"/></symbol>
+		<symbol id="i-rotate" viewBox="0 0 24 24"><path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5"/></symbol>
+		<symbol id="i-search" viewBox="0 0 24 24"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/> <path d="M21 21l-6 -6"/></symbol>
+		<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/></symbol>
+		<symbol id="i-shield-half" viewBox="0 0 24 24"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/> <path d="M12 3v18"/></symbol>
+		<symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304"/> <path d="M9 11v-5a3 3 0 0 1 6 0v5"/></symbol>
+		<symbol id="i-shopping-cart" viewBox="0 0 24 24"><path d="M4 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M17 17h-11v-14h-2"/> <path d="M6 5l14 1l-1 7h-13"/></symbol>
+		<symbol id="i-shopping-cart-x" viewBox="0 0 24 24"><path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/> <path d="M13 17h-7v-14h-2"/> <path d="M6 5l14 1l-1 7h-13"/> <path d="M22 22l-5 -5"/> <path d="M17 22l5 -5"/></symbol>
+		<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245"/></symbol>
+		<symbol id="i-tag" viewBox="0 0 24 24"><path d="M6.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/> <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3"/></symbol>
+		<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M15 5l0 2"/> <path d="M15 11l0 2"/> <path d="M15 17l0 2"/> <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"/></symbol>
+		<symbol id="i-tools" viewBox="0 0 24 24"><path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"/> <path d="M14.5 5.5l4 4"/> <path d="M12 8l-5 -5l-4 4l5 5"/> <path d="M7 8l-1.5 1.5"/> <path d="M16 12l5 5l-4 4l-5 -5"/> <path d="M16 17l-1.5 1.5"/></symbol>
+		<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7l16 0"/> <path d="M10 11l0 6"/> <path d="M14 11l0 6"/> <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/> <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/></symbol>
+		<symbol id="i-truck" viewBox="0 0 24 24"><path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/> <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"/></symbol>
+		<symbol id="i-user" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/> <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></symbol>
+		<symbol id="i-user-circle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/> <path d="M9 10a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/> <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"/></symbol>
+		<symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/> <path d="M16 19h6"/> <path d="M19 16v6"/> <path d="M6 21v-2a4 4 0 0 1 4 -4h4"/></symbol>
+		<symbol id="i-wallet" viewBox="0 0 24 24"><path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"/> <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"/></symbol>
+		<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6l-12 12"/> <path d="M6 6l12 12"/></symbol>
+		<symbol id="i-eye" viewBox="0 0 24 24"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/> <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></symbol>
+		<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M10.585 10.587a2 2 0 0 0 2.829 2.828"/> <path d="M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87"/> <path d="M3 3l18 18"/></symbol>
+		<symbol id="i-lock" viewBox="0 0 24 24"><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6"/> <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/> <path d="M8 11v-4a4 4 0 1 1 8 0v4"/></symbol>
+	</svg>
 
-    <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
-    integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
 
-  </head>
-  <body class="goto-here">
-		
-  
-	<!-- END nav -->
+	<!-- ===== Widget chat: AI assistant + WhatsApp (tf-layout.css / tf-nav.js) ===== -->
 
-  
-    <section class="ftco-section ftco-choose ftco-no-pb ftco-no-pt">
-    
-    	<div class="container">
-          	
-				<div class="row">
-				  <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
-					<div class="card card-signin my-5">
-					  <div class="card-body">
-						
-              
-              <div class="row justify-content-center mb-3 pb-3">
-                <div class="col-md-12 heading-section text-center ftco-animate">
-                  <h5>REGISTER</h5>
-                </div>
-              </div>  
-              <p>Note</p>
-              <p style="font-size: 13px;"><span style="color: red;">*</span> Jika anda pernah berbelanja di Toffin silahkan pilih <strong>Existing User</strong> untuk mengaktifkan akun Anda.</p>
-              <div class="row">
-             
-              <div class="col-md-6">
-                <a class="btn btn-lg btn-primary btn-block text-uppercase" href="existing-user.html" style="font-size: 15px; border-radius: 0% !important; margin: 0 auto;">Existing User</a>
-                <!-- <a class="btn btn-lg btn-secondary btn-block text-uppercase" href="existing-user.html" style="font-size: 15px; border-radius: 0% !important; margin: 0 auto;">Existing User</a> -->
-              </div>
-            </div> <!-- end row --> 
-            <br>
-              <p style="font-size: 13px;"><span style="color: red;">*</span> Jika anda belum memiliki akun Toffin silahkan isi form pendaftaran berikut dengan benar.</p>
-              
-
-              <div class="row pb-4">
-                <div class="container">
-                <label class="">
-                  <input type="radio" name="radio">
-                  <span style="font-weight: bold;">INDIVIDU</span>
-                </label><br>
-                <label class="">
-                  <input type="radio" name="radio">
-                  <span style="font-weight: bold;">KORPORAT</span>
-                </label>
-              </div>
-              </div> <!-- end row -->
-
-						<form class="form-signin">
-							<div class="row align-items-end">
-                
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="namaktp">Nama Sesuai KTP</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="namaktp">Nama Non-Korporat</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-                </div>
-              <div class="col-md-12">
-                <p style="font-size: 11px;">Nama non-korporat diperlukan untuk penamaan Virtual Account Anda. Jika Anda adalah korporat, mohon mengisi tanpa menggunakan penamaan dengan unsur korporasi (PT, CV, Bank, Rumah Sakit, dll). Jika Anda adalah non-korporat, dapat mengisi sesuai dengan nama KTP.</p>
-              </div>
-           
-              <div class="col-md-12">
-                <div class="form-group col-md-6 pl-0">
-                  <label for="email">Email</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="noktp">No KTP</label>
-                  <input type="text" name="noktp" maxlength="16" class="form-control noktp" placeholder="" onkeypress="return onlyNumberKey(event);">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="fotoktp">Upload KTP</label>
-                  <input type="file" class="file" placeholder="" name="img[]" accept="image/*" style="width: 100%;">
-                </div>
-              </div>
-              <div class="w-100"></div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="streetaddress">Alamat</label>
-                  <textarea type="text" class="form-control" placeholder=""></textarea>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="towncity">Provinsi</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="towncity">Kota</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="phone">Kode pos</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="postcodezip">Nomor Handphone</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              <div class="w-100"></div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label" for="password">Kata Sandi</label>
-                  <input type="password" id="password" class="form-control" value="">
-                  <i class="toggle-password fa fa-fw fa-eye-slash"></i>
-                </div> <br>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="control-label" for="password">Konfirmasi Sandi</label>
-                    <input type="password" id="password" class="form-control" value="">
-                    <i class="toggle-password fa fa-fw fa-eye-slash"></i>
-                  </div> <br>
-                </div>
-            </div>
-            </form><hr>
-
-            <form class="form-signin">
-							<div class="row align-items-end">
-                
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="namaktp">Nama Sesuai NPWP</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="namaktp">Nama Non-Korporat</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-                </div>
-              <div class="col-md-12">
-                <p style="font-size: 11px;">Nama non-korporat diperlukan untuk penamaan Virtual Account Anda. Jika Anda adalah korporat, mohon mengisi tanpa menggunakan penamaan dengan unsur korporasi (PT, CV, Bank, Rumah Sakit, dll). Jika Anda adalah non-korporat, dapat mengisi sesuai dengan nama KTP.</p>
-              </div>
-           
-              <div class="col-md-12">
-                <div class="form-group col-md-6 pl-0">
-                  <label for="email">Email</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="noktp">No NPWP</label>
-                  <input type="text" name="noktp" maxlength="16" class="form-control noktp" placeholder="" onkeypress="return onlyNumberKey(event);">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="fotoktp">Upload NPWP</label>
-                  <input type="file" class="file" placeholder="" name="img[]" accept="image/*" style="width: 100%;">
-                </div>
-              </div>
-              <div class="w-100"></div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="streetaddress">Alamat</label>
-                  <textarea type="text" class="form-control" placeholder=""></textarea>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="towncity">Provinsi</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="towncity">Kota</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="phone">Kode pos</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="postcodezip">Nomor Handphone</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-              <div class="w-100"></div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label" for="password">Kata Sandi</label>
-                  <input type="password" id="password" class="form-control" value="">
-                  <i class="toggle-password fa fa-fw fa-eye-slash"></i>
-                </div> <br>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="control-label" for="password">Konfirmasi Sandi</label>
-                    <input type="password" id="password" class="form-control" value="">
-                    <i class="toggle-password fa fa-fw fa-eye-slash"></i>
-                  </div> <br>
-                </div>
-            </div>
-            </form>
-            
-                    <hr class="my-4"> 
-            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="border-radius: 0% !important; margin: 0 auto;">Daftar</button>
-            <hr>
-            <a href="index.html"> <button class="btn btn-lg btn-facebook btn-block text-uppercase" data-toggle="modal" data-target="#resetpass" style="border-radius: 0% !important;">Kembali</button></a>
-						  
-				
-            
-					  </div>
-					</div>
-				  </div>
+		<!-- ===== Halaman daftar (MIGRASI.md langkah 25): fitur produksi shop.toffin.id/web/signup dipertahankan: catatan Existing
+	     User, tipe akun Individu/Korporat (company_type), Nama Sesuai KTP / Nama Non-Korporat + NPWP, Email, Alamat, Provinsi →
+	     Kota/Kabupaten → Kecamatan → Kelurahan (berantai), Kode Pos, No Handphone, Kata Sandi + Konfirmasi, Tandai Lokasi (peta,
+	     partner_latitude/longitude), Daftar, Login. Disusun 3 bagian bernomor dalam satu kartu lebar. ===== -->
+	<main class="au au-reg">
+		<div class="au-regwrap">
+			<div class="au-card au-card--wide">
+				<div class="au-head">
+					<h1>Buat akun Toffin</h1>
+					<p>Satu akun untuk belanja, lacak pesanan, Toffin Rewards, dan layanan servis. Sudah punya akun? <a href="login.html">Masuk</a></p>
 				</div>
-	
-			
-    	</div>
-    </section>
+				<a href="existing-user.html" class="au-notice"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg><span><strong>Pernah berbelanja di Toffin?</strong> Pilih <b>Existing User</b> untuk mengaktifkan akun yang sudah ada tanpa mendaftar ulang.</span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+				<div class="au-notice au-notice--ok" data-au-existing-note hidden><svg class="tf-i" aria-hidden="true"><use href="#i-circle-check"/></svg><span><strong>Kontak terverifikasi.</strong> Data dari cabang sudah kami isi. Lengkapi sisanya dan buat kata sandi untuk mengaktifkan akun.</span></div>
 
-   
+				<form class="au-form" novalidate data-au-register>
+					<section class="au-sec">
+						<h2 class="au-sec__h"><i>1</i>Tipe akun &amp; identitas</h2>
+						<div class="au-type" role="radiogroup" aria-label="Tipe akun">
+							<label class="au-type__opt"><input type="radio" name="company_type" value="person" checked data-au-type><span class="au-type__card"><svg class="tf-i" aria-hidden="true"><use href="#i-user"/></svg><strong>Individu</strong><small>Pembelian atas nama pribadi</small></span></label>
+							<label class="au-type__opt"><input type="radio" name="company_type" value="company" data-au-type><span class="au-type__card"><svg class="tf-i" aria-hidden="true"><use href="#i-building-store"/></svg><strong>Korporat</strong><small>Kafe, resto, hotel, atau perusahaan</small></span></label>
+						</div>
+						<div class="au-grid" data-au-when="person">
+							<label class="au-field "><span class="au-field__l">Nama sesuai KTP</span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-user"/></svg><input type="text" name="name" autocomplete="name" placeholder="Nama lengkap" required></span></label>
+							<label class="au-field "><span class="au-field__l">Email<span class="au-tip" data-pd-tip><button type="button" class="au-tip__btn" aria-label="Info"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg></button><span class="au-tip__box" role="tooltip">Dipakai untuk masuk dan menerima tautan aktivasi.</span></span></span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-mail"/></svg><input type="email" name="login2" autocomplete="email" inputmode="email" placeholder="nama@email.com" required></span></label>
+						</div>
+						<div class="au-grid" data-au-when="company" hidden>
+							<label class="au-field"><span class="au-field__l">Nama sesuai NPWP<span class="au-tip" data-pd-tip><button type="button" class="au-tip__btn" aria-label="Info"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg></button><span class="au-tip__box" role="tooltip">Dipakai untuk faktur pajak dan dokumen penagihan.</span></span></span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-building-store"/></svg><input type="text" name="company_name" autocomplete="organization" placeholder="mis. PT Kopi Nusantara" required></span></label>
+							<label class="au-field "><span class="au-field__l">NPWP</span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-id"/></svg><input type="text" name="npwp" inputmode="numeric" maxlength="16" placeholder="16 digit" required></span></label>
+							<label class="au-field "><span class="au-field__l">Nama non-korporat <span class="au-tip" data-pd-tip><button type="button" class="au-tip__btn" aria-label="Info nama non-korporat"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg></button><span class="au-tip__box" role="tooltip">Dipakai untuk penamaan Virtual Account Anda. Mohon tidak memakai unsur korporasi seperti PT, CV, atau Bank.</span></span></span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-user"/></svg><input type="text" name="name2" autocomplete="name" placeholder="Nama penanggung jawab" required></span></label>
+							<label class="au-field"><span class="au-field__l">Email perusahaan<span class="au-tip" data-pd-tip><button type="button" class="au-tip__btn" aria-label="Info"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg></button><span class="au-tip__box" role="tooltip">Dipakai untuk masuk dan menerima tautan aktivasi.</span></span></span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-mail"/></svg><input type="email" name="login" autocomplete="email" inputmode="email" placeholder="nama@perusahaan.com" required></span></label>
 
-  
+						</div>
+						<div class="au-grid">
+							<label class="au-field"><span class="au-field__l">No. handphone<span class="au-tip" data-pd-tip><button type="button" class="au-tip__btn" aria-label="Info"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg></button><span class="au-tip__box" role="tooltip">Untuk verifikasi akun dan konfirmasi pesanan via WhatsApp.</span></span></span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-phone"/></svg><input type="tel" name="mobile" autocomplete="tel" inputmode="tel" placeholder="08xx xxxx xxxx" required></span></label>
+						</div>
+					</section>
 
-   
-	
+					<section class="au-sec">
+						<h2 class="au-sec__h"><i>2</i>Alamat pengiriman</h2>
+						<div class="au-grid">
+							<label class="au-field au-field--full au-field--area"><span class="au-field__l">Alamat</span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg><textarea name="street" rows="2" placeholder="Nama jalan, nomor, RT/RW, patokan" required></textarea></span></label>
+							<label class="au-field au-field--select"><span class="au-field__l">Provinsi</span><span class="au-field__box"><select name="state_id" required data-au-prov><option value="">Pilih provinsi</option><option value="Aceh">Aceh</option><option value="Bali">Bali</option><option value="Bangka Belitung">Bangka Belitung</option><option value="Banten">Banten</option><option value="Bengkulu">Bengkulu</option><option value="Gorontalo">Gorontalo</option><option value="Jakarta">Jakarta</option><option value="Jambi">Jambi</option><option value="Jawa Barat">Jawa Barat</option><option value="Jawa Tengah">Jawa Tengah</option><option value="Jawa Timur">Jawa Timur</option><option value="Kalimantan Barat">Kalimantan Barat</option><option value="Kalimantan Selatan">Kalimantan Selatan</option><option value="Kalimantan Tengah">Kalimantan Tengah</option><option value="Kalimantan Timur">Kalimantan Timur</option><option value="Kalimantan Utara">Kalimantan Utara</option><option value="Kepulauan Riau">Kepulauan Riau</option><option value="Lampung">Lampung</option><option value="Maluku">Maluku</option><option value="Maluku Utara">Maluku Utara</option><option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option><option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option><option value="Papua">Papua</option><option value="Papua Barat">Papua Barat</option><option value="Riau">Riau</option><option value="Sulawesi Barat">Sulawesi Barat</option><option value="Sulawesi Selatan">Sulawesi Selatan</option><option value="Sulawesi Tengah">Sulawesi Tengah</option><option value="Sulawesi Tenggara">Sulawesi Tenggara</option><option value="Sulawesi Utara">Sulawesi Utara</option><option value="Sumatera Barat">Sumatera Barat</option><option value="Sumatera Selatan">Sumatera Selatan</option><option value="Sumatera Utara">Sumatera Utara</option><option value="Yogyakarta">Yogyakarta</option></select><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></span></label>
+							<label class="au-field au-field--select"><span class="au-field__l">Kota / Kabupaten</span><span class="au-field__box"><select name="kabupaten_id" required disabled data-au-kab><option value="">Pilih provinsi dulu</option></select><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></span></label>
+							<label class="au-field au-field--select"><span class="au-field__l">Kecamatan</span><span class="au-field__box"><select name="kecamatan_id" required disabled data-au-kec><option value="">Pilih kota dulu</option></select><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></span></label>
+							<label class="au-field au-field--select"><span class="au-field__l">Kelurahan</span><span class="au-field__box"><select name="kelurahan_id" required disabled data-au-kel><option value="">Pilih kecamatan dulu</option></select><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></span></label>
+							<label class="au-field "><span class="au-field__l">Kode pos</span><span class="au-field__box"><input type="text" name="zip_code" inputmode="numeric" maxlength="5" placeholder="5 digit"></span></label>
+							<div class="au-field au-field--map" data-au-map>
+								<span class="au-field__l">Tandai lokasi <span class="au-tip" data-pd-tip><button type="button" class="au-tip__btn" aria-label="Info"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg></button><span class="au-tip__box" role="tooltip">Titik peta membantu kurir dan teknisi menemukan alamat Anda dengan tepat.</span></span></span>
+								<button type="button" class="au-mapbtn" data-toggle="modal" data-target="#au-map"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg><span data-au-map-status>Pilih titik di peta</span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+								<input type="hidden" name="partner_latitude"><input type="hidden" name="partner_longitude">
+							</div>
+						</div>
+					</section>
 
+					<section class="au-sec">
+						<h2 class="au-sec__h"><i>3</i>Keamanan akun</h2>
+						<div class="au-grid">
+							<label class="au-field "><span class="au-field__l">Kata sandi</span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-lock"/></svg><input type="password" name="password" autocomplete="new-password" placeholder="Minimal 8 karakter" minlength="8" required data-au-pass data-au-strength><button type="button" class="au-eye" data-au-eye aria-label="Tampilkan kata sandi" aria-pressed="false"><svg class="tf-i" aria-hidden="true"><use href="#i-eye"/></svg></button></span><span class="au-field__hint"><span class="au-meter" data-au-meter><i></i><i></i><i></i><i></i></span><span data-au-meter-txt>Gunakan huruf besar, angka, dan simbol.</span></span></label>
+							<label class="au-field "><span class="au-field__l">Konfirmasi sandi</span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-lock"/></svg><input type="password" name="confirm_password" autocomplete="new-password" placeholder="Ulangi kata sandi" required data-au-confirm><button type="button" class="au-eye" data-au-eye aria-label="Tampilkan kata sandi" aria-pressed="false"><svg class="tf-i" aria-hidden="true"><use href="#i-eye"/></svg></button></span></label>
+						</div>
+					</section>
 
-   
-    
-  
+					<label class="au-check au-check--terms"><input type="checkbox" name="agree" required data-au-agree><span>Saya menyetujui <a href="syarat-dan-ketentuan.html" target="_blank" rel="noopener">Syarat &amp; Ketentuan</a> dan <a href="kebijakan-privasi.html" target="_blank" rel="noopener">Kebijakan Privasi</a> Toffin.</span></label>
+					<div class="au-alert" data-au-alert hidden role="alert"><svg class="tf-i" aria-hidden="true"><use href="#i-alert-circle"/></svg><span>Periksa kembali kolom yang ditandai merah.</span></div>
+					<button type="submit" class="tf-btn au-submit">Daftar <svg class="tf-i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+					<p class="au-alt">Sudah punya akun? <a href="login.html">Masuk</a></p>
+				</form>
+			</div>
+		</div>
+	</main>
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+	<!-- Modal tandai lokasi (pola marketplace): peta Leaflet/OSM memenuhi modal, pin tetap di tengah; saat peta digeser
+	     (moveend) alamat di kartu bawah diperbarui lewat reverse geocoding Nominatim; pencarian alamat (Enter), "Gunakan
+	     lokasi saat ini", lalu "Pilih lokasi ini" menyimpan partner_latitude/longitude (tidak ditampilkan ke pengguna). -->
+	<div id="au-map" class="modal fade au-mapmodal" tabindex="-1" role="dialog" aria-labelledby="au-map-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content">
+		<div class="modal-header"><h5 class="modal-title" id="au-map-title">Tandai Lokasi</h5><button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+		<div class="modal-body au-mapmodal__body">
+			<div class="au-mapframe" data-au-mapframe>
+				<div class="au-leaflet" data-au-leaflet aria-label="Peta"></div>
+				<div class="au-mapsearch"><label class="au-field"><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Cari alamat, gedung, atau nama tempat" aria-label="Cari alamat" data-au-map-q></span></label></div>
+				<span class="au-mapframe__pin"><img src="images/marker.png" alt="" width="34" height="47"><i></i></span>
+				<button type="button" class="au-maploc" data-au-map-locate><svg class="tf-i" aria-hidden="true"><use href="#i-map-2"/></svg> Gunakan lokasi saat ini</button>
+			</div>
+			<div class="au-mappick">
+				<span class="au-mappick__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg></span>
+				<div class="au-mappick__t"><strong data-au-map-name>Pluit, Penjaringan, Jakarta Utara</strong><span data-au-map-coord>Geser peta sampai pin tepat di lokasi Anda</span></div>
+				<button type="button" class="tf-btn au-mappick__btn" data-au-map-save data-dismiss="modal">Pilih lokasi ini</button>
+			</div>
+		</div>
+	</div></div></div>
 
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+	<script src="assets/js/tf-auth.js"></script>
+</body>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-    
-  </body>
-
-<!-- Mirrored from preview.colorlib.com/theme/winkel/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2020 04:18:35 GMT -->
 </html>

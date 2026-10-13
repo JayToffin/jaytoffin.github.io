@@ -2,14 +2,12 @@
 <html lang="id">
 
 <head>
-	<title>Paket Bundling - Toffin Indonesia</title>
+	<title>Italian Select Promo Oktober 2026 - Paket Bundling Toffin</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-	<!-- Swiper 11 (CDN, sama dengan index.html): CSS-nya dimuat SEBELUM stack v2 supaya aturan .tf-* menang -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 	<!-- Bootstrap 4.1.3 murni (grid, reboot, utilitas): tiruan bundle Odoo 12 -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -591,834 +589,515 @@
 		</div>
 	</header>
 
-	<!-- ===== Paket Bundling (MIGRASI.md langkah 22): header berlatar lembut sebagai penanda bundling; satu baris per paket =
-	     ringkasan kiri + isi paket digeser (Swiper preset "bundle-items");
-	     Paket > 10 produk: slide ke-11 dst. tersembunyi, ubin "+N produk lainnya" membukanya (data-bundle-more).
-	     Kartu produk = kartu global tanpa tombol/hati. Data 12 paket contoh. ===== -->
-	<main class="tf-bundle-page">
+	<!-- ===== Halaman promo bundling (MIGRASI.md langkah 29): data = produksi shop.toffin.id/bundle/italian-select-promo-oktober-2026/57
+	     (22 paket, harga & isi sama; foto di images/bundle-promo/). Susunan: header promo (eyebrow + judul utama + kolase mesin)
+	     → semua paket: chip brand mesin + urutkan, grid kartu = KARTU PRODUK GLOBAL (.product + .fs-*, tf-products.css)
+	     berisi judul, foto mini isi, harga paket + satuan dicoret, "Lihat semua produk" (tiap produk menaut ke detail), Add to cart.
+	     Klik foto/judul kartu membuka panel yang sama (kartu = paket, bukan satu produk).
+	     Add to cart: paket dengan item bervarian membuka popup pilih varian, selain itu langsung masuk keranjang (tf-bundle.js). ===== -->
+	<main class="tf-bundle-page tf-promo-page">
 		<div class="tf-container">
-			<nav class="tf-bundle-page__crumb" aria-label="Breadcrumb"><a href="index.html">Beranda</a><span>Paket Bundling</span></nav>
-			<header class="tf-bundle-head">
-				<h1>Paket Bundling <span data-tf-bundle-count>12</span></h1>
-				<p>Beli satu paket lebih hemat daripada satuan. Harga sudah termasuk instalasi &amp; training.</p>
+			<nav class="tf-bundle-page__crumb" aria-label="Breadcrumb"><a href="index.html">Beranda</a><span><a href="promotion.html">Promo</a></span><span>Italian Select Promo Oktober 2026</span></nav>
+
+			<!-- ===== Header promo: judul utama ===== -->
+			<header class="tf-promo">
+				<i class="tf-promo__flag" aria-hidden="true"></i>
+				<div class="tf-promo__txt">
+					<span class="tf-promo__eyebrow"><svg class="tf-i" aria-hidden="true"><use href="#i-package"/></svg> Promo Bundling</span>
+					<h1>Italian Select Promo<span>Oktober 2026</span></h1>
+				</div>
+				<div class="tf-promo__art" aria-hidden="true">
+					<span><img src="images/bundle-promo/victoria-arduino-eagle-tempo-2g-black-fki.jpg" alt=""></span><span><img src="images/bundle-promo/nuova-simonelli-appia-life-v-2-groups-tog.jpg" alt=""></span><span><img src="images/bundle-promo/allegra-lyra-1g-cve.jpg" alt=""></span>
+				</div>
 			</header>
 
-			<article class="tf-bundle" id="bundle-home-starter" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">5 produk</span>
-					<h2 class="tf-bundle__title">Home Barista Starter</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 32.900.000</strong>
-						<span class="tf-bundle__save">Hemat 8%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Oscar Mood" data-img="images/product-1.2.jpg" data-variants="Merah|Hitam|Putih">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.2.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Oscar Mood</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 24.900.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Eureka Mignon Specialita 55 mm" data-img="images/grinder.jpg" data-variants="Hitam|Putih|Chrome">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/grinder.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Eureka Mignon Specialita 55 mm</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 9.950.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Hario V60 Starter Kit" data-img="images/manual-brew.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/manual-brew.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Hario V60 Starter Kit</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 385.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+
+			<!-- ===== Semua paket: chip brand mesin + urutkan ===== -->
+			<section class="tf-promo-all" aria-labelledby="all-h">
+				<div class="tf-promo-bar">
+					<h2 class="tf-promo-sec" id="all-h">Semua paket <span data-pk-count>22</span></h2>
+					<label class="tf-promo-sort"><span>Urutkan</span>
+						<select data-pk-sort aria-label="Urutkan paket">
+							<option value="order">Paling sesuai</option>
+							<option value="save">Hemat terbesar</option>
+							<option value="price">Harga terendah</option>
+							<option value="price_desc">Harga tertinggi</option>
+						</select>
+					</label>
+				</div>
+				<div class="tf-promo-chips" role="group" aria-label="Brand mesin">
+					<button type="button" class="tf-promo-chip is-on" data-pk-brand="">Semua <span>22</span></button>
+					<button type="button" class="tf-promo-chip" data-pk-brand="Hario">Hario <span>1</span></button>
+					<button type="button" class="tf-promo-chip" data-pk-brand="Nuova Simonelli">Nuova Simonelli <span>8</span></button>
+					<button type="button" class="tf-promo-chip" data-pk-brand="Vibiemme">Vibiemme <span>4</span></button>
+					<button type="button" class="tf-promo-chip" data-pk-brand="Victoria Arduino">Victoria Arduino <span>6</span></button>
+					<button type="button" class="tf-promo-chip" data-pk-brand="Allegra">Allegra <span>3</span></button>
+				</div>
+				<div class="tf-pk-grid" data-pk-grid>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Hario" data-price="22900000" data-save="20" data-order="0">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Hario EEM"><img class="img-fluid" src="images/bundle-promo/hario-eem-2-hsv-espresso-machine-silver-eiw.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">20%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Hario EEM</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Mignon Tamper (Black)"><img src="images/bundle-promo/eureka-mignon-tamper-black-vqu.jpg" alt="" loading="lazy"></span><span title="Eureka Mignon Manuale (Black)"><img src="images/bundle-promo/eureka-mignon-manuale-black-ktz.jpg" alt="" loading="lazy"></span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 22.900.000</span><span class="fs-price-old">Rp 28.450.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 3 produk</p><ul>
+								<li data-name="Hario EEM-2-HSV Espresso Machine (Silver)" data-img="images/bundle-promo/hario-eem-2-hsv-espresso-machine-silver-eiw.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Hario EEM-2-HSV Espresso Machine (Silver)"><img src="images/bundle-promo/hario-eem-2-hsv-espresso-machine-silver-eiw.jpg" alt="" loading="lazy"><span><em>Hario EEM-2-HSV Espresso Machine (Silver)</em><b>Rp 13.950.000</b></span></a></li>
+								<li data-name="Eureka Mignon Tamper (Black)" data-img="images/bundle-promo/eureka-mignon-tamper-black-vqu.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Mignon Tamper (Black)"><img src="images/bundle-promo/eureka-mignon-tamper-black-vqu.jpg" alt="" loading="lazy"><span><em>Eureka Mignon Tamper (Black)</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Eureka Mignon Manuale (Black)" data-img="images/bundle-promo/eureka-mignon-manuale-black-ktz.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Mignon Manuale (Black)"><img src="images/bundle-promo/eureka-mignon-manuale-black-ktz.jpg" alt="" loading="lazy"><span><em>Eureka Mignon Manuale (Black)</em><b>Rp 4.500.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-home-pro" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">6 produk</span>
-					<h2 class="tf-bundle__title">Home Barista Pro</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 139.000.000</strong>
-						<span class="tf-bundle__save">Hemat 27%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Victoria Arduino Eagle One Prima" data-img="images/product-1.1.jpg" data-variants="Hitam|Putih">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.1.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Eagle One Prima</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 118.500.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Victoria Arduino Mythos MY75" data-img="images/homebundle.jpg" data-variants="Hitam|Putih">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Mythos MY75</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 62.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Knock Box Stainless" data-img="images/accessory4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Knock Box Stainless</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 650.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Nuova Simonelli" data-price="30450000" data-save="15" data-order="1">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Nuova Simonelli Oscar Home"><img class="img-fluid" src="images/bundle-promo/nuova-simonelli-oscar-home-ztl.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">15%</div>
+					<span class="tf-pk__var" title="Varian warna dipilih saat Add to cart"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg> Pilih varian</span>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Nuova Simonelli Oscar Home</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Mignon Manuale (Black)"><img src="images/bundle-promo/eureka-mignon-manuale-black-ktz.jpg" alt="" loading="lazy"></span><span title="Eureka Mignon Tamper (Black)"><img src="images/bundle-promo/eureka-mignon-tamper-black-vqu.jpg" alt="" loading="lazy"></span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 30.450.000</span><span class="fs-price-old">Rp 36.000.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 3 produk</p><ul>
+								<li data-name="Nuova Simonelli Oscar Home" data-img="images/bundle-promo/nuova-simonelli-oscar-home-ztl.jpg" data-variants="Black|Red"><a href="detail-produk.html" class="tf-pk__item" title="Nuova Simonelli Oscar Home"><img src="images/bundle-promo/nuova-simonelli-oscar-home-ztl.jpg" alt="" loading="lazy"><span><em>Nuova Simonelli Oscar Home</em><b>Rp 21.500.000</b></span></a></li>
+								<li data-name="Eureka Mignon Manuale (Black)" data-img="images/bundle-promo/eureka-mignon-manuale-black-ktz.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Mignon Manuale (Black)"><img src="images/bundle-promo/eureka-mignon-manuale-black-ktz.jpg" alt="" loading="lazy"><span><em>Eureka Mignon Manuale (Black)</em><b>Rp 4.500.000</b></span></a></li>
+								<li data-name="Eureka Mignon Tamper (Black)" data-img="images/bundle-promo/eureka-mignon-tamper-black-vqu.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Mignon Tamper (Black)"><img src="images/bundle-promo/eureka-mignon-tamper-black-vqu.jpg" alt="" loading="lazy"><span><em>Eureka Mignon Tamper (Black)</em><b>Rp 10.000.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-manual-bar" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">4 produk</span>
-					<h2 class="tf-bundle__title">Manual Brew Bar</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 2.350.000</strong>
-						<span class="tf-bundle__save">Hemat 1%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Hario V60 Starter Kit" data-img="images/manual-brew.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/manual-brew.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Hario V60 Starter Kit</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 385.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Hario Syphon Technica 3 Cup" data-img="images/product-8.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-8.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Hario Syphon Technica 3 Cup</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.650.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Zicaffè Linea Espresso 1 kg" data-img="images/homebundle3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Zicaffè Linea Espresso 1 kg</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 245.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Vibiemme" data-price="83200000" data-save="7" data-order="2">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Vibiemme Lolo 1 Group"><img class="img-fluid" src="images/bundle-promo/vbm-lollo-1961-1-group-black-ppt.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">7%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Vibiemme Lolo 1 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 83.200.000</span><span class="fs-price-old">Rp 89.220.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="VBM Lollo 1961 (1 Group) Black" data-img="images/bundle-promo/vbm-lollo-1961-1-group-black-ppt.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="VBM Lollo 1961 (1 Group) Black"><img src="images/bundle-promo/vbm-lollo-1961-1-group-black-ppt.jpg" alt="" loading="lazy"><span><em>VBM Lollo 1961 (1 Group) Black</em><b>Rp 64.800.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-cafe-start" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">6 produk</span>
-					<h2 class="tf-bundle__title">Cafe Starter 1 Group</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 185.000.000</strong>
-						<span class="tf-bundle__save">Hemat 4%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 1 Group" data-img="images/product-1.5.jpg" data-variants="Hitam|Putih">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.5.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 1 Group</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 165.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Compak E5 OD Grinder" data-img="images/compak.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/compak.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Compak E5 OD Grinder</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 18.500.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Knock Box Stainless" data-img="images/accessory4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Knock Box Stainless</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 650.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Vibiemme" data-price="75900000" data-save="7" data-order="3">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Vibiemme Lolo Semi Automatic 1 Group"><img class="img-fluid" src="images/bundle-promo/vbm-lollo-minimax-1961-1-group-byd.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">7%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Vibiemme Lolo Semi Automatic 1 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 75.900.000</span><span class="fs-price-old">Rp 81.920.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="VBM Lollo Minimax 1961 (1 Group)" data-img="images/bundle-promo/vbm-lollo-minimax-1961-1-group-byd.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="VBM Lollo Minimax 1961 (1 Group)"><img src="images/bundle-promo/vbm-lollo-minimax-1961-1-group-byd.jpg" alt="" loading="lazy"><span><em>VBM Lollo Minimax 1961 (1 Group)</em><b>Rp 57.500.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-cafe-2g" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">6 produk</span>
-					<h2 class="tf-bundle__title">Cafe Essential 2 Group</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 279.000.000</strong>
-						<span class="tf-bundle__save">Hemat 7%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Appia Life 2 Group" data-img="images/product-1.4.jpg" data-variants="Hitam|Merah|Putih">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Appia Life 2 Group</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 230.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Victoria Arduino Mythos MY75" data-img="images/homebundle.jpg" data-variants="Hitam|Putih">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Mythos MY75</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 62.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Zicaffè Linea Espresso 1 kg" data-img="images/homebundle3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Zicaffè Linea Espresso 1 kg</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 245.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Nuova Simonelli" data-price="69900000" data-save="19" data-order="4">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Nuova Simonelli Appia Life S 1 Group"><img class="img-fluid" src="images/bundle-promo/nuova-simonelli-appia-life-s-1-group-mwt.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">19%</div>
+					<span class="tf-pk__var" title="Varian warna dipilih saat Add to cart"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg> Pilih varian</span>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Nuova Simonelli Appia Life S 1 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 69.900.000</span><span class="fs-price-old">Rp 86.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Nuova Simonelli Appia Life S (1 Group)" data-img="images/bundle-promo/nuova-simonelli-appia-life-s-1-group-mwt.jpg" data-variants="Red"><a href="detail-produk.html" class="tf-pk__item" title="Nuova Simonelli Appia Life S (1 Group)"><img src="images/bundle-promo/nuova-simonelli-appia-life-s-1-group-mwt.jpg" alt="" loading="lazy"><span><em>Nuova Simonelli Appia Life S (1 Group)</em><b>Rp 62.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-cafe-premium" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">14 produk</span>
-					<h2 class="tf-bundle__title">Cafe Premium 3 Group</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 389.000.000</strong>
-						<span class="tf-bundle__save">Hemat 7%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Aurelia Wave 3 Group" data-img="images/product-2.jpg" data-variants="Hitam|Putih">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Aurelia Wave 3 Group</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 315.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Victoria Arduino Mythos MY75" data-img="images/homebundle.jpg" data-variants="Hitam|Putih">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Victoria Arduino Mythos MY75</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 62.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Compak E5 OD Grinder" data-img="images/compak.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/compak.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Compak E5 OD Grinder</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 18.500.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Bottomless Portafilter 58 mm" data-img="images/accessory2.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory2.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Bottomless Portafilter 58 mm</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.150.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Milk Pitcher 600 ml" data-img="images/accessory3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Milk Pitcher 600 ml</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 285.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Tamper 58 mm" data-img="images/accessory1.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory1.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Tamper 58 mm</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 425.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Knock Box Stainless" data-img="images/accessory4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/accessory4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Knock Box Stainless</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 650.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Hario Syphon Technica 3 Cup" data-img="images/product-8.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-8.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Hario Syphon Technica 3 Cup</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.650.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Hario V60 Starter Kit" data-img="images/manual-brew.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/manual-brew.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Hario V60 Starter Kit</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 385.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide tf-bundle__more-slide" data-bundle-more-slide>
-						<button type="button" class="tf-bundle__more" data-bundle-more><span class="tf-bundle__more-n">+4</span><span>produk lainnya</span><em>Lihat semua 14 produk</em></button>
-					</div>
-					<div class="swiper-slide fs-slide" hidden>
-						<div class="product" data-name="Zicaffè Linea Espresso 1 kg" data-img="images/homebundle3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Zicaffè Linea Espresso 1 kg</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 245.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide" hidden>
-						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide" hidden>
-						<div class="product" data-name="Bravo Filter Cartridge C500" data-img="images/product-1.3.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.3.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Bravo Filter Cartridge C500</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.250.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide" hidden>
-						<div class="product" data-name="Allegra Commercial Blender 2 L" data-img="images/allegra blender.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra blender.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Allegra Commercial Blender 2 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.900.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Nuova Simonelli" data-price="79900000" data-save="17" data-order="5">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Nuova Simonelli Appia Life V 1 Group"><img class="img-fluid" src="images/bundle-promo/nuova-simonelli-appia-life-v-1-group-mfd.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">17%</div>
+					<span class="tf-pk__var" title="Varian warna dipilih saat Add to cart"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg> Pilih varian</span>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Nuova Simonelli Appia Life V 1 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 79.900.000</span><span class="fs-price-old">Rp 96.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Nuova Simonelli Appia Life V (1 Group)" data-img="images/bundle-promo/nuova-simonelli-appia-life-v-1-group-mfd.jpg" data-variants="Black|White"><a href="detail-produk.html" class="tf-pk__item" title="Nuova Simonelli Appia Life V (1 Group)"><img src="images/bundle-promo/nuova-simonelli-appia-life-v-1-group-mfd.jpg" alt="" loading="lazy"><span><em>Nuova Simonelli Appia Life V (1 Group)</em><b>Rp 72.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-cafe-cold" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">4 produk</span>
-					<h2 class="tf-bundle__title">Cafe Cold Bar</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 34.900.000</strong>
-						<span class="tf-bundle__save">Hemat 5%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Osion HB-40U Ice Maker" data-img="images/osion ice maker.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/osion ice maker.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Osion HB-40U Ice Maker</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 16.200.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Allegra Commercial Blender 2 L" data-img="images/allegra blender.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra blender.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Allegra Commercial Blender 2 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.900.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Allegra Carbonator" data-img="images/allegra carbonator.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra carbonator.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Allegra Carbonator</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 12.500.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Nuova Simonelli" data-price="87900000" data-save="17" data-order="6">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Nuova Simonelli Appia Life Compact V"><img class="img-fluid" src="images/bundle-promo/nuova-simonelli-appia-life-v-compact-tuh.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">17%</div>
+					<span class="tf-pk__var" title="Varian warna dipilih saat Add to cart"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg> Pilih varian</span>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Nuova Simonelli Appia Life Compact V</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 87.900.000</span><span class="fs-price-old">Rp 106.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Nuova Simonelli Appia Life V Compact" data-img="images/bundle-promo/nuova-simonelli-appia-life-v-compact-tuh.jpg" data-variants="White"><a href="detail-produk.html" class="tf-pk__item" title="Nuova Simonelli Appia Life V Compact"><img src="images/bundle-promo/nuova-simonelli-appia-life-v-compact-tuh.jpg" alt="" loading="lazy"><span><em>Nuova Simonelli Appia Life V Compact</em><b>Rp 82.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-office-s" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">3 produk</span>
-					<h2 class="tf-bundle__title">Office Pantry S</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 7.250.000</strong>
-						<span class="tf-bundle__save">Hemat 6%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Automatic Coffee Brewer 5 L" data-img="images/product-7.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-7.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Automatic Coffee Brewer 5 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 6.400.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Bravo Filter Cartridge C500" data-img="images/product-1.3.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.3.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Bravo Filter Cartridge C500</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.250.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Nuova Simonelli" data-price="89900000" data-save="16" data-order="7">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Nuova Simonelli Appia Life S 2 Group"><img class="img-fluid" src="images/bundle-promo/nuova-simonelli-appia-life-s-2-groups-ixl.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">16%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Nuova Simonelli Appia Life S 2 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 89.900.000</span><span class="fs-price-old">Rp 106.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Nuova Simonelli Appia Life S (2 Groups)" data-img="images/bundle-promo/nuova-simonelli-appia-life-s-2-groups-ixl.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Nuova Simonelli Appia Life S (2 Groups)"><img src="images/bundle-promo/nuova-simonelli-appia-life-s-2-groups-ixl.jpg" alt="" loading="lazy"><span><em>Nuova Simonelli Appia Life S (2 Groups)</em><b>Rp 82.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-office-l" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">4 produk</span>
-					<h2 class="tf-bundle__title">Office Pantry L</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 182.500.000</strong>
-						<span class="tf-bundle__save">Hemat 7%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Nuova Simonelli Prontobar Silent" data-img="images/product-5.jpg" data-variants="Hitam|Silver">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-5.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Nuova Simonelli Prontobar Silent</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 189.000.000</span><span class="fs-qty">1 unit · pilih varian</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Automatic Coffee Brewer 5 L" data-img="images/product-7.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-7.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Automatic Coffee Brewer 5 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 6.400.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Toffin Syrup Apple 1 L" data-img="images/homebundle4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Toffin Syrup Apple 1 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 95.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Bravo Filter Cartridge C500" data-img="images/product-1.3.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-1.3.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Bravo Filter Cartridge C500</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 1.250.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Nuova Simonelli" data-price="99900000" data-save="14" data-order="8">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Nuova Simonelli Appia Life V 2 Group"><img class="img-fluid" src="images/bundle-promo/nuova-simonelli-appia-life-v-2-groups-tog.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">14%</div>
+					<span class="tf-pk__var" title="Varian warna dipilih saat Add to cart"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg> Pilih varian</span>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Nuova Simonelli Appia Life V 2 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 99.900.000</span><span class="fs-price-old">Rp 116.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Nuova Simonelli Appia Life V (2 Groups)" data-img="images/bundle-promo/nuova-simonelli-appia-life-v-2-groups-tog.jpg" data-variants="Black|White"><a href="detail-produk.html" class="tf-pk__item" title="Nuova Simonelli Appia Life V (2 Groups)"><img src="images/bundle-promo/nuova-simonelli-appia-life-v-2-groups-tog.jpg" alt="" loading="lazy"><span><em>Nuova Simonelli Appia Life V (2 Groups)</em><b>Rp 92.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-office-xl" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">3 produk</span>
-					<h2 class="tf-bundle__title">Office Fully Automatic XL</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 259.000.000</strong>
-						<span class="tf-bundle__save">Hemat 5%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Eversys Cameo C2" data-img="images/product-6.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-6.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Eversys Cameo C2</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 265.000.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="BWT Bestmax Premium Water Filter" data-img="images/bwt-water-filter.png" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/bwt-water-filter.png" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">BWT Bestmax Premium Water Filter</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.850.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Zicaffè Linea Espresso 1 kg" data-img="images/homebundle3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/homebundle3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Zicaffè Linea Espresso 1 kg</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 245.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Nuova Simonelli" data-price="142900000" data-save="10" data-order="9">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Nuova Simonelli Nuova Aurelia S 2 Group (Titan Grey)"><img class="img-fluid" src="images/bundle-promo/nuova-simonelli-nuova-aurelia-s-2-group-titan-grey-bpk.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">10%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Nuova Simonelli Nuova Aurelia S 2 Group (Titan Grey)</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 142.900.000</span><span class="fs-price-old">Rp 159.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Nuova Simonelli Nuova Aurelia S 2 Group (Titan Grey)" data-img="images/bundle-promo/nuova-simonelli-nuova-aurelia-s-2-group-titan-grey-bpk.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Nuova Simonelli Nuova Aurelia S 2 Group (Titan Grey)"><img src="images/bundle-promo/nuova-simonelli-nuova-aurelia-s-2-group-titan-grey-bpk.jpg" alt="" loading="lazy"><span><em>Nuova Simonelli Nuova Aurelia S 2 Group (Titan Grey)</em><b>Rp 135.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-gelato-shop" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">3 produk</span>
-					<h2 class="tf-bundle__title">Gelato Shop Complete</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 425.000.000</strong>
-						<span class="tf-bundle__save">Hemat 6%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Bravo Trittico 305 Gelato Machine" data-img="images/product-3.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-3.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Bravo Trittico 305 Gelato Machine</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 385.000.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="TFN Gelato Display 12 Pan" data-img="images/product-4.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">TFN Gelato Display 12 Pan</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 58.000.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Allegra Commercial Blender 2 L" data-img="images/allegra blender.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra blender.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Allegra Commercial Blender 2 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.900.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Nuova Simonelli" data-price="152900000" data-save="10" data-order="10">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Nuova Simonelli Nuova Aurelia V 2 Group (Titan Grey)"><img class="img-fluid" src="images/bundle-promo/nuova-simonelli-nuova-aurelia-v-2-group-titan-grey-hlq.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">10%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Nuova Simonelli Nuova Aurelia V 2 Group (Titan Grey)</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 152.900.000</span><span class="fs-price-old">Rp 169.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Nuova Simonelli Nuova Aurelia V 2 Group (Titan Grey)" data-img="images/bundle-promo/nuova-simonelli-nuova-aurelia-v-2-group-titan-grey-hlq.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Nuova Simonelli Nuova Aurelia V 2 Group (Titan Grey)"><img src="images/bundle-promo/nuova-simonelli-nuova-aurelia-v-2-group-titan-grey-hlq.jpg" alt="" loading="lazy"><span><em>Nuova Simonelli Nuova Aurelia V 2 Group (Titan Grey)</em><b>Rp 145.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
-			<article class="tf-bundle" id="bundle-kitchen-cafe" data-tf-bundle>
-				<aside class="tf-bundle__sum">
-					<span class="tf-bundle__cat">3 produk</span>
-					<h2 class="tf-bundle__title">Cafe Kitchen Set</h2>
-					<div class="tf-bundle__price">
-						<span class="tf-bundle__label">Harga paket</span>
-						<strong class="tf-bundle__now">Rp 59.900.000</strong>
-						<span class="tf-bundle__save">Hemat 7%</span>
-					</div>
-					<button type="button" class="tf-btn tf-bundle__cta" data-bundle-cta data-toggle="modal" data-target="#bundle-variant">Tambah paket</button>
-				</aside>
-				<div class="tf-bundle__items product-slider-section">
-					<div class="tf-bundle__carousel">
-						<div class="swiper tf-bundle__swiper" data-tf-slider="bundle-items">
-							<div class="swiper-wrapper">
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Allegra Mini Speed Oven Pro" data-img="images/Allegra oven.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/Allegra oven.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Allegra Mini Speed Oven Pro</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 40.500.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Osion HB-40U Ice Maker" data-img="images/osion ice maker.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/osion ice maker.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Osion HB-40U Ice Maker</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 16.200.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide fs-slide">
-						<div class="product" data-name="Allegra Commercial Blender 2 L" data-img="images/allegra blender.jpg" data-variants="">
-							<a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/allegra blender.jpg" alt="" loading="lazy" draggable="false"></a>
-							<div class="fs-body">
-								<h3 class="fs-product-title"><a href="product-single.html">Allegra Commercial Blender 2 L</a></h3>
-								<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 7.900.000</span><span class="fs-qty">1 unit</span></div></div>
-							</div>
-						</div>
-					</div>
-							</div>
-						</div>
-						<div class="swiper-button-prev" aria-label="Produk sebelumnya"></div>
-						<div class="swiper-button-next" aria-label="Produk berikutnya"></div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Victoria Arduino" data-price="162400000" data-save="10" data-order="11">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Victoria Arduino Eagle One Prima Pro 1 Group"><img class="img-fluid" src="images/bundle-promo/victoria-arduino-eagle-one-prima-pro-1-group-red-zrx.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">10%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Victoria Arduino Eagle One Prima Pro 1 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 162.400.000</span><span class="fs-price-old">Rp 180.920.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Victoria Arduino Eagle One Prima Pro 1 Group (Red)" data-img="images/bundle-promo/victoria-arduino-eagle-one-prima-pro-1-group-red-zrx.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Eagle One Prima Pro 1 Group (Red)"><img src="images/bundle-promo/victoria-arduino-eagle-one-prima-pro-1-group-red-zrx.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Eagle One Prima Pro 1 Group (Red)</em><b>Rp 142.500.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Compak Grinder i6 Pro S" data-img="images/bundle-promo/compak-grinder-i6-pro-s-jhc.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Compak Grinder i6 Pro S"><img src="images/bundle-promo/compak-grinder-i6-pro-s-jhc.jpg" alt="" loading="lazy"><span><em>Compak Grinder i6 Pro S</em><b>Rp 24.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
 					</div>
 				</div>
-			</article>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Victoria Arduino" data-price="219900000" data-save="8" data-order="12">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Victoria Arduino Eagle Tempo 2G"><img class="img-fluid" src="images/bundle-promo/victoria-arduino-eagle-tempo-2g-black-fki.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">8%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Victoria Arduino Eagle Tempo 2G</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Compak Grinder i6 Pro S"><img src="images/bundle-promo/compak-grinder-i6-pro-s-jhc.jpg" alt="" loading="lazy"></span><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 219.900.000</span><span class="fs-price-old">Rp 238.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Victoria Arduino Eagle Tempo 2G (Black)" data-img="images/bundle-promo/victoria-arduino-eagle-tempo-2g-black-fki.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Eagle Tempo 2G (Black)"><img src="images/bundle-promo/victoria-arduino-eagle-tempo-2g-black-fki.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Eagle Tempo 2G (Black)</em><b>Rp 200.000.000</b></span></a></li>
+								<li data-name="Compak Grinder i6 Pro S" data-img="images/bundle-promo/compak-grinder-i6-pro-s-jhc.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Compak Grinder i6 Pro S"><img src="images/bundle-promo/compak-grinder-i6-pro-s-jhc.jpg" alt="" loading="lazy"><span><em>Compak Grinder i6 Pro S</em><b>Rp 24.200.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Victoria Arduino" data-price="257400000" data-save="9" data-order="13">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Victoria Arduino Eagle One V 2 Group"><img class="img-fluid" src="images/bundle-promo/victoria-arduino-eagle-one-2-group-matte-black-tgy.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">9%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Victoria Arduino Eagle One V 2 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 257.400.000</span><span class="fs-price-old">Rp 283.720.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Victoria Arduino Eagle One 2 Group Matte Black" data-img="images/bundle-promo/victoria-arduino-eagle-one-2-group-matte-black-tgy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Eagle One 2 Group Matte Black"><img src="images/bundle-promo/victoria-arduino-eagle-one-2-group-matte-black-tgy.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Eagle One 2 Group Matte Black</em><b>Rp 220.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Victoria Arduino Mythos MY65 (Black)" data-img="images/bundle-promo/victoria-ardunio-mythos-my65-black-sbd.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Mythos MY65 (Black)"><img src="images/bundle-promo/victoria-ardunio-mythos-my65-black-sbd.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Mythos MY65 (Black)</em><b>Rp 49.500.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Victoria Arduino" data-price="282900000" data-save="16" data-order="14">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Victoria Arduino Black Eagle Maverick CORE T3 2 Groups"><img class="img-fluid" src="images/bundle-promo/victoria-arduino-maverick-core-t3-2-group-black-szx.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">16%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Victoria Arduino Black Eagle Maverick CORE T3 2 Groups</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Victoria Arduino Mythos MY65 (Black)"><img src="images/bundle-promo/victoria-ardunio-mythos-my65-black-sbd.jpg" alt="" loading="lazy"></span><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 282.900.000</span><span class="fs-price-old">Rp 338.720.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Victoria Arduino Maverick Core T3 2 Group (Black)" data-img="images/bundle-promo/victoria-arduino-maverick-core-t3-2-group-black-szx.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Maverick Core T3 2 Group (Black)"><img src="images/bundle-promo/victoria-arduino-maverick-core-t3-2-group-black-szx.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Maverick Core T3 2 Group (Black)</em><b>Rp 275.000.000</b></span></a></li>
+								<li data-name="Victoria Arduino Mythos MY65 (Black)" data-img="images/bundle-promo/victoria-ardunio-mythos-my65-black-sbd.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Mythos MY65 (Black)"><img src="images/bundle-promo/victoria-ardunio-mythos-my65-black-sbd.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Mythos MY65 (Black)</em><b>Rp 49.500.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Victoria Arduino" data-price="300900000" data-save="16" data-order="15">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Victoria Arduino Maverick 2gr"><img class="img-fluid" src="images/bundle-promo/victoria-arduino-black-eagle-maverick-t3-2-group-rvk.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">16%</div>
+					<span class="tf-pk__var" title="Varian warna dipilih saat Add to cart"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg> Pilih varian</span>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Victoria Arduino Maverick 2gr</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 300.900.000</span><span class="fs-price-old">Rp 356.720.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Victoria Arduino Black Eagle Maverick T3 2 Group" data-img="images/bundle-promo/victoria-arduino-black-eagle-maverick-t3-2-group-rvk.jpg" data-variants="Black|White|Stainless"><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Black Eagle Maverick T3 2 Group"><img src="images/bundle-promo/victoria-arduino-black-eagle-maverick-t3-2-group-rvk.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Black Eagle Maverick T3 2 Group</em><b>Rp 293.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Victoria Arduino Mythos MY65 (Black)" data-img="images/bundle-promo/victoria-ardunio-mythos-my65-black-sbd.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Mythos MY65 (Black)"><img src="images/bundle-promo/victoria-ardunio-mythos-my65-black-sbd.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Mythos MY65 (Black)</em><b>Rp 49.500.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Victoria Arduino" data-price="124900000" data-save="13" data-order="16">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Eagle One Prima V 1 Group"><img class="img-fluid" src="images/bundle-promo/victoria-arduino-eagle-one-prima-matt-black-jmi.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">13%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Eagle One Prima V 1 Group</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 124.900.000</span><span class="fs-price-old">Rp 143.420.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Victoria Arduino Eagle One Prima Matt Black" data-img="images/bundle-promo/victoria-arduino-eagle-one-prima-matt-black-jmi.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Victoria Arduino Eagle One Prima Matt Black"><img src="images/bundle-promo/victoria-arduino-eagle-one-prima-matt-black-jmi.jpg" alt="" loading="lazy"><span><em>Victoria Arduino Eagle One Prima Matt Black</em><b>Rp 105.000.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+								<li data-name="Compak Grinder i6 Pro S" data-img="images/bundle-promo/compak-grinder-i6-pro-s-jhc.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Compak Grinder i6 Pro S"><img src="images/bundle-promo/compak-grinder-i6-pro-s-jhc.jpg" alt="" loading="lazy"><span><em>Compak Grinder i6 Pro S</em><b>Rp 24.200.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Allegra" data-price="80600000" data-save="7" data-order="17">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Allegra Lyra 1G"><img class="img-fluid" src="images/bundle-promo/allegra-lyra-1g-cve.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">7%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Allegra Lyra 1G</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"></span><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 80.600.000</span><span class="fs-price-old">Rp 86.620.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Allegra Lyra 1G" data-img="images/bundle-promo/allegra-lyra-1g-cve.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Allegra Lyra 1G"><img src="images/bundle-promo/allegra-lyra-1g-cve.jpg" alt="" loading="lazy"><span><em>Allegra Lyra 1G</em><b>Rp 62.200.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Vibiemme" data-price="83300000" data-save="7" data-order="18">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Vibiemme Black Moon 1 Group (Black)"><img class="img-fluid" src="images/bundle-promo/vibiemme-black-moon-1-group-black-dxq.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">7%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Vibiemme Black Moon 1 Group (Black)</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"></span><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 83.300.000</span><span class="fs-price-old">Rp 89.320.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Vibiemme Black Moon 1 Group (Black)" data-img="images/bundle-promo/vibiemme-black-moon-1-group-black-dxq.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Vibiemme Black Moon 1 Group (Black)"><img src="images/bundle-promo/vibiemme-black-moon-1-group-black-dxq.jpg" alt="" loading="lazy"><span><em>Vibiemme Black Moon 1 Group (Black)</em><b>Rp 64.900.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Vibiemme" data-price="99800000" data-save="6" data-order="19">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Vibiemme Black Moon 2 Group (Black)"><img class="img-fluid" src="images/bundle-promo/vibiemme-black-moon-2-groups-black-wep.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">6%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Vibiemme Black Moon 2 Group (Black)</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"></span><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 99.800.000</span><span class="fs-price-old">Rp 105.820.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Vibiemme Black Moon 2 Groups (Black)" data-img="images/bundle-promo/vibiemme-black-moon-2-groups-black-wep.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Vibiemme Black Moon 2 Groups (Black)"><img src="images/bundle-promo/vibiemme-black-moon-2-groups-black-wep.jpg" alt="" loading="lazy"><span><em>Vibiemme Black Moon 2 Groups (Black)</em><b>Rp 81.400.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Allegra" data-price="64900000" data-save="8" data-order="20">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Officine Allegra Dinamica 1G V"><img class="img-fluid" src="images/bundle-promo/officine-allegra-dinamica-1g-v-black-xyg.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">8%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Officine Allegra Dinamica 1G V</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"></span><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 64.900.000</span><span class="fs-price-old">Rp 70.920.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Officine Allegra Dinamica 1G V (Black)" data-img="images/bundle-promo/officine-allegra-dinamica-1g-v-black-xyg.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Officine Allegra Dinamica 1G V (Black)"><img src="images/bundle-promo/officine-allegra-dinamica-1g-v-black-xyg.jpg" alt="" loading="lazy"><span><em>Officine Allegra Dinamica 1G V (Black)</em><b>Rp 46.500.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				<div class="product tf-pk" data-tf-bundle data-pk-card data-brand="Allegra" data-price="74900000" data-save="7" data-order="21">
+					<button type="button" class="img-prod tf-pk__open" data-pk-open aria-expanded="false" aria-label="Lihat semua produk di paket Officine Allegra Dinamica 2G V"><img class="img-fluid" src="images/bundle-promo/officine-allegra-dinamica-2g-v-black-ges.jpg" alt="" loading="lazy" draggable="false"></button>
+					<div class="fs-tag">7%</div>
+					<div class="fs-body">
+						<h3 class="fs-product-title"><button type="button" class="tf-pk__name" data-pk-open aria-expanded="false">Officine Allegra Dinamica 2G V</button></h3>
+						<div class="tf-pk__thumbs" aria-label="Isi paket lainnya"><span title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"></span><span title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"></span><span title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"></span><span title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"></span><span class="tf-pk__more">+1</span></div>
+						<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">Rp 74.900.000</span><span class="fs-price-old">Rp 80.920.000</span></div></div>
+						<details class="tf-pk__isi">
+							<summary>Lihat semua produk <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+							<div class="tf-pk__panel"><p class="tf-pk__panel-h">Isi paket · 6 produk</p><ul>
+								<li data-name="Officine Allegra Dinamica 2G V (Black)" data-img="images/bundle-promo/officine-allegra-dinamica-2g-v-black-ges.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Officine Allegra Dinamica 2G V (Black)"><img src="images/bundle-promo/officine-allegra-dinamica-2g-v-black-ges.jpg" alt="" loading="lazy"><span><em>Officine Allegra Dinamica 2G V (Black)</em><b>Rp 56.500.000</b></span></a></li>
+								<li data-name="Eureka Firenze 65 (Black)" data-img="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Firenze 65 (Black)"><img src="images/bundle-promo/eureka-firenze-65-black-xnm.jpg" alt="" loading="lazy"><span><em>Eureka Firenze 65 (Black)</em><b>Rp 10.200.000</b></span></a></li>
+								<li data-name="Eureka Disko Tamper" data-img="images/bundle-promo/eureka-disko-tamper-juo.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Eureka Disko Tamper"><img src="images/bundle-promo/eureka-disko-tamper-juo.jpg" alt="" loading="lazy"><span><em>Eureka Disko Tamper</em><b>Rp 10.000.000</b></span></a></li>
+								<li data-name="Brita Filter Head 0-70% G3/8 Purity C CU" data-img="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Filter Head 0-70% G3/8 Purity C CU"><img src="images/bundle-promo/brita-filter-head-0-70-g3-8-purity-c-cu-rfp.jpg" alt="" loading="lazy"><span><em>Brita Filter Head 0-70% G3/8 Purity C CU</em><b>Rp 1.100.000</b></span></a></li>
+								<li data-name="Brita Paket Instalasi 1 Cartridge" data-img="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Paket Instalasi 1 Cartridge"><img src="images/bundle-promo/brita-paket-instalasi-1-cartridge-myy.jpg" alt="" loading="lazy"><span><em>Brita Paket Instalasi 1 Cartridge</em><b>Rp 870.000</b></span></a></li>
+								<li data-name="Brita Purity C150 Quell ST CU" data-img="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" data-variants=""><a href="detail-produk.html" class="tf-pk__item" title="Brita Purity C150 Quell ST CU"><img src="images/bundle-promo/brita-purity-c150-quell-st-cu-zlb.jpg" alt="" loading="lazy"><span><em>Brita Purity C150 Quell ST CU</em><b>Rp 2.250.000</b></span></a></li>
+							</ul></div>
+						</details>
+						<div class="fs-actions"><button type="button" class="fs-btn fs-btn-primary" data-bundle-cta>Add to cart</button></div>
+					</div>
+				</div>
+				</div>
+			</section>
 		</div>
 	</main>
 
@@ -1525,13 +1204,14 @@
 					<h5 class="modal-title" id="bundle-variant-title">Pilih varian produk</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
 				</div>
-				<form name="bundle-variant">
+				<form name="bundle-variant" novalidate data-bv-form>
 				<div class="modal-body">
 					<p class="bv-sub">Lengkapi varian tiap produk sebelum menambah paket ke keranjang.</p>
+					<p class="bv-pkg" data-bv-pkg></p>
 					<div data-bv-list></div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="tf-btn" data-dismiss="modal">Add to cart</button>
+					<button type="button" class="tf-btn tf-btn--ghost" data-dismiss="modal">Batal</button><button type="submit" class="tf-btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Add to cart</button>
 				</div>
 				</form>
 			</div>
@@ -1548,8 +1228,6 @@
 	<script src="assets/js/tf-search.js"></script>
 	<script src="assets/js/mobile-nav.js"></script>
 	<script src="assets/js/tf-app.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-	<script src="assets/js/tf-sliders.js"></script>
 	<script src="assets/js/tf-bundle.js"></script>
 
 	<!-- ===== Bottom nav mobile (tf-layout.css) ===== -->

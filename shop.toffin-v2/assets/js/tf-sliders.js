@@ -46,8 +46,8 @@
 		},
 		/* isi paket di product-bundle.html */
 		'bundle-items': {
-			slidesPerView: 2.2, spaceBetween: 8, watchOverflow: true,
-			breakpoints: { 576: { slidesPerView: 2.5, spaceBetween: 10 }, 768: { slidesPerView: 3, spaceBetween: 10 }, 992: { slidesPerView: 4, spaceBetween: 10 }, 1200: { slidesPerView: 5, spaceBetween: 10 } }   /* 5 kartu tampil di desktop, sisanya digeser (Rendi 2026-10-09) */
+			slidesPerView: 2.6, spaceBetween: 8, watchOverflow: true,   /* ponsel: kartu lebih kecil supaya satu paket tidak memakan satu layar */
+			breakpoints: { 576: { slidesPerView: 3.2, spaceBetween: 10 }, 768: { slidesPerView: 4, spaceBetween: 10 }, 992: { slidesPerView: 4, spaceBetween: 10 }, 1200: { slidesPerView: 5, spaceBetween: 10 } }   /* 5 kartu tampil di desktop, sisanya digeser (Rendi 2026-10-09) */
 		}
 	};
 

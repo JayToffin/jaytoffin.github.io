@@ -16,7 +16,8 @@
 	document.addEventListener('mousemove', function (e) {
 		if (window.matchMedia('(hover: none)').matches) return;
 		var main = root.querySelector('[data-pd-main]'), lens = root.querySelector('[data-pd-lens]'); if (!main || !lens) return;
-		var r = main.getBoundingClientRect(), inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+		/* lensa hanya saat kursor tepat di atas foto (bukan di panah / tombol aksi), supaya klik panah terlihat menggeser */
+		var r = main.getBoundingClientRect(), inside = !!(e.target.closest && e.target.closest('[data-pd-main] .pd-gallery__zoom'));
 		lens.hidden = !inside; if (!inside) return;
 		var img = main.querySelector('.swiper-slide-active img') || main.querySelector('img');
 		lens.style.backgroundImage = 'url("' + img.getAttribute('src') + '")';
@@ -28,7 +29,8 @@
 			var main = g.querySelector('[data-pd-main]'), th = g.querySelector('[data-pd-thumbs]');
 			if (main.swiper) { main.swiper.update(); th.swiper.update(); return; }
 			var ts = new Swiper(th, { slidesPerView: 5, spaceBetween: 8, watchSlidesProgress: true, breakpoints: { 576: { slidesPerView: 6 } } });
-			new Swiper(main, { spaceBetween: 10, navigation: { nextEl: g.querySelector('.swiper-button-next'), prevEl: g.querySelector('.swiper-button-prev') }, thumbs: { swiper: ts } });
+			var lensEl = g.querySelector('[data-pd-lens]');
+			new Swiper(main, { spaceBetween: 10, navigation: { nextEl: g.querySelector('.swiper-button-next'), prevEl: g.querySelector('.swiper-button-prev') }, thumbs: { swiper: ts }, on: { slideChange: function () { if (lensEl) lensEl.hidden = true; } } });   /* ganti foto → lensa disembunyikan dulu */
 		});
 	}
 	/* varian (seperti produksi: data-pid): ganti nama, harga, foto utama, dan ketersediaan */
@@ -126,8 +128,43 @@
 		t.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () {
 			t.querySelectorAll('button').forEach(function (x) { x.classList.toggle('is-active', x === b); });
 			root.querySelectorAll('[data-panel]').forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== b.getAttribute('data-tab'); });
+			root.querySelectorAll('[data-pd-clamp]').forEach(clamp);   /* panel yang baru tampil baru bisa diukur */
 		}); });
 	});
+	/* potongan "Lihat selengkapnya" (pola Tokopedia): deskripsi dipotong ±7 baris dengan pudar, spesifikasi 6 baris pertama.
+	   Hanya dipasang bila isinya memang lebih panjang; isi panel dibungkus .pd-clamp, tombol ikut di dalam panel sehingga
+	   ikut tersembunyi saat tab berganti. */
+	var SPEC_ROWS = 6;
+	function clamp(p) {
+		if (p.hidden || p._clamp) return;
+		p._clamp = true;
+		var spec = p.getAttribute('data-pd-clamp') === 'spec', body = document.createElement('div'), label;
+		body.className = 'pd-clamp';
+		while (p.firstChild) body.appendChild(p.firstChild);
+		p.appendChild(body);
+		if (spec) {
+			var n = body.querySelectorAll('.pd-spec').length;
+			if (n <= SPEC_ROWS) return;
+			body.classList.add('is-rows'); label = 'Lihat semua spesifikasi (' + n + ')';
+		} else {
+			body.classList.add('is-clamp');
+			if (body.scrollHeight <= body.clientHeight + 24) { body.classList.remove('is-clamp'); return; }   /* cuma lebih sedikit: tampilkan utuh */
+			label = 'Lihat selengkapnya';
+		}
+		var btn = document.createElement('button');
+		btn.type = 'button'; btn.className = 'pd-more'; btn.setAttribute('aria-expanded', 'false');
+		btn.innerHTML = '<span>' + label + '</span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg>';
+		p.appendChild(btn);
+		btn.addEventListener('click', function () {
+			var open = btn.getAttribute('aria-expanded') !== 'true';
+			body.classList.toggle(spec ? 'is-rows' : 'is-clamp', !open);
+			btn.setAttribute('aria-expanded', open);
+			btn.querySelector('span').textContent = open ? 'Sembunyikan' : label;
+			if (!open && p.getBoundingClientRect().top < 0) p.scrollIntoView({ behavior: 'smooth', block: 'start' });   /* tutup dari bawah: kembali ke awal panel */
+		});
+	}
+	function clampAll() { root.querySelectorAll('[data-pd-clamp]').forEach(clamp); }
+	if (document.readyState === 'complete') clampAll(); else window.addEventListener('load', clampAll);   /* tunggu font & gambar supaya tinggi tepat */
 	/* countdown flash sale */
 	function tick() {
 		document.querySelectorAll('[data-pd-count]').forEach(function (c) {
@@ -155,8 +192,8 @@
 	}); });
 	/* video: iframe diisi saat modal dibuka (autoplay), dikosongkan saat ditutup supaya suara berhenti */
 	if (window.jQuery) {
-		jQuery('#pd-video').on('show.bs.modal', function () { var f = this.querySelector('iframe'); f.src = f.getAttribute('data-pd-video-src'); document.body.classList.add('pd-video-open'); })
-			.on('hidden.bs.modal', function () { this.querySelector('iframe').src = 'about:blank'; document.body.classList.remove('pd-video-open'); });
+		jQuery('#pd-video').on('show.bs.modal', function () { var f = this.querySelector('iframe'); f.src = f.getAttribute('data-pd-video-src'); })
+			.on('hidden.bs.modal', function () { this.querySelector('iframe').src = 'about:blank'; });
 	}
 	initGallery();
 	var v0 = root.querySelector('input[name=variant_id]:checked'); if (v0) document.body.classList.toggle('is-fs', v0.getAttribute('data-fs') === '1');

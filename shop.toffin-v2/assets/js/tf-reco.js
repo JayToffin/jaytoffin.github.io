@@ -54,11 +54,11 @@
 		return '<div class="product">'
 			+ '<div class="text"><p class="product__list__item--icons"><span><a href="#" aria-label="Simpan ke favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></a></span></p></div>'
 			+ '<div class="tf-pg swiper" data-tf-pg><div class="swiper-wrapper">'
-			+ p.imgs.map(function (src, i) { return '<div class="swiper-slide"><a href="product-single.html" class="img-prod"><img class="img-fluid" src="images/' + src + '" alt="' + n + ' - foto ' + (i + 1) + '" draggable="false"' + (i ? ' loading="lazy"' : '') + '></a></div>'; }).join('')
+			+ p.imgs.map(function (src, i) { return '<div class="swiper-slide"><a href="detail-produk.html" class="img-prod"><img class="img-fluid" src="images/' + src + '" alt="' + n + ' - foto ' + (i + 1) + '" draggable="false"' + (i ? ' loading="lazy"' : '') + '></a></div>'; }).join('')
 			+ '</div><div class="swiper-pagination tf-pg__dots"></div></div>'
 			+ (off ? '<div class="fs-tag">' + off + '%</div>' : '')
 			+ '<div class="fs-body">'
-			+ '<h3 class="fs-product-title"><a href="product-single.html">' + n + '</a></h3>'
+			+ '<h3 class="fs-product-title"><a href="detail-produk.html">' + n + '</a></h3>'
 			+ '<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">' + rupiah(p.price) + '</span>' + (off ? '<span class="fs-price-old">' + rupiah(p.old) + '</span>' : '') + '</div></div>'
 			+ '<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>'
 			+ '</div></div>';

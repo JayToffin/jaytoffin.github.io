@@ -9,7 +9,7 @@
    produk yang cocok ("grinder" → Eureka, Victoria Arduino), dengan
    baris "Semua brand/kategori". Sebelum mengetik: riwayat (localStorage) +
    kategori populer. Hasil menuju product-list.html?q=…&brand=…&cat=… (dibaca
-   tf-plp.js) atau product-single.html. Data di bawah = contoh; di backend
+   tf-plp.js) atau detail-produk.html. Data di bawah = contoh; di backend
    diganti endpoint saran pencarian dengan bentuk data yang sama.
    ===================================================================== */
 (function () {
@@ -97,7 +97,7 @@
 		}
 		var limit = scope === 'product' ? 8 : 5;
 		var left = ps.length ? '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">Produk</h3><span class="tf-sx__meta">' + ps.length + ' hasil</span></div>'
-			+ ps.slice(0, limit).map(function (p) { return '<a class="tf-sx__row" href="product-single.html" data-sx-save><img class="tf-sx__thumb" src="' + p.img + '" alt=""><span class="tf-sx__txt"><span class="tf-sx__name">' + hl(p.name, q) + '</span><span class="tf-sx__meta">' + esc(p.brand) + ' · ' + esc(p.cat) + '</span></span><span class="tf-sx__price">' + rupiah(p.price) + '</span></a>'; }).join('') + '</div>' : '';
+			+ ps.slice(0, limit).map(function (p) { return '<a class="tf-sx__row" href="detail-produk.html" data-sx-save><img class="tf-sx__thumb" src="' + p.img + '" alt=""><span class="tf-sx__txt"><span class="tf-sx__name">' + hl(p.name, q) + '</span><span class="tf-sx__meta">' + esc(p.brand) + ' · ' + esc(p.cat) + '</span></span><span class="tf-sx__price">' + rupiah(p.price) + '</span></a>'; }).join('') + '</div>' : '';
 		var right = '';
 		if (cs.length) right += '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">Kategori</h3></div>' + catRows(cs, 3) + '</div>';
 		if (bs.length) right += '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">Brand</h3>' + (bs.length > 3 ? '<button type="button" class="tf-sx__link" data-sx-scope-to="brand">Semua ' + bs.length + ' brand</button>' : '') + '</div>' + brandRows(bs, 3) + '</div>';

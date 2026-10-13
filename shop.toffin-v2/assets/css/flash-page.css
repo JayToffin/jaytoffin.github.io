@@ -1,0 +1,85 @@
+/* =====================================================================
+   Toffin v2 · flash-page.css — halaman Flash Sale (flashsale.html).
+   Dimuat setelah home-modern.css (bingkai .tf-flash + countdown) dan
+   product-list.css (sidebar filter, toolbar, grid, skeleton, drawer).
+   File ini hanya: banner kepala halaman, tab sesi, pencarian,
+   kartu "akan datang". Panel filter = product-list.css apa adanya.
+   ===================================================================== */
+.tf-fsp .tf-flash-section { padding: 0; }
+
+/* banner = kepala halaman: judul H1, kalimat pengantar + S&K, hitung mundur (opsi A) */
+.tf-fsp__banner.tf-flash.fs-section { padding: 22px 24px; margin: 0 0 14px; }
+.tf-fsp__banner[hidden] { display: none; }
+.tf-fsp__banner .tf-flash__head { margin-bottom: 0; align-items: center; }
+.tf-fsp__h1 { display: flex; align-items: center; gap: 8px; }
+.tf-fsp__h1 .tf-i { flex: none; width: 28px; height: 28px; }
+.tf-fsp__lead { max-width: 560px; margin: 8px 0 0; font-size: 13.5px; font-weight: 600; line-height: 1.5; opacity: .92; }
+.tf-flash--soft .tf-fsp__lead { color: var(--tf-muted); opacity: 1; }
+.tf-fsp__lead .tf-flash__terms { margin-top: 0; font-size: inherit; font-weight: 800; }
+
+/* tab sesi */
+.tf-fsp__tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 20px; }
+.tf-fsp__tab { display: flex; align-items: center; gap: 10px; min-height: 58px; padding: 8px 14px; border: 1px solid var(--tf-line); border-radius: 14px; background: #fff; color: var(--tf-ink); font: inherit; text-align: left; cursor: pointer; transition: border-color .15s ease, box-shadow .15s ease, background .15s ease; }
+.tf-fsp__tab:hover { border-color: rgba(248, 148, 31, .6); }
+.tf-fsp__tab:focus-visible { outline: 0; box-shadow: 0 0 0 3px rgba(248, 148, 31, .25); }
+.tf-fsp__tab-ico { position: relative; display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 10px; background: #f6f7f9; color: var(--tf-muted); }
+.tf-fsp__tab-ico .tf-i { width: 18px; height: 18px; }
+.tf-fsp__tab-t { min-width: 0; display: grid; gap: 1px; }
+.tf-fsp__tab-t strong { font-size: 14px; font-weight: 800; line-height: 1.2; }
+.tf-fsp__tab-t small { color: var(--tf-muted); font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tf-fsp__tab.is-on { border-color: var(--tf-orange); background: #fffaf4; box-shadow: inset 0 0 0 1px var(--tf-orange); }
+.tf-fsp__tab.is-on .tf-fsp__tab-ico { background: var(--tf-orange); color: #fff; }
+.tf-fsp__tab[data-fs-tab="fs-live"] .tf-fsp__tab-ico::after { content: ""; position: absolute; top: -3px; right: -3px; width: 9px; height: 9px; border: 2px solid #fff; border-radius: 50%; background: #ef4444; animation: tfBlink 1.2s steps(1, end) infinite; }
+.tf-fsp__panel[hidden] { display: none; }
+
+/* toolbar: pencarian di dalam flash sale (kolom "Search..." produksi) */
+.tf-fsp__search { display: flex; align-items: center; gap: 8px; width: 260px; min-height: 40px; margin: 0 0 0 auto; padding: 0 12px; border: 1px solid var(--tf-line); border-radius: 10px; background: #fff; transition: border-color .15s ease, box-shadow .15s ease; }
+.tf-fsp__search:focus-within { border-color: rgba(248, 148, 31, .6); box-shadow: 0 0 0 3px rgba(248, 148, 31, .18); }
+.tf-fsp__search .tf-i { flex: none; width: 16px; height: 16px; color: var(--tf-muted); }
+.tf-fsp__search input { flex: 1 1 auto; min-width: 0; height: 38px; border: 0; outline: 0; background: transparent; color: var(--tf-ink); font: inherit; font-size: 13.5px; }
+.tf-fsp__search input::placeholder { color: #9aa0ad; }
+.tf-fsp .tf-fsp__search ~ .tf-plp__sort { margin-left: 0; }
+
+.tf-plp__empty a { color: var(--tf-orange-dark); font-weight: 700; }
+
+/* tab akan datang */
+.tf-fsp__when { display: flex; align-items: center; gap: 6px; margin: 8px 0 0; color: var(--tf-ink); font-size: 13px; font-weight: 700; }
+.tf-fsp__when .tf-i { width: 16px; height: 16px; color: var(--tf-orange-dark); }
+.tf-fsp__grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.tf-fsp__grid > .product { min-width: 0; height: 100%; margin: 0; }
+.fs-tag--soon { background: var(--tf-ink); }
+.fs-price-new--soon { color: var(--tf-muted); letter-spacing: .04em; }
+.fs-btn-remind { display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%; border: 1px solid var(--tf-orange); background: #fff; color: var(--tf-orange-dark); cursor: pointer; }
+.fs-btn-remind .tf-i { width: 16px; height: 16px; }
+.fs-btn-remind:hover { background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+.fs-btn-remind.is-on { border-color: #16a34a; background: #f0faf3; color: #166534; }
+.tf-fsp__soon-foot { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 8px; margin: 16px 0 0; color: var(--tf-muted); font-size: 12.5px; line-height: 1.5; }
+.tf-fsp__soon-foot .tf-i { flex: none; width: 16px; height: 16px; margin-top: 2px; color: var(--tf-orange-dark); }
+.tf-fsp__soon-foot b { color: var(--tf-ink); }
+
+/* sesi berakhir (tf-flash.js menambah .is-ended pada panel) */
+.tf-fsp__panel.is-ended .fs-countdown { opacity: .55; }
+.tf-fsp__panel.is-ended .fs-btn-primary { pointer-events: none; opacity: .5; }
+
+@media (max-width: 1199.98px) { .tf-fsp__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 991.98px) {
+	.tf-fsp__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+	.tf-fsp__search { flex: 1 1 220px; width: auto; }
+	.tf-fsp .tf-fsp__search ~ .tf-plp__filterbtn { margin-left: 0; }
+}
+@media (max-width: 767.98px) {
+	.tf-fsp__tabs { gap: 8px; }
+	.tf-fsp__tab { min-height: 50px; padding: 6px 10px; gap: 8px; border-radius: 12px; }
+	.tf-fsp__tab-ico { width: 30px; height: 30px; }
+	.tf-fsp__tab-t strong { font-size: 13px; }
+	.tf-fsp__tab-t small { font-size: 11px; white-space: normal; }
+	.tf-fsp__banner.tf-flash.fs-section { padding: 18px 16px; }
+	.tf-fsp__h1 .tf-i { width: 24px; height: 24px; }
+	.tf-fsp__lead { font-size: 12.5px; }
+}
+@media (max-width: 575.98px) {
+	.tf-fsp__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+	.tf-fsp__search { flex-basis: 100%; order: 1; }
+	.tf-fsp .tf-plp__filterbtn { order: 2; margin-left: 0; }
+	.tf-fsp .tf-fsp__search ~ .tf-plp__sort { order: 3; margin-left: auto; }   /* Urutkan rata kanan, sebaris dengan Filter */
+}

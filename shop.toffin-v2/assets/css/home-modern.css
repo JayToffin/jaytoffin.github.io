@@ -533,7 +533,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	padding-right: 2px;
 }
 .tf-flash--soft .tf-flash__timer-label { color: var(--tf-muted); opacity: 1; }
-.tf-home .tf-flash .fs-countdown {
+:is(.tf-home, .tf-fsp) .tf-flash .fs-countdown {
 	width: auto;
 	max-width: none;
 	display: flex;
@@ -549,7 +549,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	flex-wrap: nowrap;
 	overflow: visible;
 }
-.tf-home .tf-flash .fs-count {
+:is(.tf-home, .tf-fsp) .tf-flash .fs-count {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -563,7 +563,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	color: inherit;
 	overflow: visible;
 }
-.tf-home .tf-flash .fs-num {
+:is(.tf-home, .tf-fsp) .tf-flash .fs-num {
 	position: relative;
 	display: grid;
 	place-items: center;
@@ -581,7 +581,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .10), 0 6px 14px rgba(0, 0, 0, .20);
 	overflow: hidden;
 }
-.tf-home .tf-flash .fs-lbl {
+:is(.tf-home, .tf-fsp) .tf-flash .fs-lbl {
 	margin: 0;
 	font-size: 9.5px;
 	font-weight: 700;
@@ -590,8 +590,8 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	color: #fff;
 	opacity: .92;
 }
-.tf-home .tf-flash--soft .fs-lbl { color: var(--tf-muted); opacity: 1; }
-.tf-home .tf-flash .fs-sep {
+:is(.tf-home, .tf-fsp) .tf-flash--soft .fs-lbl { color: var(--tf-muted); opacity: 1; }
+:is(.tf-home, .tf-fsp) .tf-flash .fs-sep {
 	display: grid;
 	place-items: center;
 	width: 6px;
@@ -603,13 +603,13 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	opacity: 1;
 	animation: tfBlink 1s steps(1, end) infinite;
 }
-.tf-home .tf-flash--soft .fs-sep { color: var(--tf-ink); }
+:is(.tf-home, .tf-fsp) .tf-flash--soft .fs-sep { color: var(--tf-ink); }
 @keyframes tfBlink { 50% { opacity: .25; } }
 @media (prefers-reduced-motion: reduce) {
-	.tf-home .tf-flash .fs-sep { animation: none; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-sep { animation: none; }
 }
 /* custom.js menyembunyikan kotak "Hari" saat 0; titik dua setelahnya ikut hilang */
-.tf-home .tf-flash .fs-count[style*="none"] + .fs-sep { display: none; }
+:is(.tf-home, .tf-fsp) .tf-flash .fs-count[style*="none"] + .fs-sep { display: none; }
 
 /* ---------- carousel di dalam frame ---------- */
 .tf-flash__carousel { position: relative; z-index: 1; width: 100%; min-width: 0; }
@@ -675,9 +675,9 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-flash__head { gap: 12px; margin-bottom: 14px; }
 	.tf-flash__timer { width: 100%; align-items: flex-start; gap: 6px; }
 	.tf-flash__timer-label { padding-right: 0; padding-left: 2px; }
-	.tf-home .tf-flash .fs-countdown { width: auto; gap: 5px; }
-	.tf-home .tf-flash .fs-num { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
-	.tf-home .tf-flash .fs-sep { height: 38px; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-countdown { width: auto; gap: 5px; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-num { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-sep { height: 38px; }
 }
 :where(.tf-home) a { color: var(--tf-orange); }
 :where(.tf-home) a:hover { color: #ff933b; }
