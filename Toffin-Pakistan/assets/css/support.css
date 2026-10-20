@@ -221,9 +221,11 @@
     }
     .faq-icon svg { display: block; }
     .faq-item.open .faq-icon { background: var(--amber); border-color: var(--amber); color: var(--white); transform: rotate(45deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-    .faq-item.open .faq-a { max-height: 200px; }
-    .faq-a p { padding-bottom: var(--space-md); font-size: 0.95rem; }
+    /* Tinggi jawaban mengikuti isi (grid 0fr→1fr), bukan max-height tetap yang memotong teks panjang di mobile */
+    .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
+    .faq-item.open .faq-a { grid-template-rows: 1fr; }
+    .faq-a p { min-height: 0; overflow: hidden; padding-bottom: var(--space-md); font-size: 0.95rem; }
+    .faq-item:not(.open) .faq-a p { padding-bottom: 0; }
 
     @media (max-width:1024px) {
       .page-hero { padding: calc(var(--nav-h) + 3.5rem) 0 3.5rem; }
