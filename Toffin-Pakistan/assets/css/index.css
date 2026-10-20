@@ -466,7 +466,7 @@ nav.toffin-nav .nav-logo img {
   filter: grayscale(0%) opacity(1);
 }
 
-/* Dua baris brand (top & bottom) — lihat toffin-script.js & index.html */
+/* Satu baris brand — lihat toffin-script.js & index.html */
 .brand-rows {
   display: flex;
   flex-direction: column;

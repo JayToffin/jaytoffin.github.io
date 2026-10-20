@@ -272,54 +272,26 @@ function resetForm() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelector('.brand-swiper--top')) {
-    // Dua baris brand sebagai DUA slider terpisah (top & bottom) yang dikontrol
-    // SATU navigation + satu autoplay. Karena tiap baris hanya 1 baris penuh,
-    // tidak pernah ada sel kosong — berapapun jumlah brand-nya (ganjil/genap).
-    var topWrap = document.querySelector('.brand-swiper--top .swiper-wrapper');
-    var botWrap = document.querySelector('.brand-swiper--bottom .swiper-wrapper');
-
-    // Semua slide awalnya ada di baris atas; pindahkan indeks ganjil ke baris
-    // bawah supaya urutan brand tetap berpasangan kolom demi kolom.
-    Array.prototype.slice.call(topWrap.children).forEach(function (slide, i) {
-      if (i % 2 === 1) botWrap.appendChild(slide);
-    });
-
-    // loop:true => infinite mulus, lanjut SATU-SATU dari logo terakhir ke logo
-    // pertama (bukan rewind yang menggulung balik banyak logo). Tiap baris hanya
-    // 1 baris penuh, jadi tak pernah ada sel kosong (ganjil/genap).
-    function makeBrandRow(selector) {
-      return new Swiper(selector, {
-        slidesPerView: 2,
-        slidesPerGroup: 1,
-        loop: true,
-        spaceBetween: 12,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-        breakpoints: {
-          640: { slidesPerView: 3, spaceBetween: 12 },
-          1024: { slidesPerView: 6, spaceBetween: 14 },
-        },
-      });
-    }
-
-    var brandTop = makeBrandRow('.brand-swiper--top');
-    var brandBottom = makeBrandRow('.brand-swiper--bottom');
-
-    // SATU navigation menggerakkan KEDUA baris. Sengaja TANPA Swiper controller
-    // karena kombinasi loop + controller di Swiper 11 bisa memunculkan slide
-    // ganda. Tombol prev/next memanggil slide di dua baris sekaligus.
-    var brandPrev = document.querySelector('.brand-swiper-prev');
-    var brandNext = document.querySelector('.brand-swiper-next');
-    if (brandPrev) brandPrev.addEventListener('click', function () {
-      brandTop.slidePrev();
-      brandBottom.slidePrev();
-    });
-    if (brandNext) brandNext.addEventListener('click', function () {
-      brandTop.slideNext();
-      brandBottom.slideNext();
+  if (document.querySelector('.brand-swiper')) {
+    // Satu baris brand. loop:true => infinite mulus, maju SATU-SATU dari logo
+    // terakhir ke logo pertama; tombol prev/next = navigation bawaan Swiper.
+    new Swiper('.brand-swiper', {
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+      loop: true,
+      spaceBetween: 12,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        prevEl: '.brand-swiper-prev',
+        nextEl: '.brand-swiper-next',
+      },
+      breakpoints: {
+        640: { slidesPerView: 3, spaceBetween: 12 },
+        1024: { slidesPerView: 6, spaceBetween: 14 },
+      },
     });
   }
 });
