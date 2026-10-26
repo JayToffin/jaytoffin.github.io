@@ -107,7 +107,7 @@ function toggleFaq(el) {
 const TOFFIN_EMAILJS_CONFIG = {
   serviceId: 'service_x9y58zb', // EmailJS service Toffin Pakistan (toffinpakistan@gmail.com)
   templateId: 'template_piuwdiq', // template contact form Toffin Pakistan
-  publicKey: '8qrCSYqiAgwBvOZvj',
+  publicKey: 'KUZiLiY2TWosGWTJU', // Public Key akun EmailJS Toffin Pakistan
 };
 
 // Init EmailJS sekali saat load (idempotent — aman dipanggil berulang)
