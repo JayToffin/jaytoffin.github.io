@@ -25,8 +25,8 @@ Buat template baru di service **service_x9y58zb**, lalu isi tab **Settings**:
 | Bcc / Cc    | kosong                                                     |
 | Subject     | `New inquiry from {{from_name}} — {{business_name}}`       |
 
-Setelah template disimpan, salin **Template ID**-nya ke `templateId` di
-`TOFFIN_EMAILJS_CONFIG` (`assets/js/toffin-script.js`). Saat ini masih `template_d5gndpp` (template Indonesia).
+Template ID yang dipakai: **template_piuwdiq**, sudah terpasang di `templateId` pada
+`TOFFIN_EMAILJS_CONFIG` (`assets/js/toffin-script.js`).
 
 ## Content (mode HTML / code editor)
 
