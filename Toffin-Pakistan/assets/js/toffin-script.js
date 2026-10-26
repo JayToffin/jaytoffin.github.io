@@ -105,7 +105,7 @@ function toggleFaq(el) {
 // ════════════════════════════════════════════════════════════════════
 
 const TOFFIN_EMAILJS_CONFIG = {
-  serviceId: 'service_t7sec4k',
+  serviceId: 'service_x9y58zb', // EmailJS service Toffin Pakistan (toffinpakistan@gmail.com)
   templateId: 'template_d5gndpp',
   publicKey: '8qrCSYqiAgwBvOZvj',
 };
