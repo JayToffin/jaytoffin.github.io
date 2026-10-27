@@ -33,6 +33,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://www.toffin.id/#organization","name":"PT Toffin Indonesia","alternateName":"Toffin","url":"https://www.toffin.id","logo":{"@type":"ImageObject","url":"https://www.toffin.id/assets/img/root/logo-black.png"},"image":"https://www.toffin.id/assets/img/about-toffin.jpg","description":"Distributor B2B mesin kopi premium & penyedia solusi terpadu untuk industri HORECA di Indonesia sejak 2007.","foundingDate":"2007","numberOfEmployees":{"@type":"QuantitativeValue","value":500},"address":{"@type":"PostalAddress","streetAddress":"Jl. Pluit Permai No.4, RT.1/RW.7","addressLocality":"Jakarta Utara","addressRegion":"DKI Jakarta","postalCode":"14450","addressCountry":"ID"},"telephone":"+62-21-6669-0166","email":"info@toffin.id","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"17:30"},"geo":{"@type":"GeoCoordinates","latitude":-6.115727592238671,"longitude":106.7864420677443},"areaServed":{"@type":"Country","name":"Indonesia"},"knowsAbout":["Mesin Espresso","Coffee Grinder","Bahan Baku F&B","Layanan HORECA","Distribusi Mesin Kopi"],"award":["Product of the Year 2024","Top-5 Global Distributor"],"sameAs":["https://www.linkedin.com/company/toffinindonesia","https://www.instagram.com/toffin.id","https://www.youtube.com/@toffinindonesiaofficial","https://www.tiktok.com/@toffin.id"]},{"@type":"WebSite","@id":"https://www.toffin.id/#website","url":"https://www.toffin.id","name":"Toffin Indonesia","description":"Distributor B2B mesin kopi premium & solusi HORECA Indonesia","publisher":{"@id":"https://www.toffin.id/#organization"},"inLanguage":"id-ID"},{"@type":"WebPage","@id":"https://www.toffin.id/#webpage","url":"https://www.toffin.id/","name":"Toffin Indonesia | Distributor Mesin Kopi & Solusi HORECA Terlengkap","isPartOf":{"@id":"https://www.toffin.id/#website"},"about":{"@id":"https://www.toffin.id/#organization"},"inLanguage":"id-ID","description":"Distributor resmi mesin kopi & solusi HORECA. Melayani 15.000+ kafe, restoran & hotel di 19 kota. Partner Victoria Arduino, Nuova Simonelli, SMEG.","datePublished":"2025-10-01T09:00:00+07:00","dateModified":"2026-08-10T09:00:00+07:00"}]}
   </script>
+  <link rel="preload" as="image" href="assets/img/siluet-app-homepage.webp" />
   <link rel="canonical" href="https://www.toffin.id/" />
 
   <!-- Favicon -->
@@ -56,11 +57,12 @@
   <meta name="twitter:description" content="Distributor resmi mesin kopi & solusi HORECA. Melayani 15.000+ kafe, restoran & hotel di 19 kota. Partner Victoria Arduino, Nuova Simonelli, SMEG." />
   <meta name="twitter:image" content="https://www.toffin.id/assets/img/about-toffin.jpg" />
 
-  <link rel="stylesheet" href="assets/css/toffin-shared.css" />
+  <link rel="stylesheet" href="assets/css/toffin-shared.css?v=20261027" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="assets/css/index.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="assets/css/index.css?v=20261027" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 </head>
 
 <body>
@@ -75,7 +77,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="toffin-nav scrolled" id="mainNav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <img src="assets/img/root/logo-black.png" alt="Toffin Indonesia" />
+        <img src="assets/img/root/logo-black.png" alt="Toffin Indonesia" width="500" height="114" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="/" class="active" data-id="nav-home">Beranda</a></li>
@@ -121,7 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Image Grid -->
       <div class="hero-images">
         <div class="hero-img-main">
-          <img src="assets/img/siluet-app-homepage.png" alt="Toffin App" loading="eager" />
+          <img src="assets/img/siluet-app-homepage.webp" alt="Toffin App" loading="eager" fetchpriority="high" />
           <div class="hero-float-badge">
             <div class="float-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
@@ -140,10 +142,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="hero-img-sm">
-          <img src="assets/img/about-toffin.jpg" alt="Mesin espresso premium Toffin" loading="eager" />
+          <img src="assets/img/about-toffin.webp" alt="Mesin espresso premium Toffin" loading="eager" />
         </div>
         <div class="hero-img-sm">
-          <img src="assets/img/showroom-3.jpg" alt="Barista area Toffin Indonesia" loading="lazy" />
+          <img src="assets/img/showroom-3.webp" alt="Barista area Toffin Indonesia" loading="lazy" />
         </div>
       </div>
     </div>
@@ -184,13 +186,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Images -->
         <div class="story-images">
           <div class="story-img-tall">
-            <img src="assets/img/kantor-toffin-pusat.jpg" alt="Gedung Pusat Toffin Indonesia" loading="lazy" />
+            <img src="assets/img/kantor-toffin-pusat.webp" alt="Gedung Pusat Toffin Indonesia" loading="lazy" />
           </div>
           <div class="story-img-sm">
-            <img src="assets/img/launching-maverick-3.jpg" alt="Showroom Kafe Premium Toffin" loading="lazy" />
+            <img src="assets/img/launching-maverick-3.webp" alt="Showroom Kafe Premium Toffin" loading="lazy" />
           </div>
           <div class="story-img-sm">
-            <img src="assets/img/victoria-arduino.jpg" alt="Tim Tenaga Ahli Toffin" loading="lazy" />
+            <img src="assets/img/victoria-arduino.webp" alt="Tim Tenaga Ahli Toffin" loading="lazy" />
           </div>
         </div>
         <!-- Content -->
@@ -339,7 +341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- ══ TOFFIN APP HIGHLIGHT ══ -->
   <div class="feature-highlight" data-screen-label="05 App Feature">
     <div class="fh-image">
-      <img src="assets/img/mockup-toffin-app.png" alt="Penggunaan Toffin App di smartphone" loading="lazy" />
+      <img src="assets/img/mockup-toffin-app.webp" alt="Penggunaan Toffin App di smartphone" loading="lazy" />
     </div>
     <div class="fh-content">
       <span class="label">Toffin App</span>
@@ -378,7 +380,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="swiper brand-swiper brand-swiper--top">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/victoria-arduino.png" alt="Victoria Arduino" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/victoria-arduino.webp" alt="Victoria Arduino" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
             <div class="brand-card"><img src="assets/img/brand/nuova-simonelli.webp" alt="Nuova Simonelli"loading="lazy" /></div>
@@ -387,16 +389,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="brand-card"><img src="assets/img/brand/bravo.webp" alt="Bravo" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/smeg.png" alt="Smeg" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/smeg.webp" alt="Smeg" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/caffa-vergnano.png" alt="Caffe Vergnano"loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/caffa-vergnano.webp" alt="Caffe Vergnano"loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/rocket.png" alt="Rocket Espresso" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/rocket.webp" alt="Rocket Espresso" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/fo.png" alt="Fo Food Products" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/fo.webp" alt="Fo Food Products" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
             <div class="brand-card"><img src="assets/img/brand/hario.webp" alt="Hario" loading="lazy" /></div>
@@ -408,40 +410,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="brand-card"><img src="assets/img/brand/friulinox.webp" alt="Friulinox" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/toffin-base.png" alt="Toffin Base" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/toffin-base.webp" alt="Toffin Base" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/vitamix.png" alt="Vitamix" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/vitamix.webp" alt="Vitamix" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/zicaffe.png" alt="Zicaffe" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/zicaffe.webp" alt="Zicaffe" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/dr.coffee.png" alt="Dr Coffee" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/dr.coffee.webp" alt="Dr Coffee" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
             <div class="brand-card"><img src="assets/img/brand/comprital.webp" alt="Comprital" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/eureka.png" alt="Eureka" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/eureka.webp" alt="Eureka" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/officine-allegra.png" alt="Officine Allegra"loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/officine-allegra.webp" alt="Officine Allegra"loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
             <div class="brand-card"><img src="assets/img/brand/fabbri.webp" alt="Fabbri" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/unox.png" alt="Unox" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/unox.webp" alt="Unox" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/osion.png" alt="Osion" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/osion.webp" alt="Osion" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/brita.png" alt="Brita" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/brita.webp" alt="Brita" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/vbm.png" alt="VBM" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/vbm.webp" alt="VBM" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
             <div class="brand-card"><img src="assets/img/brand/davinci.webp" alt="Davinci" loading="lazy" /></div>
@@ -456,7 +458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="brand-card"><img src="assets/img/brand/eversys.webp" alt="Eversys" loading="lazy" /></div>
           </div>
           <div class="swiper-slide">
-            <div class="brand-card"><img src="assets/img/brand/vzug.png" alt="Vzug" loading="lazy" /></div>
+            <div class="brand-card"><img src="assets/img/brand/vzug.webp" alt="Vzug" loading="lazy" /></div>
           </div>
         </div>
         </div><!-- /brand-swiper--top -->
@@ -612,14 +614,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/root/logo-white.png" alt="Toffin" style="height:30px;" />
+          <img src="assets/img/root/logo-white.png" alt="Toffin" width="500" height="114" style="height:30px;width:auto;" loading="lazy" />
           <p style="margin-top:1.25rem;line-height:1.7;">Mitra bisnis HORECA terpercaya sejak 2007. Melayani 15.000+
             kafe, restoran &amp; hotel di 19 kota Indonesia.</p>
 
           <!-- App Store + Play Store badges (static, decorative) -->
           <div class="footer-stores">
-            <img src="assets/img/app-store.png" alt="Tersedia di App Store" />
-            <img src="assets/img/google-play.png" alt="Tersedia di Google Play" />
+            <img src="assets/img/app-store.png" alt="Tersedia di App Store" width="238" height="73" loading="lazy" />
+            <img src="assets/img/google-play.png" alt="Tersedia di Google Play" width="238" height="73" loading="lazy" />
           </div>
 
           <div style="display:flex;gap:0.6rem;margin-top:1.5rem;">
@@ -699,8 +701,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   
-<script src="assets/js/toffin-script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="assets/js/toffin-script.js?v=20261027" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <!-- Elfsight platform.js di-auto-inject oleh toffin-script.js saat detect markup .elfsight-app-* -->
 </body>
 

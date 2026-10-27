@@ -135,6 +135,10 @@
 
 
 
+  <link rel="preload" as="image" href="assets/img/hero-about.webp" />
+
+
+
   <link rel="canonical" href="https://www.toffin.id/about" />
 
   <!-- Favicon -->
@@ -158,10 +162,11 @@
   <meta name="twitter:description" content="PT Toffin Indonesia — hampir dua dekade jadi mitra bisnis untuk 15.000+ kafe & restoran di 19 kota. Distributor top-5 global mesin kopi premium." />
   <meta name="twitter:image" content="https://www.toffin.id/assets/img/hero-about.jpg" />
 
-  <link rel="stylesheet" href="assets/css/toffin-shared.css" />
+  <link rel="stylesheet" href="assets/css/toffin-shared.css?v=20261027" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="assets/css/about.css?v=20261027" />
 </head>
 
 <body style="--nav-h:72px;">
@@ -176,7 +181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="toffin-nav nav-dark-hero" id="mainNav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <img src="assets/img/root/logo-black.png" alt="Toffin Indonesia" />
+        <img src="assets/img/root/logo-black.png" alt="Toffin Indonesia" width="500" height="114" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="/" data-id="nav-home">Beranda</a></li>
@@ -211,7 +216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           dalam satu waktu.</p>
       </div>
       <div class="hero-visual">
-        <img src="assets/img/hero-about.jpg" alt="Gedung kantor PT Toffin Indonesia, Jakarta Utara" loading="eager" />
+        <img src="assets/img/hero-about.webp" alt="Gedung kantor PT Toffin Indonesia, Jakarta Utara" loading="eager" fetchpriority="high" />
       </div>
     </div>
   </section>
@@ -221,7 +226,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="strip-grid">
         <div class="strip-visual">
-          <img src="assets/img/kantor-dan-tim-toffin.jpg"
+          <img src="assets/img/kantor-dan-tim-toffin.webp"
             alt="Kantor dan tim Toffin Indonesia"
             style="width:100%;height:100%;object-fit:cover;min-height:400px;display:block;" loading="lazy" />
         </div>
@@ -583,14 +588,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/root/logo-white.png" alt="Toffin" style="height:30px;" />
+          <img src="assets/img/root/logo-white.png" alt="Toffin" width="500" height="114" style="height:30px;width:auto;" loading="lazy" />
           <p style="margin-top:1.25rem;line-height:1.7;">Mitra bisnis HORECA terpercaya sejak 2007. Melayani 15.000+
             kafe, restoran &amp; hotel di 19 kota Indonesia.</p>
 
           <!-- App Store + Play Store badges (static, decorative) -->
           <div class="footer-stores">
-            <img src="assets/img/app-store.png" alt="Tersedia di App Store" />
-            <img src="assets/img/google-play.png" alt="Tersedia di Google Play" />
+            <img src="assets/img/app-store.png" alt="Tersedia di App Store" width="238" height="73" loading="lazy" />
+            <img src="assets/img/google-play.png" alt="Tersedia di Google Play" width="238" height="73" loading="lazy" />
           </div>
 
           <div style="display:flex;gap:0.6rem;margin-top:1.5rem;">
@@ -670,7 +675,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   
-<script src="assets/js/toffin-script.js"></script>
+<script src="assets/js/toffin-script.js?v=20261027" defer></script>
 </body>
 
 </html>

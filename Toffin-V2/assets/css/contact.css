@@ -382,6 +382,20 @@
       width: 100%;
       background: var(--gray-100); /* fallback selama maps loading */
     }
+    .branches-section .map-block iframe { display: block; width: 100%; height: 100%; border: 0; }
+    /* ── Daftar cabang (render dari TOFFIN_BRANCHES di JS) ── */
+    .branch-list {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-md); padding: var(--space-xl) 0 var(--space-2xl);
+    }
+    .branch-card {
+      border: 1px solid var(--gray-200); border-radius: 12px; padding: 1.25rem 1.35rem;
+      background: var(--white); display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .branch-card h3 { font-size: 1.05rem; margin: 0; }
+    .branch-card p { margin: 0; color: var(--gray-500); font-size: 0.92rem; line-height: 1.55; }
+    .branch-card .branch-links { display: flex; gap: 1rem; margin-top: 0.35rem; font-size: 0.9rem; font-weight: 600; }
+    .branch-card .branch-links a { color: var(--black); text-decoration: underline; text-underline-offset: 3px; }
 
     /* ══════════════════════════════════════════════════════
        MAP INFO WINDOW POPUP — Modern editorial card style

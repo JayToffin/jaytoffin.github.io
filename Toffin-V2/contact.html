@@ -31,6 +31,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://www.toffin.id/#organization","name":"PT Toffin Indonesia","alternateName":"Toffin","url":"https://www.toffin.id","logo":{"@type":"ImageObject","url":"https://www.toffin.id/assets/img/root/logo-black.png"},"image":"https://www.toffin.id/assets/img/about-toffin.jpg","description":"Distributor B2B mesin kopi premium & penyedia solusi terpadu untuk industri HORECA di Indonesia sejak 2007.","foundingDate":"2007","numberOfEmployees":{"@type":"QuantitativeValue","value":500},"address":{"@type":"PostalAddress","streetAddress":"Jl. Pluit Permai No.4, RT.1/RW.7","addressLocality":"Jakarta Utara","addressRegion":"DKI Jakarta","postalCode":"14450","addressCountry":"ID"},"telephone":"+62-21-6669-0166","email":"info@toffin.id","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"17:30"},"geo":{"@type":"GeoCoordinates","latitude":-6.115727592238671,"longitude":106.7864420677443},"areaServed":{"@type":"Country","name":"Indonesia"},"knowsAbout":["Mesin Espresso","Coffee Grinder","Bahan Baku F&B","Layanan HORECA","Distribusi Mesin Kopi"],"contactPoint":[{"@type":"ContactPoint","telephone":"+62-21-6669-0166","contactType":"customer service","email":"info@toffin.id","availableLanguage":["Indonesian","English"],"areaServed":"ID"}],"award":["Product of the Year 2024","Top-5 Global Distributor"],"sameAs":["https://www.linkedin.com/company/toffinindonesia","https://www.instagram.com/toffin.id","https://www.youtube.com/@toffinindonesiaofficial","https://www.tiktok.com/@toffin.id"]},{"@type":"WebSite","@id":"https://www.toffin.id/#website","url":"https://www.toffin.id","name":"Toffin Indonesia","description":"Distributor B2B mesin kopi premium & solusi HORECA Indonesia","publisher":{"@id":"https://www.toffin.id/#organization"},"inLanguage":"id-ID"},{"@type":"ContactPage","@id":"https://www.toffin.id/contact#webpage","url":"https://www.toffin.id/contact","name":"Hubungi Toffin | Konsultasi Mesin Kopi & Solusi HORECA","isPartOf":{"@id":"https://www.toffin.id/#website"},"about":{"@id":"https://www.toffin.id/#organization"},"inLanguage":"id-ID","mainEntity":{"@id":"https://www.toffin.id/#organization"},"datePublished":"2025-10-01T09:00:00+07:00","dateModified":"2026-08-10T09:00:00+07:00"},{"@type":"BreadcrumbList","@id":"https://www.toffin.id/contact#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Beranda","item":"https://www.toffin.id/"},{"@type":"ListItem","position":2,"name":"Kontak","item":"https://www.toffin.id/contact"}]}]}
   </script>
+  <link rel="preload" as="image" href="assets/img/banner-event.webp" />
   <link rel="canonical" href="https://www.toffin.id/contact" />
 
   <!-- Favicon -->
@@ -54,10 +55,11 @@
   <meta name="twitter:description" content="Hubungi tim Toffin Indonesia untuk konsultasi mesin kopi, bahan baku F&B, dan solusi HORECA. Kantor di Jakarta Utara, cabang di 19 kota seluruh Indonesia." />
   <meta name="twitter:image" content="https://www.toffin.id/assets/img/banner-event.webp" />
 
-  <link rel="stylesheet" href="assets/css/toffin-shared.css" />
+  <link rel="stylesheet" href="assets/css/toffin-shared.css?v=20261027" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="assets/css/contact.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="assets/css/contact.css?v=20261027" />
 </head>
 <body>
 
@@ -71,7 +73,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="toffin-nav nav-dark-hero" id="mainNav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <img src="assets/img/root/logo-black.png" alt="Toffin Indonesia" />
+        <img src="assets/img/root/logo-black.png" alt="Toffin Indonesia" width="500" height="114" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="/" data-id="nav-home">Beranda</a></li>
@@ -104,7 +106,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Untuk konsultasi produk, dukungan teknis, maupun pembahasan peluang kemitraan — tim kami berkomitmen merespons setiap pertanyaan Anda dalam satu hari kerja.</p>
     </div>
     <div class="hero-visual">
-      <img src="assets/img/banner-event.webp" alt="Tim Toffin Indonesia siap melayani inquiry dan konsultasi bisnis HORECA" loading="eager" />
+      <img src="assets/img/banner-event.webp" alt="Tim Toffin Indonesia siap melayani inquiry dan konsultasi bisnis HORECA" loading="eager" fetchpriority="high" />
     </div>
   </div>
 </section>
@@ -118,7 +120,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Dari Medan hingga Lombok — temukan cabang Toffin terdekat untuk konsultasi, demo produk, atau layanan teknis langsung.</p>
     </div>
   </div>
-  <div id="toffinMap" class="map-block" data-toffin-map></div>
+  <!-- Peta embed Google Maps kantor pusat (tanpa API key & billing). Daftar 19 cabang dirender JS dari TOFFIN_BRANCHES. -->
+  <div id="toffinMap" class="map-block">
+    <iframe
+      src="https://www.google.com/maps?q=-6.115727592238671,106.7864420677443&z=16&output=embed"
+      title="Lokasi kantor pusat PT Toffin Indonesia — Jl. Pluit Permai No.4, Jakarta Utara"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen></iframe>
+  </div>
+  <div class="container">
+    <div class="branch-list" id="branchList" aria-label="Daftar cabang Toffin"></div>
+  </div>
 </section>
 
 <!-- CONTACT SECTION -->
@@ -254,14 +267,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/root/logo-white.png" alt="Toffin" style="height:30px;" />
+          <img src="assets/img/root/logo-white.png" alt="Toffin" width="500" height="114" style="height:30px;width:auto;" loading="lazy" />
           <p style="margin-top:1.25rem;line-height:1.7;">Mitra bisnis HORECA terpercaya sejak 2007. Melayani 15.000+
             kafe, restoran &amp; hotel di 19 kota Indonesia.</p>
 
           <!-- App Store + Play Store badges (static, decorative) -->
           <div class="footer-stores">
-            <img src="assets/img/app-store.png" alt="Tersedia di App Store" />
-            <img src="assets/img/google-play.png" alt="Tersedia di Google Play" />
+            <img src="assets/img/app-store.png" alt="Tersedia di App Store" width="238" height="73" loading="lazy" />
+            <img src="assets/img/google-play.png" alt="Tersedia di Google Play" width="238" height="73" loading="lazy" />
           </div>
 
           <div style="display:flex;gap:0.6rem;margin-top:1.5rem;">
@@ -401,9 +414,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- EmailJS SDK — for contact form submission -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="assets/js/toffin-script.js"></script>
-<!-- Google Maps loaded async; callback initToffinMap di toffin-script.js -->
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIRn-Px3dCuziYhi7kwyBgsNfaQAKobO4&callback=initToffinMap"></script>
+<script src="assets/js/toffin-script.js?v=20261027" defer></script>
 </body>
 </html>
