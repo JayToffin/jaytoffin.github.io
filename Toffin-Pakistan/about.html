@@ -36,6 +36,7 @@
 
 
 
+  <link rel="preload" as="image" href="assets/img/hero-about.webp" />
   <link rel="canonical" href="https://www.toffin.pk/about" />
 
   <!-- Favicon -->
@@ -59,10 +60,11 @@
   <meta name="twitter:description" content="Toffin Pakistan is an Islamabad-based partner to cafés, restaurants and hotels across Pakistan, supplying premium coffee machines, grinders, halal-certified F&amp;B ingredients and after-sales service." />
   <meta name="twitter:image" content="https://www.toffin.pk/assets/img/hero-about.jpg" />
 
-  <link rel="stylesheet" href="assets/css/toffin-shared.css" />
+  <link rel="stylesheet" href="assets/css/toffin-shared.css?v=20261027" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="assets/css/about.css?v=20261027" />
 </head>
 
 <body style="--nav-h:72px;">
@@ -77,7 +79,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="toffin-nav nav-dark-hero" id="mainNav">
     <div class="nav-inner">
       <a href="./" class="nav-logo">
-        <img src="assets/img/root/logo-black.png" alt="Toffin Pakistan" />
+        <img src="assets/img/root/logo-black.png" alt="Toffin Pakistan" width="500" height="114" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="./" data-id="nav-home">Home</a></li>
@@ -109,7 +111,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           at a time.</p>
       </div>
       <div class="hero-visual">
-        <img src="assets/img/hero-about.jpg" alt="Toffin office" loading="eager" />
+        <img src="assets/img/hero-about.webp" alt="Toffin office" loading="eager" fetchpriority="high" width="1600" height="901" />
       </div>
     </div>
   </section>
@@ -119,7 +121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="strip-grid">
         <div class="strip-visual">
-          <img src="assets/img/kantor-dan-tim-toffin.jpg"
+          <img src="assets/img/kantor-dan-tim-toffin.webp"
             alt="Toffin Pakistan office and team"
             style="width:100%;height:100%;object-fit:cover;min-height:400px;display:block;" loading="lazy" />
         </div>
@@ -393,13 +395,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/root/logo-white.png" alt="Toffin" style="height:30px;" />
+          <img src="assets/img/root/logo-white.png" alt="Toffin" width="500" height="114" style="height:30px;width:auto;" loading="lazy" />
           <p style="margin-top:1.25rem;line-height:1.7;">Your trusted HORECA partner in Pakistan — premium coffee machines, ingredients and after-sales service for cafés, restaurants &amp; hotels, from our office in Islamabad.</p>
 
           <!-- App Store + Play Store badges: Toffin App coming soon, disembunyikan dulu
                     <div class="footer-stores">
-            <img src="assets/img/app-store.png" alt="Available on the App Store" />
-            <img src="assets/img/google-play.png" alt="Available on Google Play" />
+            <img src="assets/img/app-store.png" alt="Available on the App Store" width="238" height="73" loading="lazy" />
+            <img src="assets/img/google-play.png" alt="Available on Google Play" width="238" height="73" loading="lazy" />
           </div>
           -->
           <!-- ikon sosial: link dikosongkan dulu (href="#"), isi dengan akun Toffin Pakistan -->
@@ -479,7 +481,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   
-<script src="assets/js/toffin-script.js?v=20261026"></script>
+<script src="assets/js/toffin-script.js?v=20261027" defer></script>
 </body>
 
 </html>
