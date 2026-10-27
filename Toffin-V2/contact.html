@@ -120,18 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Dari Medan hingga Lombok — temukan cabang Toffin terdekat untuk konsultasi, demo produk, atau layanan teknis langsung.</p>
     </div>
   </div>
-  <!-- Peta embed Google Maps kantor pusat (tanpa API key & billing). Daftar 19 cabang dirender JS dari TOFFIN_BRANCHES. -->
-  <div id="toffinMap" class="map-block">
-    <iframe
-      src="https://www.google.com/maps?q=-6.115727592238671,106.7864420677443&z=16&output=embed"
-      title="Lokasi kantor pusat PT Toffin Indonesia — Jl. Pluit Permai No.4, Jakarta Utara"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      allowfullscreen></iframe>
-  </div>
-  <div class="container">
-    <div class="branch-list" id="branchList" aria-label="Daftar cabang Toffin"></div>
-  </div>
+  <div id="toffinMap" class="map-block" data-toffin-map></div>
 </section>
 
 <!-- CONTACT SECTION -->
@@ -414,6 +403,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- EmailJS SDK — for contact form submission -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="assets/js/toffin-script.js?v=20261027" defer></script>
+<script src="assets/js/toffin-script.js?v=20261027"></script>
+<!-- Google Maps loaded async; callback initToffinMap di toffin-script.js -->
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIRn-Px3dCuziYhi7kwyBgsNfaQAKobO4&callback=initToffinMap"></script>
 </body>
 </html>

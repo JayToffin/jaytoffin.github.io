@@ -389,8 +389,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ════════════════════════════════════════════════════════════════
-//  TOFFIN BRANCHES — peta kantor pusat via iframe embed (tanpa API key),
-//  19 cabang dirender sebagai kartu ke #branchList di contact.html
+//  TOFFIN BRANCH MAP — Google Maps with custom marker pin
+//  Dipakai di contact.html; dipanggil oleh callback Google Maps script
 // ════════════════════════════════════════════════════════════════
 const TOFFIN_BRANCHES = [
   { name: 'Toffin Jakarta',      address: 'Jl. Pluit Permai No.4, RT.1/RW.7, Pluit, Kec. Penjaringan, Kota Jakarta Utara, DKI Jakarta 14450', lat: -6.115727592238671, lng: 106.7864420677443, phone: '+62 21 6669-0166' },
@@ -414,18 +414,97 @@ const TOFFIN_BRANCHES = [
   { name: 'Toffin Makassar',     address: 'Jl. DR. Ratulangi No.121, Bonto Lebang, Kec. Mamajang, Kota Makassar, Sulawesi Selatan 90133', lat: -5.164973859150786, lng: 119.41901976619326, phone: '+62 822-4001-0009' },
 ];
 
-function renderBranchList() {
-  const wrap = document.getElementById('branchList');
-  if (!wrap) return;
-  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  wrap.innerHTML = TOFFIN_BRANCHES.map((b) => {
-    const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(b.lat + ',' + b.lng);
-    const tel = b.phone ? '<a href="tel:' + esc(String(b.phone).replace(/[^+\d]/g, '')) + '">' + esc(b.phone) + '</a>' : '';
-    return '<article class="branch-card"><h3>' + esc(b.name) + '</h3><p>' + esc(b.address) + '</p>' +
-      '<div class="branch-links">' + tel + '<a href="' + maps + '" target="_blank" rel="noopener">Buka di Maps</a></div></article>';
-  }).join('');
+// Dipanggil otomatis oleh script tag callback=initToffinMap
+function initToffinMap() {
+  const mapEl = document.querySelector('[data-toffin-map]');
+  if (!mapEl || !window.google || !window.google.maps) return;
+
+  const map = new google.maps.Map(mapEl, {
+    center: { lat: -2.5, lng: 117.5 },  // Pusat geografis Indonesia
+    zoom: 5,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: true,
+    zoomControl: true,
+    gestureHandling: 'cooperative',
+    // Editorial map style — muted/clean (match brand mood)
+    styles: [
+      { featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+      { featureType: 'transit', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+      { featureType: 'road', elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+      { featureType: 'landscape', stylers: [{ saturation: -30 }, { lightness: 5 }] },
+      { featureType: 'water', stylers: [{ color: '#dde4ea' }] },
+    ],
+  });
+
+  // marker.png aslinya 512×512 square — scale proporsional 1:1 supaya gak distorsi.
+  // anchor pakai CENTER (bukan bottom-center) karena pin design square, visual center
+  // = koordinat target. Hasilnya: pin presisi di lat/lng tanpa offset.
+  const PIN_SIZE = 36;
+  const customIcon = {
+    url: 'assets/img/marker.png',
+    scaledSize: new google.maps.Size(PIN_SIZE, PIN_SIZE),
+    anchor: new google.maps.Point(PIN_SIZE / 2, PIN_SIZE / 2),
+  };
+
+  // SVG icon untuk popup actions (lebih clean dari emoji)
+  const ICON_PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 015 .82h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L9.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>';
+  const ICON_DIR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>';
+
+  const infoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+
+  TOFFIN_BRANCHES.forEach((branch) => {
+    const marker = new google.maps.Marker({
+      position: { lat: branch.lat, lng: branch.lng },
+      map: map,
+      icon: customIcon,
+      title: branch.name,
+      optimized: true,
+    });
+
+    marker.addListener('click', () => {
+      const telHref = branch.phone.replace(/[^0-9+]/g, '');
+      const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${branch.lat},${branch.lng}`;
+      const shortName = branch.name.replace(/^Toffin\s+/, '');
+      infoWindow.setContent(`
+        <article class="map-popup">
+          <img class="map-popup-logo" src="assets/img/root/logo-black.png" alt="Toffin" />
+          <h5 class="map-popup-title">${shortName}</h5>
+          <p class="map-popup-addr">${branch.address}</p>
+          <div class="map-popup-actions">
+            <a href="tel:${telHref}" class="map-popup-link map-popup-link--ghost">${ICON_PHONE}<span>Telepon</span></a>
+            <a href="${dirUrl}" target="_blank" rel="noopener" class="map-popup-link map-popup-link--primary">${ICON_DIR}<span>Petunjuk Arah</span></a>
+          </div>
+        </article>
+      `);
+      infoWindow.open({ anchor: marker, map: map });
+    });
+  });
+
+  // Auto-fit map ke semua marker — adaptif untuk semua viewport (mobile/desktop).
+  // Padding lebih besar di mobile supaya marker tepi tidak nempel edge.
+  const bounds = new google.maps.LatLngBounds();
+  TOFFIN_BRANCHES.forEach((b) => bounds.extend({ lat: b.lat, lng: b.lng }));
+  const isMobile = window.innerWidth <= 768;
+  map.fitBounds(bounds, isMobile
+    ? { top: 30, right: 20, bottom: 30, left: 20 }
+    : { top: 50, right: 50, bottom: 50, left: 50 });
+
+  // Re-fit kalau window di-resize (rotate device / desktop resize)
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const isMobileNow = window.innerWidth <= 768;
+      map.fitBounds(bounds, isMobileNow
+        ? { top: 30, right: 20, bottom: 30, left: 20 }
+        : { top: 50, right: 50, bottom: 50, left: 50 });
+    }, 200);
+  });
 }
-document.addEventListener('DOMContentLoaded', renderBranchList);
+
+// Expose ke window karena Google Maps script callback memerlukan global
+window.initToffinMap = initToffinMap;
 
 /* ════════════════════════════════════════════════════════════════════
    ══ INSIGHT FEED — WordPress REST API integration                  ══
