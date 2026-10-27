@@ -758,7 +758,14 @@ window.initToffinMap = initToffinMap;
 (function initElfsightLoader() {
   const PLATFORM_URL = 'https://elfsightcdn.com/platform.js';
 
+  // Hanya muat di domain produksi. Preview GitHub Pages, localhost, dan
+  // Live Server ikut memakan kuota views Elfsight (Basic 5.000/bulan),
+  // jadi di luar toffin.id widget sengaja tidak dimuat.
+  const ALLOWED_HOSTS = ['toffin.id', 'www.toffin.id'];
+
   function injectPlatform() {
+    if (ALLOWED_HOSTS.indexOf(window.location.hostname) === -1) return;
+
     // Cek apakah ada widget markup di page
     const hasWidget = document.querySelector('[class*="elfsight-app-"]');
     if (!hasWidget) return;
