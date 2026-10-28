@@ -414,41 +414,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-/* ════════════════════════════════════════════════════════════════════
-   ══ ELFSIGHT WIDGET LOADER — auto-inject platform.js               ══
-   Kalau ada markup .elfsight-app-* di page (saat ini: translator
-   widget di nav semua page), load platform.js sekali. Idempotent
-   — aman kalau script sudah ada (mis. di-include manual di HTML).
-════════════════════════════════════════════════════════════════════ */
-(function initElfsightLoader() {
-  const PLATFORM_URL = 'https://elfsightcdn.com/platform.js';
-
-  function injectPlatform() {
-    // Cek apakah ada widget markup di page
-    const hasWidget = document.querySelector('[class*="elfsight-app-"]');
-    if (!hasWidget) return;
-
-    // Cek apakah script sudah ada (idempotent guard)
-    const alreadyLoaded = Array.from(document.scripts).some(
-      (s) => s.src && s.src.indexOf('elfsightcdn.com/platform.js') !== -1
-    );
-    if (alreadyLoaded) return;
-
-    // Inject script async ke body
-    const script = document.createElement('script');
-    script.src = PLATFORM_URL;
-    script.async = true;
-    script.setAttribute('data-injected-by', 'toffin-script');
-    document.body.appendChild(script);
-  }
-
-  // toffin-script.js di-load setelah </body> tapi sebelum DOMContentLoaded
-  // di sebagian browser, jadi defensive: tunggu DOM ready kalau perlu.
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectPlatform, { once: true });
-  } else {
-    injectPlatform();
-  }
-})();
+/* Elfsight Translate dinonaktifkan untuk toffin.pk (hemat kuota views). */
 
 /* Galeri Co-Creation dihapus untuk toffin.pk. */
