@@ -24,12 +24,16 @@
 }
 
 /* Lebar konten. Header, delivery bar, konten, dan footer memakai wrapper
-   yang sama supaya tepi kirinya sejajar. */
+   yang sama supaya tepi kirinya sejajar. Jarak kiri-kanan = --tf-gutter:
+   20px di desktop/tablet, 10px di ponsel (lebih lega untuk konten, pola Tokopedia).
+   Elemen full-bleed di dalam container memakai margin calc(-1 * var(--tf-gutter)). */
+:root { --tf-gutter: 20px; }
+@media (max-width: 767.98px) { :root { --tf-gutter: 10px; } }
 .tf-container {
 	width: 100%;
 	max-width: 1240px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 var(--tf-gutter);
 }
 
 /* Dipasang ke <body> saat sheet mobile terbuka, mencegah halaman ikut scroll. */

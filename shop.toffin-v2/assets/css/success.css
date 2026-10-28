@@ -1,0 +1,75 @@
+/* =====================================================================
+   Toffin v2 · success.css — halaman Pesanan Berhasil (success-checkout.html)
+   Dimuat sesudah checkout.css (header fokus .tf-cohead, .tf-chip).
+   Desain struk di tengah; rincian pesanan ada di halaman detail belanja.
+   Isi dirender tf-success.js dari ringkasan checkout (sessionStorage tfOrder).
+   Halaman tujuan kembali setelah pembayaran berhasil di halaman Xendit.
+   ===================================================================== */
+.tf-ok { position: relative; padding: 36px 0 64px; font-family: var(--tf-font); color: var(--tf-body); background: #fafafa; overflow: hidden; }
+.tf-ok *, .tf-ok *::before, .tf-ok *::after { box-sizing: border-box; }
+.tf-ok::before { content: ""; position: absolute; left: 50%; top: -260px; width: 1100px; height: 560px; border-radius: 50%; background: radial-gradient(closest-side, rgba(34, 197, 94, .14), rgba(248, 148, 31, .08) 55%, transparent 75%); transform: translateX(-50%); pointer-events: none; }
+.tf-ok > .tf-container { position: relative; max-width: 560px; }
+:where(.tf-ok button) { font: inherit; color: inherit; cursor: pointer; }
+
+/* centang */
+.tf-okhero__badge { position: relative; display: grid; place-items: center; width: 84px; height: 84px; margin: 0 auto 16px; border-radius: 50%; background: linear-gradient(140deg, #22c55e, #16a34a); color: #fff; box-shadow: 0 14px 30px rgba(22, 163, 74, .35); animation: tf-pop .55s cubic-bezier(.2, 1.4, .4, 1) both; }
+.tf-okhero__badge::before, .tf-okhero__badge::after { content: ""; position: absolute; inset: -10px; border: 2px solid rgba(34, 197, 94, .35); border-radius: 50%; animation: tf-ring 2.4s ease-out .4s infinite; }
+.tf-okhero__badge::after { animation-delay: 1.6s; }
+.tf-okhero__badge svg { width: 40px; height: 40px; stroke: #fff; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.tf-okhero__badge path { stroke-dasharray: 30; stroke-dashoffset: 30; animation: tf-draw .45s ease-out .35s forwards; }
+.tf-okhero__eyebrow { margin: 0 0 6px; color: #15803d; font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+
+/* struk */
+.tf-rcpt { display: flex; flex-direction: column; gap: 18px; }
+.tf-rcpt__paper { position: relative; padding: 30px 26px 30px; background: #fff; border-radius: 20px 20px 0 0; box-shadow: 0 18px 40px rgba(17, 24, 39, .08); text-align: center; }
+.tf-rcpt__paper::after { content: ""; position: absolute; left: 0; right: 0; bottom: -12px; height: 12px; background: radial-gradient(circle at 10px 0, #fff 10px, transparent 10.5px) 0 0 / 20px 12px repeat-x; filter: drop-shadow(0 6px 6px rgba(17, 24, 39, .05)); }
+.tf-rcpt .tf-okhero__badge { width: 64px; height: 64px; margin-bottom: 12px; }
+.tf-rcpt .tf-okhero__badge svg { width: 30px; height: 30px; }
+.tf-rcpt h1 { margin: 0 0 14px; color: var(--tf-ink); font-size: 22px; font-weight: 900; letter-spacing: -.02em; }
+.tf-rcpt__lbl { margin: 0; color: var(--tf-muted); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.tf-rcpt__total { margin: 2px 0 2px; color: var(--tf-ink); font-size: 32px; font-weight: 900; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.tf-rcpt__date { margin: 0; color: var(--tf-muted); font-size: 12.5px; font-weight: 600; }
+.tf-rcpt__top { padding-bottom: 20px; border-bottom: 2px dashed #e5e7eb; }
+.tf-rcpt__rows { margin: 8px 0 0; text-align: left; }
+.tf-rcpt__rows > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.tf-rcpt__rows > div { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 11px 0; border-bottom: 1px solid #f1f2f4; }
+.tf-rcpt__rows dt { color: var(--tf-muted); font-size: 13px; font-weight: 700; white-space: nowrap; }
+.tf-rcpt__rows dd { display: inline-flex; align-items: center; justify-content: flex-end; gap: 8px; margin: 0; color: var(--tf-ink); font-size: 13.5px; font-weight: 700; text-align: right; }
+.tf-rcpt__rows dd strong { font-weight: 900; letter-spacing: .03em; }
+.tf-rcpt__rows dd img { height: 15px; }
+.tf-rcpt .tf-okhero__act { margin-top: 10px; }
+
+/* tombol salin */
+.tf-okcopy { display: inline-flex; align-items: center; gap: 5px; flex: none; padding: 5px 11px; border: 0; border-radius: 999px; background: var(--tf-orange); color: #fff !important; font-size: 12px; font-weight: 800; }
+.tf-okcopy .tf-i { width: 14px; height: 14px; }
+.tf-okcopy.is-done { background: #16a34a; }
+
+/* tombol */
+.tf-okhero__act { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.tf-okhero__act .tf-btn { justify-content: center; min-height: 48px; font-size: 14.5px; }
+.tf-okhero__act .tf-btn .tf-i { width: 18px; height: 18px; }
+.tf-okbtn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; padding: 0 16px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-ink) !important; font-size: 14.5px; font-weight: 800; text-decoration: none; transition: border-color .15s ease, color .15s ease; }
+.tf-okbtn:hover { border-color: var(--tf-orange); color: var(--tf-orange-dark) !important; text-decoration: none; }
+.tf-okbtn .tf-i { width: 18px; height: 18px; }
+
+/* bantuan */
+.tf-okhelp { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 18px 0 0; color: var(--tf-muted); font-size: 12.5px; text-align: center; }
+.tf-okhelp .tf-i { flex: none; width: 18px; height: 18px; color: #16a34a; }
+.tf-okhelp a { color: var(--tf-orange-dark); font-weight: 800; }
+
+/* animasi */
+@keyframes tf-pop { 0% { transform: scale(.4); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes tf-draw { to { stroke-dashoffset: 0; } }
+@keyframes tf-ring { 0% { transform: scale(.85); opacity: .9; } 100% { transform: scale(1.5); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+	.tf-okhero__badge, .tf-okhero__badge::before, .tf-okhero__badge::after { animation: none !important; }
+	.tf-okhero__badge path { stroke-dashoffset: 0; animation: none; }
+}
+
+/* ---------- responsif ---------- */
+@media (max-width: 767.98px) {
+	.tf-ok { padding-top: 16px; }
+	.tf-okhero__act { grid-template-columns: 1fr; }
+	.tf-rcpt__paper { padding: 24px 16px 22px; }
+	.tf-rcpt__total { font-size: 27px; }
+}

@@ -13,6 +13,28 @@
 	var doc = document;
 
 	/* ------------------------------------------------------------------
+	   Header ponsel: tombol kembali menggantikan logo di semua halaman
+	   selain beranda. Kembali ke halaman sebelumnya bila datang dari situs
+	   ini; dibuka langsung (tanpa riwayat) → ke beranda.
+	   Di Odoo: render di template header dengan t-if bukan homepage.
+	   ------------------------------------------------------------------ */
+	(function () {
+		var brand = doc.querySelector('.tf-header__mobile .tf-brand--mobile');
+		var home = /(^|\/)(index\.html)?$/.test(location.pathname);
+		if (!brand || home) return;
+		var back = doc.createElement('a');
+		back.href = 'index.html'; back.className = 'tf-hback'; back.setAttribute('aria-label', 'Kembali');
+		back.innerHTML = '<svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg>';
+		back.addEventListener('click', function (e) {
+			var ref = doc.referrer, same = false;
+			try { same = !!ref && new URL(ref).origin === location.origin; } catch (err) {}
+			if ((same || (!ref && location.protocol === 'file:')) && history.length > 1) { e.preventDefault(); history.back(); }
+		});
+		brand.parentNode.insertBefore(back, brand);
+		var header = brand.closest('.tf-header'); if (header) header.classList.add('has-back');
+	})();
+
+	/* ------------------------------------------------------------------
 	   Dropdown generik.
 	   Struktur: .tf-dd > [data-tf-toggle="dropdown"] + .tf-dd__panel
 	   Buka/tutup lewat kelas .is-open di .tf-dd dan di panelnya.

@@ -158,6 +158,7 @@
 		form.querySelector('[data-au-alert]').hidden = ok;
 		if (!ok) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
 		var btn = form.querySelector('.au-submit'); btn.classList.add('is-busy');
+		var em = form.querySelector('[name=login]:not(:disabled), [name=login2]:not(:disabled)'); try { if (em) sessionStorage.setItem('tfActivate', em.value.trim()); } catch (err) {}   /* diisi otomatis di check-email.html */
 		setTimeout(function () { btn.classList.remove('is-busy'); location.href = 'check-email.html'; }, 900);   /* contoh: ke langkah aktivasi */
 	});
 }());
@@ -215,7 +216,19 @@
 	if (!form) return;
 	var boxes = Array.prototype.slice.call(form.querySelectorAll('[data-au-otp-boxes] input')), wrap = form.querySelector('[data-au-otp-boxes]'), val = form.querySelector('[data-au-otp-val]');
 	var btn = form.querySelector('.au-submit'), alert = form.querySelector('[data-au-alert]'), resend = form.querySelector('[data-au-otp-resend]'), timer = form.querySelector('[data-au-otp-timer]'), to = form.querySelector('[data-au-otp-to]');
-	try { var c = JSON.parse(sessionStorage.getItem('tfExisting') || '{}'); if (c.email && to) to.textContent = c.email; } catch (err) {}
+	var act = /[?&]flow=aktivasi/.test(location.search);   /* alur aktivasi pendaftaran (check-email.html) */
+	if (act) {
+		var hd = form.querySelector('.au-head');
+		hd.querySelector('.au-eyebrow').textContent = 'Aktivasi pendaftaran';
+		hd.querySelector('p').innerHTML = 'Kode verifikasi 6 digit sudah kami kirim ke <b data-au-otp-to>nama@email.com</b>. Masukkan kode tersebut untuk mengaktifkan akun Anda.';
+		to = hd.querySelector('[data-au-otp-to]');
+		form.querySelector('.au-steps').innerHTML = '<span class="is-done"><b>1</b><i>Email</i></span><span class="is-on"><b>2</b><i>Kode email</i></span><span><b>3</b><i>Akun aktif</i></span>';
+		var bk = document.querySelector('.au-top__back'); if (bk) bk.setAttribute('href', 'check-email.html');
+		document.title = 'Aktivasi Pendaftaran - Toffin Indonesia';
+		try { var am = sessionStorage.getItem('tfActivate'); if (am && to) to.textContent = am; } catch (err) {}
+	} else {
+		try { var c = JSON.parse(sessionStorage.getItem('tfExisting') || '{}'); if (c.email && to) to.textContent = c.email; } catch (err) {}
+	}
 	function sync() { var v = boxes.map(function (b) { b.classList.toggle('is-filled', !!b.value); return b.value; }).join(''); val.value = v; btn.disabled = v.length < 6; wrap.classList.remove('is-invalid'); alert.hidden = true; }
 	boxes.forEach(function (b, i) {
 		b.addEventListener('input', function () {
@@ -235,11 +248,48 @@
 		setTimeout(function () {
 			btn.classList.remove('is-busy');
 			if (val.value !== '123456') { wrap.classList.add('is-invalid'); alert.hidden = false; boxes.forEach(function (b) { b.value = ''; }); boxes[0].focus(); btn.disabled = true; return; }
-			location.href = 'register.html?existing=1';
+			location.href = act ? 'login.html?aktif=1' : 'register.html?existing=1';   /* aktivasi: akun aktif → masuk */
 		}, 900);
 	});
 	var left = 60, tick;
 	function countdown() { left = 60; resend.disabled = true; clearInterval(tick); tick = setInterval(function () { left--; timer.textContent = '(' + left + ')'; if (left <= 0) { clearInterval(tick); timer.textContent = ''; resend.disabled = false; } }, 1000); timer.textContent = '(' + left + ')'; }
 	resend.addEventListener('click', function () { countdown(); boxes.forEach(function (b) { b.value = ''; }); sync(); boxes[0].focus(); });
 	countdown(); boxes[0].focus();
+}());
+
+/* ---------- aktivasi pendaftaran (check-email.html) ---------- */
+(function () {
+	'use strict';
+	var form = document.querySelector('[data-au-activate]');
+	if (!form) return;
+	var mail = form.querySelector('[name=email]'), field = mail.closest('.au-field'), alerts = form.querySelectorAll('[data-au-alert]');
+	try { var pre = sessionStorage.getItem('tfActivate'); if (pre) mail.value = pre; } catch (err) {}   /* dari register.html */
+	function hideAlerts() { alerts.forEach(function (a) { a.hidden = true; }); }
+	form.addEventListener('input', function () { field.classList.remove('is-invalid'); hideAlerts(); });
+	form.addEventListener('submit', function (e) {
+		e.preventDefault(); hideAlerts();
+		var v = mail.value.trim(), badMail = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+		field.classList.toggle('is-invalid', badMail); if (badMail) { mail.focus(); return; }
+		var btn = form.querySelector('.au-submit'); btn.classList.add('is-busy');
+		/* contoh tanpa backend: "baru" = belum terdaftar, "aktif" = sudah aktif, selainnya kode dikirim.
+		   Produksi: cek akun lalu kirim kode verifikasi ke email. */
+		setTimeout(function () {
+			btn.classList.remove('is-busy');
+			if (/baru/i.test(v)) { form.querySelector('[data-au-alert=none]').hidden = false; return; }
+			if (/aktif/i.test(v)) { form.querySelector('[data-au-alert=active]').hidden = false; return; }
+			try { sessionStorage.setItem('tfActivate', v); } catch (err) {}
+			location.href = 'otp.html?flow=aktivasi';
+		}, 900);
+	});
+}());
+
+/* ---------- login: catatan akun aktif (login.html?aktif=1) ---------- */
+(function () {
+	'use strict';
+	var note = document.querySelector('[data-au-activated]');
+	if (!note || !/[?&]aktif=1/.test(location.search)) return;
+	note.hidden = false;
+	var mail = document.querySelector('[data-au-form] [name=login]');
+	try { var am = sessionStorage.getItem('tfActivate'); if (mail && am) mail.value = am; } catch (err) {}
+	var pw = document.querySelector('[data-au-form] [name=password]'); if (pw) pw.focus();
 }());

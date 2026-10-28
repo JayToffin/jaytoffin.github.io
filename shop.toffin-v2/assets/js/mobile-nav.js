@@ -73,8 +73,8 @@
         {
             key: 'tea-beverages', label: 'Tea & Beverages', sectionTitle: 'Tea & Beverages', viewAllHref: '#',
             items: [
-                { label: 'Syrups', href: 'category/ingredients/syrup.html', image: 'images/product1.png' },
-                { label: 'Powder', href: 'category/ingredients/powder.html', image: 'images/product1.png' },
+                { label: 'Syrups', href: 'product-list.html?cat=Syrup', image: 'images/product1.png' },
+                { label: 'Powder', href: 'product-list.html?cat=Powder', image: 'images/product1.png' },
                 { label: 'Tea', href: '#', image: 'images/product1.png' },
                 { label: 'Milk and Dairy', href: '#', image: 'images/product1.png' }
             ]
@@ -90,9 +90,9 @@
             key: 'coffee-machines', label: 'Coffee Machines', sectionTitle: 'Coffee Machines', viewAllHref: '#',
             items: [
                 { label: 'Home Espresso Machine', href: 'product-list.html', image: 'images/product1.png' },
-                { label: 'Commercial Espresso Machine', href: 'category/coffee-machine/commercial-espresso-machine.html', image: 'images/product1.png' },
-                { label: 'Fully Automatic Machine', href: 'category/coffee-machine/fully-automatic-machine.html', image: 'images/product1.png' },
-                { label: 'Automatic Brewers', href: 'category/coffee-machine/automatic-coffee-brewers.html', image: 'images/product1.png' }
+                { label: 'Commercial Espresso Machine', href: 'product-list.html?cat=Commercial%20Espresso%20Machine', image: 'images/product1.png' },
+                { label: 'Fully Automatic Machine', href: 'product-list.html?cat=Fully%20Automatic%20Machine', image: 'images/product1.png' },
+                { label: 'Automatic Brewers', href: 'product-list.html?cat=Automatic%20Coffee%20Brewers', image: 'images/product1.png' }
             ]
         },
         {

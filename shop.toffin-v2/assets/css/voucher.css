@@ -1,0 +1,66 @@
+/* =====================================================================
+   Toffin v2 · voucher.css — halaman Voucher (voucher.html, pengganti coupon.html)
+   Fitur sama dengan halaman lama: kelompok Voucher Belanja & Voucher Servis,
+   kartu tiket (nilai, judul, keterangan, tanggal berakhir, tombol S&K), modal S&K
+   (.tf-dlg di tf-layout.css). Warna: belanja oranye, servis biru.
+   ===================================================================== */
+.tf-vp { font-family: var(--tf-font); color: var(--tf-body); background: #fafafa; padding: 16px 0 56px; }
+.tf-vp *, .tf-vp *::before, .tf-vp *::after, .tf-dlg--voucher * { box-sizing: border-box; }
+:where(.tf-vp button, .tf-dlg--voucher button) { font: inherit; color: inherit; cursor: pointer; }
+.tf-vp .tf-i, .tf-dlg--voucher .tf-i { flex: none; }
+
+.tf-vp__crumb { display: flex; align-items: center; gap: 4px; margin: 0 0 12px; color: var(--tf-muted); font-size: 12.5px; font-weight: 700; }
+.tf-vp__crumb a { color: var(--tf-muted); text-decoration: none; }
+.tf-vp__crumb a:hover { color: var(--tf-orange-dark); }
+.tf-vp__crumb .tf-i { width: 14px; height: 14px; }
+.tf-vp__crumb span { color: var(--tf-ink); }
+.tf-vp__title { margin: 0 0 18px; color: var(--tf-ink); font-size: 26px; font-weight: 900; letter-spacing: -.02em; }
+
+/* kelompok */
+.tf-vp__sec + .tf-vp__sec { margin-top: 30px; }
+.tf-vp__h { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; color: var(--tf-ink); font-size: 18px; font-weight: 900; }
+.tf-vp__h .tf-i { width: 34px; height: 34px; padding: 8px; border-radius: 10px; background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+.tf-vp__h--servis .tf-i { background: #eff4ff; color: #2563eb; }
+.tf-vp__h span { color: var(--tf-muted); font-size: 13px; font-weight: 700; }
+.tf-vp__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+
+/* kartu tiket */
+.tf-vc { --vc: var(--tf-orange); --vc2: #ff5f2e; --vcs: #fff6ee; position: relative; display: flex; min-height: 128px; border: 1px solid #eceef1; border-radius: 16px; background: #fff; overflow: hidden; transition: box-shadow .2s ease, transform .2s ease; }
+.tf-vc:hover { box-shadow: 0 12px 28px rgba(15, 23, 42, .08); transform: translateY(-2px); }
+.tf-vc--servis { --vc: #2563eb; --vc2: #4f46e5; --vcs: #eff4ff; }
+.tf-vc__stub { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 96px; padding: 0 8px; background: linear-gradient(140deg, var(--vc) 0%, var(--vc2) 100%); color: #fff; text-align: center; line-height: 1.05; overflow: hidden; }
+.tf-vc__stub::before { content: ""; position: absolute; left: -26px; top: -30px; width: 80px; height: 80px; border-radius: 50%; background: rgba(255, 255, 255, .15); }
+.tf-vc__stub::after { content: ""; position: absolute; top: 0; right: -5px; bottom: 0; width: 10px; background: radial-gradient(circle at 5px 6px, #fff 3px, transparent 3.5px) 0 0 / 10px 12px repeat-y; }
+.tf-vc__stub strong { position: relative; font-size: 24px; font-weight: 900; letter-spacing: -.03em; }
+.tf-vc__stub span { position: relative; margin-top: 4px; font-size: 9.5px; font-weight: 800; letter-spacing: .1em; opacity: .92; }
+.tf-vc__body { flex: 1 1 auto; display: flex; flex-direction: column; min-width: 0; padding: 14px 16px 12px 18px; background: linear-gradient(90deg, var(--vcs) 0%, #fff 60%); }
+.tf-vc__title { margin: 0 0 4px; color: var(--tf-ink); font-size: 15.5px; font-weight: 900; line-height: 1.3; }
+.tf-vc__terms { margin: 0; color: var(--tf-muted); font-size: 12.5px; line-height: 1.45; }
+.tf-vc__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; margin-top: auto; padding-top: 10px; }
+.tf-vc__date { display: inline-flex; align-items: center; gap: 5px; color: var(--tf-muted); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.tf-vc__date .tf-i { width: 14px; height: 14px; }
+.tf-vc__tnc { flex: none; padding: 0; white-space: nowrap; border: 0; background: none; color: var(--vc) !important; font-size: 12.5px; font-weight: 800; }
+.tf-vc__tnc:hover { text-decoration: underline; }
+
+/* modal S&K */
+.tf-dlg--voucher .tf-dlg__box { max-width: 500px; }
+.tf-dlg--voucher .tf-vc--hero { margin-bottom: 16px; }
+.tf-dlg--voucher .tf-vc--hero:hover { transform: none; box-shadow: none; }
+.tf-vd__h { margin: 0 0 8px; color: var(--tf-ink); font-size: 14.5px; font-weight: 800; }
+.tf-vd__tnc { margin: 0; padding-left: 18px; color: var(--tf-body); font-size: 13px; line-height: 1.55; }
+.tf-vd__tnc li + li { margin-top: 7px; }
+.tf-vd__tnc b { color: var(--tf-ink); }
+
+@media (max-width: 1199.98px) { .tf-vp__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767.98px) {
+	.tf-vp { padding-top: 10px; }
+	.tf-vp__crumb { display: none; }
+	.tf-vp__title { margin-bottom: 14px; font-size: 22px; }
+	.tf-vp__h { font-size: 16px; }
+	.tf-vp__grid { grid-template-columns: 1fr; gap: 10px; }
+	.tf-vc { min-height: 116px; }
+	.tf-vc__stub { width: 84px; }
+	.tf-vc__stub strong { font-size: 21px; }
+	.tf-vc__body { padding: 12px 12px 10px 14px; }
+	.tf-vc__title { font-size: 14.5px; }
+}

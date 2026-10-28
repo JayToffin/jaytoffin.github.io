@@ -1,139 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  
-<!-- Mirrored from preview.colorlib.com/theme/winkel/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2020 04:18:35 GMT -->
+<html lang="id">
+
 <head>
-    <title>Toffin - Coffee Business Platform</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+	<title>Aktivasi Pendaftaran - Toffin Indonesia</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+	<!-- Bootstrap 4.1.3 murni: tiruan bundle Odoo 12 (tidak dipakai di halaman ini, dimuat agar seragam) -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Stack v2 -->
+	<link rel="stylesheet" href="assets/css/tf-base.css">
+	<link rel="stylesheet" href="assets/css/tf-layout.css">
+	<link rel="stylesheet" href="assets/css/auth.css">
+</head>
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+<body class="au-body">
+	<!-- Ikon: sprite Tabler disisipkan assets/js/tf-icons.js (satu sumber, 80 simbol). Pakai: svg.tf-i > use href=#i-(nama) -->
+	<script src="assets/js/tf-icons.js"></script>
 
-    <link rel="stylesheet" href="css/aos.css">
+	<!-- ===== Aktivasi pendaftaran (MIGRASI.md langkah 30): menggantikan check-email lama (template Winkel, kotak email + tombol Check).
+	     Pengguna yang sudah mendaftar tapi belum aktif memasukkan email pendaftaran → kode 6 digit dikirim ke email →
+	     otp.html?flow=aktivasi (tampilan sama dengan OTP Existing User) → akun aktif → login.html?aktif=1.
+	     Contoh tanpa backend: email berisi "baru" dianggap belum terdaftar, email berisi "aktif" dianggap sudah aktif. ===== -->
+	<header class="au-top">
+		<div class="tf-container au-top__in">
+			<a href="index.html" class="au-top__logo" aria-label="Toffin home"><img src="images/toffin-logo.png" alt="Toffin"></a>
+			<a href="login.html" class="au-top__back"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg> Kembali ke masuk</a>
+		</div>
+	</header>
+<main class="au au-b">
+	<div class="au-center">
+		<div class="au-card au-card--solo"><form class="au-form" novalidate data-au-activate>
+	<div class="au-head"><span class="au-eyebrow">Aktivasi pendaftaran</span><h1>Aktifkan akun Anda</h1><p>Masukkan email yang Anda pakai saat mendaftar. Kami kirim kode verifikasi 6 digit ke email tersebut untuk mengaktifkan akun.</p></div>
+	<div class="au-steps" aria-hidden="true"><span class="is-on"><b>1</b><i>Email</i></span><span><b>2</b><i>Kode email</i></span><span><b>3</b><i>Akun aktif</i></span></div>
+	<label class="au-field"><span class="au-field__l">Alamat email</span><span class="au-field__box"><svg class="tf-i" aria-hidden="true"><use href="#i-mail"/></svg><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="nama@email.com" required></span><span class="au-field__err">Masukkan alamat email yang valid.</span></label>
+	<div class="au-alert" data-au-alert="none" hidden role="alert"><svg class="tf-i" aria-hidden="true"><use href="#i-alert-circle"/></svg><span>Email ini belum terdaftar. Periksa kembali penulisannya atau <a href="register.html">daftar akun baru</a>.</span></div>
+	<div class="au-alert" data-au-alert="active" hidden role="alert"><svg class="tf-i" aria-hidden="true"><use href="#i-alert-circle"/></svg><span>Akun dengan email ini sudah aktif. Silakan <a href="login.html">masuk</a>.</span></div>
+	<!-- Odoo: <div class="g-recaptcha" data-sitekey="…"></div> diletakkan di sini bila dipakai -->
+	<button type="submit" class="tf-btn au-submit">Kirim kode <svg class="tf-i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+	<p class="au-alt">Belum punya akun? <a href="register.html">Daftar sekarang</a></p>
+	<p class="au-alt au-alt--sub">Sudah aktif? <a href="login.html">Masuk</a></p>
+</form></div>
+	</div>
+</main>
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="assets/js/tf-auth.js"></script>
+</body>
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-    
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
-    integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
-
-  </head>
-  <body class="goto-here">
-		
-  
-	<!-- END nav -->
-
-  
-    <section class="ftco-section ftco-choose ftco-no-pb ftco-no-pt">
-    
-    	<div class="container">
-          	
-				  <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
-					<div class="card card-signin my-5">
-					  <div class="card-body">
-						
-              
-              <div class="row justify-content-center mb-3 pb-3">
-                <div class="col-md-12 heading-section text-center ftco-animate">
-                  <h5>REGISTER</h5>
-                </div>
-              </div> 
-              <div class="row justify-content-center mb-3 pb-3">
-                <p>Masukkan alamat email Anda untuk melakukan pengecekan akun Anda.</p>
-              </div> 
-              
-              <div class="row justify-content-center mb-3 pb-3">
-                <div class="col-md-9">
-                <input type="text" class="form-control" placeholder="example@email.com">
-              </div>
-              </div> 
-                
-
-                
-
-               <!-- end row -->
-
-               <div class="row justify-content-center">
-                <div class="col col-lg-5 col-md-6 cart-wrap ftco-animate">
-                    <div class="text-center">
-                     <button type="button" id="btnFetch" class="btn bt btn-primary py-2 px-4" style="border-radius: 0px !important;" id="load">Check</button>
-                    </div>
-                </div>
-            </div>
-					  </div>
-					</div>
-				  </div>
-				
-	
-			
-    	</div>
-    </section>
-
-   
-
-  
-
-   
-	
-
-
-   
-    
-  
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-$(document).ready(function() {
-    $("#btnFetch").click(function() {
-      // disable button
-      $(this).prop("disabled", true);
-      // add spinner to button
-      $(this).html(
-        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
-      );
-    });
-});
-</script>
-    
-  </body>
-
-<!-- Mirrored from preview.colorlib.com/theme/winkel/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2020 04:18:35 GMT -->
 </html>

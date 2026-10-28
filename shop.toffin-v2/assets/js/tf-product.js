@@ -2,8 +2,8 @@
    Toffin v2 · tf-product.js — halaman detail produk (MIGRASI.md langkah 23).
    - Galeri: Swiper utama + thumbnail; hover zoom (lensa) di desktop; klik foto → lightbox.
    - Varian (data-pid): foto, harga, ketersediaan, flash sale (data-fs) ikut berganti.
-   - Jumlah bebas: kelebihan di atas stok lokal otomatis dialokasikan ke cabang terdekat;
-     total & subtotal dihitung dari lokal + cabang; stok lokal hanya ditampilkan saat terlampaui.
+   - Jumlah utama mentok di stok lokal (tombol + nonaktif saat mentok); tambahan diambil manual
+     lewat stepper cabang yang muncul saat mentok. Total & subtotal = lokal + cabang.
    - Tab deskripsi/spesifikasi, tooltip info cabang, countdown flash sale, bar beli bawah (ponsel), salin link.
    Vanilla JS; modal video & bagikan dibuka Bootstrap 4 lewat data-toggle.
    ===================================================================== */
@@ -100,17 +100,18 @@
 			if (tot) { tot.hidden = b === 0; tot.querySelector('[data-pd-total-n]').textContent = n; tot.querySelector('[data-pd-total-local]').textContent = l; tot.querySelector('[data-pd-total-branch]').textContent = b; }
 			if (short) { var miss = want - n; short.hidden = miss <= 0; if (miss > 0) short.textContent = miss + ' unit belum terpenuhi dari cabang mana pun. Kurangi jumlah atau tanya tim Toffin.'; }
 		}
+		function showBranch(on) { root.querySelectorAll('.pd-branch').forEach(function (b) { b.hidden = !on; }); }   /* rekomendasi cabang hanya saat jumlah mentok di stok lokal / stok kosong */
+		var plus = q.querySelector('button[data-q="1"]');
 		function set(n) {
-			var max = local(), want = Math.max(max > 0 ? 1 : 0, Math.min(999, n || 0));
-			if (max === 0) {   /* varian habis: jumlah lokal 0, tanpa hint & alokasi otomatis; cabang dibuka manual */
-				inp.value = 0; if (hint) hint.hidden = true; root.querySelectorAll('[data-pd-local]').forEach(function (el) { el.hidden = true; }); refresh(); return;
-			}
-			inp.value = want;   /* bebas melebihi stok lokal: sisanya ditutup cabang */
-			var over = Math.max(0, want - max);
-			root.querySelectorAll('[data-pd-qty-branch]').forEach(function (q) { var bi = q.querySelector('input'), mx = +q.getAttribute('data-max') || 99, take = Math.min(over, mx); bi.value = take; over -= take; });
-			if (want > max) root.querySelectorAll('[data-pd-branch]').forEach(function (b) { b.nextElementSibling.hidden = false; b.setAttribute('aria-expanded', 'true'); });
-			if (hint) hint.hidden = !(want > max);
-			root.querySelectorAll('[data-pd-local]').forEach(function (el) { el.hidden = !(want > max); });   /* angka stok lokal hanya tampil saat permintaan melebihi stok */
+			var max = local(), want = Math.max(max > 0 ? 1 : 0, Math.min(max, n || 0));   /* mentok di stok lokal; tambahan lewat cabang */
+			var atMax = max === 0 || want >= max;
+			inp.value = want;
+			if (plus) plus.disabled = atMax;
+			if (!atMax) root.querySelectorAll('[data-pd-qty-branch] input').forEach(function (bi) { bi.value = 0; });   /* turun di bawah stok: cabang dikosongkan */
+			if (atMax) root.querySelectorAll('[data-pd-branch]').forEach(function (b) { b.nextElementSibling.hidden = false; b.setAttribute('aria-expanded', 'true'); });
+			if (hint) { hint.hidden = !(max > 0 && atMax); var hn = hint.querySelector('[data-pd-hint-n]'); if (hn) hn.textContent = max; }
+			showBranch(atMax);
+			root.querySelectorAll('[data-pd-local]').forEach(function (el) { el.hidden = !(max > 0 && atMax); });   /* angka stok lokal tampil saat mentok */
 			refresh();
 		}
 		root.querySelectorAll('[data-pd-qty-branch]').forEach(function (q) { var bi = q.querySelector('input'), mx = +q.getAttribute('data-max') || 99; q.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { bi.value = Math.max(0, Math.min(mx, (parseInt(bi.value, 10) || 0) + parseInt(b.getAttribute('data-q'), 10))); refresh(); }); }); bi.addEventListener('change', function () { bi.value = Math.max(0, Math.min(mx, parseInt(bi.value, 10) || 0)); refresh(); }); });

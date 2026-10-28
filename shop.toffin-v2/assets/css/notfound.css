@@ -1,0 +1,64 @@
+/* =====================================================================
+   Toffin v2 · notfound.css — halaman 404 (404.html)
+   Kartu terpusat: ilustrasi cangkir "404" (SVG inline), judul, pencarian,
+   tombol Beranda / Semua produk, chip kategori populer, bantuan WA.
+   ===================================================================== */
+.tf-nf { font-family: var(--tf-font); color: var(--tf-body); background: radial-gradient(1200px 500px at 50% -10%, #fff4e7 0%, #fafafa 60%); padding: 40px 0 64px; }
+.tf-nf *, .tf-nf *::before, .tf-nf *::after { box-sizing: border-box; }
+.tf-nf__card { max-width: 640px; margin: 0 auto; text-align: center; }
+
+/* ilustrasi */
+.tf-nf__art { display: block; width: min(100%, 400px); height: auto; margin: 0 auto 6px; overflow: visible; }
+.tf-nf__digit { fill: var(--tf-ink); font-family: var(--tf-font); font-size: 168px; font-weight: 900; letter-spacing: -.04em; }
+.tf-nf__cup { fill: var(--tf-orange); }
+.tf-nf__handle { stroke: var(--tf-orange); }
+.tf-nf__coffee { fill: #6b3f1d; }
+.tf-nf__saucer { fill: #e9dcc9; }
+.tf-nf__eye { fill: #fff; }
+.tf-nf__mouth { fill: #fff; }
+.tf-nf__steam path { stroke: #d6c3a8; animation: tf-nf-steam 2.4s ease-in-out infinite; }
+.tf-nf__steam path:nth-child(2) { animation-delay: .4s; }
+.tf-nf__steam path:nth-child(3) { animation-delay: .8s; }
+@keyframes tf-nf-steam { 0%, 100% { opacity: .25; transform: translateY(4px); } 50% { opacity: 1; transform: translateY(-4px); } }
+@media (prefers-reduced-motion: reduce) { .tf-nf__steam path { animation: none; opacity: .7; } }
+
+/* teks */
+.tf-nf__code { display: inline-block; margin: 0 0 8px; padding: 4px 12px; border-radius: 999px; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.tf-nf__title { margin: 0 0 8px; color: var(--tf-ink); font-size: 30px; font-weight: 900; letter-spacing: -.02em; line-height: 1.2; }
+.tf-nf__lead { max-width: 480px; margin: 0 auto 22px; color: var(--tf-body); font-size: 15px; line-height: 1.6; }
+
+/* pencarian */
+.tf-nf__search { display: flex; align-items: center; gap: 10px; max-width: 520px; height: 54px; margin: 0 auto 16px; padding: 0 6px 0 18px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; box-shadow: 0 10px 30px rgba(15, 23, 42, .07); transition: border-color .15s ease, box-shadow .15s ease; }
+.tf-nf__search:focus-within { border-color: rgba(248, 148, 31, .6); box-shadow: 0 0 0 4px rgba(248, 148, 31, .15), 0 10px 30px rgba(15, 23, 42, .07); }
+.tf-nf__search > .tf-i { flex: none; width: 20px; height: 20px; color: #9aa0ad; }
+.tf-nf__search input { flex: 1 1 auto; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent; color: var(--tf-ink); font: inherit; font-size: 15px; }
+.tf-nf__search input::placeholder { color: #9aa0ad; }
+.tf-nf__search button { flex: none; height: 42px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--tf-ink); color: #fff; font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
+.tf-nf__search button:hover { background: #000; }
+
+/* tombol */
+.tf-nf__act { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
+.tf-nf__act .tf-i { width: 18px; height: 18px; }
+.tf-nf__act .tf-btn { padding: 12px 24px; font-size: 14.5px; }
+.tf-nf__ghost { display: inline-flex; align-items: center; gap: 9px; padding: 12px 24px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-ink); font-size: 14.5px; font-weight: 700; text-decoration: none; transition: border-color .15s ease, color .15s ease; }
+.tf-nf__ghost:hover { border-color: var(--tf-orange); color: var(--tf-orange-dark); text-decoration: none; }
+
+/* kategori */
+.tf-nf__cats { padding-top: 22px; border-top: 1px solid var(--tf-line); }
+.tf-nf__cats p { margin: 0 0 12px; color: var(--tf-muted); font-size: 13px; font-weight: 700; }
+.tf-nf__cats div { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.tf-nf__chip { padding: 8px 14px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font-size: 13px; font-weight: 700; text-decoration: none; transition: border-color .15s ease, color .15s ease, background-color .15s ease; }
+.tf-nf__chip:hover { border-color: var(--tf-orange); background: var(--tf-orange-soft); color: var(--tf-orange-dark); text-decoration: none; }
+.tf-nf__help { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; color: var(--tf-muted); font-size: 13px; text-decoration: none; }
+.tf-nf__help .tf-i { width: 18px; height: 18px; color: #16a34a; }
+.tf-nf__help b { color: var(--tf-ink); }
+.tf-nf__help:hover b { color: var(--tf-orange-dark); }
+
+@media (max-width: 575.98px) {
+	.tf-nf { padding: 22px 0 40px; }
+	.tf-nf__title { font-size: 23px; }
+	.tf-nf__lead { font-size: 14px; }
+	.tf-nf__search { height: 50px; }
+	.tf-nf__search button { padding: 0 16px; }
+	.tf-nf__act a { flex: 1 1 100%; justify-content: center; }
+}

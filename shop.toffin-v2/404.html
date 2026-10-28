@@ -1,31 +1,583 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Halaman tidak ditemukan - Toffin Indonesia</title>
+	<meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
+	<!-- Bootstrap 4.1.3 murni (grid, reboot, utilitas): tiruan bundle Odoo 12 -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- Stack v2 -->
+	<link rel="stylesheet" href="assets/css/tf-base.css">
+	<link rel="stylesheet" href="assets/css/tf-layout.css">
+	<link rel="stylesheet" href="assets/css/notfound.css">
 </head>
 
-
 <body>
+	<!-- Ikon: sprite Tabler disisipkan assets/js/tf-icons.js (satu sumber, 80 simbol). Pakai: svg.tf-i > use href=#i-(nama) -->
+	<script src="assets/js/tf-icons.js"></script>
 
-	<div id="notfound">
-		<div class="notfound"><img src="images/toffin-logo.png" style="width: 60%;">
-			<div class="notfound-404">
-        
-				<h1>Oops!</h1>
-				<h2>404 - Halaman tidak ditemukan</h2>
+
+
+
+
+	<!-- ===== Widget chat: AI assistant + WhatsApp (tf-layout.css / tf-nav.js) ===== -->
+	<div class="tf-chat">
+		<button type="button" class="tf-chat__toggle" id="tf-chat-toggle" data-tf-toggle="chat" aria-controls="tf-chat-panel" aria-expanded="false" aria-label="Buka bantuan">💬</button>
+		<div class="tf-chat__panel" id="tf-chat-panel" hidden>
+			<div class="tf-chat__head">
+				<span>Toffin Smart Assistan</span>
+				<button type="button" class="tf-chat__close" data-tf-close="chat" aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
 			</div>
-			<a href="#">Go To Homepage</a>
+			<div class="tf-chat__list">
+				<a href="chat-ai.html" class="tf-chat__opt">
+					<img src="images/AI-logo.png" alt="" class="tf-chat__ico">
+					<span class="tf-chat__text">
+						<span class="tf-chat__title">Personal Toffin AI Assistant 2.0</span>
+						<span class="tf-chat__desc">AI asisten untuk setiap langkah bisnis F&amp;B Anda</span>
+					</span>
+				</a>
+				<a href="https://wa.me/628119983378" target="_blank" rel="noopener noreferrer" class="tf-chat__opt">
+					<img src="images/whatsapp.png" alt="" class="tf-chat__ico">
+					<span class="tf-chat__text">
+						<span class="tf-chat__title">Contact Customer Service</span>
+						<span class="tf-chat__desc">Layanan pelanggan untuk dukungan Anda</span>
+					</span>
+				</a>
+			</div>
 		</div>
 	</div>
 
+	<!-- ===== Sheet navigasi mobile (isi dirender assets/js/mobile-nav.js; buka/tutup oleh tf-nav.js) ===== -->
+	<div class="tf-backdrop" data-tf-close="sheet" hidden></div>
+	<div class="tf-sheet" id="tf-sheet" aria-hidden="true">
+		<div class="tf-sheet__body">
+			<nav class="tf-mnav" id="mobile-nav-shell" aria-label="Navigasi mobile">
+
+				<div class="tf-mnav__view is-active" id="mobile-nav-main-view">
+					<ul class="tf-mnav__list" id="mobile-nav-menu"></ul>
+				</div>
+
+				<div class="tf-mnav__view" id="mobile-category-browser" hidden>
+					<div class="tf-mnav__head">
+						<button type="button" class="tf-mnav__back" id="mobile-category-back" aria-label="Kembali ke menu"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+						<div class="tf-mnav__title">Category</div>
+					</div>
+					<div class="tf-mnav__chips" id="mobile-category-chips"></div>
+					<div class="tf-mnav__content" id="mobile-category-content"></div>
+				</div>
+
+				<div class="tf-mnav__view" id="mobile-promotion-browser" hidden>
+					<div class="tf-mnav__head">
+						<button type="button" class="tf-mnav__back" id="mobile-promotion-back" aria-label="Kembali ke menu"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+						<div class="tf-mnav__title">Promotion</div>
+					</div>
+					<div class="tf-mnav__chips" id="mobile-promotion-chips"></div>
+					<div class="tf-mnav__content" id="mobile-promotion-content"></div>
+				</div>
+
+				<div class="tf-mnav__view" id="mobile-account-browser" hidden>
+					<div class="tf-mnav__head">
+						<button type="button" class="tf-mnav__back" id="mobile-account-back" aria-label="Kembali ke menu"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+						<div class="tf-mnav__title">My Account</div>
+					</div>
+					<ul class="tf-mnav__acc">
+						<li><a href="login.html"><svg class="tf-i" aria-hidden="true"><use href="#i-login"/></svg> Login</a></li>
+						<li><a href="register.html"><svg class="tf-i" aria-hidden="true"><use href="#i-user-plus"/></svg> Register</a></li>
+						<li><a href="my-account.html"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg> Profile</a></li>
+						<li><a href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Daftar Belanja</a></li>
+						<li><a href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorite</a></li>
+						<li><a href="#" class="tf-mnav__acc-danger"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Logout</a></li>
+					</ul>
+				</div>
+
+				<!-- pencarian ponsel: komponen yang sama (tf-search.js), hasil selalu tampil -->
+				<div class="tf-mnav__view tf-sx tf-sx--sheet" id="mobile-search-browser" data-tf-search data-sx-mode="sheet" role="search" hidden>
+					<div class="tf-mnav__head tf-mnav__head--search">
+						<button type="button" class="tf-mnav__back" id="mobile-search-back" aria-label="Tutup pencarian"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+						<div class="tf-sx__wrap">
+							<div class="tf-sx__bar">
+								<button type="button" class="tf-sx__scope" data-sx-scope aria-haspopup="listbox" aria-expanded="false" aria-label="Cakupan pencarian"><span data-sx-scope-label>Semua</span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+								<svg class="tf-i tf-sx__ico" aria-hidden="true"><use href="#i-search"/></svg>
+								<input type="search" class="tf-sx__input" placeholder="Cari produk, kategori, brand" aria-label="Cari produk, kategori, brand" autocomplete="off" enterkeyhint="search" data-sx-input>
+								<button type="button" class="tf-sx__clear" data-sx-clear aria-label="Hapus teks"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+							</div>
+							<div class="tf-sx__menu" data-sx-menu role="listbox" aria-label="Cakupan pencarian">
+								<button type="button" role="option" aria-selected="true" class="is-on" data-scope="all">Semua</button>
+								<button type="button" role="option" aria-selected="false" data-scope="product">Produk</button>
+								<button type="button" role="option" aria-selected="false" data-scope="category">Kategori</button>
+								<button type="button" role="option" aria-selected="false" data-scope="brand">Brand</button>
+							</div>
+						</div>
+					</div>
+					<div class="tf-sx__res" data-sx-results aria-live="polite"></div>
+				</div>
+
+			</nav>
+		</div>
+	</div>
+
+	<!-- ===== Header: logo · menu · pencarian · keranjang · akun (tf-layout.css / tf-nav.js) ===== -->
+	<header class="tf-header" id="tf-header">
+		<div class="tf-container tf-header__in">
+
+			<a class="tf-brand" href="index.html" aria-label="Toffin home">
+				<img src="images/toffin-logo.png" alt="Toffin">
+			</a>
+
+			<!-- baris mobile (< 1200px) -->
+			<div class="tf-header__mobile">
+				<a class="tf-brand tf-brand--mobile" href="index.html" aria-label="Toffin home">
+					<img src="images/toffin-logo.png" alt="Toffin">
+				</a>
+				<button type="button" class="tf-search tf-search--trigger" id="btn-open-mobile-search" aria-label="Cari produk, kategori, brand">
+					<span class="tf-search__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg></span>
+					<span class="tf-search__placeholder">Cari produk, kategori, brand</span>
+				</button>
+				<a href="cart.html" class="tf-util" aria-label="Keranjang">
+					<svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg>
+					<span class="tf-util__badge">0</span>
+				</a>
+			</div>
+
+			<!-- nav desktop (>= 1200px) -->
+			<nav class="tf-header__desk" aria-label="Navigasi utama">
+				<ul class="tf-menu">
+					<li class="tf-menu__item tf-dd tf-dd--mega">
+						<button type="button" class="tf-menu__link tf-menu__link--dd" data-tf-toggle="dropdown" aria-expanded="false" aria-controls="tf-mega-category">Category</button>
+						<div class="tf-dd__panel tf-mega" id="tf-mega-category" aria-label="Kategori produk">
+								<div class="tf-mega__side" role="tablist" aria-label="Category groups">
+									<button class="tf-mega__tab is-active" type="button"
+										data-tf-mega="mega-beverage-maker">Beverage Maker</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-coffee-machine">Coffee Machine</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-ingredients">Ingredients</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-coffee-grinder">Coffee Grinder</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-water-treatment">Water Treatment</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-manual-brew">Manual Brew</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-gelato-soft-ice">Gelato &amp; Soft Ice</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-hot-kitchen">Hot Kitchen Equipment</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-cold-kitchen">Cold Kitchen Equipment</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-other-equipment">Other Equipment</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-cleaner">Cleaner</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-smeg">SMEG</button>
+								</div>
+
+								<div class="tf-mega__body">
+									<div class="tf-mega__panel is-active" id="mega-beverage-maker">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Blender"></span>
+												<span class="tf-mega__label">Blender</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Juicer"></span>
+												<span class="tf-mega__label">Juicer</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Slush Machine"></span>
+												<span class="tf-mega__label">Slush Machine</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-coffee-machine">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="product-list.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Home Espresso Machine"></span>
+												<span class="tf-mega__label">Home Espresso Machine</span>
+											</a>
+											<a class="tf-mega__card"
+												href="product-list.html?cat=Commercial%20Espresso%20Machine">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Commercial Espresso Machine"></span>
+												<span class="tf-mega__label">Commercial Espresso Machine</span>
+											</a>
+											<a class="tf-mega__card"
+												href="product-list.html?cat=Fully%20Automatic%20Machine">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Fully Automatic Machine"></span>
+												<span class="tf-mega__label">Fully Automatic Machine</span>
+											</a>
+											<a class="tf-mega__card"
+												href="product-list.html?cat=Automatic%20Coffee%20Brewers">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Automatic Coffee Brewers"></span>
+												<span class="tf-mega__label">Automatic Coffee Brewers</span>
+											</a>
+											<a class="tf-mega__card"
+												href="product-list.html?cat=Accessories%20%26%20Parts">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Accessories"></span>
+												<span class="tf-mega__label">Accessories</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-ingredients">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="product-list.html?cat=Sauce">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Sauce"></span>
+												<span class="tf-mega__label">Sauce</span>
+											</a>
+											<a class="tf-mega__card" href="product-list.html?cat=Syrup">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Syrup"></span>
+												<span class="tf-mega__label">Syrup</span>
+											</a>
+											<a class="tf-mega__card"
+												href="product-list.html?cat=Pure%20Extract">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Pure Extract"></span>
+												<span class="tf-mega__label">Pure Extract</span>
+											</a>
+											<a class="tf-mega__card"
+												href="product-list.html?cat=Concentrate">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Concentrate"></span>
+												<span class="tf-mega__label">Concentrate</span>
+											</a>
+											<a class="tf-mega__card" href="product-list.html?cat=Powder">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Powder"></span>
+												<span class="tf-mega__label">Powder</span>
+											</a>
+											<a class="tf-mega__card"
+												href="product-list.html?cat=Ancillary">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Ancillary"></span>
+												<span class="tf-mega__label">Ancillary</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-coffee-grinder">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Espresso Grinder"></span>
+												<span class="tf-mega__label">Espresso Grinder</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Retail Grinder"></span>
+												<span class="tf-mega__label">Retail Grinder</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-water-treatment">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Water Filter"></span>
+												<span class="tf-mega__label">Water Filter</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Softener"></span>
+												<span class="tf-mega__label">Softener</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-manual-brew">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Dripper"></span>
+												<span class="tf-mega__label">Dripper</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Server"></span>
+												<span class="tf-mega__label">Server</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Kettle"></span>
+												<span class="tf-mega__label">Kettle</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-gelato-soft-ice">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Gelato Machine"></span>
+												<span class="tf-mega__label">Gelato Machine</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Soft Ice Machine"></span>
+												<span class="tf-mega__label">Soft Ice Machine</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-hot-kitchen">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Oven"></span>
+												<span class="tf-mega__label">Oven</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Stove"></span>
+												<span class="tf-mega__label">Stove</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-cold-kitchen">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Chiller"></span>
+												<span class="tf-mega__label">Chiller</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Freezer"></span>
+												<span class="tf-mega__label">Freezer</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-other-equipment">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="POS Equipment"></span>
+												<span class="tf-mega__label">POS Equipment</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Display"></span>
+												<span class="tf-mega__label">Display</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-cleaner">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Machine Cleaner"></span>
+												<span class="tf-mega__label">Machine Cleaner</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Milk Cleaner"></span>
+												<span class="tf-mega__label">Milk Cleaner</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-smeg">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toaster"></span>
+												<span class="tf-mega__label">Toaster</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Kettle"></span>
+												<span class="tf-mega__label">Kettle</span>
+											</a>
+											<a class="tf-mega__card" href="#">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Stand Mixer"></span>
+												<span class="tf-mega__label">Stand Mixer</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							
+						</div>
+					</li>
+					<li class="tf-menu__item"><a href="brand.html" class="tf-menu__link">Brand</a></li>
+					<li class="tf-menu__item tf-dd tf-dd--mega">
+						<button type="button" class="tf-menu__link tf-menu__link--dd" data-tf-toggle="dropdown" aria-expanded="false" aria-controls="tf-mega-promotion">Promotion</button>
+						<div class="tf-dd__panel tf-mega" id="tf-mega-promotion" aria-label="Promosi">
+								<div class="tf-mega__side" role="tablist" aria-label="Promotion groups">
+									<button class="tf-mega__tab is-active" type="button"
+										data-tf-mega="mega-promo-bundle">Promo Bulan Ini</button>
+									<button class="tf-mega__tab" type="button"
+										data-tf-mega="mega-promo-program">Promotion Program</button>
+								</div>
+
+								<div class="tf-mega__body">
+									<div class="tf-mega__panel is-active" id="mega-promo-bundle">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Home"></span>
+												<span class="tf-mega__label">Toffin for Home</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Cafe"></span>
+												<span class="tf-mega__label">Toffin for Cafe</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Office"></span>
+												<span class="tf-mega__label">Toffin for Office</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Ingredients"></span>
+												<span class="tf-mega__label">Toffin for Ingredients</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Kitchen"></span>
+												<span class="tf-mega__label">Toffin for Kitchen</span>
+											</a>
+											<a class="tf-mega__card" href="product-bundle.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Toffin for Gelateria"></span>
+												<span class="tf-mega__label">Toffin for Gelateria</span>
+											</a>
+										</div>
+									</div>
+
+									<div class="tf-mega__panel" id="mega-promo-program">
+										<div class="tf-mega__grid">
+											<a class="tf-mega__card" href="promotion.html">
+												<span class="tf-mega__thumb"><img src="images/product1.png"
+														alt="Promotion"></span>
+												<span class="tf-mega__label">Promotion</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							
+						</div>
+					</li>
+				</ul>
+
+				<!-- pencarian lanjutan (tf-search.js): cakupan Semua/Produk/Kategori/Brand, panel hasil, pintasan "/" -->
+				<div class="tf-sx" data-tf-search role="search">
+					<div class="tf-sx__bar">
+						<button type="button" class="tf-sx__scope" data-sx-scope aria-haspopup="listbox" aria-expanded="false" aria-label="Cakupan pencarian"><span data-sx-scope-label>Semua</span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+						<svg class="tf-i tf-sx__ico" aria-hidden="true"><use href="#i-search"/></svg>
+						<input type="search" class="tf-sx__input" placeholder="Cari produk, kategori, brand" aria-label="Cari produk, kategori, brand" autocomplete="off" enterkeyhint="search" data-sx-input>
+						<button type="button" class="tf-sx__clear" data-sx-clear aria-label="Hapus teks"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+						<kbd class="tf-sx__kbd" aria-hidden="true">/</kbd>
+					</div>
+					<div class="tf-sx__menu" data-sx-menu role="listbox" aria-label="Cakupan pencarian">
+						<button type="button" role="option" aria-selected="true" class="is-on" data-scope="all">Semua</button>
+						<button type="button" role="option" aria-selected="false" data-scope="product">Produk</button>
+						<button type="button" role="option" aria-selected="false" data-scope="category">Kategori</button>
+						<button type="button" role="option" aria-selected="false" data-scope="brand">Brand</button>
+					</div>
+					<div class="tf-sx__panel"><div class="tf-sx__res" data-sx-results aria-live="polite"></div></div>
+				</div>
+
+				<div class="tf-utils">
+					<a href="cart.html" class="tf-util" aria-label="Keranjang">
+						<svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg>
+						<span class="tf-util__badge">0</span>
+					</a>
+					<div class="tf-dd tf-dd--right">
+						<button type="button" class="tf-util" data-tf-toggle="dropdown" aria-expanded="false" aria-controls="tf-acc-menu" aria-label="Menu akun"><svg class="tf-i" aria-hidden="true"><use href="#i-user"/></svg></button>
+						<div class="tf-dd__panel tf-acc" id="tf-acc-menu">
+							<a class="tf-acc__item" href="login.html">Login</a>
+							<a class="tf-acc__item" href="register.html">Register</a>
+							<a class="tf-acc__item" href="my-account.html">My Account</a>
+							<a class="tf-acc__item" href="#">Daftar Belanja</a>
+							<a class="tf-acc__item" href="#">Favorite</a>
+							<div class="tf-acc__divider"></div>
+							<a class="tf-acc__item tf-acc__item--danger" href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Logout</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+		</div>
+	</header>
+  <!-- END nav -->
+
+	<!-- ===== Halaman 404 (MIGRASI.md langkah 42). Menggantikan 404 lama (css/style.css, tautan "Go To Homepage" ke #).
+	     Chrome v2 (header ponsel otomatis tombol kembali), ilustrasi cangkir "404" (SVG inline, uap beranimasi),
+	     pencarian produk (form GET → product-list.html?q=), tombol Beranda & Semua produk, kategori populer, bantuan WA.
+	     Gaya: assets/css/notfound.css. Catatan GitHub Pages: 404 otomatis hanya dari root situs; di Odoo pakai template
+	     website.page_404 dengan isi yang sama. ===== -->
+	<main class="tf-nf">
+		<div class="tf-container">
+			<section class="tf-nf__card">
+				<svg class="tf-nf__art" viewBox="0 0 420 200" role="img" aria-label="404">
+					<text x="70" y="160" text-anchor="middle" class="tf-nf__digit">4</text>
+					<text x="350" y="160" text-anchor="middle" class="tf-nf__digit">4</text>
+					<g class="tf-nf__steam" fill="none" stroke-linecap="round" stroke-width="7"><path d="M186 52c-12-14 12-22 0-38"/><path d="M210 48c-12-14 12-22 0-38"/><path d="M234 52c-12-14 12-22 0-38"/></g>
+					<ellipse cx="210" cy="184" rx="92" ry="11" class="tf-nf__saucer"/>
+					<path d="M140 76h140v52a50 50 0 0 1-50 50h-40a50 50 0 0 1-50-50z" class="tf-nf__cup"/>
+					<path d="M280 92h14a22 22 0 0 1 0 44h-18" fill="none" stroke-width="12" class="tf-nf__handle"/>
+					<ellipse cx="210" cy="78" rx="70" ry="10" class="tf-nf__coffee"/>
+					<ellipse cx="210" cy="132" rx="11" ry="13" class="tf-nf__mouth"/>
+					<circle cx="188" cy="104" r="6" class="tf-nf__eye"/><circle cx="232" cy="104" r="6" class="tf-nf__eye"/>
+				</svg>
+				<p class="tf-nf__code">Error 404</p>
+				<h1 class="tf-nf__title">Halaman tidak ditemukan</h1>
+				<p class="tf-nf__lead">Halaman yang Anda cari mungkin sudah dipindahkan, dihapus, atau alamatnya salah ketik.</p>
+				<div class="tf-nf__act">
+					<a href="index.html" class="tf-btn"><svg class="tf-i" aria-hidden="true"><use href="#i-home"/></svg> Kembali ke beranda</a>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<script src="assets/js/tf-nav.js"></script>
+	<script src="assets/js/tf-search.js"></script>
+	<script src="assets/js/mobile-nav.js"></script>
+
+
+	<!-- ===== Bottom nav mobile (tf-layout.css) ===== -->
+	<nav class="tf-bottomnav" aria-label="Navigasi bawah">
+		<a href="index.html" class="tf-bottomnav__item">
+			<svg class="tf-i" width="20" height="20"><use href="#i-home"/></svg>
+			<span>Home</span>
+		</a>
+		<a href="#" class="tf-bottomnav__item" id="btn-bottom-nav-category">
+			<svg class="tf-i" width="20" height="20"><use href="#i-layout-grid"/></svg>
+			<span>Category</span>
+		</a>
+		<a href="#" class="tf-bottomnav__item" id="btn-bottom-nav-promo">
+			<svg class="tf-i" width="20" height="20"><use href="#i-percentage"/></svg>
+			<span>Promo</span>
+		</a>
+		<a href="my-account.html" class="tf-bottomnav__item">
+			<svg class="tf-i" width="20" height="20"><use href="#i-clipboard-list"/></svg>
+			<span>Daftar Belanja</span>
+		</a>
+		<a href="#" class="tf-bottomnav__item" id="btn-bottom-nav-account">
+			<svg class="tf-i" width="20" height="20"><use href="#i-user"/></svg>
+			<span>Account</span>
+		</a>
+	</nav>
 </body>
+
 </html>

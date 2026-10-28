@@ -715,6 +715,290 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     panel 16 px, judul panel diberi garis putus-putus bawah + jarak 12 px. Paket 6 produk tetap muat tanpa gulir di
     1366 px (431/431) dan 500 px (346/346); tinggi kartu tidak berubah (530 px).
 
+30. **Aktivasi pendaftaran** (2026-10-13, permintaan Rendi: setelah isi email ke halaman OTP, samakan dengan Existing User).
+    `check-email.html` (template Winkel lama: judul REGISTER, kotak email, tombol Check) ditulis ulang di chrome auth v2
+    (`au-card--solo`, eyebrow "Aktivasi pendaftaran", langkah 1 Email · 2 Kode email · 3 Akun aktif, satu kolom email,
+    tombol "Kirim kode"). Kirim → `otp.html?flow=aktivasi`: halaman OTP yang sama, JS mengganti eyebrow, teks, langkah,
+    dan tautan Kembali (→ check-email.html). Kode benar → `login.html?aktif=1` dengan catatan hijau "Akun Anda sudah aktif",
+    email terisi, fokus ke kata sandi. Email dari register.html dibawa lewat `sessionStorage.tfActivate` dan terisi otomatis.
+    Contoh tanpa backend: email berisi "baru" → alert belum terdaftar; berisi "aktif" → alert sudah aktif; kode 123456.
+
+31. **Keranjang: flash sale + varian isi paket** (2026-10-13, permintaan Rendi; skenario stok antar cabang tidak dibuat
+    karena sudah terwakili produk dari beberapa distributor). Item flash sale (`.tf-item.is-fs`, contoh di Toffin Jakarta
+    dan Toffin Surabaya): tag merah "Flash Sale" + hitung mundur sesi, harga merah + coret + persen, catatan "Maks. N per
+    akun" (data-fs-limit → max stepper; tombol + mati dan catatan merah "batas tercapai" saat penuh). Sesi habis
+    (data-fs-end, contoh dalam detik sejak halaman dibuka; tamper berakhir 45 detik) → tag abu "Flash sale berakhir",
+    harga kembali normal (data-fs-normal), batas dilepas, total dihitung ulang. Ringkasan: catatan merah "Ada N barang
+    flash sale, voucher tidak berlaku" bila ada flash sale terpilih. Stepper semua barang kini memakai atribut `max`.
+    Isi paket bundling menampilkan varian terpilih sebagai chip ("Warna: Chrome"). Harga satuan & "Rp … · 1 pcs" tidak
+    lagi patah per kata di ponsel. Produksi: waktu akhir sesi & batas per akun dari server.
+    **Lanjutan (Rendi):** varian hanya warna, keterangan ukuran/kemasan/roast di baris varian dihapus; teks "Gratis ongkir
+    Jabodetabek" di paket dihapus. Barang yang **tidak bisa di-checkout** dinonaktifkan (`.is-off`: checkbox mati, tanpa
+    stepper & total, tidak ikut ringkasan): paket berisi produk tidak tersedia (catatan "Ada produk di paket yang tidak
+    tersedia", isi paket tetap bisa dibuka) dan produk biasa yang tidak tersedia ("Produk tidak tersedia"; varian kosong
+    diperlakukan sama, tanpa catatan varian/tautan ganti warna). tf-cart.js otomatis menonaktifkan paket yang memuat `.tf-sub.is-off`.
+    **Konfirmasi hapus (Rendi, 2026-10-14):** tombol hapus barang, hapus distributor (ikon tempat sampah di kepala grup), dan
+    "Hapus" barang terpilih kini membuka pop-up #cart-confirm (dialog ringan tanpa Bootstrap JS): ikon, judul sesuai aksi
+    ("Hapus barang ini?" / "Hapus paket ini?" / "Hapus semua barang dari Toffin X?" / "Hapus N produk terpilih?"), pesan
+    (paket: beserta isinya; flash sale: harga belum tentu tersedia lagi), daftar maks. 3 produk + "+N produk lainnya",
+    tombol Batal / Hapus (merah). Tutup lewat Batal, Esc, atau klik latar; fokus awal di Batal.
+    **Qty 0 = hapus (Rendi):** di qty 1 tombol minus tetap aktif (abu-abu) dan ditekan → konfirmasi hapus yang sama; mengetik 0
+    atau mengosongkan kolom jumlah juga → konfirmasi; Batal/Esc mengembalikan qty ke 1. Ikon minus tidak diganti tempat sampah
+    (tombol hapus sudah ada di sebelahnya).
+
+32. **Checkout** (2026-10-14, permintaan Rendi: rapi & modern, sesuai kasus keranjang, plus QA). `checkout.html` (template
+    Winkel) ditulis ulang di stack v2: header fokus (logo, langkah Keranjang ✓ → Checkout → Pembayaran, "Pembayaran aman";
+    ponsel "← Checkout"), dua kolom dengan ringkasan sticky, footer ringkas. Isi = barang terpilih di cart.html (3 distributor):
+    alamat + pinpoint + dialog ganti alamat; satu kartu per distributor (barang flash sale dengan hitung mundur & harga kembali
+    normal, paket bundling + varian, bonus produk, catatan QC mesin 2–3 hari, pilih kurir dengan alasan bila tidak tersedia,
+    Kurir Toffin gratis ongkir, asuransi 0,2%, catatan 200 karakter); metode bayar (VA BCA/Mandiri/Permata/BRI/BNI, Kartu
+    Kredit, OVO dengan batas, Credit Limit dengan cek saldo); ringkasan (voucher/kode promo dalam dialog, hanya non-flash sale;
+    Toffin Point; rincian ongkir, asuransi, admin, voucher, poin; poin yang didapat; S&K + Informasi Pengiriman dalam dialog).
+    Tombol bayar terkunci sampai alamat ter-pinpoint, semua kurir dipilih, metode bayar valid, dan S&K disetujui; saat ditekan
+    muncul daftar "yang perlu dilengkapi" dan kartu terkait disorot. Ponsel: bar sticky total + Bayar, dialog jadi lembar bawah.
+    File: `assets/css/checkout.css`, `assets/js/tf-checkout.js` (dialog tanpa jQuery). Kelas alamat memakai `.tf-coaddr`
+    (bukan `.tf-addr`, sudah dipakai modal alamat di tf-layout.css). Simulasi kasus: `checkout.html?qa=1`; daftar uji &
+    keputusan terbuka: `QA-checkout.md`. Angka biaya admin, voucher, poin = contoh.
+    **Revisi (Rendi):** alamat tujuan dipilih **per distributor** (beda gudang), kartu alamat global dihapus. Tiap kartu
+    distributor: "Dikirim dari gudang X", blok pengiriman = alamat tujuan (Ubah alamat → dialog untuk distributor itu, opsi
+    "Pakai untuk semua pengiriman") → **jenis pengiriman** (pil Kurir Toffin/Regular/Express/Same Day/Cargo + "mulai Rp X"
+    atau alasan tidak tersedia) → **ekspedisi** di jenis itu (otomatis terpilih bila hanya satu) → asuransi & catatan.
+    Ketersediaan & tarif dari `data-ship-cfg` + alamat (`#co-addresses`): Kurir Toffin hanya wilayah gudang, Same Day hanya
+    satu kota, Express/Same Day tidak untuk mesin berat, tarif ×0,5 bila satu wilayah; ganti alamat mereset pilihan.
+    Alamat belum pinpoint mengunci pengiriman distributor itu. QA tambahan `case=split` (Bandung → Outlet Bandung).
+    **Revisi 2 (Rendi): alamat di atas, pengiriman di bawah + tiga usulan desain** (`checkout.html?ui=a|b|c`, bar pemilih
+    muncul bila ada `?ui=`; default A). A: strip "Kirim ke" di kepala kartu, pengiriman terbuka (pil jenis + daftar
+    ekspedisi) di bawah barang. B: strip yang sama, pengiriman jadi satu baris ringkas ("Regular · JNE REG — Rp 43.000")
+    yang membuka lembar pilihan (#dlg-ship; isi [data-ship-select] dipindah ke dialog, kembali saat ditutup; tombol
+    "Simpan pengiriman" aktif setelah ekspedisi dipilih). C: satu kartu "Alamat tujuan" di atas berisi baris per
+    distributor (gudang → alamat → Ubah), kartu distributor berisi barang + pengiriman terbuka. Belum diputuskan.
+    Pratinjau: `preview-checkout.html` (usulan A/B/C atau "Bandingkan semua" 3 ponsel berdampingan; isi Awal/Sebagian/
+    Lengkap; Desktop/Ponsel; kartu kelebihan–kekurangan, B ditandai rekomendasi). Memakai checkout.html via iframe dengan
+    `?ui=…&embed=1&demo=partial|full&focus=ship` (embed menyembunyikan bar usulan, focus menggulir ke bagian yang dibandingkan).
+    **Revisi 3 (Rendi): B dipilih, A & C dihapus**, ditambah dua variasi B: **B1** (default B + sampai 3 kurir rekomendasi
+    berlabel Gratis/Termurah/Tercepat langsung di kartu, plus "Pilihanmu" bila memilih lain lewat "Lihat semua") dan **B2**
+    (barang dilipat jadi deretan foto "N barang · subtotal · ⚡ flash sale", catatan jadi tautan "+ Tambah catatan").
+    `?ui=b` (default) | `b1` | `b2`; pratinjau membandingkan ketiganya. Pilihan lengkap selalu di lembar #dlg-ship.
+    **Final (Rendi, 2026-10-14): usulan B diterapkan.** Kode B1/B2, pemilih `?ui=`, `?embed`, `?focus` dan
+    `preview-checkout.html` dihapus. Kartu distributor = strip "Kirim ke" (Ubah → dialog alamat, opsi semua pengiriman) →
+    barang → baris ringkas pengiriman (ikon hijau bila sudah dipilih) yang membuka lembar #dlg-ship (jenis → ekspedisi →
+    "Simpan pengiriman") → asuransi & catatan. `?demo=partial|full` tetap ada untuk review/QA. Menunggu cek Rendi.
+    **Metode bayar ringkas + faktur pajak (Rendi):** kartu pembayaran jadi satu daftar 4 baris (Virtual Account, Kartu
+    Kredit, OVO, Credit Limit Toffin) dengan ikon, keterangan, biaya admin di kanan, alasan bila nonaktif; bank VA
+    (BCA/Mandiri/Permata/BRI/BNI) muncul sebagai chip setelah VA dipilih dan wajib dipilih. Di bawahnya sakelar
+    "Minta faktur pajak" (seperti desain lama): NPWP belum lengkap → kotak kuning "NPWP belum lengkap" + tombol
+    "Lengkapi NPWP" (dialog #dlg-npwp: nama, nomor 15/16 digit, alamat, foto opsional; tersimpan untuk pesanan
+    berikutnya) dan pembayaran terkunci selama faktur diminta; NPWP lengkap → kotak hijau nama + NPWP terformat + Ubah.
+    QA `case=npwp` = NPWP sudah ada di profil.
+    **Credit Limit dihapus (Rendi, 2026-10-14):** metode bayar tinggal Virtual Account (pilih bank), Kartu Kredit, OVO.
+    Pembeli tetap memilih metode di checkout; pembayaran diproses di halaman Xendit lalu kembali ke success-checkout.html.
+    QA `case=cl` dihapus.
+    **Pinpoint dari checkout (Rendi):** alamat belum pinpoint tetap bisa dipilih; tombol dialog alamat berubah jadi
+    "Tandai lokasi & pakai" → dialog peta #dlg-pin (cari alamat, pin tetap di tengah, "Lokasi saya", nama jalan hasil
+    reverse geocoding, "Simpan lokasi & pakai") → alamat dipasang + ditandai pinpoint. Tombol "Tandai lokasi" di kartu
+    membuka peta yang sama. Tutup tanpa simpan = alamat lama tetap. Peta lewat modul baru **`assets/js/tf-map.js`**
+    (API `TFMap.picker`; penyedia `leaflet` = Leaflet 1.9.4 + ubin Esri/OSM + Nominatim/Photon, dimuat saat peta pertama
+    dibuka). Ganti ke Google Maps: isi penyedia `google` di tf-map.js (Maps JS API + Geocoder/Places) tanpa mengubah checkout.
+    **Biaya packing (Rendi):** rincian harga kini berisi Ongkos kirim, Asuransi, **Biaya packing**, Biaya admin. Packing
+    dihitung per distributor (contoh: ada mesin/grinder/equipment → packing kayu Rp 150.000, selainnya Rp 10.000), tampil
+    juga di kaki kartu distributor ("Packing Rp X · Ongkir Rp Y") dan ikut dasar biaya admin kartu kredit.
+    **Logo pembayaran (Rendi):** `images/payment/` berisi SVG BCA, Mandiri, Permata, BRI, BNI, OVO, Visa, Mastercard, JCB
+    (sumber Wikimedia Commons, 2026-10-14; ganti dengan aset resmi dari payment gateway saat integrasi). Chip bank VA =
+    kotak putih berlogo, terpilih = garis oranye + centang; baris VA & Kartu Kredit menampilkan deretan logo kecil
+    (disembunyikan di VA saat chip tampil); OVO memakai logonya sebagai ikon. File 644, folder 755.
+
+33. **Pesanan berhasil** (2026-10-14, permintaan Rendi: rapikan, lebih bagus & menarik). `success-checkout.html` (template
+    Winkel "Checkout Complete": nama pemesan, Sales Order, total, status) ditulis ulang di chrome checkout (header fokus,
+    ketiga langkah ✓, footer ringkas). Isi: hero (centang beranimasi + cincin + confetti sekali, menghormati
+    prefers-reduced-motion; "Terima kasih, pesanan Anda kami terima!", nama pemesan & email, No. pesanan + tombol Salin,
+    chip "Pesanan diproses", tanggal), 3 angka (total dibayar, metode + logo bank, Toffin Point didapat); status pesanan
+    5 langkah (dibuat ✓, pembayaran diterima ✓, diproses ● termasuk QC mesin, dikirim, selesai; vertikal di ponsel);
+    pengiriman per distributor (No. SO-1/-2/-3, foto barang bertumpuk, kurir + ongkir + estimasi setelah QC, alamat tujuan);
+    kolom kanan: pembayaran (rincian bisa dibuka, total, "Lunas via …" + logo, poin & hemat, faktur pajak bila diminta),
+    aksi (Lihat detail pesanan → my-account, Invoice → invoice.html, Belanja lagi), bantuan WhatsApp.
+    Data: `tf-checkout.js` menyimpan ringkasan ke `sessionStorage.tfOrder` saat "Bayar sekarang"; `assets/js/tf-success.js`
+    merender (dibuka langsung = contoh SAMPLE). CSS `assets/css/success.css` (dimuat sesudah checkout.css).
+    Sempat dicoba pola Tokopedia/Shopee (keadaan menunggu pembayaran + nomor VA + cara bayar); **dibatalkan (Rendi)** karena
+    pembayaran diproses di halaman **Xendit**, jadi success-checkout.html kembali ke versi di atas sebagai URL kembali setelah
+    lunas. Cadangan versi Tokopedia/Shopee tidak disimpan di repo.
+    **Disederhanakan (Rendi):** satu kartu di tengah (maks. 780 px): centang + "Terima kasih", nama pemesan & email,
+    No. pesanan + Salin, chip "Pesanan diproses", tanggal, 3 angka (total, metode + logo, Toffin Point), satu baris info
+    pengiriman ("3 pengiriman dari gudang Toffin Jakarta, Surabaya dan Bandung" + catatan QC), tombol **Lihat detail
+    pesanan** (`detail-pembelian.html?so=…`) & **Belanja lagi**, bantuan WhatsApp. Status pesanan, pengiriman per
+    distributor, rincian pembayaran, faktur → pindah ke halaman detail belanja (belum didesain ulang).
+    **Opsi desain (Rendi minta opsi lain):** `success-checkout.html?ui=a|b|c|d` dirender `tf-success.js` dari templat:
+    **A** kartu ringkas (saat ini), **B** struk (tepi bergerigi, total besar di atas, baris No. pesanan/status/pemesan/
+    metode/poin/pengiriman), **C** panel terbelah (kiri hijau terima kasih + No. pesanan, kanan ringkasan + tombol;
+    ponsel bertumpuk), **D** minimalis (chip ringkas + tombol + 3 langkah "Selanjutnya"). Pratinjau: `preview-success.html`
+    (bandingkan 4 ponsel, atau satu usulan desktop/ponsel). Belum diputuskan.
+    **Final (Rendi): B · Struk**, tanpa baris Toffin Point, Pengiriman, dan catatan konfirmasi/resi. Isi struk: centang,
+    "Pembayaran berhasil", "Terima kasih, {nama depan}!", TOTAL DIBAYAR besar, tanggal, garis putus, baris No. pesanan
+    (+ Salin), Status (chip "Pesanan diproses"), Pemesan, Metode (+ logo); tepi bawah bergerigi; tombol Lihat detail
+    pesanan & Belanja lagi; bantuan WhatsApp. Opsi A/C/D, `?ui=`, dan `preview-success.html` dihapus.
+    Efek pita jatuh (confetti) dihapus (Rendi); animasi tersisa: centang muncul + cincin berdenyut.
+
+34. **Ikon jadi satu modul JS** (2026-10-14, permintaan Rendi). Sprite inline `<svg id="tf-icons">` yang disalin di 27 halaman
+    (6 versi: dasar 64 simbol + tambahan per halaman, mis. eye/lock di halaman akun, bell di flash sale, lock/note/shield-check/
+    settings-check di checkout, copy/download di sukses) digabung jadi **`assets/js/tf-icons.js`** (80 simbol: gabungan 78 +
+    award & box yang dipakai bagian keunggulan homepage yang sedang dikomentari). Tiap halaman kini cukup
+    `<script src="assets/js/tf-icons.js"></script>` tepat setelah `<body>`; skrip menyisipkan sprite di awal body. Tidak ada
+    path yang berbeda untuk nama yang sama. `assets/icons/tf-icons.svg` & README diperbarui (salinan referensi + cara menambah
+    ikon). Diuji: 27 halaman, sprite tersisip di posisi pertama body, 0 `<use>` tanpa simbol (termasuk ikon render JS).
+    Alasan JS (bukan CSS mask): markup `<use>` tidak berubah, stroke tetap diatur `.tf-i`, `<script src>` jalan di file://.
+
+35. **Akun saya didesain ulang** (2026-10-14, permintaan Rendi: menarik & rapi secara UI/UX). `my-account.html`: banner
+    "My Account" + sidebar lama (.ta, tab Bootstrap, gaya inline) + 10 modal Bootstrap diganti. Kolom kiri: kartu profil
+    (avatar inisial, nama, email, badge Member & status verifikasi), 2 kotak saldo (Toffin Points, Service Credit), menu
+    berkelompok (Akun: Ringkasan, Daftar Belanja + jumlah berjalan, Favorit · Saldo: Toffin Points, Service Credit ·
+    Pengaturan: Daftar Alamat, Metode Pembayaran, Profil & Keamanan · Keluar). Ponsel: profil ringkas + menu jadi tab geser
+    yang menempel. Bagian: **Ringkasan** (baru: sapaan, pengingat verifikasi ID, 4 angka yang bisa diklik, 2 pesanan terakhir),
+    **Daftar Belanja** (chip status Semua/Belum dibayar/Diproses/Dikirim/Selesai/Kedaluwarsa + jumlah, cari,
+    kartu pesanan dengan status berwarna, catatan per status, aksi Bayar/Lihat detail/Lacak/Beli lagi), **Favorit** (kartu
+    produk global, hapus + "Batalkan"), **Toffin Points** & **Service Credit** (kartu saldo bergradasi, S&K di dialog, chip
+    Riwayat/Diperoleh/Dipakai/Akan kedaluwarsa, baris mutasi berikon), **Daftar Alamat** (kartu, utama di depan, tambah/ubah
+    di dialog dengan validasi, hapus dengan konfirmasi + Batalkan, jadikan utama, pinpoint lewat tf-map.js), **Metode
+    Pembayaran** (logo bank/kartu, S&K Credit Limit), **Profil & Keamanan** (biodata + validasi, email terkunci, verifikasi
+    ID unggah KTP/NPWP → "Sedang ditinjau", ubah sandi via tautan email, keluar, hapus akun dengan centang persetujuan).
+    Hash lama (#settings, #daftar-belanja, …) tetap diarahkan. Tanpa jQuery/Bootstrap JS/datepicker di halaman ini.
+    File: `assets/css/account.css`, `assets/js/tf-account.js`; dialog `.tf-dlg` & peta `.tf-pin` dipindah dari checkout.css
+    ke **tf-layout.css** (komponen bersama). `assets/css/my-account.css` tidak dipakai lagi (dibiarkan, bisa dihapus).
+    Diuji: semua tab, filter & cari pesanan, favorit + batalkan, alamat tambah/hapus/batalkan/utama/pinpoint, profil, sandi,
+    hapus akun; desktop 1366 & ponsel 390.
+    **Verifikasi ID lengkap (Rendi):** dua bagian berbingkai, **KTP** (No. KTP/NIK 16 digit, Nama sesuai KTP, Alamat sesuai
+    KTP, foto) dan **NPWP** (No. NPWP 15/16 digit, Nama sesuai NPWP, Alamat sesuai NPWP, foto); foto JPG/PNG maks. 2 MB
+    (pesan berbeda untuk format & ukuran). Status per bagian otomatis: Belum diisi / Belum lengkap / Lengkap. Kirim: bagian
+    yang mulai diisi wajib lengkap, minimal satu bagian lengkap; berhasil → form terkunci, status "Sedang ditinjau" di
+    bagian, kepala kartu, badge profil, dan pengingat Ringkasan disembunyikan. Produksi: simpan ke profil Odoo; data NPWP ini
+    juga yang dipakai checkout untuk faktur pajak (dialog Lengkapi NPWP di checkout sebaiknya membaca/menulis data yang sama).
+    Dipadatkan (Rendi): **KTP dan NPWP berdampingan** (dua kolom di desktop & tablet; isian tiap kolom ke bawah: Nomor, Nama,
+    Alamat, Foto; kotak unggah setinggi input); ponsel bertumpuk.
+    **Keadaan verifikasi per bagian (Rendi):** *isi* (form) → kirim → *Menunggu verifikasi* (bingkai kuning, ringkasan baca-
+    saja: nomor tersamar, nama, alamat, foto, "Dikirim …, data tidak dapat diubah") → *Terverifikasi* (bingkai hijau,
+    tanggal) atau *Ditolak* (bingkai merah, **alasan dari tim Toffin**, baris yang bermasalah ditandai ⚠, tombol **Perbaiki &
+    kirim ulang**). Data menunggu/terverifikasi **tidak bisa diubah atau dibatalkan** (tanpa tombol aksi). Kirim ulang: form
+    terisi data lama + catatan alasan, isian bermasalah ditandai merah; foto lama dipakai lagi kecuali foto yang ditolak (wajib
+    unggah baru). **Pratinjau foto:** thumbnail di kotak unggah (+ tautan "Lihat") dan di ringkasan; ketuk → dialog
+    `#dlg-photo` ukuran besar. Status gabungan (kepala kartu, badge profil, pengingat Ringkasan): ada terverifikasi →
+    Terverifikasi; ada menunggu → Menunggu verifikasi; ada ditolak → Verifikasi ditolak (pengingat merah "Lihat alasan");
+    kosong → Belum terverifikasi. Skenario contoh: `my-account.html?verif=none|pending|verified|mix|rejected` (mix = KTP
+    terverifikasi, NPWP menunggu; rejected = KTP foto buram, NPWP nama tidak sesuai). Produksi: alasan & isian bermasalah
+    dari catatan peninjau di Odoo.
+
+36. **Detail pesanan didesain ulang** (2026-10-14, permintaan Rendi: rapi & modern, sesuaikan dengan checkout).
+    `detail-pembelian.html` (template Winkel + jQuery/Bootstrap JS) ditulis ulang di chrome v2 (header/footer sama dengan
+    Akun saya) dan memakai komponen checkout: kartu `.tf-co__card`, baris barang `.tf-coi` (tag flash sale/paket, isi paket,
+    bonus), strip "Kirim ke" `.tf-ship__dest`, ringkasan `.tf-cosum`. Label jenis barang: Harga Flash Sale, Paket Bundling, Dapat bonus, Diskon; produk biasa tanpa label. Isi: breadcrumb Akun saya › Daftar Belanja; kepala
+    (No. pesanan + Salin, tanggal, distributor, chip status) + **progres 5 langkah** (dibuat → pembayaran → diproses & QC →
+    dikirim → selesai; ponsel vertikal; kedaluwarsa = langkah merah); **banner per status**: belum dibayar (hitung mundur
+    batas bayar + Bayar sekarang via Xendit), diproses (catatan QC), dikirim (ekspedisi, estimasi, resi + Lacak),
+    selesai tanpa banner (status sudah di kepala; Beli lagi di rincian pembayaran), kedaluwarsa (dibatalkan otomatis + Beli lagi); kartu pengiriman (nama distributor, alamat & penerima, ekspedisi,
+    No. resi + Salin, catatan); produk dipesan; rincian pembayaran (metode + logo bank +
+    tanggal bayar / batas bayar, total harga, diskon, ongkir, asuransi, packing, admin, voucher, Toffin Point, total, hemat, poin didapat),
+    faktur pajak (NPWP), aksi per status (Bayar, Lacak pesanan, Unduh invoice → `invoice.html?so=`, Beli lagi), bantuan WA
+    berisi nomor pesanan. **Rating produk dihapus** (fitur rating sudah tidak ada; popup rating lama tidak dibawa). Pesanan dipilih lewat `?so=` (tautan dari Daftar Belanja & success-checkout); contoh:
+    `SO/2026/10/0421` belum dibayar, `0398` diproses (**semua jenis produk**: paket bundling, produk dengan bonus,
+    flash sale, diskon, produk biasa; + voucher, Toffin Point, asuransi, faktur pajak), `0377` dikirim (bonus, voucher),
+    `SO/2026/09/0352` selesai (campuran: biasa, bundling, flash sale, diskon), `0311` selesai, `SO/2026/08/0260` kedaluwarsa; nomor
+    lain → contoh "Diproses". Data contoh dipakai bersama dengan Daftar Belanja (total di kedua halaman sama).
+    Berkas: `assets/js/tf-order.js`, `assets/css/order.css` (dimuat sesudah cart.css + checkout.css).
+    Produksi: data dari `sale.order` Odoo.
+
+37. **Filter kategori daftar produk (sub-kategori produksi)** (2026-10-15, permintaan Rendi: di produksi kategori punya
+    sub-kategori, filter lama hanya Coffee Machine & UX kurang enak). Pohon kategori kini sama dengan menu Category
+    shop.toffin.id (12 induk, mis. Coffee Machine › Home/Commercial Espresso Machine…, Ingredients › Sauce/Syrup/Coffee
+    Beans…, Manual Brew › Pour Over/Kettle…, Hot/Cold Kitchen Equipment, SMEG › Coffee/Kitchen…; Beverage Maker, Water
+    Treatment, Cleaner tanpa sub), dirender `assets/js/tf-plp.js` dari `CATS`. UX baru: tombol panah terpisah dari kotak
+    centang (buka sub tanpa langsung memfilter); induk tiga keadaan (semua sub / sebagian = tanda strip / tidak);
+    mencentang sub benar-benar mempersempit hasil (dulu induk tetap tercentang sehingga sub tidak berpengaruh); 7 induk
+    pertama + "Lihat semua kategori"; kolom **Cari kategori** (menyaring induk & sub, sub yang cocok dibuka);
+    tanpa angka jumlah di filter (kategori, sub, brand, chip); sub tanpa produk redup.
+    Bila filter berada di satu induk: judul = nama kategori/sub, breadcrumb Beranda › Semua Produk › Coffee Machine › Home
+    Espresso Machine. Tag aktif: satu tag per induk utuh atau per sub. `?cat=` menerima induk atau sub (mis. `?cat=Kettle`)
+    + alias tautan lama homepage (`Hot Kitchen`, `Cold Kitchen`). Katalog contoh ditambah produk untuk Beverage Maker,
+    Syrup, Manual Grinders, Kettle, SMEG Coffee, Oven, Cream Dispenser, Ice Maker, Cleaner (84 produk); brand SMEG, Hario,
+    Comandante. Gaya: `assets/css/product-list.css` (`.tf-cat*`, `.tf-plp__sub*`). Produksi: pohon dari
+    `product.public.category` (parent_id), jumlah dari hitungan produk per kategori.
+
+38. **Ponsel: padding ala Tokopedia** (2026-10-15, permintaan Rendi). Jarak kiri-kanan `.tf-container` kini variabel
+    `--tf-gutter` (`tf-base.css`): 20px desktop/tablet, **10px di ponsel (≤767px)** untuk semua halaman v2; elemen
+    full-bleed (chip brand, tab Akun saya) memakai `calc(-1 * var(--tf-gutter))`. Daftar produk ponsel: jarak antar
+    kartu 8px. (Uji coba tampilan PLP ponsel ala Tokopedia — bar chip, kartu tanpa Add to cart — dibatalkan, tampilan
+    PLP kembali seperti sebelumnya.)
+
+39. **Header ponsel: search rapi + tombol kembali** (2026-10-15, permintaan Rendi). Pemicu pencarian ponsel
+    (`.tf-search--trigger`, `tf-layout.css`): tinggi 40px, ikon 18px dan teks satu sumbu dengan jarak 8px, teks biasa
+    13.5px abu (sebelumnya huruf kapital 10px berjarak lebar yang tidak sebanding dengan ikon), kotak melebar penuh.
+    Semua halaman selain beranda: logo Toffin di header ponsel diganti **tombol kembali** (‹) — kembali ke halaman
+    sebelumnya bila datang dari situs ini, dibuka langsung → ke beranda. Disisipkan `assets/js/tf-nav.js` (satu tempat
+    untuk 17 halaman ber-header v2; kelas `.tf-header.has-back`). Odoo: render di template header dengan t-if bukan homepage.
+
+40. **Lacak pesanan · pengiriman instan** (2026-10-15, permintaan Rendi). `tracking-order.html` (template Winkel +
+    Google Maps dengan API key di HTML) ditulis ulang di chrome v2 (header/footer seperti Akun saya; ponsel otomatis
+    tombol kembali). Pola aplikasi ojek online: **peta live** (Leaflet + ubin Esri dipucatkan, cadangan OSM; titik
+    ambil oranye, tujuan, driver hijau berdenyut; rute terlewati hijau, sisa rute putus-putus; tombol "seluruh rute";
+    posisi driver bergerak — simulasi) dan panel: status + **perkiraan tiba** (jam, menit & km tersisa, progres
+    Dikemas → Dapat driver → Diambil → Tiba), **kartu driver** (nama, rating, jumlah perjalanan, plat nomor, kendaraan,
+    Telepon & Chat WA, pengingat cek plat), **bukti serah terima** saat tiba (foto + penerima + waktu), rute Dari–Ke
+    + catatan untuk driver (asal ditulis umum **"Toffin Indonesia"**: nama & alamat gudang tidak diperlihatkan; teks
+    status/riwayat memakai "lokasi pengambilan" / "tim Toffin"), riwayat pengiriman (terbaru di atas), bantuan WA (berisi No. pesanan & booking).
+    Kartu ringkasan pesanan dihapus (rincian ada di detail pesanan). Ponsel: peta selebar layar
+    di atas, panel naik seperti lembar bawah. Skenario `?st=cari | jemput | antar (bawaan) | tiba`. Ikon baru
+    `i-motorbike` (tf-icons.js & tf-icons.svg, 81 simbol). Berkas: `assets/js/tf-track.js`, `assets/css/track.css`.
+    Produksi: status & posisi driver dari API/webhook kurir (GoSend/Grab) lewat Odoo. Catatan: tombol "Lacak" untuk
+    kurir reguler (mis. JNE di detail pesanan) masih ke halaman ini; varian kurir reguler belum dibuat.
+
+41. **Bersih-bersih: halaman brand/kategori & pratinjau dihapus** (2026-10-15, permintaan Rendi: cukup satu halaman
+    daftar produk). Dihapus: `brand/*.html` (22 halaman brand template lama), `category/coffee-grinder/espresso-grinder.html`
+    (seluruh folder `category/`), dan 6 pratinjau desain `preview-brand|kategori|login|product|search|voucher.html`.
+    Tautan diarahkan ke `product-list.html`: 10 tautan mega menu Category di semua halaman v2 + `mobile-nav.js`
+    (dulu `category/…/*.html` yang memang tidak ada) → `product-list.html?cat=<sub-kategori>` (mis. `?cat=Syrup`,
+    `?cat=Accessories%20%26%20Parts`); logo brand di detail produk → `product-list.html?brand=Nuova%20Simonelli`.
+    Halaman template lama yang tersisa (about, promotion, dll.) masih memuat tautan ke brand/category lama di menunya.
+
+42. **Halaman 404 didesain ulang** (2026-10-15, permintaan Rendi). `404.html` (css/style.css lama, "Go To Homepage" ke `#`)
+    ditulis ulang di chrome v2 (header/footer lengkap; ponsel tombol kembali; menu bawah tanpa item aktif): ilustrasi
+    cangkir kopi "4☕4" ekspresi kaget dengan uap beranimasi (SVG inline, hormati prefers-reduced-motion), label
+    "Error 404", judul + penjelasan, **kolom cari produk** (form GET → `product-list.html?q=`), tombol Kembali ke beranda
+    & Lihat semua produk, chip kategori populer (`product-list.html?cat=`), bantuan WA. `noindex`. Gaya:
+    `assets/css/notfound.css`. Catatan: GitHub Pages hanya memakai 404.html di root situs; di Odoo pakai template
+    `website.page_404`.
+
+43. **Coupon → Voucher** (2026-10-15, permintaan Rendi: fitur sama dengan yang lama, hanya ubah tampilan). `coupon.html`
+    (template Winkel) dihapus, diganti **`voucher.html`** di chrome v2 dengan fitur yang sama: kelompok **Voucher Belanja**
+    dan **Voucher Servis**, kartu voucher (nilai, judul, keterangan min. belanja, tanggal berakhir, tombol **Syarat &
+    Ketentuan**), modal **Detail Voucher** berisi kartu + daftar S&K (teks dari modal lama; kontak cs@example.com diganti
+    WhatsApp Toffin). Tampilan baru: kartu tiket bergradasi (belanja oranye, servis biru), grid 3/2/1 kolom, modal jadi
+    lembar bawah di ponsel. `voucher.html?v=KODE` membuka S&K voucher itu; tautan S&K kartu voucher di beranda kini ke
+    sana. Berkas: `assets/js/tf-voucher.js`, `assets/css/voucher.css`. Produksi: voucher dari program kupon Odoo.
+
+44. **Ikon Service Credit & Toffin Point** (2026-10-15, permintaan Rendi). Tiga simbol baru di sprite (`tf-icons.js` &
+    `tf-icons.svg`, kini 84): **`i-service`** = kunci pas bersilang obeng (garis, ikut warna teks; digambar ulang dengan konsep ikon Flaticon
+    "customer-support" 1086581 — bukan salinan, jadi tanpa kewajiban atribusi) menggantikan `i-tools`
+    untuk layanan servis/purna jual (Voucher Servis); **`i-scredit`** = dompet Service Credit warna asli (= `images/icon-service-credit.png`; Service Credit adalah
+    saldo untuk membayar servis & pelatihan, bukan layanan purna jualnya); **`i-tpoint`** = koin Toffin Point warna asli (lingkar oranye, isi cokelat, api Toffin;
+    sama dengan `images/icon-toffin-points.png`) menggantikan `i-coins`. Dipakai di beranda (tab Toffin Rewards),
+    checkout (Pakai Toffin Point, poin didapat), Akun saya (menu, saldo, ringkasan, panel), detail pesanan (poin),
+    voucher (Voucher Servis); build script ikut diperbarui. `i-tools` tetap di Informasi Pengiriman (pengiriman mesin).
+
+45. **Akun saya: filter Toffin Points & cari alamat** (2026-10-15, permintaan Rendi; fitur filter mengikuti my-account v1).
+    Toffin Points: tab **Riwayat / Akan kedaluwarsa** + tombol **Filter** (angka jumlah filter aktif) yang membuka dialog
+    `#dlg-pt-filter`: **Point** (Semua / Poin diperoleh / Poin ditukarkan), **Tanggal** (Semua waktu / Hari ini / Bulan ini
+    / Tahun ini / Pilih tanggal sendiri: Mulai–Akhir; mengisi tanggal otomatis memilih "Pilih tanggal sendiri"; mulai >
+    akhir ditolak), Reset + Terapkan. Ringkasan filter aktif + "Hapus filter", keadaan kosong. Chip lama Diperoleh/Dipakai
+    dipindah ke dialog. Baris riwayat diberi `data-date`; contoh ditambah 2 transaksi Oktober + 1 dari 2025. Daftar Alamat:
+    kartu "Tambah alamat baru" di bawah daftar dihapus, kolom **cari alamat** (label, nama, telepon, alamat, kota; semua
+    kata harus cocok) sebaris dengan tombol Tambah alamat (tinggi sama 40px), jumlah hasil, keadaan kosong; contoh 10 alamat.
+    Lainnya: keterangan email di Profil dan catatan QC di kartu pesanan Daftar Belanja dihapus.
+
+46. **Detail produk: jumlah mentok di stok lokal, tambahan lewat cabang** (2026-10-15/16, permintaan Rendi). Kotak beli
+    (`detail-produk.html` & `detail-produk-flashsale.html`): jumlah utama tidak bisa melebihi stok gudang lokal (contoh
+    Jakarta 8) — tombol + nonaktif saat mentok, ketik angka lebih besar dipotong ke stok. Saat mentok (atau varian habis)
+    muncul "Stok yang tersedia: N", keterangan "Stok Jakarta maksimal N. Tambahan bisa diambil dari cabang lain." (N ikut stok varian)
+    dan blok **Rekomendasi Cabang** (tersembunyi di keadaan lain); tambahan diisi manual lewat stepper per cabang (maks.
+    stok cabang), total & subtotal = lokal + cabang. Turun di bawah stok → blok cabang tersembunyi dan isian cabang
+    dikosongkan. Alokasi otomatis ke cabang (versi sebelumnya) dihapus. `tf-product.js`: `set()`/`showBranch()`;
+    `product-detail.css`: `.pd-stepper button:disabled`. (Uji coba "Dikirim ke" + stok per gudang dibatalkan.)
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

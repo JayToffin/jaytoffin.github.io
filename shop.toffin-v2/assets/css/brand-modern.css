@@ -2,7 +2,7 @@
    Toffin v2 · brand-modern.css
    Halaman Brand (brand.html): hero gelap + marquee logo (usulan B) dan
    direktori kartu logo (usulan A), dipilih Rendi 2026-10-09 dari
-   preview-brand.html. Muat setelah tf-base.css + tf-layout.css.
+   preview-brand.html (sudah dihapus). Muat setelah tf-base.css + tf-layout.css.
    Tanpa ketergantungan pada home-modern.css / tf-products.css.
    ===================================================================== */
 .tf-brands { font-family: var(--tf-font); color: var(--tf-body); background: #fafafa; padding: 12px 0 48px; }
@@ -60,7 +60,7 @@
 @media (prefers-reduced-motion: reduce) { .tf-brands-mq__track { animation: none; } }
 
 /* ---------- chip kategori (sticky di bawah header) ---------- */
-.tf-brands-chips { position: sticky; top: 67px; z-index: 20; display: flex; gap: 8px; margin: 10px -20px 22px; padding: 10px 20px; overflow-x: auto; scrollbar-width: none; background: linear-gradient(180deg, #fafafa 78%, rgba(250, 250, 250, 0)); }
+.tf-brands-chips { position: sticky; top: 67px; z-index: 20; display: flex; gap: 8px; margin: 10px calc(-1 * var(--tf-gutter)) 22px; padding: 10px var(--tf-gutter); overflow-x: auto; scrollbar-width: none; background: linear-gradient(180deg, #fafafa 78%, rgba(250, 250, 250, 0)); }
 .tf-brands-chips::-webkit-scrollbar { display: none; }
 .tf-brands-chip { flex: none; display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: border-color .15s ease, background .15s ease, color .15s ease; }
 .tf-brands-chip b { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #f1f2f4; color: var(--tf-muted); font-size: 11px; font-weight: 800; }
@@ -105,7 +105,7 @@
 	.tf-brands-hero__copy h1 { font-size: 28px; }
 	.tf-brands-hero__lead { font-size: 13.5px; }
 	.tf-brands-search { max-width: none; }
-			.tf-brands-mq { margin: 4px -20px -4px; }
+			.tf-brands-mq { margin: 4px calc(-1 * var(--tf-gutter)) -4px; }
 	.tf-brands-mq__tile { width: 104px; height: 58px; }
 	.tf-brands-mq__tile img { max-width: 68px; max-height: 32px; }
 	.tf-brands-chips { position: static; margin: 14px 0 16px; padding: 0; background: none; }
