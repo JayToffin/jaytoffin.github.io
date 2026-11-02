@@ -490,7 +490,7 @@
   }
 }
 
-/* ─── 16 BRANDS (navy bento) ────────────────── */
+/* ─── 16 BRANDS (logo wall) ─────────────────── */
 .am-brands {
   background: var(--am-navy);
   color: #fff;
@@ -502,23 +502,24 @@
   position: absolute;
   inset: 0;
   background: url('../img/amarena/skyline.webp') center / cover no-repeat;
-  opacity: 0.35;
+  opacity: 0.3;
 }
 .am-brands__sky::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, var(--am-navy) 0%, rgba(22, 38, 77, 0.6) 50%, rgba(22, 38, 77, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(22, 38, 77, 0.55) 0%, rgba(22, 38, 77, 0.85) 60%, var(--am-navy) 100%);
 }
 .am-brands .container {
   position: relative;
   z-index: 2;
 }
-.am-brands__grid {
+.am-brands__head {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
+  grid-template-columns: 1fr auto;
+  gap: 2rem 4rem;
+  align-items: end;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 .am-brands .am-script {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
@@ -528,23 +529,23 @@
 .am-brands__big {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(4rem, 11vw, 8.5rem);
+  font-size: clamp(3.6rem, 9vw, 7rem);
   line-height: 0.95;
   letter-spacing: -0.02em;
   color: #fff;
 }
-.am-brands__big small {
-  display: block;
-  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+.am-brands__sub {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2vw, 1.4rem);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   color: #f6e8d2;
 }
 .am-brands__facts {
-  margin-top: 2rem;
   display: grid;
   gap: 1rem;
+  min-width: 260px;
 }
 .am-brands__facts div {
   border-left: 2px solid var(--am-gold);
@@ -552,57 +553,82 @@
 }
 .am-brands__facts h4 {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #f6e8d2;
   font-weight: 700;
 }
 .am-brands__facts p {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.72);
   margin-top: 0.2rem;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  max-width: 320px;
 }
-.am-brands__panel {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: calc(var(--am-radius) + 8px);
-  padding: clamp(1.25rem, 3vw, 2.5rem);
-  backdrop-filter: blur(6px);
+.am-logo-wall {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
 }
-.am-brands__panel .am-eyebrow {
-  color: var(--am-gold);
-  margin-bottom: 1.2rem;
+.am-logo {
+  aspect-ratio: 3 / 2;
+  display: grid;
+  place-items: center;
+  padding: 1.1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
 }
-.am-brand-strips {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
+.am-logo:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-3px);
 }
-.am-brand-strips img {
-  width: 100%;
+.am-logo img {
+  max-width: 80%;
+  max-height: 72%;
+  width: auto;
   height: auto;
-  display: block;
-  border-radius: 10px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
 }
-.am-brand-strips img + img {
-  width: 74%;
+.am-logo--more {
+  background: rgba(201, 162, 74, 0.12);
+  border-color: rgba(201, 162, 74, 0.35);
+  border-style: dashed;
 }
-.am-brand-strips .am-more {
-  margin-top: 1rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.28em;
+.am-logo--more span {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
   font-weight: 700;
+  color: var(--am-gold);
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .am-logo-wall {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 @media (max-width: 900px) {
-  .am-brands__grid {
+  .am-brands__head {
     grid-template-columns: 1fr;
+    align-items: start;
   }
-  .am-brand-strips img + img {
-    width: 100%;
+}
+@media (max-width: 600px) {
+  .am-logo-wall {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .am-logo {
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+  .am-logo img {
+    max-width: 84%;
+    max-height: 70%;
   }
 }
 
