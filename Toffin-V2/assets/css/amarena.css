@@ -134,12 +134,13 @@
 /* ─── HERO ──────────────────────────────────── */
 .am-hero {
   position: relative;
-  min-height: min(100vh, 900px);
+  height: 100vh;
+  height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(var(--nav-h) + 3rem) 0 7rem;
+  padding: calc(var(--nav-h) + 1rem) 0 3.5rem;
   overflow: hidden;
   background: var(--am-cream);
 }
@@ -158,32 +159,46 @@
 }
 .am-hero__snow {
   position: absolute;
-  inset: 0;
-  background: url('../img/amarena/snow.webp') repeat;
-  background-size: 480px;
-  opacity: 0.35;
-  mix-blend-mode: screen;
-  animation: am-snow 60s linear infinite;
+  inset: -20% 0 0 0;
+  background-image: url('../img/amarena/snow.webp'), url('../img/amarena/snow.webp');
+  background-size: 520px, 300px;
+  background-position: 0 0, 160px 90px;
+  background-repeat: repeat;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9)) brightness(1.15);
+  animation: am-snow 34s linear infinite;
+}
+.am-hero__snow--2 {
+  background-size: 760px, 420px;
+  background-position: 240px 40px, 60px 200px;
+  opacity: 0.7;
+  animation-duration: 52s;
+  animation-direction: reverse;
+  animation-name: am-snow-2;
 }
 @keyframes am-snow {
-  from { background-position: 0 0; }
-  to { background-position: 120px 960px; }
+  from { background-position: 0 0, 160px 90px; }
+  to { background-position: 180px 1040px, 40px 690px; }
+}
+@keyframes am-snow-2 {
+  from { background-position: 240px 40px, 60px 200px; }
+  to { background-position: 60px 1560px, 180px 1040px; }
 }
 .am-hero .container {
   position: relative;
   z-index: 2;
 }
 .am-hero__logo {
-  width: min(420px, 70vw);
+  width: min(420px, 70vw, 42svh);
   height: auto;
   margin: 0 auto;
   display: block;
   filter: drop-shadow(0 18px 30px rgba(22, 38, 77, 0.18));
 }
 .am-hero__tagline {
-  font-size: clamp(1.8rem, 4.2vw, 3rem);
+  font-size: clamp(1.6rem, min(4.2vw, 4.5svh), 3rem);
   color: var(--am-navy);
-  margin-top: 1.5rem;
+  margin-top: clamp(0.6rem, 2svh, 1.5rem);
 }
 .am-hero__tagline em {
   font-style: normal;
@@ -206,7 +221,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.6rem;
-  margin-top: 1.75rem;
+  margin-top: clamp(0.8rem, 2.2svh, 1.75rem);
 }
 .am-pill {
   display: inline-flex;
@@ -231,7 +246,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: clamp(0.9rem, 2.4svh, 2rem);
 }
 .am-hero__scroll {
   position: absolute;
@@ -256,8 +271,16 @@
 }
 @media (max-width: 900px) {
   .am-hero {
-    min-height: auto;
-    padding: calc(var(--nav-h) + 2.5rem) 0 3.5rem;
+    height: auto;
+    min-height: 100svh;
+    padding: calc(var(--nav-h) + 1rem) 0 2.5rem;
+  }
+  .am-hero__logo {
+    width: min(68vw, 30svh);
+  }
+  .am-pill {
+    font-size: 0.74rem;
+    padding: 0.4rem 0.9rem;
   }
   .am-hero__scroll {
     display: none;
@@ -1306,5 +1329,12 @@
   }
   .am-hero__snow {
     animation: none;
+  }
+}
+
+/* Layar pendek (laptop kecil): sembunyikan petunjuk scroll agar tidak menabrak tombol */
+@media (max-height: 740px) {
+  .am-hero__scroll {
+    display: none;
   }
 }
