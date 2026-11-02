@@ -1382,12 +1382,13 @@
   position: relative;
   z-index: 2;
 }
-.am-cta__cherry {
-  width: 70px;
+.am-cta__jar {
+  width: 128px;
   height: auto;
-  margin: 0 auto 0.5rem;
+  margin: 0 auto 1.25rem;
   display: block;
-  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.45));
+  transform: rotate(-6deg);
 }
 .am-cta .am-script {
   font-size: clamp(3rem, 8vw, 5.5rem);
