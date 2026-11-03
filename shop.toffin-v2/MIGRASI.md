@@ -1053,6 +1053,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     aktif penuh tanpa bayangan; sudut 14px, panah disembunyikan, dot pagination (`.swiper-pagination` anak langsung
     slider, pil gelap transparan di tengah bawah; hanya ponsel). Tablet/desktop tetap 2/3 poster rata kiri.
     `tf-sliders.js`: preset hero + pagination otomatis bila ada `.swiper-pagination` anak langsung.
+    Tambahan (Rendi): kartu **"Yuk, belanja di Toffin"** di ponsel diringkas jadi banner satu baris (judul 14px + subjudul
+    11,5px satu baris dipotong, tombol pil "Cek Sekarang" di kanan; padding 12px, tanpa min-height 150px); kotak widget
+    (`.tf-widgets`) padding 12px, gap 14px.
 
 ## Bobot aset lokal `index.html`
 
