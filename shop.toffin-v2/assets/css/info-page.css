@@ -435,6 +435,11 @@
 	text-decoration: none;
 	white-space: nowrap;
 }
+/* audit mobile 2026-11-03: di ponsel link panjang boleh wrap, sebelumnya memicu scroll horizontal (faq.html) */
+@media (max-width: 575.98px) {
+	.ip-inline { display: inline; white-space: normal; }
+	.ip-inline .tf-i { vertical-align: -.2em; margin-left: 4px; }
+}
 .ip-inline:hover { color: var(--ip-orange); text-decoration: none; }
 .ip-inline .tf-i { font-size: 11px; }
 

@@ -238,3 +238,6 @@
 	.tf-item__tag--fs { border-radius: 8px; row-gap: 3px; }
 	.tf-fs-cd { margin-left: 0; padding-left: 0; border-left: 0; }   /* turun ke baris kedua: tanpa garis pemisah */
 }
+
+/* audit mobile 2026-11-03: tombol chat naik di atas bar sticky keranjang (63px + bottom nav 65px) */
+@media (max-width: 1199.98px) { body:has(.tf-cart:not(.is-empty) .tf-cart__sticky) .tf-chat__toggle { bottom: calc(65px + 63px + 12px); } }

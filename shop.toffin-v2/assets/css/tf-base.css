@@ -92,3 +92,32 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
 .btn:focus, .btn.focus { box-shadow: none; }
 .btn:focus-visible { box-shadow: 0 0 0 3px rgba(248, 148, 31, .30); }
 .form-control:focus { border-color: rgba(248, 148, 31, .6); box-shadow: 0 0 0 3px rgba(248, 148, 31, .18); }
+
+/* =====================================================================
+   AUDIT MOBILE (2026-11-03, MIGRASI langkah 49)
+   ===================================================================== */
+/* iOS Safari memperbesar halaman saat fokus ke isian < 16px; samakan 16px di ponsel.
+   Dikecualikan: kotak OTP & qty sudah besar/khusus, checkbox/radio/range tidak relevan. */
+@media (max-width: 575.98px) {
+	input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([data-otp]):not([data-au-otp-boxes] input),
+	select, textarea { font-size: 16px !important; }
+}
+/* Target sentuh: perluas area ketuk kontrol kecil (ikon tooltip, tutup chip, salin, tautan teks) tanpa mengubah tampilan. */
+@media (max-width: 1199.98px) {
+	.tf-cat__x, .au-tip__btn, .pd-tip__btn, .tf-od__copy, .tf-okcopy, .tf-vc__tnc, .tf-co__link, .tf-coi__toggle,
+	.tf-filter__reset, .tf-cart__bar-del, .tf-bundle-toggle, .pd-more, .tf-alink, .tf-flash__terms, .tf-rguest__reg,
+	.tf-flinks a, .tf-fmini a, .tf-fcontact a, .tf-fslim a { position: relative; }
+	.tf-cat__x::before, .au-tip__btn::before, .pd-tip__btn::before, .tf-od__copy::before, .tf-okcopy::before, .tf-vc__tnc::before,
+	.tf-co__link::before, .tf-coi__toggle::before, .tf-filter__reset::before, .tf-cart__bar-del::before, .tf-bundle-toggle::before,
+	.pd-more::before, .tf-alink::before, .tf-flash__terms::before, .tf-rguest__reg::before,
+	.tf-flinks a::before, .tf-fmini a::before, .tf-fcontact a::before, .tf-fslim a::before {
+		content: ""; position: absolute; left: -6px; right: -6px; top: 50%; height: 44px; transform: translateY(-50%);
+	}
+	.tf-bottomnav__item, .tf-amtabs a, .leaflet-control-zoom a { min-height: 40px; }
+}
+/* Teks terkecil dinaikkan ke 11px di ponsel (label countdown, label bar kirim, tag diskon/bonus, stub voucher). */
+@media (max-width: 575.98px) {
+	/* awalan html: agar menang dari aturan di CSS halaman yang dimuat setelah tf-base.css */
+	html :is(.tf-home, .tf-fsp) .tf-flash .fs-lbl, html .tf-vc__stub span, html .tf-trk .leaflet-control-attribution { font-size: 11px; }
+	html .tf-deliverbar__lbl, html .tf-coi__tag, html .tf-coi__unit .tf-coi__off, html .tf-ship__destt > small, html .tf-fs-cd b, html .tf-pk__var { font-size: 11px; }
+}

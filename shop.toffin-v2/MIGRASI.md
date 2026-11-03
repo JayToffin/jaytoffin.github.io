@@ -1033,6 +1033,17 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     langkah progres "Diproses & QC" → "Diproses", banner status diproses tanpa teks QC, estimasi "setelah QC" → "setelah
     dikirim". Tetap ada: S&K + Informasi Pengiriman (dialog checkout), `pengiriman.html`, `informasi-pengiriman*.html`.
 
+49. **Audit mobile & perbaikan** (2026-11-03, permintaan Rendi). 25 halaman v2 dirender 390×844 (harness iframe + Chrome
+    headless): nol error JS, semua ada meta viewport. Perbaikan: (a) tombol chat naik di atas bar sticky detail produk
+    (`body:has(.pd-stickybar.is-on)`) & keranjang (`body:has(.tf-cart:not(.is-empty) .tf-cart__sticky)`), sebelumnya
+    tertimpa bar; (b) `faq.html` scroll horizontal 429px karena `.ip-inline{white-space:nowrap}` → boleh wrap ≤575px;
+    (c) semua `input/select/textarea` 16px di ≤575px (`tf-base.css`, cegah zoom otomatis iOS Safari; kotak OTP dikecualikan);
+    (d) area ketuk 44px lewat `::before` untuk kontrol kecil (ikon tooltip, tutup chip, Salin, S&K voucher, tautan footer,
+    toggle isi paket, dsb) tanpa mengubah tampilan; (e) teks < 11px dinaikkan ke 11px di ponsel (label countdown, bar kirim,
+    tag diskon/bonus, stub voucher, varian paket); (f) fade di tepi kanan tab Akun saya (`.tf-amtabs` mask); (g) bottom nav
+    ditambahkan ke `flashsale.html` (Promo aktif) dan atribut `class` ganda di item Category bottom nav (product-list, cart)
+    dirapikan. Belum: atribut width/height gambar kartu (CLS), tinggi header beranda 95px.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

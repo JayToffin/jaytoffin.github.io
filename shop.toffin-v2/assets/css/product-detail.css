@@ -304,3 +304,6 @@ body.is-fs .pd-price { background: linear-gradient(100deg, #fff1f1 0%, #fff7ed 1
 .pd-rel .tf-viewall { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 100px; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 13px; font-weight: 800; white-space: nowrap; text-decoration: none; transition: background .2s ease, color .2s ease, gap .2s ease; }
 .pd-rel .tf-viewall:hover { background: var(--tf-orange); color: #fff; gap: 9px; text-decoration: none; }
 .pd-rel .tf-viewall .tf-i { width: 16px; height: 16px; }
+
+/* audit mobile 2026-11-03: tombol chat naik di atas bar sticky (bar 61px + bottom nav 65px) supaya tidak tertimpa */
+@media (max-width: 1199.98px) { body:has(.pd-stickybar.is-on) .tf-chat__toggle { bottom: calc(65px + 61px + 12px); } }
