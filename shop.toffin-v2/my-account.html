@@ -524,7 +524,7 @@
 	<!-- ===== Akun saya (MIGRASI.md langkah 35). Ditulis ulang: kolom kiri (profil, 2 saldo, menu) + panel per bagian
 	     (Ringkasan, Daftar Belanja, Favorit, Toffin Points, Service Credit, Daftar Alamat, Metode Pembayaran, Profil & Keamanan);
 	     ponsel = tab geser. Fitur lama dipertahankan: biodata, ubah sandi, verifikasi ID (KTP/NPWP), hapus akun, alamat +
-	     pinpoint, Toffin Points + S&K + riwayat/kedaluwarsa, Service Credit + S&K + mutasi, metode pembayaran + S&K Credit Limit,
+	     pinpoint, Toffin Points + S&K + riwayat/kedaluwarsa, Service Credit + S&K + mutasi, metode pembayaran,
 	     daftar belanja + filter status, favorit, keluar. Modal Bootstrap lama diganti dialog ringan (.tf-dlg) tanpa jQuery.
 	     Perilaku: assets/js/tf-account.js; peta: assets/js/tf-map.js; gaya: assets/css/account.css. ===== -->
 	<main class="tf-acc" data-tf-account>
@@ -586,7 +586,6 @@
 					<div class="tf-acard tf-apay">
 						<div class="tf-apay__row"><span class="tf-apay__logo"><img src="images/payment/bca.svg" alt="BCA"></span><div class="tf-apay__t"><strong>Virtual Account BCA</strong><small>Terakhir dipakai 14 Okt 2026</small></div><span class="tf-abadge tf-abadge--ok">Utama</span></div>
 						<div class="tf-apay__row"><span class="tf-apay__logo"><img src="images/payment/visa.svg" alt="Visa"></span><div class="tf-apay__t"><strong>Kartu Kredit Visa</strong><small>•••• •••• •••• 4421 · berlaku s.d. 08/28</small></div><button type="button" class="tf-alink" data-pay-del>Hapus</button></div>
-						<div class="tf-apay__row"><span class="tf-apay__logo"><svg class="tf-i" aria-hidden="true"><use href="#i-wallet"/></svg></span><div class="tf-apay__t"><strong>Credit Limit Toffin</strong><small>Sisa limit Rp 10.000.000 · jatuh tempo 30 hari</small></div><button type="button" class="tf-alink" data-dlg-open="dlg-info-cl">Ketentuan</button></div>
 					</div>
 				</section>
 				<section class="tf-apane" data-acc-pane="profil" hidden>
@@ -852,37 +851,6 @@
             <ul>
               <li>Service Credits tidak dapat diuangkan kembali, ditukar, atau dipindah ke akun lain.</li>
               <li>Toffin berhak mengubah harga, ketentuan penggunaan, atau kebijakan program Service Credits kapan saja.</li>
-            </ul></div>
-		</div>
-	</div>
-	<div class="tf-dlg" id="dlg-info-cl" role="dialog" aria-modal="true" aria-labelledby="dlg-info-cl-t">
-		<div class="tf-dlg__box">
-			<div class="tf-dlg__head"><h3 id="dlg-info-cl-t">Syarat &amp; Ketentuan Credit Limit</h3><button type="button" class="tf-dlg__x" data-dlg-close aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
-			<div class="tf-dlg__body"><p>Credit Limit adalah fasilitas bayar tempo yang memungkinkan Anda berbelanja produk Toffin tanpa membayar langsung. Anda dapat melunasi transaksi sebelum tanggal jatuh tempo yang sudah ditentukan.</p>
-            <h6>Penggunaan Credit Limit</h6>
-            <ul>
-              <li>Credit Limit dapat digunakan untuk membeli produk melalui Toffin App.</li>
-              <li>Credit Limit hanya dapat digunakan jika:
-                <ul>
-                  <li>Saldo kredit mencukupi, dan</li>
-                  <li>Belum melewati batas pembayaran (due date).</li>
-                </ul>
-              </li>
-              <li>Jika saldo kurang atau sudah melewati tanggal jatuh tempo, metode pembayaran Credit Limit tidak dapat digunakan.</li>
-              <li>Credit Limit hanya berlaku di lokasi Toffin tertentu sesuai pengaturan akun Anda. Jika Anda berbelanja di kota lain, metode pembayaran Credit Limit mungkin tidak muncul.</li>
-              <li>Anda bisa melihat histori pemakaian Credit Limit pada menu Mutasi di Toffin App.</li>
-            </ul>
-            <h6>Pembayaran Transaksi Credit Limit</h6>
-            <ul>
-              <li>Semua transaksi yang menggunakan Credit Limit akan muncul di menu Transaksi Belum Terbayarkan.</li>
-              <li>Anda wajib melakukan pembayaran transaksi tersebut melalui Toffin App untuk memulihkan saldo Credit Limit.</li>
-              <li>Pembayaran di luar Toffin App (misalnya transfer manual ke Toffin) tidak akan memperbarui saldo Credit Limit Anda.</li>
-            </ul>
-            <h6>Ketentuan Tambahan</h6>
-            <ul>
-              <li>Credit Limit tidak bisa diuangkan, dipindahtangankan, atau digunakan untuk membayar ongkir maupun biaya admin.</li>
-              <li>Jika Anda melewati tanggal jatuh tempo dan belum melakukan pembayaran, Credit Limit tidak dapat digunakan untuk transaksi berikutnya.</li>
-              <li>Toffin berhak mengubah ketentuan Credit Limit kapan saja sesuai kebijakan.</li>
             </ul></div>
 		</div>
 	</div>

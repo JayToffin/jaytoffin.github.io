@@ -857,7 +857,7 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     produk global, hapus + "Batalkan"), **Toffin Points** & **Service Credit** (kartu saldo bergradasi, S&K di dialog, chip
     Riwayat/Diperoleh/Dipakai/Akan kedaluwarsa, baris mutasi berikon), **Daftar Alamat** (kartu, utama di depan, tambah/ubah
     di dialog dengan validasi, hapus dengan konfirmasi + Batalkan, jadikan utama, pinpoint lewat tf-map.js), **Metode
-    Pembayaran** (logo bank/kartu, S&K Credit Limit), **Profil & Keamanan** (biodata + validasi, email terkunci, verifikasi
+    Pembayaran** (logo bank/kartu; baris & S&K Credit Limit dihapus 2026-11-03, Rendi), **Profil & Keamanan** (biodata + validasi, email terkunci, verifikasi
     ID unggah KTP/NPWP → "Sedang ditinjau", ubah sandi via tautan email, keluar, hapus akun dengan centang persetujuan).
     Hash lama (#settings, #daftar-belanja, …) tetap diarahkan. Tanpa jQuery/Bootstrap JS/datepicker di halaman ini.
     File: `assets/css/account.css`, `assets/js/tf-account.js`; dialog `.tf-dlg` & peta `.tf-pin` dipindah dari checkout.css
