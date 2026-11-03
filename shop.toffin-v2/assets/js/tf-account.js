@@ -238,10 +238,24 @@
 	/* ---------- profil & keamanan ---------- */
 	var pForm = $('[data-prof-form]');
 	pForm.addEventListener('input', function (e) { var f = e.target.closest('.tf-afld'); if (f) f.classList.remove('is-invalid'); });
+	var phone0 = pForm.phone.value.trim();
 	$('[data-prof-save]').addEventListener('click', function () {
 		var bad = ['name', 'phone'].filter(function (k) { var v = !pForm[k].value.trim(); pForm[k].closest('.tf-afld').classList.toggle('is-invalid', v); return v; });
 		if (bad.length) { pForm[bad[0]].focus(); return; }
-		say('Perubahan profil disimpan');
+		var phone = pForm.phone.value.trim();
+		if (phone === phone0) { say('Perubahan profil disimpan'); return; }
+		/* nomor HP berubah → kode OTP ke nomor baru (contoh: 123456). Produksi: kirim via WhatsApp/SMS, verifikasi di server */
+		window.tfUI.confirm({
+			title: 'Verifikasi nomor baru', icon: 'i-phone', ok: 'Verifikasi & simpan',
+			text: 'Kode 6 digit dikirim via WhatsApp ke <b>' + window.tfUI.esc(phone) + '</b>. Nomor lama tetap dipakai sampai kode diverifikasi.',
+			html: '<label class="tf-ufld"><span>Kode verifikasi</span><input type="text" class="tf-uotp" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="••••••" data-otp></label>',
+			onOk: function (body, api) {
+				var v = body.querySelector('[data-otp]').value.replace(/\D/g, '');
+				if (v.length < 6) { api.error('Masukkan 6 digit kode.'); return false; }
+				if (v !== '123456') { api.error('Kode tidak cocok. Periksa WhatsApp Anda.'); return false; }
+				phone0 = phone; say('Nomor HP diverifikasi, profil disimpan');
+			}
+		});
 	});
 	/* ---------- verifikasi ID: KTP & NPWP (boleh salah satu) ----------
 	   Keadaan per bagian: 'edit' (form) | 'pending' (menunggu verifikasi) | 'verified' (terverifikasi)
@@ -416,6 +430,14 @@
 		var done = keys.filter(function (k) { return r[k].complete; });
 		if (partial.length) { var first = r[partial[0]].firstBad; if (first) { (first.type === 'file' ? first.closest('.tf-afld') : first).scrollIntoView({ behavior: 'smooth', block: 'center' }); if (first.type !== 'file') first.focus({ preventScroll: true }); } return; }
 		if (!done.length) { vErr.hidden = false; vErr.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+		var lbls = done.map(function (k) { return VSEC[k].label; }).join(' & ');
+		window.tfUI.confirm({
+			title: 'Kirim data ' + lbls + ' untuk verifikasi?', icon: 'i-id', ok: 'Kirim',
+			text: 'Tim Toffin memeriksa data dalam 1–2 hari kerja. <b>Selama proses, data ' + lbls + ' tidak bisa diubah atau dibatalkan.</b> Pastikan nomor, nama, alamat, dan foto sudah benar.',
+			onOk: function () { sendVerif(done); }
+		});
+	});
+	function sendVerif(done) {
 		verifBtn.disabled = true; verifBtn.textContent = 'Mengirim…';
 		setTimeout(function () {   /* produksi: kirim ke Odoo (res.partner + lampiran) */
 			done.forEach(function (k) {
@@ -426,7 +448,7 @@
 			renderVerif();
 			say('Data ' + done.map(function (k) { return VSEC[k].label; }).join(' & ') + ' terkirim, menunggu verifikasi');
 		}, 700);
-	});
+	}
 	renderVerif();
 	document.addEventListener('click', function (e) {   /* dialog ubah sandi selalu mulai dari langkah 1 */
 		if (!e.target.closest('[data-dlg-open="dlg-pass"]')) return;
@@ -436,8 +458,35 @@
 		var b = this; b.disabled = true; b.textContent = 'Mengirim…';
 		setTimeout(function () { $('[data-pass-step="1"]').hidden = true; $('[data-pass-step="2"]').hidden = false; b.disabled = false; b.textContent = 'Selesai'; b.setAttribute('data-dlg-close', ''); }, 900);
 	});
-	var delAgree = $('[data-del-agree]'), delOk = $('[data-del-ok]');
-	delAgree.addEventListener('change', function () { delOk.disabled = !delAgree.checked; });
-	delOk.addEventListener('click', function () { delOk.disabled = true; delOk.textContent = 'Menghapus…'; setTimeout(function () { location.href = 'index.html'; }, 900); });   /* produksi: hapus akun di server */
-	$$('[data-pay-del]').forEach(function (b) { b.addEventListener('click', function () { var row = b.closest('.tf-apay__row'), p = row.parentNode, n = row.nextSibling; row.remove(); say('Kartu dihapus', function () { p.insertBefore(row, n); }); }); });
+	/* hapus akun: wajib kata sandi + centang. Contoh: sandi "rahasia". Produksi: verifikasi sandi di server (atau OTP) sebelum hapus */
+	var delAgree = $('[data-del-agree]'), delOk = $('[data-del-ok]'), delPass = $('[data-del-pass]');
+	function delCheck() { delOk.disabled = !(delAgree.checked && delPass.value.length >= 6); }
+	delAgree.addEventListener('change', delCheck); delPass.addEventListener('input', function () { delPass.closest('.tf-afld').classList.remove('is-invalid'); delCheck(); });
+	delOk.addEventListener('click', function () {
+		if (delPass.value !== 'rahasia') { delPass.closest('.tf-afld').classList.add('is-invalid'); delPass.focus(); return; }
+		delOk.disabled = true; delOk.textContent = 'Menghapus…';
+		setTimeout(function () { location.href = 'index.html?keluar=1'; }, 900);   /* produksi: hapus akun di server, kirim email "akun dihapus" */
+	});
+	/* hapus metode pembayaran: dialog konfirmasi, lalu toast dengan Batalkan */
+	$$('[data-pay-del]').forEach(function (b) { b.addEventListener('click', function () {
+		var row = b.closest('.tf-apay__row'), name = row.querySelector('strong').textContent, sub = row.querySelector('small').textContent;
+		window.tfUI.confirm({
+			title: 'Hapus metode pembayaran?', danger: true, icon: 'i-trash', ok: 'Hapus',
+			text: '<b>' + window.tfUI.esc(name) + '</b><br>' + window.tfUI.esc(sub) + '<br>Anda bisa menambahkannya lagi saat checkout.',
+			onOk: function () { var p = row.parentNode, n = row.nextSibling; row.remove(); say('Kartu dihapus', function () { p.insertBefore(row, n); }); }
+		});
+	}); });
+	/* ubah foto profil: pilih berkas → pratinjau di avatar */
+	var photoBtn = $('[data-prof-photo]'), photoInp = $('[data-prof-photo-input]'), avatar = $('[data-prof-avatar]');
+	if (photoBtn && photoInp) {
+		photoBtn.addEventListener('click', function () { photoInp.click(); });
+		photoInp.addEventListener('change', function () {
+			var f = photoInp.files[0]; if (!f) return;
+			if (!/^image\/(png|jpeg)$/.test(f.type) || f.size > 2 * 1024 * 1024) { say('Foto harus JPG/PNG maks. 2 MB'); photoInp.value = ''; return; }
+			var url = URL.createObjectURL(f);
+			avatar.innerHTML = '<img src="' + url + '" alt="">'; avatar.classList.add('has-img');
+			var sm = document.querySelector('.tf-ahero__avatar, [data-acc-avatar]'); if (sm) { sm.innerHTML = '<img src="' + url + '" alt="">'; sm.classList.add('has-img'); }
+			say('Foto profil diperbarui');   /* produksi: unggah ke server */
+		});
+	}
 })();

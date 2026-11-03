@@ -211,7 +211,13 @@
 		row.querySelector('[data-fs-note-txt]').textContent = 'Sesi sudah berakhir, harga kembali normal.';
 		var qi = row.querySelector('[data-qty]'); if (qi) qi.setAttribute('max', '99');
 		recalc();
+		/* sesi habis saat halaman terbuka → beri tahu (bukan saat muat pertama, yang sudah tampil sebagai label) */
+		if (fsStarted && window.tfUI) {
+			var nm = row.querySelector('.tf-item__name, [data-name], h3, strong'); nm = nm ? nm.textContent.trim() : 'barang flash sale';
+			window.tfUI.toast('Flash sale <b>' + window.tfUI.esc(nm) + '</b> berakhir, harga kembali normal dan total diperbarui', { kind: 'warn', ms: 5000 });
+		}
 	}
+	var fsStarted = false;
 	function tickFs() {
 		var live = 0, gone = (Date.now() - t0) / 1000;
 		$$('.tf-item.is-fs').forEach(function (row) {
@@ -223,7 +229,7 @@
 		if (!live) clearInterval(fsTimer);
 	}
 	var fsTimer = setInterval(tickFs, 1000);
-	tickFs();
+	tickFs(); fsStarted = true;
 
 	recalc();
 })();

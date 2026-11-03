@@ -48,12 +48,34 @@
 	tabs.forEach(function (t) { t.addEventListener('click', function () { showTab(t.getAttribute('data-fs-tab'), true); }); });
 
 	/* ---------- ingatkan saya: delegasi karena kartu dirender JS (contoh: hanya keadaan tombol; produksi = simpan pengingat) ---------- */
-	document.addEventListener('click', function (e) {
-		var b = e.target.closest('[data-fs-remind]'); if (!b) return;
-		var on = !b.classList.contains('is-on');
+	var remindVia = 'wa';   /* kanal terakhir yang dipilih, dipakai sebagai bawaan berikutnya */
+	function setRemind(b, on) {
 		b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on);
 		b.querySelector('use').setAttribute('href', on ? '#i-bell-ringing' : '#i-bell');
 		b.querySelector('span').textContent = on ? 'Pengingat aktif' : 'Ingatkan saya';
+	}
+	document.addEventListener('click', function (e) {
+		var b = e.target.closest('[data-fs-remind]'); if (!b) return;
+		var card = b.closest('.product, article'), tEl = card && card.querySelector('.fs-product-title'), name = tEl ? tEl.textContent.trim() : 'produk ini';
+		var sess = document.querySelector('[data-fs-tab="fs-next"]'), when = sess ? sess.textContent.replace(/\s+/g, ' ').trim() : 'sesi berikutnya';
+		if (b.classList.contains('is-on')) {   /* matikan: tanpa dialog, bisa dibatalkan lewat toast */
+			setRemind(b, false);
+			window.tfUI.toast('Pengingat <b>' + window.tfUI.esc(name) + '</b> dimatikan', { kind: 'info', undo: function () { setRemind(b, true); } });
+			return;
+		}
+		/* aktifkan: pilih kanal pengingat. Produksi: simpan ke server (partner + produk + sesi + kanal), kirim 10 menit sebelum sesi */
+		var opt = function (v, l, d) { return '<label class="tf-uopt"><input type="radio" name="via" value="' + v + '"' + (remindVia === v ? ' checked' : '') + '><span>' + l + '<small>' + d + '</small></span></label>'; };
+		window.tfUI.confirm({
+			title: 'Ingatkan saya saat sesi mulai', icon: 'i-bell-ringing', ok: 'Aktifkan pengingat',
+			text: '<b>' + window.tfUI.esc(name) + '</b><br>Kami kirim pengingat 10 menit sebelum sesi flash sale dimulai.',
+			html: opt('wa', 'WhatsApp', 'ke nomor akun Anda') + opt('email', 'Email', 'ke email akun Anda') + opt('app', 'Notifikasi Toffin App', 'hanya bila aplikasi terpasang'),
+			onOk: function (body) {
+				var v = body.querySelector('[name=via]:checked'); remindVia = v ? v.value : 'wa';
+				setRemind(b, true);
+				var lbl = { wa: 'WhatsApp', email: 'email', app: 'notifikasi app' }[remindVia];
+				window.tfUI.toast('Pengingat aktif. Kami kirim via <b>' + lbl + '</b> 10 menit sebelum sesi.', { undo: function () { setRemind(b, false); } });
+			}
+		});
 	});
 
 	/* ---------- pemuat bertahap umum: skeleton → kartu, lanjut saat sentinel mendekati layar ---------- */

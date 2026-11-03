@@ -182,3 +182,10 @@
 	.tf-trk__veh { display: flex; align-items: center; gap: 8px; flex: 1 1 100%; padding-left: 64px; text-align: left; }
 	.tf-trk__veh small { margin: 0; }
 }
+
+/* masa klaim setelah tiba (langkah 47) */
+.tf-trk__claim { border-color: #fde68a; background: #fffbeb; }
+.tf-trk__claim .tf-trk__h .tf-i { color: #d97706; }
+.tf-trk__claim p { margin: 0 0 12px; color: #92400e; font-size: 12.5px; line-height: 1.5; }
+.tf-trk__claim p b { color: #78350f; }
+.tf-trk__btn--claim { display: inline-flex; width: auto; }

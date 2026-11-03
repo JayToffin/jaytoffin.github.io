@@ -158,3 +158,125 @@ document.addEventListener('mouseover', function (e) {
 	var a = e.target.closest && e.target.closest('.fs-product-title a');
 	if (a && !a.title) a.title = a.textContent.trim();
 });
+
+/* =====================================================================
+   Umpan balik bersama (MIGRASI langkah 47): window.tfUI
+   - tfUI.toast(html, {kind: 'ok'|'warn'|'info', link: {href, label}, undo: fn, ms})
+   - tfUI.confirm({title, text, html, ok, cancel, danger, icon, onOk(box) → false = tetap buka, onCancel})
+   - tfUI.badge(n): naikkan angka keranjang di header + animasi
+   Dipakai tf-account, tf-checkout, tf-order, tf-flash, tf-cart, tf-product, tf-auth.
+   Produksi: tetap sisi klien; isi pesan datang dari respons server.
+   ===================================================================== */
+(function () {
+	'use strict';
+	function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+	function ico(id) { return '<svg class="tf-i" aria-hidden="true"><use href="#' + id + '"/></svg>'; }
+
+	/* ---------- toast ---------- */
+	var toastEl = null, toastTimer, undoFn = null;
+	function toast(html, o) {
+		o = o || {};
+		if (!toastEl) {
+			toastEl = document.createElement('div'); toastEl.className = 'tf-utoast'; toastEl.setAttribute('role', 'status'); toastEl.setAttribute('aria-live', 'polite');
+			document.body.appendChild(toastEl);
+			toastEl.addEventListener('click', function (e) {
+				if (e.target.closest('[data-ut-undo]')) { if (undoFn) undoFn(); undoFn = null; hide(); }
+			});
+		}
+		var kind = o.kind || 'ok', icon = { ok: 'i-circle-check', warn: 'i-alert-circle', info: 'i-info-circle' }[kind] || 'i-circle-check';
+		undoFn = o.undo || null;
+		toastEl.className = 'tf-utoast tf-utoast--' + kind;
+		toastEl.innerHTML = ico(icon) + '<span>' + html + '</span>' +
+			(o.link ? '<a href="' + esc(o.link.href) + '">' + esc(o.link.label) + '</a>' : '') +
+			(o.undo ? '<button type="button" data-ut-undo>Batalkan</button>' : '');
+		toastEl.classList.remove('is-on'); void toastEl.offsetWidth; toastEl.classList.add('is-on');
+		clearTimeout(toastTimer); toastTimer = setTimeout(hide, o.ms || (o.undo ? 5000 : 3200));
+	}
+	function hide() { if (toastEl) toastEl.classList.remove('is-on'); }
+
+	/* ---------- dialog konfirmasi ---------- */
+	var dlg = null, cur = null, lastFocus = null;
+	function build() {
+		dlg = document.createElement('div'); dlg.className = 'tf-udlg'; dlg.setAttribute('role', 'alertdialog'); dlg.setAttribute('aria-modal', 'true'); dlg.setAttribute('aria-labelledby', 'tf-udlg-t'); dlg.hidden = true;
+		dlg.innerHTML = '<div class="tf-udlg__box"><span class="tf-udlg__ico" data-ud-ico></span><h3 id="tf-udlg-t" data-ud-title></h3><p data-ud-text></p><div class="tf-udlg__body" data-ud-body></div>' +
+			'<p class="tf-udlg__err" data-ud-err hidden></p><div class="tf-udlg__act"><button type="button" class="tf-udlg__cancel" data-ud-cancel>Batal</button><button type="button" class="tf-udlg__ok" data-ud-ok>OK</button></div></div>';
+		document.body.appendChild(dlg);
+		dlg.addEventListener('click', function (e) {
+			if (e.target === dlg || e.target.closest('[data-ud-cancel]')) close(false);
+			else if (e.target.closest('[data-ud-ok]')) close(true);
+		});
+		dlg.addEventListener('input', function () { var er = dlg.querySelector('[data-ud-err]'); er.hidden = true; });
+		document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && cur) close(false); });
+	}
+	function confirm(o) {
+		if (!dlg) build();
+		cur = o; lastFocus = document.activeElement;
+		var box = dlg.querySelector('.tf-udlg__box');
+		box.classList.toggle('is-danger', !!o.danger); box.classList.toggle('is-wide', !!o.wide);
+		dlg.querySelector('[data-ud-ico]').innerHTML = ico(o.icon || (o.danger ? 'i-alert-circle' : 'i-info-circle'));
+		dlg.querySelector('[data-ud-title]').textContent = o.title || '';
+		var t = dlg.querySelector('[data-ud-text]'); t.innerHTML = o.text || ''; t.hidden = !o.text;
+		var b = dlg.querySelector('[data-ud-body]'); b.innerHTML = o.html || ''; b.hidden = !o.html;
+		dlg.querySelector('[data-ud-err]').hidden = true;
+		var c = dlg.querySelector('[data-ud-cancel]'); c.textContent = o.cancel || 'Batal'; c.hidden = o.cancel === false;
+		var k = dlg.querySelector('[data-ud-ok]'); k.textContent = o.ok || 'OK'; k.disabled = false;
+		dlg.hidden = false; document.body.classList.add('tf-lock');
+		var f = b.querySelector('input, select, textarea'); (f || c.hidden ? k : c).focus();
+		if (f) f.focus();
+	}
+	function error(msg) { var er = dlg.querySelector('[data-ud-err]'); er.textContent = msg; er.hidden = false; }
+	function close(ok) {
+		if (!cur) return;
+		var o = cur;
+		if (ok && o.onOk) {
+			var r = o.onOk(dlg.querySelector('[data-ud-body]'), { error: error, button: dlg.querySelector('[data-ud-ok]') });
+			if (r === false) return;   /* validasi gagal: dialog tetap terbuka */
+		}
+		cur = null; dlg.hidden = true; document.body.classList.remove('tf-lock');
+		if (!ok && o.onCancel) o.onCancel();
+		if (lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
+	}
+
+	/* ---------- badge keranjang ---------- */
+	function badge(n) {
+		document.querySelectorAll('.tf-util__badge').forEach(function (b) {
+			b.textContent = (parseInt(b.textContent, 10) || 0) + (n || 1);
+			b.classList.remove('is-bump'); void b.offsetWidth; b.classList.add('is-bump');
+		});
+	}
+
+	window.tfUI = { toast: toast, confirm: confirm, badge: badge, esc: esc };
+
+	/* ---------- Logout: konfirmasi dulu (keranjang tamu akan hilang) ---------- */
+	document.addEventListener('click', function (e) {
+		var a = e.target.closest('.tf-acc__item--danger, .tf-mnav__acc-danger, .tf-mnav__link--danger, [data-tf-logout]');
+		if (!a) return;
+		e.preventDefault();
+		confirm({
+			title: 'Keluar dari akun?', icon: 'i-logout',
+			text: 'Keranjang dan daftar favorit tetap tersimpan di akun Anda. Anda perlu masuk lagi untuk melanjutkan belanja.',
+			ok: 'Keluar', cancel: 'Tetap masuk',
+			onOk: function () { location.href = 'index.html?keluar=1'; }   /* produksi: /web/session/logout */
+		});
+	});
+	if (/[?&]keluar=1/.test(location.search)) {
+		toast('Anda sudah keluar dari akun', { kind: 'info', link: { href: 'login.html', label: 'Masuk lagi' } });
+		if (history.replaceState) history.replaceState(null, '', location.pathname);
+	}
+
+	/* ---------- Add to cart dari kartu produk (homepage, daftar produk, flash sale, rekomendasi) ----------
+	   Kartu paket bundling (data-bundle-cta) punya alur sendiri di tf-bundle.js. */
+	document.addEventListener('click', function (e) {
+		var btn = e.target.closest('.product .fs-btn-primary, .tf-cards .fs-btn-primary');
+		if (!btn || btn.hasAttribute('data-bundle-cta') || btn.closest('[data-tf-bundle]')) return;
+		if (btn.tagName === 'A' && btn.getAttribute('href') && btn.getAttribute('href') !== '#') return;   /* tautan sungguhan (mis. ke detail) */
+		e.preventDefault();
+		if (btn.classList.contains('is-added')) return;
+		var card = btn.closest('.product, .fs-card, article') || btn.parentNode, tEl = card.querySelector('.fs-product-title');
+		var name = tEl ? tEl.textContent.trim() : 'Produk';
+		badge(1);
+		toast('<b>' + esc(name) + '</b> masuk keranjang', { link: { href: 'cart.html', label: 'Lihat keranjang' } });
+		var html = btn.innerHTML; btn.classList.add('is-added'); btn.innerHTML = ico('i-check') + ' Masuk keranjang';
+		setTimeout(function () { btn.classList.remove('is-added'); btn.innerHTML = html; }, 1800);
+	});
+})();

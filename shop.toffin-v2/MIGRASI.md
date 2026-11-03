@@ -998,6 +998,35 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     stok cabang), total & subtotal = lokal + cabang. Turun di bawah stok → blok cabang tersembunyi dan isian cabang
     dikosongkan. Alokasi otomatis ke cabang (versi sebelumnya) dihapus. `tf-product.js`: `set()`/`showBranch()`;
     `product-detail.css`: `.pd-stepper button:disabled`. (Uji coba "Dikirim ke" + stok per gudang dibatalkan.)
+47. **Flow notifikasi & konfirmasi** (2026-11-03, permintaan Rendi, dari audit shop.toffin-v2). Komponen bersama
+    `window.tfUI` di `tf-nav.js` (CSS `.tf-utoast` / `.tf-udlg` di `tf-layout.css`): `toast(html, {kind, link, undo, ms})`,
+    `confirm({title, text, html, ok, cancel, danger, icon, wide, onOk(body, api) → false = tetap buka, onCancel})`, `badge(n)`.
+    `tf-nav.js` kini juga dimuat di `existing-user.html`, `otp.html`, `checkout.html`. Alur yang ditambahkan:
+    - **Logout** (dropdown akun, sheet ponsel, Akun saya › Keamanan `data-tf-logout`): dialog "Keluar dari akun?" → `index.html?keluar=1`
+      → toast "Anda sudah keluar" + tautan Masuk lagi.
+    - **Add to cart** kartu produk (homepage, daftar produk, flash sale, rekomendasi; delegasi `.product .fs-btn-primary`, kecuali
+      paket bundling yang punya alur sendiri) dan tombol utama + bar bawah detail produk: toast "<nama> masuk keranjang" + Lihat
+      keranjang, badge header naik, tombol sesaat hijau "Masuk keranjang". Detail produk: varian kosong → toast peringatan;
+      stok lokal 0 tanpa isian cabang → blok Rekomendasi Cabang dibuka + toast arahan.
+    - **Akun saya**: hapus akun wajib kata sandi (contoh `rahasia`) + centang; hapus metode pembayaran lewat dialog konfirmasi lalu
+      toast Batalkan; kirim KTP/NPWP didahului dialog "data tidak bisa diubah selama proses"; simpan profil dengan nomor HP
+      berubah → dialog OTP 6 digit (contoh 123456); Ubah foto → pilih berkas, pratinjau di kedua avatar.
+    - **Existing user**: tombol Pilih → dialog "Kirim kode verifikasi?" dengan email disamarkan (r***i@…). **OTP**: 3 kali salah
+      → kotak terkunci sampai kirim ulang; kode kedaluwarsa 5 menit; kirim ulang → toast "kode baru dikirim".
+    - **Flash sale › Akan datang › Ingatkan saya**: dialog pilih kanal (WhatsApp / Email / Notifikasi app) → toast "pengingat aktif"
+      dengan Batalkan; matikan tanpa dialog, bisa dibatalkan lewat toast.
+    - **Keranjang**: sesi flash sale habis saat halaman terbuka → toast peringatan (muat pertama tetap hanya label).
+    - **Checkout**: kasus QA `price` (B5: banner + dialog konfirmasi harga lama → baru sebelum bayar) dan `session` (K5: dialog
+      sesi berakhir, draf tersimpan `tfCheckoutDraft`, `login.html?next=` kembali ke checkout dan memulihkan pilihan).
+    - **Detail pesanan**: status belum dibayar punya tombol "Batalkan pesanan" → dialog alasan (radio + catatan) → status baru
+      `cancelled` ("Dibatalkan oleh Anda", progres merah, aksi Beli lagi); status selesai punya kartu masa klaim 1x24 jam
+      (hitung dari `steps[4]` + 24 jam; lewat masa → kartu abu "masa klaim berakhir"; `?klaim=1` memaksa buka) dengan dialog
+      "Ajukan klaim" (jenis, keterangan ≥10 karakter, video unboxing wajib ≤200 MB) → kartu "Klaim CL-… sedang diverifikasi".
+      Keadaan batal/klaim prototipe disimpan di sessionStorage `tfOrderLocal` per nomor pesanan.
+    - **Lacak pesanan** keadaan `tiba`: kartu kuning "Periksa paket sekarang" + batas klaim + tombol ke
+      `detail-pembelian.html?so=…&klaim=1`.
+    Belum dibuat (butuh backend/template): email OTP, pesanan dikirim (resi), pesanan dibatalkan, pengingat batas bayar,
+    akun dihapus, pengingat flash sale, tanda terima klaim.
 
 ## Bobot aset lokal `index.html`
 

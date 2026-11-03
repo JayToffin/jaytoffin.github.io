@@ -533,7 +533,7 @@
 			<div class="tf-acc__grid">
 			<aside class="tf-acc__side">
 				<div class="tf-acard tf-aprof">
-					<div class="tf-aprof__top"><span class="tf-avatar">RB</span></div>
+					<div class="tf-aprof__top"><span class="tf-avatar" data-acc-avatar>RB</span></div>
 					<div class="tf-aprof__name"><strong>Rendi Bagus</strong><small>rendi@toffin.com</small></div>
 					<div class="tf-aprof__badges"><a href="#profil" data-acc-tab="profil" data-go="verifikasi" class="tf-abadge tf-abadge--warn" data-verif-badge><svg class="tf-i" aria-hidden="true"><use href="#i-clock"/></svg> Belum terverifikasi</a></div>
 				</div>
@@ -592,7 +592,7 @@
 				<section class="tf-apane" data-acc-pane="profil" hidden>
 					<div class="tf-apane__head"><div><h2>Profil &amp; Keamanan</h2><p>Data diri, verifikasi ID, dan keamanan akun</p></div></div>
 					<div class="tf-acard tf-asec"><div class="tf-asec__head"><h3><svg class="tf-i" aria-hidden="true"><use href="#i-user"/></svg> Biodata diri</h3></div><div class="tf-asec__body">
-						<div class="tf-aprow"><span class="tf-avatar">RB</span><div><strong>Rendi Bagus</strong><p>Member Toffin sejak 2024</p><button type="button" class="tf-alink">Ubah foto</button></div></div>
+						<div class="tf-aprow"><span class="tf-avatar" data-prof-avatar>RB</span><div><strong>Rendi Bagus</strong><p>Member Toffin sejak 2024</p><button type="button" class="tf-alink" data-prof-photo>Ubah foto</button><input type="file" accept="image/png,image/jpeg" data-prof-photo-input hidden></div></div>
 						<form class="tf-aform" data-prof-form novalidate>
 							<label class="tf-afld"><span>Nama lengkap</span><input type="text" name="name" value="Rendi Bagus" required><em>Nama wajib diisi.</em></label>
 							<label class="tf-afld"><span>No. handphone</span><input type="tel" name="phone" value="0812 2200 0XXX" required><em>Nomor wajib diisi.</em></label>
@@ -629,7 +629,7 @@
 					</div></div>
 					<div class="tf-acard tf-asec" id="keamanan"><div class="tf-asec__head"><h3><svg class="tf-i" aria-hidden="true"><use href="#i-shield-check"/></svg> Keamanan</h3></div>
 						<div class="tf-asecure"><svg class="tf-i" aria-hidden="true"><use href="#i-lock"/></svg><div><strong>Kata sandi</strong><small>Ubah kata sandi lewat tautan yang dikirim ke email</small></div><button type="button" class="tf-abtn tf-abtn--ghost tf-abtn--sm" data-dlg-open="dlg-pass">Ubah</button></div>
-						<div class="tf-asecure"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg><div><strong>Keluar dari akun</strong><small>Akhiri sesi di perangkat ini</small></div><a href="login.html" class="tf-abtn tf-abtn--ghost tf-abtn--sm">Keluar</a></div>
+						<div class="tf-asecure"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg><div><strong>Keluar dari akun</strong><small>Akhiri sesi di perangkat ini</small></div><a href="login.html" class="tf-abtn tf-abtn--ghost tf-abtn--sm" data-tf-logout>Keluar</a></div>
 						<div class="tf-asecure tf-asecure--danger"><svg class="tf-i" aria-hidden="true"><use href="#i-trash"/></svg><div><strong>Hapus akun</strong><small>Permanen; riwayat pesanan, poin, dan service credit ikut terhapus</small></div><button type="button" class="tf-abtn tf-abtn--ghost tf-abtn--sm" data-dlg-open="dlg-del">Hapus akun</button></div>
 					</div>
 				</section>
@@ -770,6 +770,7 @@
 		<div class="tf-dlg__box">
 			<div class="tf-dlg__head"><h3 id="dlg-del-t">Hapus akun?</h3><button type="button" class="tf-dlg__x" data-dlg-close aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
 			<div class="tf-dlg__body"><div class="tf-adanger"><svg class="tf-i" aria-hidden="true"><use href="#i-alert-circle"/></svg><span>Tindakan ini permanen. Riwayat pesanan, alamat, Toffin Points, dan Service Credit akan terhapus dan tidak bisa dikembalikan.</span></div>
+				<label class="tf-afld" style="margin-top:12px"><span>Masukkan kata sandi untuk konfirmasi</span><input type="password" name="del_pass" data-del-pass autocomplete="current-password" placeholder="Kata sandi akun"><em>Kata sandi salah.</em></label>
 				<label class="tf-acheck"><input type="checkbox" data-del-agree> Saya mengerti dan ingin menghapus akun ini</label></div>
 			<div class="tf-dlg__foot"><button type="button" class="tf-abtn tf-abtn--ghost" data-dlg-close>Batal</button><button type="button" class="tf-abtn tf-abtn--danger" data-del-ok disabled>Hapus akun</button></div>
 		</div>

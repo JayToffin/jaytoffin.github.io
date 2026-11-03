@@ -23,7 +23,7 @@
 .tf-ostat--process { background: #fff4e7; color: #c2410c; }
 .tf-ostat--ship { background: #eef2ff; color: #4338ca; }
 .tf-ostat--done { background: #e8f7ee; color: #15803d; }
-.tf-ostat--expired { background: #f1f2f5; color: var(--tf-muted); }
+.tf-ostat--expired, .tf-ostat--cancelled { background: #f1f2f5; color: var(--tf-muted); }
 
 /* kepala pesanan */
 .tf-od__top { margin-bottom: 14px; padding: 18px 20px 20px; }
@@ -156,3 +156,8 @@
 	.tf-od__info { padding: 2px 14px 6px; }
 	.tf-od__info > div { grid-template-columns: 1fr; gap: 3px; }
 }
+
+/* batalkan pesanan (belum dibayar) & klaim (langkah 47) */
+.tf-od__btn--danger { color: #b91c1c; }
+.tf-od__btn--danger:hover { border-color: #e5484d; color: #b91c1c; background: #fff1f1; }
+.tf-od__bact .tf-btn--sm { white-space: nowrap; }

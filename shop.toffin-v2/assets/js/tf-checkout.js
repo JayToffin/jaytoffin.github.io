@@ -60,6 +60,36 @@
 	if (qa('stock')) $$('[data-co-item]').forEach(function (it) { if (/Milk Pitcher/.test(it.textContent)) { it.classList.add('is-off'); } });
 	if (qa('fsend')) $$('[data-fs-end]').forEach(function (it) { it.setAttribute('data-fs-end', '0'); });
 	if (qa('shiperr')) { var bdg = $('#ship-bdg'); if (bdg) bdg.setAttribute('data-failed', '1'); }
+	/* harga berubah sejak keranjang (skenario B5). Produksi: server membandingkan harga keranjang vs harga saat checkout dan mengirim daftar perubahan */
+	var priceChanges = [], priceAck = false;
+	if (qa('price')) {
+		var it0 = $$('[data-co-item]:not(.is-fs):not(.is-off)')[0];
+		if (it0) {
+			var was = parseInt(it0.getAttribute('data-price'), 10), now = Math.round(was * 1.05 / 1000) * 1000;
+			it0.setAttribute('data-price', now); var u0 = $('[data-unit]', it0); if (u0) u0.textContent = rupiah(now);
+			priceChanges.push({ name: $('.tf-coi__name', it0).textContent, was: was, now: now, qty: +it0.getAttribute('data-qty') });
+			var pb = $('[data-co-pricechg]'); pb.hidden = false; $('[data-co-pricechg-list]', pb).textContent = priceChanges.map(function (c) { return c.name; }).join(', ');
+		}
+	}
+	/* sesi masuk berakhir (skenario K5): draf pilihan disimpan, pelanggan diarahkan masuk lalu kembali ke sini */
+	var DRAFT_KEY = 'tfCheckoutDraft';
+	function saveDraft() {
+		try {
+			var pay = $('[name=payment]:checked'), bank = $('[name=vabank]:checked');
+			sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ ships: SH.map(function (sh) { return { type: sh.type, courier: sh.courier, addr: sh.addr, note: ($('[data-ship-note]', sh.el) || {}).value || '', ins: !!($('[data-ship-ins]', sh.el) || {}).checked }; }),
+				payment: pay ? pay.value : '', bank: bank ? bank.value : '', agree: $('[data-co-agree]').checked, tax: $('[data-tax-toggle]').checked, points: !!($('[data-co-points]') || {}).checked, voucher: applied ? applied.code : '' }));
+		} catch (err) {}
+	}
+	function restoreDraft() {
+		var d = null; try { d = JSON.parse(sessionStorage.getItem(DRAFT_KEY) || 'null'); sessionStorage.removeItem(DRAFT_KEY); } catch (err) {}
+		if (!d) return false;
+		(d.ships || []).forEach(function (x, i) { if (!SH[i]) return; SH[i].type = x.type; SH[i].courier = x.courier; if (x.addr) SH[i].addr = x.addr; var n = $('[data-ship-note]', SH[i].el); if (n) n.value = x.note; var ins = $('[data-ship-ins]', SH[i].el); if (ins) ins.checked = x.ins; });
+		if (d.payment) { var p = $('[name=payment][value=' + d.payment + ']'); if (p) p.checked = true; }
+		if (d.bank) { var bk = $('[name=vabank][value=' + d.bank + ']'); if (bk) bk.checked = true; }
+		$('[data-co-agree]').checked = !!d.agree; $('[data-tax-toggle]').checked = !!d.tax; var pt = $('[data-co-points]'); if (pt) pt.checked = !!d.points;
+		if (d.voucher && typeof VOUCHERS !== 'undefined') { var v = VOUCHERS.filter(function (x) { return x.code === d.voucher; })[0]; if (v) applied = v; }
+		return true;
+	}
 
 	var ships = $$('[data-co-ship]');
 	ships.forEach(function (s, i) { var sm = $('[data-ship-step]', s); if (sm) sm.textContent = 'Pengiriman ' + (i + 1) + ' dari ' + ships.length; });
@@ -329,6 +359,26 @@
 		if (!p) return;
 		e.preventDefault();
 		if (state.todo.length) { renderTodo(true); goTo(state.todo[0].el); return; }
+		if (priceChanges.length && !priceAck) {   /* B5: konfirmasi ulang harga sebelum bayar */
+			window.tfUI.confirm({
+				title: 'Harga berubah sejak dari keranjang', icon: 'i-info-circle', ok: 'Lanjut bayar ' + rupiah(state.total), cancel: 'Kembali ke keranjang', wide: true,
+				text: 'Harga barang berikut berbeda dari saat Anda menambahkannya. Total tagihan sudah memakai harga terbaru.',
+				html: '<ul class="tf-ulist">' + priceChanges.map(function (c) { return '<li><span>' + window.tfUI.esc(c.name) + ' × ' + c.qty + '</span><b><s>' + rupiah(c.was) + '</s>' + rupiah(c.now) + '</b></li>'; }).join('') + '</ul>',
+				onOk: function () { priceAck = true; p.click(); },
+				onCancel: function () { location.href = 'cart.html'; }
+			});
+			return;
+		}
+		if (qa('session')) {   /* K5: sesi login berakhir saat menekan bayar. Produksi: respons 401/403 dari server */
+			saveDraft(); cases.splice(cases.indexOf('session'), 1); params.set('case', cases.join(',')); if (!cases.length) params.delete('case');
+			var back = 'checkout.html' + (params.toString() ? '?' + params.toString() : '');
+			window.tfUI.confirm({
+				title: 'Sesi masuk berakhir', icon: 'i-lock', ok: 'Masuk lagi', cancel: false,
+				text: 'Demi keamanan, sesi Anda berakhir setelah lama tidak aktif. Pilihan pengiriman dan pembayaran sudah kami simpan, Anda akan kembali ke halaman ini setelah masuk.',
+				onOk: function () { location.href = 'login.html?next=' + encodeURIComponent(back); }
+			});
+			return;
+		}
 		$$('[data-co-pay]').forEach(function (a) { a.classList.add('is-busy'); var s = a.querySelector('span') || a; s.textContent = 'Memproses…'; });
 		saveOrder();
 		setTimeout(function () { location.href = p.getAttribute('href'); }, 1000);   /* produksi: buat pesanan → halaman instruksi bayar */
@@ -520,7 +570,9 @@
 	}
 
 	/* ---------- mulai ---------- */
+	var restored = restoreDraft();
 	renderShips();
+	if (restored) window.tfUI.toast('Selamat datang kembali. Pilihan pengiriman dan pembayaran Anda sudah dipulihkan.', { kind: 'info', ms: 4200 });
 	var fsTimer = setInterval(tickFs, 1000);
 	tickFs();
 	recalc();

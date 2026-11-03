@@ -92,7 +92,13 @@
 	function helpCard() {
 		return '<a href="https://wa.me/6281199833780?text=' + encodeURIComponent('Halo Toffin, saya butuh bantuan pengiriman pesanan ' + D.so + ' (' + D.booking + ')') + '" target="_blank" rel="noopener noreferrer" class="tf-trk__card tf-trk__help">' + ico('i-headset') + '<span><strong>Ada kendala pengiriman?</strong> Chat tim Toffin via WhatsApp</span>' + ico('i-chevron-right') + '</a>';
 	}
-	$('[data-trk-panel]').innerHTML = statusCard() + proofCard() + driverCard() + routeCard() + timeline() + helpCard();
+	function claimCard() {
+		if (st !== 'tiba') return '';
+		return '<section class="tf-trk__card tf-trk__claim"><h2 class="tf-trk__h">' + ico('i-hourglass-high') + ' Periksa paket sekarang</h2>' +
+			'<p>Klaim barang rusak, kurang, atau tidak sesuai diterima <b>maksimal 1x24 jam</b> sejak diterima, yaitu sampai <b>16 Okt 2026, 14.41 WIB</b>. Rekam video unboxing tanpa jeda sebelum membuka paket.</p>' +
+			'<a href="detail-pembelian.html?so=' + encodeURIComponent(D.so) + '&klaim=1" class="tf-trk__btn tf-trk__btn--claim">' + ico('i-camera') + ' Ajukan klaim</a></section>';
+	}
+	$('[data-trk-panel]').innerHTML = statusCard() + proofCard() + claimCard() + driverCard() + routeCard() + timeline() + helpCard();
 	if (st === 'tiba') { var lv = $('[data-trk-live]'); if (lv) lv.hidden = true; }
 	if (st === 'cari') { var lv2 = $('[data-trk-live] span'); if (lv2) lv2.textContent = 'Mencari driver terdekat…'; }
 

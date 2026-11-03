@@ -15,6 +15,8 @@ Buka `checkout.html?qa=1`. Tambahkan `&demo=partial` atau `&demo=full` untuk men
 | Bandung dikirim ke Outlet Bandung | `checkout.html?qa=1&case=split` |
 | NPWP sudah lengkap | `checkout.html?qa=1&case=npwp` |
 | Hanya Toffin Jakarta (total kecil) | `checkout.html?qa=1&case=small` |
+| Harga berubah sejak keranjang | `checkout.html?qa=1&case=price` |
+| Sesi login berakhir saat bayar | `checkout.html?qa=1&case=session` |
 
 Data contoh untuk pengujian:
 
@@ -60,7 +62,7 @@ Setiap distributor dikirim dari gudang berbeda, jadi setiap kartu distributor pu
 | B2 | Paket bundling | Tag "Paket Bundling", "N produk dalam paket", dan isi paket bisa dibuka beserta chip varian warna | Prototipe |
 | B3 | Bonus produk | Daftar bonus berlabel hijau "Gratis" dengan catatan "dikirim jika stok masih tersedia". Bonus tidak memengaruhi total | Prototipe |
 | B4 | Stok habis saat checkout (`stock`) | Baris abu-abu dengan total dicoret, catatan "Stok habis…", dan banner merah berisi tautan ke keranjang. Barang tidak ikut dihitung | Prototipe |
-| B5 | Harga berubah sejak dari keranjang | Banner "Harga X berubah", total diperbarui, dan pelanggan diminta mengonfirmasi ulang | Backend |
+| B5 | Harga berubah sejak dari keranjang (`price`) | Banner kuning "Harga X berubah", harga dan total memakai nilai baru. Saat Bayar ditekan muncul dialog daftar harga lama → baru dengan tombol "Lanjut bayar Rp X" atau "Kembali ke keranjang". Lanjut = pesanan dibuat; dialog tidak muncul lagi | Prototipe (UI), Backend (data) |
 | B6 | Semua barang habis | Butir "Tidak ada barang yang bisa dibayar" dan tombol bayar terkunci | Prototipe (logika), Backend (data) |
 | B7 | Varian paket tidak tersedia | Paket tidak bisa sampai checkout karena sudah dinonaktifkan di keranjang. Jika terjadi saat checkout, perlakuannya sama dengan B4 | Backend |
 
@@ -137,7 +139,7 @@ Metode pembayaran tampil sebagai daftar ringkas berisi tiga baris: Virtual Accou
 | K2 | Butir di daftar diklik | Halaman bergulir ke kartu terkait | Prototipe |
 | K3 | Semua syarat lengkap | Tombol aktif. Saat ditekan muncul "Memproses…", lalu halaman berpindah ke success-checkout.html | Prototipe |
 | K4 | Tombol ditekan dua kali | Tombol terkunci setelah tekan pertama sehingga tidak ada pesanan ganda | Prototipe (UI), Backend (idempoten) |
-| K5 | Sesi login berakhir | Diarahkan ke halaman masuk, lalu kembali ke checkout | Backend |
+| K5 | Sesi login berakhir (`session`) | Saat Bayar ditekan muncul dialog "Sesi masuk berakhir" (hanya tombol Masuk lagi). Pilihan pengiriman, asuransi, catatan, pembayaran, bank, faktur, poin, voucher, dan centang S&K disimpan (sessionStorage `tfCheckoutDraft`). Setelah masuk di `login.html?next=…` kembali ke checkout dengan pilihan terpulih dan toast "Selamat datang kembali" | Prototipe (UI), Backend (sesi) |
 | K6 | Keranjang diubah di tab lain | Checkout memuat ulang data dan memberi tahu perubahan | Backend |
 
 ## 8. Tampilan dan aksesibilitas

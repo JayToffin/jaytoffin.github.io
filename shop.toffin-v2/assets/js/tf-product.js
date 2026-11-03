@@ -118,6 +118,26 @@
 		root.addEventListener('change', function (e) { if (e.target.name === 'variant_id') set(parseInt(inp.value, 10)); });
 		q.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { set(parseInt(inp.value, 10) + parseInt(b.getAttribute('data-q'), 10)); }); });
 		inp.addEventListener('change', function () { set(parseInt(inp.value, 10)); });
+		/* Add to cart (tombol utama + bar bawah ponsel): umpan balik toast + badge. Produksi: POST ke keranjang Odoo (per gudang) */
+		var h1 = root.querySelector('.pd-title h1, h1'), pname = h1 ? h1.textContent.trim() : 'Produk';
+		root.querySelectorAll('[data-pd-cta], .pd-stickybar .tf-btn').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var r = root.querySelector('input[name=variant_id]:checked');
+				if (r && r.getAttribute('data-avail') === 'false') { window.tfUI.toast('Varian <b>' + window.tfUI.esc(r.getAttribute('data-name') || '') + '</b> sedang kosong, pilih varian lain', { kind: 'warn' }); return; }
+				var max = local(), l = Math.min(parseInt(inp.value, 10) || 0, max), b = branchQty(), n = l + b;
+				if (!n) {   /* stok lokal kosong & belum ambil dari cabang: arahkan ke rekomendasi cabang */
+					showBranch(true); root.querySelectorAll('[data-pd-branch]').forEach(function (x) { x.nextElementSibling.hidden = false; x.setAttribute('aria-expanded', 'true'); });
+					var pb = root.querySelector('.pd-branch'); if (pb) pb.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					window.tfUI.toast('Stok gudang terdekat kosong. Pilih jumlah dari <b>cabang lain</b> di bawah jumlah.', { kind: 'warn', ms: 4200 });
+					return;
+				}
+				var vn = root.querySelector('[data-pd-varname]'), vtxt = vn && vn.textContent.trim() ? ' · ' + vn.textContent.trim() : '';
+				window.tfUI.badge(n);
+				window.tfUI.toast('<b>' + n + ' ×</b> ' + window.tfUI.esc(pname + vtxt) + ' masuk keranjang' + (b ? ' (' + b + ' dari cabang lain)' : ''), { link: { href: 'cart.html', label: 'Lihat keranjang' } });
+				var html = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<svg class="tf-i" aria-hidden="true"><use href="#i-check"/></svg> Masuk keranjang';
+				setTimeout(function () { btn.disabled = false; btn.innerHTML = html; }, 1800);
+			});
+		});
 	});
 	/* rekomendasi cabang: buka/tutup; stepper per cabang */
 	document.querySelectorAll('[data-pd-branch]').forEach(function (b) { b.addEventListener('click', function () { var pnl = b.nextElementSibling, open = pnl.hidden; pnl.hidden = !open; b.setAttribute('aria-expanded', open); }); });

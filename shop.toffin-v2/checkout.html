@@ -47,6 +47,7 @@
 
 			<div class="tf-co__banner" data-co-fsbanner hidden><svg class="tf-i" aria-hidden="true"><use href="#i-bolt"/></svg><span>Ada <b data-co-fscount>0</b> barang flash sale. Harga flash berlaku selama sesi berlangsung, sesi tercepat berakhir dalam <b class="tf-cd" data-co-fscd>--:--</b>.</span></div>
 			<div class="tf-co__banner tf-co__banner--warn" data-co-fsended hidden><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg><span>Sesi flash sale berakhir. Harga <b data-co-fsended-list></b> kembali normal dan total sudah diperbarui.</span></div>
+			<div class="tf-co__banner tf-co__banner--warn" data-co-pricechg hidden><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg><span>Harga <b data-co-pricechg-list></b> berubah sejak ditambahkan ke keranjang. Total sudah diperbarui, Anda akan diminta mengonfirmasi ulang sebelum membayar.</span></div>
 			<div class="tf-co__banner tf-co__banner--err" data-co-stockout hidden><svg class="tf-i" aria-hidden="true"><use href="#i-alert-circle"/></svg><span>Stok <b data-co-stockout-list></b> habis saat checkout. Barang ini tidak ikut dibayar. <a href="cart.html">Kembali ke keranjang</a> untuk memperbarui pesanan.</span></div>
 
 			<div class="tf-co__grid">
@@ -310,6 +311,8 @@
 		<label><input type="checkbox" data-qa="split"> Bandung dikirim ke Outlet Bandung</label>
 		<label><input type="checkbox" data-qa="npwp"> NPWP sudah lengkap</label>
 		<label><input type="checkbox" data-qa="small"> Hanya Toffin Jakarta (total kecil)</label>
+		<label><input type="checkbox" data-qa="price"> Harga berubah sejak keranjang</label>
+		<label><input type="checkbox" data-qa="session"> Sesi login berakhir saat bayar</label>
 	</div>
 	<!-- Footer ringkas untuk halaman transaksi (MIGRASI.md langkah 24): tanpa kolom navigasi, hanya legal + bantuan + metode bayar -->
 	<footer class="tf-footer tf-footer--slim">
@@ -333,6 +336,7 @@
 	</footer>
 
 	<script src="assets/js/tf-map.js"></script>
+	<script src="assets/js/tf-nav.js"></script>
 	<script src="assets/js/tf-checkout.js"></script>
 </body>
 </html>

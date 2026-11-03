@@ -25,6 +25,10 @@
 		form.addEventListener('submit', function (e) {
 			e.preventDefault(); if (!validate(form)) return;
 			var btn = form.querySelector('.au-submit'); btn.classList.add('is-busy');
+			/* ?next=checkout.html… (sesi berakhir saat bayar): contoh langsung dianggap berhasil dan kembali ke halaman asal.
+			   Produksi: server memvalidasi, lalu redirect ke next (hanya path di domain sendiri). */
+			var next = new URLSearchParams(location.search).get('next');
+			if (next && /^[a-z0-9-]+\.html(\?[^#]*)?$/i.test(next)) { setTimeout(function () { location.href = next; }, 900); return; }
 			/* contoh: tanpa backend, tampilkan pesan gagal setelah jeda */
 			setTimeout(function () { btn.classList.remove('is-busy'); form.querySelector('[data-au-alert]').hidden = false; }, 900);
 		});
@@ -197,12 +201,21 @@
 			show(true);
 		}, 900);
 	});
+	function maskMail(v) { var p = v.split('@'); if (p.length < 2) return v; var u = p[0]; return (u.length <= 2 ? u[0] + '*' : u.slice(0, 2) + '***' + u.slice(-1)) + '@' + p[1]; }
 	matches.querySelectorAll('[data-au-match-pick]').forEach(function (b) {
 		b.addEventListener('click', function () {
-			var m = b.closest('.au-match'); matches.querySelectorAll('.au-match').forEach(function (x) { x.classList.remove('is-picked'); }); m.classList.add('is-picked');
-			b.classList.add('is-busy'); b.textContent = 'Mengirim kode…';
-			try { var ctc = JSON.parse(m.getAttribute('data-au-contact') || '{}'); ctc.email = mail.value.trim(); sessionStorage.setItem('tfExisting', JSON.stringify(ctc)); } catch (err) {}   /* dibawa ke otp.html & register.html (contoh) */
-			setTimeout(function () { location.href = 'otp.html'; }, 900);   /* contoh: kode OTP dikirim → halaman OTP */
+			var m = b.closest('.au-match'), name = m.querySelector('strong').textContent, email = mail.value.trim();
+			/* konfirmasi dulu: kontak yang dipilih menentukan akun mana yang diambil alih */
+			window.tfUI.confirm({
+				title: 'Kirim kode verifikasi?', icon: 'i-mail', ok: 'Kirim kode',
+				text: 'Kode 6 digit dikirim ke <b>' + window.tfUI.esc(maskMail(email)) + '</b> untuk mengaktifkan kontak <b>' + window.tfUI.esc(name) + '</b>. Pastikan Anda bisa membuka email tersebut.',
+				onOk: function () {
+					matches.querySelectorAll('.au-match').forEach(function (x) { x.classList.remove('is-picked'); }); m.classList.add('is-picked');
+					b.classList.add('is-busy'); b.textContent = 'Mengirim kode…';
+					try { var ctc = JSON.parse(m.getAttribute('data-au-contact') || '{}'); ctc.email = email; sessionStorage.setItem('tfExisting', JSON.stringify(ctc)); sessionStorage.setItem('tfOtpSent', String(Date.now())); } catch (err) {}   /* dibawa ke otp.html & register.html (contoh) */
+					setTimeout(function () { location.href = 'otp.html'; }, 900);   /* contoh: kode OTP dikirim → halaman OTP */
+				}
+			});
 		});
 	});
 	var back = matches.querySelector('[data-au-match-back]');
@@ -242,19 +255,35 @@
 			boxes.forEach(function (x, k) { x.value = d[k] || ''; }); boxes[Math.min(d.length, 6) - 1].focus(); sync();
 		});
 	});
+	/* batas percobaan & masa berlaku kode (contoh: 3 kali salah → kunci sampai kirim ulang; kode berlaku 5 menit).
+	   Produksi: server yang menghitung percobaan dan masa berlaku; klien hanya menampilkan pesannya. */
+	var MAX_TRY = 3, TTL = 5 * 60 * 1000, tries = 0, locked = false, expTimer;
+	var alertT = alert.querySelector('span'), alertDefault = alertT.textContent;
+	function lock(msg) { locked = true; alertT.textContent = msg; alert.hidden = false; wrap.classList.add('is-invalid'); boxes.forEach(function (b) { b.value = ''; b.disabled = true; }); btn.disabled = true; }
+	function unlock() { locked = false; tries = 0; alert.hidden = true; alertT.textContent = alertDefault; wrap.classList.remove('is-invalid'); boxes.forEach(function (b) { b.disabled = false; }); }
+	function armExpiry() { clearTimeout(expTimer); expTimer = setTimeout(function () { lock('Kode sudah kedaluwarsa (berlaku 5 menit). Minta kode baru lewat "kirim ulang".'); }, TTL); }
 	form.addEventListener('submit', function (e) {
-		e.preventDefault(); if (val.value.length < 6) return; btn.classList.add('is-busy');
+		e.preventDefault(); if (val.value.length < 6 || locked) return; btn.classList.add('is-busy');
 		/* contoh tanpa backend: 123456 benar. Produksi: verifikasi ke server, lalu register.html?existing=1 */
 		setTimeout(function () {
 			btn.classList.remove('is-busy');
-			if (val.value !== '123456') { wrap.classList.add('is-invalid'); alert.hidden = false; boxes.forEach(function (b) { b.value = ''; }); boxes[0].focus(); btn.disabled = true; return; }
+			if (val.value !== '123456') {
+				tries++;
+				if (tries >= MAX_TRY) { lock('Terlalu banyak percobaan (' + MAX_TRY + ' kali). Minta kode baru lewat "kirim ulang".'); return; }
+				alertT.textContent = 'Kode tidak cocok. Sisa percobaan: ' + (MAX_TRY - tries) + '.';
+				wrap.classList.add('is-invalid'); alert.hidden = false; boxes.forEach(function (b) { b.value = ''; }); boxes[0].focus(); btn.disabled = true; return;
+			}
+			clearTimeout(expTimer);
 			location.href = act ? 'login.html?aktif=1' : 'register.html?existing=1';   /* aktivasi: akun aktif → masuk */
 		}, 900);
 	});
 	var left = 60, tick;
 	function countdown() { left = 60; resend.disabled = true; clearInterval(tick); tick = setInterval(function () { left--; timer.textContent = '(' + left + ')'; if (left <= 0) { clearInterval(tick); timer.textContent = ''; resend.disabled = false; } }, 1000); timer.textContent = '(' + left + ')'; }
-	resend.addEventListener('click', function () { countdown(); boxes.forEach(function (b) { b.value = ''; }); sync(); boxes[0].focus(); });
-	countdown(); boxes[0].focus();
+	resend.addEventListener('click', function () {
+		countdown(); unlock(); armExpiry(); boxes.forEach(function (b) { b.value = ''; }); sync(); boxes[0].focus();
+		if (window.tfUI) window.tfUI.toast('Kode baru dikirim ke <b>' + window.tfUI.esc(to ? to.textContent : 'email Anda') + '</b>. Kode sebelumnya tidak berlaku lagi.', { kind: 'info' });
+	});
+	countdown(); armExpiry(); boxes[0].focus();
 }());
 
 /* ---------- aktivasi pendaftaran (check-email.html) ---------- */
