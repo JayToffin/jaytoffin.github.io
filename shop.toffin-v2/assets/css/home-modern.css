@@ -87,7 +87,7 @@
 /* ---------- Widgets block (Kategori Populer + Toffin Rewards) ---------- */
 .tf-widgets {
 	display: grid;
-	grid-template-columns: 1.35fr 1fr;
+	grid-template-columns: 1fr 1fr;   /* 50:50 (Rendi, 2026-11-03) */
 	gap: 20px;
 	background: #fff;
 	border: 1px solid var(--tf-line);

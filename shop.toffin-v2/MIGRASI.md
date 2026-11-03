@@ -1069,6 +1069,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     (`.tf-favrow`: foto 48px, nama maks. 2 baris, harga, tombol **Pesan** = add to cart sekali klik lewat delegasi `tf-nav.js`
     yang ditambah selector `.tf-favlist .fs-btn-primary`; toast + badge keranjang), footer "Lihat semua favorit (8)" + "Ke keranjang".
     Rendi: tanpa daftar produk di kartu, langsung popup. Ponsel: baris 40px, tombol 30px. Produksi: isi dari wishlist akun.
+    Kotak widget 50:50 (dulu 1,35:1). **Service Credit dihapus dari Toffin Rewards beranda** (tab + panel + teks ajakan;
+    fitur hanya ada di Toffin App, Rendi 2026-11-03). `my-account.html` masih punya tab Service Credit (belum diputuskan).
     CSS `.tf-catpromo*` dan `images/e1prima_header.png` dihapus.
 
 ## Bobot aset lokal `index.html`
