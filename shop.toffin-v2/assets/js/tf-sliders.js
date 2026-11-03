@@ -15,9 +15,9 @@
 		/* hero poster homepage: ponsel 1 poster + intipan (lebar slide dari CSS, 'auto') / 2 / 3, berputar otomatis,
 		   dot pagination (.swiper-pagination anak langsung slider) */
 		hero: {
-			loop: true, speed: 600, slidesPerView: 'auto', spaceBetween: 8,
+			loop: true, speed: 600, slidesPerView: 'auto', spaceBetween: 10, centeredSlides: true,   /* ponsel: poster aktif di tengah, intipan kiri-kanan */
 			autoplay: { delay: 5500, disableOnInteraction: false },
-			breakpoints: { 576: { slidesPerView: 2, spaceBetween: 14 }, 992: { slidesPerView: 3, spaceBetween: 16 } }
+			breakpoints: { 576: { slidesPerView: 2, spaceBetween: 14, centeredSlides: false }, 992: { slidesPerView: 3, spaceBetween: 16, centeredSlides: false } }
 		},
 		/* Flash Sale & Flash Sale Berikutnya */
 		flash: {
