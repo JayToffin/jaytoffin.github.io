@@ -1059,6 +1059,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     tidak lagi memesan tinggi (`[data-auth][hidden]{display:none}` ≤575px); belum login = satu baris (ikon 32px, judul 13px,
     keterangan 1 baris, Masuk pil kecil + Daftar di kanan); sudah login = tab 12px, kotak angka lebih rapat, tombol aksi
     sejajar kanan, catatan 11px. Kotak "Setara Rp…" di tab Toffin Poin dihapus (Rendi, 2026-11-03), tinggal "Poin Kamu".
+    **Kepala Flash Sale** di ponsel (Rendi: "berantakan judul & countdown"): dari 5 baris bertumpuk jadi satu baris —
+    kiri judul 20px + S&K 11,5px, kanan label "Berakhir dalam" 10px di atas kotak angka 28px tanpa label Hari/Jam/Menit/
+    Detik; pil "Promo terbatas" disembunyikan. Berlaku juga untuk Flash Sale Berikutnya dan kepala di `flashsale.html`.
 
 ## Bobot aset lokal `index.html`
 

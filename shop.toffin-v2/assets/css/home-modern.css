@@ -713,6 +713,24 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	:is(.tf-home, .tf-fsp) .tf-flash .fs-num { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
 	:is(.tf-home, .tf-fsp) .tf-flash .fs-sep { height: 38px; }
 }
+/* ponsel (2026-11-03, Rendi: kepala Flash Sale berantakan): satu baris — kiri judul 20px + S&K kecil di bawahnya,
+   kanan hitung mundur ringkas (label "Berakhir dalam" 10px di atas kotak 28px, tanpa label Hari/Jam/…), pil "Promo terbatas" disembunyikan */
+@media (max-width: 575.98px) {
+	.tf-flash.fs-section { padding: 14px 12px 16px; }
+	.tf-flash__head { flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+	.tf-flash__titles { flex: 1 1 auto; min-width: 0; }
+	.tf-flash__eyebrow { display: none; }
+	.tf-flash__title { font-size: 20px; line-height: 1.15; }
+	.tf-flash__terms { margin-top: 3px; font-size: 11.5px; }
+	.tf-flash__right { width: auto; flex: none; justify-content: flex-end; }
+	.tf-flash__timer { width: auto; align-items: flex-end; gap: 4px; }
+	.tf-flash__timer-label { padding: 0 1px 0 0; font-size: 10px; letter-spacing: .08em; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-countdown { gap: 3px; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-count { gap: 0; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-num { width: 28px; height: 28px; font-size: 13px; border-radius: 7px; box-shadow: none; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-lbl { display: none; }
+	:is(.tf-home, .tf-fsp) .tf-flash .fs-sep { width: 5px; height: 28px; font-size: 13px; }
+}
 :where(.tf-home) a { color: var(--tf-orange); }
 :where(.tf-home) a:hover { color: #ff933b; }
 
