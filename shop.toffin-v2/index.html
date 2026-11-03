@@ -585,10 +585,14 @@
 								<div class="tf-favguest__txt"><strong>Pesan ulang favoritmu sekali klik</strong><span>Masuk untuk melihat produk yang kamu simpan.</span></div>
 								<div class="tf-favguest__act"><button type="button" class="tf-btn tf-favguest__in" data-tf-login>Masuk</button><a href="register.html" class="tf-favguest__reg">Daftar</a></div>
 							</div>
-							<div class="tf-favguest tf-favguest--in" data-auth="in" hidden>
-								<span class="tf-favguest__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></span>
-								<div class="tf-favguest__txt"><strong>8 produk tersimpan</strong><span>Pesan ulang produk favoritmu sekali klik, tanpa cari lagi.</span></div>
-								<button type="button" class="tf-btn tf-favguest__in" data-toggle="modal" data-target="#fav-modal">Pesan sekarang</button>
+							<!-- sudah login: banner memenuhi kolom — teks + tombol di atas, deretan thumbnail favorit (4 + sisa) di bawah; bukan daftar -->
+							<div class="tf-favin" data-auth="in" hidden>
+								<div class="tf-favin__row">
+									<span class="tf-favguest__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></span>
+									<div class="tf-favguest__txt"><strong>8 produk tersimpan</strong><span>Pesan ulang favoritmu sekali klik, tanpa cari lagi.</span></div>
+									<button type="button" class="tf-btn tf-favguest__in" data-toggle="modal" data-target="#fav-modal">Pesan sekarang</button>
+								</div>
+								<button type="button" class="tf-favthumbs" data-toggle="modal" data-target="#fav-modal" aria-label="Lihat produk favorit"><span class="tf-favthumbs__i"><img src="images/product-1.jpg" alt="Nuova Simonelli Appia Life 2 Group" loading="lazy"></span><span class="tf-favthumbs__i"><img src="images/product-2.jpg" alt="Victoria Arduino Eagle One Prima" loading="lazy"></span><span class="tf-favthumbs__i"><img src="images/grinder.jpg" alt="Eureka Mignon Specialita 55 mm" loading="lazy"></span><span class="tf-favthumbs__i"><img src="images/product-3.jpg" alt="Bundle Toffin for Home" loading="lazy"></span><span class="tf-favthumbs__more">+4</span><span class="tf-favthumbs__lbl">Terakhir disimpan</span></button>
 							</div>
 						</div>
 					</div>
