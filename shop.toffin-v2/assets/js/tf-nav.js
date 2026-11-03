@@ -267,7 +267,7 @@ document.addEventListener('mouseover', function (e) {
 	/* ---------- Add to cart dari kartu produk (homepage, daftar produk, flash sale, rekomendasi) ----------
 	   Kartu paket bundling (data-bundle-cta) punya alur sendiri di tf-bundle.js. */
 	document.addEventListener('click', function (e) {
-		var btn = e.target.closest('.product .fs-btn-primary, .tf-cards .fs-btn-primary, .tf-favcard .fs-btn-primary');   /* .tf-favcard: Pesan produk favorit di beranda */
+		var btn = e.target.closest('.product .fs-btn-primary, .tf-cards .fs-btn-primary, .tf-favlist .fs-btn-primary');   /* .tf-favlist: popup Pesan produk favorit di beranda */
 		if (!btn || btn.hasAttribute('data-bundle-cta') || btn.closest('[data-tf-bundle]')) return;
 		if (btn.tagName === 'A' && btn.getAttribute('href') && btn.getAttribute('href') !== '#') return;   /* tautan sungguhan (mis. ke detail) */
 		e.preventDefault();

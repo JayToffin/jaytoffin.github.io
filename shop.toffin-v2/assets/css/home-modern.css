@@ -108,12 +108,18 @@
 .tf-favguest__txt strong { display: block; margin-bottom: 2px; color: var(--tf-ink); font-size: 14.5px; font-weight: 800; line-height: 1.3; }
 .tf-favguest__txt span { display: block; color: var(--tf-muted); font-size: 12.5px; line-height: 1.4; }
 .tf-favguest__in { min-height: 36px; padding: 0 20px; font-size: 13px; box-shadow: none; }
+.tf-favguest--in { border-style: solid; border-color: #ffd6d6; background: linear-gradient(120deg, #fff1f1 0%, #fff 70%); }
+.tf-favguest__in.tf-btn { white-space: nowrap; }
+/* daftar favorit di popup #fav-modal */
 .tf-favlist { display: flex; flex-direction: column; gap: 8px; }
+.tf-favlist__hint { margin: 0 0 12px; color: var(--tf-muted); font-size: 12.5px; line-height: 1.45; }
+.tf-favlist__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.tf-favlist__foot .tf-btn { min-height: 36px; padding: 0 16px; font-size: 13px; }
 .tf-favrow { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; column-gap: 12px; padding: 8px 10px 8px 8px; border: 1px solid var(--tf-line); border-radius: 10px; background: #fff; }
 .tf-favrow__img { display: block; width: 48px; height: 48px; border-radius: 8px; overflow: hidden; background: #f5f5f7; }
 .tf-favrow__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tf-favrow__txt { min-width: 0; }
-.tf-favrow .fs-product-title { margin: 0 0 2px; font-size: 13px; font-weight: 700; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tf-favrow .fs-product-title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin: 0 0 2px; font-size: 13px; font-weight: 700; line-height: 1.3; overflow: hidden; }
 .tf-favrow .fs-product-title a { color: var(--tf-ink); text-decoration: none; }
 .tf-favrow__price { display: block; color: var(--tf-ink); font-size: 13px; font-weight: 800; }
 .tf-favrow__btn { flex: none; min-height: 32px; padding: 0 14px; font-size: 12.5px; font-weight: 800; }
