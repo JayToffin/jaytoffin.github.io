@@ -567,21 +567,41 @@
 			</div>
 		</section>
 
-		<!-- ===== WIDGETS: banner promo + Toffin Rewards, lalu baris Kategori =====
+		<!-- ===== WIDGETS: Pesan produk favorit + Toffin Rewards, lalu baris Kategori =====
 		     Rewards: tampilan "belum login" (data-auth="out") default; tombol Masuk (data-tf-login) menampilkan
 		     versi "sudah login" (data-auth="in"), diatur tf-app.js. Di backend: pilih versi menurut sesi. -->
 		<section class="tf-section tf-section--tight">
 			<div class="tf-container">
 				<div class="tf-widgets">
 					<div class="tf-wcol">
-						<a href="product-list.html" class="tf-catpromo">
-							<div class="tf-catpromo__c">
-								<div class="tf-catpromo__t">Yuk, belanja di Toffin</div>
-								<div class="tf-catpromo__s">Semua kebutuhan bisnis F&amp;B lengkap dari merek kelas dunia</div>
-								<span class="tf-catpromo__btn">Cek Sekarang</span>
+						<!-- Pesan produk favorit (2026-11-03, Rendi; menggantikan kartu "Yuk, belanja di Toffin"): 3 favorit teratas,
+						     tombol Pesan = add to cart sekali klik (delegasi tf-nav.js: .tf-favcard .fs-btn-primary, nama dari .fs-product-title).
+						     Belum login: ajakan masuk. Produksi: ambil dari wishlist akun (my-account.html#favorit). -->
+						<div class="tf-favcard">
+							<div class="tf-wtitle-row"><h3 class="tf-wtitle">Pesan produk favoritmu</h3><a href="my-account.html#favorit" class="tf-wlink" data-auth="in" hidden>Lihat semua</a></div>
+							<div class="tf-favguest" data-auth="out">
+								<span class="tf-favguest__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></span>
+								<div class="tf-favguest__txt"><strong>Pesan ulang favoritmu sekali klik</strong><span>Masuk untuk melihat produk yang kamu simpan dan langsung memesannya.</span></div>
+								<button type="button" class="tf-btn tf-favguest__in" data-tf-login>Masuk</button>
 							</div>
-							<img class="tf-catpromo__img" src="images/e1prima_header.png" alt="">
-						</a>
+							<div class="tf-favlist" data-auth="in" hidden>
+								<article class="tf-favrow">
+									<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-1.jpg" alt="" loading="lazy"></a>
+									<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Nuova Simonelli Appia Life 2 Group</a></h4><span class="tf-favrow__price">Rp 230.000.000</span></div>
+									<button type="button" class="fs-btn fs-btn-primary tf-favrow__btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan</button>
+								</article>
+								<article class="tf-favrow">
+									<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-2.jpg" alt="" loading="lazy"></a>
+									<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Victoria Arduino Eagle One Prima</a></h4><span class="tf-favrow__price">Rp 118.500.000</span></div>
+									<button type="button" class="fs-btn fs-btn-primary tf-favrow__btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan</button>
+								</article>
+								<article class="tf-favrow">
+									<a href="detail-produk.html" class="tf-favrow__img"><img src="images/grinder.jpg" alt="" loading="lazy"></a>
+									<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Eureka Mignon Specialita 55 mm</a></h4><span class="tf-favrow__price">Rp 9.950.000</span></div>
+									<button type="button" class="fs-btn fs-btn-primary tf-favrow__btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan</button>
+								</article>
+							</div>
+						</div>
 					</div>
 					<div class="tf-wcol">
 						<div class="tf-wtitle-row"><h3 class="tf-wtitle">Toffin Rewards</h3><a href="my-account.html" class="tf-wlink" data-auth="in" hidden>Lihat Semua</a></div>

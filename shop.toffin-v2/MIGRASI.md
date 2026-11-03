@@ -1062,6 +1062,12 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     **Kepala Flash Sale** di ponsel (Rendi: "berantakan judul & countdown"): dari 5 baris bertumpuk jadi satu baris —
     kiri judul 20px + S&K 11,5px, kanan label "Berakhir dalam" 10px di atas kotak angka 28px tanpa label Hari/Jam/Menit/
     Detik; pil "Promo terbatas" disembunyikan. Berlaku juga untuk Flash Sale Berikutnya dan kepala di `flashsale.html`.
+    **Kartu "Yuk, belanja di Toffin" diganti "Pesan produk favoritmu"** (Rendi, 2026-11-03; percobaan memindah Rewards ke
+    atas hero dibatalkan/revert): kolom kiri kotak widget kini `.tf-favcard` — judul + "Lihat semua" (→ `my-account.html#favorit`),
+    belum login: ajakan masuk (`.tf-favguest`, tombol `data-tf-login`); sudah login: 3 favorit teratas (`.tf-favrow`: foto 48px,
+    nama 1 baris, harga, tombol **Pesan** = add to cart sekali klik lewat delegasi `tf-nav.js` yang ditambah selector
+    `.tf-favcard .fs-btn-primary`; toast + badge keranjang). Ponsel: baris 40px, tombol 30px. Produksi: isi dari wishlist akun.
+    CSS `.tf-catpromo*` dan `images/e1prima_header.png` dihapus.
 
 ## Bobot aset lokal `index.html`
 
