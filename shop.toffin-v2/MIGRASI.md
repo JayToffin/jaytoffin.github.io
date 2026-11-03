@@ -1071,6 +1071,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Rendi: tanpa daftar produk di kartu, langsung popup. Ponsel: baris 40px, tombol 30px. Produksi: isi dari wishlist akun.
     Kotak widget 50:50 (dulu 1,35:1). **Service Credit dihapus dari Toffin Rewards beranda** (tab + panel + teks ajakan;
     fitur hanya ada di Toffin App, Rendi 2026-11-03). `my-account.html` masih punya tab Service Credit (belum diputuskan).
+    Belum login: kedua kartu (favorit & Rewards) ringkas satu baris — ikon, judul + keterangan, Masuk + Daftar (→ register.html);
+    tidak melar, keadaan tersembunyi tidak memesan tinggi (`display:none`, mekanisme anti-lompat lama dilepas).
     CSS `.tf-catpromo*` dan `images/e1prima_header.png` dihapus.
 
 ## Bobot aset lokal `index.html`

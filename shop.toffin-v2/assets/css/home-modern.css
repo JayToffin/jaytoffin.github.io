@@ -107,7 +107,12 @@
 .tf-favguest__ico .tf-i { width: 20px; height: 20px; }
 .tf-favguest__txt strong { display: block; margin-bottom: 2px; color: var(--tf-ink); font-size: 14.5px; font-weight: 800; line-height: 1.3; }
 .tf-favguest__txt span { display: block; color: var(--tf-muted); font-size: 12.5px; line-height: 1.4; }
+.tf-favguest__act { display: flex; align-items: center; gap: 14px; }
 .tf-favguest__in { min-height: 36px; padding: 0 20px; font-size: 13px; box-shadow: none; }
+.tf-favguest__reg { color: var(--tf-orange-dark); font-size: 13.5px; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.tf-favguest__reg:hover { color: var(--tf-orange); text-decoration: none; }
+/* belum login (2026-11-03, Rendi): kedua kartu ringkas satu baris & tidak melar setinggi kolom */
+.tf-favguest, .tf-rguest { flex: 0 0 auto; align-self: start; }
 .tf-favguest--in { border-style: solid; border-color: #ffd6d6; background: linear-gradient(120deg, #fff1f1 0%, #fff 70%); }
 .tf-favguest__in.tf-btn { white-space: nowrap; }
 /* daftar favorit di popup #fav-modal */
@@ -166,8 +171,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
    kotak kanan selalu setinggi keadaan tertinggi dan tidak melompat saat tombol Masuk ditekan */
 .tf-rstates { display: grid; grid-template-columns: minmax(0, 1fr); flex: 1 1 auto; min-width: 0; }
 .tf-rstates > [data-auth] { grid-area: 1 / 1; min-width: 0; }
-.tf-rstates > [data-auth][hidden] { display: flex !important; visibility: hidden; pointer-events: none; }
-.tf-rstates > [data-auth][hidden] * { visibility: hidden !important; }   /* turunan ikut sembunyi: .tf-rpanel.is-active menyetel visible sendiri */
+.tf-rstates > [data-auth][hidden] { display: none !important; }   /* 2026-11-03: tidak memesan tinggi keadaan login (kartu belum-login ringkas satu baris) */
 /* Rewards → tab Voucher: daftar tiket voucher (gaya coupon.html) yang bisa digeser */
 .tf-vslider { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }   /* catatan & panah selalu di dasar panel */
 .tf-vslider__swiper { width: 100%; min-width: 0; overflow: hidden; }   /* lebar = pembungkus, bukan lebar isi slider */
@@ -202,7 +206,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 /* Rewards belum login: kartu ajakan masuk */
 /* kartu tamu dibuat ringkas (ikon & teks sebaris, tombol di bawah) supaya lebih pendek dari versi login;
    tinggi kotak Rewards lalu ditentukan versi login (lihat .tf-rstates), tanpa ruang kosong berlebih */
-.tf-rguest { flex: 1; display: grid; grid-template-columns: 40px minmax(0, 1fr); grid-template-areas: "ico txt" "act act"; align-items: center; align-content: center; column-gap: 12px; row-gap: 12px; padding: 14px 16px; border: 1px dashed #f3c48f; border-radius: 10px; background: #fffaf4; }
+.tf-rguest { flex: 1; display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-areas: "ico txt act"; align-items: center; align-content: center; column-gap: 12px; row-gap: 12px; padding: 12px 16px; border: 1px dashed #f3c48f; border-radius: 10px; background: #fffaf4; }
 .tf-rguest__ico { grid-area: ico; }
 .tf-rguest__txt { grid-area: txt; }
 .tf-rguest__act { grid-area: act; }
@@ -380,6 +384,8 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-favguest__txt strong { margin-bottom: 1px; font-size: 13px; }
 	.tf-favguest__txt span { font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 	.tf-favguest__in { min-height: 32px; padding: 0 14px; font-size: 12px; border-radius: 999px; }
+	.tf-favguest__act { flex-direction: column; align-items: center; gap: 4px; }
+	.tf-favguest__reg { font-size: 12px; }
 	.tf-favlist { gap: 6px; }
 	.tf-favrow { grid-template-columns: 40px minmax(0, 1fr) auto; column-gap: 10px; padding: 6px 8px 6px 6px; }
 	.tf-favrow__img { width: 40px; height: 40px; }
@@ -389,7 +395,6 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	/* Toffin Rewards diringkas: judul 15px; keadaan yang tersembunyi tidak lagi memesan tinggi (di ponsel kedua keadaan
 	   ditumpuk vertikal, tidak perlu "anti lompat" seperti di desktop) */
 	.tf-wtitle-row .tf-wtitle, .tf-wtitle { font-size: 15px; margin-bottom: 8px; }
-	.tf-rstates > [data-auth][hidden] { display: none !important; }
 	/* belum login: satu baris — ikon 32px, judul 13px + keterangan 1 baris dipotong, tombol Masuk kecil di kanan (Daftar di bawahnya) */
 	.tf-rguest { grid-template-columns: 32px minmax(0, 1fr) auto; grid-template-areas: "ico txt act"; column-gap: 10px; row-gap: 0; padding: 10px 12px; }
 	.tf-rguest__ico { width: 32px; height: 32px; }
