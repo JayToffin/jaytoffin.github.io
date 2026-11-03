@@ -84,49 +84,19 @@
 .tf-hero-swiper .swiper-wrapper,
 .tf-hero-swiper .swiper-slide { height: 100%; }
 
-/* ---------- Widgets block (Kategori Populer + Toffin Rewards) ---------- */
-.tf-widgets {
-	display: grid;
-	grid-template-columns: 1.35fr 1fr;
-	gap: 20px;
-	background: #fff;
-	border: 1px solid var(--tf-line);
-	border-radius: 12px;
-	padding: 18px 20px 20px;
-}
+/* ---------- Toffin Rewards (di bawah bar "Dikirim ke", di atas hero; kartu promo "Yuk, belanja" dihapus 2026-11-03) ----------
+   Tanpa kotak pembungkus ganda: judul + satu kartu (belum login .tf-rguest / sudah login .tf-reward). */
+.tf-section--rewards { padding: 14px 0 0; }
+.tf-section--rewards + .tf-hero { padding-top: 14px; }
+.tf-section--cats { padding: 0; }
+.tf-section--cats .tf-cats__title { margin-top: 6px; }
+.tf-widgets { display: grid; grid-template-columns: 1fr; }
 .tf-wcol { min-width: 0; display: flex; flex-direction: column; }
 .tf-wtitle { font-size: 18px; font-weight: 800; line-height: 1.5; color: var(--tf-ink); margin: 0 0 12px; }
 .tf-wtitle-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .tf-wtitle-row .tf-wtitle { margin-bottom: 12px; }
 .tf-wlink { font-size: 13px; font-weight: 800; color: var(--tf-orange-dark); text-decoration: none; }
 .tf-wlink:hover { color: var(--tf-orange); text-decoration: none; }
-/* left promo card */
-.tf-catpromo {
-	position: relative;
-	flex: 1;
-	display: flex; align-items: center;
-	gap: 12px;
-	background: linear-gradient(120deg, #f8941f 0%, #ff5f2e 100%);
-	border-radius: 10px;
-	padding: 22px 24px;
-	overflow: hidden;
-	text-decoration: none;
-	min-height: 150px;
-}
-.tf-catpromo__c { position: relative; z-index: 2; max-width: 62%; }
-.tf-catpromo__t { font-size: clamp(18px, 2vw, 22px); font-weight: 800; color: #fff; line-height: 1.15; }
-.tf-catpromo__s { font-size: 13px; color: rgba(255,255,255,.9); margin: 6px 0 16px; }
-.tf-catpromo__btn {
-	display: inline-block; background: #fff; color: var(--tf-orange-dark);
-	font-weight: 800; font-size: 13px; padding: 9px 18px; border-radius: 8px;
-}
-.tf-catpromo:hover { text-decoration: none; }   /* tanpa garis bawah dari a:hover Bootstrap pada judul & teks kartu */
-.tf-catpromo:hover .tf-catpromo__btn { background: #fff7ef; }
-.tf-catpromo__img {
-	position: absolute; right: 14px; bottom: 10px; z-index: 1;
-	width: 150px; max-width: 42%; object-fit: contain;
-	filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
-}
 /* right rewards widget */
 .tf-reward { border: 1px solid var(--tf-line); border-radius: 10px; padding: 6px 14px 14px; display: flex; flex-direction: column; flex: 1; }
 .tf-rtabs { display: flex; gap: 4px; border-bottom: 1px solid var(--tf-line); margin: 0 -14px 14px; padding: 0 8px; }
@@ -169,8 +139,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
    kotak kanan selalu setinggi keadaan tertinggi dan tidak melompat saat tombol Masuk ditekan */
 .tf-rstates { display: grid; grid-template-columns: minmax(0, 1fr); flex: 1 1 auto; min-width: 0; }
 .tf-rstates > [data-auth] { grid-area: 1 / 1; min-width: 0; }
-.tf-rstates > [data-auth][hidden] { display: flex !important; visibility: hidden; pointer-events: none; }
-.tf-rstates > [data-auth][hidden] * { visibility: hidden !important; }   /* turunan ikut sembunyi: .tf-rpanel.is-active menyetel visible sendiri */
+.tf-rstates > [data-auth][hidden] { display: none !important; }   /* 2026-11-03: keadaan tersembunyi tidak memesan tinggi (dulu visibility:hidden "anti lompat"; section kini di atas hero, kartu belum-login satu baris) */
 /* Rewards → tab Voucher: daftar tiket voucher (gaya coupon.html) yang bisa digeser */
 .tf-vslider { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }   /* catatan & panah selalu di dasar panel */
 .tf-vslider__swiper { width: 100%; min-width: 0; overflow: hidden; }   /* lebar = pembungkus, bukan lebar isi slider */
@@ -214,6 +183,12 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 .tf-rguest__txt strong { display: block; margin-bottom: 2px; color: var(--tf-ink); font-size: 14.5px; font-weight: 800; line-height: 1.3; }
 .tf-rguest__txt span { display: block; color: var(--tf-muted); font-size: 12.5px; line-height: 1.4; }
 .tf-rguest__act { display: flex; align-items: center; gap: 14px; }
+@media (min-width: 861px) {
+	.tf-rguest { grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-areas: "ico txt act"; padding: 12px 16px; align-self: start; }   /* tidak melar setinggi keadaan login (sel grid .tf-rstates) */
+	.tf-reward__body { justify-content: flex-start; }
+	.tf-rfields { flex: 0 1 auto; }
+	.tf-rfield { flex: 0 0 auto; min-width: 190px; }
+}
 .tf-rguest__in { min-height: 36px; padding: 0 20px; font-size: 13px; box-shadow: none; }
 .tf-rguest__reg { color: var(--tf-orange-dark); font-size: 13.5px; font-weight: 800; text-decoration: none; }
 .tf-rguest__reg:hover { color: var(--tf-orange); text-decoration: none; }
@@ -363,9 +338,6 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-appband { grid-template-columns: 1fr; }
 	.tf-appband__media { display: none; }
 }
-@media (max-width: 860px) {
-	.tf-widgets { grid-template-columns: 1fr; }
-}
 @media (max-width: 768px) {
 	.tf-benefits { grid-template-columns: 1fr; }
 	.tf-section { padding: 24px 0; }
@@ -373,22 +345,12 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 @media (max-width: 560px) {
 	.tf-reward__body { flex-direction: column; align-items: stretch; }
 	.tf-reward__btn { align-self: stretch; }
-	.tf-catpromo__img { display: none; }
-	.tf-catpromo__c { max-width: 100%; }
 }
-/* ponsel (2026-11-03, Rendi): kartu "Yuk, belanja di Toffin" diringkas jadi banner satu baris —
-   judul + subjudul (1 baris, dipotong) di kiri, tombol pil kecil di kanan; kotak widget lebih rapat */
+/* ponsel (2026-11-03, Rendi): kotak Toffin Rewards diringkas */
 @media (max-width: 575.98px) {
-	.tf-widgets { gap: 14px; padding: 12px 12px 14px; }
-	.tf-catpromo { min-height: 0; padding: 12px 14px; border-radius: 10px; }
-	.tf-catpromo__c { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "t b" "s b"; align-items: center; column-gap: 12px; width: 100%; }
-	.tf-catpromo__t { grid-area: t; font-size: 14px; }
-	.tf-catpromo__s { grid-area: s; margin: 2px 0 0; font-size: 11.5px; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-	.tf-catpromo__btn { grid-area: b; padding: 7px 12px; border-radius: 999px; font-size: 12px; white-space: nowrap; }
 	/* Toffin Rewards diringkas: judul 15px; keadaan yang tersembunyi tidak lagi memesan tinggi (di ponsel kedua keadaan
 	   ditumpuk vertikal, tidak perlu "anti lompat" seperti di desktop) */
 	.tf-wtitle-row .tf-wtitle, .tf-wtitle { font-size: 15px; margin-bottom: 8px; }
-	.tf-rstates > [data-auth][hidden] { display: none !important; }
 	/* belum login: satu baris — ikon 32px, judul 13px + keterangan 1 baris dipotong, tombol Masuk kecil di kanan (Daftar di bawahnya) */
 	.tf-rguest { grid-template-columns: 32px minmax(0, 1fr) auto; grid-template-areas: "ico txt act"; column-gap: 10px; row-gap: 0; padding: 10px 12px; }
 	.tf-rguest__ico { width: 32px; height: 32px; }
