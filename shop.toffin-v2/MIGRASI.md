@@ -1074,7 +1074,7 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Belum login: kedua kartu (favorit & Rewards) ringkas satu baris — ikon, judul + keterangan, Masuk + Daftar (→ register.html);
     tidak melar, keadaan tersembunyi tidak memesan tinggi (`display:none`, mekanisme anti-lompat lama dilepas).
     Sudah login, kartu favorit (`.tf-favin`) memenuhi tinggi kolom: baris teks + Pesan sekarang di atas, deretan 4 thumbnail
-    bulat bertumpuk + "+4" + "Terakhir disimpan" di bawah (tombol, juga membuka popup); bukan daftar. Ponsel thumbnail 28px.
+    bulat bertumpuk + "+4" di bawah (teks "Terakhir disimpan" dihapus) (tombol, juga membuka popup); bukan daftar. Ponsel thumbnail 28px.
     CSS `.tf-catpromo*` dan `images/e1prima_header.png` dihapus.
 
 ## Bobot aset lokal `index.html`
