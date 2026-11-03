@@ -1055,7 +1055,10 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     `tf-sliders.js`: preset hero + pagination otomatis bila ada `.swiper-pagination` anak langsung.
     Tambahan (Rendi): kartu **"Yuk, belanja di Toffin"** di ponsel diringkas jadi banner satu baris (judul 14px + subjudul
     11,5px satu baris dipotong, tombol pil "Cek Sekarang" di kanan; padding 12px, tanpa min-height 150px); kotak widget
-    (`.tf-widgets`) padding 12px, gap 14px.
+    (`.tf-widgets`) padding 12px, gap 14px. **Toffin Rewards** di ponsel juga diringkas: judul 15px; keadaan tersembunyi
+    tidak lagi memesan tinggi (`[data-auth][hidden]{display:none}` ≤575px); belum login = satu baris (ikon 32px, judul 13px,
+    keterangan 1 baris, Masuk pil kecil + Daftar di kanan); sudah login = tab 12px, kotak angka lebih rapat, tombol aksi
+    sejajar kanan, catatan 11px.
 
 ## Bobot aset lokal `index.html`
 
