@@ -1048,9 +1048,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     340px dan di-center (tepi kiri tidak sejajar bar "Dikirim ke"/kartu promo yang pakai gutter 10px), intipan slide
     berikutnya terpotong sembarang (slidesPerView 1,15 dalam kotak overflow hidden), tanpa dot, panah 40px muncul di layar
     sentuh. Sekarang ≤575px (revisi kedua, Rendi: "kanan-kiri dimunculkan dikit biar kesannya slide"): slider full-bleed
-    (margin negatif gutter), `slidesPerView: 'auto'` + `centeredSlides` dengan lebar slide dari CSS `calc(100% - 84px)`
-    → poster aktif di tengah, tiap sisi tampak 32px poster tetangga + jarak 10px; tetangga `scale(.93)` & opacity .7,
-    aktif penuh + bayangan lembut; sudut 14px, panah disembunyikan, dot pagination (`.swiper-pagination` anak langsung
+    (margin negatif gutter), `slidesPerView: 'auto'` + `centeredSlides` dengan lebar slide dari CSS `calc(100% - 104px)`
+    → poster aktif di tengah, tiap sisi tampak 42px poster tetangga + jarak 10px; tetangga `scale(.93)` & opacity .7,
+    aktif penuh tanpa bayangan; sudut 14px, panah disembunyikan, dot pagination (`.swiper-pagination` anak langsung
     slider, pil gelap transparan di tengah bawah; hanya ponsel). Tablet/desktop tetap 2/3 poster rata kiri.
     `tf-sliders.js`: preset hero + pagination otomatis bila ada `.swiper-pagination` anak langsung.
 
