@@ -1058,7 +1058,7 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     (`.tf-widgets`) padding 12px, gap 14px. **Toffin Rewards** di ponsel juga diringkas: judul 15px; keadaan tersembunyi
     tidak lagi memesan tinggi (`[data-auth][hidden]{display:none}` ≤575px); belum login = satu baris (ikon 32px, judul 13px,
     keterangan 1 baris, Masuk pil kecil + Daftar di kanan); sudah login = tab 12px, kotak angka lebih rapat, tombol aksi
-    sejajar kanan, catatan 11px.
+    sejajar kanan, catatan 11px. Kotak "Setara Rp…" di tab Toffin Poin dihapus (Rendi, 2026-11-03), tinggal "Poin Kamu".
 
 ## Bobot aset lokal `index.html`
 
