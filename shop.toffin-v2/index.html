@@ -547,12 +547,42 @@
 			</div>
 		</div>
 
-		<!-- ===== TOFFIN REWARDS (dipindah ke bawah bar "Dikirim ke", di atas hero; kartu "Yuk, belanja di Toffin" dihapus 2026-11-03) =====
+		<!-- ===== HERO (gambar saja: 3 poster 5:6 berjejer, bisa digeser; ponsel: 1 poster + intipan 18px, dot pagination) ===== -->
+		<section class="tf-hero">
+			<div class="tf-container">
+				<div class="tf-hero-wrap">
+					<div class="swiper tf-hero-swiper tf-hero-swiper--poster tf-hero-swiper--triple" data-tf-slider="hero">
+						<div class="swiper-wrapper">
+						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/hero-dinamica-pro.jpg" alt="Dinamica Pro"></a></div>
+						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/hero-black-sesame-base.jpg" alt="Black Sesame Base"></a></div>
+						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/hero-eureka-zeus.jpg" alt="Eureka Zeus"></a></div>
+						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/va-slider.jpg" alt="E1 Prima"></a></div>
+						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/vbm-slider.jpg" alt="Vibiemme"></a></div>
+						</div>
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-pagination" aria-hidden="true"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== WIDGETS: banner promo + Toffin Rewards, lalu baris Kategori =====
 		     Rewards: tampilan "belum login" (data-auth="out") default; tombol Masuk (data-tf-login) menampilkan
 		     versi "sudah login" (data-auth="in"), diatur tf-app.js. Di backend: pilih versi menurut sesi. -->
-		<section class="tf-section tf-section--tight tf-section--rewards">
+		<section class="tf-section tf-section--tight">
 			<div class="tf-container">
 				<div class="tf-widgets">
+					<div class="tf-wcol">
+						<a href="product-list.html" class="tf-catpromo">
+							<div class="tf-catpromo__c">
+								<div class="tf-catpromo__t">Yuk, belanja di Toffin</div>
+								<div class="tf-catpromo__s">Semua kebutuhan bisnis F&amp;B lengkap dari merek kelas dunia</div>
+								<span class="tf-catpromo__btn">Cek Sekarang</span>
+							</div>
+							<img class="tf-catpromo__img" src="images/e1prima_header.png" alt="">
+						</a>
+					</div>
 					<div class="tf-wcol">
 						<div class="tf-wtitle-row"><h3 class="tf-wtitle">Toffin Rewards</h3><a href="my-account.html" class="tf-wlink" data-auth="in" hidden>Lihat Semua</a></div>
 						<!-- dua keadaan ditumpuk di satu sel grid (.tf-rstates): tinggi kotak = keadaan tertinggi, jadi tidak melompat saat login -->
@@ -656,32 +686,6 @@
 						</div><!-- /.tf-rstates -->
 					</div>
 				</div>
-			</div>
-		</section>
-
-		<!-- ===== HERO (gambar saja: 3 poster 5:6 berjejer, bisa digeser; ponsel: 1 poster + intipan 18px, dot pagination) ===== -->
-		<section class="tf-hero">
-			<div class="tf-container">
-				<div class="tf-hero-wrap">
-					<div class="swiper tf-hero-swiper tf-hero-swiper--poster tf-hero-swiper--triple" data-tf-slider="hero">
-						<div class="swiper-wrapper">
-						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/hero-dinamica-pro.jpg" alt="Dinamica Pro"></a></div>
-						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/hero-black-sesame-base.jpg" alt="Black Sesame Base"></a></div>
-						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/hero-eureka-zeus.jpg" alt="Eureka Zeus"></a></div>
-						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/va-slider.jpg" alt="E1 Prima"></a></div>
-						<div class="swiper-slide"><a href="detail-produk.html" class="tf-hero-poster"><img src="images/vbm-slider.jpg" alt="Vibiemme"></a></div>
-						</div>
-						<div class="swiper-button-next"></div>
-						<div class="swiper-button-prev"></div>
-						<div class="swiper-pagination" aria-hidden="true"></div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ===== KATEGORI (baris pil, tetap di bawah hero) ===== -->
-		<section class="tf-section tf-section--tight tf-section--cats">
-			<div class="tf-container">
 				<h3 class="tf-wtitle tf-cats__title">Kategori</h3>
 				<div class="tf-catpills">
 					<a href="product-list.html?cat=Coffee%20Machine" class="tf-pill"><img src="images/kategori/coffee-machine.png" alt=""> Coffee Machine</a>
@@ -696,7 +700,6 @@
 				</div>
 			</div>
 		</section>
-
 
 		<!-- ===== FLASH SALE (satu frame: header + carousel) ===== -->
 		<section class="tf-flash-section">

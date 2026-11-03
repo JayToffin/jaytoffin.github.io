@@ -1062,11 +1062,6 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     **Kepala Flash Sale** di ponsel (Rendi: "berantakan judul & countdown"): dari 5 baris bertumpuk jadi satu baris —
     kiri judul 20px + S&K 11,5px, kanan label "Berakhir dalam" 10px di atas kotak angka 28px tanpa label Hari/Jam/Menit/
     Detik; pil "Promo terbatas" disembunyikan. Berlaku juga untuk Flash Sale Berikutnya dan kepala di `flashsale.html`.
-    **Revisi (Rendi, 2026-11-03):** kartu "Yuk, belanja di Toffin" **dihapus** (markup + CSS `.tf-catpromo*`); section
-    **Toffin Rewards dipindah ke atas hero**, tepat di bawah bar "Dikirim ke / Gratis ongkir" (`.tf-section--rewards`),
-    tanpa kotak pembungkus ganda (judul + satu kartu). Desktop: kartu belum-login satu baris (ikon, teks, Masuk/Daftar di
-    kanan, tidak melar), kotak angka sudah-login tidak melar penuh. Baris **Kategori** tetap di bawah hero sebagai section
-    sendiri (`.tf-section--cats`). `images/e1prima_header.png` tidak terpakai lagi.
 
 ## Bobot aset lokal `index.html`
 
