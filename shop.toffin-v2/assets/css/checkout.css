@@ -7,7 +7,7 @@
    (voucher, Toffin Point, rincian biaya, persetujuan, tombol bayar).
    Ponsel: ringkasan di bawah + bar sticky total/Bayar.
    Kasus dari keranjang: flash sale (hitung mundur, harga kembali normal),
-   paket bundling (isi + varian), bonus produk, QC mesin, barang habis.
+   paket bundling (isi + varian), bonus produk, barang habis.
    Dimuat sesudah cart.css (memakai .tf-check). Angka dihitung tf-checkout.js.
    ===================================================================== */
 .tf-co { font-family: var(--tf-font); color: var(--tf-body); background: #fafafa; padding: 20px 0 56px; }
@@ -123,10 +123,6 @@
 .tf-cosub__free { color: #15803d; font-size: 12px; font-weight: 800; }
 .tf-coi__giftlbl { display: inline-flex; align-items: center; gap: 5px; margin: 2px 0 0; color: #15803d; font-size: 11.5px; font-weight: 800; }
 .tf-coi__giftlbl .tf-i { width: 13px; height: 13px; }
-
-/* QC mesin */
-.tf-ship__qc { display: flex; gap: 8px; margin: 0 18px 12px; padding: 9px 12px; border-radius: 10px; background: #f5f7fb; color: var(--tf-body); font-size: 12px; line-height: 1.45; }
-.tf-ship__qc .tf-i { flex: none; width: 16px; height: 16px; margin-top: 1px; color: #4f6bed; }
 
 /* alamat tujuan di kepala kartu */
 .tf-ship__dest { display: flex; align-items: flex-start; gap: 11px; padding: 12px 18px; border-bottom: 1px solid var(--tf-line); background: linear-gradient(90deg, #fffaf3 0%, #fff 70%); }
@@ -454,7 +450,6 @@
 	.tf-ship__types { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	.tf-dlg__foot--addr { flex-wrap: wrap; }
 	.tf-dlg__foot--addr .tf-btn { flex: 1 1 100%; }
-	.tf-ship__qc { margin: 0 14px 12px; }
 	.tf-coi { grid-template-columns: 56px minmax(0, 1fr); gap: 10px; padding: 12px 14px; }
 	.tf-coi__thumb { width: 56px; height: 56px; }
 	.tf-coi__total { grid-column: 2; text-align: left; font-size: 13.5px; }

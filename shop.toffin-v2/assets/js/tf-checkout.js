@@ -547,7 +547,7 @@
 				var a = addrById(sh.addr), inf = typeInfo(sh, sh.type), c = inf.list[sh.courier], tn = TYPES.filter(function (x) { return x.id === sh.type; })[0].name;
 				return {
 					store: sh.el.getAttribute('data-store'), city: sh.cfg.city, courier: sh.type === 'toffin' ? c.name : tn + ' · ' + c.name, eta: c.eta, cost: c.cost,
-					qc: !!$('.tf-ship__qc', sh.el), addr: { name: a.name, label: a.label, line: a.line + ', ' + a.city },
+					addr: { name: a.name, label: a.label, line: a.line + ', ' + a.city },
 					items: activeItems(sh.el).map(function (it) { return { name: $('.tf-coi__name', it).textContent, img: $('.tf-coi__thumb img', it).getAttribute('src'), qty: +it.getAttribute('data-qty'), fs: it.classList.contains('is-fs') }; })
 				};
 			})

@@ -1028,6 +1028,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Belum dibuat (butuh backend/template): email OTP, pesanan dikirim (resi), pesanan dibatalkan, pengingat batas bayar,
     akun dihapus, pengingat flash sale, tanda terima klaim.
 
+48. **Info QC dihapus dari alur belanja** (2026-11-03, permintaan Rendi, "biar lebih general"). Catatan biru "Quality Control
+    2–3 hari kerja" per distributor di `checkout.html` (+ CSS `.tf-ship__qc`, field `qc` di `tfOrder`) dihapus; detail pesanan:
+    langkah progres "Diproses & QC" → "Diproses", banner status diproses tanpa teks QC, estimasi "setelah QC" → "setelah
+    dikirim". Tetap ada: S&K + Informasi Pengiriman (dialog checkout), `pengiriman.html`, `informasi-pengiriman*.html`.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

@@ -1,6 +1,6 @@
 # QA Checkout · shop.toffin-v2
 
-Daftar uji untuk `checkout.html` (prototipe statis, MIGRASI.md langkah 32). Isi keranjang mengikuti barang terpilih di `cart.html`: 12 barang dari 3 distributor (Toffin Jakarta, Surabaya, Bandung), berisi flash sale, paket bundling dengan varian, bonus produk, dan mesin yang melewati QC.
+Daftar uji untuk `checkout.html` (prototipe statis, MIGRASI.md langkah 32). Isi keranjang mengikuti barang terpilih di `cart.html`: 12 barang dari 3 distributor (Toffin Jakarta, Surabaya, Bandung), berisi flash sale, paket bundling dengan varian, dan bonus produk.
 
 ## Cara menjalankan simulasi
 
@@ -90,7 +90,7 @@ Di setiap kartu distributor, pengiriman tampil sebagai satu baris ringkas di baw
 | S5 | Kurir Toffin, minimum belanja terpenuhi | Rp 150.000 dicoret menjadi "Gratis", dengan catatan hijau | Prototipe |
 | S6 | Kurir Toffin, minimum belum terpenuhi | Rp 150.000 dengan catatan "Tambah Rp X untuk gratis ongkir" | Prototipe (logika), Backend (data) |
 | S7 | Ongkir gagal dimuat (`shiperr`) | Setelah memilih jenis di Bandung muncul "Ongkir gagal dimuat" dan "Coba lagi", lalu daftar ekspedisi tampil. Kurir Toffin tidak terpengaruh | Prototipe |
-| S8 | Mesin, grinder, atau equipment | Catatan biru "Quality Control 2–3 hari kerja" di distributor terkait | Prototipe |
+| S8 | Mesin, grinder, atau equipment | Tidak ada catatan QC di kartu (dihapus 2026-11-03, info QC hanya di S&K / Informasi Pengiriman) | Prototipe |
 | S8b | Biaya packing | Kaki kartu distributor menampilkan "Packing Rp X" di samping ongkir. Ringkasan punya baris "Biaya packing" berisi jumlah semua distributor, dan biaya ini ikut dihitung dalam biaya admin kartu kredit | Prototipe |
 | S9 | Asuransi dicentang | 0,2% subtotal masuk baris "Asuransi pengiriman" | Prototipe |
 | S10 | Catatan untuk distributor | Penghitung 0/200, berhenti di 200 karakter | Prototipe |

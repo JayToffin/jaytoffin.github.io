@@ -4,7 +4,7 @@
    lewat ?so=… (tautan dari Akun saya › Daftar Belanja & success-checkout).
    Nomor tak dikenal → contoh "Diproses" dengan nomor tsb. Produksi: sale.order Odoo.
    Isi: kepala (No. SO + salin, tanggal, distributor, status, progres 5 langkah),
-   banner per status (belum dibayar + hitung mundur / diproses + QC / dikirim +
+   banner per status (belum dibayar + hitung mundur / diproses / dikirim +
    resi / kedaluwarsa; selesai tanpa banner), kartu pengiriman (alamat, ekspedisi,
    resi, catatan), produk (flash sale, isi paket, bonus, diskon),
    rincian pembayaran (pola checkout), faktur pajak, aksi (bayar, lacak, invoice,
@@ -41,7 +41,7 @@
 	function copyBtn(text, label) { return '<button type="button" class="tf-od__copy" data-od-copy="' + esc(text) + '" data-od-copy-l="' + esc(label) + '" aria-label="Salin ' + esc(label) + '">' + ico('i-copy') + '<span>Salin</span></button>'; }
 
 	/* ---------- progres ---------- */
-	var STEPS = [['i-clipboard-list', 'Pesanan dibuat'], ['i-wallet', 'Pembayaran diterima'], ['i-settings-check', 'Diproses & QC'], ['i-truck', 'Dikirim'], ['i-circle-check', 'Selesai']];
+	var STEPS = [['i-clipboard-list', 'Pesanan dibuat'], ['i-wallet', 'Pembayaran diterima'], ['i-settings-check', 'Diproses'], ['i-truck', 'Dikirim'], ['i-circle-check', 'Selesai']];
 	var cur = { unpaid: 1, process: 2, ship: 3, done: 4, expired: 1, cancelled: 1 }[st];
 	function steps() {
 		return '<ol class="tf-od__steps' + (st === 'expired' || st === 'cancelled' ? ' is-fail' : '') + '" aria-label="Status pesanan">' + STEPS.map(function (s, i) {
@@ -60,7 +60,7 @@
 		var b = {
 			unpaid: ['warn', 'i-hourglass-high', 'Selesaikan pembayaran dalam <b class="tf-od__cd" data-od-cd>--:--:--</b>', 'Bayar sebelum ' + o.deadline_t + ' lewat ' + esc(o.pay.method) + '. Pembayaran diproses di halaman Xendit.',
 				'<a href="success-checkout.html" class="tf-btn tf-btn--sm">' + ico('i-lock') + ' Bayar sekarang</a>'],
-			process: ['info', 'i-settings-check', 'Pesanan sedang diproses', esc(o.qc || 'Pesanan disiapkan gudang ' + o.city + '. Nomor resi muncul setelah barang dikirim.'), ''],
+			process: ['info', 'i-settings-check', 'Pesanan sedang diproses', 'Pesanan disiapkan gudang ' + esc(o.city) + '. Nomor resi muncul setelah barang dikirim.', ''],
 			ship: ['ship', 'i-truck', 'Pesanan dalam perjalanan', esc(o.courier.name) + ' · ' + esc(o.courier.eta) + '. Resi <b>' + esc(o.resi) + '</b>',
 				'<a href="tracking-order.html?resi=' + encodeURIComponent(o.resi) + '" class="tf-btn tf-btn--sm">' + ico('i-map-pin') + ' Lacak</a>'],
 			expired: ['mute', 'i-ban', 'Pesanan dibatalkan', 'Pembayaran melewati batas waktu (' + o.deadline_t + '), pesanan dibatalkan otomatis. Tidak ada dana yang ditagih.',
