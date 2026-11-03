@@ -1044,6 +1044,14 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     ditambahkan ke `flashsale.html` (Promo aktif) dan atribut `class` ganda di item Category bottom nav (product-list, cart)
     dirapikan. Belum: atribut width/height gambar kartu (CLS), tinggi header beranda 95px.
 
+50. **Hero beranda di ponsel dirapikan** (2026-11-03, Rendi: "kurang rapi, tidak presisi"). Sebelumnya slider dipaksa
+    340px dan di-center (tepi kiri tidak sejajar bar "Dikirim ke"/kartu promo yang pakai gutter 10px), intipan slide
+    berikutnya terpotong sembarang (slidesPerView 1,15 dalam kotak overflow hidden), tanpa dot, panah 40px muncul di layar
+    sentuh. Sekarang ≤575px: slider penuh selebar container, `slidesPerView: 'auto'` dengan lebar slide dari CSS
+    `calc(100% - 26px)` (= intipan 18px + jarak 8px), sudut 14px, panah disembunyikan, dot pagination (`.swiper-pagination`
+    anak langsung slider, pil gelap transparan kiri bawah; hanya ponsel). Tablet/desktop tetap 2/3 poster.
+    `tf-sliders.js`: preset hero + pagination otomatis bila ada `.swiper-pagination` anak langsung.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

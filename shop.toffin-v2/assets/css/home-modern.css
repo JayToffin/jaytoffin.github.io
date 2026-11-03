@@ -702,8 +702,25 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 .tf-hero-wrap { position: relative; }
 
 /* ---------- opsi ambient ---------- */
-@media (max-width: 768px) {
-	.tf-hero-swiper--poster { max-width: 340px; margin: 0 auto; width: 100%; }
+/* dot pagination hero: pil gelap transparan di kiri bawah poster aktif (poster ada yang terang) */
+.tf-home .tf-hero-swiper--triple .swiper-pagination {
+	position: absolute; left: 14px; right: auto; bottom: 12px !important; z-index: 3; width: auto;
+	display: flex; align-items: center; gap: 5px; padding: 5px 8px; border-radius: 999px;
+	background: rgba(17, 17, 20, .34); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.tf-home .tf-hero-swiper--triple .swiper-pagination-bullet { margin: 0; }
+@media (min-width: 576px) { .tf-home .tf-hero-swiper--triple .swiper-pagination { display: none; } }
+/* ponsel (audit hero mobile 2026-11-03): slider penuh selebar container, tepi kiri sejajar bar "Dikirim ke" & kartu di bawah;
+   satu poster + intipan slide berikutnya 18px (lebar slide = 100% - 18px intipan - 8px jarak), sudut 14px, tanpa panah */
+@media (max-width: 575.98px) {
+	.tf-hero { padding: 8px 0 4px; }
+	.tf-hero-swiper--poster { max-width: none; margin: 0; width: 100%; }
+	.tf-hero-swiper--triple .swiper-slide { width: calc(100% - 26px); }
+	.tf-hero-swiper--triple .tf-hero-poster { border-radius: 14px; }
+	.tf-home .tf-hero-swiper .swiper-button-next,
+	.tf-home .tf-hero-swiper .swiper-button-prev { display: none; }
+}
+@media (min-width: 576px) and (max-width: 768px) {
 	.tf-hero-swiper--triple .tf-hero-poster { border-radius: 14px; }
 }
 @media (max-width: 768px) {

@@ -12,9 +12,10 @@
 	'use strict';
 
 	var PRESETS = {
-		/* hero poster homepage: 1,15 / 2 / 3, berputar otomatis */
+		/* hero poster homepage: ponsel 1 poster + intipan (lebar slide dari CSS, 'auto') / 2 / 3, berputar otomatis,
+		   dot pagination (.swiper-pagination anak langsung slider) */
 		hero: {
-			loop: true, speed: 600, slidesPerView: 1.15, spaceBetween: 12,
+			loop: true, speed: 600, slidesPerView: 'auto', spaceBetween: 8,
 			autoplay: { delay: 5500, disableOnInteraction: false },
 			breakpoints: { 576: { slidesPerView: 2, spaceBetween: 14 }, 992: { slidesPerView: 3, spaceBetween: 16 } }
 		},
@@ -75,7 +76,10 @@
 			if (el.swiper) return;
 			var preset = PRESETS[el.getAttribute('data-tf-slider')];
 			if (!preset) return;
-			new window.Swiper(el, assign({ navigation: navFor(el) }, preset));
+			var pg = el.querySelector(':scope > .swiper-pagination');
+			var opts = { navigation: navFor(el) };
+			if (pg) opts.pagination = { el: pg, clickable: true };
+			new window.Swiper(el, assign(opts, preset));
 		});
 		root.querySelectorAll('[data-tf-pg]').forEach(function (el) {
 			if (el.swiper || el.querySelectorAll('.swiper-slide').length < 2) return;
