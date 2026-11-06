@@ -260,12 +260,12 @@ document.addEventListener('mouseover', function (e) {
 		});
 	});
 	/* ---------- Status login contoh (menu akun, widget beranda): [data-auth="out|in"] ----------
-	   Belum ada sesi di prototipe: DEFAULT SUDAH LOGIN (Rendi 2026-11-06: menu akun jangan tampil versi belum login);
-	   jadi tamu hanya sesudah Keluar (sessionStorage tfDemoAuth = '0'), login lagi lewat tombol demo [data-tf-login]
-	   atau dengan membuka halaman akun.
+	   Belum ada sesi di prototipe: DEFAULT BELUM LOGIN (Rendi 2026-11-06). Tombol Masuk bertanda [data-tf-login]
+	   (kartu beranda, dropdown akun, sheet Akun) langsung menampilkan desain sudah login di tempat, tanpa pindah
+	   halaman; status disimpan di sessionStorage tfDemoAuth sampai Keluar. Halaman akun selalu dianggap login.
 	   Produksi: template Odoo merender keadaan menurut sesi, blok ini dibuang. */
 	var AUTH_KEY = 'tfDemoAuth';
-	function authGet() { try { return sessionStorage.getItem(AUTH_KEY) !== '0'; } catch (err) { return true; } }
+	function authGet() { try { return sessionStorage.getItem(AUTH_KEY) === '1'; } catch (err) { return false; } }
 	function authSet(on) { try { sessionStorage.setItem(AUTH_KEY, on ? '1' : '0'); } catch (err) { /* mode privat */ } }
 	function authApply(on) {
 		document.querySelectorAll('[data-auth="out"]').forEach(function (el) { el.hidden = on; });
@@ -276,7 +276,12 @@ document.addEventListener('mouseover', function (e) {
 	if (authQ) authSet(authQ[1] === 'in');
 	else if (/[?&]keluar=1/.test(location.search)) authSet(false);
 	else if (/(my-account|detail-pembelian|tracking-order)\.html$/.test(location.pathname)) authSet(true);
-	document.addEventListener('click', function (e) { if (e.target.closest('[data-tf-login]')) authSet(true); });
+	document.addEventListener('click', function (e) {
+		var b = e.target.closest('[data-tf-login]');
+		if (!b) return;
+		if (b.tagName === 'A') e.preventDefault();   /* contoh: tidak pindah ke login.html; produksi: tautan login sungguhan */
+		authSet(true); authApply(true);
+	});
 	function authInit() { authApply(authGet()); }
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', authInit); else authInit();
 

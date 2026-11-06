@@ -60,13 +60,13 @@
 					</div>
 					<!-- halaman akun gaya Tokopedia (2026-11-06); keadaan data-auth dipilih tf-nav.js -->
 					<div class="tf-macc">
-						<div class="tf-macc__guest" data-auth="out" hidden>
+						<div class="tf-macc__guest" data-auth="out">
 							<span class="tf-macc__gico"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg></span>
 							<strong>Masuk ke akun Toffin</strong>
 							<span>Lihat pesanan, poin, dan voucher kamu.</span>
-							<div class="tf-macc__cta"><a class="tf-btn" href="login.html">Masuk</a><a class="tf-btn tf-btn--ghost" href="register.html">Daftar</a></div>
+							<div class="tf-macc__cta"><a class="tf-btn" href="login.html" data-tf-login>Masuk</a><a class="tf-btn tf-btn--ghost" href="register.html">Daftar</a></div>
 						</div>
-						<div class="tf-macc__in" data-auth="in">
+						<div class="tf-macc__in" data-auth="in" hidden>
 							<a class="tf-acc__user" href="my-account.html#profil"><span class="tf-acc__ava" aria-hidden="true">RB</span><span class="tf-acc__who"><strong>Rendi Bagus</strong><small><svg class="tf-i" aria-hidden="true"><use href="#i-shield-check"/></svg> Akun terverifikasi</small></span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
 							<div class="tf-acc__stats"><a href="my-account.html#points"><small>Toffin Points</small><strong>1.250 Poin</strong></a><a href="my-account.html#favorit"><small>Favorit</small><strong>8 produk</strong></a></div>
 							<div class="tf-macc__orders">
@@ -80,21 +80,21 @@
 							</div>
 						</div>
 						<ul class="tf-mnav__acc">
-							<li class="tf-macc__lbl" data-auth="in">Akun</li>
-							<li data-auth="in"><a href="my-account.html#ringkasan"><svg class="tf-i" aria-hidden="true"><use href="#i-layout-grid"/></svg> Ringkasan</a></li>
-							<li data-auth="in"><a href="my-account.html#belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Daftar Belanja</a></li>
-							<li data-auth="in"><a href="my-account.html#favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorit</a></li>
-							<li class="tf-macc__lbl" data-auth="in">Pengaturan</li>
-							<li data-auth="in"><a href="my-account.html#alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg> Daftar Alamat</a></li>
-							<li data-auth="in"><a href="my-account.html#pembayaran"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg> Metode Pembayaran</a></li>
-							<li data-auth="in"><a href="my-account.html#profil"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg> Profil &amp; Keamanan</a></li>
+							<li class="tf-macc__lbl" data-auth="in" hidden>Akun</li>
+							<li data-auth="in" hidden><a href="my-account.html#ringkasan"><svg class="tf-i" aria-hidden="true"><use href="#i-layout-grid"/></svg> Ringkasan</a></li>
+							<li data-auth="in" hidden><a href="my-account.html#belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Daftar Belanja</a></li>
+							<li data-auth="in" hidden><a href="my-account.html#favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorit</a></li>
+							<li class="tf-macc__lbl" data-auth="in" hidden>Pengaturan</li>
+							<li data-auth="in" hidden><a href="my-account.html#alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg> Daftar Alamat</a></li>
+							<li data-auth="in" hidden><a href="my-account.html#pembayaran"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg> Metode Pembayaran</a></li>
+							<li data-auth="in" hidden><a href="my-account.html#profil"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg> Profil &amp; Keamanan</a></li>
 							<li class="tf-macc__lbl">Bantuan</li>
 							<li><a href="informasi-pengiriman.html"><svg class="tf-i" aria-hidden="true"><use href="#i-truck"/></svg> Informasi Pengiriman</a></li>
 							<!-- chat dipindah dari bubble mengambang ke sini di ponsel (2026-11-06, Rendi); isi sama dengan panel .tf-chat -->
 							<li><a href="chat-ai.html"><img src="images/AI-logo.png" alt="" class="tf-macc__img" width="24" height="24"> Toffin AI Assistant</a></li>
 							<li><a href="https://wa.me/628119983378" target="_blank" rel="noopener noreferrer"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg> Chat Customer Service</a></li>
 							<li><a href="faq.html"><svg class="tf-i" aria-hidden="true"><use href="#i-headset"/></svg> Bantuan &amp; FAQ</a></li>
-							<li data-auth="in"><a href="#" class="tf-mnav__acc-danger"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Keluar</a></li>
+							<li data-auth="in" hidden><a href="#" class="tf-mnav__acc-danger"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Keluar</a></li>
 						</ul>
 					</div>
 				</div>
@@ -512,10 +512,10 @@
 						<div class="tf-dd__panel tf-acc" id="tf-acc-menu">
 							<!-- menu akun gaya Tokopedia (2026-11-06): belum login = ajakan Masuk/Daftar; sudah login = kartu profil, poin & voucher, pintasan.
 							     Keadaan dipilih tf-nav.js (data-auth); produksi: menurut sesi Odoo -->
-							<div class="tf-acc__guest" data-auth="out" hidden>
+							<div class="tf-acc__guest" data-auth="out">
 								<strong>Masuk ke akun Toffin</strong>
 								<span>Lihat pesanan, poin, dan voucher kamu.</span>
-								<div class="tf-acc__cta"><a class="tf-btn" href="login.html">Masuk</a><a class="tf-btn tf-btn--ghost" href="register.html">Daftar</a></div>
+								<div class="tf-acc__cta"><a class="tf-btn" href="login.html" data-tf-login>Masuk</a><a class="tf-btn tf-btn--ghost" href="register.html">Daftar</a></div>
 							</div>
 							<div class="tf-acc__in" data-auth="in" hidden>
 								<a class="tf-acc__user" href="my-account.html#profil"><span class="tf-acc__ava" aria-hidden="true">RB</span><span class="tf-acc__who"><strong>Rendi Bagus</strong><small><svg class="tf-i" aria-hidden="true"><use href="#i-shield-check"/></svg> Akun terverifikasi</small></span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
