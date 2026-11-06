@@ -1231,6 +1231,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Sempat dicoba `i-diamond`, lalu Rendi memilih certificate; simbol diamond dihapus dari sprite. `i-award` tetap dipakai
     di keunggulan "Garansi Nasional" beranda.
 
+71. **Header distributor di keranjang di-highlight** (2026-11-06, Rendi): latar oranye lembut `#fff8ef` dengan garis bawah
+    `#ffe3c2`, ikon toko dalam lingkaran putih. Header "Tidak bisa diproses" ikut diberi latar merah lembut agar konsisten.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
