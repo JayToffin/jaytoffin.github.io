@@ -1135,6 +1135,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Tidak disentuh: `S&K-Service_credit-ToffinApp.html`, `faq-mobile-app.html`, template email (milik Toffin App),
     dan Voucher Servis di `voucher.html`.
 
+56. **Footer tanpa Metode Pembayaran & Layanan** (2026-11-06, Rendi). Blok `.tf-ftrust` (chip Transfer Bank, Virtual
+    Account, dst. + Garansi Nasional, Kirim Seluruh Indonesia, Konsultasi Gratis) dibuang dari footer 16 halaman;
+    chip pembayaran `.tf-fslim__pay` di footer ringkas (keranjang, checkout, sukses) ikut dibuang, tautannya kini
+    rata kanan. CSS `.tf-ftrust*` / `.tf-fchip*` dibiarkan (tidak terpakai).
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

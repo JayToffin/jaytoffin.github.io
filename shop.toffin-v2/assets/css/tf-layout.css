@@ -860,12 +860,12 @@
    reset sandi, lacak pesanan, sukses checkout. Satu baris: logo · hak cipta · tautan legal/bantuan · metode bayar.
    Tanpa kolom navigasi supaya pembeli tidak keluar dari alur (pola Amazon/Tokopedia di checkout). ---------- */
 .tf-footer--slim { font-size: 13px; }
-.tf-fslim { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px 20px; align-items: center; padding-top: 18px; padding-bottom: 18px; }
+.tf-fslim { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px 20px; align-items: center; padding-top: 18px; padding-bottom: 18px; }
 .tf-fslim__brand { display: flex; align-items: center; gap: 12px; }
 .tf-fslim__brand img { width: 96px; height: auto; }
 .tf-fslim__copy { margin: 0; color: var(--tf-muted); white-space: nowrap; }
 .tf-fslim__copy a { font-weight: 700; color: var(--tf-orange-dark); }
-.tf-fslim__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 0; padding: 0; list-style: none; }
+.tf-fslim__links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 18px; margin: 0; padding: 0; list-style: none; }
 .tf-fslim__links li { white-space: nowrap; }
 .tf-fslim__links a { display: inline-flex; align-items: center; gap: 6px; color: var(--tf-body); font-weight: 600; text-decoration: none; }
 .tf-fslim__links a:hover { color: var(--tf-orange-dark); text-decoration: none; }
