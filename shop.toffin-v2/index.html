@@ -595,25 +595,25 @@
 			<div class="tf-container">
 				<div class="tf-widgets">
 					<div class="tf-wcol">
-						<!-- Pesan produk favorit (2026-11-03, Rendi; menggantikan kartu "Yuk, belanja di Toffin"): banner ringkas, tombol
-						     "Pesan sekarang" membuka popup #fav-modal berisi daftar favorit + tombol Pesan = add to cart sekali klik
-						     (delegasi tf-nav.js: .tf-favlist .fs-btn-primary, nama dari .fs-product-title). Belum login: ajakan masuk.
+						<!-- Pesan produk favorit (2026-11-03, Rendi; menggantikan kartu "Yuk, belanja di Toffin"): banner ringkas + deretan thumbnail semua favorit.
+						     Konsep BULK (Rendi 2026-11-06): "Pesan semua" membuka popup #fav-modal (daftar ringkasan, tanpa pilihan per produk),
+						     tombol [data-fav-bulk] memasukkan semuanya ke keranjang sekaligus (tf-nav.js). Belum login: ajakan masuk.
 						     Produksi: isi dari wishlist akun (my-account.html#favorit). -->
 						<div class="tf-favcard">
 							<div class="tf-wtitle-row"><h3 class="tf-wtitle">Pesan produk favoritmu</h3><a href="my-account.html#favorit" class="tf-wlink" data-auth="in" hidden>Lihat semua</a></div>
 							<div class="tf-favguest" data-auth="out">
 								<span class="tf-favguest__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></span>
-								<div class="tf-favguest__txt"><strong>Pesan ulang favoritmu</strong><span>Masuk untuk lihat produk tersimpan.</span></div>
+								<div class="tf-favguest__txt"><strong>Pesan semua favoritmu</strong><span>Masuk untuk pesan sekaligus.</span></div>
 								<div class="tf-favguest__act"><button type="button" class="tf-btn tf-favguest__in" data-tf-login>Masuk</button><a href="register.html" class="tf-favguest__reg">Daftar</a></div>
 							</div>
 							<!-- sudah login: banner memenuhi kolom — teks + tombol di atas, deretan thumbnail favorit (4 + sisa) di bawah; bukan daftar -->
 							<div class="tf-favin" data-auth="in" hidden>
 								<div class="tf-favin__row">
 									<span class="tf-favguest__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></span>
-									<div class="tf-favguest__txt"><strong>8 produk tersimpan</strong><span>Pesan ulang sekali klik.</span></div>
-									<button type="button" class="tf-btn tf-favguest__in" data-toggle="modal" data-target="#fav-modal">Pesan sekarang</button>
+									<div class="tf-favguest__txt"><strong>8 produk tersimpan</strong><span>Pesan semuanya sekaligus.</span></div>
+									<button type="button" class="tf-btn tf-favguest__in" data-toggle="modal" data-target="#fav-modal">Pesan semua</button>
 								</div>
-								<button type="button" class="tf-favthumbs" data-toggle="modal" data-target="#fav-modal" aria-label="Lihat produk favorit"><span class="tf-favthumbs__i"><img src="images/product-1.jpg" alt="Nuova Simonelli Appia Life 2 Group" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/product-2.jpg" alt="Victoria Arduino Eagle One Prima" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/grinder.jpg" alt="Eureka Mignon Specialita 55 mm" loading="lazy" width="900" height="1197"></span><span class="tf-favthumbs__i"><img src="images/product-3.jpg" alt="Bundle Toffin for Home" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__more">+4</span><span class="tf-favthumbs__cta">Lihat daftar <svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></button>
+								<button type="button" class="tf-favthumbs" data-toggle="modal" data-target="#fav-modal" aria-label="Lihat 8 produk favorit yang akan dipesan"><span class="tf-favthumbs__i"><img src="images/product-1.jpg" alt="Nuova Simonelli Appia Life 2 Group" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/product-2.jpg" alt="Victoria Arduino Eagle One Prima" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/grinder.jpg" alt="Eureka Mignon Specialita 55 mm" loading="lazy" width="900" height="1197"></span><span class="tf-favthumbs__i"><img src="images/product-3.jpg" alt="Bundle Toffin for Home" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/product-1.4.jpg" alt="TFN Milk Pitcher 600 ml Stainless" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/product-6.jpg" alt="Eureka Zeus 65 mm" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/product-5.jpg" alt="Bravo Water Treatment Pro 1200" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/product-1.5.jpg" alt="TFN Tamper 58 mm Walnut" loading="lazy" width="800" height="800"></span></button>
 							</div>
 						</div>
 					</div>
@@ -1567,40 +1567,55 @@
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="fav-modal-title">Produk favoritmu</h5>
+					<h5 class="modal-title" id="fav-modal-title">Pesan semua favoritmu</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 				</div>
 				<div class="modal-body">
-					<p class="tf-favlist__hint">Ketuk <b>Pesan</b> untuk memasukkan produk ke keranjang dengan jumlah 1. Ubah jumlah dan varian di keranjang.</p>
+					<p class="tf-favlist__hint">Semua produk di bawah masuk ke keranjang sekaligus, masing-masing 1. Jumlah dan varian bisa diubah di keranjang. <a href="my-account.html#favorit">Kelola favorit</a></p>
 					<div class="tf-favlist">
 						<article class="tf-favrow">
 							<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-1.jpg" alt="" loading="lazy" width="800" height="800"></a>
 							<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Nuova Simonelli Appia Life 2 Group</a></h4><span class="tf-favrow__price">Rp 230.000.000</span></div>
-							<button type="button" class="fs-btn fs-btn-primary tf-favrow__btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan</button>
+							<span class="tf-favrow__qty">1 ×</span>
 						</article>
 						<article class="tf-favrow">
 							<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-2.jpg" alt="" loading="lazy" width="800" height="800"></a>
 							<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Victoria Arduino Eagle One Prima</a></h4><span class="tf-favrow__price">Rp 118.500.000</span></div>
-							<button type="button" class="fs-btn fs-btn-primary tf-favrow__btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan</button>
+							<span class="tf-favrow__qty">1 ×</span>
 						</article>
 						<article class="tf-favrow">
 							<a href="detail-produk.html" class="tf-favrow__img"><img src="images/grinder.jpg" alt="" loading="lazy" width="900" height="1197"></a>
 							<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Eureka Mignon Specialita 55 mm</a></h4><span class="tf-favrow__price">Rp 9.950.000</span></div>
-							<button type="button" class="fs-btn fs-btn-primary tf-favrow__btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan</button>
+							<span class="tf-favrow__qty">1 ×</span>
 						</article>
 						<article class="tf-favrow">
 							<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-3.jpg" alt="" loading="lazy" width="800" height="800"></a>
 							<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Bundle Toffin for Home</a></h4><span class="tf-favrow__price">Rp 150.000.000</span></div>
-							<button type="button" class="fs-btn fs-btn-primary tf-favrow__btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan</button>
+							<span class="tf-favrow__qty">1 ×</span>
 						</article>
 						<article class="tf-favrow">
 							<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-1.4.jpg" alt="" loading="lazy" width="800" height="800"></a>
 							<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">TFN Milk Pitcher 600 ml Stainless</a></h4><span class="tf-favrow__price">Rp 285.000</span></div>
-							<button type="button" class="fs-btn fs-btn-primary tf-favrow__btn"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan</button>
+							<span class="tf-favrow__qty">1 ×</span>
+						</article>
+						<article class="tf-favrow">
+							<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-6.jpg" alt="" loading="lazy" width="800" height="800"></a>
+							<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Eureka Zeus 65 mm</a></h4><span class="tf-favrow__price">Rp 38.500.000</span></div>
+							<span class="tf-favrow__qty">1 ×</span>
+						</article>
+						<article class="tf-favrow">
+							<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-5.jpg" alt="" loading="lazy" width="800" height="800"></a>
+							<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">Bravo Water Treatment Pro 1200</a></h4><span class="tf-favrow__price">Rp 7.850.000</span></div>
+							<span class="tf-favrow__qty">1 ×</span>
+						</article>
+						<article class="tf-favrow">
+							<a href="detail-produk.html" class="tf-favrow__img"><img src="images/product-1.5.jpg" alt="" loading="lazy" width="800" height="800"></a>
+							<div class="tf-favrow__txt"><h4 class="fs-product-title"><a href="detail-produk.html">TFN Tamper 58 mm Walnut</a></h4><span class="tf-favrow__price">Rp 425.000</span></div>
+							<span class="tf-favrow__qty">1 ×</span>
 						</article>
 					</div>
 				</div>
-				<div class="modal-footer tf-favlist__foot"><a href="my-account.html#favorit" class="tf-wlink">Lihat semua favorit (8)</a><a href="cart.html" class="tf-btn">Ke keranjang</a></div>
+				<div class="modal-footer tf-favlist__foot"><div class="tf-favlist__sum"><small>Total 8 produk</small><strong>Rp 555.510.000</strong></div><button type="button" class="tf-btn" data-fav-bulk="8"><svg class="tf-i" aria-hidden="true"><use href="#i-shopping-cart"/></svg> Pesan semua</button></div>
 			</div>
 		</div>
 		</div>

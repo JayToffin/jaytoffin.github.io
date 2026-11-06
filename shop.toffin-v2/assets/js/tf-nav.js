@@ -297,4 +297,19 @@ document.addEventListener('mouseover', function (e) {
 		var html = btn.innerHTML; btn.classList.add('is-added'); btn.innerHTML = ico('i-check') + ' Masuk keranjang';
 		setTimeout(function () { btn.classList.remove('is-added'); btn.innerHTML = html; }, 1800);
 	});
+
+	/* ---------- Pesan semua favorit (beranda, popup #fav-modal): BULK — semua produk favorit masuk keranjang sekaligus,
+	   masing-masing 1 (Rendi 2026-11-06). Produksi: satu POST berisi seluruh wishlist ke keranjang Odoo. ---------- */
+	document.addEventListener('click', function (e) {
+		var btn = e.target.closest('[data-fav-bulk]');
+		if (!btn || btn.classList.contains('is-added')) return;
+		var n = parseInt(btn.getAttribute('data-fav-bulk'), 10) || 1;
+		badge(n);
+		toast('<b>' + n + ' produk favorit</b> masuk keranjang', { link: { href: 'cart.html', label: 'Lihat keranjang' } });
+		var html = btn.innerHTML; btn.classList.add('is-added'); btn.innerHTML = ico('i-check') + ' Masuk keranjang';
+		setTimeout(function () {
+			btn.classList.remove('is-added'); btn.innerHTML = html;
+			var modal = btn.closest('.modal'); if (modal && window.jQuery) window.jQuery(modal).modal('hide');
+		}, 900);
+	});
 })();

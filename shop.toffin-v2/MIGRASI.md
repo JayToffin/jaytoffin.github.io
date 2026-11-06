@@ -1155,6 +1155,13 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
 59. **Baris bawah footer tanpa tautan Syarat / Privasi / FAQ** (2026-11-06, Rendi: sudah ada di kolom Informasi &
     Bantuan). `<ul class="tf-fmini">` dibuang dari 16 halaman; baris bawah kini hanya hak cipta.
 
+60. **"Pesan produk favoritmu" jadi konsep bulk** (2026-11-06, Rendi: jangan pilih satu per satu). Kartu: tombol
+    "Pesan semua" + deretan 8 thumbnail petak selebar kartu (grid 8 kolom; menggantikan thumbnail bulat bertumpuk
+    + "+4" + "Lihat daftar" yang menyisakan ruang kosong). Popup `#fav-modal`: daftar ringkasan 8 produk tanpa
+    tombol per baris ("1 ×"), total Rp 555.510.000, satu tombol `[data-fav-bulk="8"]` "Pesan semua" → badge +8,
+    toast, popup tertutup (`tf-nav.js`). Delegasi `.tf-favlist .fs-btn-primary` tidak dipakai lagi.
+    Produksi: satu POST seluruh wishlist ke keranjang Odoo; total & jumlah dari data akun.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
