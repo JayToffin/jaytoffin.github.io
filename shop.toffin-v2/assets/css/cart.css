@@ -48,8 +48,9 @@
 .tf-group__head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--tf-line); }
 .tf-group__head .tf-check { font-size: 14px; font-weight: 800; color: var(--tf-ink); }
 /* header distributor di-highlight (langkah 71 MIGRASI): latar oranye lembut, ikon toko dalam lingkaran */
+[data-cart-group] > .tf-group__head, .tf-offgrp > .tf-group__head { padding-top: 8px; padding-bottom: 8px; }   /* header lebih tipis */
 [data-cart-group] > .tf-group__head { background: #fff8ef; border-bottom-color: #ffe3c2; border-radius: 15px 15px 0 0; }
-[data-cart-group] .tf-group__store .tf-i { box-sizing: content-box; width: 16px; height: 16px; padding: 5px; border-radius: 50%; background: #fff; color: var(--tf-orange-dark); box-shadow: 0 0 0 1px #ffe3c2; }
+[data-cart-group] .tf-group__store .tf-i { box-sizing: content-box; width: 16px; height: 16px; padding: 3px; border-radius: 50%; background: #fff; color: var(--tf-orange-dark); box-shadow: 0 0 0 1px #ffe3c2; }
 .tf-offgrp > .tf-group__head { background: #fff5f4; border-bottom-color: #fbd9d6; border-radius: 15px 15px 0 0; }
 .tf-group__store { display: inline-flex; align-items: center; gap: 8px; }
 .tf-group__store .tf-i { width: 18px; height: 18px; color: var(--tf-orange-dark); }

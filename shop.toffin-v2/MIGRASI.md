@@ -1232,7 +1232,7 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     di keunggulan "Garansi Nasional" beranda.
 
 71. **Header distributor di keranjang di-highlight** (2026-11-06, Rendi): latar oranye lembut `#fff8ef` dengan garis bawah
-    `#ffe3c2`, ikon toko dalam lingkaran putih. Header "Tidak bisa diproses" ikut diberi latar merah lembut agar konsisten.
+    `#ffe3c2`, ikon toko dalam lingkaran putih. Header dibuat lebih tipis (padding vertikal 14px jadi 8px, lingkaran ikon 26px jadi 22px). Header "Tidak bisa diproses" ikut diberi latar merah lembut agar konsisten.
 
 ## Bobot aset lokal `index.html`
 
