@@ -60,7 +60,7 @@
    selama ini 130px. Nilai 130 dipertahankan supaya rupa tidak berubah; naikkan ke
    164 bila ingin logo sebesar niat desain awal. */
 .tf-brand img { width: 130px; height: auto; }
-.tf-brand--mobile { margin-right: 12px; }
+.tf-brand--mobile { margin-right: 8px; }
 .tf-brand--mobile img { width: auto; height: 22px; }
 /* tombol kembali di header ponsel: menggantikan logo di semua halaman selain beranda (tf-nav.js) */
 .tf-hback { display: grid; place-items: center; flex: none; width: 36px; height: 36px; margin: 0 4px 0 -6px; border-radius: 50%; color: var(--tf-ink); text-decoration: none; }
@@ -240,11 +240,11 @@
 }
 /* pemicu pencarian di mobile: kotak cari berupa tombol. Ikon & teks satu sumbu, teks biasa 13.5px
    (bukan kapital 10px berjarak lebar) supaya sebanding dengan ikon 18px. */
-.tf-search--trigger { width: 100%; flex: 1 1 360px; max-width: none; min-width: 0; height: 40px; gap: 8px; padding: 0 14px; text-align: left; cursor: text; }
-.tf-search--trigger .tf-search__ico { display: grid; place-items: center; width: 18px; height: 18px; color: #6b7280; }
-.tf-search--trigger .tf-search__ico .tf-i { display: block; width: 18px; height: 18px; }
+.tf-search--trigger { width: 100%; flex: 1 1 360px; max-width: none; min-width: 0; height: 46px; gap: 8px; padding: 0 14px; text-align: left; cursor: text; }
+.tf-search--trigger .tf-search__ico { display: grid; place-items: center; width: 20px; height: 20px; color: #6b7280; }
+.tf-search--trigger .tf-search__ico .tf-i { display: block; width: 20px; height: 20px; }
 .tf-search__placeholder { flex: 1 1 auto; min-width: 0; padding-left: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.tf-search--trigger .tf-search__placeholder { color: #8a909b; font-size: 13.5px; font-weight: 500; letter-spacing: 0; line-height: 1; text-transform: none; }
+.tf-search--trigger .tf-search__placeholder { color: #8a909b; font-size: 14.5px; font-weight: 500; letter-spacing: 0; line-height: 1; text-transform: none; }
 
 /* =====================================================================
    PENCARIAN LANJUTAN (.tf-sx, tf-search.js)
@@ -568,6 +568,8 @@
 .tf-macc__steps .tf-i { width: 24px; height: 24px; color: var(--tf-orange-dark); }
 .tf-macc .tf-mnav__acc { margin-top: 14px; }
 .tf-macc .tf-mnav__acc a { min-height: 48px; padding: 0; }
+.tf-macc .tf-mnav__acc .tf-macc__lbl { padding: 16px 0 4px; border-bottom: 0; color: #94a3b8; font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.tf-acc__stats strong { white-space: nowrap; }
 
 /* pencarian ponsel (.tf-sx--sheet di #mobile-search-browser) */
 .tf-sx--sheet .tf-sx__wrap { position: relative; flex: 1 1 auto; min-width: 0; }

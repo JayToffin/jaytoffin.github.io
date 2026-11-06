@@ -1114,6 +1114,15 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
       tombol demo `[data-tf-login]`; kembali tamu setelah Keluar (`?keluar=1`). Produksi: template Odoo merender
       `data-auth` menurut sesi, nama/poin/voucher dari akun, blok JS ini dibuang.
 
+53. **Search bar ponsel diperbesar + menu Akun ponsel disamakan dengan desktop** (2026-11-06, Rendi).
+    - Pemicu pencarian ponsel: tinggi 40 → 46px, teks 13,5 → 14,5px, ikon 20px (`tf-layout.css`).
+    - Halaman Akun di sheet ponsel memuat semua fitur `my-account.html`, digabung gaya marketplace: kartu profil,
+      kotak Toffin Points & Service Credit, pintasan status Daftar Belanja, lalu daftar berkelompok
+      Akun (Ringkasan, Daftar Belanja, Favorit), Pengaturan (Daftar Alamat, Metode Pembayaran, Profil & Keamanan),
+      Bantuan, Keluar. Dropdown desktop memakai daftar yang sama.
+    - **Prototipe kini default sudah login** (`tf-nav.js`: tamu hanya bila `sessionStorage.tfDemoAuth = '0'`,
+      yaitu sesudah Keluar). Efek samping: kartu favorit & Rewards di beranda juga tampil versi sudah login.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
