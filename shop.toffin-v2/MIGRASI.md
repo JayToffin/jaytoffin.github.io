@@ -1222,6 +1222,10 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
 68. **Ikon hapus keranjang di ponsel pindah ke kanan stepper** (2026-11-06, Rendi): urutan baris bawah kini
     total, stepper, lalu ikon hapus paling kanan, sama dengan desktop.
 
+69. **Ikon menu Promo di bottom nav diganti** (2026-11-06, Rendi): `i-percentage` (garis miring dua titik, terlihat kosong)
+    menjadi `i-rosette-discount` (lencana bergerigi berisi tanda persen, Tabler v3.48.0) di 18 halaman. Simbol baru ditambahkan
+    ke `tf-icons.js` dan `tf-icons.svg`. `i-percentage` tetap ada di sprite untuk pemakaian lain.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
