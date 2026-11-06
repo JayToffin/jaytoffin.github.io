@@ -37,6 +37,7 @@ Simbol yang ada (82):
 - `i-building-store`
 - `i-calendar`
 - `i-camera`
+- `i-certificate` (menu Brand bottom nav, 2026-11-06)
 - `i-check`
 - `i-chevron-down`
 - `i-chevron-left`
@@ -49,7 +50,6 @@ Simbol yang ada (82):
 - `i-copy`
 - `i-credit-card`
 - `i-crown`
-- `i-diamond` (menu Brand bottom nav, 2026-11-06)
 - `i-download`
 - `i-eye`
 - `i-eye-off`

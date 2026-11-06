@@ -1227,7 +1227,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     ke `tf-icons.js` dan `tf-icons.svg`. `i-percentage` tetap ada di sprite untuk pemakaian lain.
 
 70. **Ikon menu Brand di bottom nav diganti** (2026-11-06, Rendi): `i-award` (medali bulat, mirip ikon Promo baru di sebelahnya
-    dan terbaca sebagai reward) menjadi `i-diamond` (Tabler v3.48.0) di semua halaman ber-bottom nav. `i-award` tetap dipakai
+    dan terbaca sebagai reward) menjadi `i-certificate` (sertifikat dengan segel, kesan brand resmi; Tabler v3.48.0) di semua halaman ber-bottom nav.
+    Sempat dicoba `i-diamond`, lalu Rendi memilih certificate; simbol diamond dihapus dari sprite. `i-award` tetap dipakai
     di keunggulan "Garansi Nasional" beranda.
 
 ## Bobot aset lokal `index.html`
