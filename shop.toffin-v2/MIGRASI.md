@@ -1186,6 +1186,10 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Teks "Pesan semuanya sekaligus…" pindah ke dasar kartu sebagai `.tf-reward__note` (sejajar catatan kartu poin).
     Tautan "Lihat semua" di judul kedua kartu (favorit & Toffin Rewards) dihapus.
 
+61. **Kata "poin" diganti "point"** di semua teks tampil halaman web v2 (2026-11-06, Rendi): "Toffin Point", "Point Kamu",
+    "1.250 Point", "kumpulkan point…", termasuk `aria-label`/`title`/`placeholder` dan label filter di `tf-account.js`.
+    Tidak diubah: nama kelas, `data-panel="poin"`, komentar kode, serta dokumen aplikasi/email/Odoo/webview.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

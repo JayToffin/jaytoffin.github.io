@@ -90,7 +90,7 @@
 	   pilih tanggal sendiri). Berlaku untuk tab Riwayat; tanggal dibaca dari data-date tiap baris. */
 	var plist = $('[data-plist]'), PT_TODAY = plist.getAttribute('data-today'), ptab = 'hist';
 	var pf = { type: 'all', period: 'all', from: '', to: '' }, pfForm = $('[data-pf-form]');
-	var PF_T = { plus: 'Poin diperoleh', min: 'Poin ditukarkan' }, PF_P = { today: 'Hari ini', month: 'Bulan ini', year: 'Tahun ini' };
+	var PF_T = { plus: 'Point diperoleh', min: 'Point ditukarkan' }, PF_P = { today: 'Hari ini', month: 'Bulan ini', year: 'Tahun ini' };
 	function fmtD(iso) { var d = iso.split('-'); return +d[2] + ' ' + ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'][+d[1] - 1] + ' ' + d[0]; }
 	function inPeriod(iso) {
 		if (pf.period === 'today') return iso === PT_TODAY;
