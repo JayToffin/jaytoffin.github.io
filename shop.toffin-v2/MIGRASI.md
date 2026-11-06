@@ -1216,6 +1216,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     - Ponsel (< 576px): total per produk disembunyikan saat qty 1 (harga satuan sudah tampil di bawah nama). Saat qty > 1
       muncul di kiri baris bawah: label kecil "Total N barang" + nominal tebal (`.tf-item.is-multi`, `data-n`). Desktop tetap.
 
+67. **Centang "Semua" di bar total sticky keranjang dihapus** (2026-11-06, Rendi). Bar kini hanya total di kiri dan
+    tombol "Beli (N)" di kanan. Pilih semua tetap ada di kartu paling atas daftar.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

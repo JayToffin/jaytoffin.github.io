@@ -230,8 +230,8 @@
 	.tf-sum__cta, .tf-sum__back { display: none; }
 	.tf-cart__sticky { position: fixed; left: 0; right: 0; bottom: 65px; z-index: 1600; display: flex; align-items: center; gap: 12px; padding: 10px 16px; background: rgba(255, 255, 255, .94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-top: 1px solid var(--tf-line); box-shadow: 0 -6px 20px rgba(0, 0, 0, .06); }
 	.tf-cart.is-empty .tf-cart__sticky { display: none; }
-	.tf-cart__sticky .tf-check { font-size: 13px; font-weight: 700; color: var(--tf-ink); }
-	.tf-cart__sticky-total { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15; }
+	.tf-cart__sticky-total { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }   /* tanpa centang: total di kiri, tombol Beli di kanan */
+	.tf-cart__sticky .tf-btn { margin-left: auto; }
 	.tf-cart__sticky-total small { color: var(--tf-muted); font-size: 11px; font-weight: 700; }
 	.tf-cart__sticky-total strong { color: var(--tf-ink); font-size: 16px; font-weight: 900; letter-spacing: -.02em; white-space: nowrap; }
 	.tf-cart__sticky .tf-btn { min-height: 42px; padding: 0 18px; font-size: 14px; }
@@ -257,7 +257,6 @@
 	.tf-sub { grid-template-columns: 44px minmax(0, 1fr) auto; padding: 8px 10px; }
 	.tf-sub__thumb { width: 44px; height: 44px; }
 	.tf-cart__sticky { padding: 10px 14px; }
-	.tf-cart__sticky .tf-check span { display: none; }   /* ponsel: cukup kotak centang */
 	.tf-item__tag--fs { border-radius: 8px; row-gap: 3px; }
 	.tf-fs-cd { margin-left: 0; padding-left: 0; border-left: 0; }   /* turun ke baris kedua: tanpa garis pemisah */
 }
