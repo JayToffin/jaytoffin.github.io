@@ -113,13 +113,21 @@
 .tf-favguest__reg:hover { color: var(--tf-orange); text-decoration: none; }
 /* belum login (2026-11-03, Rendi): kedua kartu ringkas satu baris & tidak melar setinggi kolom */
 .tf-favguest, .tf-rguest { flex: 0 0 auto; align-self: stretch; }   /* stretch: lebar penuh kolom (start membuat kartu menyusut selebar isi) */
-.tf-favin { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; gap: 16px; padding: 8px 16px 16px; border: 1px solid #ffd6d6; border-radius: 10px; background: linear-gradient(120deg, #fff1f1 0%, #fff 70%); }
-.tf-favin__row { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; column-gap: 12px; }
+.tf-favin { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; gap: 0; padding: 6px 14px 14px; border: 1px solid #ffd6d6; border-radius: 10px; background: linear-gradient(120deg, #fff1f1 0%, #fff 70%); }
+/* baris judul = pita kepala seperti baris tab Toffin Rewards: inset kiri-kanan 14px, tinggi 44px, garis bawah; isi di bawahnya
+   juga ber-inset 14px, jadi kedua kartu sejajar (Rendi 2026-11-06) */
+.tf-favin__row { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; column-gap: 10px; min-height: 44px; margin: 0 -14px; padding: 0 14px 6px; border-bottom: 1px solid #ffd6d6; }
+.tf-favin__row .tf-favguest__ico { width: 32px; height: 32px; }
+.tf-favin__row .tf-favguest__ico .tf-i { width: 16px; height: 16px; }
+.tf-favin__row .tf-favguest__txt strong { margin-bottom: 0; font-size: 14px; line-height: 1.25; }
+.tf-favin__row .tf-favguest__txt span { font-size: 12px; line-height: 1.3; }
+.tf-favin__row .tf-favguest__in { min-height: 32px; padding: 0 16px; }
+.tf-favin .tf-favthumbs { margin: auto 0; padding-top: 14px; }
 /* deretan thumbnail favorit: model awal — bulat bertumpuk, 4 pertama + "+N" (aman untuk favorit berapa pun);
    baris ikon + judul di atas (sejajar baris tab Rewards di kanan), thumbnail besar (64px / ponsel 42px) tepat di bawahnya
    supaya kartu tidak terlihat kosong (Rendi 2026-11-06) */
 .tf-favthumbs { appearance: none; display: flex; align-items: center; align-self: flex-start; padding: 0; border: 0; background: none; cursor: pointer; font-family: inherit; }
-.tf-favthumbs__i, .tf-favthumbs__more { display: block; flex: none; width: 72px; height: 72px; margin-right: -14px; border: 2px solid #fff; border-radius: 50%; overflow: hidden; background: #f5f5f7; box-shadow: 0 1px 3px rgba(0, 0, 0, .12); }
+.tf-favthumbs__i, .tf-favthumbs__more { display: block; flex: none; width: 76px; height: 76px; margin-right: -14px; border: 2px solid #fff; border-radius: 50%; overflow: hidden; background: #f5f5f7; box-shadow: 0 1px 3px rgba(0, 0, 0, .12); }
 .tf-favthumbs__more { display: grid; place-items: center; margin-right: 0; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 16px; font-weight: 800; }
 .tf-favthumbs__i img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tf-favlist__hint a { color: var(--tf-orange-dark); font-weight: 700; white-space: nowrap; }
@@ -395,9 +403,10 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-favguest__in { min-height: 36px; padding: 0 16px; font-size: 12.5px; border-radius: 999px; }
 	.tf-favguest__act { flex-direction: column; align-items: center; gap: 0; }
 	.tf-favguest__reg { padding: 7px 12px 5px; font-size: 12.5px; }   /* area ketuk ±32px */
-	.tf-favin .tf-favguest__in { min-height: 40px; }
-	.tf-favin { gap: 8px; padding: 10px 12px; }
-	.tf-favin__row { grid-template-columns: 32px minmax(0, 1fr) auto; column-gap: 10px; }
+	.tf-favin .tf-favguest__in { min-height: 36px; }
+	.tf-favin { padding: 4px 12px 10px; }
+	.tf-favin__row { margin: 0 -12px; padding: 0 12px 4px; }
+	.tf-favin .tf-favthumbs { padding-top: 10px; }
 	.tf-favthumbs__i, .tf-favthumbs__more { width: 42px; height: 42px; margin-right: -8px; font-size: 12.5px; }
 	.tf-favthumbs__more { margin-right: 0; }
 	.tf-favlist { gap: 6px; }
