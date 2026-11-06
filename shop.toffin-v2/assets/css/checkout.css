@@ -18,7 +18,9 @@
 /* ---------- header fokus ---------- */
 .tf-cohead { position: sticky; top: 0; z-index: 1500; background: rgba(255, 255, 255, .95); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--tf-line); font-family: var(--tf-font); }
 .tf-cohead__in { display: flex; align-items: center; gap: 24px; min-height: 64px; }
-.tf-cohead__logo img { display: block; height: 22px; }
+/* ukuran logo sama dengan header utama (.tf-brand di tf-layout.css): 130px desktop, tinggi 22px di bawah 1200px */
+.tf-cohead__logo img { display: block; width: 130px; height: auto; }
+@media (max-width: 1199.98px) { .tf-cohead__logo img { width: auto; height: 22px; } }
 .tf-cohead__back { display: none; align-items: center; gap: 4px; color: var(--tf-ink); font-weight: 800; font-size: 16px; text-decoration: none; }
 .tf-cohead__back .tf-i { width: 22px; height: 22px; }
 .tf-steps { display: flex; align-items: center; gap: 10px; margin: 0 auto; padding: 0; list-style: none; }

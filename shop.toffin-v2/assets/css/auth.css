@@ -10,7 +10,9 @@ body.au-body { background: #fafafa; }
 /* header minimal */
 .au-top { background: #fff; border-bottom: 1px solid var(--tf-line); }
 .au-top__in { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
-.au-top__logo img { width: 124px; height: auto; }
+/* ukuran logo sama dengan header utama (.tf-brand di tf-layout.css) */
+.au-top__logo img { display: block; width: 130px; height: auto; }
+@media (max-width: 1199.98px) { .au-top__logo img { width: auto; height: 22px; } }
 .au-top__back { display: inline-flex; align-items: center; gap: 4px; color: var(--tf-body); font-size: 13.5px; font-weight: 700; text-decoration: none; }
 .au-top__back:hover { color: var(--tf-orange-dark); text-decoration: none; }
 .au-top__back .tf-i { width: 16px; height: 16px; }

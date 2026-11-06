@@ -1199,6 +1199,10 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Berlaku untuk `.tf-util__badge` (keranjang), `.tf-anav a b`, `.tf-achip b`, `.tf-pfbtn b` (My Account),
     `.tf-brands-chip b` (Brand), `.tf-plp__badge` (filter daftar produk). Nomor langkah (checkout, daftar) tidak diubah.
 
+64. **Ukuran logo Toffin di header diseragamkan** (2026-11-06, Rendi): header fokus checkout/sukses (`.tf-cohead__logo`,
+    sebelumnya tinggi 22px ≈ lebar 72px) dan header halaman masuk/daftar (`.au-top__logo`, sebelumnya 124px) kini mengikuti
+    header utama `.tf-brand`: lebar 130px di desktop, tinggi 22px di bawah 1200px. Logo footer (tinggi 30px) tidak diubah.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
