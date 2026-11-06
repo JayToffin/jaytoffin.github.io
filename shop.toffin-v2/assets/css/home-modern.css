@@ -123,12 +123,12 @@
 .tf-favin__row .tf-favguest__txt span { font-size: 12px; line-height: 1.3; }
 .tf-favin__row .tf-favguest__in { min-height: 32px; padding: 0 16px; }
 .tf-favin .tf-favthumbs { margin: auto 0; padding-top: 14px; }
-/* deretan thumbnail favorit: model awal — bulat bertumpuk, 4 pertama + "+N" (aman untuk favorit berapa pun);
+/* deretan thumbnail favorit: petak kecil bersudut tumpul (bukan bulat bertumpuk), 4 pertama + "+N" (aman untuk favorit berapa pun);
    baris ikon + judul di atas (sejajar baris tab Rewards di kanan), thumbnail besar (64px / ponsel 42px) tepat di bawahnya
    supaya kartu tidak terlihat kosong (Rendi 2026-11-06) */
-.tf-favthumbs { appearance: none; display: flex; align-items: center; align-self: flex-start; padding: 0; border: 0; background: none; cursor: pointer; font-family: inherit; }
-.tf-favthumbs__i, .tf-favthumbs__more { display: block; flex: none; width: 76px; height: 76px; margin-right: -14px; border: 2px solid #fff; border-radius: 50%; overflow: hidden; background: #f5f5f7; box-shadow: 0 1px 3px rgba(0, 0, 0, .12); }
-.tf-favthumbs__more { display: grid; place-items: center; margin-right: 0; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 16px; font-weight: 800; }
+.tf-favthumbs { appearance: none; display: flex; align-items: center; gap: 8px; align-self: flex-start; padding: 0; border: 0; background: none; cursor: pointer; font-family: inherit; }
+.tf-favthumbs__i, .tf-favthumbs__more { display: block; flex: none; width: 60px; height: 60px; border: 1px solid #f3dede; border-radius: 10px; overflow: hidden; background: #fff; }
+.tf-favthumbs__more { display: grid; place-items: center; border-color: #ffd9a8; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 14px; font-weight: 800; }
 .tf-favthumbs__i img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tf-favlist__hint a { color: var(--tf-orange-dark); font-weight: 700; white-space: nowrap; }
 .tf-favlist__foot .tf-btn .tf-i { width: 16px; height: 16px; }
@@ -167,15 +167,15 @@
 .tf-rfield__v small { font-size: 11px; font-weight: 700; color: var(--tf-muted); }
 .tf-reward__btn {
 	flex: none; appearance: none; border: none; cursor: pointer; font-family: inherit;
-	background: var(--tf-orange); color: #fff; font-weight: 800; font-size: 13px;
-	padding: 0 14px; border-radius: 8px;
+	background: var(--tf-orange); color: #fff; font-weight: 700; font-size: 13px;
+	padding: 0 16px; border-radius: 999px;   /* pil, sama dengan tombol "Pesan semua" di kartu favorit (Rendi 2026-11-06) */
 	/* sit at the bottom edge of the fields at a normal button height
 	   instead of stretching to the full 2-line field height */
-	align-self: flex-end; height: 34px;
-	font-size: 12px;
+	align-self: flex-end; height: 32px;
+	font-size: 13px;
 	/* fixed width so the fields don't shift when switching tabs
 	   (labels Tukar/Pakai/Bayar have slightly different text widths) */
-	width: 82px; min-width: 82px;
+	width: auto; min-width: 86px;
 	transition: background .2s ease;
 }
 .tf-reward__btn:hover { background: var(--tf-orange-dark); }
@@ -210,7 +210,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 .tf-voucher__tnc:hover { color: var(--tf-orange); text-decoration: underline; }
 /* sisi kanan: hanya tombol, gaya tombol tema (= .tf-reward__btn versi kecil) */
 .tf-voucher__act { flex: none; align-self: stretch; display: flex; align-items: center; padding: 0 10px; border-left: 1px dashed #f6c99a; }
-.tf-voucher__use { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 8px; background: var(--tf-orange); color: #fff; font-size: 12px; font-weight: 800; text-decoration: none; transition: background .2s ease; }
+.tf-voucher__use { display: inline-flex; align-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; transition: background .2s ease; }
 .tf-voucher__use:hover { background: var(--tf-orange-dark); color: #fff; text-decoration: none; }
 .tf-vslider__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 4px; }
 .tf-vslider__foot .tf-reward__note { margin: 0; }
@@ -407,8 +407,8 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-favin { padding: 4px 12px 10px; }
 	.tf-favin__row { margin: 0 -12px; padding: 0 12px 4px; }
 	.tf-favin .tf-favthumbs { padding-top: 10px; }
-	.tf-favthumbs__i, .tf-favthumbs__more { width: 42px; height: 42px; margin-right: -8px; font-size: 12.5px; }
-	.tf-favthumbs__more { margin-right: 0; }
+	.tf-favthumbs { gap: 6px; }
+	.tf-favthumbs__i, .tf-favthumbs__more { width: 38px; height: 38px; border-radius: 8px; font-size: 12px; }
 	.tf-favlist { gap: 6px; }
 	.tf-favrow { grid-template-columns: 40px minmax(0, 1fr); column-gap: 10px; padding: 6px 8px 6px 6px; }
 	.tf-favrow__img { width: 40px; height: 40px; }
@@ -435,7 +435,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-rfield { padding: 6px 8px; }
 	.tf-rfield__l { font-size: 10.5px; margin-bottom: 1px; }
 	.tf-rfield__v { font-size: 14px; }
-	.tf-reward__btn { align-self: flex-end; height: 32px; width: 72px; min-width: 72px; font-size: 12px; }
+	.tf-reward__btn { align-self: flex-end; height: 36px; width: auto; min-width: 76px; font-size: 12.5px; }
 	.tf-reward__note { margin-top: 8px; font-size: 11px; }
 }
 /* recommendation grid responsive columns */

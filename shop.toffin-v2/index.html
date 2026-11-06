@@ -596,8 +596,8 @@
 				<div class="tf-widgets">
 					<div class="tf-wcol">
 						<!-- Pesan produk favorit (2026-11-03, Rendi; menggantikan kartu "Yuk, belanja di Toffin"): banner ringkas + deretan thumbnail semua favorit.
-						     Konsep BULK (Rendi 2026-11-06): "Pesan semua" [data-fav-bulk] LANGSUNG memasukkan semua favorit ke keranjang (tf-nav.js),
-						     tanpa popup, total, atau jumlah. Thumbnail: 4 pertama + "+N"; diketuk membuka popup #fav-modal (daftar saja). Belum login: ajakan masuk.
+						     Konsep BULK (Rendi 2026-11-06): "Pesan semua" di kartu (dan thumbnail) membuka popup #fav-modal: daftar produk saja, tanpa
+						     total/jumlah; tombol [data-fav-bulk] di popup memasukkan semua favorit ke keranjang sekaligus (tf-nav.js). Belum login: ajakan masuk.
 						     Produksi: isi dari wishlist akun (my-account.html#favorit). -->
 						<div class="tf-favcard">
 							<div class="tf-wtitle-row"><h3 class="tf-wtitle">Pesan produk favoritmu</h3><a href="my-account.html#favorit" class="tf-wlink" data-auth="in" hidden>Lihat semua</a></div>
@@ -611,7 +611,7 @@
 								<div class="tf-favin__row">
 									<span class="tf-favguest__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></span>
 									<div class="tf-favguest__txt"><strong>8 produk tersimpan</strong><span>Pesan semuanya sekaligus.</span></div>
-									<button type="button" class="tf-btn tf-favguest__in" data-fav-bulk="8">Pesan semua</button>
+									<button type="button" class="tf-btn tf-favguest__in" data-toggle="modal" data-target="#fav-modal">Pesan semua</button>
 								</div>
 								<button type="button" class="tf-favthumbs" data-toggle="modal" data-target="#fav-modal" aria-label="Lihat 8 produk favorit"><span class="tf-favthumbs__i"><img src="images/product-1.jpg" alt="Nuova Simonelli Appia Life 2 Group" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/product-2.jpg" alt="Victoria Arduino Eagle One Prima" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__i"><img src="images/grinder.jpg" alt="Eureka Mignon Specialita 55 mm" loading="lazy" width="900" height="1197"></span><span class="tf-favthumbs__i"><img src="images/product-3.jpg" alt="Bundle Toffin for Home" loading="lazy" width="800" height="800"></span><span class="tf-favthumbs__more">+4</span></button>
 							</div>

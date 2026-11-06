@@ -1167,6 +1167,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     hanya daftar produk + "Kelola favorit" + "Pesan semua" (baris "1 ×" dan total dibuang).
     **Revisi berikutnya:** thumbnail kembali ke model awal (bulat bertumpuk 40px, 4 + "+N"), bukan petak selebar
     kartu; isi kartu dipusatkan vertikal supaya celah teks–thumbnail tidak lebar.
+    **Keadaan akhir (2026-11-06):** kartu favorit berstruktur sama dengan kartu poin — pita judul setinggi baris
+    tab + garis bawah, inset 14px (ponsel 12px); thumbnail petak 60px (ponsel 38px) radius 10, berjajar dengan
+    celah 8px, 4 + "+N". Tombol "Gunakan" di Toffin Rewards (poin & voucher) kini pil seperti "Pesan semua".
+    "Pesan semua" di kartu kembali membuka popup dulu (bukan langsung masuk keranjang); pemesanan sekaligus
+    terjadi lewat tombol `[data-fav-bulk]` di dalam popup.
 
 ## Bobot aset lokal `index.html`
 
