@@ -1204,6 +1204,10 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     header utama `.tf-brand`: lebar 130px di desktop, tinggi 22px di bawah 1200px. Logo footer (tinggi 30px) tidak diubah.
     Tinggi kedua header itu juga disamakan (66px + border = 67px) supaya posisi logo tidak bergeser 1px antarhalaman.
 
+65. **Baris harga keranjang di ponsel dirapikan** (2026-11-06, Rendi), hanya di bawah 576px: total di kiri, ikon hapus lalu
+    stepper jumlah rata kanan. Barang tidak tersedia (tanpa stepper) kini ikon hapusnya juga di kanan, sebelumnya di kiri
+    bawah gambar. Tampilan desktop tidak berubah.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

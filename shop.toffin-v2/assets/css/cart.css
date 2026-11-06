@@ -231,6 +231,10 @@
 	.tf-item__thumb { width: 72px; height: 72px; }
 	.tf-item__name { font-size: 13.5px; }
 	.tf-item__right { grid-column: 2 / -1; flex-direction: row; align-items: center; justify-content: space-between; min-width: 0; margin-top: 2px; }
+	/* baris harga ponsel (langkah 65 MIGRASI): total kiri, [hapus][- 1 +] rata kanan; barang tanpa stepper tetap ikon hapus di kanan */
+	.tf-item__act { margin-left: auto; gap: 4px; }
+	.tf-item__act .tf-ibtn { order: -1; }
+	.tf-item__total { font-size: 14.5px; }
 	.tf-sub { grid-template-columns: 44px minmax(0, 1fr) auto; padding: 8px 10px; }
 	.tf-sub__thumb { width: 44px; height: 44px; }
 	.tf-cart__sticky { padding: 10px 14px; }
