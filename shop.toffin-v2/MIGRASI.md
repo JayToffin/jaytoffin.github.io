@@ -1190,6 +1190,10 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     "1.250 Point", "kumpulkan point…", termasuk `aria-label`/`title`/`placeholder` dan label filter di `tf-account.js`.
     Tidak diubah: nama kelas, `data-panel="poin"`, komentar kode, serta dokumen aplikasi/email/Odoo/webview.
 
+62. **Tile kedua menu akun: Favorit diganti Voucher** (2026-11-06, Rendi). Di dropdown akun desktop dan sheet Akun mobile,
+    tile "Favorit / 8 produk" menjadi "Voucher / 5 voucher" dan menuju `voucher.html`. Angka 5 mengikuti jumlah voucher
+    contoh di beranda. Baris "Favorit" di daftar menu tetap ada.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
