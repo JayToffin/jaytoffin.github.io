@@ -86,16 +86,38 @@
 				<div class="tf-mnav__view" id="mobile-account-browser" hidden>
 					<div class="tf-mnav__head">
 						<button type="button" class="tf-mnav__back" id="mobile-account-back" aria-label="Kembali ke menu"><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
-						<div class="tf-mnav__title">Akun Saya</div>
+						<div class="tf-mnav__title">Akun</div>
 					</div>
-					<ul class="tf-mnav__acc">
-						<li><a href="login.html"><svg class="tf-i" aria-hidden="true"><use href="#i-login"/></svg> Login</a></li>
-						<li><a href="register.html"><svg class="tf-i" aria-hidden="true"><use href="#i-user-plus"/></svg> Register</a></li>
-						<li><a href="my-account.html"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg> Profile</a></li>
-						<li><a href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Daftar Belanja</a></li>
-						<li><a href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorite</a></li>
-						<li><a href="#" class="tf-mnav__acc-danger"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Logout</a></li>
-					</ul>
+					<!-- halaman akun gaya Tokopedia (2026-11-06); keadaan data-auth dipilih tf-nav.js -->
+					<div class="tf-macc">
+						<div class="tf-macc__guest" data-auth="out">
+							<span class="tf-macc__gico"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg></span>
+							<strong>Masuk ke akun Toffin</strong>
+							<span>Lihat pesanan, poin, dan voucher kamu.</span>
+							<div class="tf-macc__cta"><a class="tf-btn" href="login.html">Masuk</a><a class="tf-btn tf-btn--ghost" href="register.html">Daftar</a></div>
+						</div>
+						<div class="tf-macc__in" data-auth="in" hidden>
+							<a class="tf-acc__user" href="my-account.html#profil"><span class="tf-acc__ava" aria-hidden="true">RB</span><span class="tf-acc__who"><strong>Rendi Bagus</strong><small><svg class="tf-i" aria-hidden="true"><use href="#i-shield-check"/></svg> Akun terverifikasi</small></span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+							<div class="tf-acc__stats"><a href="my-account.html#points"><small>Toffin Poin</small><strong>1.250</strong></a><a href="my-account.html#points"><small>Voucher</small><strong>5 tersedia</strong></a></div>
+							<div class="tf-macc__orders">
+								<div class="tf-macc__orders-h"><strong>Pesanan Saya</strong><a href="my-account.html#belanja">Lihat semua</a></div>
+								<div class="tf-macc__steps">
+									<a href="my-account.html#belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-wallet"/></svg><span>Bayar</span></a>
+									<a href="my-account.html#belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-package"/></svg><span>Diproses</span></a>
+									<a href="my-account.html#belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-truck"/></svg><span>Dikirim</span></a>
+									<a href="my-account.html#belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-circle-check"/></svg><span>Selesai</span></a>
+								</div>
+							</div>
+						</div>
+						<ul class="tf-mnav__acc">
+							<li data-auth="in" hidden><a href="my-account.html#favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorit</a></li>
+							<li data-auth="in" hidden><a href="my-account.html#alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg> Alamat pengiriman</a></li>
+							<li data-auth="in" hidden><a href="my-account.html#pembayaran"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg> Metode pembayaran</a></li>
+							<li><a href="informasi-pengiriman.html"><svg class="tf-i" aria-hidden="true"><use href="#i-truck"/></svg> Informasi pengiriman</a></li>
+							<li><a href="faq.html"><svg class="tf-i" aria-hidden="true"><use href="#i-headset"/></svg> Bantuan &amp; FAQ</a></li>
+							<li data-auth="in" hidden><a href="#" class="tf-mnav__acc-danger"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Keluar</a></li>
+						</ul>
+					</div>
 				</div>
 
 				<!-- pencarian ponsel: komponen yang sama (tf-search.js), hasil selalu tampil -->
@@ -509,13 +531,24 @@
 					<div class="tf-dd tf-dd--right">
 						<button type="button" class="tf-util" data-tf-toggle="dropdown" aria-expanded="false" aria-controls="tf-acc-menu" aria-label="Menu akun"><svg class="tf-i" aria-hidden="true"><use href="#i-user"/></svg></button>
 						<div class="tf-dd__panel tf-acc" id="tf-acc-menu">
-							<a class="tf-acc__item" href="login.html">Masuk</a>
-							<a class="tf-acc__item" href="register.html">Daftar</a>
-							<a class="tf-acc__item" href="my-account.html">Akun Saya</a>
-							<a class="tf-acc__item" href="#">Daftar Belanja</a>
-							<a class="tf-acc__item" href="#">Favorite</a>
+							<!-- menu akun gaya Tokopedia (2026-11-06): belum login = ajakan Masuk/Daftar; sudah login = kartu profil, poin & voucher, pintasan.
+							     Keadaan dipilih tf-nav.js (data-auth); produksi: menurut sesi Odoo -->
+							<div class="tf-acc__guest" data-auth="out">
+								<strong>Masuk ke akun Toffin</strong>
+								<span>Lihat pesanan, poin, dan voucher kamu.</span>
+								<div class="tf-acc__cta"><a class="tf-btn" href="login.html">Masuk</a><a class="tf-btn tf-btn--ghost" href="register.html">Daftar</a></div>
+							</div>
+							<div class="tf-acc__in" data-auth="in" hidden>
+								<a class="tf-acc__user" href="my-account.html#profil"><span class="tf-acc__ava" aria-hidden="true">RB</span><span class="tf-acc__who"><strong>Rendi Bagus</strong><small><svg class="tf-i" aria-hidden="true"><use href="#i-shield-check"/></svg> Akun terverifikasi</small></span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+								<div class="tf-acc__stats"><a href="my-account.html#points"><small>Toffin Poin</small><strong>1.250</strong></a><a href="my-account.html#points"><small>Voucher</small><strong>5 tersedia</strong></a></div>
+								<a class="tf-acc__item" href="my-account.html#belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Pesanan Saya</a>
+								<a class="tf-acc__item" href="my-account.html#favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorit</a>
+								<a class="tf-acc__item" href="my-account.html#alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg> Alamat pengiriman</a>
+								<a class="tf-acc__item" href="my-account.html#pembayaran"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg> Metode pembayaran</a>
+							</div>
 							<div class="tf-acc__divider"></div>
-							<a class="tf-acc__item tf-acc__item--danger" href="#"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Logout</a>
+							<a class="tf-acc__item" href="faq.html"><svg class="tf-i" aria-hidden="true"><use href="#i-headset"/></svg> Bantuan &amp; FAQ</a>
+							<a class="tf-acc__item tf-acc__item--danger" href="#" data-auth="in" hidden><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg> Keluar</a>
 						</div>
 					</div>
 				</div>
@@ -757,9 +790,9 @@
 			<svg class="tf-i" width="20" height="20"><use href="#i-percentage"/></svg>
 			<span>Promo</span>
 		</a>
-		<a href="my-account.html" class="tf-bottomnav__item">
-			<svg class="tf-i" width="20" height="20"><use href="#i-clipboard-list"/></svg>
-			<span>Daftar Belanja</span>
+		<a href="brand.html" class="tf-bottomnav__item">
+			<svg class="tf-i" width="20" height="20"><use href="#i-award"/></svg>
+			<span>Brand</span>
 		</a>
 		<a href="#" class="tf-bottomnav__item" id="btn-bottom-nav-account">
 			<svg class="tf-i" width="20" height="20"><use href="#i-user"/></svg>

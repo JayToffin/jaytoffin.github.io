@@ -1101,6 +1101,19 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
       sekaligus (`tf-sliders.js`); dot kosong disembunyikan sampai galeri siap.
     - **SEO:** `<h1 class="sr-only">` ditambahkan di beranda.
 
+52. **Menu opsi B + akun gaya Tokopedia** (2026-11-06, Rendi memilih opsi B).
+    - **Navigasi bawah (18 halaman):** `Beranda | Kategori | Brand | Promo | Akun`. "Daftar Belanja" diganti Brand
+      (`brand.html`, ikon `i-award`); pesanan kini lewat Akun. Aktif: Brand di `brand.html`, Akun di `my-account`,
+      `detail-pembelian`, `tracking-order`. `detail-produk*.html` ternyata kehilangan `</nav>` penutup, diperbaiki.
+    - **Dropdown akun desktop (`.tf-acc`, lebar 300px):** belum login = "Masuk ke akun Toffin" + Masuk/Daftar;
+      sudah login = kartu profil (inisial, nama, "Akun terverifikasi"), kotak Toffin Poin & Voucher, Pesanan Saya,
+      Favorit, Alamat pengiriman, Metode pembayaran, Bantuan & FAQ, Keluar.
+    - **Halaman Akun di sheet ponsel (`.tf-macc`):** isi sama + pintasan status pesanan (Bayar, Diproses, Dikirim,
+      Selesai) dan Informasi pengiriman. CSS di `tf-layout.css`.
+    - **Status login contoh** (`tf-nav.js`, `sessionStorage.tfDemoAuth`): dianggap login di halaman akun atau setelah
+      tombol demo `[data-tf-login]`; kembali tamu setelah Keluar (`?keluar=1`). Produksi: template Odoo merender
+      `data-auth` menurut sesi, nama/poin/voucher dari akun, blok JS ini dibuang.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

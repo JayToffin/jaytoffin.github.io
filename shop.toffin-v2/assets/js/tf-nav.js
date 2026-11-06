@@ -259,6 +259,23 @@ document.addEventListener('mouseover', function (e) {
 			onOk: function () { location.href = 'index.html?keluar=1'; }   /* produksi: /web/session/logout */
 		});
 	});
+	/* ---------- Status login contoh (menu akun, widget beranda): [data-auth="out|in"] ----------
+	   Belum ada sesi di prototipe: dianggap sudah login di halaman akun (my-account, detail pembelian, lacak pesanan)
+	   atau setelah tombol demo [data-tf-login] ditekan (disimpan di sessionStorage); kembali tamu sesudah Keluar.
+	   Produksi: template Odoo merender keadaan menurut sesi, blok ini dibuang. */
+	var AUTH_KEY = 'tfDemoAuth';
+	function authGet() { try { return sessionStorage.getItem(AUTH_KEY) === '1'; } catch (err) { return false; } }
+	function authSet(on) { try { on ? sessionStorage.setItem(AUTH_KEY, '1') : sessionStorage.removeItem(AUTH_KEY); } catch (err) { /* mode privat */ } }
+	function authApply(on) {
+		document.querySelectorAll('[data-auth="out"]').forEach(function (el) { el.hidden = on; });
+		document.querySelectorAll('[data-auth="in"]').forEach(function (el) { el.hidden = !on; });
+	}
+	if (/[?&]keluar=1/.test(location.search)) authSet(false);
+	else if (/(my-account|detail-pembelian|tracking-order)\.html$/.test(location.pathname)) authSet(true);
+	document.addEventListener('click', function (e) { if (e.target.closest('[data-tf-login]')) authSet(true); });
+	function authInit() { if (authGet()) authApply(true); }
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', authInit); else authInit();
+
 	if (/[?&]keluar=1/.test(location.search)) {
 		toast('Anda sudah keluar dari akun', { kind: 'info', link: { href: 'login.html', label: 'Masuk lagi' } });
 		if (history.replaceState) history.replaceState(null, '', location.pathname);
