@@ -1128,6 +1128,13 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     "Chat Customer Service" (WhatsApp). Desktop tetap memakai bubble. Ruang kanan 76px di baris hak cipta footer
     (langkah 51) dicabut karena tidak ada lagi yang menutupi.
 
+55. **Service Credit dihapus dari web** (2026-11-06, Rendi: fitur hanya ada di Toffin App). `my-account.html`: tautan
+    menu (sidebar & tab ponsel), kartu ringkasan (kini 3 kartu), pane `service`, dialog S&K `dlg-info-sc`, dan
+    penyebutan di teks hapus akun dibuang; hash lama `#service` / `#service-credit` jatuh ke Ringkasan
+    (`tf-account.js`). Menu akun (dropdown & sheet ponsel, 18 halaman): kotak Service Credit diganti Favorit.
+    Tidak disentuh: `S&K-Service_credit-ToffinApp.html`, `faq-mobile-app.html`, template email (milik Toffin App),
+    dan Voucher Servis di `voucher.html`.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

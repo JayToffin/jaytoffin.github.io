@@ -94,7 +94,7 @@
 						</div>
 						<div class="tf-macc__in" data-auth="in">
 							<a class="tf-acc__user" href="my-account.html#profil"><span class="tf-acc__ava" aria-hidden="true">RB</span><span class="tf-acc__who"><strong>Rendi Bagus</strong><small><svg class="tf-i" aria-hidden="true"><use href="#i-shield-check"/></svg> Akun terverifikasi</small></span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
-							<div class="tf-acc__stats"><a href="my-account.html#points"><small>Toffin Points</small><strong>1.250 Poin</strong></a><a href="my-account.html#service"><small>Service Credit</small><strong>Rp 10.000.000</strong></a></div>
+							<div class="tf-acc__stats"><a href="my-account.html#points"><small>Toffin Points</small><strong>1.250 Poin</strong></a><a href="my-account.html#favorit"><small>Favorit</small><strong>8 produk</strong></a></div>
 							<div class="tf-macc__orders">
 								<div class="tf-macc__orders-h"><strong>Daftar Belanja</strong><a href="my-account.html#belanja">Lihat semua</a></div>
 								<div class="tf-macc__steps">
@@ -545,7 +545,7 @@
 							</div>
 							<div class="tf-acc__in" data-auth="in" hidden>
 								<a class="tf-acc__user" href="my-account.html#profil"><span class="tf-acc__ava" aria-hidden="true">RB</span><span class="tf-acc__who"><strong>Rendi Bagus</strong><small><svg class="tf-i" aria-hidden="true"><use href="#i-shield-check"/></svg> Akun terverifikasi</small></span><svg class="tf-i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
-								<div class="tf-acc__stats"><a href="my-account.html#points"><small>Toffin Points</small><strong>1.250 Poin</strong></a><a href="my-account.html#service"><small>Service Credit</small><strong>Rp 10.000.000</strong></a></div>
+								<div class="tf-acc__stats"><a href="my-account.html#points"><small>Toffin Points</small><strong>1.250 Poin</strong></a><a href="my-account.html#favorit"><small>Favorit</small><strong>8 produk</strong></a></div>
 								<a class="tf-acc__item" href="my-account.html#ringkasan"><svg class="tf-i" aria-hidden="true"><use href="#i-layout-grid"/></svg> Ringkasan</a>
 								<a class="tf-acc__item" href="my-account.html#belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Daftar Belanja</a>
 								<a class="tf-acc__item" href="my-account.html#favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorit</a>
@@ -566,9 +566,9 @@
   <!-- END nav -->
 
 	<!-- ===== Akun saya (MIGRASI.md langkah 35). Ditulis ulang: kolom kiri (profil, 2 saldo, menu) + panel per bagian
-	     (Ringkasan, Daftar Belanja, Favorit, Toffin Points, Service Credit, Daftar Alamat, Metode Pembayaran, Profil & Keamanan);
+	     (Ringkasan, Daftar Belanja, Favorit, Toffin Points, Daftar Alamat, Metode Pembayaran, Profil & Keamanan);
 	     ponsel = tab geser. Fitur lama dipertahankan: biodata, ubah sandi, verifikasi ID (KTP/NPWP), hapus akun, alamat +
-	     pinpoint, Toffin Points + S&K + riwayat/kedaluwarsa, Service Credit + S&K + mutasi, metode pembayaran,
+	     pinpoint, Toffin Points + S&K + riwayat/kedaluwarsa, metode pembayaran,
 	     daftar belanja + filter status, favorit, keluar. Modal Bootstrap lama diganti dialog ringan (.tf-dlg) tanpa jQuery.
 	     Perilaku: assets/js/tf-account.js; peta: assets/js/tf-map.js; gaya: assets/css/account.css. ===== -->
 	<main class="tf-acc" data-tf-account>
@@ -581,16 +581,15 @@
 					<div class="tf-aprof__name"><strong>Rendi Bagus</strong><small>rendi@toffin.com</small></div>
 					<div class="tf-aprof__badges"><a href="#profil" data-acc-tab="profil" data-go="verifikasi" class="tf-abadge tf-abadge--warn" data-verif-badge><svg class="tf-i" aria-hidden="true"><use href="#i-clock"/></svg> Belum terverifikasi</a></div>
 				</div>
-				<nav class="tf-acard tf-anav" aria-label="Menu akun"><p class="tf-anav__lbl">Akun</p><a href="#ringkasan" data-acc-tab="ringkasan"><svg class="tf-i" aria-hidden="true"><use href="#i-layout-grid"/></svg><span>Ringkasan</span></a><a href="#belanja" data-acc-tab="belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg><span>Daftar Belanja</span><b>3</b></a><a href="#favorit" data-acc-tab="favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg><span>Favorit</span></a><p class="tf-anav__lbl">Saldo</p><a href="#points" data-acc-tab="points"><svg class="tf-i" aria-hidden="true"><use href="#i-tpoint"/></svg><span>Toffin Points</span></a><a href="#service" data-acc-tab="service"><svg class="tf-i" aria-hidden="true"><use href="#i-scredit"/></svg><span>Service Credit</span></a><p class="tf-anav__lbl">Pengaturan</p><a href="#alamat" data-acc-tab="alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg><span>Daftar Alamat</span></a><a href="#pembayaran" data-acc-tab="pembayaran"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg><span>Metode Pembayaran</span></a><a href="#profil" data-acc-tab="profil"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg><span>Profil & Keamanan</span></a><div class="tf-anav__out"><a href="login.html"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg><span>Keluar</span></a></div></nav>
+				<nav class="tf-acard tf-anav" aria-label="Menu akun"><p class="tf-anav__lbl">Akun</p><a href="#ringkasan" data-acc-tab="ringkasan"><svg class="tf-i" aria-hidden="true"><use href="#i-layout-grid"/></svg><span>Ringkasan</span></a><a href="#belanja" data-acc-tab="belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg><span>Daftar Belanja</span><b>3</b></a><a href="#favorit" data-acc-tab="favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg><span>Favorit</span></a><p class="tf-anav__lbl">Saldo</p><a href="#points" data-acc-tab="points"><svg class="tf-i" aria-hidden="true"><use href="#i-tpoint"/></svg><span>Toffin Points</span></a><p class="tf-anav__lbl">Pengaturan</p><a href="#alamat" data-acc-tab="alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg><span>Daftar Alamat</span></a><a href="#pembayaran" data-acc-tab="pembayaran"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg><span>Metode Pembayaran</span></a><a href="#profil" data-acc-tab="profil"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg><span>Profil & Keamanan</span></a><div class="tf-anav__out"><a href="login.html"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg><span>Keluar</span></a></div></nav>
 			</aside>
 			<div class="tf-acc__main">
-				<nav class="tf-amtabs" aria-label="Menu akun"><a href="#ringkasan" data-acc-tab="ringkasan"><svg class="tf-i" aria-hidden="true"><use href="#i-layout-grid"/></svg> Ringkasan</a><a href="#belanja" data-acc-tab="belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Daftar Belanja</a><a href="#favorit" data-acc-tab="favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorit</a><a href="#points" data-acc-tab="points"><svg class="tf-i" aria-hidden="true"><use href="#i-tpoint"/></svg> Toffin Points</a><a href="#service" data-acc-tab="service"><svg class="tf-i" aria-hidden="true"><use href="#i-scredit"/></svg> Service Credit</a><a href="#alamat" data-acc-tab="alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg> Daftar Alamat</a><a href="#pembayaran" data-acc-tab="pembayaran"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg> Metode Pembayaran</a><a href="#profil" data-acc-tab="profil"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg> Profil & Keamanan</a></nav>
+				<nav class="tf-amtabs" aria-label="Menu akun"><a href="#ringkasan" data-acc-tab="ringkasan"><svg class="tf-i" aria-hidden="true"><use href="#i-layout-grid"/></svg> Ringkasan</a><a href="#belanja" data-acc-tab="belanja"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg> Daftar Belanja</a><a href="#favorit" data-acc-tab="favorit"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg> Favorit</a><a href="#points" data-acc-tab="points"><svg class="tf-i" aria-hidden="true"><use href="#i-tpoint"/></svg> Toffin Points</a><a href="#alamat" data-acc-tab="alamat"><svg class="tf-i" aria-hidden="true"><use href="#i-map-pin"/></svg> Daftar Alamat</a><a href="#pembayaran" data-acc-tab="pembayaran"><svg class="tf-i" aria-hidden="true"><use href="#i-credit-card"/></svg> Metode Pembayaran</a><a href="#profil" data-acc-tab="profil"><svg class="tf-i" aria-hidden="true"><use href="#i-user-circle"/></svg> Profil & Keamanan</a></nav>
 				<section class="tf-apane" data-acc-pane="ringkasan" aria-labelledby="acc-h-ringkasan">
 					<div class="tf-hello"><div><h1 id="acc-h-ringkasan">Halo, Rendi</h1><p>Kelola pesanan, saldo, dan data akun Anda di satu tempat.</p></div></div>
 					<div class="tf-alert" data-verif-alert><svg class="tf-i" aria-hidden="true"><use href="#i-id"/></svg><div><strong>Verifikasi ID belum lengkap</strong>Unggah KTP atau NPWP agar faktur pajak bisa diterbitkan atas nama usaha Anda.</div><a href="#profil" data-acc-tab="profil" data-go="verifikasi" class="tf-abtn tf-abtn--sm">Lengkapi sekarang</a></div>
 					<div class="tf-stats">
 						<a href="#points" data-acc-tab="points" class="tf-stat"><span class="tf-stat__ico tf-stat__ico--pt"><svg class="tf-i" aria-hidden="true"><use href="#i-tpoint"/></svg></span><small>Toffin Points</small><strong>10.000.000</strong><em>120.000 poin kedaluwarsa 15 Des</em></a>
-						<a href="#service" data-acc-tab="service" class="tf-stat"><span class="tf-stat__ico tf-stat__ico--sc"><svg class="tf-i" aria-hidden="true"><use href="#i-scredit"/></svg></span><small>Service Credit</small><strong>Rp 10.000.000</strong><em>Untuk servis &amp; pelatihan</em></a>
 						<a href="#belanja" data-acc-tab="belanja" data-filter="active" class="tf-stat"><span class="tf-stat__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-clipboard-list"/></svg></span><small>Pesanan berjalan</small><strong>3 pesanan</strong><em>1 belum dibayar</em></a>
 						<a href="#favorit" data-acc-tab="favorit" class="tf-stat"><span class="tf-stat__ico tf-stat__ico--fav"><svg class="tf-i" aria-hidden="true"><use href="#i-heart"/></svg></span><small>Favorit</small><strong data-fav-count>8 produk</strong><em>Siap dimasukkan keranjang</em></a>
 					</div>
@@ -613,12 +612,6 @@
 					<div class="tf-ptbar"><div class="tf-achips" role="tablist" aria-label="Toffin Points"><button type="button" class="tf-achip is-on" data-ptab="hist">Riwayat</button><button type="button" class="tf-achip" data-ptab="exp">Akan kedaluwarsa</button></div><button type="button" class="tf-pfbtn" data-pf-open aria-label="Filter riwayat poin"><svg class="tf-i" aria-hidden="true"><use href="#i-adjustments-horizontal"/></svg><span>Filter</span><b data-pf-badge hidden></b></button></div>
 					<p class="tf-pfsum" data-pf-sum hidden></p>
 					<div class="tf-acard tf-hist" data-plist data-today="2026-10-15"><div class="tf-hrow" data-h="plus" data-date="2026-10-15"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><p>Bonus aktivasi Toffin App</p><small>15 Okt 2026 · 08.00</small></div><b>+10.000</b></div><div class="tf-hrow is-min" data-h="min" data-date="2026-10-10"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></span><div><p>Dipakai di SO/2026/10/0398</p><small>10 Okt 2026 · 09.20</small></div><b>−100.000</b></div><div class="tf-hrow" data-h="plus" data-date="2026-09-30"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><p>Belanja SO/2026/09/0352</p><small>30 Sep 2026 · 13.00</small></div><b>+57.170</b></div><div class="tf-hrow is-min" data-h="min" data-date="2026-09-18"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></span><div><p>Dipakai di SO/2026/09/0311</p><small>18 Sep 2026 · 10.24</small></div><b>−100.000</b></div><div class="tf-hrow" data-h="plus" data-date="2026-09-18"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><p>Belanja SO/2026/09/0311</p><small>18 Sep 2026 · 10.24</small></div><b>+2.151</b></div><div class="tf-hrow" data-h="plus" data-date="2026-09-05"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><p>Belanja SO/2026/09/0287</p><small>05 Sep 2026 · 16.40</small></div><b>+13.050</b></div><div class="tf-hrow is-min" data-h="min" data-date="2026-08-21"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></span><div><p>Dipakai di SO/2026/08/0255</p><small>21 Agu 2026 · 09.12</small></div><b>−50.000</b></div><div class="tf-hrow" data-h="plus" data-date="2026-08-01"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><p>Bonus member Toffin</p><small>01 Agu 2026 · 00.00</small></div><b>+25.000</b></div><div class="tf-hrow" data-h="plus" data-date="2025-12-12"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><p>Belanja SO/2025/12/0118</p><small>12 Des 2025 · 14.30</small></div><b>+8.400</b></div><div class="tf-hrow is-exp" data-h="exp"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-hourglass-high"/></svg></span><div><p>Kedaluwarsa 15 Des 2026</p><small>Dari belanja Juni–Juli 2026</small></div><b>120.000</b></div><div class="tf-hrow is-exp" data-h="exp"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-hourglass-high"/></svg></span><div><p>Kedaluwarsa 31 Jan 2027</p><small>Dari belanja Agustus 2026</small></div><b>86.500</b></div><div class="tf-hempty" data-pf-empty hidden><svg class="tf-i" aria-hidden="true"><use href="#i-tpoint"/></svg><strong>Tidak ada riwayat poin</strong><span>Belum ada transaksi poin untuk filter ini.</span><button type="button" class="tf-alink" data-pf-clear>Hapus filter</button></div></div>
-				</section>
-				<section class="tf-apane" data-acc-pane="service" hidden>
-					<div class="tf-apane__head"><div><h2>Service Credit</h2><p>Saldo untuk servis mesin, sparepart, dan pelatihan Toffin</p></div><div class="tf-apane__act"><a href="https://wa.me/6281199833780" target="_blank" rel="noopener noreferrer" class="tf-abtn tf-abtn--ghost"><svg class="tf-i" aria-hidden="true"><use href="#i-brand-whatsapp"/></svg> Top up via WhatsApp</a></div></div>
-					<div class="tf-abal tf-abal--sc"><a href="#" class="tf-abal__info" data-dlg-open="dlg-info-sc"><svg class="tf-i" aria-hidden="true"><use href="#i-info-circle"/></svg><span>Syarat &amp; ketentuan</span></a><small><svg class="tf-i" aria-hidden="true"><use href="#i-scredit"/></svg> Saldo Service Credit</small><strong>Rp 10.000.000</strong><p>Berlaku untuk seluruh layanan purna jual Toffin</p></div>
-					<div class="tf-achips"><span class="tf-achip is-on">Mutasi</span></div>
-					<div class="tf-acard tf-hist"><div class="tf-hrow is-min" data-h="min"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></span><div><p>Servis mesin espresso</p><small>30 Sep 2026 · 13.00</small></div><b>−Rp 500.000</b></div><div class="tf-hrow" data-h="plus"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><p>Top up service credit</p><small>22 Sep 2026 · 09.15</small></div><b>+Rp 2.000.000</b></div><div class="tf-hrow is-min" data-h="min"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></span><div><p>Ganti sparepart grinder</p><small>14 Sep 2026 · 15.40</small></div><b>−Rp 750.000</b></div><div class="tf-hrow is-min" data-h="min"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-minus"/></svg></span><div><p>Kelas barista dasar</p><small>08 Sep 2026 · 10.00</small></div><b>−Rp 1.250.000</b></div><div class="tf-hrow" data-h="plus"><span class="tf-hrow__ico"><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><p>Top up service credit</p><small>02 Sep 2026 · 10.00</small></div><b>+Rp 5.000.000</b></div></div>
 				</section>
 				<section class="tf-apane" data-acc-pane="alamat" hidden>
 					<div class="tf-apane__head"><div><h2>Daftar Alamat</h2><p>Alamat pengiriman untuk tiap gudang, outlet, atau kantor Anda</p></div><div class="tf-apane__act"><label class="tf-asearch"><svg class="tf-i" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Cari label, nama, atau alamat" data-addr-q aria-label="Cari alamat"></label><button type="button" class="tf-abtn" data-addr-new><svg class="tf-i" aria-hidden="true"><use href="#i-plus"/></svg> Tambah alamat</button></div></div>
@@ -673,7 +666,7 @@
 					<div class="tf-acard tf-asec" id="keamanan"><div class="tf-asec__head"><h3><svg class="tf-i" aria-hidden="true"><use href="#i-shield-check"/></svg> Keamanan</h3></div>
 						<div class="tf-asecure"><svg class="tf-i" aria-hidden="true"><use href="#i-lock"/></svg><div><strong>Kata sandi</strong><small>Ubah kata sandi lewat tautan yang dikirim ke email</small></div><button type="button" class="tf-abtn tf-abtn--ghost tf-abtn--sm" data-dlg-open="dlg-pass">Ubah</button></div>
 						<div class="tf-asecure"><svg class="tf-i" aria-hidden="true"><use href="#i-logout"/></svg><div><strong>Keluar dari akun</strong><small>Akhiri sesi di perangkat ini</small></div><a href="login.html" class="tf-abtn tf-abtn--ghost tf-abtn--sm" data-tf-logout>Keluar</a></div>
-						<div class="tf-asecure tf-asecure--danger"><svg class="tf-i" aria-hidden="true"><use href="#i-trash"/></svg><div><strong>Hapus akun</strong><small>Permanen; riwayat pesanan, poin, dan service credit ikut terhapus</small></div><button type="button" class="tf-abtn tf-abtn--ghost tf-abtn--sm" data-dlg-open="dlg-del">Hapus akun</button></div>
+						<div class="tf-asecure tf-asecure--danger"><svg class="tf-i" aria-hidden="true"><use href="#i-trash"/></svg><div><strong>Hapus akun</strong><small>Permanen; riwayat pesanan dan poin ikut terhapus</small></div><button type="button" class="tf-abtn tf-abtn--ghost tf-abtn--sm" data-dlg-open="dlg-del">Hapus akun</button></div>
 					</div>
 				</section>
 			</div>
@@ -811,7 +804,7 @@
 	<div class="tf-dlg" id="dlg-del" role="dialog" aria-modal="true" aria-labelledby="dlg-del-t">
 		<div class="tf-dlg__box">
 			<div class="tf-dlg__head"><h3 id="dlg-del-t">Hapus akun?</h3><button type="button" class="tf-dlg__x" data-dlg-close aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
-			<div class="tf-dlg__body"><div class="tf-adanger"><svg class="tf-i" aria-hidden="true"><use href="#i-alert-circle"/></svg><span>Tindakan ini permanen. Riwayat pesanan, alamat, Toffin Points, dan Service Credit akan terhapus dan tidak bisa dikembalikan.</span></div>
+			<div class="tf-dlg__body"><div class="tf-adanger"><svg class="tf-i" aria-hidden="true"><use href="#i-alert-circle"/></svg><span>Tindakan ini permanen. Riwayat pesanan, alamat, dan Toffin Points akan terhapus dan tidak bisa dikembalikan.</span></div>
 				<label class="tf-afld" style="margin-top:12px"><span>Masukkan kata sandi untuk konfirmasi</span><input type="password" name="del_pass" data-del-pass autocomplete="current-password" placeholder="Kata sandi akun"><em>Kata sandi salah.</em></label>
 				<label class="tf-acheck"><input type="checkbox" data-del-agree> Saya mengerti dan ingin menghapus akun ini</label></div>
 			<div class="tf-dlg__foot"><button type="button" class="tf-abtn tf-abtn--ghost" data-dlg-close>Batal</button><button type="button" class="tf-abtn tf-abtn--danger" data-del-ok disabled>Hapus akun</button></div>
@@ -864,37 +857,6 @@
             <li>Jika total pembayaran setelah penggunaan poin kurang dari Rp10.000, sistem akan menyesuaikan jumlah poin secara otomatis.</li>
             <li>Sisa poin yang belum terpakai akan tetap tersimpan di akun Anda.</li>
           </ul></div>
-		</div>
-	</div>
-	<div class="tf-dlg" id="dlg-info-sc" role="dialog" aria-modal="true" aria-labelledby="dlg-info-sc-t">
-		<div class="tf-dlg__box">
-			<div class="tf-dlg__head"><h3 id="dlg-info-sc-t">Syarat &amp; Ketentuan Service Credit</h3><button type="button" class="tf-dlg__x" data-dlg-close aria-label="Tutup"><svg class="tf-i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
-			<div class="tf-dlg__body"><p>Service Credits adalah saldo digital dalam bentuk Rupiah yang dapat digunakan untuk membayar layanan purna jual Toffin, seperti biaya servis mesin dan biaya pelatihan. <br>Service Credits memberikan solusi pembayaran yang lebih hemat dan fleksibel untuk kebutuhan perawatan dan operasional bisnis Anda.</p>
-            <h6>Pembelian Service Credits</h6>
-            <ul>
-              <li>Service Credits dijual dalam nominal Rupiah.</li>
-              <li>Anda akan mendapatkan nilai lebih besar dibandingkan harga pembelian.<br>Contoh: Service Credit Rp1.000.000 dapat dibeli dengan harga Rp900.000.</li>
-              <li>Masa berlaku Service Credits adalah 12 bulan sejak tanggal pembelian.</li>
-              <li>Service Credits yang tidak digunakan sampai masa berlaku berakhir akan hangus otomatis dan tidak dapat dikembalikan atau diklaim.</li>
-            </ul>
-            <h6>Penggunaan Service Credits</h6>
-            <ul>
-              <li>Service Credits hanya dapat digunakan untuk membayar:
-                <ul>
-                  <li>Service Fee (biaya servis mesin)</li>
-                  <li>Training Fee (biaya pelatihan)</li>
-                </ul>
-              </li>
-              <li>Service Credits tidak dapat digunakan untuk membeli produk, event, recipe, ongkir, atau biaya admin pembayaran.</li>
-              <li>Nilai Service Credits dihitung dalam Rupiah (IDR): 1 Service Credit = Rp1.</li>
-              <li>Service Credits dapat digunakan sebagian atau seluruhnya sesuai kebutuhan transaksi.</li>
-              <li>Sisa saldo Service Credits akan tetap tersimpan di akun Anda hingga masa berlaku habis.</li>
-            </ul>
-            <h6>Kebijakan & Ketentuan Tambahan</h6>
-            <ul>
-              <li>Service Credits tidak dapat diuangkan kembali, ditukar, atau dipindah ke akun lain.</li>
-              <li>Toffin berhak mengubah harga, ketentuan penggunaan, atau kebijakan program Service Credits kapan saja.</li>
-            </ul></div>
 		</div>
 	</div>
 	<div class="tf-dlg tf-dlg--map" id="dlg-pin" role="dialog" aria-modal="true" aria-labelledby="dlg-pin-t">

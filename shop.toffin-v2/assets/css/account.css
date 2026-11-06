@@ -90,7 +90,7 @@
 .tf-hello h1 { position: relative; margin: 0 0 4px; color: #fff; font-size: 22px; font-weight: 900; letter-spacing: -.02em; }
 .tf-hello p { position: relative; margin: 0; color: #cbd5e1; font-size: 13.5px; }
 .tf-hello .tf-abtn { position: relative; margin-left: auto; }
-.tf-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+.tf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }   /* 3 kartu sejak Service Credit dihapus (2026-11-06) */
 .tf-stat { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border: 1px solid var(--tf-line); border-radius: 16px; background: #fff; transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease; }
 .tf-stat:hover { border-color: #f4c48a; box-shadow: 0 10px 24px rgba(17, 24, 39, .06); transform: translateY(-1px); }
 .tf-stat__ico { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px; background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
@@ -366,6 +366,7 @@
 @media (max-width: 1199.98px) {
 	.tf-acc__grid { grid-template-columns: 250px minmax(0, 1fr); gap: 18px; }
 	.tf-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.tf-stats > :last-child:nth-child(odd) { grid-column: 1 / -1; }   /* kartu ganjil terakhir selebar penuh */
 	.tf-afav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 991.98px) {

@@ -25,7 +25,8 @@
 	function ico(id) { return '<svg class="tf-i" aria-hidden="true"><use href="#' + id + '"/></svg>'; }
 
 	/* ---------- tab per bagian ---------- */
-	var ALIAS = { settings: 'profil', 'daftar-belanja': 'belanja', 'daftar-alamat': 'alamat', 'toffin-points': 'points', 'service-credit': 'service', 'metode-pembayaran': 'pembayaran', favorite: 'favorit' };
+	var ALIAS = { settings: 'profil', 'daftar-belanja': 'belanja', 'daftar-alamat': 'alamat', 'toffin-points': 'points', 'service-credit': 'ringkasan', service: 'ringkasan',   /* Service Credit dihapus dari web (hanya di Toffin App): tautan lama jatuh ke Ringkasan */
+		 'metode-pembayaran': 'pembayaran', favorite: 'favorit' };
 	var panes = $$('[data-acc-pane]');
 	function show(name, go) {
 		name = ALIAS[name] || name;
