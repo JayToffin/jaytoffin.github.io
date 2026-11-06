@@ -126,7 +126,8 @@
    baris ikon + judul di atas (sejajar baris tab Rewards di kanan), thumbnail besar (64px / ponsel 42px) tepat di bawahnya
    supaya kartu tidak terlihat kosong (Rendi 2026-11-06) */
 /* isi kartu: thumbnail kiri, tombol "Pesan semua" kanan bawah (seperti kolom poin + tombol Gunakan di kartu Rewards) */
-.tf-favbody { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin: auto 0; padding-top: 14px; }
+.tf-favbody { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding-top: 14px; }
+.tf-favin__note { text-align: left; }   /* teks keterangan di dasar kartu, seragam dengan .tf-reward__note kartu poin */
 .tf-favthumbs { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .tf-favthumbs__i, .tf-favthumbs__more { display: block; flex: none; width: 60px; height: 60px; border: 1px solid #f3dede; border-radius: 10px; overflow: hidden; background: #fff; }
 .tf-favthumbs__more { appearance: none; display: grid; place-items: center; padding: 0; cursor: pointer; font-family: inherit; border-color: #ffd9a8; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 14px; font-weight: 800; }

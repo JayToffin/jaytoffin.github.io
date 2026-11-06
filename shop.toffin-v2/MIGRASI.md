@@ -1177,6 +1177,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     terjadi lewat tombol `[data-fav-bulk]` di dalam popup.
     Tata letak akhir: pita judul hanya ikon + teks; di bawahnya thumbnail di kiri dan tombol "Pesan semua" di
     kanan bawah (`.tf-favbody`). Hanya petak "+N" (kini `<button>`) dan "Pesan semua" yang membuka popup.
+    Teks "Pesan semuanya sekaligus…" pindah ke dasar kartu sebagai `.tf-reward__note` (sejajar catatan kartu poin).
+    Tautan "Lihat semua" di judul kedua kartu (favorit & Toffin Rewards) dihapus.
 
 ## Bobot aset lokal `index.html`
 
