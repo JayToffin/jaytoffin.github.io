@@ -1202,6 +1202,7 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
 64. **Ukuran logo Toffin di header diseragamkan** (2026-11-06, Rendi): header fokus checkout/sukses (`.tf-cohead__logo`,
     sebelumnya tinggi 22px ≈ lebar 72px) dan header halaman masuk/daftar (`.au-top__logo`, sebelumnya 124px) kini mengikuti
     header utama `.tf-brand`: lebar 130px di desktop, tinggi 22px di bawah 1200px. Logo footer (tinggi 30px) tidak diubah.
+    Tinggi kedua header itu juga disamakan (66px + border = 67px) supaya posisi logo tidak bergeser 1px antarhalaman.
 
 ## Bobot aset lokal `index.html`
 

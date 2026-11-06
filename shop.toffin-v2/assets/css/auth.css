@@ -9,7 +9,7 @@ body.au-body { background: #fafafa; }
 
 /* header minimal */
 .au-top { background: #fff; border-bottom: 1px solid var(--tf-line); }
-.au-top__in { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
+.au-top__in { display: flex; align-items: center; justify-content: space-between; min-height: 66px; }   /* + border 1px = 67px, sama dengan header utama */
 /* ukuran logo sama dengan header utama (.tf-brand di tf-layout.css) */
 .au-top__logo img { display: block; width: 130px; height: auto; }
 @media (max-width: 1199.98px) { .au-top__logo img { width: auto; height: 22px; } }
