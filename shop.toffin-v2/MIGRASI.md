@@ -1152,6 +1152,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     **Aturan produksi (Rendi): hanya untuk kategori Ingredients.** Di prototipe baris ini sengaja tampil di semua
     kartu sebagai templat; di templat Odoo bungkus `.fs-exp` dengan syarat kategori = Ingredients.
 
+59. **Baris bawah footer tanpa tautan Syarat / Privasi / FAQ** (2026-11-06, Rendi: sudah ada di kolom Informasi &
+    Bantuan). `<ul class="tf-fmini">` dibuang dari 16 halaman; baris bawah kini hanya hak cipta.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
