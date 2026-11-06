@@ -121,14 +121,16 @@
 .tf-favin__row .tf-favguest__ico .tf-i { width: 16px; height: 16px; }
 .tf-favin__row .tf-favguest__txt strong { margin-bottom: 0; font-size: 14px; line-height: 1.25; }
 .tf-favin__row .tf-favguest__txt span { font-size: 12px; line-height: 1.3; }
-.tf-favin__row .tf-favguest__in { min-height: 32px; padding: 0 16px; }
-.tf-favin .tf-favthumbs { margin: auto 0; padding-top: 14px; }
+.tf-favbody .tf-favguest__in { flex: none; min-height: 32px; padding: 0 16px; }
 /* deretan thumbnail favorit: petak kecil bersudut tumpul (bukan bulat bertumpuk), 4 pertama + "+N" (aman untuk favorit berapa pun);
    baris ikon + judul di atas (sejajar baris tab Rewards di kanan), thumbnail besar (64px / ponsel 42px) tepat di bawahnya
    supaya kartu tidak terlihat kosong (Rendi 2026-11-06) */
-.tf-favthumbs { appearance: none; display: flex; align-items: center; gap: 8px; align-self: flex-start; padding: 0; border: 0; background: none; cursor: pointer; font-family: inherit; }
+/* isi kartu: thumbnail kiri, tombol "Pesan semua" kanan bawah (seperti kolom poin + tombol Gunakan di kartu Rewards) */
+.tf-favbody { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin: auto 0; padding-top: 14px; }
+.tf-favthumbs { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .tf-favthumbs__i, .tf-favthumbs__more { display: block; flex: none; width: 60px; height: 60px; border: 1px solid #f3dede; border-radius: 10px; overflow: hidden; background: #fff; }
-.tf-favthumbs__more { display: grid; place-items: center; border-color: #ffd9a8; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 14px; font-weight: 800; }
+.tf-favthumbs__more { appearance: none; display: grid; place-items: center; padding: 0; cursor: pointer; font-family: inherit; border-color: #ffd9a8; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 14px; font-weight: 800; }
+.tf-favthumbs__more:hover { border-color: var(--tf-orange); }
 .tf-favthumbs__i img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tf-favlist__hint a { color: var(--tf-orange-dark); font-weight: 700; white-space: nowrap; }
 .tf-favlist__foot .tf-btn .tf-i { width: 16px; height: 16px; }
@@ -406,9 +408,9 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-favin .tf-favguest__in { min-height: 36px; }
 	.tf-favin { padding: 4px 12px 10px; }
 	.tf-favin__row { margin: 0 -12px; padding: 0 12px 4px; }
-	.tf-favin .tf-favthumbs { padding-top: 10px; }
+	.tf-favbody { padding-top: 10px; }
 	.tf-favthumbs { gap: 6px; }
-	.tf-favthumbs__i, .tf-favthumbs__more { width: 38px; height: 38px; border-radius: 8px; font-size: 12px; }
+	.tf-favthumbs__i, .tf-favthumbs__more { width: 34px; height: 34px; border-radius: 8px; font-size: 12px; }
 	.tf-favlist { gap: 6px; }
 	.tf-favrow { grid-template-columns: 40px minmax(0, 1fr); column-gap: 10px; padding: 6px 8px 6px 6px; }
 	.tf-favrow__img { width: 40px; height: 40px; }

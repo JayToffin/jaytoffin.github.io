@@ -1172,6 +1172,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     celah 8px, 4 + "+N". Tombol "Gunakan" di Toffin Rewards (poin & voucher) kini pil seperti "Pesan semua".
     "Pesan semua" di kartu kembali membuka popup dulu (bukan langsung masuk keranjang); pemesanan sekaligus
     terjadi lewat tombol `[data-fav-bulk]` di dalam popup.
+    Tata letak akhir: pita judul hanya ikon + teks; di bawahnya thumbnail di kiri dan tombol "Pesan semua" di
+    kanan bawah (`.tf-favbody`). Hanya petak "+N" (kini `<button>`) dan "Pesan semua" yang membuka popup.
 
 ## Bobot aset lokal `index.html`
 
