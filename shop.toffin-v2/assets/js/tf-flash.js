@@ -9,6 +9,10 @@
    ===================================================================== */
 (function () {
 	'use strict';
+
+	/* info kedaluwarsa di kartu flash sale, sama dengan .pd-perks__exp di detail produk (Rendi 2026-11-06).
+	   Produksi: teks dari masa kedaluwarsa produk di Odoo; kosongkan untuk produk tanpa kedaluwarsa */
+	var EXP = '<p class="fs-exp"><svg class="tf-i" aria-hidden="true"><use href="#i-clock"/></svg> Kedaluwarsa 3–6 bulan</p>';
 	var pad = function (n) { return String(Math.max(0, n)).padStart(2, '0'); };
 	function rupiah(n) { return 'Rp ' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
 	function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
@@ -123,6 +127,7 @@
 					+ '<div class="fs-body">'
 					+ '<h3 class="fs-product-title"><a href="detail-produk-flashsale.html">' + esc(p.name) + '</a></h3>'
 					+ '<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new fs-price-new--soon">Rp ??.???</span><span class="fs-price-old">' + rupiah(p.old) + '</span></div></div>'
+					+ EXP
 					+ '<div class="fs-actions"><button type="button" class="fs-btn fs-btn-remind" data-fs-remind aria-pressed="false"><svg class="tf-i" aria-hidden="true"><use href="#i-bell"/></svg><span>Ingatkan saya</span></button></div>'
 					+ '</div></div>';
 			}
@@ -181,6 +186,7 @@
 			+ '<div class="fs-body">'
 			+ '<h3 class="fs-product-title"><a href="detail-produk-flashsale.html">' + esc(p.name) + '</a></h3>'
 			+ '<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">' + rupiah(p.price) + '</span><span class="fs-price-old">' + rupiah(p.old) + '</span></div></div>'
+			+ EXP
 			+ '<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">+ Keranjang</a></div>'
 			+ '</div></div>';
 	}

@@ -1145,6 +1145,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Teks FAQ yang menyebut "tombol chat di kanan bawah" diarahkan ke menu Akun. CSS `.tf-chat*` dan blok widget
     chat di `tf-nav.js` tidak terpakai lagi (aman, sudah menjaga elemen kosong).
 
+58. **Info kedaluwarsa di kartu flash sale** (2026-11-06, Rendi). Baris merah berikon jam "Kedaluwarsa 3–6 bulan"
+    (`.fs-exp`, `tf-products.css`) di bawah harga, sama dengan `.pd-perks__exp` di detail produk: 14 kartu statis
+    di beranda (Flash Sale + Flash Sale Berikutnya) dan templat kartu `tf-flash.js` (halaman Flash Sale, tab
+    berjalan & akan datang). Teks masih contoh yang sama di semua kartu; produksi: dari data produk Odoo.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
