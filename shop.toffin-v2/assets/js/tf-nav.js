@@ -262,11 +262,13 @@ document.addEventListener('mouseover', function (e) {
 	/* ---------- Status login contoh (menu akun, widget beranda): [data-auth="out|in"] ----------
 	   Belum ada sesi di prototipe: DEFAULT BELUM LOGIN (Rendi 2026-11-06). Tombol Masuk bertanda [data-tf-login]
 	   (kartu beranda, dropdown akun, sheet Akun) langsung menampilkan desain sudah login di tempat, tanpa pindah
-	   halaman; status disimpan di sessionStorage tfDemoAuth sampai Keluar. Halaman akun selalu dianggap login.
+	   halaman. Status tidak disimpan: refresh atau pindah halaman kembali ke belum login. Halaman akun selalu dianggap login.
 	   Produksi: template Odoo merender keadaan menurut sesi, blok ini dibuang. */
-	var AUTH_KEY = 'tfDemoAuth';
-	function authGet() { try { return sessionStorage.getItem(AUTH_KEY) === '1'; } catch (err) { return false; } }
-	function authSet(on) { try { sessionStorage.setItem(AUTH_KEY, on ? '1' : '0'); } catch (err) { /* mode privat */ } }
+	/* status TIDAK disimpan (Rendi 2026-11-06: refresh harus kembali ke belum login): hanya variabel selama halaman terbuka */
+	var authOn = false;
+	try { sessionStorage.removeItem('tfDemoAuth'); } catch (err) { /* sisa versi lama yang menyimpan status */ }
+	function authGet() { return authOn; }
+	function authSet(on) { authOn = !!on; }
 	function authApply(on) {
 		document.querySelectorAll('[data-auth="out"]').forEach(function (el) { el.hidden = on; });
 		document.querySelectorAll('[data-auth="in"]').forEach(function (el) { el.hidden = !on; });

@@ -1129,6 +1129,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
       `data-tf-login` (kartu favorit & Rewards, dropdown akun, sheet Akun) langsung menampilkan desain sudah
       login di tempat; bertahan antarhalaman sampai Keluar. Halaman akun tetap dianggap login. Produksi: tombol
       Masuk menuju login Odoo, lalu template merender keadaan menurut sesi.
+      Status contoh ini **tidak disimpan** (bukan lagi `sessionStorage`): refresh atau pindah halaman kembali ke
+      belum login; `?auth=in` hanya berlaku untuk pemuatan itu.
 
 54. **Chat pindah ke menu Akun di ponsel** (2026-11-06, Rendi). Bubble `.tf-chat` disembunyikan ≤1199,98px (lebar yang
     memakai navigasi bawah); di grup Bantuan menu Akun ditambah "Toffin AI Assistant" (`chat-ai.html`) dan
