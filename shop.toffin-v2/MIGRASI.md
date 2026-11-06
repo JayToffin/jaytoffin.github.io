@@ -1234,6 +1234,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
 71. **Header distributor di keranjang di-highlight** (2026-11-06, Rendi): latar oranye lembut `#fff8ef` dengan garis bawah
     `#ffe3c2`, ikon toko dalam lingkaran putih. Header dibuat lebih tipis (padding vertikal 14px jadi 8px, lingkaran ikon 26px jadi 22px). Header "Tidak bisa diproses" ikut diberi latar merah lembut agar konsisten.
 
+72. **Harga coret di detail produk pindah ke bawah harga bayar** (2026-11-06, Rendi): `.pd-price__now` kini memenuhi satu
+    baris, harga coret dan label "Hemat N%" berpasangan di baris kedua. Hanya CSS, markup tetap. Keranjang sengaja tidak diubah.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

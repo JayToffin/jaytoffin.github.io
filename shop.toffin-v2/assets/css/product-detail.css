@@ -47,8 +47,9 @@ body:not(.is-fs) [data-fs] { display: none !important; }
 .pd-stars { display: inline-flex; color: #f59e0b; }
 .pd-stars .tf-i { width: 15px; height: 15px; fill: currentColor; stroke: none; }
 .pd-price { margin: 16px 0; padding: 14px 16px; border-radius: 14px; background: #f7f8fa; }
-.pd-price__row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
-.pd-price__now { color: var(--tf-ink); font-size: 28px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
+.pd-price__row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; }
+/* harga bayar sebaris sendiri, harga coret + persen hemat di baris kedua (langkah 72 MIGRASI) */
+.pd-price__now { flex: 0 0 100%; color: var(--tf-ink); font-size: 28px; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
 .pd-price__old { color: var(--tf-muted); font-size: 14px; }
 .pd-save { padding: 3px 9px; border-radius: 999px; background: #e8f7ee; color: #15803d; font-size: 12px; font-weight: 800; }
 body.is-fs .pd-price { background: linear-gradient(100deg, #fff1f1 0%, #fff7ed 100%); border: 1px solid #fecaca; }
