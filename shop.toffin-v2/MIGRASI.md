@@ -1161,6 +1161,10 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     tombol per baris ("1 ×"), total Rp 555.510.000, satu tombol `[data-fav-bulk="8"]` "Pesan semua" → badge +8,
     toast, popup tertutup (`tf-nav.js`). Delegasi `.tf-favlist .fs-btn-primary` tidak dipakai lagi.
     Produksi: satu POST seluruh wishlist ke keranjang Odoo; total & jumlah dari data akun.
+    **Revisi (hari yang sama): langsung pesan, tanpa total & qty.** Tombol "Pesan semua" di kartu kini
+    `[data-fav-bulk]` sendiri (langsung masuk keranjang, tanpa popup). Thumbnail jadi 4 pertama + petak "+N"
+    (5 petak sama lebar, tinggi tetap) supaya aman untuk favorit berapa pun; diketuk membuka popup yang kini
+    hanya daftar produk + "Kelola favorit" + "Pesan semua" (baris "1 ×" dan total dibuang).
 
 ## Bobot aset lokal `index.html`
 
