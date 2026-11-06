@@ -390,6 +390,8 @@
 .tf-acc__item--danger { color: #dc2626; font-weight: 600; }
 .tf-acc__item--danger:hover { background: rgba(220, 38, 38, .10); color: #b91c1c; }
 .tf-acc__item .tf-i { flex: none; width: 18px; height: 18px; color: #64748b; }
+.tf-acc__img { flex: none; width: 18px; height: 18px; object-fit: contain; }
+.tf-acc__item--wa .tf-i { color: #25d366; }
 .tf-acc__item:hover .tf-i, .tf-acc__item--danger .tf-i { color: inherit; }
 /* menu akun gaya Tokopedia (2026-11-06): dipakai dropdown desktop (.tf-acc) dan halaman Akun di sheet ponsel (.tf-macc) */
 .tf-dd__panel.tf-acc [data-auth][hidden], .tf-macc [data-auth][hidden] { display: none !important; }

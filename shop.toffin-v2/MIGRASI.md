@@ -1140,6 +1140,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     chip pembayaran `.tf-fslim__pay` di footer ringkas (keranjang, checkout, sukses) ikut dibuang, tautannya kini
     rata kanan. CSS `.tf-ftrust*` / `.tf-fchip*` dibiarkan (tidak terpakai).
 
+57. **Bubble chat dihapus juga di desktop** (2026-11-06, Rendi). Markup `.tf-chat` dibuang dari 18 halaman; dropdown
+    akun desktop mendapat "Toffin AI Assistant" dan "Chat Customer Service" (sama dengan menu Akun ponsel).
+    Teks FAQ yang menyebut "tombol chat di kanan bawah" diarahkan ke menu Akun. CSS `.tf-chat*` dan blok widget
+    chat di `tf-nav.js` tidak terpakai lagi (aman, sudah menjaga elemen kosong).
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
