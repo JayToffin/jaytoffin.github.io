@@ -1123,6 +1123,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     - **Prototipe kini default sudah login** (`tf-nav.js`: tamu hanya bila `sessionStorage.tfDemoAuth = '0'`,
       yaitu sesudah Keluar). Efek samping: kartu favorit & Rewards di beranda juga tampil versi sudah login.
 
+54. **Chat pindah ke menu Akun di ponsel** (2026-11-06, Rendi). Bubble `.tf-chat` disembunyikan ≤1199,98px (lebar yang
+    memakai navigasi bawah); di grup Bantuan menu Akun ditambah "Toffin AI Assistant" (`chat-ai.html`) dan
+    "Chat Customer Service" (WhatsApp). Desktop tetap memakai bubble. Ruang kanan 76px di baris hak cipta footer
+    (langkah 51) dicabut karena tidak ada lagi yang menutupi.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

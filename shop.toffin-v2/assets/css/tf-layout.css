@@ -568,6 +568,8 @@
 .tf-macc__steps .tf-i { width: 24px; height: 24px; color: var(--tf-orange-dark); }
 .tf-macc .tf-mnav__acc { margin-top: 14px; }
 .tf-macc .tf-mnav__acc a { min-height: 48px; padding: 0; }
+.tf-macc__img { flex: none; width: 24px; height: 24px; margin-right: 12px; object-fit: contain; }
+.tf-macc .tf-mnav__acc a .tf-i[aria-hidden] use[href="#i-brand-whatsapp"] { color: #25d366; }
 .tf-macc .tf-mnav__acc .tf-macc__lbl { padding: 16px 0 4px; border-bottom: 0; color: #94a3b8; font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .tf-acc__stats strong { white-space: nowrap; }
 
@@ -677,6 +679,8 @@
 .tf-chat__desc { color: #666; font-size: 10px; }
 @media (max-width: 991.98px) {
 	/* bottom nav setinggi 65px: tombol chat dan panelnya diangkat supaya tidak tertutup */
+	/* ponsel/tablet (ada navigasi bawah): bubble chat disembunyikan, chat dibuka dari menu Akun (2026-11-06, Rendi) */
+	.tf-chat { display: none; }
 	.tf-chat__toggle { bottom: calc(65px + 14px); width: 52px; height: 52px; font-size: 24px; }
 	.tf-chat__panel { bottom: calc(65px + 80px); }
 }
@@ -847,10 +851,8 @@
 	.tf-ftrust__lbl { width: auto; }
 	.tf-fbottom__in { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
-/* audit 2026-11-06: kolom tautan footer tetap 2 kolom di ponsel (footer lebih pendek); baris hak cipta diberi ruang kanan supaya tidak tertutup tombol chat */
-@media (max-width: 767.98px) {
-	.tf-fbottom__in { padding-right: 76px; }
-}
+/* audit 2026-11-06: kolom tautan footer tetap 2 kolom di ponsel (footer lebih pendek) */
+
 
 /* ---------- FOOTER RINGKAS (.tf-footer--slim) untuk halaman transaksi: keranjang, checkout, login/daftar,
    reset sandi, lacak pesanan, sukses checkout. Satu baris: logo · hak cipta · tautan legal/bantuan · metode bayar.
