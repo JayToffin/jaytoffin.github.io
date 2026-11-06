@@ -247,9 +247,8 @@
 	.tf-item__thumb { width: 72px; height: 72px; }
 	.tf-item__name { font-size: 13.5px; }
 	.tf-item__right { grid-column: 2 / -1; flex-direction: row; align-items: center; justify-content: space-between; min-width: 0; margin-top: 2px; }
-	/* baris harga ponsel (langkah 65 MIGRASI): total kiri, [hapus][- 1 +] rata kanan; barang tanpa stepper tetap ikon hapus di kanan */
+	/* baris harga ponsel (langkah 65 & 68 MIGRASI): total kiri, [- 1 +][hapus] rata kanan; barang tanpa stepper tetap ikon hapus di kanan */
 	.tf-item__act { margin-left: auto; gap: 4px; }
-	.tf-item__act .tf-ibtn { order: -1; }
 	/* total per produk hanya bila qty > 1 (harga satuan sudah di bawah nama; subtotal & total ada di bawah grup dan bar) */
 	.tf-item__total { display: none; font-size: 14.5px; line-height: 1.25; }
 	.tf-item.is-multi .tf-item__total { display: block; }

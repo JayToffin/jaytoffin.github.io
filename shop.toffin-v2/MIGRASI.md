@@ -1219,6 +1219,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
 67. **Centang "Semua" di bar total sticky keranjang dihapus** (2026-11-06, Rendi). Bar kini hanya total di kiri dan
     tombol "Beli (N)" di kanan. Pilih semua tetap ada di kartu paling atas daftar.
 
+68. **Ikon hapus keranjang di ponsel pindah ke kanan stepper** (2026-11-06, Rendi): urutan baris bawah kini
+    total, stepper, lalu ikon hapus paling kanan, sama dengan desktop.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
