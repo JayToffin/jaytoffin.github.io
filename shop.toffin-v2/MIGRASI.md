@@ -1122,6 +1122,9 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
       Bantuan, Keluar. Dropdown desktop memakai daftar yang sama.
     - **Prototipe kini default sudah login** (`tf-nav.js`: tamu hanya bila `sessionStorage.tfDemoAuth = '0'`,
       yaitu sesudah Keluar). Efek samping: kartu favorit & Rewards di beranda juga tampil versi sudah login.
+    - **Kondisi belum login tetap ada** (Rendi 2026-11-06): markup `data-auth="out"` tidak dibuang di mana pun
+      (kartu favorit, Rewards, dropdown akun, sheet Akun). Pratinjau cepat: `?auth=out` / `?auth=in` di URL
+      halaman mana pun (`tf-nav.js`), tersimpan selama tab terbuka.
 
 54. **Chat pindah ke menu Akun di ponsel** (2026-11-06, Rendi). Bubble `.tf-chat` disembunyikan ≤1199,98px (lebar yang
     memakai navigasi bawah); di grup Bantuan menu Akun ditambah "Toffin AI Assistant" (`chat-ai.html`) dan

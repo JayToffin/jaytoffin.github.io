@@ -271,7 +271,10 @@ document.addEventListener('mouseover', function (e) {
 		document.querySelectorAll('[data-auth="out"]').forEach(function (el) { el.hidden = on; });
 		document.querySelectorAll('[data-auth="in"]').forEach(function (el) { el.hidden = !on; });
 	}
-	if (/[?&]keluar=1/.test(location.search)) authSet(false);
+	/* pratinjau cepat tanpa harus Keluar/Masuk: tambahkan ?auth=out (belum login) atau ?auth=in (sudah login) di URL */
+	var authQ = /[?&]auth=(out|in)\b/.exec(location.search);
+	if (authQ) authSet(authQ[1] === 'in');
+	else if (/[?&]keluar=1/.test(location.search)) authSet(false);
 	else if (/(my-account|detail-pembelian|tracking-order)\.html$/.test(location.pathname)) authSet(true);
 	document.addEventListener('click', function (e) { if (e.target.closest('[data-tf-login]')) authSet(true); });
 	function authInit() { authApply(authGet()); }
