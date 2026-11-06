@@ -45,7 +45,7 @@
 .tf-anav a:hover { background: #f6f7f8; color: var(--tf-ink); }
 .tf-anav a.is-on { background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
 .tf-anav a.is-on .tf-i { color: var(--tf-orange-dark); }
-.tf-anav a b { margin-left: auto; min-width: 20px; padding: 1px 7px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 11px; font-weight: 900; text-align: center; }
+.tf-anav a b { margin-left: auto; display: inline-grid; place-items: center; box-sizing: border-box; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 11px; font-weight: 400; line-height: 1; text-align: center; }
 .tf-anav__out { margin-top: 6px; border-top: 1px solid var(--tf-line); padding-top: 6px; }
 .tf-anav__out a { color: #b91c1c; }
 .tf-anav__out a .tf-i { color: #ef4444; }
@@ -79,7 +79,7 @@
 .tf-achips { display: flex; gap: 6px; margin: 0 0 14px; overflow-x: auto; scrollbar-width: none; }
 .tf-achips::-webkit-scrollbar { display: none; }
 .tf-achip { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; border: 1px solid var(--tf-line); border-radius: 999px; background: #fff; color: var(--tf-body); font-size: 13px; font-weight: 700; white-space: nowrap; }
-.tf-achip b { min-width: 18px; padding: 0 6px; border-radius: 999px; background: #f1f2f5; color: var(--tf-muted); font-size: 11px; font-weight: 900; text-align: center; }
+.tf-achip b { display: inline-grid; place-items: center; box-sizing: border-box; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: #f1f2f5; color: var(--tf-muted); font-size: 11px; font-weight: 400; line-height: 1; text-align: center; }
 .tf-achip:hover { border-color: #f4c48a; }
 .tf-achip.is-on { border-color: var(--tf-orange); background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
 .tf-achip.is-on b { background: var(--tf-orange); color: #fff; }
@@ -189,7 +189,7 @@
 .tf-pfbtn .tf-i { width: 17px; height: 17px; }
 .tf-pfbtn:hover, .tf-pfbtn.is-on { border-color: var(--tf-orange); color: var(--tf-orange-dark); }
 .tf-pfbtn.is-on { background: var(--tf-orange-soft); }
-.tf-pfbtn b { min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 11px; line-height: 18px; text-align: center; }
+.tf-pfbtn b { display: inline-grid; place-items: center; box-sizing: border-box; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 11px; font-weight: 400; line-height: 1; text-align: center; }
 .tf-pfbtn[hidden], .tf-pfbtn b[hidden] { display: none; }
 .tf-pfsum { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: -4px 0 12px; color: var(--tf-muted); font-size: 12.5px; }
 .tf-pfsum b { color: var(--tf-ink); }

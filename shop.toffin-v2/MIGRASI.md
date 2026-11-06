@@ -1194,6 +1194,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     tile "Favorit / 8 produk" menjadi "Voucher / 5 voucher" dan menuju `voucher.html`. Angka 5 mengikuti jumlah voucher
     contoh di beranda. Baris "Favorit" di daftar menu tetap ada.
 
+63. **Counter bulat diseragamkan** (2026-11-06, Rendi): semua angka di lingkaran kecil kini font regular (400) dan
+    ukurannya sama, 18×18 px untuk satu digit (melebar jadi kapsul bila dua digit), angka di tengah lewat grid.
+    Berlaku untuk `.tf-util__badge` (keranjang), `.tf-anav a b`, `.tf-achip b`, `.tf-pfbtn b` (My Account),
+    `.tf-brands-chip b` (Brand), `.tf-plp__badge` (filter daftar produk). Nomor langkah (checkout, daftar) tidak diubah.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

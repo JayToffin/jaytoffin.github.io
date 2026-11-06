@@ -120,7 +120,7 @@
 .tf-plp__select:focus { border-color: rgba(248, 148, 31, .6); box-shadow: 0 0 0 3px rgba(248, 148, 31, .18); }
 .tf-plp__filterbtn { display: none; align-items: center; gap: 7px; min-height: 40px; padding: 8px 14px; border: 1px solid var(--tf-line); border-radius: 10px; background: #fff; color: var(--tf-ink); font: inherit; font-size: 13.5px; font-weight: 800; cursor: pointer; }
 .tf-plp__filterbtn .tf-i { width: 18px; height: 18px; }
-.tf-plp__filterbtn .tf-plp__badge { min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 11px; line-height: 18px; text-align: center; }
+.tf-plp__filterbtn .tf-plp__badge { display: inline-grid; place-items: center; box-sizing: border-box; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--tf-orange); color: #fff; font-size: 11px; font-weight: 400; line-height: 1; text-align: center; }
 .tf-plp__filterbtn .tf-plp__badge:empty { display: none; }
 
 /* ---------- grid ---------- */
