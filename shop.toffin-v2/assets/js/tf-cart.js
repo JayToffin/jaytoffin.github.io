@@ -43,7 +43,8 @@
 			var rows = $$('[data-cart-item]', g), gs = 0, gd = 0, gc = 0, enabled = 0, checked = 0;
 			rows.forEach(function (row) {
 				var d = rowData(row);
-				var line = row.querySelector('[data-line]'); if (line) line.textContent = rupiah(d.line);
+				var line = row.querySelector('[data-line]'); if (line) { line.textContent = rupiah(d.line); line.setAttribute('data-n', d.qty); }
+				row.classList.toggle('is-multi', d.qty > 1);   /* ponsel: total per produk hanya tampil bila qty > 1 */
 				var minus = row.querySelector('[data-qty-minus]');
 				if (minus) {   /* qty 1: minus tetap aktif (abu-abu); ditekan = konfirmasi hapus, seperti Shopee */
 					var del = d.qty <= 1;
@@ -81,12 +82,14 @@
 		var del = root.querySelector('[data-del-selected]'); if (del) del.disabled = allChecked === 0;
 		var head = root.querySelector('[data-cart-head-count]'); if (head) head.textContent = badge + ' barang dari ' + groups.length + ' distributor';
 		var hb = document.querySelector('[data-tf-cart-badge]'); if (hb) hb.textContent = badge;
-		root.classList.toggle('is-empty', groups.length === 0);
+		var offg = root.querySelector('[data-off-group]');
+		if (offg) setText('[data-off-count]', $$('[data-cart-item]', offg).length);
+		root.classList.toggle('is-empty', groups.length === 0 && !offg);
 	}
 
 	/* ---------- hapus ---------- */
 	function removeRow(row) {
-		var g = row.closest('[data-cart-group]');
+		var g = row.closest('[data-cart-group], [data-off-group]');
 		row.remove();
 		if (g && !g.querySelector('[data-cart-item]')) g.remove();
 	}
@@ -168,6 +171,15 @@
 			}, function () { g.remove(); recalc(); });
 			return;
 		}
+		if ((b = e.target.closest('[data-off-del]'))) {
+			var og = b.closest('[data-off-group]'), orows = $$('[data-cart-item]', og);
+			confirmDel({
+				title: 'Hapus ' + orows.length + ' produk yang tidak bisa diproses?',
+				text: 'Produk ini sedang tidak tersedia. Produk lain di keranjang tetap tersimpan.',
+				rows: orows, ok: 'Hapus semua', trigger: b
+			}, function () { og.remove(); recalc(); });
+			return;
+		}
 		if ((b = e.target.closest('[data-del-selected]'))) {
 			var sel = $$('[data-item-check]:checked').map(function (c) { return c.closest('[data-cart-item]'); });
 			if (!sel.length) return;
@@ -196,6 +208,30 @@
 		var c = row.querySelector('[data-item-check]'); if (c) { c.checked = false; c.disabled = true; }
 		['.tf-item__total', '.tf-qty'].forEach(function (s) { var el = row.querySelector(s); if (el) el.remove(); });
 	});
+
+	/* ---------- bagian "Tidak bisa diproses": semua barang .is-off dikumpulkan di bawah, gaya Tokopedia ----------
+	   Daftar per distributor jadi hanya berisi barang yang bisa dibeli; nama distributor tetap tampil di tiap barang.
+	   Produksi (Odoo): bagian ini sebaiknya dirender server dengan markup yang sama. */
+	(function () {
+		var offRows = $$('[data-cart-group] [data-cart-item].is-off');
+		if (!offRows.length) return;
+		var sec = document.createElement('section');
+		sec.className = 'tf-cart__card tf-group tf-offgrp';
+		sec.setAttribute('data-off-group', '');
+		sec.innerHTML = '<header class="tf-group__head tf-offgrp__head"><span class="tf-offgrp__title"><svg class="tf-i" aria-hidden="true"><use href="#i-alert-circle"/></svg><span>Tidak bisa diproses (<span data-off-count></span>)</span></span>'
+			+ '<button type="button" class="tf-offgrp__del" data-off-del>Hapus semua</button></header>';
+		offRows.forEach(function (row) {
+			var g = row.closest('[data-cart-group]'), st = g.querySelector('.tf-group__store'), info = row.querySelector('.tf-item__info');
+			if (st && info) {
+				var p = document.createElement('p'); p.className = 'tf-item__store';
+				p.innerHTML = '<svg class="tf-i" aria-hidden="true"><use href="#i-building-store"/></svg>' + esc(st.textContent.trim());
+				info.insertBefore(p, info.firstChild);
+			}
+			sec.appendChild(row);
+			if (!g.querySelector('[data-cart-item]')) g.parentNode.removeChild(g);
+		});
+		list.appendChild(sec);
+	})();
 
 	/* ---------- flash sale: hitung mundur + sesi berakhir ---------- */
 	/* contoh: data-fs-end = sisa detik sejak halaman dibuka. Produksi: waktu akhir sesi dari server (ISO), dibandingkan jam server. */

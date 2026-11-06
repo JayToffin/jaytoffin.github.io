@@ -98,6 +98,22 @@
 .tf-item__off-note .tf-i { width: 13px; height: 13px; }
 .tf-item.is-off .tf-item__tag { filter: grayscale(1); opacity: .7; }
 .tf-item.is-off .tf-item__unit s, .tf-item.is-off .tf-item__off { opacity: .6; }
+/* bagian "Tidak bisa diproses" (dibuat tf-cart.js) */
+.tf-offgrp__head { gap: 10px; }
+.tf-offgrp__title { display: inline-flex; align-items: center; gap: 8px; color: var(--tf-ink); font-size: 14px; font-weight: 800; }
+.tf-offgrp__title .tf-i { width: 18px; height: 18px; color: #d6453d; }
+.tf-offgrp__del { margin-left: auto; padding: 4px 0; border: 0; background: none; color: #d6453d; font-size: 13px; font-weight: 700; }
+.tf-offgrp__del:hover, .tf-offgrp__del:focus-visible { text-decoration: underline; }
+.tf-item__store { display: flex; align-items: center; gap: 5px; margin: 0 0 4px; color: var(--tf-muted); font-size: 12px; font-weight: 600; }
+.tf-item__store .tf-i { width: 14px; height: 14px; }
+.tf-offgrp .tf-item__check { display: none; }   /* tidak bisa dipilih: kolom centang dihilangkan */
+.tf-offgrp .tf-item { grid-template-columns: 84px minmax(0, 1fr) auto; }
+.tf-offgrp .tf-item__right { min-width: 0; }   /* hanya ikon hapus, di pojok kanan atas */
+@media (max-width: 575.98px) {
+	.tf-offgrp .tf-item { grid-template-columns: 72px minmax(0, 1fr) auto; }
+	.tf-offgrp .tf-item__right { grid-column: auto; margin: -6px -6px 0 0; }
+	.tf-offgrp .tf-bundle-items { grid-column: 1 / -1; }
+}
 .tf-item.is-off .tf-bundle-toggle { display: flex; width: max-content; margin-top: 8px; }   /* isi paket tetap bisa dibuka: lihat produk mana yang kosong */
 
 /* ---------- paket bundling: isi paket bisa dibuka ---------- */
@@ -234,7 +250,10 @@
 	/* baris harga ponsel (langkah 65 MIGRASI): total kiri, [hapus][- 1 +] rata kanan; barang tanpa stepper tetap ikon hapus di kanan */
 	.tf-item__act { margin-left: auto; gap: 4px; }
 	.tf-item__act .tf-ibtn { order: -1; }
-	.tf-item__total { font-size: 14.5px; }
+	/* total per produk hanya bila qty > 1 (harga satuan sudah di bawah nama; subtotal & total ada di bawah grup dan bar) */
+	.tf-item__total { display: none; font-size: 14.5px; line-height: 1.25; }
+	.tf-item.is-multi .tf-item__total { display: block; }
+	.tf-item.is-multi .tf-item__total::before { content: "Total " attr(data-n) " barang"; display: block; color: var(--tf-muted); font-size: 11px; font-weight: 600; letter-spacing: 0; }
 	.tf-sub { grid-template-columns: 44px minmax(0, 1fr) auto; padding: 8px 10px; }
 	.tf-sub__thumb { width: 44px; height: 44px; }
 	.tf-cart__sticky { padding: 10px 14px; }

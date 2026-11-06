@@ -1208,6 +1208,14 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     stepper jumlah rata kanan. Barang tidak tersedia (tanpa stepper) kini ikon hapusnya juga di kanan, sebelumnya di kiri
     bawah gambar. Tampilan desktop tidak berubah.
 
+66. **Keranjang: bagian "Tidak bisa diproses" + total per produk hanya bila qty > 1** (2026-11-06, Rendi).
+    - Barang `.is-off` (habis / paket berisi produk kosong) dipindah `tf-cart.js` ke kartu terpisah paling bawah
+      `[data-off-group]` dengan judul "Tidak bisa diproses (N)" dan tombol "Hapus semua". Tanpa centang dan tanpa stepper,
+      nama distributor tampil di atas nama barang (`.tf-item__store`), ikon hapus di pojok kanan atas. Distributor yang
+      semua barangnya tidak tersedia hilang dari daftar. Produksi Odoo: render bagian ini di server dengan markup yang sama.
+    - Ponsel (< 576px): total per produk disembunyikan saat qty 1 (harga satuan sudah tampil di bawah nama). Saat qty > 1
+      muncul di kiri baris bawah: label kecil "Total N barang" + nominal tebal (`.tf-item.is-multi`, `data-n`). Desktop tetap.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
