@@ -15,7 +15,7 @@ dipakai sebagai SVG sprite, tanpa webfont dan tanpa Font Awesome (FA 5/6 bentrok
   `<symbol id="i-nama" viewBox="0 0 24 24">…</symbol>`, tambahkan ke daftar di `assets/js/tf-icons.js` dan ke `tf-icons.svg`
   (urut abjad). Jangan menyalin sprite ke halaman lagi.
 
-Simbol yang ada (81):
+Simbol yang ada (82):
 
 - `i-adjustments-horizontal`
 - `i-alert-circle`
@@ -49,6 +49,7 @@ Simbol yang ada (81):
 - `i-copy`
 - `i-credit-card`
 - `i-crown`
+- `i-diamond` (menu Brand bottom nav, 2026-11-06)
 - `i-download`
 - `i-eye`
 - `i-eye-off`
