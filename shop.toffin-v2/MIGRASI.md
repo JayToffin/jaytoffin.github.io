@@ -1165,6 +1165,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     `[data-fav-bulk]` sendiri (langsung masuk keranjang, tanpa popup). Thumbnail jadi 4 pertama + petak "+N"
     (5 petak sama lebar, tinggi tetap) supaya aman untuk favorit berapa pun; diketuk membuka popup yang kini
     hanya daftar produk + "Kelola favorit" + "Pesan semua" (baris "1 ×" dan total dibuang).
+    **Revisi berikutnya:** thumbnail kembali ke model awal (bulat bertumpuk 40px, 4 + "+N"), bukan petak selebar
+    kartu; isi kartu dipusatkan vertikal supaya celah teks–thumbnail tidak lebar.
 
 ## Bobot aset lokal `index.html`
 
