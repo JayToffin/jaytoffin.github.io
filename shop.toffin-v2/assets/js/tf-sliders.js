@@ -68,6 +68,19 @@
 
 	function assign(a, b) { for (var k in b) a[k] = b[k]; return a; }
 
+	function makeGallery(el) {
+		if (el.swiper) return;
+		new window.Swiper(el, assign({ pagination: { el: el.querySelector('.tf-pg__dots'), clickable: true } }, GALLERY));
+	}
+	var pgObserver = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+		entries.forEach(function (en) {
+			if (!en.isIntersecting) return;
+			pgObserver.unobserve(en.target);
+			en.target.__tfPgWait = false;
+			makeGallery(en.target);
+		});
+	}, { rootMargin: '300px' }) : null;
+
 	function init(root) {
 		if (!window.Swiper) return;
 		root = root || document;
@@ -81,9 +94,13 @@
 			if (pg) opts.pagination = { el: pg, clickable: true };
 			new window.Swiper(el, assign(opts, preset));
 		});
+		/* galeri kartu dibuat saat kartu mendekati layar (IntersectionObserver), bukan semuanya saat halaman dimuat:
+		   homepage punya puluhan kartu → puluhan Swiper sekaligus memberatkan ponsel (audit 2026-11-06) */
 		root.querySelectorAll('[data-tf-pg]').forEach(function (el) {
-			if (el.swiper || el.querySelectorAll('.swiper-slide').length < 2) return;
-			new window.Swiper(el, assign({ pagination: { el: el.querySelector('.tf-pg__dots'), clickable: true } }, GALLERY));
+			if (el.swiper || el.__tfPgWait || el.querySelectorAll('.swiper-slide').length < 2) return;
+			if (!pgObserver) return makeGallery(el);
+			el.__tfPgWait = true;
+			pgObserver.observe(el);
 		});
 	}
 

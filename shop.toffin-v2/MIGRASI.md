@@ -1077,6 +1077,30 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     bulat bertumpuk + "+4" di bawah (teks "Terakhir disimpan" dihapus) (tombol, juga membuka popup); bukan daftar. Ponsel thumbnail 28px.
     CSS `.tf-catpromo*` dan `images/e1prima_header.png` dihapus.
 
+51. **Audit ulang beranda ponsel + label seragam bahasa Indonesia** (2026-11-06, Rendi: "perbaiki semua, pakai bahasa
+    indonesia saja biar seragam").
+    - **Bahasa (semua halaman v2, kecuali email/invoice):** `Home→Beranda`, `Category→Kategori`, `Promotion→Promo`,
+      `Account→Akun`, `My Account→Akun Saya`, `Login→Masuk`, `Register→Daftar`, `Add to cart→+ Keranjang`
+      (tombol utama detail produk: `Tambah ke Keranjang`), `All rights reserved→Hak cipta dilindungi`,
+      `Lihat Semua→Lihat semua`, stub voucher `OFF→DISKON`. Juga di `mobile-nav.js`, `tf-reco.js`, `tf-plp.js`,
+      `tf-flash.js`. Nama kategori/taksonomi produk (Coffee Machines, Product Bundle, dst.) sengaja tetap, mengikuti
+      shop.toffin.id. Placeholder pencarian ponsel dipendekkan jadi "Cari produk atau brand" (18 halaman).
+    - **Kartu favorit & Rewards (ponsel):** teks dipendekkan dan boleh turun baris (tidak lagi dipotong "…");
+      Masuk 36px, Daftar ±31px + area ketuk 44px; kartu sudah-login mendapat "Lihat daftar ›" di kanan deretan thumbnail.
+    - **Countdown "Flash Sale Berikutnya"** dulu tidak digerakkan apa pun (selalu 00:00:00:00). Kini `tf-app.js`
+      (`nextCountdown`) membaca `data-start` di `.upcoming-countdown`; kosong/lewat → lusa 10.00 (demo).
+      Produksi: isi `data-start` dari jadwal sesi Odoo.
+    - **Tombol kartu produk** 40px di ponsel (`tf-products.css`); label countdown 11px.
+    - **Footer:** kolom Informasi & Bantuan tetap 2 kolom di ponsel; baris hak cipta diberi ruang kanan 76px supaya
+      tidak tertutup tombol chat.
+    - **Panjang halaman:** Rekomendasi tampil 6 kartu di ponsel (sisanya lewat "Lihat semua produk").
+      Tinggi beranda 390px: 5.767 → ±4.970px.
+    - **Performa:** `product1.png` 1071→640px (1,3 MB → 449 KB), `toffin-logo.png` 4962→1000px; 134 `<img>` di
+      `index.html` diberi `width`/`height` (+ `:where(img[width][height]){height:auto}` di `tf-base.css`);
+      galeri foto kartu (`data-tf-pg`) dibuat lewat IntersectionObserver saat kartu mendekati layar, bukan 24 Swiper
+      sekaligus (`tf-sliders.js`); dot kosong disembunyikan sampai galeri siap.
+    - **SEO:** `<h1 class="sr-only">` ditambahkan di beranda.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |

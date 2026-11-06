@@ -800,8 +800,9 @@
 	.tf-ftrust__lbl { width: auto; }
 	.tf-fbottom__in { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
-@media (max-width: 479px) {
-	.tf-fmain { grid-template-columns: 1fr; }
+/* audit 2026-11-06: kolom tautan footer tetap 2 kolom di ponsel (footer lebih pendek); baris hak cipta diberi ruang kanan supaya tidak tertutup tombol chat */
+@media (max-width: 767.98px) {
+	.tf-fbottom__in { padding-right: 76px; }
 }
 
 /* ---------- FOOTER RINGKAS (.tf-footer--slim) untuk halaman transaksi: keranjang, checkout, login/daftar,

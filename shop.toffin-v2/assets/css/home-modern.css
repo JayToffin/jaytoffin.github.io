@@ -120,6 +120,10 @@
 .tf-favthumbs__i img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tf-favthumbs__more { display: grid; place-items: center; width: 40px; height: 40px; border: 2px solid #fff; border-radius: 50%; background: var(--tf-orange-soft); color: var(--tf-orange-dark); font-size: 12px; font-weight: 800; box-shadow: 0 1px 3px rgba(0, 0, 0, .12); }
 .tf-favguest__in.tf-btn { white-space: nowrap; }
+.tf-favthumbs { width: 100%; }
+.tf-favthumbs__cta { display: inline-flex; align-items: center; gap: 2px; margin-left: auto; color: var(--tf-orange-dark); font-size: 12.5px; font-weight: 800; white-space: nowrap; }
+.tf-favthumbs__cta .tf-i { width: 14px; height: 14px; }
+.tf-favthumbs__more { margin-right: 10px; }
 /* daftar favorit di popup #fav-modal */
 .tf-favlist { display: flex; flex-direction: column; gap: 8px; }
 .tf-favlist__hint { margin: 0 0 12px; color: var(--tf-muted); font-size: 12.5px; line-height: 1.45; }
@@ -362,7 +366,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 .tf-appband__stores { display: flex; gap: 12px; flex-wrap: wrap; }
 .tf-appband__stores img { height: 44px; width: auto; }
 .tf-appband__media { position: relative; align-self: end; text-align: center; padding-top: 24px; }
-.tf-appband__media img { max-height: 240px; }
+.tf-appband__media img { max-height: 240px; width: auto; height: auto; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
@@ -387,10 +391,11 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-favguest__ico { width: 32px; height: 32px; }
 	.tf-favguest__ico .tf-i { width: 16px; height: 16px; }
 	.tf-favguest__txt strong { margin-bottom: 1px; font-size: 13px; }
-	.tf-favguest__txt span { font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-	.tf-favguest__in { min-height: 32px; padding: 0 14px; font-size: 12px; border-radius: 999px; }
-	.tf-favguest__act { flex-direction: column; align-items: center; gap: 4px; }
-	.tf-favguest__reg { font-size: 12px; }
+	.tf-favguest__txt span { font-size: 11.5px; }   /* audit 2026-11-06: teks boleh turun baris, tidak dipotong "…" */
+	.tf-favguest__in { min-height: 36px; padding: 0 16px; font-size: 12.5px; border-radius: 999px; }
+	.tf-favguest__act { flex-direction: column; align-items: center; gap: 0; }
+	.tf-favguest__reg { padding: 7px 12px 5px; font-size: 12.5px; }   /* area ketuk ±32px */
+	.tf-favin .tf-favguest__in { min-height: 40px; }
 	.tf-favin { gap: 8px; padding: 10px 12px; }
 	.tf-favin__row { grid-template-columns: 32px minmax(0, 1fr) auto; column-gap: 10px; }
 	.tf-favthumbs__i, .tf-favthumbs__more { width: 28px; height: 28px; font-size: 10.5px; }
@@ -409,10 +414,10 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-rguest__ico { width: 32px; height: 32px; }
 	.tf-rguest__ico .tf-i { width: 16px; height: 16px; }
 	.tf-rguest__txt strong { margin-bottom: 1px; font-size: 13px; }
-	.tf-rguest__txt span { font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-	.tf-rguest__act { flex-direction: column; align-items: center; gap: 4px; }
-	.tf-rguest__in { min-height: 32px; padding: 0 14px; font-size: 12px; border-radius: 999px; }
-	.tf-rguest__reg { font-size: 12px; }
+	.tf-rguest__txt span { font-size: 11.5px; }
+	.tf-rguest__act { flex-direction: column; align-items: center; gap: 0; }
+	.tf-rguest__in { min-height: 36px; padding: 0 16px; font-size: 12.5px; border-radius: 999px; }
+	.tf-rguest__reg { padding: 7px 12px 5px; font-size: 12.5px; }
 	/* sudah login: tab & kotak angka lebih rapat, tombol aksi sejajar di kanan kotak angka, catatan lebih kecil */
 	.tf-reward { padding: 0 12px 10px; }
 	.tf-rtabs { margin: 0 -12px 10px; padding: 0 6px; }
@@ -739,7 +744,7 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	.tf-flash__terms { margin-top: 3px; font-size: 11.5px; }
 	.tf-flash__right { width: auto; flex: none; justify-content: flex-end; }
 	.tf-flash__timer { width: auto; align-items: flex-end; gap: 4px; }
-	.tf-flash__timer-label { padding: 0 1px 0 0; font-size: 10px; letter-spacing: .08em; }
+	.tf-flash__timer-label { padding: 0 1px 0 0; font-size: 11px; letter-spacing: .06em; }
 	:is(.tf-home, .tf-fsp) .tf-flash .fs-countdown { gap: 3px; }
 	:is(.tf-home, .tf-fsp) .tf-flash .fs-count { gap: 0; }
 	:is(.tf-home, .tf-fsp) .tf-flash .fs-num { width: 28px; height: 28px; font-size: 13px; border-radius: 7px; box-shadow: none; }
@@ -800,4 +805,9 @@ a.tf-reward__btn:hover { color: #fff; text-decoration: none; }
 	}
 	.tf-tabs::-webkit-scrollbar { display: none; }
 	.tf-tab { flex: none; white-space: nowrap; padding: 10px 14px; }
+}
+
+/* audit beranda ponsel (2026-11-06): Rekomendasi cukup 6 kartu di ponsel (sisanya lewat "Lihat semua produk") supaya halaman tidak terlalu panjang */
+@media (max-width: 575.98px) {
+	.tf-home [data-tf-reco-grid] > .product:nth-child(n+7) { display: none; }
 }

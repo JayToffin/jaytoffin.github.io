@@ -31,10 +31,10 @@
     };
 
     const TOFFIN_MENU_DATA = [
-        { label: 'Home', href: 'index.html' },
-        { label: 'Category', action: 'open-category-browser' },
+        { label: 'Beranda', href: 'index.html' },
+        { label: 'Kategori', action: 'open-category-browser' },
         { label: 'Brand', href: 'brand.html' },
-        { label: 'Promotion', action: 'open-promotion-browser' }
+        { label: 'Promo', action: 'open-promotion-browser' }
     ];
 
     const MOBILE_PROMOTION_BROWSER_DATA = [
@@ -52,7 +52,7 @@
         {
             key: 'promotion-program', label: 'Promo Program', sectionTitle: 'Promotion Program',
             items: [
-                { label: 'Promotion', href: 'promotion.html', image: 'images/product1.png' }
+                { label: 'Promo', href: 'promotion.html', image: 'images/product1.png' }
             ]
         }
     ];

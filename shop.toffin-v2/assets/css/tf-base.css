@@ -105,7 +105,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
 /* Target sentuh: perluas area ketuk kontrol kecil (ikon tooltip, tutup chip, salin, tautan teks) tanpa mengubah tampilan. */
 @media (max-width: 1199.98px) {
 	.tf-cat__x, .au-tip__btn, .pd-tip__btn, .tf-od__copy, .tf-okcopy, .tf-vc__tnc, .tf-co__link, .tf-coi__toggle,
-	.tf-filter__reset, .tf-cart__bar-del, .tf-bundle-toggle, .pd-more, .tf-alink, .tf-flash__terms, .tf-rguest__reg,
+	.tf-filter__reset, .tf-cart__bar-del, .tf-bundle-toggle, .pd-more, .tf-alink, .tf-flash__terms, .tf-rguest__reg, .tf-favguest__reg, .tf-wlink,
 	.tf-flinks a, .tf-fmini a, .tf-fcontact a, .tf-fslim a { position: relative; }
 	.tf-cat__x::before, .au-tip__btn::before, .pd-tip__btn::before, .tf-od__copy::before, .tf-okcopy::before, .tf-vc__tnc::before,
 	.tf-co__link::before, .tf-coi__toggle::before, .tf-filter__reset::before, .tf-cart__bar-del::before, .tf-bundle-toggle::before,
@@ -121,3 +121,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
 	html :is(.tf-home, .tf-fsp) .tf-flash .fs-lbl, html .tf-vc__stub span, html .tf-trk .leaflet-control-attribution { font-size: 11px; }
 	html .tf-deliverbar__lbl, html .tf-coi__tag, html .tf-coi__unit .tf-coi__off, html .tf-ship__destt > small, html .tf-fs-cd b, html .tf-pk__var { font-size: 11px; }
 }
+
+/* gambar beratribut width/height (anti-geser tata letak, audit 2026-11-06): tinggi tetap mengikuti rasio.
+   :where() = spesifisitas nol, jadi aturan tinggi mana pun di CSS halaman tetap menang */
+:where(img[width][height]) { height: auto; }

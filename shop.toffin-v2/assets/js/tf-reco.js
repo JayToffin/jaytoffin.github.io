@@ -60,7 +60,7 @@
 			+ '<div class="fs-body">'
 			+ '<h3 class="fs-product-title"><a href="detail-produk.html">' + n + '</a></h3>'
 			+ '<div class="fs-price-row"><div class="fs-price"><span class="fs-price-new">' + rupiah(p.price) + '</span>' + (off ? '<span class="fs-price-old">' + rupiah(p.old) + '</span>' : '') + '</div></div>'
-			+ '<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">Add to cart</a></div>'
+			+ '<div class="fs-actions"><a class="fs-btn fs-btn-primary" href="#">+ Keranjang</a></div>'
 			+ '</div></div>';
 	}
 

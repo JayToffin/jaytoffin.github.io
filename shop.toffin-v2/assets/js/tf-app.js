@@ -86,6 +86,42 @@
 	}());
 
 	/* ------------------------------------------------------------------
+	   Hitung mundur "Flash Sale Berikutnya" (.upcoming-countdown, id fsNext*).
+	   Waktu mulai dari data-start; bila kosong/lewat → lusa pukul 10.00
+	   (demo; produksi: jadwal sesi berikutnya dari Odoo). Sebelumnya tidak
+	   ada yang menggerakkan angka ini sehingga selalu 00:00:00:00.
+	   ------------------------------------------------------------------ */
+	(function nextCountdown() {
+		var wrap = document.querySelector('.upcoming-countdown');
+		if (!wrap) return;
+		var pad2 = function (n) { return String(Math.max(0, n)).padStart(2, '0'); };
+		var el = { d: document.getElementById('fsNextDays'), h: document.getElementById('fsNextHours'), m: document.getElementById('fsNextMinutes'), s: document.getElementById('fsNextSeconds') };
+		if (!el.h || !el.m || !el.s) return;
+		var daysGroup = el.d ? el.d.closest('.fs-count') : null;
+		var daysSep = daysGroup && daysGroup.nextElementSibling && daysGroup.nextElementSibling.classList.contains('fs-sep') ? daysGroup.nextElementSibling : null;
+		function resolveStart() {
+			var t = new Date(wrap.getAttribute('data-start') || '').getTime();
+			if (!Number.isNaN(t) && t > Date.now()) return t;
+			var n = new Date();
+			return new Date(n.getFullYear(), n.getMonth(), n.getDate() + 2, 10, 0, 0, 0).getTime();
+		}
+		var startAt = resolveStart();
+		function tick() {
+			var left = startAt - Date.now();
+			if (left <= 0) { startAt = resolveStart(); left = startAt - Date.now(); }
+			var sec = Math.floor(left / 1000), days = Math.floor(sec / 86400);
+			if (el.d) el.d.textContent = pad2(days);
+			el.h.textContent = pad2(Math.floor((sec % 86400) / 3600));
+			el.m.textContent = pad2(Math.floor((sec % 3600) / 60));
+			el.s.textContent = pad2(sec % 60);
+			if (daysGroup) daysGroup.style.display = days > 0 ? '' : 'none';
+			if (daysSep) daysSep.style.display = days > 0 ? '' : 'none';
+		}
+		tick();
+		setInterval(tick, 1000);
+	}());
+
+	/* ------------------------------------------------------------------
 	   Datepicker filter poin: hanya bila jQuery + plugin + elemennya ada.
 	   Halaman v2 tanpa jQuery cukup melewati blok ini.
 	   ------------------------------------------------------------------ */

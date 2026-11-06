@@ -405,3 +405,9 @@
 	.tf-carousel .swiper-button-next,
 	.tf-carousel .swiper-button-prev { background: #fff; border-color: var(--tf-line); }
 }
+
+/* audit ponsel (2026-11-06): tombol kartu produk 40px supaya nyaman diketuk */
+@media (max-width: 575.98px) {
+	.fs-btn { min-height: 40px; }
+}
+.tf-pg__dots:empty { display: none; }   /* galeri belum dibuat (menunggu kartu mendekati layar): jangan tampilkan kapsul dot kosong */
