@@ -1149,9 +1149,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     (`.fs-exp`, `tf-products.css`) di bawah harga, sama dengan `.pd-perks__exp` di detail produk: 14 kartu statis
     di beranda (Flash Sale + Flash Sale Berikutnya) dan templat kartu `tf-flash.js` (halaman Flash Sale, tab
     berjalan & akan datang). Teks masih contoh yang sama di semua kartu; produksi: dari data produk Odoo.
-    **Revisi hari yang sama: hanya untuk kategori Ingredients.** `tf-flash.js` `exp(p)` memeriksa `p.cat`
-    (daftar "akan datang" belum punya kategori, ditebak dari nama); 14 kartu statis beranda semuanya mesin kopi
-    contoh, jadi barisnya dicabut lagi. Di templat Odoo: tampilkan `.fs-exp` hanya bila kategori = Ingredients.
+    **Aturan produksi (Rendi): hanya untuk kategori Ingredients.** Di prototipe baris ini sengaja tampil di semua
+    kartu sebagai templat; di templat Odoo bungkus `.fs-exp` dengan syarat kategori = Ingredients.
 
 ## Bobot aset lokal `index.html`
 
