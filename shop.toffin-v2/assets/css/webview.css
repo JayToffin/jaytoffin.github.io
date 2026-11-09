@@ -1,0 +1,64 @@
+/* =====================================================================
+   Toffin v2 · webview.css — halaman "… webview mobile.html" (dibuka di Toffin App)
+   Latar app hitam: halaman memakai tema gelap dengan latar & warna teks
+   EKSPLISIT, jadi terbaca sama di app (webview), browser, dan preview.
+   Dimuat paling akhir, sesudah css/style.css (template lama). MIGRASI.md langkah 78.
+   ===================================================================== */
+:root {
+	color-scheme: dark;
+	--wv-bg: #0f0f10;
+	--wv-surface: #1a1b1e;
+	--wv-line: rgba(255, 255, 255, .12);
+	--wv-text: #d9dbe0;
+	--wv-muted: #9aa0ab;
+	--wv-head: #ffffff;
+	--wv-accent: #f8941f;
+}
+html, body { background: var(--wv-bg) !important; }
+body { color: var(--wv-text) !important; font-size: 15px; line-height: 1.7; }
+
+/* teks isi */
+body p, body li, body td, body th, body dd, body dt, body span, body label { color: var(--wv-text); }
+body h1, body h2, body h3, body h4, body h5, body h6,
+body strong, body b { color: var(--wv-head) !important; }
+body i, body em { color: inherit; }
+body a { color: var(--wv-accent) !important; }
+body a:hover, body a:focus { color: #ffb15c !important; }
+body hr { border-color: var(--wv-line); }
+body img { max-width: 100%; height: auto; }
+
+/* judul halaman & bagian */
+.ftco-section { background: transparent !important; padding-top: 32px; }
+.heading-section-bold h2 { letter-spacing: .02em; }
+.heading-section-bold h4, .ftco-section h4 { margin-top: 1.4em; padding-top: .9em; border-top: 1px solid var(--wv-line); }
+
+/* daftar bernomor (S&K): nomor tetap terang & lega */
+.ftco-section ol, .ftco-section ul { padding-left: 1.4em; }
+.ftco-section li { margin-bottom: .35em; }
+.ftco-section li::marker { color: var(--wv-muted); }
+
+/* tabel (bila ada) */
+.ftco-section table { width: 100%; border-collapse: collapse; }
+.ftco-section th, .ftco-section td { padding: 8px 10px; border: 1px solid var(--wv-line) !important; }
+.ftco-section th { background: var(--wv-surface); color: var(--wv-head); }
+
+/* header situs lama */
+.ftco_navbar, .ftco-navbar-light, .ftco_navbar.scrolled { background: var(--wv-bg) !important; border-bottom: 1px solid var(--wv-line); box-shadow: none !important; }
+.ftco_navbar .navbar-toggler, .ftco_navbar .nav-link, .ftco_navbar .oi { color: var(--wv-text) !important; }
+.ftco_navbar .navbar-collapse { background: var(--wv-bg); }
+.ftco_navbar .dropdown-menu { background: var(--wv-surface) !important; border-color: var(--wv-line); }
+.ftco_navbar .dropdown-item { color: var(--wv-text) !important; }
+.ftco_navbar .dropdown-item:hover { background: rgba(255, 255, 255, .06) !important; color: var(--wv-head) !important; }
+.ftco_navbar .form-control { background: var(--wv-surface) !important; border-color: var(--wv-line) !important; color: var(--wv-text) !important; }
+
+/* footer situs lama */
+.ftco-footer, .ftco-footer.bg-light { background: var(--wv-surface) !important; border-top: 1px solid var(--wv-line); }
+.ftco-footer, .ftco-footer p, .ftco-footer li, .ftco-footer span, .ftco-footer .text { color: var(--wv-muted) !important; }
+.ftco-footer a { color: var(--wv-text) !important; }
+.ftco-footer .ftco-heading-2 { color: var(--wv-head) !important; }
+.ftco-footer-social li a { background: rgba(255, 255, 255, .08) !important; }
+.ftco-footer .mouse-icon, .ftco-footer .mouse-wheel { border-color: var(--wv-line) !important; background: var(--wv-surface) !important; }
+
+/* animasi template lama: konten langsung tampil (webview tidak selalu memicu waypoint) */
+.ftco-animate { opacity: 1 !important; visibility: visible !important; }
+#ftco-loader { display: none !important; }

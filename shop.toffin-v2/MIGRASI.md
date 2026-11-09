@@ -1294,6 +1294,20 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Produksi: jadikan template mail Odoo (QWeb), nilai contoh diganti field record, tautan relatif jadi URL absolut
     shop.toffin.id, gambar `images/email/` di-host publik. Belum diuji di klien email nyata (Gmail/Outlook/Apple Mail),
     hanya di Chrome 680px dan 375px.
+78. **Halaman backend Odoo & webview Toffin App** (2026-11-09, Rendi).
+    - `*-odoo.html` (faq, informasi-pengiriman, kebijakan-privasi, syarat-dan-ketentuan): potongan HTML untuk editor Odoo
+      dirapikan, **isi teks tidak berubah** (diverifikasi otomatis). Pembungkus template Winkel (`ftco-section`,
+      `container/row/col-md-12`, `heading-section-bold`, `ml-md-0`) diganti satu `<section>` lebar maks. 760px; garis
+      oranye kecil + judul 22px dengan garis bawah; bagian dipisah garis tipis; pertanyaan/label tebal; teks rata kiri
+      (dulu justify) dengan opacity .82 (dulu .68, terlalu pudar); 15 variasi margin diseragamkan; chip kota & metode bayar
+      berbentuk pil; tabel berbingkai membulat, kepala berlatar tipis, garis baris halus. Warna tetap `color: inherit` dan
+      garis `rgba(128,128,128,…)` sehingga terbaca di tema Odoo terang maupun gelap (diuji keduanya). Tautan oranye #e07c0c.
+    - `… webview mobile.html` (4 halaman, dibuka di Toffin App berlatar hitam): isi tidak diubah; ditambah
+      `assets/css/webview.css` (dimuat terakhir) = tema gelap dengan latar & warna teks eksplisit (#0f0f10 / #d9dbe0, judul
+      putih, tautan oranye), header & footer template lama ikut gelap, `meta color-scheme=dark`, logo navbar diganti
+      `images/toffin-logo-light.png` (huruf putih, api oranye; dibuat dari toffin-logo.png). Karena latarnya ditetapkan
+      sendiri, tampilan sama di app, browser, dan preview. Konten `.ftco-animate` langsung tampil (tidak menunggu animasi).
+      Catatan: footer webview masih berisi teks contoh template "Far far away, behind the word mountains…" (belum diubah).
 
 ## Bobot aset lokal `index.html`
 
