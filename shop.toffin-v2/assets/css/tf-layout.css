@@ -860,6 +860,31 @@
 	.tf-fbottom__in { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 /* audit 2026-11-06: kolom tautan footer tetap 2 kolom di ponsel (footer lebih pendek) */
+/* footer ponsel dirapikan (langkah 74 MIGRASI): dua kolom tautan jadi satu kartu putih bersekat, kontak kartu sendiri
+   dengan ikon dalam lingkaran oranye lembut, judul kecil kapital, hak cipta rata tengah */
+@media (max-width: 575.98px) {
+	.tf-fmain { gap: 0; padding-top: 28px; padding-bottom: 24px; }
+	.tf-fbrand { padding-bottom: 22px; }
+	.tf-fbrand__logo img { height: 26px; }
+	.tf-fbrand__text { margin: 12px 0 14px; font-size: 13px; line-height: 1.6; }
+	.tf-fsocial { gap: 8px; }
+	.tf-fsocial a { width: 34px; height: 34px; background: #fff; }
+	.tf-fcol { padding: 16px; border: 1px solid var(--tf-line); background: #fff; }
+	.tf-fbrand + .tf-fcol { border-right: 0; border-radius: 14px 0 0 14px; }
+	.tf-fcol + .tf-fcol:not(.tf-fcol--contact) { border-radius: 0 14px 14px 0; }
+	.tf-fcol--contact { margin-top: 12px; border-radius: 14px; }
+	.tf-fcol__title { margin-bottom: 12px; color: var(--tf-muted); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+	.tf-flinks li + li { margin-top: 11px; }
+	.tf-flinks a { color: var(--tf-body); font-size: 13.5px; }
+	.tf-fcontact li { align-items: center; gap: 12px; color: var(--tf-body); font-size: 13.5px; line-height: 1.5; }
+	.tf-fcontact li:first-child { align-items: flex-start; }
+	.tf-fcontact li:first-child br { display: none; }   /* alamat mengalir; markup punya spasi sebelum <br> */
+	.tf-fcontact li + li { margin-top: 10px; }
+	.tf-fcontact .tf-i { box-sizing: content-box; width: 15px; height: 15px; margin: 0; padding: 7px; border-radius: 50%; background: var(--tf-orange-soft); color: var(--tf-orange-dark); }
+	.tf-fcontact a { color: var(--tf-body); }
+	.tf-fbottom__in { align-items: center; text-align: center; padding-top: 14px; padding-bottom: 14px; }
+	.tf-fcopy { font-size: 12px; }
+}
 
 
 /* ---------- FOOTER RINGKAS (.tf-footer--slim) untuk halaman transaksi: keranjang, checkout, sukses checkout.

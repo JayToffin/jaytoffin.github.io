@@ -1243,6 +1243,15 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     `informasi-pengiriman.html` (sebelumnya `pengiriman.html` versi lama) dan nomor WhatsApp Bantuan `628119983378`
     (sebelumnya `6281199833780`, kelebihan angka 0). Gaya `.tf-fslim__brand` dan `.tf-fslim__pay` yang tidak dipakai dihapus.
 
+74. **Footer utama di ponsel dirapikan** (2026-11-09, Rendi), hanya < 576px, CSS saja: kolom Informasi + Bantuan jadi satu
+    kartu putih bersekat, "Hubungi Kami" kartu sendiri dengan ikon dalam lingkaran oranye lembut, judul kolom kecil kapital,
+    logo 26px, ikon sosial berlatar putih, hak cipta rata tengah. Sekalian diperbaiki di semua halaman v2: WhatsApp
+    `6281199833780` jadi `628119983378` (kelebihan angka 0), telepon `tel:+62216669538` jadi `tel:+622166695381` (kurang
+    satu digit dari nomor yang tampil), tautan footer "Informasi Pengiriman" ke `informasi-pengiriman.html`.
+    Ditemukan sekalian: `detail-produk.html` dan `detail-produk-flashsale.html` tidak menutup `<footer>` (modal video &
+    bagikan ikut masuk ke footer) dan punya `</main>` dobel; keduanya diperbaiki. Alamat footer diberi spasi sebelum `<br>`
+    supaya di ponsel `<br>` bisa disembunyikan tanpa kata menempel.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
