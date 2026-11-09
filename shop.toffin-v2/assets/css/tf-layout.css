@@ -866,7 +866,7 @@
 	.tf-fmain { gap: 0; padding-top: 28px; padding-bottom: 24px; }
 	.tf-fbrand { padding-bottom: 22px; }
 	.tf-fbrand__logo img { height: 26px; }
-	.tf-fbrand__text { margin: 12px 0 14px; font-size: 13px; line-height: 1.6; }
+	.tf-fbrand__text { max-width: none; margin: 12px 0 16px; padding-left: 12px; border-left: 3px solid var(--tf-orange); color: var(--tf-body); font-size: 13px; line-height: 1.6; text-wrap: pretty; }   /* tagline: garis aksen oranye, tanpa kata yatim di baris akhir */
 	.tf-fsocial { gap: 8px; }
 	.tf-fsocial a { width: 34px; height: 34px; background: #fff; }
 	.tf-fcol { padding: 16px; border: 1px solid var(--tf-line); background: #fff; }

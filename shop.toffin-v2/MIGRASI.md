@@ -1251,6 +1251,8 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Ditemukan sekalian: `detail-produk.html` dan `detail-produk-flashsale.html` tidak menutup `<footer>` (modal video &
     bagikan ikut masuk ke footer) dan punya `</main>` dobel; keduanya diperbaiki. Alamat footer diberi spasi sebelum `<br>`
     supaya di ponsel `<br>` bisa disembunyikan tanpa kata menempel.
+    Tagline footer di ponsel: garis aksen oranye 3px di kiri, teks lebih gelap, lebar penuh, `text-wrap: pretty` agar tidak
+    ada kata yatim seperti "dunia." sendirian di baris akhir.
 
 ## Bobot aset lokal `index.html`
 
