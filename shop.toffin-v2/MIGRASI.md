@@ -1275,6 +1275,25 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
       "Pesanan terakhir" 0426 + 0421).
     - Produksi: `o.live` dari API/webhook kurir instan lewat Odoo (posisi driver berkala), `o.track` dari API
       pelacakan ekspedisi; kartu hanya saat status Dikirim.
+77. **Semua template email dirombak** (2026-11-09, Rendi: estetik, rapi, ramah pengguna, sesuai tema situs). 17 berkas
+    `email-*.html` kini dibuat dari satu generator `tools/build-emails.py` (komponen bersama; ubah generator lalu jalankan
+    `python3 tools/build-emails.py`, jangan sunting HTML hasil). Kerangka: latar #f4f5f7, logo, kartu putih 600px radius 20
+    dengan garis atas oranye #f8941f, font Nunito Sans (cadangan Arial), lencana ikon 56px, eyebrow status, judul, kotak
+    total, baris info label/nilai (di ponsel bertumpuk), progres 5 langkah HTML, daftar barang + rincian seperti checkout,
+    tombol pil oranye/garis, kotak catatan berwarna, kartu bantuan WhatsApp, footer (tautan, alamat, alasan menerima email).
+    Email-safe: tabel + gaya inline, tanpa SVG; ikon = PNG 2x transparan di `images/email/` (ikon Tabler sama dengan situs,
+    dirender lewat Chrome: oranye = menunggu, hijau = berhasil, merah = gagal). Ilustrasi lama (clip-art, gambar progres)
+    tidak dipakai lagi, berkasnya tidak dihapus.
+    Isi dibenahi: semua teks bahasa Indonesia ("Cheers", "Order Confirmation", "Delivery Fee", kalimat Inggris lupa sandi
+    dihapus), blok pesanan dobel dihapus, angka disamakan (data contoh = SO/2026/10/0421 di detail-pembelian: total
+    Rp 8.239.000, hemat Rp 2.360.000, 8.000 Toffin Point), tahun 2026 dengan hari yang benar.
+    Perubahan perilaku: `email-delivered` tidak lagi "Beri penilaian" (fitur rating sudah tidak ada) tetapi masa klaim
+    1x24 jam + Lihat detail / Beli lagi; `email-verify-account` kini berisi **kode OTP 6 digit** (berlaku 5 menit, sama
+    dengan otp.html/tf-auth.js) menggantikan tombol "Konfirmasi akun"; `email-verify-decline` menampilkan alasan + daftar
+    periksa; `email-verify-admin` ditandai email internal (tanpa kartu bantuan); ganti sales disetujui berisi 3 langkah.
+    Produksi: jadikan template mail Odoo (QWeb), nilai contoh diganti field record, tautan relatif jadi URL absolut
+    shop.toffin.id, gambar `images/email/` di-host publik. Belum diuji di klien email nyata (Gmail/Outlook/Apple Mail),
+    hanya di Chrome 680px dan 375px.
 
 ## Bobot aset lokal `index.html`
 

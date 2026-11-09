@@ -1,287 +1,56 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <style type="text/css">
-        @media screen {
-            @font-face {
-                font-family: 'Lato';
-                font-style: normal;
-                font-weight: 400;
-                src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
-            }
-
-            @font-face {
-                font-family: 'Lato';
-                font-style: normal;
-                font-weight: 700;
-                src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-            }
-
-            @font-face {
-                font-family: 'Lato';
-                font-style: italic;
-                font-weight: 400;
-                src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
-            }
-
-            @font-face {
-                font-family: 'Lato';
-                font-style: italic;
-                font-weight: 700;
-                src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
-            }
-        }
-
-        /* CLIENT-SPECIFIC STYLES */
-        body,
-        table,
-        td,
-        a {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-        }
-
-        table,
-        td {
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
-
-        img {
-            -ms-interpolation-mode: bicubic;
-        }
-
-        /* RESET STYLES */
-        img {
-            border: 0;
-            height: auto;
-            line-height: 100%;
-            outline: none;
-            text-decoration: none;
-        }
-
-        table {
-            border-collapse: collapse !important;
-        }
-
-        body {
-            height: 100% !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100% !important;
-        }
-
-        /* iOS BLUE LINKS */
-        a[x-apple-data-detectors] {
-            color: inherit !important;
-            text-decoration: none !important;
-            font-size: inherit !important;
-            font-family: inherit !important;
-            font-weight: inherit !important;
-            line-height: inherit !important;
-        }
-
-        /* MOBILE STYLES */
-        @media screen and (max-width:600px) {
-            h1 {
-                font-size: 32px !important;
-                line-height: 32px !important;
-            }
-        }
-
-        /* ANDROID CENTER FIX */
-        div[style*="margin: 16px 0;"] {
-            margin: 0 !important;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Pesanan SO/2026/10/0421 sudah sampai</title>
+<!-- Template email Toffin v2 (MIGRASI.md langkah 77), dibuat dari generator bersama supaya semua email seragam.
+     Pesanan diterima (stock.picking selesai). Fitur rating produk sudah tidak ada, jadi tombol "Beri penilaian" diganti info masa klaim.
+     Data di bawah adalah contoh. Produksi: template mail Odoo (QWeb), nilai diganti field record; tautan relatif prototipe
+     diganti URL absolut https://shop.toffin.id/...; gambar di images/email/ di-host di domain yang sama. -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body,table,td,a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+  table,td { mso-table-lspace:0pt; mso-table-rspace:0pt; }
+  img { -ms-interpolation-mode:bicubic; border:0; outline:none; text-decoration:none; }
+  body { margin:0 !important; padding:0 !important; width:100% !important; }
+  a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; font:inherit !important; }
+  @media screen and (max-width:620px) {
+    .wrap { padding:0 12px !important; }
+    .card { padding:28px 20px 30px !important; }
+    .h1 { font-size:22px !important; }
+    .amt { font-size:26px !important; }
+    .kvk, .kvv { display:block !important; width:100% !important; text-align:left !important; }
+    .kvk { padding-bottom:0 !important; }
+    .kvv { border-top:0 !important; padding-top:2px !important; }
+  }
+</style>
 </head>
-
-<body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
-    <!-- HIDDEN PREHEADER TEXT -->
-    <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"> </div>
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <!-- LOGO -->
-        <tr>
-            <td bgcolor="#ffa45c" align="center">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="#ffa45c" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                            <img src="images/toffin-logo.png" width="125" height="120" style="display: block; border: 0px;" />
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" style="padding: 20px 20px 5px 20px; background-color: #ffffff;" bgcolor="#ffffff">
-                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
-                    <tr>
-                        <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;"> <img src="images/order-completed.png" width="400" style="display: block; border: 0px;" /><br>
-                            <h2 style="font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;"> Barang Anda sudah sampai </h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 10px;">
-                            <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"> Terima kasih sudah berbelanja di Toffin Indonesia.
-                                Bantu kami untuk memberikan penilaian terhadap produk yang Anda beli. </p>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td align="center" style="border-radius: 3px;" bgcolor="#ffa45c"><a href="#" target="_blank" style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 10px 22px; border-radius: 2px; border: 1px solid #ffa45c; display: inline-block;">Beri penilaian</a></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-        <tr>
-            <td align="center" style="padding: 20px 20px 5px 20px; background-color: #ffffff;" bgcolor="#ffffff">
-                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
-                    <tr>
-                        <td align="left">
-                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                <tr>
-                                    <td width="65%" align="left" bgcolor="#cccccc" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 800; line-height: 24px; padding: 10px;"> Order Confirmation # </td>
-                                    <td width="35%" align="right" bgcolor="#cccccc" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 800; line-height: 24px; padding: 10px;"> SO/0002535 </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="left" style="padding-top: 10px;">
-                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                              
-                                <tr>
-                                    <td width="65%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 10px 5px 10px;"> Product Bundle For Home<span style="padding: 0 10px 0 10px;">x</span><span class="qty"><strong>(1 pc)</strong></span></td>
-                                    <td width="35%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 10px 5px 10px;"> Rp 250.000.000 </td>
-                                </tr>
-                                <tr>
-                                    <td width="65%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 10px 5px 10px;"> Nuova simonelli oscar 1 group<span style="padding: 0 10px 0 10px;">x</span><span class="qty"><strong>(1 pc)</strong></span></td>
-                                    <td width="35%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 10px 5px 10px;"> Rp 50.000.000 </td>
-                                </tr>
-                                <tr>
-                                    <td width="65%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 10px 5px 10px;"> Nuova simonelli appia s 1 group<span style="padding: 0 10px 0 10px;">x</span><span class="qty"><strong>(1 pc)</strong></span></td>
-                                    <td width="35%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 10px 5px 10px;"> Rp 50.000.000 </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                   
-                    <tr>
-                        <td align="center" height="100%" valign="top" width="100%" style="padding: 0 10px 0px 10px; background-color: #eeeeee;">
-                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:575px;">
-                                
-                                <tr>
-                                    <td align="left" valign="top" style="font-size:0;">
-                                        <div style="display:inline-block; max-width:100%; min-width:240px; vertical-align:top; width:100%;">
-                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:100%;">
-                                                <tr>
-                                                    <td  valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px;">
-                                                        <p style="font-weight: 800;">Alamat pengiriman</p>
-                                                        <p>Toffin indonesia<br>Jl. Pluit Permai No.4, RT.9/RW.4, Pluit, Kec. Penjaringan, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14450</p>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="left">
-                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                <tr>
-                                    <td width="40%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 800; line-height: 24px; padding: 10px;"> Pesanan Diterima </td>
-                                    <td width="60%" align="right" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px; padding: 10px;"> Jumat, 17 September 2021, 07:29 WIB
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    
-                    
-                </table>
-            </td>
-        </tr>
-      
-       
-
-        <tr>
-            <td align="center" style="padding: 20px 20px 5px 20px; background-color: #ffffff;" bgcolor="#ffffff">
-                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
-                    <tr>
-                        <td align="left" style="padding-top: 10px;">
-                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                <tr>
-                                    <td width="50%" align="left" bgcolor="#ffffff" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 24px; padding: 5px 10px;"> Subtotal </td>
-                                    <td width="50%" align="right" bgcolor="#ffffff" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 24px; padding: 5px 10px;"> Rp 350.000.000 </td>
-                                </tr>
-                                <tr>
-                                    <td width="50%" align="left" bgcolor="#ffffff" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 24px; padding: 5px 10px;"> Delivery Fee </td>
-                                    <td width="50%" align="right" bgcolor="#ffffff" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 24px; padding: 5px 10px;"> Rp 500.000 </td>
-                                </tr>
-                                <tr>
-                                    <td width="50%" align="left" bgcolor="#ffffff" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 24px; padding: 5px 10px;"> Admin Fee </td>
-                                    <td width="50%" align="right" bgcolor="#ffffff" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 24px; padding: 5px 10px;"> Rp 50.000 </td>
-                                </tr>
-                                <tr>
-                                    <td width="65%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee;"> TOTAL </td>
-                                    <td width="35%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee;"> Rp 101.050.000 </td>
-                                </tr>
-                                <tr>
-                                    <td width="50%" align="left" style="background-color:rgb(88 245 158 / 33%); font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 24px; padding: 5px 10px;"> Anda telah menghemat </td>
-                                    <td width="50%" align="right" style="background-color:rgb(88 245 158 / 33%); font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 24px; padding: 5px 10px;"> Rp 10.000.000 </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-        <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                
-                
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 20px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">Cheers,<br>Toffin Indonesia</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td bgcolor="#FFECD1" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Jika Anda memerlukan bantuan,</h2>
-                            <p style="margin: 0;">dapat kontak kami <a href='https://wa.me/628119983378' target="_blank" style="color: #FFA73B;">disini</a></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+<body style="margin:0;padding:0;background:#f4f5f7">
+<div style="display:none;max-height:0;max-width:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;color:#f4f5f7">Pesanan Anda sudah diterima. Periksa paket dan ajukan klaim maksimal 1x24 jam bila ada kendala.&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4f5f7">
+<tr><td align="center" class="wrap" style="padding:0 16px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px">
+  <tr><td style="padding:30px 4px 18px"><a href="index.html" target="_blank"><img src="images/toffin-logo.png" width="112" height="34" alt="Toffin" style="display:block;border:0;width:112px;height:auto"></a></td></tr>
+  <tr><td style="background:#ffffff;border:1px solid #eceef1;border-radius:20px;border-top:4px solid #f8941f">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="card" style="padding:36px 40px 38px">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:0 0 8px"><img src="images/email/delivered.png" width="56" height="56" alt="" style="display:block;border:0;width:56px;height:56px"></td></tr><tr><td style="padding:10px 0 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#16a34a">Pesanan selesai</td></tr><tr><td class="h1" style="padding:6px 0 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:26px;line-height:1.25;font-weight:900;color:#212121;letter-spacing:-.01em">Pesanan Anda sudah sampai</td></tr><tr><td style="padding:10px 0 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#31353b">Paket pesanan <b>SO/2026/10/0421</b> diterima pada <b>Sabtu, 17 Oktober 2026, 14.20 WIB</b>. Terima kasih sudah berbelanja di Toffin.</td></tr><tr><td style="padding:20px 0 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:14px 16px;background:#fff4e7;border-left:4px solid #f8941f;border-radius:10px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.55;color:#9a3412"><b style="display:block;margin-bottom:2px;color:#212121">Periksa paket Anda sekarang</b>Klaim barang rusak, kurang, atau tidak sesuai diterima <b>maksimal 1x24 jam</b> sejak diterima, yaitu sampai <b>Minggu, 18 Oktober 2026, 14.20 WIB</b>. Siapkan video unboxing tanpa jeda.</td></tr></table></td></tr><tr><td style="padding:28px 0 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td align="center" style="background:#f8941f;border:1px solid #f8941f;border-radius:999px"><a href="detail-pembelian.html?so=SO/2026/10/0421" target="_blank" style="display:block;padding:15px 28px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:800;color:#ffffff;text-decoration:none;text-align:center;border-radius:999px">Lihat detail pesanan</a></td></tr></table></td></tr><tr><td style="padding:10px 0 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td align="center" style="background:#ffffff;border:1px solid #d6d9de;border-radius:999px"><a href="cart.html" target="_blank" style="display:block;padding:15px 28px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:800;color:#212121;text-decoration:none;text-align:center;border-radius:999px">Beli lagi</a></td></tr></table></td></tr><tr><td style="padding:22px 0 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td width="20%" align="center" valign="top" style="padding:0 2px"><table role="presentation" width="30" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;margin:0 auto"><tr><td align="center" width="30" height="30" style="width:30px;height:30px;border-radius:15px;background:#16a34a;color:#ffffff;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:900;line-height:30px;text-align:center">&#10003;</td></tr></table><div style="padding-top:7px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;line-height:1.3;font-weight:800;color:#212121">Dibuat</div></td><td width="20%" align="center" valign="top" style="padding:0 2px"><table role="presentation" width="30" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;margin:0 auto"><tr><td align="center" width="30" height="30" style="width:30px;height:30px;border-radius:15px;background:#16a34a;color:#ffffff;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:900;line-height:30px;text-align:center">&#10003;</td></tr></table><div style="padding-top:7px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;line-height:1.3;font-weight:800;color:#212121">Dibayar</div></td><td width="20%" align="center" valign="top" style="padding:0 2px"><table role="presentation" width="30" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;margin:0 auto"><tr><td align="center" width="30" height="30" style="width:30px;height:30px;border-radius:15px;background:#16a34a;color:#ffffff;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:900;line-height:30px;text-align:center">&#10003;</td></tr></table><div style="padding-top:7px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;line-height:1.3;font-weight:800;color:#212121">Diproses</div></td><td width="20%" align="center" valign="top" style="padding:0 2px"><table role="presentation" width="30" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;margin:0 auto"><tr><td align="center" width="30" height="30" style="width:30px;height:30px;border-radius:15px;background:#16a34a;color:#ffffff;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:900;line-height:30px;text-align:center">&#10003;</td></tr></table><div style="padding-top:7px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;line-height:1.3;font-weight:800;color:#212121">Dikirim</div></td><td width="20%" align="center" valign="top" style="padding:0 2px"><table role="presentation" width="30" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;margin:0 auto"><tr><td align="center" width="30" height="30" style="width:30px;height:30px;border-radius:15px;background:#16a34a;color:#ffffff;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:900;line-height:30px;text-align:center">&#10003;</td></tr></table><div style="padding-top:7px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;line-height:1.3;font-weight:800;color:#212121">Selesai</div></td></tr></table></td></tr><tr><td style="padding:28px 0 10px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:900;color:#212121">Pesanan SO/2026/10/0421</td><td align="right" style="font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;color:#6d7588">Distributor Toffin Jakarta</td></tr></table></td></tr><tr><td><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:14px 12px 14px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.45;color:#212121;font-weight:800;vertical-align:top"><span style="display:inline-block;margin-bottom:4px;padding:2px 8px;border-radius:999px;background:#fff1f1;color:#d6453d;font-size:11px;font-weight:800">Flash Sale</span><br>Eureka Mignon Zero 65 mm<br><span style="color:#6d7588;font-size:12.5px;font-weight:600">Warna: Hitam</span><br><span style="color:#31353b;font-size:13px;font-weight:600">1 &times; Rp 7.490.000 <s style="color:#9ca3af">Rp 9.850.000</s></span></td><td style="padding:14px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:800;color:#212121;text-align:right;vertical-align:top;white-space:nowrap">Rp 7.490.000</td></tr><tr><td style="border-top:1px solid #e5e7e9;padding:14px 12px 14px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.45;color:#212121;font-weight:800;vertical-align:top">Toffin House Blend Ground Coffee 1 kg<br><span style="color:#31353b;font-size:13px;font-weight:600">2 &times; Rp 255.000</span></td><td style="border-top:1px solid #e5e7e9;padding:14px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:800;color:#212121;text-align:right;vertical-align:top;white-space:nowrap">Rp 510.000</td></tr></table></td></tr><tr><td style="padding:14px 0 0;border-top:1px solid #e5e7e9"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b">Total harga (3 barang)</td><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b;text-align:right;font-weight:600">Rp 10.360.000</td></tr><tr><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b">Diskon produk</td><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#16a34a;text-align:right;font-weight:700">&minus;Rp 2.360.000</td></tr><tr><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b">Ongkos kirim (JNE REG)</td><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b;text-align:right;font-weight:600">Rp 85.000</td></tr><tr><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b">Biaya packing</td><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b;text-align:right;font-weight:600">Rp 150.000</td></tr><tr><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b">Biaya admin</td><td style="padding:5px 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:#31353b;text-align:right;font-weight:600">Rp 4.000</td></tr><tr><td style="padding:14px 0 4px;border-top:1px solid #e5e7e9;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:900;color:#212121">Total</td><td style="padding:14px 0 4px;border-top:1px solid #e5e7e9;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:20px;font-weight:900;color:#212121;text-align:right">Rp 8.239.000</td></tr></table></td></tr><tr><td style="padding-top:10px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:10px 14px;background:#e8f7ee;border-radius:10px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:800;color:#16a34a">Anda hemat</td><td style="font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:900;color:#16a34a;text-align:right">Rp 2.360.000</td></tr></table></td></tr></table></td></tr><tr><td style="padding:20px 0 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:14px 16px;background:#e8f7ee;border-left:4px solid #16a34a;border-radius:10px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.55;color:#166534"><b>8.000 Toffin Point</b> sudah masuk ke akun Anda dan bisa dipakai di belanja berikutnya.</td></tr></table></td></tr><tr><td style="padding:16px 0 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:6px 18px;background:#fafbfc;border:1px solid #e5e7e9;border-radius:14px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:12px 0 2px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6d7588">Diterima di &middot; Kantor</td></tr><tr><td style="font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;color:#31353b"><b style="color:#212121">Rendi Bagus</b> &middot; 0812 2200 0XXX<br>Jl. Pluit Permai No. 4, RT.9/RW.4, Pluit, Penjaringan, Jakarta Utara, DKI Jakarta 14450</td></tr><tr><td style="padding:10px 0 12px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;color:#31353b">Dikirim dengan <b>JNE REG</b> &middot; Resi JR0042100777</td></tr></table></td></tr></table></td></tr><tr><td style="padding:28px 0 0;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#31353b">Salam hangat,<br><b style="color:#212121">Tim Toffin Indonesia</b></td></tr></table>
+    </td></tr></table>
+  </td></tr>
+  <tr><td style="padding:16px 0 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td style="padding:16px 20px;background:#ffffff;border:1px solid #eceef1;border-radius:16px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;"><tr><td width="44" valign="middle"><img src="images/email/ico-wa.png" width="28" height="28" alt="" style="display:block;border:0"></td><td valign="middle" style="font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.45;color:#31353b"><b style="color:#212121">Butuh bantuan?</b> Tim Toffin siap membantu lewat WhatsApp.</td><td align="right" valign="middle" style="padding-left:10px"><a href="https://wa.me/628119983378" target="_blank" style="display:inline-block;padding:9px 16px;border:1px solid #c7efd6;border-radius:999px;background:#e8f7ee;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:800;color:#16a34a;text-decoration:none;white-space:nowrap">Chat kami</a></td></tr></table></td></tr></table></td></tr>
+  <tr><td align="center" style="padding:26px 12px 34px;font-family:'Nunito Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:1.7;color:#6d7588">
+    <a href="index.html" target="_blank" style="color:#31353b;font-weight:800;text-decoration:none">shop.toffin.id</a> &nbsp;&middot;&nbsp;
+    <a href="faq.html" target="_blank" style="color:#31353b;font-weight:800;text-decoration:none">FAQ</a> &nbsp;&middot;&nbsp;
+    <a href="kebijakan-privasi.html" target="_blank" style="color:#31353b;font-weight:800;text-decoration:none">Kebijakan Privasi</a><br>
+    Toffin Indonesia &middot; Jl. Pluit Permai No. 4, Pluit, Penjaringan, Jakarta Utara 14450<br>
+    Anda menerima email ini karena memiliki akun di shop.toffin.id. Email ini dikirim otomatis, mohon tidak dibalas.<br>
+    &copy; 2026 Toffin Indonesia. Semua hak dilindungi.
+  </td></tr>
+</table>
+</td></tr>
+</table>
 </body>
-
 </html>
