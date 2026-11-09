@@ -9,6 +9,9 @@
    resi, catatan), produk (flash sale, isi paket, bonus, diskon),
    rincian pembayaran (pola checkout), faktur pajak, aksi (bayar, lacak, invoice,
    beli lagi). Tanpa jQuery. Tanpa rating produk (fitur rating sudah tidak ada).
+   Dikirim kurir instan (o.live, mis. GoSend): kartu "Lacak live" menggantikan banner —
+   peta mini (Leaflet seperti tf-track.js), perkiraan tiba, progres, driver, tautan lacak lengkap.
+   Dikirim kurir reguler (o.track, mis. JNE): kartu riwayat resi #od-track.
    ===================================================================== */
 (function () {
 	'use strict';
@@ -55,14 +58,117 @@
 		}).join('') + '</ol>';
 	}
 
+	/* ---------- lacak live: kurir instan (GoSend/Grab) ----------
+	   Data contoh o.live (sama dengan tracking-order.html). Produksi: posisi & status driver dari API/webhook kurir
+	   lewat Odoo, diperbarui berkala; kartu hilang begitu status pesanan bukan "Dikirim". */
+	var LV = st === 'ship' ? o.live : null;
+	var sim = { p: LV ? LV.p : 0 };
+	function trackHref() { return LV ? 'tracking-order.html?so=' + encodeURIComponent(o.no) : '#od-track'; }
+	function liveMins() { return Math.max(1, Math.round((1 - sim.p) * LV.mins)); }
+	function liveKm() { return ((1 - sim.p) * LV.km).toFixed(1).replace('.', ','); }
+	function liveCard() {
+		var d = LV.driver, first = d.name.split(' ')[0];
+		var wa = 'https://wa.me/62' + d.phone.replace(/^0/, '') + '?text=' + encodeURIComponent('Halo Pak ' + first + ', saya penerima pesanan Toffin ' + o.no + '.');
+		var phases = ['Dikemas', 'Dapat driver', 'Diambil', 'Tiba'];
+		return '<section class="tf-co__card tf-odl" aria-label="Lacak pengiriman live">' +
+			'<div class="tf-odl__mapwrap"><div class="tf-odl__map" data-odl-map><span class="tf-odl__mapload">' + ico('i-map-2') + ' Memuat peta…</span></div>' +
+				'<span class="tf-odl__live"><i></i>LIVE · diperbarui ' + esc(LV.updated) + '</span>' +
+				'<button type="button" class="tf-odl__fit" data-odl-fit aria-label="Lihat seluruh rute">' + ico('i-map-2') + '</button></div>' +
+			'<div class="tf-odl__panel">' +
+				'<div class="tf-odl__svc"><span class="tf-odl__svcico">' + ico('i-motorbike') + '</span><span><b>' + esc(LV.service) + '</b><small>Booking ' + esc(o.resi) + '</small></span></div>' +
+				'<h2 class="tf-odl__title">Pesanan menuju alamat Anda</h2>' +
+				'<div class="tf-odl__eta"><div><small>Perkiraan tiba</small><strong>' + esc(LV.eta) + ' <span>WIB</span></strong></div>' +
+					'<div class="tf-odl__left"><b data-odl-min>' + liveMins() + '</b> menit<small data-odl-km>' + liveKm() + ' km lagi</small></div></div>' +
+				'<div class="tf-odl__track"><div class="tf-odl__bar" role="progressbar" aria-label="Progres pengiriman" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"><i style="width:70%"></i></div>' +
+				'<ol class="tf-odl__phases">' + phases.map(function (p, i) { return '<li class="' + (i < 3 ? 'is-done' : '') + '">' + p + '</li>'; }).join('') + '</ol></div>' +
+				'<div class="tf-odl__driver"><span class="tf-odl__avatar">' + esc(d.initials) + '</span>' +
+					'<div class="tf-odl__dinfo"><strong>' + esc(d.name) + '</strong><small><span class="tf-odl__star">' + ico('i-star') + d.rating.toFixed(1) + '</span> · ' + esc(d.vehicle) + ' ' + esc(d.color) + '</small></div>' +
+					'<span class="tf-odl__plate">' + esc(d.plate) + '</span></div>' +
+				'<div class="tf-odl__acts"><a href="tel:' + esc(d.phone) + '" class="tf-odl__ibtn" aria-label="Telepon driver">' + ico('i-phone') + '<span>Telepon</span></a>' +
+					'<a href="' + wa + '" target="_blank" rel="noopener noreferrer" class="tf-odl__ibtn" aria-label="Chat driver via WhatsApp">' + ico('i-brand-whatsapp') + '<span>Chat</span></a>' +
+					'<a href="' + trackHref() + '" class="tf-btn tf-btn--sm tf-odl__full">Lacak lengkap ' + ico('i-chevron-right') + '</a></div>' +
+			'</div></section>';
+	}
+	var lmap = null, lDriver = null, lDone = null, lLeft = null;
+	function along(path, t) {   /* titik pada polyline di fraksi t (0..1); sama dengan tf-track.js */
+		var seg = [], total = 0, i;
+		for (i = 1; i < path.length; i++) { var d = Math.hypot(path[i][0] - path[i - 1][0], path[i][1] - path[i - 1][1]); seg.push(d); total += d; }
+		var want = Math.max(0, Math.min(1, t)) * total, acc = 0, done = [path[0]];
+		for (i = 0; i < seg.length; i++) {
+			if (acc + seg[i] >= want) { var k = seg[i] ? (want - acc) / seg[i] : 0, pt = [path[i][0] + (path[i + 1][0] - path[i][0]) * k, path[i][1] + (path[i + 1][1] - path[i][1]) * k]; done.push(pt); return { pt: pt, done: done, left: [pt].concat(path.slice(i + 1)) }; }
+			acc += seg[i]; done.push(path[i + 1]);
+		}
+		var last = path[path.length - 1]; return { pt: last, done: path.slice(), left: [last] };
+	}
+	var LF = null;   /* Leaflet; nama L sudah dipakai untuk keadaan lokal pesanan */
+	function lpin(kind, icon) { return LF.divIcon({ className: 'tf-odl-pin tf-odl-pin--' + kind, html: '<span>' + ico(icon) + '</span>', iconSize: [34, 34], iconAnchor: [17, 17] }); }
+	function liveDraw() {
+		if (!lmap) return;
+		var a = along(LV.route, sim.p);
+		lDriver.setLatLng(a.pt); lDone.setLatLngs(a.done); lLeft.setLatLngs(a.left);
+	}
+	function liveFit() { if (lmap) lmap.fitBounds(LV.route, { paddingTopLeft: [24, 48], paddingBottomRight: [24, 24] }); }   /* atas: ruang label LIVE */
+	function liveInit(el) {
+		LF = window.L; el.innerHTML = '';
+		lmap = LF.map(el, { zoomControl: false, scrollWheelZoom: false, dragging: !LF.Browser.mobile, tap: false });
+		var tiles = LF.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Tiles &copy; Esri' }).addTo(lmap), err = 0;
+		tiles.on('tileerror', function () { if (++err === 3) { lmap.removeLayer(tiles); LF.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(lmap); } });
+		lLeft = LF.polyline([], { color: '#f8941f', weight: 5, dashArray: '1 10', lineCap: 'round' }).addTo(lmap);
+		lDone = LF.polyline([], { color: '#16a34a', weight: 6, lineCap: 'round' }).addTo(lmap);
+		LF.marker([LV.origin.lat, LV.origin.lng], { icon: lpin('store', 'i-building-store'), title: LV.origin.name, keyboard: false }).addTo(lmap);
+		LF.marker([LV.dest.lat, LV.dest.lng], { icon: lpin('home', 'i-home'), title: 'Alamat Anda', keyboard: false }).addTo(lmap);
+		lDriver = LF.marker([0, 0], { icon: lpin('driver', 'i-motorbike'), title: LV.driver.name, zIndexOffset: 500, keyboard: false }).addTo(lmap);
+		liveDraw(); liveFit();
+	}
+	function liveOff(el) { el.classList.add('is-off'); el.innerHTML = '<span class="tf-odl__mapload">' + ico('i-map-2') + ' Peta belum bisa dimuat. Perkiraan tiba tetap diperbarui.</span>'; }
+	var liveTimer = null;
+	function liveMap() {
+		var el = $('[data-odl-map]'); if (!el || !LV) return;
+		lmap = null;
+		var go = function () { if (!el.classList.contains('is-off') && document.body.contains(el)) liveInit(el); };
+		if (window.L) go();
+		else {
+			var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; document.head.appendChild(css);
+			var js = document.createElement('script'), to = setTimeout(function () { liveOff(el); }, 9000);
+			js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+			js.onload = function () { clearTimeout(to); go(); };
+			js.onerror = function () { clearTimeout(to); liveOff(el); };
+			document.head.appendChild(js);
+		}
+		/* simulasi gerak driver (contoh); produksi: polling/websocket status kurir */
+		clearInterval(liveTimer);
+		liveTimer = setInterval(function () {
+			sim.p = Math.min(0.97, sim.p + 0.006); liveDraw();
+			var m = $('[data-odl-min]'), k = $('[data-odl-km]');
+			if (m) m.textContent = liveMins();
+			if (k) k.textContent = liveKm() + ' km lagi';
+		}, 3000);
+	}
+
+	/* ---------- riwayat resi: kurir reguler (JNE dkk.) ----------
+	   Data contoh o.track (terbaru di atas). Produksi: API pelacakan ekspedisi lewat Odoo. */
+	function trackCard() {
+		if (st !== 'ship' || LV || !o.track || !o.track.length) return '';
+		var T = o.track, MAX = 3;
+		var li = function (t, i) {
+			return '<li class="' + (i === 0 ? 'is-on' : '') + (i >= MAX ? ' is-more' : '') + '"><span class="tf-odt__dot"></span><div><strong>' + esc(t[1]) + '</strong><p>' + esc(t[2]) + '</p></div><time>' + esc(t[0]) + '</time></li>';
+		};
+		return '<section class="tf-co__card tf-odt" id="od-track">' +
+			'<header class="tf-co__chead"><h2>' + ico('i-truck') + ' Riwayat pengiriman</h2><small>' + esc(o.courier.name) + ' · ' + esc(o.resi) + '</small></header>' +
+			'<ol class="tf-odt__list">' + T.map(li).join('') + '</ol>' +
+			(T.length > MAX ? '<button type="button" class="tf-odt__more" data-odt-more aria-expanded="false"><span>Lihat ' + (T.length - MAX) + ' riwayat lainnya</span> ' + ico('i-chevron-down') + '</button>' : '') +
+			'<p class="tf-odt__src">' + ico('i-clock') + ' Diperbarui dari ' + esc(o.courier.name.split(' ')[0]) + ' · ' + esc(T[0][0]) + '</p></section>';
+	}
+
 	/* ---------- banner per status ---------- */
 	function banner() {
+		if (st === 'ship' && LV) return liveCard();
 		var b = {
 			unpaid: ['warn', 'i-hourglass-high', 'Selesaikan pembayaran dalam <b class="tf-od__cd" data-od-cd>--:--:--</b>', 'Bayar sebelum ' + o.deadline_t + ' lewat ' + esc(o.pay.method) + '. Pembayaran diproses di halaman Xendit.',
 				'<a href="success-checkout.html" class="tf-btn tf-btn--sm">' + ico('i-lock') + ' Bayar sekarang</a>'],
 			process: ['info', 'i-settings-check', 'Pesanan sedang diproses', 'Pesanan disiapkan gudang ' + esc(o.city) + '. Nomor resi muncul setelah barang dikirim.', ''],
 			ship: ['ship', 'i-truck', 'Pesanan dalam perjalanan', esc(o.courier.name) + ' · ' + esc(o.courier.eta) + '. Resi <b>' + esc(o.resi) + '</b>',
-				'<a href="tracking-order.html?resi=' + encodeURIComponent(o.resi) + '" class="tf-btn tf-btn--sm">' + ico('i-map-pin') + ' Lacak</a>'],
+				'<a href="' + trackHref() + '" class="tf-btn tf-btn--sm">' + ico('i-map-pin') + ' Lacak</a>'],
 			expired: ['mute', 'i-ban', 'Pesanan dibatalkan', 'Pembayaran melewati batas waktu (' + o.deadline_t + '), pesanan dibatalkan otomatis. Tidak ada dana yang ditagih.',
 				'<a href="cart.html" class="tf-btn tf-btn--sm">' + ico('i-shopping-cart') + ' Beli lagi</a>'],
 			cancelled: ['mute', 'i-ban', 'Pesanan dibatalkan oleh Anda', 'Dibatalkan ' + esc((o.cancel || {}).at || '') + ' · alasan: ' + esc((o.cancel || {}).reason || '') + '. Tagihan ' + esc(o.pay.method) + ' tidak perlu dibayar; bila sudah terlanjur bayar, dana dikembalikan 3–7 hari kerja.',
@@ -176,7 +282,7 @@
 		var acts = {
 			unpaid: '<a href="success-checkout.html" class="tf-btn">' + ico('i-lock') + ' Bayar sekarang</a><button type="button" class="tf-od__btn tf-od__btn--danger" data-od-cancel>' + ico('i-ban') + ' Batalkan pesanan</button>',
 			process: '<a href="invoice.html?so=' + encodeURIComponent(o.no) + '" class="tf-od__btn">' + ico('i-download') + ' Unduh invoice</a>',
-			ship: '<a href="tracking-order.html?resi=' + encodeURIComponent(o.resi) + '" class="tf-btn">' + ico('i-map-pin') + ' Lacak pesanan</a><a href="invoice.html?so=' + encodeURIComponent(o.no) + '" class="tf-od__btn">' + ico('i-download') + ' Unduh invoice</a>',
+			ship: '<a href="' + trackHref() + '" class="tf-btn">' + ico(LV ? 'i-motorbike' : 'i-map-pin') + (LV ? ' Lacak live' : ' Lacak pesanan') + '</a><a href="invoice.html?so=' + encodeURIComponent(o.no) + '" class="tf-od__btn">' + ico('i-download') + ' Unduh invoice</a>',
 			done: '<a href="cart.html" class="tf-btn">' + ico('i-shopping-cart') + ' Beli lagi</a><a href="invoice.html?so=' + encodeURIComponent(o.no) + '" class="tf-od__btn">' + ico('i-download') + ' Unduh invoice</a>',
 			expired: '<a href="cart.html" class="tf-btn">' + ico('i-shopping-cart') + ' Beli lagi</a>',
 			cancelled: '<a href="cart.html" class="tf-btn">' + ico('i-shopping-cart') + ' Beli lagi</a>'
@@ -206,15 +312,15 @@
 						'<div class="tf-od__addr"><strong>' + esc(A.name) + '</strong> <span>' + esc(A.phone) + '</span><p>' + esc(A.line) + ', ' + esc(A.city) + '</p></div></div></div>' +
 					'<dl class="tf-od__info">' +
 						'<div><dt>' + ico('i-truck') + ' Ekspedisi</dt><dd><b>' + esc(o.courier.name) + '</b> <span class="tf-od__muted">· ' + esc(o.courier.type) + ' · ' + esc(o.courier.eta) + '</span></dd></div>' +
-						'<div><dt>' + ico('i-package') + ' No. resi</dt><dd>' + resi + (o.resi && st === 'ship' ? '<a href="tracking-order.html?resi=' + encodeURIComponent(o.resi) + '" class="tf-co__link">Lacak</a>' : '') + '</dd></div>' +
+						'<div><dt>' + ico('i-package') + (LV ? ' No. booking' : ' No. resi') + '</dt><dd>' + resi + (o.resi && st === 'ship' ? '<a href="' + trackHref() + '" class="tf-co__link">Lacak</a>' : '') + '</dd></div>' +
 						(o.note ? '<div><dt>' + ico('i-note') + ' Catatan</dt><dd>' + esc(o.note) + '</dd></div>' : '') +
 					'</dl>' +
-				'</section>' +
+				'</section>' + trackCard() +
 				'<section class="tf-co__card"><header class="tf-co__chead"><h2>' + ico('i-shopping-bag') + ' Produk dipesan</h2><small>' + sum.count + ' barang</small></header>' +
 					'<div class="tf-ship__items">' + o.items.map(item).join('') + '</div>' +
 					'<footer class="tf-ship__foot"><span>Subtotal produk</span><strong>' + rp(sum.sub) + '</strong></footer></section>' +
 			'</div><aside class="tf-co__aside">' + payment() + '</aside></div>';
-		tick();
+		tick(); liveMap();
 	}
 
 	/* hitung mundur batas bayar */
@@ -235,11 +341,15 @@
 			return;
 		}
 		if (e.target.closest('[data-od-cancel]')) { openCancel(); return; }
+		if (e.target.closest('[data-odl-fit]')) { liveFit(); return; }
+		var mr = e.target.closest('[data-odt-more]');
+		if (mr) { var lst = mr.closest('.tf-odt'), op = lst.classList.toggle('is-open'); mr.setAttribute('aria-expanded', op); mr.querySelector('span').textContent = op ? 'Sembunyikan' : 'Lihat ' + $$('.is-more', lst).length + ' riwayat lainnya'; return; }
 		if (e.target.closest('[data-od-claim]')) { openClaim(); return; }
 		var t = e.target.closest('[data-od-toggle]');
 		if (t) { var it = t.closest('.tf-coi'), open = it.classList.toggle('is-open'); t.setAttribute('aria-expanded', open); t.querySelector('span').textContent = open ? 'Sembunyikan isi paket' : 'Lihat isi paket'; return; }
 	});
 
 	render();
+	if (location.hash === '#od-track') { var tk = $('#od-track'); if (tk) setTimeout(function () { tk.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150); }
 	if (forceClaim && st === 'done' && !L.claim) setTimeout(openClaim, 300);   /* dari lacak pesanan: tracking-order.html → ?klaim=1 */
 })();

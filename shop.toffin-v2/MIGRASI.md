@@ -1257,6 +1257,24 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Lavazza Ground Coffee (cart, checkout, my-account, detail-pembelian) diganti Toffin House Blend Ground Coffee 1 kg;
     Comandante C40 (katalog `tf-plp.js` + opsi filter brand) diganti Hario Skerton Pro; Linea Mini di `chat-ai.html`
     diganti Oscar Mood. Eureka, Allegra, Brita tetap karena berasal dari promo bundle resmi Toffin.
+76. **Lacak live di detail pesanan** (2026-11-09, Rendi; acuan v1 `static-e-commerce/tracking-order.html`, peta
+    langsung di halaman detail pesanan GoSend). `detail-pembelian.html` + `tf-order.js` + `order.css`:
+    - Kurir instan (`o.live`, contoh **SO/2026/10/0426** GoSend Instant, status Dikirim): kartu **Lacak live**
+      menggantikan banner "dalam perjalanan". Kiri peta mini (Leaflet + ubin Esri dipucatkan, sama dengan
+      `tf-track.js`: titik ambil, alamat, driver bergerak, rute terlewati hijau / sisa putus-putus, tombol seluruh
+      rute, label LIVE + jam pembaruan), kanan: layanan + no. booking, perkiraan tiba, sisa menit & km, progres
+      Dikemas → Dapat driver → Diambil → Tiba, driver (inisial, rating, kendaraan, plat), Telepon, Chat WA, "Lacak
+      lengkap" ke `tracking-order.html?so=`. Ponsel/tablet: peta di atas (250px ponsel), tombol telepon/chat jadi ikon.
+      Di ponsel peta tidak bisa diseret supaya halaman tetap mudah digulir. Label baris resi jadi "No. booking".
+    - Kurir reguler (`o.track`, contoh SO/2026/10/0377 JNE JTR): kartu **Riwayat pengiriman** `#od-track` (terbaru
+      di atas, 3 tampil + "Lihat n riwayat lainnya", sumber & jam pembaruan). Tombol Lacak di banner, baris resi, aksi
+      samping, dan Daftar Belanja (Akun saya) kini ke `#od-track`, bukan ke halaman GoSend.
+    - Catatan teknis: di `tf-order.js` nama `L` sudah dipakai keadaan lokal pesanan, jadi Leaflet dipanggil lewat `LF`
+      (`window.L`). Contoh lacak di `tracking-order.html` dipindah ke nomor SO/2026/10/0426 (0415 bertanggal 15 Okt
+      lebih kecil dari 0421 tanggal 14 Okt). Akun saya: pesanan 0426 ditambahkan (Semua 8, Dikirim 2; ringkasan
+      "Pesanan terakhir" 0426 + 0421).
+    - Produksi: `o.live` dari API/webhook kurir instan lewat Odoo (posisi driver berkala), `o.track` dari API
+      pelacakan ekspedisi; kartu hanya saat status Dikirim.
 
 ## Bobot aset lokal `index.html`
 
