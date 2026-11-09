@@ -157,7 +157,7 @@
 		var words = (addrQ.value || '').toLowerCase().trim().split(/\s+/).filter(Boolean);
 		var list = ADDR.filter(function (a) { var t = [a.label, a.name, a.phone, a.line, a.city].join(' ').toLowerCase(); return words.every(function (w) { return t.indexOf(w) > -1; }); });
 		addrCount.textContent = words.length ? list.length + ' dari ' + ADDR.length + ' alamat cocok' : ADDR.length + ' alamat tersimpan';
-		if (!list.length) { addrBox.innerHTML = '<div class="tf-aaddrs__empty">' + ico('i-map-pin') + '<strong>Alamat tidak ditemukan</strong><span>Coba kata kunci lain, misalnya nama outlet atau kota.</span><button type="button" class="tf-alink" data-addr-clear>Hapus pencarian</button></div>'; return; }
+		if (!list.length) { addrBox.innerHTML = '<div class="tf-aaddrs__empty">' + ico('i-map-pin') + '<strong>Alamat Tidak Ditemukan</strong><span>Coba kata kunci lain, misalnya nama outlet atau kota.</span><button type="button" class="tf-alink" data-addr-clear>Hapus pencarian</button></div>'; return; }
 		addrBox.innerHTML = list.map(function (a) {
 			return '<article class="tf-aaddr' + (a.main ? ' is-main' : '') + '"><div class="tf-aaddr__chips">' + (a.main ? '<span class="tf-abadge tf-abadge--member">' + ico('i-star') + ' Utama</span>' : '') + '<span class="tf-abadge">' + esc(a.label) + '</span></div>' +
 				'<p class="tf-aaddr__name">' + esc(a.name) + ' <span>· ' + esc(a.phone) + '</span></p><p class="tf-aaddr__line">' + esc(a.line) + ', ' + esc(a.city) + '</p>' +
@@ -247,7 +247,7 @@
 		if (phone === phone0) { say('Perubahan profil disimpan'); return; }
 		/* nomor HP berubah → kode OTP ke nomor baru (contoh: 123456). Produksi: kirim via WhatsApp/SMS, verifikasi di server */
 		window.tfUI.confirm({
-			title: 'Verifikasi nomor baru', icon: 'i-phone', ok: 'Verifikasi & simpan',
+			title: 'Verifikasi Nomor Baru', icon: 'i-phone', ok: 'Verifikasi & simpan',
 			text: 'Kode 6 digit dikirim via WhatsApp ke <b>' + window.tfUI.esc(phone) + '</b>. Nomor lama tetap dipakai sampai kode diverifikasi.',
 			html: '<label class="tf-ufld"><span>Kode verifikasi</span><input type="text" class="tf-uotp" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="••••••" data-otp></label>',
 			onOk: function (body, api) {
@@ -348,7 +348,7 @@
 			al.hidden = ver || pend;
 			var lbl = rej.map(function (k) { return VSEC[k].label; }).join(' & ');
 			al.classList.toggle('is-bad', !!rej.length);
-			$('div', al).innerHTML = rej.length ? '<strong>Verifikasi ' + lbl + ' ditolak</strong>Lihat alasannya, perbaiki data lalu kirim ulang.' : '<strong>Verifikasi ID belum lengkap</strong>Unggah KTP atau NPWP agar faktur pajak bisa diterbitkan atas nama usaha Anda.';
+			$('div', al).innerHTML = rej.length ? '<strong>Verifikasi ' + lbl + ' ditolak</strong>Lihat alasannya, perbaiki data lalu kirim ulang.' : '<strong>Verifikasi ID Belum Lengkap</strong>Unggah KTP atau NPWP agar faktur pajak bisa diterbitkan atas nama usaha Anda.';
 			$('a', al).textContent = rej.length ? 'Lihat alasan' : 'Lengkapi sekarang';
 		}
 		var editing = states.indexOf('edit') > -1;
@@ -433,7 +433,7 @@
 		if (!done.length) { vErr.hidden = false; vErr.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
 		var lbls = done.map(function (k) { return VSEC[k].label; }).join(' & ');
 		window.tfUI.confirm({
-			title: 'Kirim data ' + lbls + ' untuk verifikasi?', icon: 'i-id', ok: 'Kirim',
+			title: 'Kirim Data ' + lbls + ' untuk Verifikasi?', icon: 'i-id', ok: 'Kirim',
 			text: 'Tim Toffin memeriksa data dalam 1–2 hari kerja. <b>Selama proses, data ' + lbls + ' tidak bisa diubah atau dibatalkan.</b> Pastikan nomor, nama, alamat, dan foto sudah benar.',
 			onOk: function () { sendVerif(done); }
 		});
@@ -472,7 +472,7 @@
 	$$('[data-pay-del]').forEach(function (b) { b.addEventListener('click', function () {
 		var row = b.closest('.tf-apay__row'), name = row.querySelector('strong').textContent, sub = row.querySelector('small').textContent;
 		window.tfUI.confirm({
-			title: 'Hapus metode pembayaran?', danger: true, icon: 'i-trash', ok: 'Hapus',
+			title: 'Hapus Metode Pembayaran?', danger: true, icon: 'i-trash', ok: 'Hapus',
 			text: '<b>' + window.tfUI.esc(name) + '</b><br>' + window.tfUI.esc(sub) + '<br>Anda bisa menambahkannya lagi saat checkout.',
 			onOk: function () { var p = row.parentNode, n = row.nextSibling; row.remove(); say('Kartu dihapus', function () { p.insertBefore(row, n); }); }
 		});

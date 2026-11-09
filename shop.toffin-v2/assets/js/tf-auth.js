@@ -207,7 +207,7 @@
 			var m = b.closest('.au-match'), name = m.querySelector('strong').textContent, email = mail.value.trim();
 			/* konfirmasi dulu: kontak yang dipilih menentukan akun mana yang diambil alih */
 			window.tfUI.confirm({
-				title: 'Kirim kode verifikasi?', icon: 'i-mail', ok: 'Kirim kode',
+				title: 'Kirim Kode Verifikasi?', icon: 'i-mail', ok: 'Kirim kode',
 				text: 'Kode 6 digit dikirim ke <b>' + window.tfUI.esc(maskMail(email)) + '</b> untuk mengaktifkan kontak <b>' + window.tfUI.esc(name) + '</b>. Pastikan Anda bisa membuka email tersebut.',
 				onOk: function () {
 					matches.querySelectorAll('.au-match').forEach(function (x) { x.classList.remove('is-picked'); }); m.classList.add('is-picked');

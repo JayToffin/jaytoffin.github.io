@@ -59,9 +59,9 @@
 		var q = raw.trim(), h = '';
 		if (!q) {
 			var r = recent();
-			if (r.length) h += '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">Terakhir dicari</h3><button type="button" class="tf-sx__link" data-sx-clear-recent>Hapus semua</button></div><div class="tf-sx__chips">'
+			if (r.length) h += '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">Terakhir Dicari</h3><button type="button" class="tf-sx__link" data-sx-clear-recent>Hapus semua</button></div><div class="tf-sx__chips">'
 				+ r.map(function (x) { return '<span class="tf-sx__chip" data-sx-go="' + esc(x) + '" role="button" tabindex="-1">' + icon('clock') + esc(x) + '<button type="button" class="tf-sx__x" data-sx-del="' + esc(x) + '" aria-label="Hapus ' + esc(x) + ' dari riwayat">' + icon('x') + '</button></span>'; }).join('') + '</div></div>';
-			h += '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">Kategori populer</h3></div><div class="tf-sx__chips">'
+			h += '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">Kategori Populer</h3></div><div class="tf-sx__chips">'
 				+ CATS.slice(0, 6).map(function (c) { return '<a class="tf-sx__chip" href="' + listUrl({ cat: c[0] }) + '"><img src="images/' + c[1] + '" alt="">' + esc(c[0]) + '</a>'; }).join('') + '</div></div>';
 			box.innerHTML = h; return;
 		}
@@ -90,7 +90,7 @@
 		}
 		if (scope === 'brand' || scope === 'category') {
 			var isB = scope === 'brand', list = isB ? bs : cs, noun = isB ? 'brand' : 'kategori';
-			box.innerHTML = '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">' + (isB ? 'Brand' : 'Kategori') + ' yang punya "' + esc(q) + '"</h3><span class="tf-sx__meta">' + list.length + ' ' + noun + '</span></div>'
+			box.innerHTML = '<div class="tf-sx__sec"><div class="tf-sx__head"><h3 class="tf-sx__h">' + (isB ? 'Brand' : 'Kategori') + ' yang Punya "' + esc(q) + '"</h3><span class="tf-sx__meta">' + list.length + ' ' + noun + '</span></div>'
 				+ '<a class="tf-sx__row" href="' + listUrl({ q: q }) + '" data-sx-save><span class="tf-sx__cico">' + icon(isB ? 'tag' : 'layout-grid') + '</span><span class="tf-sx__txt"><span class="tf-sx__name">Semua ' + noun + '</span><span class="tf-sx__meta">' + hits.length + ' produk "' + esc(q) + '"</span></span></a>'
 				+ (isB ? brandRows(list, 20) : catRows(list, 20)) + '</div>';
 			return;

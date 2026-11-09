@@ -1308,6 +1308,14 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
       `images/toffin-logo-light.png` (huruf putih, api oranye; dibuat dari toffin-logo.png). Karena latarnya ditetapkan
       sendiri, tampilan sama di app, browser, dan preview. Konten `.ftco-animate` langsung tampil (tidak menunggu animasi).
       Catatan: footer webview masih berisi teks contoh template "Far far away, behind the word mountains…" (belum diubah).
+79. **Semua judul pakai Title Case** (2026-11-09, Rendi: "Pesan Produk Favoritmu", berlaku untuk semua halaman). Huruf
+    besar di awal tiap kata; kata tugas (dan, di, ke, dari, yang, untuk, atau, dengan, pada, oleh, sebagai, dalam, saat,
+    sejak, tanpa, jika, bila, serta, …) tetap kecil kecuali di awal judul (PUEBI). Diterapkan ke: heading h1–h6 & judul
+    dialog/kartu di semua HTML (63 judul), judul di JS (dialog konfirmasi, banner detail pesanan, kartu lacak live &
+    riwayat, halaman lacak, pencarian, judul sukses), judul tab (`<title>`/`document.title`), dan email (generator
+    `tools/build-emails.py` kini memanggil `tc()` di hero/section/note/subjek). Tidak diubah: nama produk, satuan (mm, kg,
+    ml), singkatan, domain, penghitung ("5 voucher"), pertanyaan FAQ berbentuk kalimat, isi paragraf, label tombol & form.
+    Judul baru wajib mengikuti aturan ini.
 
 ## Bobot aset lokal `index.html`
 

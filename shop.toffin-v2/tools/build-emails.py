@@ -1,6 +1,6 @@
 # Generator template email shop.toffin-v2 (langkah 77). Menulis ulang email-*.html dari komponen bersama.
 # Email-safe: tabel, gaya inline, lebar 600px, tanpa SVG (ikon = PNG di images/email/), font Nunito Sans + cadangan.
-import os, html as H
+import os, re, html as H
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))   # folder shop.toffin-v2
 # Jalankan: python3 tools/build-emails.py  (menimpa semua email-*.html)
 
@@ -11,11 +11,40 @@ GR, GRS, RD, RDS = '#16a34a', '#e8f7ee', '#d6453d', '#fff1f1'
 WA = 'https://wa.me/628119983378'
 e = H.escape
 
+# Title Case judul (PUEBI: kata tugas tetap kecil kecuali di awal); keputusan Rendi 2026-11-09, MIGRASI langkah 79
+SMALL = {'dan', 'di', 'ke', 'dari', 'yang', 'untuk', 'atau', 'dengan', 'pada', 'oleh', 'bagi', 'tentang', 'sebagai',
+         'atas', 'dalam', 'serta', 'agar', 'saat', 'sejak', 'per', 'hingga', 'tanpa', 'bila', 'jika', 'kepada', 'daripada', 'pun', 'a', 'an', 'the', 'of', 'for', 'to', 'in', 'on', 'and', 'or'}
+KEEP = {'mm', 'kg', 'ml', 'gr', 'g', 'l', 'pcs', 'x', 'vs'}
+
+def tc_word(w, first):
+    if not w or not w[0].isalpha(): return w
+    if any(ch.isdigit() for ch in w) or '.' in w.strip('.') or '@' in w: return w        # 58mm, toffin.id, email
+    if w != w.lower(): return w                                                          # ID, TFN, iPhone, E-Commerce
+    if w in KEEP: return w
+    if not first and w in SMALL: return w
+    return '-'.join(p[:1].upper() + p[1:] for p in w.split('-')) if '-' in w else w[:1].upper() + w[1:]
+
+def tc(text, first=True):
+    out, f = [], first
+    for tok in re.split(r'(\s+|/|\(|\)|&amp;|:|\.\s)', text):
+        if tok is None or tok == '': continue
+        if re.fullmatch(r'\s+|/|\(|\)|&amp;|:|\.\s', tok):
+            out.append(tok)
+            if tok in (':', '. ', '(') or tok.startswith('.'): f = True
+            continue
+        m = re.match(r'^([^\wÀ-ÿ]*)(.*?)([^\wÀ-ÿ]*)$', tok)
+        pre, core, post = m.groups()
+        out.append(pre + tc_word(core, f) + post); f = False if core else f
+    return ''.join(out)
+
+
+
 def T(inner, w='100%', style=''):
     return f'<table role="presentation" width="{w}" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;{style}">{inner}</table>'
 
 # ---------- komponen ----------
 def hero(badge, eyebrow, title, lead='', tone='o'):
+    eyebrow, title = tc(eyebrow), tc(title)
     col = {'o': ORD, 'g': GR, 'r': RD}[tone]
     return (f'<tr><td style="padding:0 0 8px"><img src="images/email/{badge}.png" width="56" height="56" alt="" style="display:block;border:0;width:56px;height:56px"></td></tr>'
             f'<tr><td style="padding:10px 0 0;font-family:{F};font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:{col}">{eyebrow}</td></tr>'
@@ -28,6 +57,7 @@ def p(t, pad='16px 0 0', size=15, color=BODY):
 def hi(name): return p(f'Halo <b style="color:{INK}">{e(name)}</b>,', '24px 0 0')
 
 def section(title, right=''):
+    title = tc(title)
     r = f'<td align="right" style="font-family:{F};font-size:13px;font-weight:700;color:{MUTED}">{right}</td>' if right else ''
     return f'<tr><td style="padding:28px 0 10px">{T(f"<tr><td style=\"font-family:{F};font-size:16px;font-weight:900;color:{INK}\">{title}</td>{r}</tr>")}</td></tr>'
 
@@ -107,7 +137,7 @@ def fallback(href):
 
 def note(t, tone='o', title=''):
     bg, bd, col = {'o': (ORS, OR, '#9a3412'), 'g': (GRS, GR, '#166534'), 'r': (RDS, RD, '#991b1b'), 'm': ('#f6f7f9', '#cbd0d8', BODY)}[tone]
-    tt = f'<b style="display:block;margin-bottom:2px;color:{INK}">{title}</b>' if title else ''
+    tt = f'<b style="display:block;margin-bottom:2px;color:{INK}">{tc(title)}</b>' if title else ''
     return f'<tr><td style="padding:20px 0 0">{T(f"<tr><td style=\"padding:14px 16px;background:{bg};border-left:4px solid {bd};border-radius:10px;font-family:{F};font-size:13.5px;line-height:1.55;color:{col}\">{tt}{t}</td></tr>")}</td></tr>'
 
 def bullets(lines, mark='&#10003;', color=GR):
@@ -127,7 +157,7 @@ def rp(n): return 'Rp ' + f'{n:,}'.replace(',', '.')
 def page(fname, title, pre, body, audience='Anda menerima email ini karena memiliki akun di shop.toffin.id.', help=True, logo='images/toffin-logo.png', logo_w=112, comment=''):
     helpcard = ''
     if help:
-        helpcard = (f'<tr><td style="padding:16px 0 0">{T(f"<tr><td style=\"padding:16px 20px;background:#ffffff;border:1px solid #eceef1;border-radius:16px\">" + T(f"<tr><td width=\"44\" valign=\"middle\"><img src=\"images/email/ico-wa.png\" width=\"28\" height=\"28\" alt=\"\" style=\"display:block;border:0\"></td><td valign=\"middle\" style=\"font-family:{F};font-size:13.5px;line-height:1.45;color:{BODY}\"><b style=\"color:{INK}\">Butuh bantuan?</b> Tim Toffin siap membantu lewat WhatsApp.</td><td align=\"right\" valign=\"middle\" style=\"padding-left:10px\"><a href=\"{WA}\" target=\"_blank\" style=\"display:inline-block;padding:9px 16px;border:1px solid #c7efd6;border-radius:999px;background:{GRS};font-family:{F};font-size:13px;font-weight:800;color:{GR};text-decoration:none;white-space:nowrap\">Chat kami</a></td></tr>") + "</td></tr>")}</td></tr>')
+        helpcard = (f'<tr><td style="padding:16px 0 0">{T(f"<tr><td style=\"padding:16px 20px;background:#ffffff;border:1px solid #eceef1;border-radius:16px\">" + T(f"<tr><td width=\"44\" valign=\"middle\"><img src=\"images/email/ico-wa.png\" width=\"28\" height=\"28\" alt=\"\" style=\"display:block;border:0\"></td><td valign=\"middle\" style=\"font-family:{F};font-size:13.5px;line-height:1.45;color:{BODY}\"><b style=\"color:{INK}\">Butuh Bantuan?</b> Tim Toffin siap membantu lewat WhatsApp.</td><td align=\"right\" valign=\"middle\" style=\"padding-left:10px\"><a href=\"{WA}\" target=\"_blank\" style=\"display:inline-block;padding:9px 16px;border:1px solid #c7efd6;border-radius:999px;background:{GRS};font-family:{F};font-size:13px;font-weight:800;color:{GR};text-decoration:none;white-space:nowrap\">Chat kami</a></td></tr>") + "</td></tr>")}</td></tr>')
     lh = round(logo_w * 305 / 1000) if 'toffin-logo' in logo else round(logo_w * 1512 / 6621)
     return f'''<!DOCTYPE html>
 <html lang="id" xmlns="http://www.w3.org/1999/xhtml">
@@ -137,7 +167,7 @@ def page(fname, title, pre, body, audience='Anda menerima email ini karena memil
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
-<title>{e(title)}</title>
+<title>{e(tc(title))}</title>
 <!-- Template email Toffin v2 (MIGRASI.md langkah 77), dibuat dari generator bersama supaya semua email seragam.
      {comment}
      Data di bawah adalah contoh. Produksi: template mail Odoo (QWeb), nilai diganti field record; tautan relatif prototipe
@@ -372,7 +402,7 @@ write('email-AI-recipe-v2.html', 'Resep signature untuk Anda: Peach Lychee Spark
     + bullets(['FO Peach Syrup 750 ml', 'FO Lychee Syrup 750 ml', 'FO White Peach Syrup (sedikit, penguat aroma)', 'Soda water', 'Es batu'], '&bull;', ORD)
     + section('Cara membuat')
     + numbered(['Isi gelas dengan es batu hingga 3/4 penuh.', 'Tambahkan FO Peach Syrup dan FO Lychee Syrup.', 'Tambahkan sedikit FO White Peach Syrup untuk memperkuat aroma buah.', 'Tuang soda water perlahan hingga penuh.', 'Aduk perlahan, lalu sajikan.'])
-    + f'<tr><td style="padding:26px 0 0">{T(f"<tr><td align=\"center\" style=\"padding:18px 12px;background:{ORS};border-radius:16px\"><div style=\"font-family:{F};font-size:14px;font-weight:800;color:{INK}\">Seberapa menarik resep ini?</div>" + T("<tr>" + stars + "</tr>", w="auto", style="margin:8px auto 0") + f"<div style=\"padding-top:6px;font-family:{F};font-size:12px;color:{MUTED}\">Ketuk bintang untuk memberi nilai</div></td></tr>")}</td></tr>'
+    + f'<tr><td style="padding:26px 0 0">{T(f"<tr><td align=\"center\" style=\"padding:18px 12px;background:{ORS};border-radius:16px\"><div style=\"font-family:{F};font-size:14px;font-weight:800;color:{INK}\">Seberapa Menarik Resep Ini?</div>" + T("<tr>" + stars + "</tr>", w="auto", style="margin:8px auto 0") + f"<div style=\"padding-top:6px;font-family:{F};font-size:12px;color:{MUTED}\">Ketuk bintang untuk memberi nilai</div></td></tr>")}</td></tr>'
     + button('Eksplor varian rasa lainnya', 'product-list.html?cat=Syrup')
     + p('Resep ini dibuat otomatis oleh Toffin AI dari bahan yang Anda beli di Toffin. Tambah varian bahan untuk membuka lebih banyak resep kreatif yang cocok dengan bisnis Anda.', '18px 0 0', 12.5, MUTED)
     + signoff(), comment='Resep otomatis Toffin AI dari riwayat belanja bahan, dengan rating bintang (rating-recipe.html).')

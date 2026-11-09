@@ -165,7 +165,7 @@
 		if ((b = e.target.closest('[data-group-del]'))) {
 			var g = b.closest('[data-cart-group]'), rows = $$('[data-cart-item]', g), store = (g.querySelector('.tf-group__store') || {}).textContent || 'distributor ini';
 			confirmDel({
-				title: 'Hapus semua barang dari ' + store.trim() + '?',
+				title: 'Hapus Semua Barang dari ' + store.trim() + '?',
 				text: rows.length + ' produk dari distributor ini akan dihapus dari keranjang.',
 				rows: rows, ok: 'Hapus semua', trigger: b
 			}, function () { g.remove(); recalc(); });
@@ -174,7 +174,7 @@
 		if ((b = e.target.closest('[data-off-del]'))) {
 			var og = b.closest('[data-off-group]'), orows = $$('[data-cart-item]', og);
 			confirmDel({
-				title: 'Hapus ' + orows.length + ' produk yang tidak bisa diproses?',
+				title: 'Hapus ' + orows.length + ' Produk yang Tidak Bisa Diproses?',
 				text: 'Produk ini sedang tidak tersedia. Produk lain di keranjang tetap tersimpan.',
 				rows: orows, ok: 'Hapus semua', trigger: b
 			}, function () { og.remove(); recalc(); });
@@ -184,7 +184,7 @@
 			var sel = $$('[data-item-check]:checked').map(function (c) { return c.closest('[data-cart-item]'); });
 			if (!sel.length) return;
 			confirmDel({
-				title: 'Hapus ' + sel.length + ' produk terpilih?',
+				title: 'Hapus ' + sel.length + ' Produk Terpilih?',
 				text: 'Produk yang dicentang akan dihapus dari keranjang. Produk lain tetap tersimpan.',
 				rows: sel, ok: 'Hapus ' + sel.length + ' produk', trigger: b
 			}, function () { sel.forEach(removeRow); recalc(); });

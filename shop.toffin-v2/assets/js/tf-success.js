@@ -32,11 +32,11 @@
 	function ico(id) { return '<svg class="tf-i" aria-hidden="true"><use href="#' + id + '"/></svg>'; }
 	var date = d.getDate() + ' ' + BULAN[d.getMonth()] + ' ' + d.getFullYear() + ', ' + ('0' + d.getHours()).slice(-2) + '.' + ('0' + d.getMinutes()).slice(-2) + ' WIB';
 	var logo = o.methodLogo ? '<img src="images/payment/' + o.methodLogo + '.svg" alt="">' : '';
-	document.title = 'Pesanan ' + o.no + ' berhasil - Toffin Indonesia';
+	document.title = 'Pesanan ' + o.no + ' Berhasil - Toffin Indonesia';
 	$('[data-ok-root]').innerHTML =
 		'<section class="tf-rcpt"><div class="tf-rcpt__paper"><div class="tf-rcpt__top">' +
 		'<div class="tf-okhero__badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5l9 -10"/></svg></div>' +
-		'<p class="tf-okhero__eyebrow">Pembayaran berhasil</p><h1>Terima kasih, ' + CUSTOMER.name.split(' ')[0] + '!</h1>' +
+		'<p class="tf-okhero__eyebrow">Pembayaran berhasil</p><h1>Terima Kasih, ' + CUSTOMER.name.split(' ')[0] + '!</h1>' +
 		'<p class="tf-rcpt__lbl">Total dibayar</p><p class="tf-rcpt__total">' + rupiah(o.sum.total) + '</p><p class="tf-rcpt__date">' + date + '</p></div>' +
 		'<dl class="tf-rcpt__rows">' +
 		'<div><dt>No. pesanan</dt><dd><strong>' + o.no + '</strong><button type="button" class="tf-okcopy" data-ok-copy aria-label="Salin nomor pesanan">' + ico('i-copy') + '<span>Salin</span></button></dd></div>' +

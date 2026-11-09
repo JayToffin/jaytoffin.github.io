@@ -206,8 +206,8 @@
 	/* ---------- voucher (contoh; produksi dari server) ---------- */
 	var VOUCHERS = [
 		{ code: 'HEMAT500', title: 'Potongan Rp 500.000', desc: 'Min. belanja Rp 10 juta (di luar flash sale)', calc: function (c) { return c.nonFs >= 10000000 ? 500000 : 0; }, why: 'Belanja non-flash sale belum Rp 10 juta' },
-		{ code: 'MESIN5', title: 'Diskon 5% mesin & grinder', desc: 'Maks. Rp 2.500.000, di luar flash sale', calc: function (c) { return Math.min(2500000, Math.round(c.machine * 0.05)); }, why: 'Tidak ada mesin atau grinder non-flash sale' },
-		{ code: 'ONGKIR100', title: 'Potongan ongkir Rp 100.000', desc: 'Berlaku setelah kurir dipilih', calc: function (c) { return Math.min(100000, c.ship); }, why: 'Pilih kurir dulu' },
+		{ code: 'MESIN5', title: 'Diskon 5% Mesin & Grinder', desc: 'Maks. Rp 2.500.000, di luar flash sale', calc: function (c) { return Math.min(2500000, Math.round(c.machine * 0.05)); }, why: 'Tidak ada mesin atau grinder non-flash sale' },
+		{ code: 'ONGKIR100', title: 'Potongan Ongkir Rp 100.000', desc: 'Berlaku setelah kurir dipilih', calc: function (c) { return Math.min(100000, c.ship); }, why: 'Pilih kurir dulu' },
 		{ code: 'OKTOBER', title: 'Promo Oktober 10%', desc: 'Berakhir 10 Okt 2026', expired: true }
 	];
 	var applied = null;
@@ -259,8 +259,8 @@
 		if (applied) { vAmt = applied.calc(vctx()); }
 		vBtn.classList.toggle('is-applied', !!(applied && vAmt));
 		vT.innerHTML = applied
-			? '<strong>' + applied.code + (vAmt ? ' · hemat ' + rupiah(vAmt) : '') + '</strong><small>' + (vAmt ? applied.title : 'Syarat belum terpenuhi: ' + applied.why) + '</small>'
-			: '<strong>Pakai voucher atau kode promo</strong><small>' + VOUCHERS.filter(function (v) { return !v.expired; }).length + ' voucher tersedia untuk Anda</small>';
+			? '<strong>' + applied.code + (vAmt ? ' · hemat ' + rupiah(vAmt) : '') + '</strong><small>' + (vAmt ? applied.title : 'Syarat Belum Terpenuhi: ' + applied.why) + '</small>'
+			: '<strong>Pakai Voucher atau Kode Promo</strong><small>' + VOUCHERS.filter(function (v) { return !v.expired; }).length + ' voucher tersedia untuk Anda</small>';
 		$('[data-co-vfsnote]').hidden = !$$('[data-co-item].is-fs:not(.is-off)').length;
 
 		var base = net + ship + ins + pack - vAmt;
@@ -361,7 +361,7 @@
 		if (state.todo.length) { renderTodo(true); goTo(state.todo[0].el); return; }
 		if (priceChanges.length && !priceAck) {   /* B5: konfirmasi ulang harga sebelum bayar */
 			window.tfUI.confirm({
-				title: 'Harga berubah sejak dari keranjang', icon: 'i-info-circle', ok: 'Lanjut bayar ' + rupiah(state.total), cancel: 'Kembali ke keranjang', wide: true,
+				title: 'Harga Berubah sejak dari Keranjang', icon: 'i-info-circle', ok: 'Lanjut bayar ' + rupiah(state.total), cancel: 'Kembali ke keranjang', wide: true,
 				text: 'Harga barang berikut berbeda dari saat Anda menambahkannya. Total tagihan sudah memakai harga terbaru.',
 				html: '<ul class="tf-ulist">' + priceChanges.map(function (c) { return '<li><span>' + window.tfUI.esc(c.name) + ' × ' + c.qty + '</span><b><s>' + rupiah(c.was) + '</s>' + rupiah(c.now) + '</b></li>'; }).join('') + '</ul>',
 				onOk: function () { priceAck = true; p.click(); },
@@ -373,7 +373,7 @@
 			saveDraft(); cases.splice(cases.indexOf('session'), 1); params.set('case', cases.join(',')); if (!cases.length) params.delete('case');
 			var back = 'checkout.html' + (params.toString() ? '?' + params.toString() : '');
 			window.tfUI.confirm({
-				title: 'Sesi masuk berakhir', icon: 'i-lock', ok: 'Masuk lagi', cancel: false,
+				title: 'Sesi Masuk Berakhir', icon: 'i-lock', ok: 'Masuk lagi', cancel: false,
 				text: 'Demi keamanan, sesi Anda berakhir setelah lama tidak aktif. Pilihan pengiriman dan pembayaran sudah kami simpan, Anda akan kembali ke halaman ini setelah masuk.',
 				onOk: function () { location.href = 'login.html?next=' + encodeURIComponent(back); }
 			});

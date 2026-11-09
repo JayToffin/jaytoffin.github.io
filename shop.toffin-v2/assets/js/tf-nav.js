@@ -253,7 +253,7 @@ document.addEventListener('mouseover', function (e) {
 		if (!a) return;
 		e.preventDefault();
 		confirm({
-			title: 'Keluar dari akun?', icon: 'i-logout',
+			title: 'Keluar dari Akun?', icon: 'i-logout',
 			text: 'Keranjang dan daftar favorit tetap tersimpan di akun Anda. Anda perlu masuk lagi untuk melanjutkan belanja.',
 			ok: 'Keluar', cancel: 'Tetap masuk',
 			onOk: function () { location.href = 'index.html?keluar=1'; }   /* produksi: /web/session/logout */

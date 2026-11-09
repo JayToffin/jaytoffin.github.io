@@ -71,7 +71,7 @@
 		/* aktifkan: pilih kanal pengingat. Produksi: simpan ke server (partner + produk + sesi + kanal), kirim 10 menit sebelum sesi */
 		var opt = function (v, l, d) { return '<label class="tf-uopt"><input type="radio" name="via" value="' + v + '"' + (remindVia === v ? ' checked' : '') + '><span>' + l + '<small>' + d + '</small></span></label>'; };
 		window.tfUI.confirm({
-			title: 'Ingatkan saya saat sesi mulai', icon: 'i-bell-ringing', ok: 'Aktifkan pengingat',
+			title: 'Ingatkan Saya saat Sesi Mulai', icon: 'i-bell-ringing', ok: 'Aktifkan pengingat',
 			text: '<b>' + window.tfUI.esc(name) + '</b><br>Kami kirim pengingat 10 menit sebelum sesi flash sale dimulai.',
 			html: opt('wa', 'WhatsApp', 'ke nomor akun Anda') + opt('email', 'Email', 'ke email akun Anda') + opt('app', 'Notifikasi Toffin App', 'hanya bila aplikasi terpasang'),
 			onOk: function (body) {

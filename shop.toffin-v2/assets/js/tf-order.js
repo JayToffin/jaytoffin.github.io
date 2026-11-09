@@ -76,7 +76,7 @@
 				'<button type="button" class="tf-odl__fit" data-odl-fit aria-label="Lihat seluruh rute">' + ico('i-map-2') + '</button></div>' +
 			'<div class="tf-odl__panel">' +
 				'<div class="tf-odl__svc"><span class="tf-odl__svcico">' + ico('i-motorbike') + '</span><span><b>' + esc(LV.service) + '</b><small>Booking ' + esc(o.resi) + '</small></span></div>' +
-				'<h2 class="tf-odl__title">Pesanan menuju alamat Anda</h2>' +
+				'<h2 class="tf-odl__title">Pesanan Menuju Alamat Anda</h2>' +
 				'<div class="tf-odl__eta"><div><small>Perkiraan tiba</small><strong>' + esc(LV.eta) + ' <span>WIB</span></strong></div>' +
 					'<div class="tf-odl__left"><b data-odl-min>' + liveMins() + '</b> menit<small data-odl-km>' + liveKm() + ' km lagi</small></div></div>' +
 				'<div class="tf-odl__track"><div class="tf-odl__bar" role="progressbar" aria-label="Progres pengiriman" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"><i style="width:70%"></i></div>' +
@@ -154,7 +154,7 @@
 			return '<li class="' + (i === 0 ? 'is-on' : '') + (i >= MAX ? ' is-more' : '') + '"><span class="tf-odt__dot"></span><div><strong>' + esc(t[1]) + '</strong><p>' + esc(t[2]) + '</p></div><time>' + esc(t[0]) + '</time></li>';
 		};
 		return '<section class="tf-co__card tf-odt" id="od-track">' +
-			'<header class="tf-co__chead"><h2>' + ico('i-truck') + ' Riwayat pengiriman</h2><small>' + esc(o.courier.name) + ' · ' + esc(o.resi) + '</small></header>' +
+			'<header class="tf-co__chead"><h2>' + ico('i-truck') + ' Riwayat Pengiriman</h2><small>' + esc(o.courier.name) + ' · ' + esc(o.resi) + '</small></header>' +
 			'<ol class="tf-odt__list">' + T.map(li).join('') + '</ol>' +
 			(T.length > MAX ? '<button type="button" class="tf-odt__more" data-odt-more aria-expanded="false"><span>Lihat ' + (T.length - MAX) + ' riwayat lainnya</span> ' + ico('i-chevron-down') + '</button>' : '') +
 			'<p class="tf-odt__src">' + ico('i-clock') + ' Diperbarui dari ' + esc(o.courier.name.split(' ')[0]) + ' · ' + esc(T[0][0]) + '</p></section>';
@@ -164,14 +164,14 @@
 	function banner() {
 		if (st === 'ship' && LV) return liveCard();
 		var b = {
-			unpaid: ['warn', 'i-hourglass-high', 'Selesaikan pembayaran dalam <b class="tf-od__cd" data-od-cd>--:--:--</b>', 'Bayar sebelum ' + o.deadline_t + ' lewat ' + esc(o.pay.method) + '. Pembayaran diproses di halaman Xendit.',
+			unpaid: ['warn', 'i-hourglass-high', 'Selesaikan Pembayaran dalam <b class="tf-od__cd" data-od-cd>--:--:--</b>', 'Bayar sebelum ' + o.deadline_t + ' lewat ' + esc(o.pay.method) + '. Pembayaran diproses di halaman Xendit.',
 				'<a href="success-checkout.html" class="tf-btn tf-btn--sm">' + ico('i-lock') + ' Bayar sekarang</a>'],
-			process: ['info', 'i-settings-check', 'Pesanan sedang diproses', 'Pesanan disiapkan gudang ' + esc(o.city) + '. Nomor resi muncul setelah barang dikirim.', ''],
-			ship: ['ship', 'i-truck', 'Pesanan dalam perjalanan', esc(o.courier.name) + ' · ' + esc(o.courier.eta) + '. Resi <b>' + esc(o.resi) + '</b>',
+			process: ['info', 'i-settings-check', 'Pesanan Sedang Diproses', 'Pesanan disiapkan gudang ' + esc(o.city) + '. Nomor resi muncul setelah barang dikirim.', ''],
+			ship: ['ship', 'i-truck', 'Pesanan dalam Perjalanan', esc(o.courier.name) + ' · ' + esc(o.courier.eta) + '. Resi <b>' + esc(o.resi) + '</b>',
 				'<a href="' + trackHref() + '" class="tf-btn tf-btn--sm">' + ico('i-map-pin') + ' Lacak</a>'],
-			expired: ['mute', 'i-ban', 'Pesanan dibatalkan', 'Pembayaran melewati batas waktu (' + o.deadline_t + '), pesanan dibatalkan otomatis. Tidak ada dana yang ditagih.',
+			expired: ['mute', 'i-ban', 'Pesanan Dibatalkan', 'Pembayaran melewati batas waktu (' + o.deadline_t + '), pesanan dibatalkan otomatis. Tidak ada dana yang ditagih.',
 				'<a href="cart.html" class="tf-btn tf-btn--sm">' + ico('i-shopping-cart') + ' Beli lagi</a>'],
-			cancelled: ['mute', 'i-ban', 'Pesanan dibatalkan oleh Anda', 'Dibatalkan ' + esc((o.cancel || {}).at || '') + ' · alasan: ' + esc((o.cancel || {}).reason || '') + '. Tagihan ' + esc(o.pay.method) + ' tidak perlu dibayar; bila sudah terlanjur bayar, dana dikembalikan 3–7 hari kerja.',
+			cancelled: ['mute', 'i-ban', 'Pesanan Dibatalkan oleh Anda', 'Dibatalkan ' + esc((o.cancel || {}).at || '') + ' · alasan: ' + esc((o.cancel || {}).reason || '') + '. Tagihan ' + esc(o.pay.method) + ' tidak perlu dibayar; bila sudah terlanjur bayar, dana dikembalikan 3–7 hari kerja.',
 				'<a href="cart.html" class="tf-btn tf-btn--sm">' + ico('i-shopping-cart') + ' Beli lagi</a>']
 		}[st];
 		if (!b) return claimCard();   /* selesai: tanpa banner status, tetapi ada kartu masa klaim */
@@ -195,15 +195,15 @@
 			return '<div class="tf-od__banner tf-od__banner--info"><span class="tf-od__bico">' + ico('i-clipboard-list') + '</span><div class="tf-od__bt"><strong>Klaim ' + esc(L.claim.no) + ' sedang diverifikasi</strong><p>' + esc(L.claim.type) + ' · diajukan ' + esc(L.claim.at) + '. Tim Toffin menghubungi Anda via WhatsApp maksimal 1x24 jam.</p></div></div>';
 		}
 		var w = claimWindow(); if (!w) return '';
-		if (!w.open) return '<div class="tf-od__banner tf-od__banner--mute"><span class="tf-od__bico">' + ico('i-circle-check') + '</span><div class="tf-od__bt"><strong>Pesanan selesai</strong><p>Masa pengajuan klaim (1x24 jam setelah diterima) berakhir ' + fmtD(w.until) + '. Ada kendala? Hubungi tim Toffin lewat WhatsApp di bawah.</p></div></div>';
-		return '<div class="tf-od__banner tf-od__banner--warn"><span class="tf-od__bico">' + ico('i-hourglass-high') + '</span><div class="tf-od__bt"><strong>Periksa paket Anda sekarang</strong><p>Klaim barang rusak, kurang, atau tidak sesuai diterima <b>maksimal 1x24 jam</b> sejak diterima, yaitu sampai <b>' + fmtD(w.until) + '</b>. Siapkan video unboxing tanpa jeda.</p></div><div class="tf-od__bact"><button type="button" class="tf-btn tf-btn--sm" data-od-claim>' + ico('i-camera') + ' Ajukan klaim</button></div></div>';
+		if (!w.open) return '<div class="tf-od__banner tf-od__banner--mute"><span class="tf-od__bico">' + ico('i-circle-check') + '</span><div class="tf-od__bt"><strong>Pesanan Selesai</strong><p>Masa pengajuan klaim (1x24 jam setelah diterima) berakhir ' + fmtD(w.until) + '. Ada kendala? Hubungi tim Toffin lewat WhatsApp di bawah.</p></div></div>';
+		return '<div class="tf-od__banner tf-od__banner--warn"><span class="tf-od__bico">' + ico('i-hourglass-high') + '</span><div class="tf-od__bt"><strong>Periksa Paket Anda Sekarang</strong><p>Klaim barang rusak, kurang, atau tidak sesuai diterima <b>maksimal 1x24 jam</b> sejak diterima, yaitu sampai <b>' + fmtD(w.until) + '</b>. Siapkan video unboxing tanpa jeda.</p></div><div class="tf-od__bact"><button type="button" class="tf-btn tf-btn--sm" data-od-claim>' + ico('i-camera') + ' Ajukan klaim</button></div></div>';
 	}
 	function openClaim() {
 		var w = claimWindow();
 		if (!w || !w.open) { window.tfUI.toast('Masa pengajuan klaim sudah berakhir. Hubungi tim Toffin via WhatsApp.', { kind: 'warn', link: { href: 'https://wa.me/6281199833780', label: 'Chat' } }); return; }
 		var opt = function (v, l) { return '<option value="' + v + '">' + l + '</option>'; };
 		window.tfUI.confirm({
-			title: 'Ajukan klaim pesanan', icon: 'i-camera', ok: 'Kirim klaim', wide: true,
+			title: 'Ajukan Klaim Pesanan', icon: 'i-camera', ok: 'Kirim klaim', wide: true,
 			text: 'Pesanan <b>' + esc(o.no) + '</b> · diterima ' + fmtD(w.got),
 			html: '<label class="tf-ufld"><span>Jenis klaim</span><select data-cl-type><option value="">Pilih jenis klaim</option>' + opt('Barang rusak', 'Barang rusak / cacat') + opt('Jumlah kurang', 'Jumlah kurang dari pesanan') + opt('Barang tidak sesuai', 'Barang tidak sesuai pesanan') + opt('Lainnya', 'Lainnya') + '</select></label>' +
 				'<label class="tf-ufld"><span>Keterangan</span><textarea data-cl-desc maxlength="500" placeholder="Jelaskan kondisi barang, nomor seri bila ada, dan bagian yang bermasalah"></textarea></label>' +
@@ -228,7 +228,7 @@
 	function openCancel() {
 		var opt = function (v, chk) { return '<label class="tf-uopt"><input type="radio" name="why" value="' + v + '"' + (chk ? ' checked' : '') + '><span>' + v + '</span></label>'; };
 		window.tfUI.confirm({
-			title: 'Batalkan pesanan ' + o.no + '?', danger: true, icon: 'i-ban', ok: 'Batalkan pesanan', cancel: 'Kembali',
+			title: 'Batalkan Pesanan ' + o.no + '?', danger: true, icon: 'i-ban', ok: 'Batalkan pesanan', cancel: 'Kembali',
 			text: 'Pesanan belum dibayar, jadi bisa dibatalkan tanpa biaya. Setelah dibatalkan, tagihan ' + esc(o.pay.method) + ' tidak berlaku dan barang kembali ke stok.',
 			html: opt('Ingin mengubah produk atau jumlah', true) + opt('Ingin mengganti alamat atau pengiriman') + opt('Ingin mengganti metode pembayaran') + opt('Berubah pikiran') + opt('Lainnya') +
 				'<label class="tf-ufld" style="margin-top:6px"><span>Catatan (opsional)</span><input type="text" data-cx-note maxlength="140" placeholder="Misal: akan pesan ulang dengan varian lain"></label>',
@@ -276,7 +276,7 @@
 			(f.voucher ? row('Voucher <b class="tf-od__code">' + esc(f.voucher.code) + '</b>', '−' + rp(f.voucher.amt), 'is-disc') : '') +
 			(f.points ? row('Toffin Point', '−' + rp(f.points), 'is-disc') : '');
 		var save = sum.disc + (f.voucher ? f.voucher.amt : 0) + f.points;
-		var tax = o.tax ? '<div class="tf-od__tax">' + ico('i-file-invoice') + '<span><strong>Faktur pajak</strong><small>' + esc(DATA.tax.name) + ' · NPWP ' + DATA.tax.npwp + '</small><em>' +
+		var tax = o.tax ? '<div class="tf-od__tax">' + ico('i-file-invoice') + '<span><strong>Faktur Pajak</strong><small>' + esc(DATA.tax.name) + ' · NPWP ' + DATA.tax.npwp + '</small><em>' +
 			(st === 'done' ? 'Sudah dikirim ke email' : paid ? 'Dikirim ke email setelah pesanan selesai' : st === 'unpaid' ? 'Diterbitkan setelah pembayaran' : 'Tidak diterbitkan') + '</em></span></div>' : '';
 		var earn = (st === 'expired' || st === 'cancelled') ? '' : '<p class="tf-cosum__earn">' + ico('i-tpoint') + (st === 'done' ? ' <b>' + num(sum.earn) + '</b> Toffin Point sudah masuk ke akun' : ' Dapat <b>' + num(sum.earn) + '</b> Toffin Point setelah pesanan selesai') + '</p>';
 		var acts = {
@@ -287,13 +287,13 @@
 			expired: '<a href="cart.html" class="tf-btn">' + ico('i-shopping-cart') + ' Beli lagi</a>',
 			cancelled: '<a href="cart.html" class="tf-btn">' + ico('i-shopping-cart') + ' Beli lagi</a>'
 		}[st];
-		return '<div class="tf-co__card tf-cosum"><h2 class="tf-cosum__title">Rincian pembayaran</h2>' +
+		return '<div class="tf-co__card tf-cosum"><h2 class="tf-cosum__title">Rincian Pembayaran</h2>' +
 			'<div class="tf-od__pm"><img src="images/payment/' + o.pay.logo + '.svg" alt=""><span><strong>' + esc(o.pay.method) + '</strong><small>' + (paid ? 'Dibayar ' + o.pay.paid : (st === 'unpaid' ? 'Bayar sebelum ' : st === 'cancelled' ? 'Dibatalkan, batas bayar ' : 'Batas bayar ') + o.deadline_t.replace(' 2026', '').replace(' WIB', '')) + '</small></span></div>' +
 			'<div class="tf-cosum__rows">' + rows + '</div>' +
 			'<div class="tf-cosum__total"><span>' + (paid ? 'Total dibayar' : 'Total tagihan') + '</span><strong>' + rp(sum.total) + '</strong></div>' +
 			(save && st !== 'expired' && st !== 'cancelled' ? '<div class="tf-cosum__save"><span>' + ico('i-bolt') + ' Anda hemat</span><strong>' + rp(save) + '</strong></div>' : '') + earn + tax +
 			'<div class="tf-od__acts">' + acts + '</div></div>' +
-			'<a href="https://wa.me/6281199833780?text=' + encodeURIComponent('Halo Toffin, saya butuh bantuan untuk pesanan ' + o.no) + '" target="_blank" rel="noopener noreferrer" class="tf-co__card tf-co__help">' + ico('i-brand-whatsapp') + '<span><strong>Ada kendala dengan pesanan?</strong> Chat tim Toffin via WhatsApp.</span></a>';
+			'<a href="https://wa.me/6281199833780?text=' + encodeURIComponent('Halo Toffin, saya butuh bantuan untuk pesanan ' + o.no) + '" target="_blank" rel="noopener noreferrer" class="tf-co__card tf-co__help">' + ico('i-brand-whatsapp') + '<span><strong>Ada Kendala dengan Pesanan?</strong> Chat tim Toffin via WhatsApp.</span></a>';
 	}
 
 	/* ---------- rakit ---------- */
@@ -316,7 +316,7 @@
 						(o.note ? '<div><dt>' + ico('i-note') + ' Catatan</dt><dd>' + esc(o.note) + '</dd></div>' : '') +
 					'</dl>' +
 				'</section>' + trackCard() +
-				'<section class="tf-co__card"><header class="tf-co__chead"><h2>' + ico('i-shopping-bag') + ' Produk dipesan</h2><small>' + sum.count + ' barang</small></header>' +
+				'<section class="tf-co__card"><header class="tf-co__chead"><h2>' + ico('i-shopping-bag') + ' Produk Dipesan</h2><small>' + sum.count + ' barang</small></header>' +
 					'<div class="tf-ship__items">' + o.items.map(item).join('') + '</div>' +
 					'<footer class="tf-ship__foot"><span>Subtotal produk</span><strong>' + rp(sum.sub) + '</strong></footer></section>' +
 			'</div><aside class="tf-co__aside">' + payment() + '</aside></div>';
