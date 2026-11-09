@@ -100,7 +100,7 @@
 .tf-wtitle-row .tf-wtitle { margin-bottom: 12px; }
 .tf-wlink { font-size: 13px; font-weight: 800; color: var(--tf-orange-dark); text-decoration: none; }
 .tf-wlink:hover { color: var(--tf-orange); text-decoration: none; }
-/* kartu kiri: Pesan produk favoritmu (2026-11-03) — daftar 3 favorit + tombol Pesan sekali klik; belum login: ajakan masuk */
+/* kartu kiri: Produk Favorit (2026-11-03) — daftar 3 favorit + tombol Pesan sekali klik; belum login: ajakan masuk */
 .tf-favcard { flex: 1; display: flex; flex-direction: column; min-width: 0; }
 .tf-favguest { flex: 1; display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; column-gap: 12px; padding: 14px 16px; border: 1px dashed #ffc98a; border-radius: 10px; background: linear-gradient(120deg, #fff6ee 0%, #fff 70%); }
 .tf-favguest__ico { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #ffe9e9; color: #ff2d55; }
