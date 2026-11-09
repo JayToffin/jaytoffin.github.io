@@ -1316,6 +1316,15 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     `tools/build-emails.py` kini memanggil `tc()` di hero/section/note/subjek). Tidak diubah: nama produk, satuan (mm, kg,
     ml), singkatan, domain, penghitung ("5 voucher"), pertanyaan FAQ berbentuk kalimat, isi paragraf, label tombol & form.
     Judul baru wajib mengikuti aturan ini.
+80. **Kartu produk di iPad lama** (2026-11-09, Rendi: kartu flash sale di tablet tanpa latar putih). Penyebab: gaya dasar
+    kartu produk global ditulis dengan `.product:has(> .fs-body)` (tf-products.css); Safari < 15.4 (iPadOS lama) tidak
+    mengenal `:has()` dan membuang seluruh aturan → latar putih, sudut, flex, tinggi sejajar hilang. Perbaikan:
+    `tf-nav.js` (dimuat di semua halaman berheader v2) memberi kelas `.tf-pcard` pada kartu, `.tf-pcard-slide` /
+    `.tf-pcard-wrap` pada slide & wrapper swiper, termasuk kartu yang dirender belakangan (MutationObserver); tf-products.css
+    punya aturan cadangan identik untuk kelas itu (aturan terpisah, karena `:has()` dalam satu daftar selektor membuat
+    Safari lama membuang seluruh aturan). Diuji dengan menghapus semua aturan `:has()` lewat CSSOM: tanpa cadangan hasilnya
+    sama dengan foto iPad, dengan cadangan kartu putih normal. Sisa pemakaian `:has()` (hanya penanda pilihan tercentang:
+    `.tf-addr`, `.tf-radio`, `.tf-stype`, `.tf-uopt`, filter daftar produk, posisi tombol chat) belum diberi cadangan.
 
 ## Bobot aset lokal `index.html`
 

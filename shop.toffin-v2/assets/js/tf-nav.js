@@ -323,3 +323,33 @@ document.addEventListener('mouseover', function (e) {
 		}, 900);
 	});
 })();
+
+/* ---------- penanda kartu produk untuk browser tanpa :has() (MIGRASI langkah 80) ----------
+   Gaya kartu produk global ditulis dengan .product:has(> .fs-body) (tf-products.css). Safari < 15.4 (iPad lama)
+   membuang aturan itu sehingga kartu flash sale kehilangan latar putih. Di sini kartu diberi kelas biasa
+   (.tf-pcard, slide .tf-pcard-slide, wrapper .tf-pcard-wrap) yang punya aturan cadangan identik.
+   Kartu yang dirender belakangan (tf-flash, tf-plp, tf-reco, muat-lagi) ikut ditandai lewat MutationObserver. */
+(function () {
+	'use strict';
+	function mark(root) {
+		var bodies = (root || document).querySelectorAll('.product > .fs-body');
+		for (var i = 0; i < bodies.length; i++) {
+			var card = bodies[i].parentNode;
+			if (card.classList.contains('tf-pcard')) continue;
+			card.classList.add('tf-pcard');
+			var slide = card.parentNode;
+			if (slide && slide.classList && slide.classList.contains('swiper-slide')) {
+				slide.classList.add('tf-pcard-slide');
+				if (slide.parentNode && slide.parentNode.classList.contains('swiper-wrapper')) slide.parentNode.classList.add('tf-pcard-wrap');
+			}
+		}
+	}
+	mark();
+	if (!('MutationObserver' in window)) return;
+	var queued = false;
+	new MutationObserver(function () {
+		if (queued) return;
+		queued = true;
+		(window.requestAnimationFrame || setTimeout)(function () { queued = false; mark(); });
+	}).observe(document.body, { childList: true, subtree: true });
+})();

@@ -166,6 +166,24 @@
 /* di dalam slider: semua slide setinggi baris, supaya kartu ber-/tanpa harga coret sama tinggi */
 .swiper-wrapper:has(> .swiper-slide > .product > .fs-body) { align-items: stretch; }
 .swiper-slide:has(> .product > .fs-body) { height: auto; }
+/* cadangan tanpa :has() untuk Safari < 15.4 (iPad lama): kelas dipasang tf-nav.js, isinya sama persis dengan aturan di atas.
+   Sengaja aturan terpisah: selektor :has() di dalam daftar yang sama akan membuat Safari lama membuang seluruh aturan. */
+.product.tf-pcard {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid var(--tf-card-line);
+	border-radius: var(--tf-card-radius);
+	box-shadow: none;
+	transition: border-color .18s ease;
+}
+.product.tf-pcard:hover { border-color: rgba(248, 148, 31, .35); }
+.swiper-wrapper.tf-pcard-wrap { align-items: stretch; }
+.swiper-slide.tf-pcard-slide { height: auto; }
 /* foto (satu gambar) atau galeri .tf-pg: lebar = kartu, persegi, tanpa zoom */
 .product > .img-prod, .product > .tf-pg { flex: none; width: 100%; min-width: 0; }
 .product > .img-prod { position: relative; display: block; margin: 0; aspect-ratio: 1; overflow: hidden; background: #fff; }
@@ -232,6 +250,7 @@
 /* ---------- varian per section ---------- */
 /* flash sale: kartu putih di bingkai berwarna, tanpa garis sama sekali (border 0, bukan transparan) */
 .tf-cards--flash .product:has(> .fs-body), .tf-cards--flash .product:has(> .fs-body):hover { border: 0; }
+.tf-cards--flash .product.tf-pcard, .tf-cards--flash .product.tf-pcard:hover { border: 0; }   /* cadangan tanpa :has() */
 /* grid padat (daftar produk 5 kolom): nama & harga lebih kecil, dot galeri lebih kecil */
 .tf-cards--compact .fs-product-title { --tf-title-size: 12.5px; margin-bottom: 4px; }
 .tf-cards--compact .fs-price-new { font-size: 14px; }
