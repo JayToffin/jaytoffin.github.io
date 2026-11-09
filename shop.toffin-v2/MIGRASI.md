@@ -1237,6 +1237,12 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
 72. **Harga coret di detail produk pindah ke bawah harga bayar** (2026-11-06, Rendi): `.pd-price__now` kini memenuhi satu
     baris, harga coret dan label "Hemat N%" berpasangan di baris kedua. Hanya CSS, markup tetap. Keranjang sengaja tidak diubah.
 
+73. **Footer ringkas cart / checkout / sukses checkout dirapikan** (2026-11-09, Rendi): logo dihapus. Kini dua baris rata
+    tengah: tautan Syarat & Ketentuan · Kebijakan Privasi · Pengiriman · Pembatalan · Bantuan (dipisah titik), lalu garis tipis
+    dan "© tahun Toffin Indonesia. Semua hak dilindungi." paling bawah. Sekalian diperbaiki: tautan Pengiriman ke
+    `informasi-pengiriman.html` (sebelumnya `pengiriman.html` versi lama) dan nomor WhatsApp Bantuan `628119983378`
+    (sebelumnya `6281199833780`, kelebihan angka 0). Gaya `.tf-fslim__brand` dan `.tf-fslim__pay` yang tidak dipakai dihapus.
+
 ## Bobot aset lokal `index.html`
 
 | | Sebelum | Sesudah langkah 1–3 | Sesudah langkah 5 | Sesudah langkah 6 |
