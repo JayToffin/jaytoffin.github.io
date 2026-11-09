@@ -915,8 +915,7 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     Bila filter berada di satu induk: judul = nama kategori/sub, breadcrumb Beranda › Semua Produk › Coffee Machine › Home
     Espresso Machine. Tag aktif: satu tag per induk utuh atau per sub. `?cat=` menerima induk atau sub (mis. `?cat=Kettle`)
     + alias tautan lama homepage (`Hot Kitchen`, `Cold Kitchen`). Katalog contoh ditambah produk untuk Beverage Maker,
-    Syrup, Manual Grinders, Kettle, SMEG Coffee, Oven, Cream Dispenser, Ice Maker, Cleaner (84 produk); brand SMEG, Hario,
-    Comandante. Gaya: `assets/css/product-list.css` (`.tf-cat*`, `.tf-plp__sub*`). Produksi: pohon dari
+    Syrup, Manual Grinders, Kettle, SMEG Coffee, Oven, Cream Dispenser, Ice Maker, Cleaner (84 produk); brand SMEG dan Hario. Gaya: `assets/css/product-list.css` (`.tf-cat*`, `.tf-plp__sub*`). Produksi: pohon dari
     `product.public.category` (parent_id), jumlah dari hitungan produk per kategori.
 
 38. **Ponsel: padding ala Tokopedia** (2026-10-15, permintaan Rendi). Jarak kiri-kanan `.tf-container` kini variabel
@@ -1253,6 +1252,11 @@ skrip di bawahnya. Tidak berpengaruh pada `index.html` karena `main.js` sudah ti
     supaya di ponsel `<br>` bisa disembunyikan tanpa kata menempel.
     Tagline footer di ponsel: garis aksen oranye 3px di kiri, teks lebih gelap, lebar penuh, `text-wrap: pretty` agar tidak
     ada kata yatim seperti "dunia." sendirian di baris akhir.
+75. **Data contoh hanya brand yang dijual Toffin** (2026-11-09, Rendi): acuan = daftar brand di `brand.html`.
+    La Marzocco Linea Mini (detail-pembelian) diganti Nuova Simonelli Appia Life V 2 Group dengan harga tetap;
+    Lavazza Ground Coffee (cart, checkout, my-account, detail-pembelian) diganti Toffin House Blend Ground Coffee 1 kg;
+    Comandante C40 (katalog `tf-plp.js` + opsi filter brand) diganti Hario Skerton Pro; Linea Mini di `chat-ai.html`
+    diganti Oscar Mood. Eureka, Allegra, Brita tetap karena berasal dari promo bundle resmi Toffin.
 
 ## Bobot aset lokal `index.html`
 

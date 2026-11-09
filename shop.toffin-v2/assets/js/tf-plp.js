@@ -49,7 +49,7 @@
 		['TFN Gelato Display 12 Pan', 'TFN', 'Gelato & Soft Ice', 'Gelato Machine', 58000000, 0, 'product-6.jpg', 4.7, 12],
 		['TFN Ice Machine 80 kg/day', 'TFN', 'Cold Kitchen Equipment', 'Ice Maker', 21500000, 23900000, 'product-7.jpg', 4.7, 64],
 		['Toffin Syrup Hazelnut 750 ml', 'Toffin', 'Ingredients', 'Syrup', 135000, 155000, 'product-3.jpg', 4.9, 1980],
-		['Comandante C40 MK4 Manual Grinder', 'Comandante', 'Coffee Grinder', 'Manual Grinders', 5250000, 0, 'grinder.jpg', 4.9, 230],
+		['Hario Skerton Pro Ceramic Coffee Mill', 'Hario', 'Coffee Grinder', 'Manual Grinders', 850000, 0, 'grinder.jpg', 4.9, 230],
 		['Hario Buono Kettle 1.2 L', 'Hario', 'Manual Brew', 'Kettle', 695000, 790000, 'product-1.4.jpg', 4.8, 860],
 		['SMEG Espresso Machine ECF02', 'SMEG', 'SMEG', 'Coffee', 9990000, 11490000, 'product-2.jpg', 4.8, 140],
 		['TFN Combi Oven 6 Tray', 'TFN', 'Hot Kitchen Equipment', 'Oven', 48500000, 0, 'product-6.jpg', 4.7, 22],
