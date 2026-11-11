@@ -414,7 +414,7 @@
   grid-template-columns: 0.9fr 1.1fr;
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
-  box-shadow: 0 30px 60px -45px rgba(22, 38, 77, 0.45);
+  box-shadow: none;   /* tanpa bayangan (Rendi 2026-11-11) */
 }
 .am-stamp {
   --s: 9px;
@@ -754,12 +754,12 @@
 }
 @media (max-width: 768px) {
   .am-recipe-row {
-    padding-left: var(--space-sm);
-    padding-right: var(--space-sm);
-    scroll-padding-inline: var(--space-sm);
-    margin: 0 calc(-1 * var(--space-sm));
+    padding-left: 0;
+    padding-right: 0;
+    scroll-padding-inline: 0;
+    margin: 0;   /* baris di dalam lebar konten: kartu berikutnya terpotong di tepi konten, tidak mengintip */
   }
-  /* ponsel: 2 kartu penuh + intipan kartu ke-3, tinggi seragam, judul lebih dekat ke kartu */
+  /* ponsel: tepat 2 kartu penuh per layar (tanpa potongan), tinggi seragam, judul lebih dekat ke kartu */
   .am-recipes .am-head {
     margin-bottom: 1.25rem;
   }
@@ -771,7 +771,7 @@
     align-items: stretch;
   }
   .am-recipe {
-    flex-basis: calc((100vw - 2 * var(--space-sm) - 0.75rem) / 2.15);
+    flex-basis: calc((100% - 0.75rem) / 2);
     display: flex;
     flex-direction: column;
   }
@@ -1409,15 +1409,18 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .am-kol-row {
-    padding-left: var(--space-sm);
-    padding-right: var(--space-sm);
-    scroll-padding-inline: var(--space-sm);
-    margin: 0 calc(-1 * var(--space-sm));
+    padding-left: 0;
+    padding-right: 0;
+    scroll-padding-inline: 0;
+    margin: 0;
+  }
+  .am-kol-row {
+    gap: 0.75rem;
   }
   .am-kol {
-    flex-basis: 180px;
+    flex-basis: calc((100% - 0.75rem) / 2);   /* tepat 2 kartu per layar */
   }
 }
 
