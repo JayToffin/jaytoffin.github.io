@@ -694,14 +694,13 @@
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 0.25rem var(--space-lg) 1.25rem;
-  scroll-padding-inline: var(--space-lg);   /* titik snap sejajar judul, kartu tidak mepet layar */
-  margin: 0 calc(-1 * var(--space-lg));
+  padding: 0.25rem 0 1.25rem;   /* di dalam lebar konten: kartu paling kanan tidak terpotong */
+  margin: 0;
   scrollbar-width: thin;
   scrollbar-color: rgba(22, 38, 77, 0.3) transparent;
 }
 .am-recipe {
-  flex: 0 0 240px;
+  flex: 0 0 calc((100% - 4rem) / 5);   /* desktop: tepat 5 kartu per layar */
   scroll-snap-align: start;
   background: var(--am-paper);
   border-radius: var(--am-radius);
@@ -1286,15 +1285,14 @@
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 0.25rem var(--space-lg) 1.25rem;
-  scroll-padding-inline: var(--space-lg);   /* titik snap sejajar judul, kartu tidak mepet layar */
-  margin: 0 calc(-1 * var(--space-lg));
+  padding: 0.25rem 0 1.25rem;   /* di dalam lebar konten: kartu paling kanan tidak terpotong */
+  margin: 0;
   scrollbar-width: thin;
   scrollbar-color: rgba(22, 38, 77, 0.3) transparent;
 }
 .am-kol {
   position: relative;
-  flex: 0 0 230px;
+  flex: 0 0 calc((100% - 4rem) / 5);   /* desktop: tepat 5 kartu per layar */
   aspect-ratio: 9 / 16;
   scroll-snap-align: start;
   border-radius: var(--am-radius);
@@ -1421,6 +1419,14 @@
   }
   .am-kol {
     flex-basis: calc((100% - 0.75rem) / 2);   /* tepat 2 kartu per layar */
+  }
+}
+
+/* tablet: tepat 4 kartu per layar untuk Recipe Book & KOL */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .am-recipe,
+  .am-kol {
+    flex-basis: calc((100% - 3rem) / 4);
   }
 }
 
