@@ -351,8 +351,8 @@
 }
 .am-intro__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(1.75rem, 4vw, 4rem);
   align-items: center;
 }
 .am-intro .am-script {
@@ -361,8 +361,8 @@
   display: block;
 }
 .am-intro .am-title {
-  font-size: clamp(2rem, 4.8vw, 3.8rem);
-  max-width: 820px;
+  font-size: clamp(1.45rem, 4.4vw, 3.8rem);   /* "Endless Creative Expressions" selalu sebaris (diukur 360–1440 px) */
+  white-space: nowrap;
 }
 .am-intro .am-title em {
   font-style: italic;
@@ -375,31 +375,11 @@
   border-left: 2px solid var(--am-gold);
 }
 
-/* jar Fabbri: berdiri di atas lingkaran krem bercincin emas, dengan bayangan lembut (2026-11-11) */
+/* jar Fabbri di kiri, tanpa latar, dengan bayangan lembut (2026-11-11) */
 .am-intro__jar {
-  position: relative;
   display: grid;
   justify-items: center;
   margin: 0;
-  padding-top: 1rem;
-}
-.am-intro__halo {
-  position: absolute;
-  top: 6%;
-  left: 50%;
-  width: min(100%, 360px);
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 42%, #fff 0%, var(--am-cream) 62%, #ecdfc8 100%);
-  box-shadow: inset 0 0 0 1px rgba(201, 162, 74, 0.45), 0 30px 60px -30px rgba(22, 38, 77, 0.35);
-}
-.am-intro__halo::after {
-  content: '';
-  position: absolute;
-  inset: 12px;
-  border-radius: 50%;
-  border: 1px dashed rgba(201, 162, 74, 0.6);
 }
 .am-intro__jar img {
   position: relative;
@@ -412,27 +392,9 @@
 .am-intro__jar:hover img {
   transform: rotate(0deg) translateY(-4px);
 }
-.am-intro__jar figcaption {
-  position: relative;
-  margin-top: 1.1rem;
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  background: var(--am-navy);
-  color: #fff;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
 @media (max-width: 800px) {
   .am-intro__grid {
     grid-template-columns: 1fr;
-  }
-  .am-intro__jar {
-    order: -1;
-  }
-  .am-intro__halo {
-    width: 240px;
   }
   .am-intro__jar img {
     width: 150px;
