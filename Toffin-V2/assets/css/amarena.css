@@ -695,6 +695,7 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 0.25rem var(--space-lg) 1.25rem;
+  scroll-padding-inline: var(--space-lg);   /* titik snap sejajar judul, kartu tidak mepet layar */
   margin: 0 calc(-1 * var(--space-lg));
   scrollbar-width: thin;
   scrollbar-color: rgba(22, 38, 77, 0.3) transparent;
@@ -755,6 +756,7 @@
   .am-recipe-row {
     padding-left: var(--space-sm);
     padding-right: var(--space-sm);
+    scroll-padding-inline: var(--space-sm);
     margin: 0 calc(-1 * var(--space-sm));
   }
   .am-recipe {
@@ -1265,6 +1267,7 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 0.25rem var(--space-lg) 1.25rem;
+  scroll-padding-inline: var(--space-lg);   /* titik snap sejajar judul, kartu tidak mepet layar */
   margin: 0 calc(-1 * var(--space-lg));
   scrollbar-width: thin;
   scrollbar-color: rgba(22, 38, 77, 0.3) transparent;
@@ -1390,6 +1393,7 @@
   .am-kol-row {
     padding-left: var(--space-sm);
     padding-right: var(--space-sm);
+    scroll-padding-inline: var(--space-sm);
     margin: 0 calc(-1 * var(--space-sm));
   }
   .am-kol {
