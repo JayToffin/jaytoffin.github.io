@@ -584,7 +584,7 @@
 }
 .am-logo-wall {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));   /* 16 brand: 8 × 2 */
   gap: 0.75rem;
 }
 .am-logo {
@@ -594,7 +594,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.1rem;
+  padding: 0.9rem 1rem;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -606,28 +606,38 @@
   transform: translateY(-3px);
 }
 .am-logo img {
-  width: 78%;
-  height: 68%;
+  width: 100%;   /* file logo sudah dipotong pas, jadi isi penuh area tile */
+  height: 100%;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
 }
-.am-logo--more {
+/* slot brand yang logonya belum ada: emas, garis putus-putus */
+.am-logo--tba {
   background: rgba(201, 162, 74, 0.12);
   border-color: rgba(201, 162, 74, 0.35);
   border-style: dashed;
 }
-.am-logo--more span {
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
+.am-logo--tba span {
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  font-size: 0.6rem;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--am-gold);
   text-align: center;
 }
-@media (max-width: 1024px) {
+.am-logo--tba i {
+  font-style: normal;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+@media (max-width: 1100px) {
   .am-logo-wall {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));   /* 4 × 4 */
   }
 }
 @media (max-width: 900px) {
@@ -638,16 +648,20 @@
 }
 @media (max-width: 600px) {
   .am-logo-wall {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));   /* tetap 4 × 4 di ponsel */
+    gap: 0.4rem;
   }
   .am-logo {
-    padding: 0.8rem;
-    border-radius: 12px;
+    padding: 0.45rem 0.5rem;
+    border-radius: 10px;
+  }
+  .am-logo--tba span {
+    font-size: 0.48rem;
+    letter-spacing: 0.1em;
   }
   .am-logo img {
-    width: 84%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
   }
 }
 
