@@ -351,7 +351,7 @@
 }
 .am-intro__grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.42fr) minmax(0, 1.58fr);
+  grid-template-columns: minmax(0, 0.48fr) minmax(0, 1.52fr);
   gap: clamp(1.75rem, 4vw, 4rem);
   align-items: center;
 }
@@ -383,7 +383,7 @@
 }
 .am-intro__jar img {
   position: relative;
-  width: min(80%, 180px);
+  width: min(85%, 215px);
   height: auto;
   filter: drop-shadow(0 18px 18px rgba(22, 38, 77, 0.22));
   transform: rotate(-4deg);
@@ -397,7 +397,7 @@
     grid-template-columns: 1fr;
   }
   .am-intro__jar img {
-    width: 120px;
+    width: 145px;
   }
 }
 
