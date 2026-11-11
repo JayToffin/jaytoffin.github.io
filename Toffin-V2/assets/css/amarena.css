@@ -612,8 +612,8 @@
   transform: translateY(-3px);
 }
 .am-logo img {
-  width: 100%;   /* file logo sudah dipotong pas, jadi isi penuh area tile */
-  height: 100%;
+  width: 82%;   /* file logo sudah dipotong pas; sisakan ruang napas di tile */
+  height: 82%;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
@@ -667,8 +667,8 @@
     letter-spacing: 0.1em;
   }
   .am-logo img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
   }
 }
 
