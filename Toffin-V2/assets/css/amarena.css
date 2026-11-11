@@ -759,13 +759,33 @@
     scroll-padding-inline: var(--space-sm);
     margin: 0 calc(-1 * var(--space-sm));
   }
+  /* ponsel: 2 kartu penuh + intipan kartu ke-3, tinggi seragam, judul lebih dekat ke kartu */
+  .am-recipes .am-head {
+    margin-bottom: 1.25rem;
+  }
+  .am-recipes .am-scroll-hint {
+    padding-bottom: 0;
+  }
+  .am-recipe-row {
+    gap: 0.75rem;
+    align-items: stretch;
+  }
   .am-recipe {
-    flex-basis: 200px;
+    flex-basis: calc((100vw - 2 * var(--space-sm) - 0.75rem) / 2.15);
+    display: flex;
+    flex-direction: column;
   }
   .am-recipe figcaption {
+    flex: 1;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     gap: 0.2rem;
+    padding: 0.7rem 0.8rem 0.8rem;
+  }
+  .am-recipe figcaption span {
+    font-size: 0.66rem;
+    line-height: 1.35;
   }
 }
 
