@@ -290,29 +290,41 @@
   .am-hero__logo {
     width: min(68vw, 30svh);
   }
+  /* ponsel: daftar 3 baris, label kiri & nilai kanan sebaris, garis pemisah penuh (2026-11-11) */
   .am-hero__bar .container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
   }
   .am-hero__cell {
-    padding: 0.7rem 0.9rem 0.7rem 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0;
     border-right: 0;
     border-top: 1px solid rgba(22, 38, 77, 0.1);
   }
   .am-hero__cell + .am-hero__cell {
     padding-left: 0;
   }
-  .am-hero__cell:nth-child(2),
   .am-hero__cell:first-child {
     border-top: 0;
   }
+  .am-hero__cell small {
+    flex: none;
+    font-size: 0.58rem;
+  }
   .am-hero__cell b {
-    white-space: normal;
-    font-size: 0.95rem;
+    margin-top: 0;
+    font-size: 0.92rem;
+    text-align: right;
+    white-space: nowrap;
   }
   .am-hero__by {
-    grid-column: 1 / -1;
-    padding: 0.7rem 0;
+    padding: 0.75rem 0 0.4rem;
     border-top: 1px solid rgba(22, 38, 77, 0.1);
+    text-align: center;
   }
 }
 
